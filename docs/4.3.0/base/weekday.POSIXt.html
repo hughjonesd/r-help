@@ -1,0 +1,148 @@
+<!DOCTYPE html><html><head><title>R: Extract Parts of a POSIXt or Date Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/weekday.POSIXt.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/weekday.POSIXt.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>weekdays {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='weekdays'>Extract Parts of a POSIXt or Date Object</h2>
+
+<h3>Description</h3>
+
+<p>Extract the weekday, month or quarter, or the Julian time
+(days since some origin).  These are generic functions: the methods
+for the internal date-time classes are documented here.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>weekdays(x, abbreviate)
+## S3 method for class 'POSIXt'
+weekdays(x, abbreviate = FALSE)
+## S3 method for class 'Date'
+weekdays(x, abbreviate = FALSE)
+
+months(x, abbreviate)
+## S3 method for class 'POSIXt'
+months(x, abbreviate = FALSE)
+## S3 method for class 'Date'
+months(x, abbreviate = FALSE)
+
+quarters(x, abbreviate)
+## S3 method for class 'POSIXt'
+quarters(x, ...)
+## S3 method for class 'Date'
+quarters(x, ...)
+
+julian(x, ...)
+## S3 method for class 'POSIXt'
+julian(x, origin = as.POSIXct("1970-01-01", tz = "GMT"), ...)
+## S3 method for class 'Date'
+julian(x, origin = as.Date("1970-01-01"), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="weekdays_:_x">x</code></td>
+<td>
+<p>an object inheriting from class <code>"POSIXt"</code> or <code>"Date"</code>.</p>
+</td></tr>
+<tr><td><code id="weekdays_:_abbreviate">abbreviate</code></td>
+<td>
+<p>logical vector (possibly recycled).  Should the names be
+abbreviated?</p>
+</td></tr>
+<tr><td><code id="weekdays_:_origin">origin</code></td>
+<td>
+<p>an length-one object inheriting from class
+<code>"POSIXt"</code> or <code>"Date"</code>.</p>
+</td></tr>
+<tr><td><code id="weekdays_:_...">...</code></td>
+<td>
+<p>arguments for other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>weekdays</code> and <code>months</code> return a character
+vector of names in the locale in use, i.e., <code>Sys.getlocale("LC_TIME")</code>.
+</p>
+<p><code>quarters</code> returns a character vector of <code>"Q1"</code> to
+<code>"Q4"</code>.
+</p>
+<p><code>julian</code> returns the number of days (possibly fractional)
+since the origin, with the origin as a <code>"origin"</code> attribute.
+All time calculations in <span class="rlang"><b>R</b></span> are done ignoring leap-seconds.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Other components such as the day of the month or the year are
+very easy to compute: just use <code>as.POSIXlt</code> and extract
+the relevant component.  Alternatively (especially if the components
+are desired as character strings), use <code>strftime</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>DateTimeClasses</code>, <code>Date</code>;
+<code>Sys.getlocale("LC_TIME")</code> crucially for <code>months()</code> and <code>weekdays()</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## first two are locale dependent:
+weekdays(.leap.seconds)
+months  (.leap.seconds)
+quarters(.leap.seconds)
+
+## Show how easily you get month, day, year, day (of {month, week, yr}), ... :
+## (remember to count from 0 (!): mon = 0..11, wday = 0..6,  etc !!)
+
+##' Transform (Time-)Date vector  to  convenient data frame :
+dt2df &lt;- function(dt, dName = deparse(substitute(dt))) {
+    DF &lt;- as.data.frame(unclass(as.POSIXlt( dt )))
+    `names&lt;-`(cbind(dt, DF, deparse.level=0L), c(dName, names(DF)))
+}
+## e.g.,
+dt2df(.leap.seconds)    # date+time
+dt2df(Sys.Date() + 0:9) # date
+
+##' Even simpler:  Date -&gt; Matrix - dropping time info {sec,min,hour, isdst}
+d2mat &lt;- function(x) simplify2array(unclass(as.POSIXlt(x))[4:7])
+## e.g.,
+d2mat(seq(as.Date("2000-02-02"), by=1, length.out=30)) # has R 1.0.0's release date
+
+
+## Julian Day Number (JDN, https://en.wikipedia.org/wiki/Julian_day)
+## is the number of days since noon UTC on the first day of 4317 BCE.
+## in the proleptic Julian calendar.  To more recently, in
+## 'Terrestrial Time' which differs from UTC by a few seconds
+## See https://en.wikipedia.org/wiki/Terrestrial_Time
+julian(Sys.Date(), -2440588) # from a day
+floor(as.numeric(julian(Sys.time())) + 2440587.5) # from a date-time
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.3.0 ]</div>
+</div>
+</body></html>

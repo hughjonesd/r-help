@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: Power calculations for one and two sample t tests</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/power.t.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/power.t.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>power.t.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='power.t.test'>Power calculations for one and two sample t tests</h2>
+
+<h3>Description</h3>
+
+<p>Compute power of test, or determine parameters to obtain target power.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>power.t.test(n = NULL, delta = NULL, sd = 1, sig.level = 0.05,
+             power = NULL,
+             type = c("two.sample", "one.sample", "paired"),
+             alternative = c("two.sided", "one.sided"),
+             strict = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="power.t.test_:_n">n</code></td>
+<td>
+<p>Number of observations (per group)</p>
+</td></tr>
+<tr><td><code id="power.t.test_:_delta">delta</code></td>
+<td>
+<p>True difference in means</p>
+</td></tr>
+<tr><td><code id="power.t.test_:_sd">sd</code></td>
+<td>
+<p>Standard deviation</p>
+</td></tr>
+<tr><td><code id="power.t.test_:_sig.level">sig.level</code></td>
+<td>
+<p>Significance level (Type I error probability)</p>
+</td></tr>
+<tr><td><code id="power.t.test_:_power">power</code></td>
+<td>
+<p>Power of test (1 minus Type II error probability)</p>
+</td></tr>
+<tr><td><code id="power.t.test_:_type">type</code></td>
+<td>
+<p>Type of t test</p>
+</td></tr>
+<tr><td><code id="power.t.test_:_alternative">alternative</code></td>
+<td>
+<p>One- or two-sided test</p>
+</td></tr>
+<tr><td><code id="power.t.test_:_strict">strict</code></td>
+<td>
+<p>Use strict interpretation in two-sided case</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Exactly one of the parameters <code>n</code>, <code>delta</code>, <code>power</code>,
+<code>sd</code>, and <code>sig.level</code> must be passed as NULL, and that
+parameter is determined from the others. Notice that the last two have
+non-NULL defaults so NULL must be explicitly passed if you want to
+compute them.
+</p>
+<p>If <code>strict = TRUE</code> is used, the power will include the probability of
+rejection in the opposite direction of the true effect, in the two-sided 
+case. Without this the power will be half the significance level if the 
+true difference is zero.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Object of class <code>"power.htest"</code>, a list of the arguments
+(including the computed one) augmented with <code>method</code> and
+<code>note</code> elements. 
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>uniroot</code> is used to solve power equation for unknowns, so
+you may see errors from it, notably about inability to bracket the
+root when invalid arguments are given.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Peter Dalgaard.  Based on previous work by Claus
+Ekstrøm</p>
+
+
+<h3>See Also</h3>
+
+<p><code>t.test</code>, <code>uniroot</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'> power.t.test(n = 20, delta = 1)
+ power.t.test(power = .90, delta = 1)
+ power.t.test(power = .90, delta = 1, alternative = "one.sided")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.8.1 ]</div>
+</div>
+</body></html>

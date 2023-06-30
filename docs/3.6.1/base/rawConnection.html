@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><title>R: Raw Connections</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rawConnection.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rawConnection.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>rawConnection {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='rawConnection'>Raw Connections</h2>
+
+<h3>Description</h3>
+
+<p>Input and output raw connections.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rawConnection(object, open = "r")
+
+rawConnectionValue(con)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="rawConnection_:_object">object</code></td>
+<td>
+<p>character or raw vector.  A description of the connection.
+For an input this is an <span class="rlang"><b>R</b></span> raw vector object, and for an output
+connection the name for the connection.
+</p>
+</td></tr>
+<tr><td><code id="rawConnection_:_open">open</code></td>
+<td>
+<p>character.  Any of the standard connection open modes.</p>
+</td></tr>
+<tr><td><code id="rawConnection_:_con">con</code></td>
+<td>
+<p>An output raw connection.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>An input raw connection is opened and the raw vector is copied
+at the time the connection object is created, and <code>close</code>
+destroys the copy.
+</p>
+<p>An output raw connection is opened and creates an <span class="rlang"><b>R</b></span> raw vector
+internally.  The raw vector can be retrieved <em>via</em>
+<code>rawConnectionValue</code>.
+</p>
+<p>If a connection is open for both input and output the initial raw
+vector supplied is copied when the connections is open
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>rawConnection</code>, a connection object of class
+<code>"rawConnection"</code> which inherits from class <code>"connection"</code>.
+</p>
+<p>For <code>rawConnectionValue</code>, a raw vector.
+</p>
+
+
+<h3>Note</h3>
+
+<p>As output raw connections keep the internal raw vector up to date
+call-by-call, they are relatively expensive to use (although
+over-allocation is used), and it may be better to use an anonymous
+<code>file()</code> connection to collect output.
+</p>
+<p>On (rare) platforms where <code>vsnprintf</code> does not return the needed length
+of output there is a 100,000 character limit on the length of line for
+output connections: longer lines will be truncated with a warning.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>connections</code>, <code>showConnections</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>zz &lt;- rawConnection(raw(0), "r+") # start with empty raw vector
+writeBin(LETTERS, zz)
+seek(zz, 0)
+readLines(zz) # raw vector has embedded nuls
+seek(zz, 0)
+writeBin(letters[1:3], zz)
+rawConnectionValue(zz)
+close(zz)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.6.1 ]</div>
+</div>
+</body></html>

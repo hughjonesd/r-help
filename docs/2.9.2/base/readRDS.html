@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>R: Internal Serialization Interface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/readRDS.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/readRDS.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>readRDS {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='readRDS'>Internal Serialization Interface</h2>
+
+<h3>Description</h3>
+
+<p>Internal functions for serialization.  See <code>serialize</code> for
+public (but experimental) versions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.saveRDS(object, file = "", ascii = FALSE, version = NULL,
+         compress = TRUE, refhook = NULL)
+
+.readRDS(file, refhook = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="readRDS_:_object">object</code></td>
+<td>
+<p><span class="rlang"><b>R</b></span> object to serialize.</p>
+</td></tr>
+<tr><td><code id="readRDS_:_file">file</code></td>
+<td>
+<p>a connection or the name of the file where the R object
+is saved to or read from.</p>
+</td></tr>
+<tr><td><code id="readRDS_:_ascii">ascii</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, an ASCII representation is
+written; otherwise (default except for text-mode connections), a
+more compact binary one is used.</p>
+</td></tr>
+<tr><td><code id="readRDS_:_version">version</code></td>
+<td>
+<p>the workspace format version to use.  <code>NULL</code>
+specifies the current default format.  The version used from <span class="rlang"><b>R</b></span>
+0.99.0 to <span class="rlang"><b>R</b></span> 1.3.1 was version 1.  The default format as from <span class="rlang"><b>R</b></span>
+1.4.0 is version 2.</p>
+</td></tr>
+<tr><td><code id="readRDS_:_compress">compress</code></td>
+<td>
+<p>a logical specifying whether saving to a named file is
+to use compression.  Ignored when <code>file</code> is a connection and for
+workspace format version 1.</p>
+</td></tr>
+<tr><td><code id="readRDS_:_refhook">refhook</code></td>
+<td>
+<p>a hook function for handling reference objects.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>For <code>.readRDS</code>, an <span class="rlang"><b>R</b></span> object.
+</p>
+<p>For <code>.saveRDS</code>, <code>NULL</code> invisibly.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.9.2 ]</div>
+</div>
+</body></html>

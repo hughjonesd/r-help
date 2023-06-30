@@ -1,0 +1,130 @@
+<!DOCTYPE html><html><head><title>R: Low Level Name Space Support Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-lowlev.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-lowlev.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ns-lowlev {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ns-lowlev'>Low Level Name Space Support Functions</h2>
+
+<h3>Description</h3>
+
+<p>Low level name space support functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>attachNamespace(ns, pos = 2)
+loadNamespace(package, lib.loc = NULL,
+              keep.source = getOption("keep.source.pkgs"),
+              partial = FALSE, declarativeOnly = FALSE)
+loadedNamespaces()
+unloadNamespace(ns)
+loadingNamespaceInfo()
+saveNamespaceImage(package, rdafile, lib.loc = NULL,
+                   keep.source = getOption("keep.source.pkgs"),
+                   compress = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="ns-lowlev_:_ns">ns</code></td>
+<td>
+<p>string or namespace object.</p>
+</td></tr>
+<tr><td><code id="ns-lowlev_:_pos">pos</code></td>
+<td>
+<p>integer specifying position to attach.</p>
+</td></tr>
+<tr><td><code id="ns-lowlev_:_package">package</code></td>
+<td>
+<p>string naming the package/name space to load.</p>
+</td></tr>
+<tr><td><code id="ns-lowlev_:_lib.loc">lib.loc</code></td>
+<td>
+<p>character vector specifying library search path.</p>
+</td></tr>
+<tr><td><code id="ns-lowlev_:_keep.source">keep.source</code></td>
+<td>
+<p>logical specifying whether to retain source.</p>
+</td></tr>
+<tr><td><code id="ns-lowlev_:_partial">partial</code></td>
+<td>
+<p>logical; if true, stop just after loading code.</p>
+</td></tr>
+<tr><td><code id="ns-lowlev_:_declarativeOnly">declarativeOnly</code></td>
+<td>
+<p>logical; disables <code>.Import</code>, etc, if true.</p>
+</td></tr>
+<tr><td><code id="ns-lowlev_:_compress">compress</code></td>
+<td>
+<p>option passed to <code>save</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The functions <code>loadNamespace</code> and <code>attachNamespace</code> are
+usually called implicitly when <code>library</code> is used to load a name
+space and any imports needed.  However it may be useful to call
+these functions directly at times.
+</p>
+<p><code>loadNamespace</code> loads the specified name space and registers it in
+an internal data base.  A request to load a name space that is already
+loaded has no effect.  The arguments have the same meaning as the
+corresponding arguments to <code>library</code>.  After loading,
+<code>loadNamespace</code> looks for a hook function named
+<code>.onLoad</code> as an internal variable in the name space (it
+should not be exported). This function is called with the same arguments
+as <code>.First.lib</code>.  Partial loading is used to support installation with
+the <span class="option">--save</span> option.
+</p>
+<p><code>loadNamespace</code> does not attach the name space it loads to the
+search path.  <code>attachNamespace</code> can be used to attach a frame
+containing the exported values of a name space to the search path.
+The hook function <code>.onAttach</code> is run after the name space
+exports are attached.
+</p>
+<p><code>loadedNamespaces</code> returns a character vector of the names of
+the loaded name spaces.
+</p>
+<p><code>unloadNamespace</code> can be used to force
+a name space to be unloaded.  An error is signaled if the name space
+is imported by other loaded name spaces.  If defined, a hook
+function <code><code>.onUnload</code></code> is run
+before removing the name space from the internal registry.
+<code>unloadNamespace</code> will first <code>detach</code> a package of
+the same name if one is on the path, thereby running a
+<code>.Last.lib</code> function in the package if one is exported.
+</p>
+<p><code>loadingNamespaceInfo</code> returns a list of the arguments that
+would be passed to <code>.onLoad</code> when a name space is being loaded.
+An error is signaled of a name space is not currently being loaded.
+</p>
+<p><code>saveNamespaceImage</code> is used to save name space images for
+packages installed with <span class="option">--save</span>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Luke Tierney</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.1 ]</div>
+</div>
+</body></html>

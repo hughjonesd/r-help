@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><title>R: Environment Access</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/environment.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/environment.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>environment {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='environment'>Environment Access</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>environment(fun = NULL)
+environment(fun) &lt;- value
+is.environment(obj)
+.GlobalEnv
+new.env()
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="environment_:_fun">fun</code></td>
+<td>
+<p>a <code>function</code> or <code>NULL</code>, which is the default.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>If <code>fun</code> is a function then <code>environment(fun)</code>
+returns the environment associated with that function.
+If <code>fun</code> is <code>NULL</code> then the global environment, <code>.GlobalEnv</code>,
+is returned. This variable is currently defined as <code>globalenv()</code>.
+</p>
+<p><code>new.env</code> returns a new (empty) environment enclosed in the
+parent's environment.
+</p>
+<p>The assignment form sets the environment of the function <code>fun</code>
+to the <code>value</code> given.  <code>is.environment(obj)</code> returns <code>TRUE</code>
+iff <code>obj</code> is an <code>environment</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The <code>envir</code> argument of <code>eval</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>##-- all three give the same:
+environment()
+environment(environment)
+.GlobalEnv
+
+ls(envir=environment(approxfun(1:2,1:2, method="const")))
+
+is.environment(.GlobalEnv)# T
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.90 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html><html><head><title>R: Forward Pipe Operator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/pipeOp.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/pipeOp.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>pipeOp {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='pipeOp'>Forward Pipe Operator</h2>
+
+<h3>Description</h3>
+
+<p>Pipe a value into a call expression or a function expression.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>lhs |&gt; rhs
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="pipeOp_:_lhs">lhs</code></td>
+<td>
+<p>expression producing a value.</p>
+</td></tr>
+<tr><td><code id="pipeOp_:_rhs">rhs</code></td>
+<td>
+<p>a call expression.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A pipe expression passes, or pipes, the result of the left-hand side
+expression <code>lhs</code> to the right-hand side expression <code>rhs</code>.
+</p>
+<p>The <code>lhs</code> is
+inserted as the first argument in the call. So <code>x |&gt; f(y)</code> is
+interpreted as <code>f(x, y)</code>.
+</p>
+<p>To avoid ambiguities, functions in <code>rhs</code> calls may not be
+syntactically special, such as <code>+</code> or <code>if</code>.
+</p>
+<p>It is also possible to use a named argument with the placeholder
+<code>_</code> in the <code>rhs</code> call to specify where the <code>lhs</code> is to
+be inserted.  The placeholder can only appear once on the <code>rhs</code>.
+</p>
+<p>Pipe notation allows a nested sequence of calls to be written in a way
+that may make the sequence of processing steps easier to follow.
+</p>
+<p>Currently, pipe operations are implemented as syntax transformations.
+So an expression written as <code>x |&gt; f(y)</code> is parsed as <code>f(x,
+  y)</code>. It is worth emphasizing that while the code in a pipeline is
+written sequentially, regular R semantics for evaluation apply and
+so piped expressions will be evaluated only when first used in the
+<code>rhs</code> expression.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Returns the result of evaluating the transformed expression.
+</p>
+
+
+<h3>Background</h3>
+
+<p>The forward pipe operator is motivated by the pipe introduced in the
+<a href="https://CRAN.R-project.org/package=magrittr"><span class="pkg">magrittr</span></a> package, but is more streamlined. It is similar to
+the pipe or pipeline operators introduced in other languages, including
+F#, Julia, and JavaScript.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># simple uses:
+mtcars |&gt; head()                      # same as head(mtcars)
+mtcars |&gt; head(2)                     # same as head(mtcars, 2)
+mtcars |&gt; subset(cyl == 4) |&gt; nrow()  # same as nrow(subset(mtcars, cyl == 4))
+
+# to pass the lhs into an argument other than the first, either
+# use the _ placeholder with a named argument:
+mtcars |&gt; subset(cyl == 4) |&gt; lm(mpg ~ disp, data = _)
+# or use an anonymous function:
+mtcars |&gt; subset(cyl == 4) |&gt; (function(d) lm(mpg ~ disp, data = d))()
+mtcars |&gt; subset(cyl == 4) |&gt; (\(d) lm(mpg ~ disp, data = d))()
+# or explicitly name the argument(s) before the "one":
+mtcars |&gt; subset(cyl == 4) |&gt; lm(formula = mpg ~ disp)
+
+# the pipe operator is implemented as a syntax transformation:
+quote(mtcars |&gt; subset(cyl == 4) |&gt; nrow())
+
+# regular R evaluation semantics apply
+stop() |&gt; (function(...) {})() # stop() is not used on RHS so is not evaluated
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.2.1 ]</div>
+</div>
+</body></html>

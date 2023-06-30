@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: Add Connected Line Segments to a Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/lines.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/lines.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>lines {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='lines'>Add Connected Line Segments to a Plot</h2>
+
+<h3>Description</h3>
+
+<p><code>lines</code> is a generic function taking the coordinates given in the <code>x</code>
+and <code>y</code> vectors and joining the corresponding points with line segments.
+The coordinates can alternatively be passed to <code>lines</code>
+in a plotting structure (a list with x and y components),
+a time series, etc.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>lines(x, ...)
+lines.default(x, y=NULL, type="l", col=par("col"), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="lines_:_x">x</code>, <code id="lines_:_y">y</code></td>
+<td>
+<p>coordinate vectors of points to join.</p>
+</td></tr>
+<tr><td><code id="lines_:_type">type</code></td>
+<td>
+<p>character indicating the type of plotting; actually any of
+the <code>type</code>s as in <code>plot(..)</code>.</p>
+</td></tr>
+<tr><td><code id="lines_:_col">col</code></td>
+<td>
+<p>color to use.</p>
+</td></tr>
+<tr><td><code id="lines_:_...">...</code></td>
+<td>
+<p>Further graphical parameters (see <code>par</code>) may
+also be supplied as arguments, e.g., <code>lty</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>points</code>, <code>plot</code>, and the underlying &ldquo;primitive&rdquo;
+<code>plot.xy</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(cars)
+# draw a smooth line through a scatter plot
+plot(cars, main="Stopping Distance versus Speed")
+lines(lowess(cars))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.60 ]</div>
+</div>
+</body></html>

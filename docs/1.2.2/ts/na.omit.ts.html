@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: NA Handling Routines for Time Series</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/na.omit.ts.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/na.omit.ts.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>na.omit.ts {ts}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='na.omit.ts'>NA Handling Routines for Time Series</h2>
+
+<h3>Description</h3>
+
+<p>For <code>na.omit.ts</code>, initial and final segments with missing
+values in one or more of the series are omitted. &lsquo;Internal&rsquo;
+missing values will lead to failure.
+</p>
+<p>For <code>na.contiguous</code> the longest consecutive stretch of
+non-missing values is used. (In the event of a tie, the first such
+stretch.)
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>na.contiguous(frame)
+na.omit.ts(frame)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="na.omit.ts_:_frame">frame</code></td>
+<td>
+<p>a univariate or multivariate time series.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A time series without missing values. The class of <code>frame</code> will
+be preserved.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>B. D. Ripley</p>
+
+
+<h3>See Also</h3>
+
+<p><code>na.omit</code>, <code>na.fail</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(BJsales)
+sales1 &lt;- ts.union(BJsales, lead3 = lag(BJsales.lead, -3))
+na.omit.ts(sales1)
+
+data(presidents)
+na.contiguous(presidents)
+</code></pre>
+
+
+</div>
+</body></html>

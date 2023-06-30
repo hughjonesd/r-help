@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>R: Find Complete Cases</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/complete.cases.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/complete.cases.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>complete.cases {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='complete.cases'>Find Complete Cases</h2>
+
+<h3>Description</h3>
+
+<p>Return a logical vector indicating which cases are complete, i.e.,
+have no missing values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>complete.cases(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="complete.cases_:_...">...</code></td>
+<td>
+<p>a sequence of vectors, matrices and data frames.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A logical vector specifying which observations/rows have no missing
+values across the entire sequence.
+</p>
+
+
+<h3>Note</h3>
+
+<p>A current limitation of this function is that it uses low level
+functions to determine lengths and missingness, ignoring the 
+class.  This will lead to spurious errors when some columns
+have classes with <code>length</code> or <code>is.na</code>
+methods, for example <code>"POSIXlt"</code>, as described
+in \Sexpr[results=rd]{tools:::Rd_expr_PR(16648)}.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>is.na</code>,
+<code>na.omit</code>,
+<code>na.fail</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- airquality[, -1] # x is a regression design matrix
+y &lt;- airquality[,  1] # y is the corresponding response
+
+stopifnot(complete.cases(y) != is.na(y))
+ok &lt;- complete.cases(x, y)
+sum(!ok) # how many are not "ok" ?
+x &lt;- x[ok,]
+y &lt;- y[ok]
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.2.4 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Simple Panel Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/panel.smooth.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/panel.smooth.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>panel.smooth {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='panel.smooth'>Simple Panel Plot</h2>
+
+<h3>Description</h3>
+
+<p>An example of a simple useful <code>panel</code> function to be used as
+argument in e.g., <code>coplot</code> or <code>pairs</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>panel.smooth(x, y, col = par("col"), bg = NA, pch = par("pch"), cex = 1,
+             col.smooth = "red", span = 2/3, iter=3, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="panel.smooth_:_x">x</code>, <code id="panel.smooth_:_y">y</code></td>
+<td>
+<p>numeric vectors of the same length</p>
+</td></tr>
+<tr><td><code id="panel.smooth_:_col">col</code>, <code id="panel.smooth_:_bg">bg</code>, <code id="panel.smooth_:_pch">pch</code>, <code id="panel.smooth_:_cex">cex</code></td>
+<td>
+<p>numeric or character codes for the color(s),
+point type and size of <code>points</code>; see also
+<code>par</code>.</p>
+</td></tr>
+<tr><td><code id="panel.smooth_:_col.smooth">col.smooth</code></td>
+<td>
+<p>color to be used by <code>lines</code> for drawing the
+smooths.</p>
+</td></tr>
+<tr><td><code id="panel.smooth_:_span">span</code></td>
+<td>
+<p>smoothing parameter <code>f</code> for <code>lowess</code>, see
+there.</p>
+</td></tr>
+<tr><td><code id="panel.smooth_:_iter">iter</code></td>
+<td>
+<p>number of robustness iterations for <code>lowess</code>.</p>
+</td></tr>
+<tr><td><code id="panel.smooth_:_...">...</code></td>
+<td>
+<p>further arguments to <code>lines</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>coplot</code> and <code>pairs</code> where <code>panel.smooth</code>
+is typically used;
+<code>lowess</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(swiss)
+pairs(swiss, panel = panel.smooth, pch = ".")# emphasize the smooths
+pairs(swiss, panel = panel.smooth, lwd = 2, cex= 1.5, col="blue")# hmm...
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 1.9.1 ]</div>
+</div>
+</body></html>

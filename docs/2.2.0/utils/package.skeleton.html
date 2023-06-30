@@ -1,0 +1,112 @@
+<!DOCTYPE html><html><head><title>R: Create a Skeleton for a New Source Package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/package.skeleton.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/package.skeleton.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>package.skeleton {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='package.skeleton'>Create a Skeleton for a New Source Package</h2>
+
+<h3>Description</h3>
+
+<p><code>package.skeleton</code> automates some of the setup for a new source
+package.  It creates directories, saves functions and data to
+appropriate places, and creates skeleton help files and &lsquo;<span class="file">README</span>&rsquo;
+files describing further steps in packaging.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>package.skeleton(name = "anRpackage", list, environment = .GlobalEnv,
+	         path = ".", force = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="package.skeleton_:_name">name</code></td>
+<td>
+<p>character string: the directory name for your package.</p>
+</td></tr>
+<tr><td><code id="package.skeleton_:_list">list</code></td>
+<td>
+<p>character vector naming the <span class="rlang"><b>R</b></span> objects to put in the package.</p>
+</td></tr>
+<tr><td><code id="package.skeleton_:_environment">environment</code></td>
+<td>
+<p>if <code>list</code> is omitted, the contents of this
+environment are packaged.</p>
+</td></tr>
+<tr><td><code id="package.skeleton_:_path">path</code></td>
+<td>
+<p>path to put the package directory in.</p>
+</td></tr>
+<tr><td><code id="package.skeleton_:_force">force</code></td>
+<td>
+<p>If <code>FALSE</code> will not overwrite an existing directory.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The package sources are placed in subdirectory <code>name</code> of <code>path</code>.
+</p>
+<p>This tries to create filenames valid for all OSes known to run R.
+Invalid characters are replaced by <code>_</code>, invalid names are
+preceded by <code>zz</code>, and finally the converted names are made
+unique by <code>make.unique(sep = "_")</code>.  This can be done for
+code and help files but not data files (which are looked for by name).
+</p>
+
+
+<h3>Value</h3>
+
+<p>used for its side-effects.
+</p>
+
+
+<h3>References</h3>
+
+<p>Read the <em>Writing R Extensions</em> manual for more details.
+</p>
+<p>Once you have created a <em>source</em> package you need to install it:
+see the <em>R Installation and Administration</em> manual,
+<code>INSTALL</code> and <code>install.packages</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>prompt</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## two functions and two "data sets" :
+f &lt;- function(x,y) x+y
+g &lt;- function(x,y) x-y
+d &lt;- data.frame(a=1, b=2)
+e &lt;- rnorm(1000)
+
+package.skeleton(list=c("f","g","d","e"), name="mypkg")
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.2.0 ]</div>
+</div>
+</body></html>

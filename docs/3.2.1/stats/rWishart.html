@@ -1,0 +1,123 @@
+<!DOCTYPE html><html><head><title>R: Random Wishart Distributed Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/rWishart.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/rWishart.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>rWishart {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='rWishart'>Random Wishart Distributed Matrices</h2>
+
+<h3>Description</h3>
+
+<p>Generate <code>n</code> random matrices, distributed according to the
+Wishart distribution with parameters <code>Sigma</code> and <code>df</code>,
+<code class="reqn">W_p(\Sigma, m),\ m=\code{df},\ \Sigma=\code{Sigma}</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rWishart(n, df, Sigma)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="rWishart_:_n">n</code></td>
+<td>
+<p>integer sample size.</p>
+</td></tr>
+<tr><td><code id="rWishart_:_df">df</code></td>
+<td>
+<p>numeric parameter, &ldquo;degrees of freedom&rdquo;.</p>
+</td></tr>
+<tr><td><code id="rWishart_:_Sigma">Sigma</code></td>
+<td>
+<p>positive definite (<code class="reqn">p\times p</code>) &ldquo;scale&rdquo;
+matrix, the matrix parameter of the distribution.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code class="reqn">X_1,\dots, X_m, \ X_i\in\mathbf{R}^p</code> is
+a sample of <code class="reqn">m</code> independent multivariate Gaussians with mean (vector) 0, and
+covariance matrix <code class="reqn">\Sigma</code>, the distribution of
+<code class="reqn">M = X'X</code> is <code class="reqn">W_p(\Sigma, m)</code>.
+</p>
+<p>Consequently, the expectation of <code class="reqn">M</code> is
+</p>
+<p style="text-align: center;"><code class="reqn">E[M] = m\times\Sigma.</code>
+</p>
+
+<p>Further, if <code>Sigma</code> is scalar (<code class="reqn">p = 1</code>), the Wishart
+distribution is a scaled chi-squared (<code class="reqn">\chi^2</code>)
+distribution with <code>df</code> degrees of freedom,
+<code class="reqn">W_1(\sigma^2, m) = \sigma^2 \chi^2_m</code>.
+</p>
+<p>The component wise variance is
+</p>
+<p style="text-align: center;"><code class="reqn">\mathrm{Var}(M_{ij}) = m(\Sigma_{ij}^2 + \Sigma_{ii} \Sigma_{jj}).</code>
+</p>
+
+
+
+<h3>Value</h3>
+
+<p>a numeric <code>array</code>, say <code>R</code>, of dimension
+<code class="reqn">p \times p \times n</code>, where each <code>R[,,i]</code> is a
+positive definite matrix, a realization of the Wishart distribution
+<code class="reqn">W_p(\Sigma, m),\ \ m=\code{df},\ \Sigma=\code{Sigma}</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Douglas Bates</p>
+
+
+<h3>References</h3>
+
+<p>Mardia, K. V., J. T. Kent, and J. M. Bibby (1979)
+<em>Multivariate Analysis</em>, London: Academic Press.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>cov</code>, <code>rnorm</code>, <code>rchisq</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Artificial
+S &lt;- toeplitz((10:1)/10)
+set.seed(11)
+R &lt;- rWishart(1000, 20, S)
+dim(R)  #  10 10  1000
+mR &lt;- apply(R, 1:2, mean)  # ~= E[ Wish(S, 20) ] = 20 * S
+stopifnot(all.equal(mR, 20*S, tolerance = .009))
+
+## See Details, the variance is
+Va &lt;- 20*(S^2 + tcrossprod(diag(S)))
+vR &lt;- apply(R, 1:2, var)
+stopifnot(all.equal(vR, Va, tolerance = 1/16))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.2.1 ]</div>
+</div>
+</body></html>

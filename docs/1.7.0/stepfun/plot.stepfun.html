@@ -1,0 +1,172 @@
+<!DOCTYPE html><html><head><title>R: Plot Step Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stepfun/html/plot.stepfun.html'>https://stat.ethz.ch/R-manual/R-patched/library/stepfun/html/plot.stepfun.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.stepfun {stepfun}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.stepfun'>Plot Step Functions</h2>
+
+<h3>Description</h3>
+
+<p>Method of the generic <code>plot</code> for <code>stepfun</code>
+objects and utility for plotting piecewise constant functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'stepfun'
+plot(x, xval, xlim, ylim,
+     xlab = "x", ylab = "f(x)", main = NULL,
+     add = FALSE, verticals = TRUE, do.points = TRUE,
+     pch = par("pch"), col.points=par("col"), cex.points=par("cex"),
+     col.hor = par("col"), col.vert= par("col"),
+     lty = par("lty"), lwd = par("lwd"), ...)
+## S3 method for class 'stepfun'
+lines(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.stepfun_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object inheriting from <code>"stepfun"</code>.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_xval">xval</code></td>
+<td>
+<p>numeric vector of abscissa values at which to evaluate
+<code>x</code>.  Defaults to <code>knots(x)</code> restricted to <code>xlim</code>.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_xlim">xlim</code>, <code id="plot.stepfun_:_ylim">ylim</code></td>
+<td>
+<p>numeric(2) each; range of <code>x</code> or <code>y</code> values
+to use.  Both have sensible defaults.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_xlab">xlab</code>, <code id="plot.stepfun_:_ylab">ylab</code></td>
+<td>
+<p>labels of x and y axis.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_main">main</code></td>
+<td>
+<p>main title.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_add">add</code></td>
+<td>
+<p>logical; if <code>TRUE</code> only <em>add</em> to an existing plot.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_verticals">verticals</code></td>
+<td>
+<p>logical;  if <code>TRUE</code>, draw vertical lines at steps.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_do.points">do.points</code></td>
+<td>
+<p>logical;  if <code>true</code>, also draw points at the
+(<code>xlim</code> restricted) knot locations.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_pch">pch</code></td>
+<td>
+<p>character; point character if <code>do.points</code>.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_col.points">col.points</code></td>
+<td>
+<p>character or integer code; color of points if
+<code>do.points</code>.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_cex.points">cex.points</code></td>
+<td>
+<p>numeric; character expansion factor if <code>do.points</code>.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_col.hor">col.hor</code></td>
+<td>
+<p>color of horizontal lines.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_col.vert">col.vert</code></td>
+<td>
+<p>color of vertical lines.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_lty">lty</code>, <code id="plot.stepfun_:_lwd">lwd</code></td>
+<td>
+<p>line type and thickness for all lines.</p>
+</td></tr>
+<tr><td><code id="plot.stepfun_:_...">...</code></td>
+<td>
+<p>further arguments of <code>plot(.)</code>, or if<code>(add)</code>
+<code>segments(.)</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with two components
+</p>
+<table>
+<tr><td><code>t</code></td>
+<td>
+<p>abscissa (x) values, including the two outermost ones.</p>
+</td></tr>
+<tr><td><code>y</code></td>
+<td>
+<p>y values &lsquo;in between&rsquo; the <code>t[]</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>Martin Maechler <a href="mailto:maechler@stat.math.ethz.ch">maechler@stat.math.ethz.ch</a>, 1990,
+1993; ported to <span class="rlang"><b>R</b></span>, 1997.</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ecdf</code> for empirical distribution functions as
+special step functions,
+<code>approxfun</code> and <code>splinefun</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>y0 &lt;- c(1,2,4,3)
+sfun0  &lt;- stepfun(1:3, y0, f = 0)
+sfun.2 &lt;- stepfun(1:3, y0, f = .2)
+sfun1  &lt;- stepfun(1:3, y0, right = TRUE)
+
+tt &lt;- seq(0,3, by=0.1)
+op &lt;- par(mfrow=c(2,2))
+plot(sfun0); plot(sfun0, xval=tt, add=TRUE, col.h="bisque")
+plot(sfun.2);plot(sfun.2,xval=tt, add=TRUE, col.h="orange")
+plot(sfun1);lines(sfun1, xval=tt, col.h="coral")
+##-- This is  revealing :
+plot(sfun0, verticals= FALSE,
+     main = "stepfun(x, y0, f=f)  for f = 0, .2, 1")
+for(i in 1:3)
+  lines(list(sfun0,sfun.2,stepfun(1:3,y0,f = 1))[[i]], col.h=i, col.v=i)
+legend(2.5, 1.9, paste("f =", c(0,0.2,1)), col=1:3, lty=1, y.inter=1); par(op)
+
+# Extend and/or restrict `viewport':
+plot(sfun0, xlim = c(0,5), ylim = c(0, 3.5),
+     main = "plot(stepfun(*), xlim= . , ylim = .)")
+
+##-- this works too (automatic call to  ecdf(.)):
+plot.stepfun(rt(50, df=3), col.vert = "gray20")
+</code></pre>
+
+
+</div>
+</body></html>

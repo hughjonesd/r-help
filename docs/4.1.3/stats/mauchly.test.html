@@ -1,0 +1,153 @@
+<!DOCTYPE html><html><head><title>R: Mauchly's Test of Sphericity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/mauchly.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/mauchly.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mauchly.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mauchly.test'>Mauchly's Test of Sphericity</h2>
+
+<h3>Description</h3>
+
+<p>Tests whether a Wishart-distributed covariance matrix (or
+transformation thereof) is proportional to a given matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mauchly.test(object, ...)
+## S3 method for class 'mlm'
+mauchly.test(object, ...)
+## S3 method for class 'SSD'
+mauchly.test(object, Sigma = diag(nrow = p),
+   T = Thin.row(proj(M) - proj(X)), M = diag(nrow = p), X = ~0,
+   idata = data.frame(index = seq_len(p)), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="mauchly.test_:_object">object</code></td>
+<td>
+<p>object of class <code>SSD</code> or <code>mlm</code>.</p>
+</td></tr>
+<tr><td><code id="mauchly.test_:_Sigma">Sigma</code></td>
+<td>
+<p>matrix to be proportional to.</p>
+</td></tr>
+<tr><td><code id="mauchly.test_:_T">T</code></td>
+<td>
+<p>transformation matrix. By default computed from <code>M</code> and
+<code>X</code>.</p>
+</td></tr>
+<tr><td><code id="mauchly.test_:_M">M</code></td>
+<td>
+<p>formula or matrix describing the outer projection (see below).</p>
+</td></tr>
+<tr><td><code id="mauchly.test_:_X">X</code></td>
+<td>
+<p>formula or matrix describing the inner projection (see below).</p>
+</td></tr>
+<tr><td><code id="mauchly.test_:_idata">idata</code></td>
+<td>
+<p>data frame describing intra-block design.</p>
+</td></tr>
+<tr><td><code id="mauchly.test_:_...">...</code></td>
+<td>
+<p>arguments to be passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Mauchly's test test for whether a covariance matrix can be assumed to
+be proportional to a given matrix.
+</p>
+<p>This is a generic function with methods for classes <code>"mlm"</code> and
+<code>"SSD"</code>.
+</p>
+<p>The basic method is for objects of
+class <code>SSD</code> the method for <code>mlm</code> objects just extracts the
+SSD matrix and invokes the corresponding method with the same options
+and arguments.
+</p>
+<p>The <code>T</code> argument is used to transform the observations prior to
+testing. This typically involves transformation to intra-block
+differences, but more complicated within-block designs can be
+encountered, making more elaborate transformations necessary. A
+matrix <code>T</code> can be given directly or specified as
+the difference between two projections onto the spaces spanned by
+<code>M</code> and <code>X</code>, which in turn can be given as matrices or as
+model formulas with respect to <code>idata</code> (the tests will be
+invariant to parametrization of the quotient space <code>M/X</code>).
+</p>
+<p>The common use of this test is in repeated measurements designs, with
+<code>X = ~1</code>. This is almost, but not quite the same as testing for
+compound symmetry in the untransformed covariance matrix.
+</p>
+<p>Notice that the defaults involve <code>p</code>, which is calculated
+internally as the dimension of the SSD matrix, and a couple of hidden
+functions in the <span class="pkg">stats</span> namespace, namely <code>proj</code> which
+calculates projection matrices from design matrices or model formulas
+and <code>Thin.row</code> which removes linearly dependent rows from a
+matrix until it has full row rank.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"htest"</code></p>
+
+
+<h3>Note</h3>
+
+<p>The p-value differs slightly from that of SAS because a second order term
+is included in the asymptotic approximation in <span class="rlang"><b>R</b></span>.
+</p>
+
+
+<h3>References</h3>
+
+<p>T. W. Anderson (1958).  <em>An Introduction to Multivariate
+Statistical Analysis.</em> Wiley.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>SSD</code>, <code>anova.mlm</code>,
+<code>rWishart</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>utils::example(SSD) # Brings in the mlmfit and reacttime objects
+
+### traditional test of intrasubj. contrasts
+mauchly.test(mlmfit, X = ~1)
+
+### tests using intra-subject 3x2 design
+idata &lt;- data.frame(deg = gl(3, 1, 6, labels = c(0,4,8)),
+                    noise = gl(2, 3, 6, labels = c("A","P")))
+mauchly.test(mlmfit, X = ~ deg + noise, idata = idata)
+mauchly.test(mlmfit, M = ~ deg + noise, X = ~ noise, idata = idata)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 4.1.3 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><title>R: Generate Factor Levels</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/gl.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/gl.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>gl {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='gl'>Generate Factor Levels</h2>
+
+<h3>Description</h3>
+
+<p>Generate factors by specifying the pattern of their levels.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>gl(n, k, length = n*k, labels = seq_len(n), ordered = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="gl_:_n">n</code></td>
+<td>
+<p>an integer giving the number of levels.</p>
+</td></tr>
+<tr><td><code id="gl_:_k">k</code></td>
+<td>
+<p>an integer giving the number of replications.</p>
+</td></tr>
+<tr><td><code id="gl_:_length">length</code></td>
+<td>
+<p>an integer giving the length of the result.</p>
+</td></tr>
+<tr><td><code id="gl_:_labels">labels</code></td>
+<td>
+<p>an optional vector of labels for the resulting factor
+levels.</p>
+</td></tr>
+<tr><td><code id="gl_:_ordered">ordered</code></td>
+<td>
+<p>a logical indicating whether the result should be
+ordered or not.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The result has levels from <code>1</code> to <code>n</code> with each value
+replicated in groups of length <code>k</code> out to a total length of
+<code>length</code>.
+</p>
+<p><code>gl</code> is modelled on the <em>GLIM</em> function of the same name.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The underlying <code>factor()</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## First control, then treatment:
+gl(2, 8, labels = c("Control", "Treat"))
+## 20 alternating 1s and 2s
+gl(2, 1, 20)
+## alternating pairs of 1s and 2s
+gl(2, 2, 20)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.6.2 ]</div>
+</div>
+</body></html>

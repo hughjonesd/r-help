@@ -1,0 +1,233 @@
+<!DOCTYPE html><html><head><title>R: BMP, JPEG, PNG and TIFF graphics devices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/png.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/png.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>png {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='png'>BMP, JPEG, PNG and TIFF graphics devices</h2>
+
+<h3>Description</h3>
+
+<p>Graphics devices for BMP, JPEG, PNG and TIFF format bitmap files.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>bmp(filename = "Rplot%03d.bmp", width = 480, height = 480,
+    units = "px", pointsize = 12, bg = "white", res = NA,
+    restoreConsole = TRUE)
+jpeg(filename = "Rplot%03d.jpg", width = 480, height = 480,
+     units = "px", pointsize = 12, quality = 75, bg = "white",
+     res = NA, restoreConsole = TRUE)
+png(filename = "Rplot%03d.png", width = 480, height = 480,
+    units = "px", pointsize = 12, bg = "white", res = NA,
+    restoreConsole = TRUE)
+tiff(filename = "Rplot%03d.tif", width = 480, height = 480,
+     units = "px", pointsize = 12,
+     compression = c("none", "rle", "lzw", "jpeg", "zip"),
+     bg = "white", res = NA,
+     restoreConsole = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="png_:_filename">filename</code></td>
+<td>
+<p>the name of the output file, up to 511 characters.  The
+page number is substituted if a C integer format is included in the
+character string, as in the default, and tilde-expansion is
+performed (see <code>path.expand</code>).   (The result must be less than
+600 characters long.  See <code>postscript</code> for further
+details.)
+</p>
+</td></tr>
+<tr><td><code id="png_:_width">width</code></td>
+<td>
+<p>the width of the device.</p>
+</td></tr>
+<tr><td><code id="png_:_height">height</code></td>
+<td>
+<p>the height of the device.</p>
+</td></tr>
+<tr><td><code id="png_:_units">units</code></td>
+<td>
+<p>The units in which <code>height</code> and <code>width</code> are
+given.  Can be <code>px</code> (pixels, the default), <code>in</code> (inches),
+<code>cm</code> or <code>mm</code>.</p>
+</td></tr>
+<tr><td><code id="png_:_pointsize">pointsize</code></td>
+<td>
+<p>the default pointsize of plotted text, interpreted as
+big points (1/72 inch) at <code>res</code> dpi.</p>
+</td></tr>
+<tr><td><code id="png_:_bg">bg</code></td>
+<td>
+<p>the initial background colour: can be overridden by setting
+par(&quot;bg&quot;).</p>
+</td></tr>
+<tr><td><code id="png_:_quality">quality</code></td>
+<td>
+<p>the &lsquo;quality&rsquo; of the JPEG image, as a
+percentage.  Smaller values will give more compression but also more
+degradation of the image.</p>
+</td></tr>
+<tr><td><code id="png_:_compression">compression</code></td>
+<td>
+<p>the type of compression to be used.</p>
+</td></tr>
+<tr><td><code id="png_:_res">res</code></td>
+<td>
+<p>The nominal resolution in dpi which will be recorded in the
+bitmap file, if a positive integer.  Also used for units other than
+the default.  If not specified, taken as 72 dpi to set the size of
+text and line widths.</p>
+</td></tr>
+<tr><td><code id="png_:_restoreConsole">restoreConsole</code></td>
+<td>
+<p>See the &lsquo;Details&rsquo; section of
+<code>windows</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Plots in PNG and JPEG format can easily be converted to many other
+bitmap formats, and both can be displayed in modern web
+browsers.  The PNG format is lossless and is best for line
+diagrams and blocks of colour.  The JPEG format is lossy,
+but may be useful for image plots, for example.  The BMP format is
+standard on Windows, and supported by most viewers elsewhere.
+TIFF is a meta-format: the default format written by <code>tiff</code> is lossless
+and stores RGB values uncompressed&mdash;such files are widely accepted,
+which is their main virtue over PNG.
+</p>
+<p>Windows imposes limits on the size of bitmaps: these are not
+documented in the SDK and may depend on the version of Windows.
+It seems that <code>width</code> and <code>height</code> are each limited to
+<code class="reqn">2^{15}-1</code>.  In addition, there are limits on the total
+number of pixels which depend on the graphics hardware.
+</p>
+<p>By default no resolution is recorded in the file.  Viewers will often
+assume a nominal resolution of 72dpi when none is recorded.  As
+resolutions in PNG files are recorded in pixels/metre, the reported
+dpi value will be changed slightly.
+</p>
+<p>For graphics parameters that make use of dimensions in inches,
+<code>res</code> dpi (default 72) is assumed.
+</p>
+<p>Both <code>bmp</code> and <code>png</code> will use a palette if there are less
+than 256 colours on the page, and record a 24-bit RGB file otherwise.
+</p>
+<p><code>png</code> supports transparent backgrounds on 16-bit (&lsquo;High
+Color&rsquo;) or better screens: use <code>bg = "transparent"</code>.  There is
+also support for semi-transparent colours of lines, fills and text.
+However, as there is only partial support for transparency in the
+graphics toolkit used, if there is a transparent background
+semi-transparent colours are painted onto a slightly off-white
+background and hence the pixels are opaque.
+</p>
+<p>Not all PNG viewers render files with transparency correctly.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A plot device is opened: nothing is returned to the <span class="rlang"><b>R</b></span> interpreter.
+</p>
+
+
+<h3>Warnings</h3>
+
+<p>Note that by default the <code>width</code> and <code>height</code> values are in
+pixels not inches.  A warning will be issued if both are less than 20.
+</p>
+<p>If you plot more than one page on one of these devices and do not
+include something like <code>%d</code> for the sequence number in
+<code>file</code>, the file will contain the last page plotted.
+</p>
+
+
+<h3>Conventions</h3>
+
+<p>This section describes the implementation of the conventions for
+graphics devices set out in the &ldquo;R Internals Manual&rdquo;.
+</p>
+
+<ul>
+<li><p> The default device size is in pixels.
+</p>
+</li>
+<li><p> Font sizes are in big points interpreted at <code>res</code> dpi.
+</p>
+</li>
+<li><p> The default font family is Arial.
+</p>
+</li>
+<li><p> Line widths are a multiple of 1/96 inch (interpreted at
+<code>res</code> dpi), with a minimum of one pixel. 
+</p>
+</li>
+<li><p> The minimum radius of a circle is 1 pixel.
+</p>
+</li>
+<li><p> Colours are interpreted by the viewing application.
+</p>
+</li></ul>
+
+
+
+<h3>Note</h3>
+
+<p>These devices effectively plot on a hidden screen and then copy the
+image to the required format.  This means that they have the same
+colour handling as the actual screen device, and work best if that is
+set to a 24-bit or 32-bit colour mode.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Devices</code>, <code>dev.print</code>
+</p>
+<p><code>bitmap</code> provides an alternative way to generate PNG,
+JPEG  and other types of bitmap plots.  Devices <code>GDD</code> in
+CRAN package <span class="pkg">GDD</span> and <code>CairoJPEG</code> / <code>CairoPNG</code> in CRAN
+package <span class="pkg">Cairo</span> are further alternatives.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## copy current plot to a (large) PNG file
+## Not run: dev.print(png, file="myplot.png", width=1024, height=768)
+
+png(file="myplot.png", bg="transparent")
+plot(1:10)
+rect(1, 5, 3, 7, col="white")
+dev.off()
+
+jpeg(file="myplot.jpeg")
+example(rect)
+dev.off()
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.12.1 ]</div>
+</div>
+</body></html>

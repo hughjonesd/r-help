@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>R: Random Samples and Permutations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sample.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sample.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>sample {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='sample'>Random Samples and Permutations</h2>
+
+<h3>Description</h3>
+
+<p><code>sample</code> takes a sample of the specified size from
+the elements of <code>x</code> using either with or without replacement.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>sample(x, size, replace=FALSE, prob)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="sample_:_x">x</code></td>
+<td>
+<p>Either a (numeric, complex, character or logical)
+vector of more than one element from which to
+choose, or a positive integer.</p>
+</td></tr>
+<tr><td><code id="sample_:_size">size</code></td>
+<td>
+<p>A positive integer giving the number of items to choose.</p>
+</td></tr>
+<tr><td><code id="sample_:_replace">replace</code></td>
+<td>
+<p>Should sampling be with replacement?</p>
+</td></tr>
+<tr><td><code id="sample_:_prob">prob</code></td>
+<td>
+<p>A vector of probabilities of obtaining the elements
+of the vector being sampled.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>x</code> has length 1, sampling takes place from
+<code>1:x</code>.
+</p>
+<p>By default <code>size</code> is equal to <code>length(x)</code>
+so that <code>sample(x)</code> generates a random permutation
+of the elements of <code>x</code> (or <code>1:x</code>).
+</p>
+<p>The optional <code>prob</code> argument can be used to give a vector
+of probabilities of obtaining the elements of the vector being
+sampled. If <code>replace</code> is false, these probabilities are applied
+sequentially, that is the probability of choosing the next item is
+proportional to the probabilities amongst the remaining items.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:12
+# a random permutation
+sample(x)
+# bootstrap sampling
+sample(x,replace=TRUE)
+
+# 100 Bernoulli trials
+sample(c(0,1), 100, replace = TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3.1 ]</div>
+</div>
+</body></html>

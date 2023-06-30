@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>R: Extract Log-Likelihood from an lm Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/logLik.lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/logLik.lm.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>logLik.lm {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='logLik.lm'>Extract Log-Likelihood from an lm Object</h2>
+
+<h3>Description</h3>
+
+<p>If <code>REML=FALSE</code>, returns the log-likelihood value of the linear
+model represented by <code>object</code> evaluated at the estimated
+coefficients; else, the restricted log-likelihood evaluated at the
+estimated coefficients is returned.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'lm'
+logLik(object, REML = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="logLik.lm_:_object">object</code></td>
+<td>
+<p>an object inheriting from class <code>"lm"</code>.</p>
+</td></tr>
+<tr><td><code id="logLik.lm_:_REML">REML</code></td>
+<td>
+<p>an optional logical value.  If <code>TRUE</code> the restricted
+log-likelihood is returned, else, if <code>FALSE</code>, the
+log-likelihood is returned.  Defaults to <code>FALSE</code>.</p>
+</td></tr>
+<tr><td><code id="logLik.lm_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to or from methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>the (restricted) log-likelihood of the linear model represented by
+<code>object</code> evaluated at the estimated coefficients.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jose Pinheiro and Douglas Bates</p>
+
+
+<h3>References</h3>
+
+<p>Harville, D.A. (1974).
+Bayesian Inference for Variance Components Using Only Error Contrasts.
+<em>Biometrika</em>, <b>61</b>, 383&ndash;385.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>lm</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(attitude)
+(fm1 &lt;- lm(rating ~ ., data = attitude))
+logLik(fm1)
+logLik(fm1, REML = TRUE)
+
+Nnlme &lt;- is.na(match("package:nlme", search()))
+if(require(nlme)) {
+  data(Orthodont)
+  fm1 &lt;- lm(distance ~ Sex * age, Orthodont)
+  print(logLik(fm1))
+  print(logLik(fm1, REML = TRUE))
+  if(Nnlme) detach( "package:nlme")
+}
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4 ]</div>
+</div>
+</body></html>

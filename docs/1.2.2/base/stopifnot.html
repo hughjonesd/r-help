@@ -1,0 +1,82 @@
+<!DOCTYPE html><html><head><title>R: Ensure the &quot;Truth&quot; of R Expressions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/stopifnot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/stopifnot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>stopifnot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='stopifnot'>Ensure the &quot;Truth&quot; of R Expressions</h2>
+
+<h3>Description</h3>
+
+<p>If any of the expressions in <code>...</code> are not <code>all</code>
+<code>TRUE</code>,
+<code>stop(..)</code> is called, producing an error message
+indicating the <em>first</em> element of <code>...</code> which was not true.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>stopifnot(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="stopifnot_:_...">...</code></td>
+<td>
+<p>any number of (<code>logical</code>) <span class="rlang"><b>R</b></span> expressions which
+should evaluate to <code>TRUE</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>stopifnot(A, B)</code> is conceptually equivalent to
+<code>{ if(!all(A)) stop(...) ; if(!all(B)) stop(...) }</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>(<code>NULL</code> if all statements in <code>...</code> are <code>TRUE</code>.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>stop</code>, <code>warning</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>stopifnot(1 == 1, all.equal(pi, 3.14159265), 1 &lt; 2) # all TRUE
+
+m &lt;- matrix(c(1,3,3,1), 2,2)
+stopifnot(m == t(m), diag(m) == rep(1,2)) # all(.) |=&gt;  TRUE
+
+options(error = expression(NULL))# "disable stop(.)"  &lt;&lt; Use with CARE! &gt;&gt;
+
+stopifnot(all.equal(pi, 3.141593),  2 &lt; 2, all(1:10 &lt; 12), "a" &lt; "b")
+stopifnot(all.equal(pi, 3.1415927), 2 &lt; 2, all(1:10 &lt; 12), "a" &lt; "b")
+
+options(error = NULL)# revert to default error handler
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.2 ]</div>
+</div>
+</body></html>

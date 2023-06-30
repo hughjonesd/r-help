@@ -1,0 +1,167 @@
+<!DOCTYPE html><html><head><title>R: Fligner-Killeen Test of Homogeneity of Variances</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/fligner.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/fligner.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>fligner.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='fligner.test'>Fligner-Killeen Test of Homogeneity of Variances</h2>
+
+<h3>Description</h3>
+
+<p>Performs a Fligner-Killeen (median) test of the null that the
+variances in each of the groups (samples) are the same.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>fligner.test(x, ...)
+
+## Default S3 method:
+fligner.test(x, g, ...)
+
+## S3 method for class 'formula'
+fligner.test(formula, data, subset, na.action, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="fligner.test_:_x">x</code></td>
+<td>
+<p>a numeric vector of data values, or a list of numeric data
+vectors.</p>
+</td></tr>
+<tr><td><code id="fligner.test_:_g">g</code></td>
+<td>
+<p>a vector or factor object giving the group for the
+corresponding elements of <code>x</code>.
+Ignored if <code>x</code> is a list.</p>
+</td></tr>
+<tr><td><code id="fligner.test_:_formula">formula</code></td>
+<td>
+<p>a formula of the form <code>lhs ~ rhs</code> where <code>lhs</code>
+gives the data values and <code>rhs</code> the corresponding groups.</p>
+</td></tr>
+<tr><td><code id="fligner.test_:_data">data</code></td>
+<td>
+<p>an optional matrix or data frame (or similar: see
+<code>model.frame</code>) containing the variables in the
+formula <code>formula</code>.  By default the variables are taken from
+<code>environment(formula)</code>.</p>
+</td></tr>
+<tr><td><code id="fligner.test_:_subset">subset</code></td>
+<td>
+<p>an optional vector specifying a subset of observations
+to be used.</p>
+</td></tr>
+<tr><td><code id="fligner.test_:_na.action">na.action</code></td>
+<td>
+<p>a function which indicates what should happen when
+the data contain <code>NA</code>s.  Defaults to
+<code>getOption("na.action")</code>.</p>
+</td></tr>
+<tr><td><code id="fligner.test_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to or from methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>x</code> is a list, its elements are taken as the samples to be
+compared for homogeneity of variances, and hence have to be numeric
+data vectors.  In this case, <code>g</code> is ignored, and one can simply
+use <code>fligner.test(x)</code> to perform the test.  If the samples are
+not yet contained in a list, use <code>fligner.test(list(x, ...))</code>.
+</p>
+<p>Otherwise, <code>x</code> must be a numeric data vector, and <code>g</code> must
+be a vector or factor object of the same length as <code>x</code> giving the
+group for the corresponding elements of <code>x</code>.
+</p>
+<p>The Fligner-Killeen (median) test has been determined in a simulation
+study as one of the many tests for homogeneity of variances which is
+most robust against departures from normality, see Conover, Johnson &amp;
+Johnson (1981).  It is a <code class="reqn">k</code>-sample simple linear rank which uses
+the ranks of the absolute values of the centered samples and weights
+<code class="reqn">a(i) = \mathrm{qnorm}((1 + i/(n+1))/2)</code>.  The version implemented here uses median centering in
+each of the samples (F-K:med <code class="reqn">X^2</code> in the reference).
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of class <code>"htest"</code> containing the following components:
+</p>
+<table>
+<tr><td><code>statistic</code></td>
+<td>
+<p>the Fligner-Killeen:med <code class="reqn">X^2</code> test statistic.</p>
+</td></tr>
+<tr><td><code>parameter</code></td>
+<td>
+<p>the degrees of freedom of the approximate chi-squared
+distribution of the test statistic.</p>
+</td></tr>
+<tr><td><code>p.value</code></td>
+<td>
+<p>the p-value of the test.</p>
+</td></tr>
+<tr><td><code>method</code></td>
+<td>
+<p>the character string
+<code>"Fligner-Killeen test of homogeneity of variances"</code>.</p>
+</td></tr>
+<tr><td><code>data.name</code></td>
+<td>
+<p>a character string giving the names of the data.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>William J. Conover, Mark E. Johnson and Myrle M. Johnson (1981).
+A comparative study of tests for homogeneity of variances, with
+applications to the outer continental shelf bidding data.
+<em>Technometrics</em>, <b>23</b>, 351&ndash;361.
+\Sexpr[results=rd]{tools:::Rd_expr_doi("10.2307/1268225")}.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ansari.test</code> and <code>mood.test</code> for rank-based
+two-sample test for a difference in scale parameters;
+<code>var.test</code> and <code>bartlett.test</code> for parametric
+tests for the homogeneity of variances.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+plot(count ~ spray, data = InsectSprays)
+fligner.test(InsectSprays$count, InsectSprays$spray)
+fligner.test(count ~ spray, data = InsectSprays)
+## Compare this to bartlett.test()
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 4.2.2 ]</div>
+</div>
+</body></html>

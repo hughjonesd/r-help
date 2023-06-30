@@ -1,0 +1,145 @@
+<!DOCTYPE html><html><head><title>R: Class Methods</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/UseMethod.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/UseMethod.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>UseMethod {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='UseMethod'>Class Methods</h2>
+
+<h3>Description</h3>
+
+<p><span class="rlang"><b>R</b></span> possesses a simple generic function mechanism which can be used for
+an object-oriented style of programming.  Method despatch takes place
+based on the class of the first argument to the generic function or on
+the object supplied as an argument to <code>UseMethod</code> or <code>NextMethod</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>UseMethod(generic, object)
+NextMethod(generic = NULL, object = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="UseMethod_:_generic">generic</code></td>
+<td>
+<p>a character string naming a function.</p>
+</td></tr>
+<tr><td><code id="UseMethod_:_object">object</code></td>
+<td>
+<p>an object whose class will determine the method to be
+dispatched.  Defaults to the first argument of the enclosing function.</p>
+</td></tr>
+<tr><td><code id="UseMethod_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to the method.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>An <span class="rlang"><b>R</b></span> &ldquo;object&rdquo; is a data object which has a <code>class</code> attribute.
+A class attribute is a character vector giving the names of
+the classes which the object &ldquo;inherits&rdquo; from.
+If the object does not have a class attribute, it has an implicit
+class, <code>"matrix"</code>, <code>"array"</code> or the result of
+<code>mode(x)</code>.
+</p>
+<p>When a generic
+function <code>fun</code> is applied to an object with class attribute
+<code>c("first", "second")</code>, the system searches for a function called
+<code>fun.first</code> and, if it finds it, applied it to the object.  If no
+such function is found a function called <code>fun.second</code> is tried.
+If no class name produces a suitable function, the function
+<code>fun.default</code> is used.
+</p>
+<p>Function <code>methods</code> can be used to find out about the
+methods for a particular generic function or class.
+</p>
+<p>Now for some obscure details that need to appear somewhere.  These
+comments will be slightly different than those in Appendix A of the
+White S Book. <code>UseMethod</code> creates a &ldquo;new&rdquo; function call with
+arguments matched as they came in to the generic.  Any local variables
+defined before the call to <code>UseMethod</code> are retained (unlike S).  Any
+statements after the call to <code>UseMethod</code> will not be evaluated as
+<code>UseMethod</code> does not return.  <code>UseMethod</code> can be called with
+more than two arguments: a warning will be given and additional
+arguments ignored. (They are not completely ignored in S.)  If it is
+called with just one argument, the class of the first argument of the
+enclosing function is used as <code>object</code>: unlike S this is the
+actual argument passed and not the current value of the object of that
+name.
+</p>
+<p><code>NextMethod</code> invokes the next method (determined by the
+class).  It does this by creating a special call frame for that
+method.  The arguments will be the same in number, order and name as
+those to the current method but their values will be promises to
+evaluate their name in the current method and environment.  Any
+arguments matched to <code>...</code> are handled specially.  They are
+passed on as the promise that was supplied as an argument to the
+current environment. (S does this differently!)  If they have been
+evaluated in the current (or a previous environment) they remain
+evaluated.
+</p>
+<p><code>NextMethod</code> should not be called except in methods called by
+<code>UseMethod</code>. In particular it will not work inside anonymous
+calling functions (eg <code>get("print.ts")(AirPassengers)</code>).
+</p>
+<p>Name spaces can register methods for generic functions.  To support
+this, <code>UseMethod</code> and <code>NextMethod</code> search for methods in
+two places: first in the environment in which the generic function
+is called, and then in the registration data base for the
+environment in which the generic is defined (typically a name space).
+So methods for a generic function need to either be available in the
+environment of the call to the generic, or they must be registered.
+It does not matter whether they are visible in the environment in
+which the generic is defined.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This scheme is called <em>S3</em> (S version 3).  For new projects,
+it is recommended to use the more flexible and robust <em>S4</em> scheme
+provided in the <span class="pkg">methods</span> package. 
+</p>
+<p>The function <code>.isMethodsDispatchOn()</code> returns <code>TRUE</code> if
+the S4 method dispatch has been turned on in the evaluator. It is
+meant for <span class="rlang"><b>R</b></span> internal use only.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. (1992)
+<em>Classes and methods: object-oriented programming in S.</em>
+Appendix A of <em>Statistical Models in S</em>
+eds J. M. Chambers and T. J. Hastie, Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>methods</code>, <code>class</code>, <code>getS3method</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.1 ]</div>
+</div>
+</body></html>

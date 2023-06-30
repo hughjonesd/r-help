@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>R: Is R Running Interactively?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/interactive.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/interactive.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>interactive {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='interactive'>Is R Running Interactively?</h2>
+
+<h3>Description</h3>
+
+<p>Return <code>TRUE</code> when <span class="rlang"><b>R</b></span> is being used interactively and
+<code>FALSE</code> otherwise.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>interactive()
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>An interactive <span class="rlang"><b>R</b></span> session is one in which it is assumed that there is
+a human operator to interact with, so for example <span class="rlang"><b>R</b></span> can prompt for
+corrections to incorrect input or ask what to do next or if it is OK
+to move to the next plot.
+</p>
+<p>GUI consoles will arrange to start <span class="rlang"><b>R</b></span> in an interactive session.  When
+<span class="rlang"><b>R</b></span> is run in a terminal (via <code>Rterm.exe</code> on Windows), it
+assumes that it is interactive if &lsquo;<span class="file">stdin</span>&rsquo; is connected to a
+(pseudo-)terminal and not if &lsquo;<span class="file">stdin</span>&rsquo; is redirected to a file or
+pipe.  Command-line options <span class="option">--interactive</span> (Unix) and
+<span class="option">--ess</span> (Windows, <code>Rterm.exe</code>) override the default
+assumption.
+(On a Unix-alike, whether the <code>readline</code> command-line editor is
+used is <strong>not</strong> overridden by <span class="option">--interactive</span>.)
+</p>
+<p>Embedded uses of <span class="rlang"><b>R</b></span> can set a session to be interactive or not.
+</p>
+<p>Internally, whether a session is interactive determines
+</p>
+
+<ul>
+<li><p> how some errors are handled and reported, e.g. see
+<code>stop</code> and <code>options("showWarnCalls")</code>.
+</p>
+</li>
+<li><p>  whether one of <span class="option">--save</span>, <span class="option">--no-save</span> or
+<span class="option">--vanilla</span> is required, and if <span class="rlang"><b>R</b></span> ever asks whether to save the
+workspace.
+</p>
+</li>
+<li><p> the choice of default graphics device launched when needed and
+by <code>dev.new</code>: see <code>options("device")</code>
+</p>
+</li>
+<li><p> whether graphics devices ever ask for confirmation of a new
+page.
+</p>
+</li></ul>
+
+<p>In addition, <span class="rlang"><b>R</b></span>'s own <span class="rlang"><b>R</b></span> code makes use of <code>interactive()</code>: for
+example <code>help</code>, <code>debugger</code> and
+<code>install.packages</code> do.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This is a primitive function.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>source</code>,
+<code>.First</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'> .First &lt;- function() if(interactive()) x11()
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.1.3 ]</div>
+</div>
+</body></html>

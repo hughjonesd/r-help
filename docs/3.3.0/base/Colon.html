@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><title>R: Colon Operator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Colon.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Colon.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Colon {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Colon'>Colon Operator</h2>
+
+<h3>Description</h3>
+
+<p>Generate regular sequences.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>from:to
+   a:b
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Colon_:_from">from</code></td>
+<td>
+<p>starting value of sequence.</p>
+</td></tr>
+<tr><td><code id="Colon_:_to">to</code></td>
+<td>
+<p>(maximal) end value of the sequence.</p>
+</td></tr>
+<tr><td><code id="Colon_:_a">a</code>, <code id="Colon_:_b">b</code></td>
+<td>
+<p><code>factor</code>s of the same length.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The binary operator <code>:</code> has two meanings: for factors <code>a:b</code> is
+equivalent to <code>interaction(a, b)</code> (but the levels are
+ordered and labelled differently).
+</p>
+<p>For other arguments <code>from:to</code> is equivalent to <code>seq(from, to)</code>,
+and generates a sequence from <code>from</code> to <code>to</code> in steps of <code>1</code>
+or <code>-1</code>.  Value <code>to</code> will be included if it differs from
+<code>from</code> by an integer up to a numeric fuzz of about <code>1e-7</code>.
+Non-numeric arguments are coerced internally (hence without
+dispatching methods) to numeric&mdash;complex values will have their
+imaginary parts discarded with a warning.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For numeric arguments, a numeric vector.  This will be of type
+<code>integer</code> if <code>from</code> is integer-valued and the result
+is representable in the <span class="rlang"><b>R</b></span> integer type, otherwise of type
+<code>"double"</code> (aka <code>mode</code> <code>"numeric"</code>).
+</p>
+<p>For factors, an unordered factor with levels labelled as <code>la:lb</code>
+and ordered lexicographically (that is, <code>lb</code> varies fastest).
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.<br />
+(for numeric arguments: S does not have <code>:</code> for factors.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>seq</code> (a <em>generalization</em> of <code>from:to</code>).
+</p>
+<p>As an alternative to using <code>:</code> for factors, <code>interaction</code>.
+</p>
+<p>For <code>:</code> used in the formal representation of an interaction, see
+<code>formula</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>1:4
+pi:6 # real
+6:pi # integer
+
+f1 &lt;- gl(2, 3); f1
+f2 &lt;- gl(3, 2); f2
+f1:f2 # a factor, the "cross"  f1 x f2
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.3.0 ]</div>
+</div>
+</body></html>

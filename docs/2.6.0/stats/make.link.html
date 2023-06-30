@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: Create a Link for GLM Families</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/make.link.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/make.link.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>make.link {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='make.link'>Create a Link for GLM Families</h2>
+
+<h3>Description</h3>
+
+<p>This function is used with the <code>family</code> functions in
+<code>glm()</code>.
+Given the name of a link, it returns a link function, an inverse link
+function, the derivative <code class="reqn">d\mu / d\eta</code> and a function
+for domain checking.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>make.link(link)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="make.link_:_link">link</code></td>
+<td>
+<p>character or numeric; one of <code>"logit"</code>,
+<code>"probit"</code>, <code>"cloglog"</code>, <code>"identity"</code>,
+<code>"log"</code>,  <code>"sqrt"</code>,  <code>"1/mu^2"</code>,
+<code>"inverse"</code>, or (deprecated) a non-negative number,
+say <code class="reqn">\lambda</code> resulting
+in <code>power</code> link <code class="reqn">=\mu ^ \lambda</code>.
+Also (deprecated) a string like <code>"power(0.5)"</code> to
+indicate a call to <code>power</code>.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A object of class <code>"link-glm"</code>, a list with components
+</p>
+<table>
+<tr><td><code>linkfun</code></td>
+<td>
+<p>Link function <code>function(mu)</code></p>
+</td></tr>
+<tr><td><code>linkinv</code></td>
+<td>
+<p>Inverse link function <code>function(eta)</code></p>
+</td></tr>
+<tr><td><code>mu.eta</code></td>
+<td>
+<p>Derivative <code>function(eta)</code> <code class="reqn">d\mu / d\eta</code></p>
+</td></tr>
+<tr><td><code>valideta</code></td>
+<td>
+<p><code>function(eta)</code>{ <code>TRUE</code> if
+<code>eta</code> is in the domain of <code>linkinv</code> }.</p>
+</td></tr>
+<tr><td><code>name</code></td>
+<td>
+<p>a name to be used for the link</p>
+</td></tr></table>
+<p>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>power</code>, <code>glm</code>, <code>family</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>utils::str(make.link("logit"))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.6.0 ]</div>
+</div>
+</body></html>

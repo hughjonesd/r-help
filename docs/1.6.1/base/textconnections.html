@@ -1,0 +1,128 @@
+<!DOCTYPE html><html><head><title>R: Text Connections</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/textconnections.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/textconnections.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>textConnection {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='textConnection'>Text Connections</h2>
+
+<h3>Description</h3>
+
+<p>Input and output text connections.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>textConnection(object, open = "r")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="textConnection_:_object">object</code></td>
+<td>
+<p>character.  A description of the connection. 
+For an input is an <span class="rlang"><b>R</b></span> character vector object, and for an output
+connection the name for the <span class="rlang"><b>R</b></span> character vector to receive the
+output.
+</p>
+</td></tr>
+<tr><td><code id="textConnection_:_open">open</code></td>
+<td>
+<p>character.  Either <code>"r"</code> (or equivalently <code>""</code>)
+for an input connection or <code>"w"</code> or <code>"a"</code>for an output
+connection.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>An input text connection is opened and the character vector is copied
+at time the connection object is created, and <code>close</code>
+destroys the copy.
+</p>
+<p>An output text connection is opened and creates an <span class="rlang"><b>R</b></span> character vector
+of the given name in the user's workspace.  This object will at all
+times hold the completed lines of output to the connection, and
+<code>isIncomplete</code> will indicate if there is an incomplete
+final line.  Closing the connection will output the final line,
+complete or not.
+</p>
+<p>Opening a text connection with <code>mode = "a"</code> will attempt to
+append to an existing character vector with the given name in the
+user's workspace.  If none is found (even if an object exists of the
+right name but the wrong type) a new character vector wil be created,
+with a warning.
+</p>
+<p>You cannot <code>seek</code> on a text connection, and <code>seek</code> will
+always return zero as the position.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A connection object of class <code>"textConnection"</code> which inherits
+from class <code>"connection"</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>connections</code>, <code>showConnections</code>,
+<code>pushBack</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>zz &lt;- textConnection(LETTERS)
+readLines(zz, 2)
+scan(zz, "", 4)
+pushBack(c("aa", "bb"), zz)
+scan(zz, "", 4)
+close(zz)
+
+zz &lt;- textConnection("foo", "w")
+writeLines(c("testit1", "testit2"), zz)
+cat("testit3 ", file=zz)
+isIncomplete(zz)
+cat("testit4\n", file=zz)
+isIncomplete(zz)
+close(zz)
+foo
+
+## Not run: # capture R output: use part of example from help(lm)
+zz &lt;- textConnection("foo", "w")
+ctl &lt;- c(4.17, 5.58, 5.18, 6.11, 4.5, 4.61, 5.17, 4.53, 5.33, 5.14)
+trt &lt;- c(4.81, 4.17, 4.41, 3.59, 5.87, 3.83, 6.03, 4.89, 4.32, 4.69)
+group &lt;- gl(2, 10, 20, labels = c("Ctl", "Trt"))
+weight &lt;- c(ctl, trt)
+sink(zz)
+anova(lm.D9 &lt;- lm(weight ~ group))
+cat("\nSummary of Residuals:\n\n")
+summary(resid(lm.D9))
+sink()
+close(zz)
+cat(foo, sep = "\n")
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.1 ]</div>
+</div>
+</body></html>

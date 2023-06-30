@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><title>R: The Effect of Vitamin C on Tooth Growth in Guinea Pigs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/pigs.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/pigs.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>pigs {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='pigs'>The Effect of Vitamin C on Tooth Growth in Guinea Pigs</h2>
+
+<h3>Description</h3>
+
+<p>The response is the average length of odontoblasts (teeth) in
+each of 10 guinea pigs.  Three dose levels 0.5, 1, and 2 mg
+of juice and acid in the juice were used.
+</p>
+<p>This makes no sense - check the original source.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(pigs)</code></pre>
+
+
+<h3>Format</h3>
+
+<p>A data frame with 60 observations on 3 variables.
+</p>
+
+<table>
+<tr>
+ <td style="text-align: right;">
+    [,1]  </td><td style="text-align: left;"> len   </td><td style="text-align: left;"> numeric  </td><td style="text-align: left;"> Tooth length</td>
+</tr>
+<tr>
+ <td style="text-align: right;">
+    [,2]  </td><td style="text-align: left;"> supp  </td><td style="text-align: left;"> factor   </td><td style="text-align: left;"> Supplement (VC or OJ).</td>
+</tr>
+<tr>
+ <td style="text-align: right;">
+    [,3]  </td><td style="text-align: left;"> dose  </td><td style="text-align: left;"> numeric  </td><td style="text-align: left;"> Dose in milligrams.
+  </td>
+</tr>
+
+</table>
+
+
+
+<h3>Source</h3>
+
+<p>C. I. Bliss (1952).  The Statistics of Bioassay, Academic Press.
+</p>
+
+
+<h3>References</h3>
+
+<p>McNeil, D. R. (1977).  Interactive Data Analysis.  New York: Wiley.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.4 ]</div>
+</div>
+</body></html>

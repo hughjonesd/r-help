@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><title>R: Argument Verification Using Partial Matching</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/match.arg.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/match.arg.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>match.arg {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='match.arg'>Argument Verification Using Partial Matching</h2>
+
+<h3>Description</h3>
+
+<p><code>match.arg</code> matches <code>arg</code> against a table of candidate
+values as specified by <code>choices</code>.  In the one-argument form
+<code>match.arg(arg)</code>, the choices are obtained from a default setting
+for the formal argument <code>arg</code> of the function from which
+<code>match.arg</code> was called.
+</p>
+<p>Matching is done using <code>pmatch</code>, so <code>arg</code> may be
+abbreviated.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>match.arg(arg)
+match.arg(arg, choices)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="match.arg_:_arg">arg</code></td>
+<td>
+<p>a character string</p>
+</td></tr>
+<tr><td><code id="match.arg_:_choices">choices</code></td>
+<td>
+<p>a character vector of candidate values</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The unabbreviated version of the unique partial match if there is one;
+otherwise, an error is signalled.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>pmatch</code>, <code>match.fun</code>, <code>match.call</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Extends the example for `switch'
+center &lt;- function(x, type = c("mean", "median", "trimmed")) {
+  type &lt;- match.arg(type)
+  switch(type,
+         mean = mean(x),
+         median = median(x),
+         trimmed = mean(x, trim = .1))
+}
+x &lt;- rcauchy(10)
+center(x, "t")       # Works
+center(x, "med")     # Works
+## Not run: center(x, "m")       # Error
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65.1 ]</div>
+</div>
+</body></html>

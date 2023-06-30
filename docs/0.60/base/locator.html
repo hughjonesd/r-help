@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head><title>R: Graphical Input</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/locator.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/locator.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>locator {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='locator'>Graphical Input</h2>
+
+<h3>Description</h3>
+
+<p><code>locator</code> reads the position of the graphics cursor when
+the (first) mouse button is pressed.  Unless the process
+is terminated prematurely by the user (see below) at most
+<code>n</code> positions are determined.
+</p>
+<p>The input process can be terminated prematurely by
+pressing any mouse button other than the first,
+or by clicking outside the graphics window.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>locator(n=1)
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>A list containing <code>x</code> and <code>y</code> components which are
+the coordinates of the identified points.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.60 ]</div>
+</div>
+</body></html>

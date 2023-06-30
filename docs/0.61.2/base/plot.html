@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>R: X-Y Plotting</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/plot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/plot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot'>X-Y Plotting</h2>
+
+<h3>Description</h3>
+
+<p>Generic function for plotting of <span class="rlang"><b>R</b></span> objects.
+For more details about the graphical parameter arguments, see <code>par</code>.
+</p>
+<p>A longer description will go here eventually.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>plot(x, y, xlim=range(x), ylim=range(y), type="p",
+        main, xlab, ylab, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot_:_x">x</code>, <code id="plot_:_y">y</code></td>
+<td>
+<p>the coordinates of points in the plot.
+Alternatively, a single plotting structure can
+be provided.</p>
+</td></tr>
+<tr><td><code id="plot_:_xlim">xlim</code>, <code id="plot_:_ylim">ylim</code></td>
+<td>
+<p>the ranges to be encompased by the x and y axes.</p>
+</td></tr>
+<tr><td><code id="plot_:_type">type</code></td>
+<td>
+<p>what type of plot should be drawn.
+Possible types are
+</p>
+
+<ul>
+<li><p><code>"p"</code> for <b>p</b>oints,
+</p>
+</li>
+<li><p><code>"l"</code> for <b>l</b>ines,
+</p>
+</li>
+<li><p><code>"b"</code> for <b>b</b>oth, <code>"o"</code> for both &quot;<b>o</b>verplotted&quot;,
+</p>
+</li>
+<li><p><code>"h"</code> for &quot;<b>h</b>istogram&quot; like vertical lines,
+</p>
+</li>
+<li><p><code>"s"</code> for <b>s</b>teps,
+</p>
+</li>
+<li><p><code>"S"</code> for other <b>s</b>teps,
+and
+</p>
+</li>
+<li><p><code>"n"</code> for no plotting.
+</p>
+</li></ul>
+
+</td></tr>
+<tr><td><code id="plot_:_main">main</code></td>
+<td>
+<p>an overall title for the plot.</p>
+</td></tr>
+<tr><td><code id="plot_:_xlab">xlab</code></td>
+<td>
+<p>a title for the x axis.</p>
+</td></tr>
+<tr><td><code id="plot_:_ylab">ylab</code></td>
+<td>
+<p>a title for the y axis.</p>
+</td></tr>
+<tr><td><code id="plot_:_...">...</code></td>
+<td>
+<p>graphical parameters can be given as arguments to <code>plot</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>plot.default</code>, <code>points</code>, <code>lines</code>, <code>par</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>plot(cars)
+lines(lowess(cars))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61.2 ]</div>
+</div>
+</body></html>

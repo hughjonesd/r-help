@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: The Cauchy Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Cauchy.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Cauchy.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Cauchy {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Cauchy'>The Cauchy Distribution</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dcauchy(x, location = 0, scale = 1)
+pcauchy(q, location = 0, scale = 1)
+qcauchy(p, location = 0, scale = 1)
+rcauchy(n, location = 0, scale = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Cauchy_:_x">x</code>, <code id="Cauchy_:_q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="Cauchy_:_p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="Cauchy_:_n">n</code></td>
+<td>
+<p>number of observations to generate.</p>
+</td></tr>
+<tr><td><code id="Cauchy_:_location">location</code>, <code id="Cauchy_:_scale">scale</code></td>
+<td>
+<p>location and scale parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>These functions provide information about the Cauchy distribution with
+location parameter <code>location</code> and scale parameter <code>scale</code>.
+</p>
+<p><code>dcauchy</code>, <code>pcauchy</code>, and <code>qcauchy</code> are respectively
+the density, distribution function and quantile function of the Cauchy
+distribution.  <code>rcauchy</code> generates random deviates from the
+Cauchy.
+</p>
+<p>If <code>location</code> or <code>scale</code> are not specified, they assume
+the default values of <code>0</code> and <code>1</code> respectively.
+</p>
+<p>The Cauchy distribution with location <code class="reqn">l</code> and scale <code class="reqn">s</code> has
+density
+</p>
+<p style="text-align: center;"><code class="reqn">f(x) = \frac{1}{\pi s}
+    \left( 1 + \left(\frac{x - l}{s}\right)^2 \right)^{-1}%
+  </code>
+</p>
+
+<p>for all <code class="reqn">x</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dt</code> for the t distribution which generalizes
+<code>dcauchy(*, l = 0, s = 1)</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>dcauchy(-1:4) == 1 / (pi*(1 + (-1:4)^2))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63.3 ]</div>
+</div>
+</body></html>

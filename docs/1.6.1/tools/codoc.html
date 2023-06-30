@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><title>R: Check Code/Documentation Consistency</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/codoc.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/codoc.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>codoc {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='codoc'>Check Code/Documentation Consistency</h2>
+
+<h3>Description</h3>
+
+<p>Find inconsistencies between actual and documented usage of <span class="rlang"><b>R</b></span>
+function objects in a package, by comparing names and optionally also
+corresponding positions and default values of the arguments of the
+functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>codoc(package, dir, lib.loc = NULL,
+      use.values = FALSE, use.positions = TRUE,
+      ignore.generic.functions = FALSE,
+      verbose = getOption("verbose"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="codoc_:_package">package</code></td>
+<td>
+<p>a character string naming an installed package.</p>
+</td></tr>
+<tr><td><code id="codoc_:_dir">dir</code></td>
+<td>
+<p>a character string specifying the path to a package's root
+source directory.  This must contain the subdirectories &lsquo;<span class="file">man</span>&rsquo;
+with <span class="rlang"><b>R</b></span> documentation sources (in Rd format) and &lsquo;<span class="file">R</span>&rsquo; with <span class="rlang"><b>R</b></span>
+code.  Only used if <code>package</code> is not given.</p>
+</td></tr>
+<tr><td><code id="codoc_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
+or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
+libraries currently known.  The specified library trees are used to
+to search for <code>package</code>.</p>
+</td></tr>
+<tr><td><code id="codoc_:_use.positions">use.positions</code></td>
+<td>
+<p>a logical indicating whether to use the positions
+of function arguments when comparing.</p>
+</td></tr>
+<tr><td><code id="codoc_:_use.values">use.values</code></td>
+<td>
+<p>a logical indicating whether to use function default
+values when comparing code and docs.</p>
+</td></tr>
+<tr><td><code id="codoc_:_ignore.generic.functions">ignore.generic.functions</code></td>
+<td>
+<p>if <code>TRUE</code>, functions the body of
+which contains <code>"UseMethod"</code> are ignored.</p>
+</td></tr>
+<tr><td><code id="codoc_:_verbose">verbose</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, additional diagnostics are
+printed.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The purpose of this function is to check whether the documented usage
+of function objects agrees with their formal arguments as defined in
+the <span class="rlang"><b>R</b></span> code.  This is not always straightforward, in particular as the
+usage information for methods to generic functions often employs the
+name of the generic rather than the method.
+</p>
+<p>The following algorithm is used.  If an installed package is used, it
+is loaded (unless it is the base package), after possibly detaching an
+already loaded version of the package.  Otherwise, if the sources are
+used, the <span class="rlang"><b>R</b></span> code files of the package are collected and sourced in a
+new environment.  Then, the usage sections of the Rd files are
+extracted and manipulated in order to give function stubs
+corresponding to the indicated usage, which are then sourced in
+another new environment.  For interpreted functions in both the code
+and docs environment, the formals are compared according to the values
+of the arguments <code>use.positions</code> and <code>use.values</code>.
+</p>
+<p>Currently, synopsis sections are used, but multiple usage examples
+(such as in <code>abline</code>) are not combined when building the
+stubs.  Occurences of synopsis sections are reported if <code>verbose</code>
+is true.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"codoc"</code> which is a list the names of which
+are the names of the functions where an inconsistency was found.  The
+elements of the list are lists of length 2 with elements <code>code</code>
+and <code>docs</code>, giving the corresponding arguments obtained from the
+function's code and documented usage.
+</p>
+<p>There is a <code>print</code> method for nicely displaying the information
+contained in such objects.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>undoc</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 1.6.1 ]</div>
+</div>
+</body></html>

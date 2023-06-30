@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head><title>R: Flatten Lists</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/unlist.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/unlist.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>unlist {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='unlist'>Flatten Lists</h2>
+
+<h3>Description</h3>
+
+<p>Given a list structure <code>x</code>, <code>unlist</code>
+produces a vector which contains all the atomic components
+which occur in <code>x</code>.
+If <code>recursive=FALSE</code>, the function will not
+recurse beyond the first level items in <code>x</code>.
+</p>
+<p>By default, <code>unlist</code> tries to retain the naming
+information present in <code>x</code>.
+If <code>use.names=FALSE</code> all naming information is dropped.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>unlist(x, recursive=TRUE, use.names=TRUE)
+</code></pre>
+
+
+<h3>See Also</h3>
+
+<p><code>c</code>, <code>as.list</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>unlist(options())
+unlist(unlist(options(), use.names=F))# works for vectors or lists
+l.ex &lt;- list(a = list(1:5, LETTERS[1:5]), b = "Z", c = NA)
+unlist(l.ex, rec = F)
+unlist(l.ex, rec = T)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63.3 ]</div>
+</div>
+</body></html>

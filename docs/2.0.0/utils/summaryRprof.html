@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><title>R: Summarise Output of R Profiler</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/summaryRprof.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/summaryRprof.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>summaryRprof {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='summaryRprof'>Summarise Output of R Profiler</h2>
+
+<h3>Description</h3>
+
+<p>Summarise the output of the <code>Rprof</code> function to show the
+amount of time used by different <span class="rlang"><b>R</b></span> functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>summaryRprof(filename = "Rprof.out", chunksize = 5000)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="summaryRprof_:_filename">filename</code></td>
+<td>
+<p>Name of a file produced by <code>Rprof()</code></p>
+</td></tr>
+<tr><td><code id="summaryRprof_:_chunksize">chunksize</code></td>
+<td>
+<p>Number of lines to read at a time</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is an alternative to <code>R CMD Rprof</code>. It provides the
+convenience of an all-<span class="rlang"><b>R</b></span> implementation but will be slower for large
+files.
+</p>
+<p>As the profiling output file could be larger than available memory, it
+is read in blocks of <code>chunksize</code> lines. Increasing <code>chunksize</code>
+will make the function run faster if sufficient memory is available.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with components
+</p>
+<table>
+<tr><td><code>by.self</code></td>
+<td>
+<p>Timings sorted by &lsquo;self&rsquo; time</p>
+</td></tr>
+<tr><td><code>by.total</code></td>
+<td>
+<p>Timings sorted by &lsquo;total&rsquo; time</p>
+</td></tr>
+<tr><td><code>sampling.time</code></td>
+<td>
+<p>Total length of profiling run</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p>The chapter on &ldquo;Tidying and profiling R code&rdquo; in
+&ldquo;Writing <span class="rlang"><b>R</b></span> Extensions&rdquo; (see the &lsquo;<span class="file">doc/manual</span>&rsquo; subdirectory
+of the <span class="rlang"><b>R</b></span> source tree).
+</p>
+<p><code>Rprof</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## Rprof() is not available on all platforms
+Rprof(tmp &lt;- tempfile())
+example(glm)
+Rprof()
+summaryRprof(tmp)
+unlink(tmp)
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.0.0 ]</div>
+</div>
+</body></html>

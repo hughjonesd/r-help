@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><title>R: Hold or Flush Output on an On-Screen Graphics Device.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/dev.flush.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/dev.flush.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dev.flush {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dev.flush'>
+Hold or Flush Output on an On-Screen Graphics Device.
+</h2>
+
+<h3>Description</h3>
+
+<p>This gives a way to hold/flush output on certain on-screen devices,
+and is ignored by other devices.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dev.hold(level = 1L)
+dev.flush(level = 1L)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dev.flush_:_level">level</code></td>
+<td>
+<p>Integer &gt;= 0.  The amount by which to change the hold
+level.  Negative values will be silently replaced by zero.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Devices which implement this maintain a stack of hold levels: calling
+<code>dev.hold</code> increases the level and <code>dev.flush</code> decreases it.
+Calling <code>dev.hold</code> when the hold level is zero increases the hold
+level and inhibits graphics display.  When calling <code>dev.flush</code>
+clears all pending holds the screen display is refreshed and normal
+operation is resumed.
+</p>
+<p>This is implemented for the cairo-based <code>X11</code> types
+with buffering.  When the hold level is positive the &lsquo;watch&rsquo;
+cursor is set on the device's window.
+</p>
+<p>It is available on the <code>quartz</code> device on OS X.
+</p>
+<p>This is implemented for the <code>windows</code> device with
+buffering selected (the default).  When the hold level is positive the
+&lsquo;busy&rsquo; cursor is set on the device's window.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The current level after the change, invisibly.  This is <code>0</code> on
+devices where hold levels are not supported.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 3.0.1 ]</div>
+</div>
+</body></html>

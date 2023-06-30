@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><title>R: Tilde Operator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/tilde.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/tilde.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>tilde {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='tilde'>Tilde Operator</h2>
+
+<h3>Description</h3>
+
+<p>Tilde is used to separate the left- and right-hand sides in a model formula.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>y ~ model
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="tilde_:_y">y</code>, <code id="tilde_:_model">model</code></td>
+<td>
+<p>symbolic expressions.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The left-hand side is optional, and one-sided formulae are used in
+some contexts.
+</p>
+<p>A formula has mode <code>call</code>.  It can be subsetted by
+<code>[[</code>: the components are <code>~</code>, the left-hand side (if
+present) and the right-hand side <em>in that order</em>.  (Thus
+one-sided formulae have two components.)
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. and Hastie, T. J. (1992)
+<em>Statistical models.</em>
+Chapter 2 of <em>Statistical Models in S</em>
+eds J. M. Chambers and T. J. Hastie, Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>formula</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.2.3 ]</div>
+</div>
+</body></html>

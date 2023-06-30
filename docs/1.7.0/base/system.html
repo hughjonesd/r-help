@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><title>R: Invoke a System X Command from Carbon R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>system {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='system'>Invoke a System X Command from Carbon R</h2>
+
+<h3>Description</h3>
+
+<p><code>system</code> invokes the OS X shell commands specified by <code>command</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>system(command,intern=FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="system_:_command">command</code></td>
+<td>
+<p>the system command to be invoked, as a string.</p>
+</td></tr>
+<tr><td><code id="system_:_intern">intern</code></td>
+<td>
+<p>a logical, indicates whether to make the output of the
+command an <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>intern</code> is <code>TRUE</code> then the BSD <code>popen</code> function is used to 
+invoke the command and the output collected, line by line, into an <span class="rlang"><b>R</b></span>
+<code>character</code> vector which is returned as the value of
+<code>system</code>.
+</p>
+<p>If <code>intern</code> is <code>FALSE</code> then the output of the command is
+redirected  directly to the  <span class="rlang"><b>R</b></span> Console for a  maximum of 24k.
+</p>
+<p>This is an experimental and very limited code. It only works when Carbon R
+is running under MacOS X.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>intern=TRUE</code>, a character vector giving the output of the
+command, one line per character string. If the command could not be
+run or gives an error a <span class="rlang"><b>R</b></span> error is generated.
+</p>
+<p>If <code>intern=FALSE</code>, the output of the command is sent directly to the
+<span class="rlang"><b>R</b></span> Console.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># list all files in the current directory using the -al flag
+system("ls -al")
+
+t1 &lt;- system("who",intern=TRUE)
+t1
+
+system("ls fizzlipuzzli")# empty since file doesn't exist
+
+system("less AUTHORS") 
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.7.0 ]</div>
+</div>
+</body></html>

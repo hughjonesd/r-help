@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: HSV Color Specification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/hsv.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/hsv.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>hsv {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='hsv'>HSV Color Specification</h2>
+
+<h3>Description</h3>
+
+<p>Create a vector of colors from vectors specifying hue, saturation and
+value.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>hsv(h = 1, s = 1, v = 1, alpha)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="hsv_:_h">h</code>, <code id="hsv_:_s">s</code>, <code id="hsv_:_v">v</code></td>
+<td>
+<p>numeric vectors of values in the range <code>[0, 1]</code> for
+&lsquo;hue&rsquo;, &lsquo;saturation&rsquo; and &lsquo;value&rsquo; to be combined
+to form a vector of colors.  Values in shorter arguments are
+recycled.</p>
+</td></tr>
+<tr><td><code id="hsv_:_alpha">alpha</code></td>
+<td>
+<p>numeric vector of values in the range <code>[0, 1]</code> for
+alpha transparency channel (0 means transparent and 1 means opaque).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Semi-transparent colors (<code>0 &lt; alpha &lt; 1</code>) are supported only on
+some devices: see <code>rgb</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>This function creates a vector of colors corresponding to the
+given values in HSV space.  The values returned by <code>hsv</code> can be
+used with a <code>col=</code> specification in graphics functions or in
+<code>par</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>hcl</code> for a perceptually based version of <code>hsv()</code>,
+<code>rgb</code> and <code>rgb2hsv</code> for RGB to HSV conversion;
+<code>rainbow</code>,
+<code>gray</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+hsv(.5,.5,.5)
+
+## Red tones:
+n &lt;- 20;  y &lt;- -sin(3*pi*((1:n)-1/2)/n)
+op &lt;- par(mar = rep(1.5, 4))
+plot(y, axes = FALSE, frame.plot = TRUE,
+     xlab = "", ylab = "", pch = 21, cex = 30,
+     bg = rainbow(n, start = .85, end = .1),
+     main = "Red tones")
+par(op)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 4.3.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>R: Cross Tabulation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/table.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/table.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>table {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='table'>Cross Tabulation</h2>
+
+<h3>Description</h3>
+
+<p><code>table</code> uses the cross-classifying factors to build a contingency
+table of the counts at each combination of factor levels.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>table(..., exclude = c(NA, NaN), dnn, deparse.level = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="table_:_...">...</code></td>
+<td>
+<p>objects which can be interpreted as factors (including
+character strings), or a list (or data frame) whose components can
+be so interpreted</p>
+</td></tr>
+<tr><td><code id="table_:_exclude">exclude</code></td>
+<td>
+<p>values to use in the exclude argument of <code>factor</code>
+when interpreting non-factor objects</p>
+</td></tr>
+<tr><td><code id="table_:_dnn">dnn</code></td>
+<td>
+<p>the names to be given to the dimensions in the result ('the
+dimname names'</p>
+</td></tr>
+<tr><td><code id="table_:_deparse.level">deparse.level</code></td>
+<td>
+<p>controls how the default <code>dnn</code> is
+constructed. See details.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If the argument <code>dnn</code> is not supplied, the internal function
+<code>list.names</code> is called to compute the &lsquo;dimname names&rsquo;. If the
+arguments in <code>...</code> are named, those names are used. For the
+remaining arguments, <code>deparse.level = 0</code> gives an empty name,
+<code>deparse.level = 1</code> uses the supplied argument if it is a
+symbol, and <code>deparse.level = 2</code> will deparse the argument.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Simple frequency distribution
+table(rpois(100,5))
+data(warpbreaks)
+attach(warpbreaks)
+## Check the design:
+table(wool, tension)
+data(state)
+table(state.division, state.region)
+
+data(airquality)
+attach(airquality)
+# simple two-way contingency table
+table(cut(Temp, quantile(Temp)), Month)
+
+a &lt;- letters[1:3]
+table(a, sample(a)) # dnn is  c("a", "")
+table(a, sample(a), deparse.level = 0) # dnn is  c("", "")
+table(a, sample(a), deparse.level = 2) # dnn is  c("a", "sample(a)")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65.1 ]</div>
+</div>
+</body></html>

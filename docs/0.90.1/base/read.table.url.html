@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><title>R: Read Data and Code from a Web Server</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/read.table.url.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/read.table.url.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>read.table.url {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='read.table.url'>Read Data and Code from a Web Server</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>read.table.url(url, port = 80, check.MIME.type = TRUE, ...)
+scan.url(url, port = 80, check.MIME.type = TRUE, ...)
+source.url(url, port = 80, check.MIME.type = TRUE, ...)
+copy.url(url, port = 80, error.is.fatal = TRUE, file = tempfile(),
+         check.MIME.type = TRUE, drop.ctrl.z = TRUE)
+url.show(url, port = 80, check.MIME.type = TRUE, file = tempfile(),
+         delete.file = TRUE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="read.table.url_:_url">url</code></td>
+<td>
+<p>URL beginning with <code>http://</code> </p>
+</td></tr>
+<tr><td><code id="read.table.url_:_port">port</code></td>
+<td>
+<p> Port number for the HTTP server (usually 80) </p>
+</td></tr>
+<tr><td><code id="read.table.url_:_check.MIME.type">check.MIME.type</code></td>
+<td>
+<p>Check that the document is of a type known to be
+plain ASCII?</p>
+</td></tr>
+<tr><td><code id="read.table.url_:_...">...</code></td>
+<td>
+<p>Arguments to pass to <code>read.table</code>,
+<code>scan</code>, <code>source</code> or <code>file.show</code>
+\itemerror.is.fatalAn HTTP error causes an error instead of a
+warning?
+\itemfileFile to copy to
+\itemdelete.fileDelete the file?
+\itemdrop.ctrl.zFilter out the <code>EOF</code> (control-Z) character?
+</p>
+</td></tr>
+</table>
+
+<p>Extensions of <code>read.table</code>, <code>scan</code>,
+<code>source</code>
+and <code>file.show</code> to read text files on a remote HTTP (Web)
+server.
+
+
+HTTP errors are handled correctly, but attempts to read non-text files
+are currently not (thus the <code>check.MIME.type</code> option).
+
+
+<code>copy.url</code> returns the name of a temporary file.
+
+</p>
+
+<p><code>read.table</code>, <code>scan</code>, <code>source</code>,
+<code>make.socket</code>, <code>read.socket</code>,
+<code>file.show</code>
+
+</p>
+
+## Not run: read.table.url("http://lib.stat.cmu.edu/jcgs/tu",skip=4,header=T)
+## Not run: url.show("http://lib.stat.cmu.edu/datasets/csb/ch11b.txt")
+## Not run: beaver&lt;-read.table.url("http://lib.stat.cmu.edu/datasets/csb/ch11b.dat",
+  col.names=c("obsnum","day","time","temperature","activity"),row.names=1)
+## End(Not run)
+## Not run: url.show("http://lib.stat.cmu.edu/datasets/csb/ch3a.txt")
+## Not run: ozone&lt;-read.table.url("http://lib.stat.cmu.edu/datasets/csb/ch3a.dat",
+  col.names=c("date","day.cts","day.passive","night.cts","night.passive"),
+  na.strings=".")
+## End(Not run)
+
+<p>file
+misc
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.90.1 ]</div>
+</div>
+</body></html>

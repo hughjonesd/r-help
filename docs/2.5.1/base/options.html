@@ -1,0 +1,505 @@
+<!DOCTYPE html><html><head><title>R: Options Settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>options {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='options'>Options Settings</h2>
+
+<h3>Description</h3>
+
+<p>Allow the user to set and examine a variety of global &ldquo;options&rdquo;
+which affect the way in which <span class="rlang"><b>R</b></span> computes and displays its results.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>options(...)
+
+getOption(x)
+
+.Options
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="options_:_...">...</code></td>
+<td>
+<p>any options can be defined, using <code>name = value</code> or
+by passing a list of such tagged values.  However, only the ones
+below are used in &ldquo;base <span class="rlang"><b>R</b></span>&rdquo;.
+Further, <code>options('name') == options()['name']</code>, see the example.
+</p>
+</td></tr>
+<tr><td><code id="options_:_x">x</code></td>
+<td>
+<p>a character string holding an option name.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Invoking <code>options()</code> with no arguments returns a list with the
+current values of the options.  Note that not all options listed below
+are set initially.  To access the value of a single option, one should
+use <code>getOption("width")</code>, e.g., rather than
+<code>options("width")</code> which is a <em>list</em> of length one.
+</p>
+<p><code>.Options</code> also always contains the <code>options()</code> list (as a
+pairlist, unsorted), for S compatibility.  Assigning to it will make a
+local copy and not change the original.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>getOption</code>, the current value set for option <code>x</code>, or
+<code>NULL</code> if the option is unset.
+</p>
+<p>For <code>options()</code>, a list of all set options sorted by name.  For
+<code>options(name)</code>, a list of length one containing the set value,
+or <code>NULL</code> if it is unset.  For uses setting one or more options,
+a list with the previous values of the options changed (returned
+invisibly).
+</p>
+
+
+<h3>Options used in base <span class="rlang"><b>R</b></span></h3>
+
+
+<dl>
+<dt><code>add.smooth</code>:</dt><dd><p>typically logical, defaulting to
+<code>TRUE</code>.  Could also be set to an integer for specifying how
+many (simulated) smooths should be added.  This is currently only
+used by <code>plot.lm</code>.</p>
+</dd>
+<dt><code>check.bounds</code>:</dt><dd><p>logical, defaulting to <code>FALSE</code>.  If
+true, a warning is produced whenever a &ldquo;generalized
+vector&rdquo; (atomic or <code>list</code>) is extended, by something
+like <code>x &lt;- 1:3; x[5] &lt;- 6</code>.</p>
+</dd>
+<dt><code>continue</code>:</dt><dd><p>a non-empty string setting the prompt used
+for lines which continue over one line.</p>
+</dd>
+<dt><code>defaultPackages</code>:</dt><dd><p>the packages that are attached by
+default when <span class="rlang"><b>R</b></span> starts up.  Initially set from value of the
+environment variable <span class="env">R\_DEFAULT\_PACKAGES</span>, or if that is unset
+
+to <code>c("datasets", "utils", "grDevices", "graphics", "stats",
+	"methods")</code>.  (Set <span class="env">R\_DEFAULT\_PACKAGES</span> to <code>NULL</code> or
+a comma-separated list of package names.)   A call to
+<code>options</code> should be in your &lsquo;<span class="file">.Rprofile</span>&rsquo; file to ensure
+that the change takes effect before the base package is
+initialized (see <code>Startup</code>).</p>
+</dd>
+<dt><code>deparse.max.lines</code>:</dt><dd><p>controls the number of lines used
+when deparsing in <code>traceback</code> and
+<code>browser</code>.  Initially unset, and only used if set to
+a positive integer.</p>
+</dd>
+<dt><code>digits</code>:</dt><dd><p>controls the number of digits to print when
+printing numeric values.  It is a suggestion only.  Valid values
+are 1...22 with default 7.  See the warning in
+<code>print.default</code> about values greater than 15.</p>
+</dd>
+<dt><code>digits.secs</code>:</dt><dd><p>controls the maximum number of digits to
+print when formatting time values in seconds.  Valid values
+are 0...6 with default 0.  See <code>strftime</code>.</p>
+</dd>
+<dt><code>download.file.method</code>:</dt><dd><p>Method to be used for
+<code>download.file</code>.  Currently download methods
+<code>"internal"</code>, <code>"wget"</code> and <code>"lynx"</code> are available.
+There is no default for this option, when <code>method = "auto"</code>
+is chosen: see <code>download.file</code>.</p>
+</dd>
+
+<dt><code>echo</code>:</dt><dd><p>logical.  Only used in non-interactive mode,
+when it controls whether input is echoed.  Command-line option
+<code>--slave</code> sets this to <code>FALSE</code>, but otherwise
+it starts the session as <code>TRUE</code>.</p>
+</dd>
+<dt><code>encoding</code>:</dt><dd><p>The name of an encoding, default
+<code>"native.enc"</code>).  See <code>connections</code>.</p>
+</dd>
+<dt><code>error</code>:</dt><dd><p>either a function or an expression governing
+the handling of non-catastrophic errors such as those generated by
+<code>stop</code> as well as by signals and internally detected
+errors.  If the option is a function, a call to that function,
+with no arguments, is generated as the expression.  The default
+value is <code>NULL</code>: see <code>stop</code> for the behaviour in
+that case.  The functions <code>dump.frames</code> and
+<code>recover</code> provide alternatives that allow post-mortem
+debugging.</p>
+</dd>
+<dt><code>expressions</code>:</dt><dd><p>sets a limit on the number of nested
+expressions that will be evaluated.  Valid values are
+25...500000 with default 5000.  If you increase it, you may
+also want to start <span class="rlang"><b>R</b></span> with a larger protection stack;
+see <code>--max-ppsize</code> in <code>Memory</code>.  Note too that
+you may cause a segfault from overflow of the C stack, and on OSes
+where it is possible you may want to increase that.</p>
+</dd>
+<dt><code>keep.source</code>:</dt><dd><p>When <code>TRUE</code>, the source code for
+functions (newly defined or loaded) is stored in their
+<code>"source"</code> attribute (see <code>attr</code>) allowing
+comments to be kept in the right places.
+</p>
+<p>The default is <code>interactive()</code>, i.e., <code>TRUE</code> for
+interactive use.</p>
+</dd>
+<dt><code>keep.source.pkgs</code>:</dt><dd><p>As for <code>keep.source</code>, for
+functions in packages loaded by <code>library</code> or
+<code>require</code>.  Defaults to <code>FALSE</code> unless the
+environment variable <span class="env">R\_KEEP\_PKG\_SOURCE</span> is set to
+<code>yes</code>.
+</p>
+<p>Note this does not apply to packages using lazy-loading or saved
+images.  Whether they have kept source is determined when they are
+installed (and is almost certainly false).</p>
+</dd>
+<dt><code>mailer</code>:</dt><dd><p>default mailer used by
+<code>bug.report()</code>.  Can be <code>"none"</code>.</p>
+</dd>
+<dt><code>max.contour.segments</code>:</dt><dd><p>positive integer, defaulting to
+<code>250000</code> and usually not set.  A limit on the number of
+segments in a single contour line in <code>contour</code> or
+<code>contourLines</code>.</p>
+</dd>
+<dt><code>max.print</code>:</dt><dd><p>integer, defaulting to <code>99999</code>.
+<code>print</code> or <code>show</code> methods can make use of
+this option, to limit the amount of information that is printed,
+to something in the order of (and typically slightly less than)
+<code>max.print</code> <em>entries</em>.</p>
+</dd>
+<dt><code>OutDec</code>:</dt><dd><p>one-character string.  The character to be
+used as the decimal point in output conversions, that is in
+printing, plotting and <code>as.character</code> but not deparsing.</p>
+</dd>
+<dt><code>pager</code>:</dt><dd><p>the command used for displaying text files by
+<code>file.show</code>.
+Defaults to &lsquo;<span class="file">\$R\_HOME/bin/pager</span>&rsquo;, which selects a pager via
+the <span class="env">PAGER</span> environment variable (and that usually defaults to
+<code>less</code>).
+Can be a character string or an <span class="rlang"><b>R</b></span> function, in which case it
+needs to accept the same first four arguments as
+<code>file.show</code>.</p>
+</dd>
+<dt><code>papersize</code>:</dt><dd><p>the default paper format used by
+<code>postscript</code>;  set by environment variable
+<span class="env">R\_PAPERSIZE</span> when <span class="rlang"><b>R</b></span> is started: if that is unset or invalid
+it defaults to
+a value derived from the locale category <code>LC_PAPER</code>, or
+if that is unavailable to a default set when <span class="rlang"><b>R</b></span> was built.</p>
+</dd>
+</dl>
+
+\item<p><code>printcmd</code>:the command used by <code>postscript</code>
+for printing; set by environment variable <span class="env">R\_PRINTCMD</span> when
+<span class="rlang"><b>R</b></span> is started.  This should be a command that expects either input
+to be piped to &lsquo;<span class="file">stdin</span>&rsquo; or to be given a single filename
+argument.
+</p>
+\item<p><code>prompt</code>:a non-empty string to be used for <span class="rlang"><b>R</b></span>'s prompt;
+should usually end in a blank (<code>" "</code>).
+</p>
+\item<p><code>rl_word_breaks</code>:Used for the readline-based terminal
+
+interface.  Default value <code>" \t\n\"\\'`&gt;&lt;=%;,|&amp;\{()\}"</code>.
+This is the set of characters use to break the input line up into
+tokens for object- and file-name completion.  Those who do not use
+spaces around operators may prefer
+<code>" \t\n\"\\'`&gt;&lt;=+-*%;,|&amp;\{()\}"</code>.
+which was the default in <span class="rlang"><b>R</b></span> 2.5.0.  (The default in pre-2.5.0
+versions of <span class="rlang"><b>R</b></span> was <code>" \t\n\"\\'`@$&gt;&lt;=;|&amp;\{("</code>.)
+</p>
+\item<p><code>save.defaults</code>, <code>save.image.defaults</code>:
+see <code>save</code>.
+</p>
+\item<p><code>scipen</code>:integer.  A penalty to be applied
+when deciding to print numeric values in fixed or exponential
+notation.  Positive values bias towards fixed and negative towards
+scientific notation: fixed notation will be preferred unless it is
+more than <code>scipen</code> digits wider.
+</p>
+\item<p><code>show.error.messages</code>:a logical.  Should error messages
+be printed?  Intended for use with <code>try</code> or a
+user-installed error handler.
+</p>
+\item<p><code>stringsAsFactors</code>:The default setting for arguments of
+<code>data.frame</code> and <code>read.table</code>.
+</p>
+\item<p><code>texi2dvi</code>:used by the unexported function
+<code>texi2dvi</code> in name space <span class="pkg">tools</span>.
+</p>
+\item<p><code>timeout</code>:integer.  The timeout for some Internet
+operations, in seconds.  Default 60 seconds.  See
+<code>download.file</code> and <code>connections</code>.
+</p>
+\item<p><code>topLevelEnvironment</code>:see <code>topenv</code> and
+<code>sys.source</code>.
+</p>
+\item<p><code>verbose</code>:logical.  Should <span class="rlang"><b>R</b></span> report extra information
+on progress?  Set to <code>TRUE</code> by the command-line option
+<span class="option">--verbose</span>.
+</p>
+\item<p><code>warn</code>:sets the handling of warning messages.  If
+<code>warn</code> is negative all warnings are ignored.  If <code>warn</code>
+is zero (the default) warnings are stored until the top&ndash;level
+function returns.  If fewer than 10 warnings were signalled they
+will be printed otherwise a message saying how many (max 50) were
+signalled.  An object called <code>last.warning</code> is
+created and can be printed through the function
+<code>warnings</code>.  If <code>warn</code> is one, warnings are
+printed as they occur.  If <code>warn</code> is two or larger all
+warnings are turned into errors.
+</p>
+\item<p><code>warning.expression</code>:an <span class="rlang"><b>R</b></span> code expression to be called
+if a warning is generated, replacing the standard message.  If
+non-null it is called irrespective of the value of option
+<code>warn</code>.
+</p>
+\item<p><code>warnings.length</code>:sets the truncation limit for error
+and warning messages.  A non-negative integer, with allowed values
+100...8170, default 1000.
+</p>
+\item<p><code>width</code>:controls the maximum number of columns on a
+line used in printing vectors, matrices and arrays, and when
+filling by <code>cat</code>.
+</p>
+<p>Columns are normally the same as characters except in CJK languages.
+</p>
+<p>You may want to change this if you re-size the window that <span class="rlang"><b>R</b></span> is
+running in.  Valid values are 10...10000 with default normally
+80.  (The limits on valid values are in file &lsquo;<span class="file">Print.h</span>&rsquo; and can be
+changed by re-compiling <span class="rlang"><b>R</b></span>.)  Some <span class="rlang"><b>R</b></span> consoles automatically change
+the value when they are resized.
+
+</p>
+
+
+<h3>Options set in package grDevices</h3>
+
+<p>These will be set when package <span class="pkg">grDevices</span> (or its name space)
+is loaded if not already set.
+</p>
+
+<dl>
+<dt><code>device</code>:</dt><dd><p>a character string giving
+the name of a function, or the function object itself,
+which when called creates a new graphics device of the default
+type for that session.  The value of this option defaults to the
+normal screen device (e.g., <code>x11</code>, <code>windows</code> or
+<code>quartz</code>) for an interactive session, and <code>postscript</code>
+in batch use or if a screen is not available.</p>
+</dd>
+<dt><code>locatorBell</code>:</dt><dd><p>logical.  Should selection in <code>locator</code>
+and <code>identify</code> be confirmed by a bell?  Default <code>TRUE</code>.
+Honoured at least on <code>X11</code> and <code>windows</code> devices.</p>
+</dd>
+<dt><code>par.ask.default</code>:</dt><dd><p>logical.  The default for
+<code>par("ask")</code> when a device is opened.</p>
+</dd>
+<dt><code>X11colortype</code>:</dt><dd><p>The default colour type for
+<code>X11</code> devices.  Default <code>"true"</code>.</p>
+</dd>
+<dt><code>X11fonts</code>:</dt><dd><p>character vector of length 2.
+See <code>X11</code>.</p>
+</dd>
+<dt><code>gamma</code>:</dt><dd><p>double.  The default value of
+<code>gamma</code> for <code>X11</code> devices, defaulting to 1
+if unset (the default).</p>
+</dd>
+</dl>
+
+
+
+<h3>Options set in package stats</h3>
+
+<p>These will be set when package <span class="pkg">stats</span> (or its name space)
+is loaded if not already set.
+</p>
+
+<dl>
+<dt><code>contrasts</code>:</dt><dd><p>the default <code>contrasts</code> used in
+model fitting such as with <code>aov</code> or <code>lm</code>.
+A character vector of length two, the first giving the function to
+be used with unordered factors and the second the function to be
+used with ordered factors.  By default the elements are named
+<code>c("unordered", "ordered")</code>, but the names are unused.</p>
+</dd>
+<dt><code>na.action</code>:</dt><dd><p>the name of a function for treating missing
+values (<code>NA</code>'s) for certain situations.</p>
+</dd>
+<dt><code>show.coef.Pvalues</code>:</dt><dd><p>logical, affecting whether P
+values are printed in summary tables of coefficients.  See
+<code>printCoefmat</code>.</p>
+</dd>
+<dt><code>show.signif.stars</code>:</dt><dd><p>logical, should stars be printed on
+summary tables of coefficients?  See <code>printCoefmat</code>.</p>
+</dd>
+<dt><code>ts.eps</code>:</dt><dd><p>the relative tolerance for certain time series
+(<code>ts</code>) computations.  Default <code>1e-05</code>.</p>
+</dd>
+<dt><code>ts.S.compat</code>:</dt><dd><p>logical.  Used to select S compatibility
+for plotting time-series spectra.  See the description of argument
+<code>log</code> in <code>plot.spec</code>.</p>
+</dd>
+</dl>
+
+
+
+<h3>Options set in package utils</h3>
+
+<p>These will be set when package <span class="pkg">utils</span> (or its name space)
+is loaded if not already set.
+</p>
+
+<dl>
+<dt><code>browser</code>:</dt><dd><p>default HTML browser used by
+<code>help.start()</code> on UNIX, or a non-default browser on
+Windows.</p>
+</dd>
+<dt><code>de.cellwidth</code>:</dt><dd><p>integer: the cell widths (number of
+characters) to be used in the data editor <code>dataentry</code>.
+If this is unset (the default), 0, negative or <code>NA</code>, variable
+cell widths are used.</p>
+</dd>
+<dt><code>editor</code>:</dt><dd><p>a non-empty string.
+Sets the default text editor, e.g., for
+<code>edit</code>.  Set from the environment variable
+<code>VISUAL</code> on UNIX.</p>
+</dd>
+<dt><code>example.ask</code>:</dt><dd><p>default for the <code>ask</code> argument of
+<code>example</code>.</p>
+</dd>
+<dt><code>help.try.all.packages</code>:</dt><dd><p>default for an argument of
+<code>help</code>.</p>
+</dd>
+<dt><code>HTTPUserAgent</code>:</dt><dd><p>string used as the user agent in HTTP
+requests.  If <code>NULL</code>, HTTP requests will be made without a
+user agent header.  The default is <code>R (&lt;version&gt; &lt;platform&gt;
+      &lt;arch&gt; &lt;os&gt;)</code></p>
+</dd>
+<dt><code>internet.info</code>:</dt><dd><p>The minimum level of information to be
+printed on URL downloads etc.  Default is 2, for failure causes.
+Set to 1 or 0 to get more information.</p>
+</dd>
+<dt><code>menu.graphics</code>:</dt><dd><p>Logical: should graphical menus be
+used if available?.  Defaults to <code>TRUE</code>.  Currently applies
+to <code>chooseCRANmirror</code>, <code>setRepositories</code>
+and to select from multiple help files in <code>help</code>.</p>
+</dd>
+<dt><code>pkgType</code>:</dt><dd><p>The default type of packages to be downloaded
+and installed &ndash; see <code>install.packages</code>.
+</p>
+</dd>
+</dl>
+<p>Possible values are <code>"source"</code> (the default except under the
+CRAN Mac OS X build) and <code>"mac.binary"</code>.
+</p>
+\item<p><code>repos</code>:URLs of the repositories for use by
+<code>update.packages</code>.  Defaults to
+<code>c(CRAN="@CRAN@")</code>, a value that causes some utilities to
+prompt for a CRAN mirror.  To avoid this do set the CRAN mirror,
+by something like
+<code>local({r &lt;- getOption("repos"); r["CRAN"] &lt;- "http://my.local.cran";
+                   options(repos=r)})</code>.
+</p>
+<p>Note that you can add more repositories (Bioconductor and
+Omegahat, notably) using <code>setRepositories()</code>.
+
+\item<code>SweaveHooks</code>, <code>SweaveSyntax</code>:see <code>Sweave</code>.
+</p>
+\item<p><code>unzip</code>:a character string, the path of the command
+used for unzipping help files, or <code>"internal"</code>.
+Defaults to the value of <span class="env">R\_UNZIPCMD</span>, which is set in
+&lsquo;<span class="file">etc/Renviron</span>&rsquo; if an <code>unzip</code> command was found during
+configuration.
+</p>
+
+
+<h3>Options used on Unix only</h3>
+
+
+<dl>
+<dt><code>latexcmd, dvipscmd</code>:</dt><dd><p>character strings giving commands
+to be used in off-line printing of help pages.</p>
+</dd>
+<dt><code>pdfviewer</code>:</dt><dd><p>default PDF viewer.  Set from the
+environment variable <span class="env">R\_PDFVIEWER</span>.</p>
+</dd>
+</dl>
+
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>options() # printing all current options
+op &lt;- options(); str(op) # nicer printing
+
+getOption("width") == options()$width # the latter needs more memory
+options(digits = 15)
+pi
+
+# set the editor, and save previous value
+old.o &lt;- options(editor = "nedit")
+old.o
+
+options(check.bounds = TRUE, warn = 1)
+x &lt;- NULL; x[4] &lt;- "yes" # gives a warning
+
+options(digits=5)
+print(1e5)
+options(scipen=3); print(1e5)
+
+options(op)     # reset (all) initial options
+options("digits")
+
+## Not run: ## set contrast handling to be like S
+options(contrasts = c("contr.helmert", "contr.poly"))
+
+## End(Not run)
+
+## Not run: ## on error, terminate the R session with error status 66
+options(error = quote(q("no", status=66, runLast=FALSE)))
+stop("test it")
+
+## End(Not run)
+
+## Not run: ## Set error actions for debugging:
+## enter browser on error, see ?recover:
+options(error = recover)
+## allows to call debugger() afterwards, see ?debugger:
+options(error = dump.frames)
+## A possible setting for non-interactive sessions
+options(error = quote({dump.frames(to.file=TRUE); q()}))
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.5.1 ]</div>
+</div>
+</body></html>

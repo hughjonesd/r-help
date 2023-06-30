@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head><title>R: Is an Object &quot;internally classed&quot;?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.99. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/is.object.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/is.object.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>is.object {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='is.object'>Is an Object &ldquo;internally classed&rdquo;?</h2>
+
+<h3>Description</h3>
+
+<p>A function rather for internal use.  It returns <code>TRUE</code> if the
+object <code>x</code> has the <span class="rlang"><b>R</b></span> internal <code>OBJECT</code> attribute set, and
+<code>FALSE</code> otherwise.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>is.object(x)
+</code></pre>
+
+
+<h3>See Also</h3>
+
+<p><code>class</code>, and <code>methods</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>is.object(1) # FALSE
+is.object(as.factor(1:3)) # TRUE
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.99 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html><html><head><title>R: Internal and Group Methods and Generic Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/zMethods.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/zMethods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Methods {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Methods'>Internal and Group Methods and Generic Functions</h2>
+
+<h3>Description</h3>
+
+<p>Many <span class="rlang"><b>R</b></span>-internal functions  are <em>generic</em> and  allow
+methods to be written for.  <em>Group</em> methods in particular are
+available for the <code>"Math"</code>,  <code>"Ops"</code>, and
+<code>"Summary"</code> group.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Math.data.frame(x, ...)
+Math.factor(x, ...)
+
+Ops.data.frame(e1, e2 = NULL)
+Ops.factor(e1, e2)
+Ops.ordered(e1, e2)
+
+Summary.data.frame(x, ...)
+Summary.factor(x, ...)
+
+.Method
+.Generic
+.Group
+.Class
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Methods_:_x">x</code>, <code id="Methods_:_e1">e1</code>, <code id="Methods_:_e2">e2</code></td>
+<td>
+<p>objects.</p>
+</td></tr>
+<tr><td><code id="Methods_:_...">...</code></td>
+<td>
+<p>further arguments passed to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Group Dispatching</h3>
+
+
+<p>There are three <em>groups</em> for which methods can be written, namely
+the <code>"Math"</code>, <code>"Ops"</code> and <code>"Summary"</code> groups.
+</p>
+<p>A function <em><code>f</code></em> belonging to one of these groups must be
+<code>.Internal</code> or <code>.Primitive</code> and will
+automatically be using <em><code>&lt;grp&gt;.&lt;class&gt; (ob)</code></em> when
+<em><code>f(&lt;ob&gt;)</code></em> is called, <em><code>f</code></em> belongs to group
+<em><code>&lt;grp&gt;</code></em> and <em><code>&lt;ob&gt;</code></em> is of <code>class</code>
+<em><code>&lt;class&gt;</code></em>.
+</p>
+
+<ol>
+<li><p> Group <code>"Math"</code>:
+</p>
+
+<ul>
+<li> <p><code>abs</code>, <code>sign</code>, <code>sqrt</code>, <br />
+<code>floor</code>, <code>ceiling</code>, <code>trunc</code>,<br />
+<code>round</code>, <code>signif</code>
+</p>
+</li>
+<li> <p><code>exp</code>, <code>log</code>, <br />
+<code>cos</code>, <code>sin</code>, <code>tan</code>,<br />
+<code>acos</code>, <code>asin</code>, <code>atan</code>
+</p>
+<p><code>cosh</code>, <code>sinh</code>, <code>tanh</code>,<br />
+<code>acosh</code>, <code>asinh</code>, <code>atanh</code>
+</p>
+</li>
+<li> <p><code>lgamma</code>, <code>gamma</code>, <code>gammaCody</code>,<br />
+<code>digamma</code>, <code>trigamma</code>, <code>tetragamma</code>,
+<code>pentagamma</code>
+
+
+
+
+
+
+
+
+</p>
+</li>
+<li> <p><code>cumsum</code>, <code>cumprod</code>, <code>cummax</code>, <code>cummin</code>
+
+</p>
+</li></ul>
+
+</li>
+<li><p> Group <code>"Ops"</code>:
+</p>
+
+<ul>
+<li> <p><code>"+"</code>, <code>"-"</code>, <code>"*"</code>, <code>"/"</code>,
+<code>"^"</code>, <code>"%%"</code>, <code>"%/%"</code>
+
+</p>
+</li>
+<li> <p><code>"&amp;"</code>, <code>"|"</code>, <code>"!"</code>
+
+</p>
+</li>
+<li> <p><code>"=="</code>, <code>"!="</code>, 
+<code>"&lt;"</code>, <code>"&lt;="</code>, <code>"&gt;="</code>, <code>"&gt;"</code>
+
+</p>
+</li></ul>
+
+</li>
+<li><p> Group <code>"Summary"</code>:
+</p>
+
+<ul>
+<li> <p><code>all</code>, <code>any</code>
+
+</p>
+</li>
+<li> <p><code>sum</code>, <code>prod</code>
+
+</p>
+</li>
+<li> <p><code>min</code>, <code>max</code>
+
+</p>
+</li>
+<li> <p><code>range</code>
+</p>
+</li></ul>
+
+</li></ol>
+
+
+
+<h3>Simple Dispatching</h3>
+
+
+
+<p>The following builtin functions are <em>generic</em> as well, i.e., you
+can write <code>methods</code> for them:
+</p>
+<p><code>[</code>,            
+<code>[[</code>            
+</p>
+<p><code>dimnames&lt;-</code>,   
+<code>dimnames</code>,     
+<code>dim&lt;-</code>,        
+<code>dim</code>           
+</p>
+<p><code>c</code>, 
+<code>unlist</code>, 
+<code>as.vector</code>, 
+<code>is.na</code>, 
+<code>is.nan</code>
+</p>
+
+
+<h3>References</h3>
+
+<p>Appendix A, <em>Classes and Methods</em> of<br />
+Chambers, J. M.  and Hastie, T. J. eds (1992)
+<em>Statistical Models in S.</em>
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>methods</code> for methods of non-Internal generic functions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>methods("Math")
+methods("Ops")
+methods("Summary")
+
+d.fr &lt;- data.frame(x=1:9, y=rnorm(9))
+data.class(1 + d.fr) == "data.frame" ##-- add to d.f. ...
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html><html><head><title>R: Defunct Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Defunct.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Defunct.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Defunct {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Defunct'>Defunct Functions</h2>
+
+<h3>Description</h3>
+
+<p>The functions or variables listed here are no longer part of <span class="rlang"><b>R</b></span> as
+they are not needed (any more).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.Defunct()
+
+
+Version()
+provide(package)
+
+.Provided
+category(...)
+dnchisq(.)
+pnchisq(.)
+qnchisq(.)
+rnchisq(.)
+print.anova.glm(.)
+print.anova.lm(.)
+print.tabular(.)
+print.plot(.)
+save.plot(.)
+system.test(.)
+
+
+dotplot(...)
+stripplot(...)
+getenv(...)
+
+
+read.table.url(url, method,...)
+scan.url(url, file = tempfile(), method, ...)
+source.url(url, file = tempfile(), method, ...)
+httpclient(url, port=80, error.is.fatal=TRUE, check.MIME.type=TRUE,
+           file=tempfile(), drop.ctrl.z=TRUE)
+parse.dcf(text = NULL, file = "", fields = NULL, versionfix = FALSE)
+
+
+.Alias(expr)
+reshapeWide(x, i = reshape.i, j = reshape.j, val = reshape.v,
+            jnames = levels(j))
+reshapeLong(x,jvars,  ilev = row.names(x),
+            jlev = names(x)[jvars], iname = "reshape.i",
+            jname = "reshape.j", vname = "reshape.v")
+
+
+piechart(x, labels = names(x), edges = 200, radius = 0.8,
+         density = NULL, angle = 45, col = NULL, main = NULL, ...)
+print.ordered(.)
+.Dyn.libs
+.lib.loc
+
+
+machine()
+Machine()
+Platform()
+restart()
+
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p><code>.Defunct</code> is the function to which defunct functions are set.
+</p>
+<p><code>category</code> has been an old-S function before there were factors;
+should be replaced by <code>factor</code> throughout!
+</p>
+<p>The <code>*chisq()</code> functions now take an optional non-centrality
+argument, so the <code>*nchisq()</code> functions are no longer needed.
+</p>
+<p>The new function <code>dev.print()</code> should now be used for saving
+plots to a file or printing them.
+</p>
+<p><code>provide</code> and its object <code>.Provided</code> have been removed.
+They were never used for their intended purpose, to allow one
+package to subsume another.
+</p>
+<p><code>dotplot</code> and <code>stripplot</code> have been renamed to
+<code>dotchart</code> and <code>stripchart</code>, respectively.
+</p>
+<p><code>getenv</code> has been replaced by <code>Sys.getenv</code>.
+</p>
+<p><code>*.url</code> are replaced by calling <code>read.table</code>, <code>scan</code> or
+<code>source</code> on a <code>url</code> connection.
+</p>
+<p><code>httpclient</code> was used by the deprecated <code>"socket"</code> method
+of <code>download.file</code>.
+</p>
+<p><code>parse.dcf</code> has been replaced by <code>read.dcf</code>, which is much
+faster, but has a slightly different interface.
+</p>
+<p><code>.Alias</code> provided an unreliable way to create duplicate
+references to the same object. There is no direct replacement. Where
+multiple references to a single object are required for semantic
+reasons consider using environments or external pointers. There are
+some notes on <a href="http://developer.r-project.org">http://developer.r-project.org</a>.
+</p>
+<p><code>reshape*</code>, which were experimental, are replaced by
+<code>reshape</code>. This has a different syntax and allows multiple
+time-varying variables.
+</p>
+<p><code>piechart</code> is the old name for <code>pie</code>, but clashed with usage
+in Trellis.
+</p>
+<p><code>.Dyn.libs</code> and <code>.lib.loc</code> were internal variables used for
+storing and manipulating the information about packages with dynloaded
+shared libs, and the known <span class="rlang"><b>R</b></span> library trees.  These are now dynamic
+variables which one can get or set using <code>.dynLibs</code> and
+<code>.libPaths</code>, respectively.
+</p>
+<p><code>Machine()</code> and <code>Platform()</code> were functions returning the
+variables <code>.Machine</code> and <code>.Platform</code>
+respectively.
+</p>
+<p><code>restart()</code> should be replaced by <code>try()</code>, in preparation
+for an exception-based implementation.  If you use <code>restart()</code> in
+a way that cannot be replaced with <code>try()</code> then ask for help
+on <code>r-devel</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Deprecated</code></p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.7.0 ]</div>
+</div>
+</body></html>

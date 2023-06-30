@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>R: Produce Prototype of an R Documentation File</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.99. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/prompt.data.frame.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/prompt.data.frame.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>prompt.data.frame {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='prompt.data.frame'>Produce Prototype of an R Documentation File</h2>
+
+<h3>Description</h3>
+
+<p>Facilitate the constructing of files documenting <span class="rlang"><b>R</b></span> data frames.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>prompt.data.frame(object, filename = paste(name, ".Rd", sep = ""))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="prompt.data.frame_:_object">object</code></td>
+<td>
+<p>a data frame</p>
+</td></tr>
+<tr><td><code id="prompt.data.frame_:_filename">filename</code></td>
+<td>
+<p>name of the output file</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<p>An ASCII file <code>filename</code> is produced containing the data frame
+name and the names of the variables in the frame.  You have to edit it
+before adding the documentation to the source tree, i.e., (currently)
+to &lsquo;<span class="file">\$R\_HOME/src/library/base/man/</span>&rsquo;.
+
+Douglas Bates <a href="mailto:bates@stat.wisc.edu">bates@stat.wisc.edu</a>
+
+<code>prompt</code>.
+</p>
+<p><code>help</code> and the chapter on &ldquo;Writing <span class="rlang"><b>R</b></span> documentation&rdquo; in
+&ldquo;Writing <span class="rlang"><b>R</b></span> Extensions&rdquo; (see the &lsquo;<span class="file">doc/manual</span>&rsquo;
+subdirectory of the <span class="rlang"><b>R</b></span> source tree).
+
+
+The documentation file produced by <code>prompt.data.frame</code> does not
+have the same format as many of the data frame documentation files in
+the <code>base</code> library.  We are trying to settle on a preferred
+format for the documentation.
+
+
+data(women)
+prompt(women)
+
+documentation
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.99 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html><html><head><title>R: Not Yet Implemented Functions and Unused Arguments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/notyet.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/notyet.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>NotYet {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='NotYet'>Not Yet Implemented Functions and Unused Arguments</h2>
+
+<h3>Description</h3>
+
+<p>In order to pinpoint missing functionality, the <span class="rlang"><b>R</b></span> core team uses
+these functions for missing <span class="rlang"><b>R</b></span> functions and not yet used arguments of
+existing <span class="rlang"><b>R</b></span> functions (which are typically there for compatibility
+purposes).
+</p>
+<p>You are very welcome to contribute your code ...
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.NotYetImplemented()
+.NotYetUsed(arg, error = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="NotYet_:_arg">arg</code></td>
+<td>
+<p>an argument of a function that is not yet used.</p>
+</td></tr>
+<tr><td><code id="NotYet_:_error">error</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, an error is signalled; if
+<code>FALSE</code>; only a warning is given.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p>the contrary, <code>Deprecated</code> and
+<code>Defunct</code> for outdated code.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+barplot(1:5, inside = TRUE) # 'inside' is not yet used
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.5.1 ]</div>
+</div>
+</body></html>

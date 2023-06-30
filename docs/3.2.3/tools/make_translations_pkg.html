@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>R: Package the Current Translations in the R sources</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/make_translations_pkg.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/make_translations_pkg.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>make_translations_pkg {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='make_translations_pkg'>
+Package the Current Translations in the <span class="rlang"><b>R</b></span> sources
+</h2>
+
+<h3>Description</h3>
+
+<p>A utility for R Core members to prepare a package of updated translations.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>make_translations_pkg(srcdir, outDir = ".", append = "-1")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="make_translations_pkg_:_srcdir">srcdir</code></td>
+<td>
+<p>The <span class="rlang"><b>R</b></span> source directory.</p>
+</td></tr>
+<tr><td><code id="make_translations_pkg_:_outDir">outDir</code></td>
+<td>
+<p>The directory into which to place the prepared package.</p>
+</td></tr>
+<tr><td><code id="make_translations_pkg_:_append">append</code></td>
+<td>
+<p>The suffix for the package version number,
+e.g. <code>3.0.0-1</code> will be the default in <span class="rlang"><b>R</b></span> 3.0.0.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This extracts the translations in a current <span class="rlang"><b>R</b></span> source distribution and
+packages them as a source package called <span class="pkg">translations</span> which can
+be distributed on CRAN and installed by
+<code>update.packages</code>.  This allows e.g. the translations
+shipped in <span class="rlang"><b>R</b></span> 3.x.y to be updated to those currently in
+&lsquo;<span class="samp">&#8288;R-patched&#8288;</span>&rsquo;, even by a user without administrative privileges.
+</p>
+<p>The package has a &lsquo;<span class="samp">&#8288;Depends&#8288;</span>&rsquo; field which restricts it to versions
+<code>3.x.*</code> for a single <code>x</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 3.2.3 ]</div>
+</div>
+</body></html>

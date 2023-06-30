@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><title>R: Extract Substrings from a Character Vector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/substr.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/substr.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>substr {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='substr'>Extract Substrings from a Character Vector</h2>
+
+<h3>Description</h3>
+
+<p>Extract substrings from a character vector returning a
+vector whose elements contain the substring starting with the
+character at position <code>start</code> up to the character at position
+<code>stop</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>substr(x, start, stop)
+substring(text, first, last = 1000000)
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>If <code>start</code> is larger than the string length then
+<code>NA</code> is returned.
+If <code>stop</code> is longer than <code>start</code> an error is signalled.
+</p>
+<p><code>substring</code> is compatible with S, with <code>first</code> and
+<code>last</code> instead of <code>start</code> and <code>stop</code>.
+For vector arguments, it expands the arguments cyclically.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>strsplit</code>, <code>paste</code>, <code>nchar</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>substr("abcdef",2,4)
+print(ss &lt;- substring("abcdef",1:6,1:6))
+stopifnot(ss == strsplit ("abcdef",NULL)[[1]])# strsplit is more efficient..
+
+substr(rep("abcdef",4),1:4,4:5)
+x &lt;- c("asfef", "qwerty", "yuiop[", "b", "stuff.blah.yech")
+stopifnot(substr(x, 2, 5) == substring(x, 2, 5))
+substr(x, 2, 5)
+substring(x, 2, 4:6)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1 ]</div>
+</div>
+</body></html>

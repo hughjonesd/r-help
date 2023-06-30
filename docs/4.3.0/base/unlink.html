@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Delete Files and Directories</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/unlink.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/unlink.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>unlink {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='unlink'>Delete Files and Directories</h2>
+
+<h3>Description</h3>
+
+<p><code>unlink</code> deletes the file(s) or directories specified by <code>x</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>unlink(x, recursive = FALSE, force = FALSE, expand = TRUE)</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="unlink_:_x">x</code></td>
+<td>
+<p>a character vector with the names of the file(s) or
+directories to be deleted.</p>
+</td></tr>
+<tr><td><code id="unlink_:_recursive">recursive</code></td>
+<td>
+<p>logical.  Should directories be deleted recursively?</p>
+</td></tr>
+<tr><td><code id="unlink_:_force">force</code></td>
+<td>
+<p>logical.  Should permissions be changed (if possible) to
+allow the file or directory to be removed?</p>
+</td></tr>
+<tr><td><code id="unlink_:_expand">expand</code></td>
+<td>
+<p>logical. Should wildcards (see &lsquo;Details&rsquo; below) and
+tilde (see <code>path.expand</code>) be expanded?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>recursive = FALSE</code> directories are not deleted,
+not even empty ones.
+</p>
+<p>On most platforms &lsquo;file&rsquo; includes symbolic links, fifos and
+sockets.  <code>unlink(x, recursive = TRUE)</code>
+deletes just the symbolic link if the target of such a link is a directory.
+</p>
+<p>Wildcard expansion (normally &lsquo;<span class="file">*</span>&rsquo; and &lsquo;<span class="file">?</span>&rsquo; are allowed) is done by
+the internal code of <code>Sys.glob</code>.  Wildcards never match a
+leading &lsquo;<span class="file">.</span>&rsquo; in the filename, and files &lsquo;<span class="file">.</span>&rsquo;, &lsquo;<span class="file">..</span>&rsquo; and
+&lsquo;<span class="file">~</span>&rsquo; will never be considered for deletion.
+Wildcards will only be expanded if the system supports it.  Most
+systems will support not only &lsquo;<span class="file">*</span>&rsquo; and &lsquo;<span class="file">?</span>&rsquo; but also character
+classes such as &lsquo;<span class="file">[a-z]</span>&rsquo; (see the <code>man</code> pages for the system
+call <code>glob</code> on your OS).  The metacharacters <code>* ? [</code> can
+occur in Unix filenames, and this makes it difficult to use
+<code>unlink</code> to delete such files (see <code>file.remove</code>),
+although escaping the metacharacters by backslashes usually works.  If
+a metacharacter matches nothing it is considered as a literal
+character.
+</p>
+<p><code>recursive = TRUE</code> might not be supported on all platforms, when it
+will be ignored, with a warning: however there are no known current
+examples.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>0</code> for success, <code>1</code> for failure, invisibly.
+Not deleting a non-existent file is not a failure, nor is being unable
+to delete a directory if <code>recursive = FALSE</code>.  However, missing
+values in <code>x</code> are regarded as failures.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>file.remove</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.3.0 ]</div>
+</div>
+</body></html>

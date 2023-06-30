@@ -1,0 +1,252 @@
+<!DOCTYPE html><html><head><title>R: Date-time Conversion Functions to and from Character</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/strptime.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/strptime.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>strptime {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='strptime'>Date-time Conversion Functions to and from Character</h2>
+
+<h3>Description</h3>
+
+<p>Functions to convert between character representations and objects of
+classes <code>"POSIXlt"</code> and <code>"POSIXct"</code> representing calendar
+dates and times.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>format.POSIXct(x, format = "", tz = "", usetz = FALSE, ...)
+format.POSIXlt(x, format = "", usetz = FALSE, ...)
+
+## S3 method for class 'POSIXt'
+as.character(x, ...)
+
+strftime(x, format="%Y-%m-%d %X", usetz = FALSE, ...)
+strptime(x, format)
+
+ISOdatetime(year, month, day, hour, min, sec, tz = "")
+ISOdate(year, month, day, hour = 12, min = 0, sec = 0, tz = "GMT")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="strptime_:_x">x</code></td>
+<td>
+<p>An object to be converted.</p>
+</td></tr>
+<tr><td><code id="strptime_:_tz">tz</code></td>
+<td>
+<p>A timezone specification to be used for the conversion.
+System-specific, but <code>""</code> is the current time zone, and
+<code>"GMT"</code> is UTC.</p>
+</td></tr>
+<tr><td><code id="strptime_:_format">format</code></td>
+<td>
+<p>A character vector. The default is
+<code>"%Y-%m-%d %H:%M:%S"</code> if any component has a time
+component which is not midnight, and <code>"%Y-%m-%d"</code>
+otherwise.</p>
+</td></tr>
+<tr><td><code id="strptime_:_...">...</code></td>
+<td>
+<p>Further arguments to be passed from or to other methods.</p>
+</td></tr>
+<tr><td><code id="strptime_:_usetz">usetz</code></td>
+<td>
+<p>logical.  Should the timezone be appended to the output?
+This is used in printing time, and as a workaround for problems with
+using <code>"%Z"</code> on most Linux systems.</p>
+</td></tr>
+<tr><td><code id="strptime_:_year">year</code>, <code id="strptime_:_month">month</code>, <code id="strptime_:_day">day</code></td>
+<td>
+<p>numerical values to specify a day.</p>
+</td></tr>
+<tr><td><code id="strptime_:_hour">hour</code>, <code id="strptime_:_min">min</code>, <code id="strptime_:_sec">sec</code></td>
+<td>
+<p>numerical values for a time within a day.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>strftime</code> is an alias for <code>format.POSIXlt</code>, and
+<code>format.POSIXct</code> first converts to class <code>"POSIXct"</code> by
+calling <code>as.POSIXct</code>. Note that only that conversion
+depends on the time zone.
+</p>
+<p>The usual vector re-cycling rules are applied to <code>x</code> and
+<code>format</code> so the answer will be of length that of the longer of the
+vectors.
+</p>
+<p>Locale-specific conversions to and from character strings are used
+where appropriate and available.  This affects the names of the days
+and months, the AM/PM indicator (if used) and the separators in
+formats such as <code>%x</code> and <code>%X</code>.
+</p>
+<p>The details of the formats are system-specific, but the following are
+defined by the POSIX standard for <code>strftime</code> and are likely to be
+widely available.  Any character in the format string other than
+the <code>%</code> escapes is interpreted literally (and <code>%%</code> gives
+<code>%</code>).
+</p>
+
+<dl>
+<dt><code>%a</code></dt><dd><p>Abbreviated weekday name.</p>
+</dd>
+<dt><code>%A</code></dt><dd><p>Full weekday name.</p>
+</dd>
+<dt><code>%b</code></dt><dd><p>Abbreviated month name.</p>
+</dd>
+<dt><code>%B</code></dt><dd><p>Full month name.</p>
+</dd>
+<dt><code>%c</code></dt><dd><p>Date and time, locale-specific.</p>
+</dd>
+<dt><code>%d</code></dt><dd><p>Day of the month as decimal number (01&ndash;31).</p>
+</dd>
+<dt><code>%H</code></dt><dd><p>Hours as decimal number (00&ndash;23).</p>
+</dd>
+<dt><code>%I</code></dt><dd><p>Hours as decimal number (01&ndash;12).</p>
+</dd>
+<dt><code>%j</code></dt><dd><p>Day of year as decimal number (001&ndash;366).</p>
+</dd>
+<dt><code>%m</code></dt><dd><p>Month as decimal number (01&ndash;12).</p>
+</dd>
+<dt><code>%M</code></dt><dd><p>Minute as decimal number (00&ndash;59).</p>
+</dd>
+<dt><code>%p</code></dt><dd><p>AM/PM indicator in the locale.  Used in
+conjuction with <code>%I</code> and <b>not</b> with <code>%H</code>.</p>
+</dd>
+<dt><code>%S</code></dt><dd><p>Second as decimal number (00&ndash;61), allowing for
+up to two leap-seconds.</p>
+</dd>
+<dt><code>%U</code></dt><dd><p>Week of the year as decimal number (00&ndash;53) using
+the first Sunday as day 1 of week 1.</p>
+</dd>
+<dt><code>%w</code></dt><dd><p>Weekday as decimal number (0&ndash;6, Sunday is 0).</p>
+</dd>
+<dt><code>%W</code></dt><dd><p>Week of the year as decimal number (00&ndash;53) using
+the first Monday as day 1 of week 1.</p>
+</dd>
+<dt><code>%x</code></dt><dd><p>Date, locale-specific.</p>
+</dd>
+<dt><code>%X</code></dt><dd><p>Time, locale-specific.</p>
+</dd>
+<dt><code>%y</code></dt><dd><p>Year without century (00&ndash;99). If you use this on
+input, which century you get is system-specific.  So don't!  Often
+values up to 69 are prefixed by 20 and 70&ndash;99 by 19.</p>
+</dd>
+<dt><code>%Y</code></dt><dd><p>Year with century.</p>
+</dd>
+<dt><code>%Z</code></dt><dd><p>(output only.) Time zone as a character
+string (empty if not available).  Note: do not use this on Linux
+unless the <code>TZ</code> environment variable is set.</p>
+</dd>
+</dl>
+
+<p>Where leading zeros are shown they will be used on output but are
+optional on input.
+</p>
+<p><code>ISOdatetime</code> and <code>ISOdate</code> are convenience wrappers for
+<code>strptime</code>, that differ only in their defaults.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The <code>format</code> methods and <code>strftime</code> return character vectors
+representing the time.
+</p>
+<p><code>strptime</code> turns character representations into an object of
+class <code>"POSIXlt"</code>.
+</p>
+<p><code>ISOdatetime</code> and <code>ISOdate</code> return an object of class
+<code>"POSIXct"</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The default formats follow the rules of the ISO 8601 international
+standard which expresses a day as <code>"2001-02-03"</code> and a time as
+<code>"14:01:02"</code> using leading zeroes as here.  The ISO form uses no
+space to separate dates and times.
+</p>
+<p>If the date string does not specify the date completely, the returned
+answer may be system-specific.  The most common behaviour is to assume
+that unspecified seconds, minutes or hours are zero, and a missing
+year, month or day is the current one.
+</p>
+<p>If the timezone specified is invalid on your system, what happens is
+system-specific but it will probably be ignored.
+</p>
+<p>OS facilities will probably not print years before 1CE (aka 1AD)
+correctly.
+</p>
+
+
+<h3>References</h3>
+
+<p>International Organization for Standardization (1988, 1997, ...)
+<em>ISO 8601. Data elements and interchange formats &ndash;
+Information interchange &ndash; Representation of dates and times.</em>
+The 1997 version is available on-line at
+<a href="ftp://ftp.qsl.net/pub/g1smd/8601v03.pdf">ftp://ftp.qsl.net/pub/g1smd/8601v03.pdf</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>DateTimeClasses for details of the date-time classes;
+<code>locales</code> to query or set a locale.
+</p>
+<p>Your system's help pages on <code>strftime</code> and <code>strptime</code> to
+see how to specify their formats.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## locale-specific version of date()
+format(Sys.time(), "%a %b %d %X %Y")
+## we would include the timezone as in
+## format(Sys.time(), "%a %b %d %X %Y %Z")
+## but this crashes some Linux systems
+
+## read in date info in format `ddmmmyyyy'
+## This will give NA(s) in some locales; setting the C locale
+## as in the commented lines will overcome this on most systems.
+## lct &lt;- Sys.getlocale("LC_TIME"); Sys.setlocale("LC_TIME", "C")
+x &lt;- c("1jan1960", "2jan1960", "31mar1960", "30jul1960")
+z &lt;- strptime(x, "%d%b%Y")
+## Sys.setlocale("LC_TIME", lct)
+z
+
+## read in date/time info in format `m/d/y h:m:s'
+dates &lt;- c("02/27/92", "02/27/92", "01/14/92",
+           "02/28/92", "02/01/92")
+times &lt;- c("23:03:20", "22:29:56", "01:03:30",
+           "18:21:03", "16:56:26")
+x &lt;- paste(dates, times)
+z &lt;- strptime(x, "%m/%d/%y %H:%M:%S")
+z
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4 ]</div>
+</div>
+</body></html>

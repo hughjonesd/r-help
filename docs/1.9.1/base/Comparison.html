@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>R: Relational Operators</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Comparison.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Comparison.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Comparison {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Comparison'>Relational Operators</h2>
+
+<h3>Description</h3>
+
+<p>Binary operators which allow the comparison of values in atomic vectors.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>x &lt; y
+x &gt; y
+x &lt;= y
+x &gt;= y
+x == y
+x != y
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Comparison_:_x">x</code>, <code id="Comparison_:_y">y</code></td>
+<td>
+<p>atomic vectors, or other objects for which methods have
+been written.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The binary comparison operators are generic functions: methods can be
+written for them individually or via the <code>Ops</code>) group generic
+function.
+</p>
+<p>Comparison of strings in character vectors is lexicographic within the
+strings using the collating sequence of the locale in use: see
+<code>locales</code>.  The collating sequence of locales such as
+&lsquo;<span class="samp">&#8288;en\_US&#8288;</span>&rsquo; is normally different from &lsquo;<span class="samp">&#8288;C&#8288;</span>&rsquo; (which should use
+ASCII) and can be surprising.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector of logicals indicating the result of the element by element
+comparison.  The elements of shorter vectors are recycled as
+necessary.
+</p>
+<p>Objects such as arrays or time-series can be compared this way
+provided they are conformable.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Don't use <code>==</code> and <code>!=</code> for tests, such as in <code>if</code>
+expressions, where you must get a single <code>TRUE</code> or
+<code>FALSE</code>.  Unless you are absolutely sure that nothing unusual
+can happen, you should use the <code>identical</code> function
+instead.
+</p>
+<p>For numerical values, remember <code>==</code> and <code>!=</code> do not allow
+for the finite representation of fractions, nor for rounding error.
+Using <code>all.equal</code> with <code>identical</code> is almost
+always preferable.  See the examples.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Syntax</code> for operator precedence.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- rnorm(20)
+x &lt; 1
+x[x &gt; 0]
+
+x1 &lt;- 0.5 - 0.3
+x2 &lt;- 0.3 - 0.1
+x1 == x2                           # FALSE on most machines
+identical(all.equal(x1, x2), TRUE) # TRUE everywhere
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html><html><head><title>R: Pearson's Chi-square Test for Count Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/chisq.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/chisq.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>chisq.test {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='chisq.test'>Pearson's Chi-square Test for Count Data</h2>
+
+<h3>Description</h3>
+
+<p><code>chisq.test</code> performs chi-square tests on contingency tables.
+</p>
+<p>If <code>x</code> is a matrix with one row or column, or if <code>x</code> is a
+vector and <code>y</code> is not given, <code>x</code> is treated as a
+one-dimensional contingency table.  In this case, the hypothesis
+tested is whether the population probabilities equal those in
+<code>p</code>, or are all equal if <code>p</code> is not given.
+</p>
+<p>If <code>x</code> is a matrix with at least two rows and columns, it is
+taken as a two-dimensional contingency table, and hence its entries
+should be nonnegative integers.  Otherwise, <code>x</code> and <code>y</code> must
+be vectors or factors of the same length;  incomplete cases are
+removed, the objects are coerced into factor objects, and the
+contingency table is computed from these.  Then, Pearson's chi-square
+test of the null that the joint distribution of the cell counts in a
+2-dimensional contigency table is the product of the row and column
+marginals is performed.  Continuity correction is only used in the
+2-by-2 case if <code>correct</code> is <code>TRUE</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>chisq.test(x, y = NULL, correct = TRUE,
+           p = rep(1/length(x), length(x)))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="chisq.test_:_x">x</code></td>
+<td>
+<p>a vector or matrix.</p>
+</td></tr>
+<tr><td><code id="chisq.test_:_y">y</code></td>
+<td>
+<p>a vector; ignored if <code>x</code> is a matrix.</p>
+</td></tr>
+<tr><td><code id="chisq.test_:_correct">correct</code></td>
+<td>
+<p>a logical indicating whether to apply continuity
+correction when computing the test statistic.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with class <code>"htest"</code> containing the following components:
+</p>
+<table>
+<tr><td><code>statistic</code></td>
+<td>
+<p>the value the chi-square test statistic.</p>
+</td></tr>
+<tr><td><code>parameter</code></td>
+<td>
+<p>the degrees of freedom of the approximate chi-square
+distribution of the test statistic.</p>
+</td></tr>
+<tr><td><code>p.value</code></td>
+<td>
+<p>the p-value for the test.</p>
+</td></tr>
+<tr><td><code>method</code></td>
+<td>
+<p>a character string indicating the type of test
+performed, and whether continuity correction was used.</p>
+</td></tr>
+<tr><td><code>data.name</code></td>
+<td>
+<p>a character string giving the name(s) of the data.</p>
+</td></tr>
+<tr><td><code>observed</code></td>
+<td>
+<p>the observed counts.</p>
+</td></tr>
+<tr><td><code>expected</code></td>
+<td>
+<p>the expected counts under the null hypothesis.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(insects)                   # Not really a good example
+chisq.test(insects$count &gt; 7, insects$spray)
+                                # Prints test summary
+chisq.test(insects$count &gt; 7, insects$spray)$obs
+                                # Counts observed
+chisq.test(insects$count &gt; 7, insects$spray)$obs
+                                # Counts expected under the null
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.4 ]</div>
+</div>
+</body></html>

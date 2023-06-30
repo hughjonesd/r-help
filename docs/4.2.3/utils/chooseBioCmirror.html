@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><title>R: Select a Bioconductor Mirror</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/chooseBioCmirror.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/chooseBioCmirror.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>chooseBioCmirror {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='chooseBioCmirror'>Select a Bioconductor Mirror</h2>
+
+<h3>Description</h3>
+
+<p>Interact with the user to choose a Bioconductor mirror.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>chooseBioCmirror(graphics = getOption("menu.graphics"), ind = NULL,
+                 local.only = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="chooseBioCmirror_:_graphics">graphics</code></td>
+<td>
+<p>Logical.  If true, use a graphical list: on Windows or
+the macOS GUI use a list box, and on a Unix-alike use a Tk widget if
+package <span class="pkg">tcltk</span> and an X server are available.  Otherwise use a
+text <code>menu</code>.</p>
+</td></tr>
+<tr><td><code id="chooseBioCmirror_:_ind">ind</code></td>
+<td>
+<p>Optional numeric value giving which entry to select.</p>
+</td></tr>
+<tr><td><code id="chooseBioCmirror_:_local.only">local.only</code></td>
+<td>
+<p>Logical, try to get most recent list from the
+Bioconductor master or use file on local disk only.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This sets the option <code>"BioC_mirror"</code>: it is used
+before a call to <code>setRepositories</code>.  The out-of-the-box
+default for that option is <code>NULL</code>, which currently corresponds to
+the mirror <a href="https://bioconductor.org">https://bioconductor.org</a>.
+</p>
+<p>The &lsquo;Bioconductor (World-wide)&rsquo; &lsquo;mirror&rsquo; is a network of
+mirrors providing reliable world-wide access; other mirrors may
+provide faster access on a geographically local scale.
+</p>
+<p><code>ind</code> chooses a row in
+&lsquo;<span class="file"><var>R_HOME</var>/doc/BioC_mirrors.csv</span>&rsquo;,
+by number.
+</p>
+
+
+<h3>Value</h3>
+
+<p>None: this function is invoked for its
+side effect of updating <code>options("BioC_mirror")</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>setRepositories</code>, <code>chooseCRANmirror</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 4.2.3 ]</div>
+</div>
+</body></html>

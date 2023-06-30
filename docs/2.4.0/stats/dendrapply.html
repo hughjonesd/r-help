@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><title>R: Apply a Function to All Nodes of a Dendrogram</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/dendrapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/dendrapply.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dendrapply {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dendrapply'>Apply a Function to All Nodes of a Dendrogram</h2>
+
+<h3>Description</h3>
+
+<p>Apply function <code>FUN</code> to each node of a <code>dendrogram</code>
+recursively.  When  <code>y &lt;- dendrapply(x, fn)</code>, then <code>y</code> is a
+dendrogram of the same graph structure as <code>x</code> and each for each node,
+<code>y.node[j] &lt;- FUN( x.node[j], ...)</code> (where <code>y.node[j]</code> is an
+(invalid!) notation for the j-th node of y.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dendrapply(X, FUN, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dendrapply_:_X">X</code></td>
+<td>
+<p>an object of class <code>"dendrogram"</code>.</p>
+</td></tr>
+<tr><td><code id="dendrapply_:_FUN">FUN</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> function to be applied to each dendrogram node,
+typically working on its <code>attributes</code> alone, returning an
+altered version of the same node.</p>
+</td></tr>
+<tr><td><code id="dendrapply_:_...">...</code></td>
+<td>
+<p>potential further arguments passed to <code>FUN</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Usually a dendrogram of the same (graph) structure as <code>X</code>.
+For that, the function must be conceptually of the form
+<code>FUN &lt;- function(X) { attributes(X) &lt;- .....;  X }</code>,
+i.e. returning the node with some attributes added or changed.
+</p>
+
+
+<h3>Note</h3>
+
+<p>this is still somewhat experimental, and suggestions for
+enhancements (or nice examples of usage) are very welcome.</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Martin Maechler</p>
+
+
+<h3>See Also</h3>
+
+<p><code>as.dendrogram</code>, <code>lapply</code> for applying
+a function to each component of a  <code>list</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## a smallish simple dendrogram
+dhc &lt;- as.dendrogram(hc &lt;- hclust(dist(USArrests), "ave"))
+(dhc21 &lt;- dhc[[2]][[1]])
+
+## too simple:
+dendrapply(dhc21, function(n) str(attributes(n)))
+
+## toy example to set colored leaf labels :
+local({
+  colLab &lt;&lt;- function(n) {
+      if(is.leaf(n)) {
+        a &lt;- attributes(n)
+        i &lt;&lt;- i+1
+        attr(n, "nodePar") &lt;-
+            c(a$nodePar, list(lab.col = mycols[i], lab.font= i%%3))
+      }
+      n
+  }
+  mycols &lt;- grDevices::rainbow(attr(dhc21,"members"))
+  i &lt;- 0
+ })
+dL &lt;- dendrapply(dhc21, colLab)
+op &lt;- par(mfrow=2:1)
+ plot(dhc21)
+ plot(dL) ## --&gt; colored labels!
+par(op)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.4.0 ]</div>
+</div>
+</body></html>

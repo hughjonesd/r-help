@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>R: Case and Variable Names of Fitted Models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/case.names.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/case.names.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>case/variable.names {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='case+2Fvariable.names'>Case and Variable Names of Fitted Models</h2>
+
+<h3>Description</h3>
+
+<p>Simple utilities returning (non-missing) case names, and
+(non-eliminated) variable names.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>case.names(object, ...)
+case.names.lm(object, full = FALSE, ...)
+
+variable.names(object, ...)
+variable.names.lm(object, full = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="case+2Fvariable.names_:_object">object</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object, typically a fitted model.</p>
+</td></tr>
+<tr><td><code id="case+2Fvariable.names_:_full">full</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, all names (including zero weights,
+...) are returned.</p>
+</td></tr>
+<tr><td><code id="case+2Fvariable.names_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A character vector.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>lm</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:20
+y &lt;-  x + (x/4 - 2)^3 + rnorm(20, s=3)
+names(y) &lt;- paste("O",x,sep=".")
+ww &lt;- rep(1,20); ww[13] &lt;- 0
+summary(lmxy &lt;- lm(y ~ x + I(x^2)+I(x^3) + I((x-10)^2),
+                   weights = ww), cor = TRUE)
+variable.names(lmxy)
+variable.names(lmxy, full= TRUE)# includes the last
+case.names(lmxy)
+case.names(lmxy, full = TRUE)# includes the 0-weight case
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.2 ]</div>
+</div>
+</body></html>

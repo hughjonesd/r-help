@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: The Weibull Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Weibull.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Weibull.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Weibull {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Weibull'>The Weibull Distribution</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide information about the Weibull distribution
+with parameters <code>shape</code> and <code>scale</code>.  <code>dweibull</code> gives
+the density, <code>pweibull</code> gives the distribution function,
+<code>qweibull</code> gives the quantile function and <code>rweibull</code>
+generates random deviates.
+</p>
+<p>If <code>scale</code> is omitted it assumes the default value of <code>1</code>.
+</p>
+<p>The Weibull distribution with <code>shape</code> parameter <code class="reqn">a</code> and
+<code>scale</code> parameter <code class="reqn">b</code> has density given by
+</p>
+<p style="text-align: center;"><code class="reqn">
+    f(x) =
+    (a/b) {(x/b)}^{a-1} \exp (-{(x/b)}^{a})</code>
+</p>
+
+<p>for <code class="reqn">x &gt; 0</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dweibull(x, shape, scale = 1)
+pweibull(q, shape, scale = 1)
+qweibull(p, shape, scale = 1)
+rweibull(n, shape, scale = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Weibull_:_x">x</code>, <code id="Weibull_:_q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="Weibull_:_p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="Weibull_:_n">n</code></td>
+<td>
+<p>number of observations to generate.</p>
+</td></tr>
+<tr><td><code id="Weibull_:_shape">shape</code>, <code id="Weibull_:_scale">scale</code></td>
+<td>
+<p>shape and scale parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>dexp</code> for the Exponential which is a special case of a
+Weibull distribution. 
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:10
+dweibull(x, shape = 1) == dexp(x)
+pweibull(x, shape = 1, scale = pi) == pexp(x, rate = 1/pi)
+qweibull(x/11, shape = 1, scale = pi) == qexp(x/11, rate = 1/pi)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>R: Combine Values into a Vector or List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/c.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/c.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>c {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='c'>Combine Values into a Vector or List</h2>
+
+<h3>Description</h3>
+
+<p>This is a generic function which combines its arguments.
+</p>
+<p>The default method combines its arguments to form a vector.
+All arguments are coerced to a common type which is the type
+of the returned value.
+If <code>recursive=TRUE</code>, the function recursively
+descends through lists combining all their elements into
+a vector.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>c(..., recursive=FALSE)
+</code></pre>
+
+
+<h3>See Also</h3>
+
+<p><code>unlist</code> and <code>as.vector</code> to produce
+attribute-free vectors.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>c(1,7:9)
+c(1:5, 10.5, "next")
+
+c(list(A=c(B=1)),recursive=T)
+
+c(options(), recursive=T)
+c(list(A=c(B=1,C=2),B=c(E=7)),recursive=T)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: Draw a Rectangle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rect.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rect.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>rect {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='rect'>Draw a Rectangle</h2>
+
+<h3>Description</h3>
+
+<p><code>rect</code> draws a rectangle (or sequence of rectangles) with the
+given coordinates.  It is a primitive function used in
+<code>hist</code>.  The value supplied, i.e., <code>xleft, ...</code>,
+are relative to the current plotting region. If the x-axis goes from
+100 to 200 then <code>xleft</code> must be larger than 100 and <code>xright</code>
+must be less than 200.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rect(xleft, ybottom, xright, ytop,
+     col=NULL, border=par("fg"), lty=NULL, xpd=FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="rect_:_xleft">xleft</code></td>
+<td>
+<p>a vector (or scalar) of left x positions.</p>
+</td></tr>
+<tr><td><code id="rect_:_ybottom">ybottom</code></td>
+<td>
+<p>a vector (or scalar) of bottom y positions.</p>
+</td></tr>
+<tr><td><code id="rect_:_xright">xright</code></td>
+<td>
+<p>a vector (or scalar) of right x positions.</p>
+</td></tr>
+<tr><td><code id="rect_:_ytop">ytop</code></td>
+<td>
+<p>a vector (or scalar) of top y positions.</p>
+</td></tr>
+<tr><td><code id="rect_:_col">col</code></td>
+<td>
+<p>color(s) to fill the rectangle(s) with.</p>
+</td></tr>
+<tr><td><code id="rect_:_border">border</code></td>
+<td>
+<p>color for rectangle border(s).</p>
+</td></tr>
+<tr><td><code id="rect_:_lty">lty</code></td>
+<td>
+<p>line type for borders; defaults to <code>"solid"</code>.</p>
+</td></tr>
+<tr><td><code id="rect_:_xpd">xpd</code></td>
+<td>
+<p>logical (<em>&ldquo;expand&rdquo;</em>); if <code>FLASE</code>, everything is
+clipped to the plot region.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>box</code> for the &ldquo;standard&rdquo; box around the plot;
+<code>polygon</code> and <code>segments</code> for flexible line
+drawing.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## set up the plot region:
+plot(c(100, 250), c(300, 450), type = "n",
+     main = "11 rectangles using `rect(120+i,300+i,  177+i,380+i)'")
+i &lt;- 4*(0:10)
+## draw rectangles with bottom left (120, 300)+i  and top right (177, 380)+i
+rect(120+i, 300+i, 177+i, 380+i, col=rainbow(11, start=.7,end=.1))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.2 ]</div>
+</div>
+</body></html>

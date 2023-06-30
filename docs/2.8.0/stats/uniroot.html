@@ -1,0 +1,158 @@
+<!DOCTYPE html><html><head><title>R: One Dimensional Root (Zero) Finding</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/uniroot.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/uniroot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>uniroot {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='uniroot'>One Dimensional Root (Zero) Finding</h2>
+
+<h3>Description</h3>
+
+<p>The function <code>uniroot</code> searches the interval from <code>lower</code>
+to <code>upper</code> for a root (i.e., zero) of the function <code>f</code> with
+respect to its first argument.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>uniroot(f, interval, ...,
+        lower = min(interval), upper = max(interval),
+        f.lower = f(lower, ...), f.upper = f(upper, ...),
+        tol = .Machine$double.eps^0.25, maxiter = 1000)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="uniroot_:_f">f</code></td>
+<td>
+<p>the function for which the root is sought.</p>
+</td></tr>
+<tr><td><code id="uniroot_:_interval">interval</code></td>
+<td>
+<p>a vector containing the end-points of the interval
+to be searched for the root.</p>
+</td></tr>
+<tr><td><code id="uniroot_:_...">...</code></td>
+<td>
+<p>additional named or unnamed arguments to be passed
+to <code>f</code></p>
+</td></tr>
+<tr><td><code id="uniroot_:_lower">lower</code>, <code id="uniroot_:_upper">upper</code></td>
+<td>
+<p>the lower and upper end points of the interval to
+be searched.</p>
+</td></tr>
+<tr><td><code id="uniroot_:_f.lower">f.lower</code>, <code id="uniroot_:_f.upper">f.upper</code></td>
+<td>
+<p>the same as <code>f(upper)</code> and
+<code>f(lower)</code>, respectively.  Passing these values from the caller
+where they are often known is more economical as soon as <code>f()</code>
+contains non-trivial computations.</p>
+</td></tr>
+<tr><td><code id="uniroot_:_tol">tol</code></td>
+<td>
+<p>the desired accuracy (convergence tolerance).</p>
+</td></tr>
+<tr><td><code id="uniroot_:_maxiter">maxiter</code></td>
+<td>
+<p>the maximum number of iterations.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note that arguments after <code>...</code> must be matched exactly.
+</p>
+<p>Either <code>interval</code> or both <code>lower</code> and <code>upper</code> must be
+specified: the upper endpoint must be strictly larger than the lower
+endpoint.  The function values at the endpoints must be of opposite
+signs (or zero).
+</p>
+<p>The function uses Fortran subroutine &lsquo;<span class="file">&quot;zeroin&quot;</span>&rsquo; (from Netlib)
+based on algorithms given in the reference below.  They assume a
+continuous function (which then is known to have at least one root in
+the interval).
+</p>
+<p>Convergence is declared either if <code>f(x) == 0</code> or the change in
+<code>x</code> for one step of the algorithm is less than <code>tol</code> (plus an
+allowance for representation error in <code>x</code>).
+</p>
+<p>If the algorithm does not converge in <code>maxiter</code> steps, a warning
+is printed and the current approximation is returned.
+</p>
+<p><code>f</code> will be called as <code>f(<var>x</var>, ...)</code> for a numeric value
+of <var>x</var>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with four components: <code>root</code> and <code>f.root</code> give the
+location of the root and the value of the function evaluated at that
+point. <code>iter</code> and <code>estim.prec</code> give the number of iterations
+used and an approximate estimated precision for <code>root</code>.  (If the
+root occurs at one of the endpoints, the estimated precision is
+<code>NA</code>.)
+</p>
+
+
+<h3>Source</h3>
+
+<p>Based on &lsquo;<span class="file">zeroin.c</span>&rsquo; in <a href="http://www.netlib.org/c/brent.shar">http://www.netlib.org/c/brent.shar</a>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Brent, R. (1973)
+<em>Algorithms for Minimization without Derivatives.</em>
+Englewood Cliffs, NJ: Prentice-Hall.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>polyroot</code> for all complex roots of a polynomial;
+<code>optimize</code>, <code>nlm</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(utils) # for str
+
+f &lt;- function (x,a) x - a
+str(xmin &lt;- uniroot(f, c(0, 1), tol = 0.0001, a = 1/3))
+str(uniroot(function(x) x*(x^2-1) + .5, lower = -2, upper = 2,
+            tol = 0.0001), dig = 10)
+str(uniroot(function(x) x*(x^2-1) + .5, lower = -2, upper = 2,
+            tol = 1e-10 ), dig = 10)
+
+## Find the smallest value x for which exp(x) &gt; 0 (numerically):
+r &lt;- uniroot(function(x) 1e80*exp(x)-1e-300, c(-1000,0), tol = 1e-15)
+str(r, digits= 15) ##&gt; around -745, depending on the platform.
+
+exp(r$root)	# = 0, but not for r$root * 0.999...
+minexp &lt;- r$root * (1 - 10*.Machine$double.eps)
+exp(minexp)	# typically denormalized
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.8.0 ]</div>
+</div>
+</body></html>

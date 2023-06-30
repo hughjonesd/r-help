@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head><title>R: Tcl/Tk GUI startup</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tcltk/html/tkStartGUI.html'>https://stat.ethz.ch/R-manual/R-patched/library/tcltk/html/tkStartGUI.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>tkStartGUI {tcltk}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='tkStartGUI'>Tcl/Tk GUI startup</h2>
+
+<h3>Description</h3>
+
+<p>Starts up the Tcl/Tk GUI
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>tkStartGUI()
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>Starts a GUI console implemented via a Tk text widget. This should
+probably be called at most once per session. Also redefines the file
+pager (as used by <code>help()</code>) to be the Tk pager.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>tkStartGUI()</code> saves its evaluation environment as
+<code>.GUIenv</code>. This means that the user interface elements can be
+accessed in order to extend the interface. The three main objects are
+named <code>Term</code>, <code>Menu</code>, and <code>Toolbar</code>, and the various
+submenus and callback functions can be seen with
+<code>ls(envir = .GUIenv)</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Peter Dalgaard</p>
+
+<hr /><div style="text-align: center;">[Package <em>tcltk</em> version 3.5.2 ]</div>
+</div>
+</body></html>

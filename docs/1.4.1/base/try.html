@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><title>R: Try an Expression Allowing Error Recovery.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/try.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/try.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>try {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='try'>Try an Expression Allowing Error Recovery.</h2>
+
+<h3>Description</h3>
+
+<p><code>try</code> is a wrapper to run an expression that might fail and allow
+the user's code to handle error-recovery.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>try(expr, first = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="try_:_expr">expr</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> expression to try</p>
+</td></tr>
+<tr><td><code id="try_:_first">first</code></td>
+<td>
+<p>not for user use!</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>try</code> is a user-friendly wrapper to <code>restart</code>.
+The argument <code>first</code> is used to record if <code>restart</code> has
+already been used, and so ensure that <code>restart</code> is called only
+once.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The value of the expression if <code>expr</code> is evaluated without error,
+but an invisible object of class <code>"try-error"</code> containing the
+error message if it if fails. The normal error handling will print the
+same message unless <code>options("show.error.messages")</code> is false.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>options</code> for setting error handlers and suppressing the
+printing of error messages;
+<code>geterrmessage</code> for retrieving the last error message.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## this example will not work correctly in example(try), but
+## it does work correctly if pasted in
+options(show.error.messages = FALSE)
+try(log("a"))
+print(.Last.value)
+options(show.error.messages = TRUE)
+
+## run a simulation, keep only the results that worked.
+set.seed(123)
+x &lt;- rnorm(50)
+doit &lt;- function(x)
+{
+    x &lt;- sample(x, replace=TRUE)
+    if(length(unique(x)) &gt; 30) mean(x)
+    else stop("too few unique points")
+}
+options(show.error.messages = FALSE)
+## alternative 1
+res &lt;- lapply(1:100, function(i) try(doit(x)))
+## alternative 2
+## Not run: res &lt;- vector("list", 100)
+for(i in 1:100) res[[i]] &lt;- try(doit(x))
+## End(Not run)
+options(show.error.messages = TRUE)
+unlist(res[sapply(res, function(x) !inherits(x, "try-error"))])
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4.1 ]</div>
+</div>
+</body></html>

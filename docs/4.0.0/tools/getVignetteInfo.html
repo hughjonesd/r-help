@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><title>R: Get Information on Installed Vignettes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/getVignetteInfo.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/getVignetteInfo.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>getVignetteInfo {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='getVignetteInfo'>Get Information on Installed Vignettes</h2>
+
+<h3>Description</h3>
+
+<p>This function gets information on installed vignettes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getVignetteInfo(package = NULL, lib.loc = NULL, all = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="getVignetteInfo_:_package">package</code></td>
+<td>
+
+<p>Which package to look in, or <code>NULL</code> for all packages.
+</p>
+</td></tr>
+<tr><td><code id="getVignetteInfo_:_lib.loc">lib.loc</code></td>
+<td>
+
+<p>Which library to look in.
+</p>
+</td></tr>
+<tr><td><code id="getVignetteInfo_:_all">all</code></td>
+<td>
+
+<p>Whether to search all installed packages, or just attached packages.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A matrix with columns
+</p>
+<table>
+<tr><td><code>Package</code></td>
+<td>
+<p>the name of the package</p>
+</td></tr>
+<tr><td><code>Dir</code></td>
+<td>
+<p>the directory where the package is installed</p>
+</td></tr>
+<tr><td><code>Topic</code></td>
+<td>
+<p>the name of the vignette</p>
+</td></tr>
+<tr><td><code>File</code></td>
+<td>
+<p>the base filename of the source of the vignette</p>
+</td></tr>
+<tr><td><code>Title</code></td>
+<td>
+<p>the title of the vignette</p>
+</td></tr>
+<tr><td><code>R</code></td>
+<td>
+<p>the tangled R source from the vignette</p>
+</td></tr>
+<tr><td><code>PDF</code></td>
+<td>
+<p>the PDF or HTML file for display</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>The last column of the result is named <code>PDF</code> for historical reasons, 
+but it may contain a filename of a PDF or HTML document.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>pkgVignettes</code> is a similar function that can work on
+an uninstalled package.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+getVignetteInfo("grid")
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.0.0 ]</div>
+</div>
+</body></html>

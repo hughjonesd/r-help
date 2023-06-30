@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>R: Write Lines to a Connection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/writeLines.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/writeLines.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>writeLines {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='writeLines'>Write Lines to a Connection</h2>
+
+<h3>Description</h3>
+
+<p>Write text lines to a connection.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>writeLines(text, con = stdout(), sep = "\n", useBytes = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="writeLines_:_text">text</code></td>
+<td>
+<p>A character vector</p>
+</td></tr>
+<tr><td><code id="writeLines_:_con">con</code></td>
+<td>
+<p>A connection object or a character string.</p>
+</td></tr>
+<tr><td><code id="writeLines_:_sep">sep</code></td>
+<td>
+<p>character string.  A string to be written to the connection
+after each line of text.</p>
+</td></tr>
+<tr><td><code id="writeLines_:_useBytes">useBytes</code></td>
+<td>
+<p>logical.  See &lsquo;Details&rsquo;.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If the <code>con</code> is a character string, the function calls
+<code>file</code> to obtain a file connection which is opened for
+the duration of the function call.
+(tilde expansion of the file path is done by <code>file</code>.)
+</p>
+<p>If the connection is open it is written from its current position.
+If it is not open, it is opened for the duration of the call in
+<code>"wt"</code> mode and then closed again.
+</p>
+<p>Normally <code>writeLines</code> is used with a text-mode  connection, and the
+default separator is converted to the normal separator for that
+platform (LF on Unix/Linux, CRLF on Windows).  For more control, open
+a binary connection and specify the precise value you want written to
+the file in <code>sep</code>.  For even more control, use
+<code>writeChar</code> on a binary connection.
+</p>
+<p><code>useBytes</code> is for expert use.  Normally (when false) character
+strings with marked encodings are converted to the current encoding
+before being passed to the connection (which might do further
+re-encoding).  <code>useBytes = TRUE</code> suppresses the re-encoding of
+marked strings so they are passed byte-by-byte to the connection:
+this can be useful when strings have already been re-encoded by
+e.g. <code>iconv</code>.  (It is invoked automatically for strings
+with marked encoding <code>"bytes"</code>.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>connections</code>, <code>writeChar</code>, <code>writeBin</code>,
+<code>readLines</code>, <code>cat</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.1.2 ]</div>
+</div>
+</body></html>

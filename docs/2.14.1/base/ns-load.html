@@ -1,0 +1,156 @@
+<!DOCTYPE html><html><head><title>R: Loading and Unloading Namespaces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-load.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-load.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ns-load {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ns-load'>Loading and Unloading Namespaces</h2>
+
+<h3>Description</h3>
+
+<p>Functions to load and unload namespaces.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>attachNamespace(ns, pos = 2, dataPath = NULL, depends = NULL)
+loadNamespace(package, lib.loc = NULL,
+              keep.source = getOption("keep.source.pkgs"),
+              partial = FALSE)
+requireNamespace(package, ..., quietly = FALSE)
+loadedNamespaces()
+unloadNamespace(ns)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="ns-load_:_ns">ns</code></td>
+<td>
+<p>string or namespace object.</p>
+</td></tr>
+<tr><td><code id="ns-load_:_pos">pos</code></td>
+<td>
+<p>integer specifying position to attach.</p>
+</td></tr>
+<tr><td><code id="ns-load_:_dataPath">dataPath</code></td>
+<td>
+<p>path to directory containing a database of datasets to
+be lazy-loaded into the attached environment.</p>
+</td></tr>
+<tr><td><code id="ns-load_:_depends">depends</code></td>
+<td>
+<p><code>NULL</code> or a character vector of dependencies to be
+recorded in object <code>.Depends</code> in the package.</p>
+</td></tr>
+<tr><td><code id="ns-load_:_package">package</code></td>
+<td>
+<p>string naming the package/namespace to load.</p>
+</td></tr>
+<tr><td><code id="ns-load_:_lib.loc">lib.loc</code></td>
+<td>
+<p>character vector specifying library search path.</p>
+</td></tr>
+<tr><td><code id="ns-load_:_keep.source">keep.source</code></td>
+<td>
+<p>Now ignored except during package installation.
+For more details see this argument to <code>library</code>.
+</p>
+</td></tr>
+<tr><td><code id="ns-load_:_partial">partial</code></td>
+<td>
+<p>logical; if true, stop just after loading code.</p>
+</td></tr>
+<tr><td><code id="ns-load_:_quietly">quietly</code></td>
+<td>
+<p>logical: should progress and error messages be suppressed?</p>
+</td></tr>
+<tr><td><code id="ns-load_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to <code>loadNamespace</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The functions <code>loadNamespace</code> and <code>attachNamespace</code> are
+usually called implicitly when <code>library</code> is used to load a name
+space and any imports needed.  However it may be useful to call
+these functions directly at times.
+</p>
+<p><code>loadNamespace</code> loads the specified namespace and registers it in
+an internal data base.  A request to load a namespace when one of that
+name is already loaded has no effect.  The arguments have the same
+meaning as the corresponding arguments to <code>library</code>, whose
+help page explains the details of how a particular installed package
+comes to be chosen.  After loading, <code>loadNamespace</code> looks for a
+hook function named <code>.onLoad</code> as an internal variable in
+the namespace (it should not be exported).  This function is called
+with the same arguments as <code>.First.lib</code>.  Partial loading is used
+to support installation with the <span class="option">--lazy</span> option.
+</p>
+<p><code>loadNamespace</code> does not attach the namespace it loads to the
+search path.  <code>attachNamespace</code> can be used to attach a frame
+containing the exported values of a namespace to the search path (but
+this is almost always done <em>via</em> <code>library</code>).  The
+hook function <code>.onAttach</code> is run after the namespace
+exports are attached.
+</p>
+<p><code>requireNamespace</code> is a wrapper for <code>loadNamespace</code>
+analogous to <code>require</code> that returns a logical value.
+</p>
+<p><code>loadedNamespaces</code> returns a character vector of the names of
+the loaded namespaces.
+</p>
+<p><code>unloadNamespace</code> can be used to attempt to force a namespace to
+be unloaded.  If the namespace is attached, it is first
+<code>detach</code>ed, thereby running a <code>.Last.lib</code> function
+in the namespace if one is exported.  Then an error is signaled if the
+namespace is imported by other loaded namespaces, and the namespace
+is not unloaded.  If defined, a hook function <code>.onUnload</code>
+is run before removing the namespace from the internal registry.
+</p>
+<p>See the comments in the help for <code>detach</code> about some
+issues with unloading and reloading namespaces.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>attachNamespace</code> returns invisibly the package environment it
+adds to the search path.
+</p>
+<p><code>loadNamespace</code> returns the namespace environment, either one
+already loaded or the one the function causes to be loaded.
+</p>
+<p><code>requireNamespace</code> returns <code>TRUE</code> if it succeeds or
+<code>FALSE</code>.
+</p>
+<p><code>loadedNamespaces</code> returns a character vector.
+</p>
+<p><code>unloadNamespace</code> returns <code>NULL</code>, invisibly.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Luke Tierney and R-core</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.14.1 ]</div>
+</div>
+</body></html>

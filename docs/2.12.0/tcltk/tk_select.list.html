@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><title>R: Select Items from a List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tcltk/html/tk_select.list.html'>https://stat.ethz.ch/R-manual/R-patched/library/tcltk/html/tk_select.list.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>tk_select.list {tcltk}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='tk_select.list'>Select Items from a List</h2>
+
+<h3>Description</h3>
+
+<p>Select item(s) from a character vector using a Tk listbox.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>tk_select.list(choices, preselect = NULL, multiple = FALSE, title = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="tk_select.list_:_choices">choices</code></td>
+<td>
+<p>a character vector of items.</p>
+</td></tr>
+<tr><td><code id="tk_select.list_:_preselect">preselect</code></td>
+<td>
+<p>a character vector, or <code>NULL</code>.  If non-null and
+if the string(s) appear in the list, the item(s) are selected
+initially.</p>
+</td></tr>
+<tr><td><code id="tk_select.list_:_multiple">multiple</code></td>
+<td>
+<p>logical: can more than one item be selected?</p>
+</td></tr>
+<tr><td><code id="tk_select.list_:_title">title</code></td>
+<td>
+<p>optional character string for window title, or
+<code>NULL</code> for no title.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is a version of <code>select.list</code> implemented as a Tk
+list box plus <code>OK</code> and <code>Cancel</code> buttons.  There will be a
+scrollbar if the list is too long to fit comfortably on the screen.
+</p>
+<p>The dialog box is <em>modal</em>, so a selection must be made or
+cancelled before the <span class="rlang"><b>R</b></span> session can proceed.  As from <span class="rlang"><b>R</b></span> 2.10.1
+double-clicking on an item is equivalent to selecting it and then
+clicking <code>OK</code>.
+</p>
+<p>If Tk is version 8.5 or later, themed widgets will be used.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of selected items.  If <code>multiple</code> is false and
+no item was selected (or <code>Cancel</code> was used), <code>""</code> is
+returned.   If <code>multiple</code> is true and no item was selected (or
+<code>Cancel</code> was used) then a character vector of length 0 is returned.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>select.list</code> (a text version except on Windows and the
+Mac OS X GUI),
+<code>menu</code> (whose <code>graphics=TRUE</code> mode uses this
+on most Unix-alikes).
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tcltk</em> version 2.12.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>R: Set Operations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sets.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sets.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>sets {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='sets'>Set Operations</h2>
+
+<h3>Description</h3>
+
+<p>Performs <b>set</b> union, intersection, (asymmetric!) difference,
+equality and membership on two vectors.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>union(x, y)
+intersect(x, y)
+setdiff(x, y)
+setequal(x, y)
+
+is.element(el, set)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="sets_:_x">x</code>, <code id="sets_:_y">y</code>, <code id="sets_:_el">el</code>, <code id="sets_:_set">set</code></td>
+<td>
+<p>vectors (of the same mode) containing a sequence
+of items (conceptually) with no duplicated values.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Each of <code>union</code>, <code>intersect</code>, <code>setdiff</code> and
+<code>setequal</code> will discard any duplicated values in the arguments,
+and they apply <code>as.vector</code> to their arguments (and so
+in particular coerce factors to character vectors).
+</p>
+<p><code>is.element(x, y)</code> is identical to <code>x %in% y</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector of the same <code>mode</code> as <code>x</code> or <code>y</code> for
+<code>setdiff</code> and <code>intersect</code>, respectively, and
+of a common mode for <code>union</code>.
+</p>
+<p>A logical scalar for <code>setequal</code> and a logical of the same
+length as <code>x</code> for <code>is.element</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>%in%</code>
+</p>
+<p>&lsquo;plotmath&rsquo; for the use of <code>union</code> and
+<code>intersect</code> in plot annotation.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>(x &lt;- c(sort(sample(1:20, 9)),NA))
+(y &lt;- c(sort(sample(3:23, 7)),NA))
+union(x, y)
+intersect(x, y)
+setdiff(x, y)
+setdiff(y, x)
+setequal(x, y)
+
+## True for all possible x &amp; y :
+setequal( union(x,y),
+          c(setdiff(x,y), intersect(x,y), setdiff(y,x)))
+
+is.element(x, y)# length 10
+is.element(y, x)# length  8
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.13.2 ]</div>
+</div>
+</body></html>

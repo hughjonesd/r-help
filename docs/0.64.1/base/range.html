@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: Range of Values</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/range.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/range.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>range {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='range'>Range of Values</h2>
+
+<h3>Description</h3>
+
+<p><code>range</code> returns a vector containing the minimum and maximum of
+all the values present in its first arguments, unless <code>na.rm</code> or
+<code>finite</code> is <code>TRUE</code>.
+If <code>na.rm</code> is <code>FALSE</code>, <code>NA</code> and <code>NaN</code> values in any of the
+arguments will cause NA values to be returned, otherwise
+<code>NA</code> values are ignored.
+If <code>finite</code> is <code>TRUE</code>, the minimum and maximum of all finite
+values is computed, i.e., <code>finite=TRUE</code> <em>includes</em>
+<code>na.rm=TRUE</code>. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>range(..., na.rm = FALSE, finite = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="range_:_...">...</code></td>
+<td>
+<p>any <code>numeric</code> objects.</p>
+</td></tr>
+<tr><td><code id="range_:_na.rm">na.rm</code></td>
+<td>
+<p>logical, indicating if <code>NA</code>'s should be omitted.</p>
+</td></tr>
+<tr><td><code id="range_:_finite">finite</code></td>
+<td>
+<p>logical, indicating if all non-finite elements should be
+omitted.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>min</code>, <code>max</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>print(r.x &lt;- range(rnorm(100)))
+diff(r.x) # the SAMPLE range
+
+x &lt;- c(NA,1:3, -1:1/0); x
+range(x)
+range(x, na.rm = TRUE)
+range(x, finite = TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.1 ]</div>
+</div>
+</body></html>

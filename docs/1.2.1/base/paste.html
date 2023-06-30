@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><title>R: Concatenate Strings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/paste.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/paste.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>paste {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='paste'>Concatenate Strings</h2>
+
+<h3>Description</h3>
+
+<p>Concatenate vectors after converting to character.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>paste(..., sep = " ", collapse = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="paste_:_...">...</code></td>
+<td>
+<p>one or more <span class="rlang"><b>R</b></span> objects, to be coerced to character vectors.</p>
+</td></tr>
+<tr><td><code id="paste_:_sep">sep</code></td>
+<td>
+<p>a character string to separate the terms.</p>
+</td></tr>
+<tr><td><code id="paste_:_collapse">collapse</code></td>
+<td>
+<p>an optional character string to separate the results.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>paste</code> converts its arguments to character strings, and
+concatenates them (separating them by the string given by <code>sep</code>).
+If the arguments are vectors, they are concatenated term-by-term to
+give a character vector result.
+</p>
+<p>If a value is specified for <code>collapse</code>, the values in the result
+are then concatenated into a single string, with the elements being
+separated by the value of <code>collapse</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of the concatenated values.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>String manipulation with
+<code>as.character</code>, <code>substr</code>, <code>nchar</code>,
+<code>strsplit</code>; further, <code>cat</code> which concatenates and
+writes to a file.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>paste(1:12) # same as as.character(..)
+paste("A", 1:6, sep = "")
+paste("Today is", date())
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.1 ]</div>
+</div>
+</body></html>

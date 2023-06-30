@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Draw Function Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/curve.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/curve.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>curve {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='curve'>Draw Function Plots</h2>
+
+<h3>Description</h3>
+
+<p>Draws a curve corresponding to the given function or expression 
+(in <code>x</code>) over the interval <code>[from,to]</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>curve(expr, from, to, n=101, add=FALSE, type="l", ylab = NULL, log=NULL, ...)
+plot.function(fn, from=0, to=1, n=101, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="curve_:_expr">expr</code></td>
+<td>
+<p>an expression written as a function of <code>x</code>, or
+alternatively a function which will be plotted.</p>
+</td></tr>
+<tr><td><code id="curve_:_fn">fn</code></td>
+<td>
+<p>a &lsquo;vectorizing&rsquo; numeric <span class="rlang"><b>R</b></span> function.</p>
+</td></tr>
+<tr><td><code id="curve_:_from">from</code>, <code id="curve_:_to">to</code></td>
+<td>
+<p>the range over which the function will be plotted.</p>
+</td></tr>
+<tr><td><code id="curve_:_n">n</code></td>
+<td>
+<p>integer; the number of x values at which to evaluate.</p>
+</td></tr>
+<tr><td><code id="curve_:_add">add</code></td>
+<td>
+<p>logical; if <code>TRUE</code> add to already existing plot.</p>
+</td></tr>
+<tr><td><code id="curve_:_...">...</code></td>
+<td>
+<p>graphical parameters can also be specified as arguments.
+<code>plot.function</code> passes all these to <code>curve</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The evaluation of <code>expr</code> is at <code>n</code> points equally spaced
+over the range <code>[from, to]</code>. 
+The points determined in this way are then joined with
+straight lines.
+<code>fn(x)</code> or <code>expr</code> (with <code>x</code> inside) must return a
+numeric of the same length as <code>x</code>.
+</p>
+<p>This used to be a quick hack which seems to serve a useful purpose,
+but can give bad results for functions which are not smooth.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>NULL</code>. For &ldquo;expensive&rdquo; <code>expr</code>essions, you should use smarter tools.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>splinefun</code> for spline interpolation, <code>lines</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>par(mfrow=c(2,2))
+curve(x^3-3*x, -2, 2)
+curve(x^2-2, add = TRUE, col = "violet")
+
+curve(sin, -pi, 3*pi)
+plot(cos)
+chippy &lt;- function(x) sin(cos(x)*exp(-x/2))
+curve(chippy, -8, 7, n=2001)
+
+for(ll in c("","x","y","xy"))
+   curve(log(1+x), 1,100, log=ll, sub=paste("log=",ll))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65.1 ]</div>
+</div>
+</body></html>

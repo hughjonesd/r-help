@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>R: Self-Starting Nls Asymptotic Regression Model through the...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/SSasympOrig.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/SSasympOrig.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>SSasympOrig {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='SSasympOrig'>Self-Starting Nls Asymptotic Regression Model through the Origin</h2>
+
+<h3>Description</h3>
+
+<p>This <code>selfStart</code> model evaluates the asymptotic regression
+function through the origin and its gradient.  It has an
+<code>initial</code> attribute that will evaluate initial estimates of the
+parameters <code>Asym</code> and <code>lrc</code> for a given set of data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>SSasympOrig(input, Asym, lrc)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="SSasympOrig_:_input">input</code></td>
+<td>
+<p>a numeric vector of values at which to evaluate the model.</p>
+</td></tr>
+<tr><td><code id="SSasympOrig_:_Asym">Asym</code></td>
+<td>
+<p>a numeric parameter representing the horizontal asymptote.</p>
+</td></tr>
+<tr><td><code id="SSasympOrig_:_lrc">lrc</code></td>
+<td>
+<p>a numeric parameter representing the natural logarithm of
+the rate constant.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a numeric vector of the same length as <code>input</code>.  It is the value of
+the expression <code>Asym*(1 - exp(-exp(lrc)*input))</code>.  If all of
+the arguments <code>Asym</code> and <code>lrc</code> are
+names of objects, the gradient matrix with respect to these names is
+attached as an attribute named <code>gradient</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>José Pinheiro and Douglas Bates</p>
+
+
+<h3>See Also</h3>
+
+<p><code>nls</code>, <code>selfStart</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+Lob.329 &lt;- Loblolly[ Loblolly$Seed == "329", ]
+SSasympOrig(Lob.329$age, 100, -3.2)  # response only
+Asym &lt;- 100; lrc &lt;- -3.2
+SSasympOrig(Lob.329$age, Asym, lrc) # response and gradient
+getInitial(height ~ SSasympOrig(age, Asym, lrc), data = Lob.329)
+## Initial values are in fact the converged values
+fm1 &lt;- nls(height ~ SSasympOrig(age, Asym, lrc), data = Lob.329)
+summary(fm1)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.0.1 ]</div>
+</div>
+</body></html>

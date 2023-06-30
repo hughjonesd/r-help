@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>R: Extract Model Residuals</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/residuals.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/residuals.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>residuals {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='residuals'>Extract Model Residuals</h2>
+
+<h3>Description</h3>
+
+<p><code>residuals</code> is a generic function which extracts model residuals
+from objects returned by modeling functions.
+</p>
+<p>The abbreviated form <code>resid</code> is an alias for <code>residuals</code>.
+It is intended to encourage users to access object components through
+an accessor function rather than by directly referencing an object
+slot.
+</p>
+<p>All object classes which are returned by model fitting functions
+should provide a <code>residuals</code> method.  (Note that the method is
+&lsquo;<span class="samp">&#8288;residuals&#8288;</span>&rsquo; and not &lsquo;<span class="samp">&#8288;resid&#8288;</span>&rsquo;.)
+</p>
+<p>Methods can make use of <code>naresid</code> methods to compensate
+for the omission of missing values.  The default method does.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>residuals(object, ...)
+resid(object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="residuals_:_object">object</code></td>
+<td>
+<p>an object for which the extraction of model residuals is
+meaningful.</p>
+</td></tr>
+<tr><td><code id="residuals_:_...">...</code></td>
+<td>
+<p>other arguments.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Residuals extracted from the object <code>object</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. and Hastie, T. J. (1992)
+<em>Statistical Models in S</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>coefficients</code>, <code>fitted.values</code>,
+<code>glm</code>, <code>lm</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.1.0 ]</div>
+</div>
+</body></html>

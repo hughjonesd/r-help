@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><title>R: Internal Versions of the Foreign Function Interface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Foreign-internal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Foreign-internal.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Foreign-internal {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Foreign-internal'>Internal Versions of the Foreign Function Interface</h2>
+
+<h3>Description</h3>
+
+<p>Internal versions of <code>.Call</code> and <code>.External</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>    .Call.graphics(.NAME, ..., PACKAGE)
+.External.graphics(.NAME, ..., PACKAGE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Foreign-internal_:_.NAME">.NAME</code></td>
+<td>
+<p>a character string giving the name of a C function or
+Fortran subroutine, or an object of class
+<code>"NativeSymbolInfo"</code>, <code>"RegisteredNativeSymbol"</code>
+or <code>"NativeSymbol"</code> referring to such a name.</p>
+</td></tr>
+<tr><td><code id="Foreign-internal_:_...">...</code></td>
+<td>
+<p>arguments to be passed to the foreign function.</p>
+</td></tr>
+<tr><td><code id="Foreign-internal_:_PACKAGE">PACKAGE</code></td>
+<td>
+<p>see the corresponding argument of <code>.Call</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>.graphics</code> versions of <code>.Call</code> and <code>.External</code>
+are used when calling code which makes low-level graphics calls.
+They take additional steps to ensure that the device driver display
+lists are updated correctly.
+</p>
+<p>Currently <code>.Call.graphics</code> is used in package <span class="pkg">grid</span> and
+<code>.External.graphics</code> is unused.
+</p>
+<p>These are primitive functions.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An <span class="rlang"><b>R</b></span> object.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>.Call</code>.</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.14.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>R: Basic Internal Plot Function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.xy.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.xy.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.xy {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.xy'>Basic Internal Plot Function</h2>
+
+<h3>Description</h3>
+
+<p>This is <em>the</em> internal function that does the basic plotting of
+points and lines.  Usually, one should rather use the higher level
+functions instead and refer to their help pages for explanation of the
+arguments.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>plot.xy(xy, type, pch = par("pch"), lty = par("lty"),
+        col = par("col"), bg = NA,
+        cex = 1, lwd = par("lwd"), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.xy_:_xy">xy</code></td>
+<td>
+<p>A four-element list as results from
+<code>xy.coords</code>.</p>
+</td></tr>
+<tr><td><code id="plot.xy_:_type">type</code></td>
+<td>
+<p>1 character code: see <code>plot.default</code>.
+<code>NULL</code> is accepted as a synonym for <code>"p"</code>.</p>
+</td></tr>
+<tr><td><code id="plot.xy_:_pch">pch</code></td>
+<td>
+<p>character or integer code for kind of points, see
+<code>points.default</code>.</p>
+</td></tr>
+<tr><td><code id="plot.xy_:_lty">lty</code></td>
+<td>
+<p>line type code, see <code>lines</code>.</p>
+</td></tr>
+<tr><td><code id="plot.xy_:_col">col</code></td>
+<td>
+<p>color code or name, see <code>colors</code>,
+<code>palette</code>.  Here <code>NULL</code> means colour 0.</p>
+</td></tr>
+<tr><td><code id="plot.xy_:_bg">bg</code></td>
+<td>
+<p>background (fill) color for the open plot symbols 21:25:
+see <code>points.default</code>.</p>
+</td></tr>
+<tr><td><code id="plot.xy_:_cex">cex</code></td>
+<td>
+<p>character expansion.</p>
+</td></tr>
+<tr><td><code id="plot.xy_:_lwd">lwd</code></td>
+<td>
+<p>line width, also used for (non-filled) plot symbols, see
+<code>lines</code> and <code>points</code>.</p>
+</td></tr>
+<tr><td><code id="plot.xy_:_...">...</code></td>
+<td>
+<p>further graphical parameters such as <code>xpd</code>,
+<code>lend</code>, <code>ljoin</code> and <code>lmitre</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The arguments <code>pch</code>, <code>col</code>, <code>bg</code>, <code>cex</code>,
+<code>lwd</code> may be vectors and may be recycled, depending on
+<code>type</code>: see <code>points</code> and <code>lines</code> for
+specifics.  In particular note that <code>lwd</code> is treated as a vector
+for points and as a single (first) value for lines.
+</p>
+<p><code>cex</code> is a numeric factor in addition to <code>par("cex")</code> which
+affects symbols and characters as drawn by <code>type</code> <code>"p"</code>,
+<code>"o"</code>, <code>"b"</code> and <code>"c"</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>plot</code>,
+<code>plot.default</code>,
+<code>points</code>,
+<code>lines</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>points.default # to see how it calls "plot.xy(xy.coords(x, y), ...)"
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 3.6.2 ]</div>
+</div>
+</body></html>

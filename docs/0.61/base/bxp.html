@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><title>R: Box Plots from Summaries</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/bxp.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/bxp.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>bxp {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='bxp'>Box Plots from Summaries</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>bxp(z, width, varwidth=FALSE, notch=FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="bxp_:_z">z</code></td>
+<td>
+<p>a list containing data summaries to
+be used in constructing the plots.
+These are usually the result of a call to <code>boxplot</code>,
+but can be generated in any fashion.</p>
+</td></tr>
+<tr><td><code id="bxp_:_width">width</code></td>
+<td>
+<p>a vector giving the relative widths of the boxes
+making up the plot.</p>
+</td></tr>
+<tr><td><code id="bxp_:_varwidth">varwidth</code></td>
+<td>
+<p>if <code>varwidth</code> is <code>TRUE</code>, the boxes
+are drawn with widths proportional to the square-roots
+of the number of observations in the groups.</p>
+</td></tr>
+<tr><td><code id="bxp_:_notch">notch</code></td>
+<td>
+<p>if <code>notch</code> is <code>TRUE</code>, a notch is drawn in each
+side of the boxes.  If the notches of two plots do not
+overlap then the medians are significantly different at the
+5 percent level.</p>
+</td></tr>
+<tr><td><code id="bxp_:_...">...</code></td>
+<td>
+<p>Graphical parameters can be passed as arguments to this
+function.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>This function is invoked for its side effect which is to
+draw box plots based on the given summaries.
+It is usually called from <code>boxplot</code>, abut can be invoked
+directly.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61 ]</div>
+</div>
+</body></html>

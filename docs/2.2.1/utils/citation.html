@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><title>R: Citing R and R Packages in Publications</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/citation.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/citation.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>citation {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='citation'>Citing R and R Packages in Publications</h2>
+
+<h3>Description</h3>
+
+<p>How to cite R and R packages in publications.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>citation(package = "base", lib.loc = NULL)
+## S3 method for class 'citation'
+toBibtex(object, ...)
+## S3 method for class 'citationList'
+toBibtex(object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="citation_:_package">package</code></td>
+<td>
+<p>a character string with the name of a single package.
+An error occurs if more than one package name is given.</p>
+</td></tr>
+<tr><td><code id="citation_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector with path names of <span class="rlang"><b>R</b></span> libraries, or
+<code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
+libraries currently known.  If the default is used, the loaded
+packages are searched before the libraries.</p>
+</td></tr>
+<tr><td><code id="citation_:_object">object</code></td>
+<td>
+<p>return object of <code>citation</code>.</p>
+</td></tr>
+<tr><td><code id="citation_:_...">...</code></td>
+<td>
+<p>currently not used.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The R core development team and the very active community of package
+authors have invested a lot of time and effort in creating R as it is
+today. Please give credit where credit is due and cite R and R
+packages when you use them for data anlysis.
+</p>
+<p>Execute function <code>citation()</code> for information on how to cite the
+base R system in publications. If the name of a non-base package is
+given, the function
+either returns the information contained in the <code>CITATION</code>
+file of the package or auto-generates citation information. In the
+latter case the package &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file is parsed, the
+resulting citation object may be arbitrarily bad, but is quite useful
+(at least as a starting point) in most cases.
+</p>
+<p>If only one reference is given, the print method shows both a text
+version and a BibTeX entry for it, if a package has more than one
+reference then only the text versions are shown. The BibTeX versions
+can be obtained using function <code>toBibtex</code> (see the examples below).
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"citationList"</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>citEntry</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## the basic R reference
+citation()
+
+## references for a package -- might not have these installed
+if(nchar(system.file(package="lattice"))) citation("lattice")
+if(nchar(system.file(package="foreign"))) citation("foreign")
+
+## extract the bibtex entry from the return value
+x &lt;- citation()
+toBibtex(x)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.2.1 ]</div>
+</div>
+</body></html>

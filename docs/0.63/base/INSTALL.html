@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><title>R: Install Add-on Packages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/INSTALL.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/INSTALL.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>INSTALL {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='INSTALL'>Install Add-on Packages</h2>
+
+<h3>Description</h3>
+
+<p>To install packages into the default library tree (which is rooted at
+&lsquo;<span class="file">\$RHOME/library</span>&rsquo;), do <code>R INSTALL pkgs</code>.
+</p>
+<p>To install into the library tree <code>lib</code> instead of the default
+one, use <code>R INSTALL -l lib pkgs</code>.
+</p>
+<p>Both <code>lib</code> and the elements of <code>pkgs</code> may be absolute or
+relative path names.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R INSTALL [options] [-l lib] pkgs</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="INSTALL_:_pkgs">pkgs</code></td>
+<td>
+<p>A list with the path names of the packages to be
+installed.</p>
+</td></tr>
+<tr><td><code id="INSTALL_:_lib">lib</code></td>
+<td>
+<p>the path name of the <span class="rlang"><b>R</b></span> library tree to install to.</p>
+</td></tr>
+<tr><td><code id="INSTALL_:_options">options</code></td>
+<td>
+<p>a list of options through which in particular the build
+process for help files can be controlled.  If <code>--no-docs</code> is
+given, no help files are built.  <code>--no-text</code>, <code>--no-html</code>,
+and <code>--no-latex</code> suppress creating the text, HTML, and LaTeX
+versions, respectively.  The default is to build help files in all
+three versions.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>REMOVE</code>, and <code>library</code> for information on
+using several library trees and creating packages.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63 ]</div>
+</div>
+</body></html>

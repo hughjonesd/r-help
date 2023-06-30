@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><title>R: Internal Class representing Empty Methods List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/EmptyMethodsList-class.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/EmptyMethodsList-class.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>EmptyMethodsList-class {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='EmptyMethodsList-class'>Internal Class representing Empty Methods List </h2>
+
+<h3>Description</h3>
+
+<p>Objects from class <code>"EmptyMethodsList"</code> are generated during
+method selection to indicate failed search (forcing backtracking).
+Other classes described here are used internally in method dispatch.
+All these are for internal use.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## class described below
+"EmptyMethodsList"
+
+### Other, virtual classes used in method dispatch
+"OptionalMethods"
+"PossibleMethod"
+</code></pre>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt><code>argument</code>:</dt><dd><p>Object of class <code>"name"</code> the argument
+names being selected on.</p>
+</dd>
+<dt><code>sublist</code>:</dt><dd><p>Object of class <code>"list"</code> (unused, and
+perhaps to be dropped in a later version.) </p>
+</dd>
+</dl>
+
+
+
+<h3>Methods</h3>
+
+<p>No methods defined with class <code>"EmptyMethodsList"</code> in the
+signature.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Function <code>MethodsListSelect</code> uses the objects;
+see the class <code>MethodsList</code> for the non-empty
+methods list objects.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.13.1 ]</div>
+</div>
+</body></html>

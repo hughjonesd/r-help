@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Assignment Operators</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/assignOps.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/assignOps.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>assignOps {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='assignOps'>Assignment Operators</h2>
+
+<h3>Description</h3>
+
+<p>Assign a value to a name.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>x &lt;- value
+x &lt;&lt;- value
+value -&gt; x
+value -&gt;&gt; x
+
+x = value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="assignOps_:_x">x</code></td>
+<td>
+<p>a variable name (possibly quoted).</p>
+</td></tr>
+<tr><td><code id="assignOps_:_value">value</code></td>
+<td>
+<p>a value to be assigned to <code>x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>There are three different assignment operators: two of them
+have leftwards and rightwards forms.
+</p>
+<p>The operators <code>&lt;-</code> and <code>=</code> assign into the environment in
+which they are evaluated.  The  operator <code>&lt;-</code> can be used
+anywhere, whereas the operator <code>=</code> is only allowed at the top
+level (e.g., in the complete expression typed at the command prompt)
+or as one of the subexpressions in a braced list of expressions.
+</p>
+<p>The operators <code>&lt;&lt;-</code> and <code>-&gt;&gt;</code> are normally only used in
+functions, and cause a search to made through parent environments
+for an existing definition of the variable being assigned.  If such
+a variable is found (and its binding is not locked) then its value
+is redefined, otherwise assignment takes place in the global
+environment.  Note that their semantics differ from that in the S
+language, but are useful in conjunction with the scoping rules of
+<span class="rlang"><b>R</b></span>.  See &lsquo;The R Language Definition&rsquo; manual for further
+details and examples.
+</p>
+<p>In all the assignment operator expressions, <code>x</code> can be a name
+or an expression defining a part of an object to be replaced (e.g.,
+<code>z[[1]]</code>).  A syntactic name does not need to be quoted,
+though it can be (preferably by backticks).
+</p>
+<p>The leftwards forms of assignment <code>&lt;- = &lt;&lt;-</code> group right to left,
+the other from left to right.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>value</code>.  Thus one can use <code>a &lt;- b &lt;- c &lt;- 6</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Chamber, J. M. (1998)
+<em>Programming with Data.  A Guide to the S Language</em>.
+Springer (for <code>=</code>).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>assign</code>, for &ldquo;subassignment&rdquo; such
+as <code>x[i] &lt;- v</code>, <code>[&lt;-</code>; 
+<code>environment</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.15.3 ]</div>
+</div>
+</body></html>

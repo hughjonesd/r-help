@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>R: Old functions to access slots in a class definition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/oldGet.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/oldGet.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>oldGet {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='oldGet'>Old functions to access slots in a class definition </h2>
+
+<h3>Description</h3>
+
+<p><b>These functions are deprecated.</b>
+</p>
+<p>They do nothing but access a slot in a class definition, and don't
+even do this consistently  with the right name (they date back to the
+early implementation of the <span class="pkg">methods</span> package).
+Higher-level functions for the useful operations (e.g.,
+<code>extends</code> for <code>getExtends</code>) should be used instead.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getAccess(ClassDef)
+
+getClassName(ClassDef)
+
+getClassPackage(ClassDef)
+
+getExtends(ClassDef)
+
+getProperties(ClassDef)
+
+getPrototype(ClassDef)
+
+getSubclasses(ClassDef)
+
+getVirtual(ClassDef)
+
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="oldGet_:_ClassDef">ClassDef</code></td>
+<td>
+<p> the class definition object </p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The functions should be replaced by direct access to the slots, or
+by use of higher-level alternatives.
+</p>
+<p>The functions and corresponding slots are:
+</p>
+
+<table>
+<tr>
+ <td style="text-align: left;">
+<code>getAccess</code> </td><td style="text-align: left;"> <code>"access"</code> </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+<code>getClassName</code> </td><td style="text-align: left;"> <code>"className"</code> </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+<code>getClassPackage</code> </td><td style="text-align: left;"> <code>"package"</code> </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+<code>getExtends</code> </td><td style="text-align: left;"> <code>"contains"</code> </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+<code>getProperties</code> </td><td style="text-align: left;"> <code>"slots"</code> </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+<code>getPrototype</code> </td><td style="text-align: left;"> <code>"prototype"</code> </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+<code>getSubclasses</code> </td><td style="text-align: left;"> <code>"subclasses"</code> </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+<code>getVirtual</code> </td><td style="text-align: left;"> <code>"virtual"</code>
+</td>
+</tr>
+
+</table>
+
+
+
+<h3>See Also</h3>
+
+<p>Class <code>classRepresentation</code>.</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.7.0 ]</div>
+</div>
+</body></html>

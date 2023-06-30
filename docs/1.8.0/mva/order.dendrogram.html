@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><title>R: Get the ordering of the leaves in a dendrogram</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/order.dendrogram.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/order.dendrogram.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>order.dendrogram {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='order.dendrogram'> Get the ordering of the leaves in a dendrogram </h2>
+
+<h3>Description</h3>
+
+<p>This function returns the order (index) for the leaves in a
+dendrogram. These indices can then be used to access the appropriate
+components of any additional data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>order.dendrogram(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="order.dendrogram_:_x">x</code></td>
+<td>
+<p>A dendrogram. </p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The indices for the leaves in left to right order are retrieved.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector with length equal to the number of leaves in the dendrogram
+is returned. Each element is the index into the original data (from
+which the dendrogram was computed)
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>R. Gentleman</p>
+
+
+<h3>See Also</h3>
+
+<p><code>reorder</code> </p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>  set.seed(123)
+  x&lt;-rnorm(10)
+  hc &lt;- hclust(dist(x))
+  hc$order
+  dd &lt;- as.dendrogram(hc)
+  order.dendrogram(dd)
+</code></pre>
+
+
+</div>
+</body></html>

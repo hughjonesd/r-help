@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>R: Package Contents and Description</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/package.contents.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/package.contents.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>package.contents {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='package.contents'>Package Contents and Description</h2>
+
+<h3>Description</h3>
+
+<p>Parses and returns the &lsquo;<span class="file">CONTENTS</span>&rsquo; and &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file of
+a package.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>package.contents(pkg, lib.loc = NULL)
+package.description(pkg, lib.loc = NULL, fields = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="package.contents_:_pkg">pkg</code></td>
+<td>
+<p>a character string with the package name.</p>
+</td></tr>
+<tr><td><code id="package.contents_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector describing the location of <span class="rlang"><b>R</b></span>
+library trees to search through, or <code>NULL</code>.  The default value
+of <code>NULL</code> corresponds to all libraries currently known.</p>
+</td></tr>
+<tr><td><code id="package.contents_:_fields">fields</code></td>
+<td>
+<p>a character vector giving the tags of fields to return
+(if other fields occur in the file they are ignored).</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>package.contents</code> returns <code>NA</code> if there is no
+&lsquo;<span class="file">CONTENTS</span>&rsquo; file for the given package; otherwise, a character
+matrix with column names <code>c("Entry", "Keywords", "Description")</code>
+and rows giving the corresponding entries in the CONTENTS data base
+for each Rd file in the package.
+</p>
+<p>If a &lsquo;<span class="file">DESCRIPTION</span>&rsquo; for the given package is found and can
+successfully be read, <code>package.description</code> returns a named
+character vector with the values of the (given) fields as elements and
+the tags as names.  If not, it returns a named vector of <code>NA</code>s
+with the field tags as names if <code>fields</code> is not null, and
+<code>NA</code> otherwise.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>read.dcf</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>package.contents("mva")
+package.contents("mva")[, c("Entry", "Description")]
+
+package.description("ts")
+package.description("ts")[c("Package", "Version")]
+## NOTE: No subscripting using `$' or abbreviated field tags!
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.2 ]</div>
+</div>
+</body></html>

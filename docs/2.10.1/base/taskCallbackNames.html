@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>R: Query the names of the current internal top-level task...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/taskCallbackNames.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/taskCallbackNames.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>taskCallbackNames {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='taskCallbackNames'>Query the names of the current internal top-level task callbacks</h2>
+
+<h3>Description</h3>
+
+<p>This provides a way to get the names (or identifiers)
+for the currently registered task callbacks
+that are invoked at the conclusion of each top-level task.
+These identifiers can be used to remove a callback.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getTaskCallbackNames()
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>A character vector giving the name for each of the
+registered callbacks which are invoked when
+a top-level task is completed successfully.
+Each name is the one used when registering
+the callbacks and returned as the in the
+call to <code>addTaskCallback</code>. 
+</p>
+
+
+<h3>Note</h3>
+
+<p>One can use <code>taskCallbackManager</code>
+to manage user-level task callbacks,
+i.e., S-language functions, entirely within
+the S language and access the names
+more directly.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>addTaskCallback</code>,
+<code>removeTaskCallback</code>,
+<code>taskCallbackManager</code>\
+<a href="http://developer.r-project.org/TaskHandlers.pdf">http://developer.r-project.org/TaskHandlers.pdf</a>  
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'> n &lt;- addTaskCallback(function(expr, value, ok, visible) {
+                        cat("In handler\n")
+                        return(TRUE)
+                      }, name = "simpleHandler")
+
+ getTaskCallbackNames()
+
+   # now remove it by name
+ removeTaskCallback("simpleHandler")
+
+
+ h &lt;- taskCallbackManager()
+ h$add(function(expr, value, ok, visible) {
+                        cat("In handler\n")
+                        return(TRUE)
+                      }, name = "simpleHandler")
+ getTaskCallbackNames()
+ removeTaskCallback("R-taskCallbackManager")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.10.1 ]</div>
+</div>
+</body></html>

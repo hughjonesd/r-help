@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>R: Build Shared Library for Dynamic Loading</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/SHLIB.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/SHLIB.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>SHLIB {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='SHLIB'>Build Shared Library for Dynamic Loading</h2>
+
+<h3>Description</h3>
+
+<p>The given source files are first compiled using <code>R COMPILE</code>.  All
+specified object files are then linked into a shared library which can
+be loaded into R using <code>dyn.load()</code>.  
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R SHLIB [-o libname] files</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="SHLIB_:_files">files</code></td>
+<td>
+<p>a list of names of (typically) source files to be
+compiled and included in the library.  You can also include the name
+of object files which are automagically made from their sources.</p>
+</td></tr>
+<tr><td><code id="SHLIB_:_libname">libname</code></td>
+<td>
+<p>the full name of the shared library to be built,
+including the extension (typically &lsquo;<span class="file">.so</span>&rsquo; on Unix systems).  If
+not given, the name of the library is taken from the first source
+file.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>COMPILE</code>, <code>dyn.load</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63.1 ]</div>
+</div>
+</body></html>

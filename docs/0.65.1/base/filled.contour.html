@@ -1,0 +1,188 @@
+<!DOCTYPE html><html><head><title>R: Level (Contour) Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/filled.contour.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/filled.contour.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>filled.contour {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='filled.contour'>Level (Contour) Plots</h2>
+
+<h3>Description</h3>
+
+<p>This function produces a contour plot with the areas between
+the contours filled in solid color (Cleveland calls this a
+level plot).  A key showing how the colors map to z values
+is shown to the right of the plot.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>filled.contour(x = seq(0, 1, len = nrow(z)),
+               y = seq(0, 1, len = ncol(z)),
+               z,
+               xlim = range(x, finite=TRUE),
+               ylim = range(y, finite=TRUE),
+               zlim = range(z, finite=TRUE),
+               nlevels = 20,  levels = pretty(zlim, nlevels), 
+               color.palette = cm.colors,
+               col = color.palette(length(levels) - 1),
+               plot.title, plot.axes, key.title, key.axes,
+               asp = NA, xaxs="i", yaxs="i", las=1, axes=TRUE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="filled.contour_:_x">x</code>, <code id="filled.contour_:_y">y</code></td>
+<td>
+<p>locations of grid lines at which the values in <code>z</code> are
+measured.  These must be in ascending order.  By default, equally 
+spaced values from 0 to 1 are used.  If <code>x</code> is a <code>list</code>,
+its components <code>x$x</code> and <code>x$y</code> are used for <code>x</code>
+and <code>y</code>, respectively. If the list has component <code>z</code> this
+is used for <code>z</code>.</p>
+</td></tr> 
+<tr><td><code id="filled.contour_:_z">z</code></td>
+<td>
+<p>a matrix containing the values to be plotted (<code>NA</code>s are
+allowed).  Note that <code>x</code> can be used instead of <code>z</code> for  
+convenience.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_xlim">xlim</code></td>
+<td>
+<p>x limits for the plot.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_ylim">ylim</code></td>
+<td>
+<p>y limits for the plot.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_zlim">zlim</code></td>
+<td>
+<p>z limits for the plot.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_levels">levels</code></td>
+<td>
+<p>a set of levels which are used to partition the range
+of <code>z</code>.  Areas with <code>z</code> values between consecutive
+levels are painted with the same color.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_nlevels">nlevels</code></td>
+<td>
+<p>if <code>levels</code> is not specified, the range of <code>z</code>,
+values is divided into approximately this many levels.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_color.palette">color.palette</code></td>
+<td>
+<p>a color palette function to be used to assign
+colors in the plot.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_col">col</code></td>
+<td>
+<p>an explicit set of colors to be used in the plot.
+This argument overrides any palette function specification.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_plot.title">plot.title</code></td>
+<td>
+<p>statements which add titles the main plot.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_plot.axes">plot.axes</code></td>
+<td>
+<p>statements which draw axes on the main plot.
+This overrides the default axes.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_key.title">key.title</code></td>
+<td>
+<p>statements which add titles for the plot key.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_key.axes">key.axes</code></td>
+<td>
+<p>statements which draw axes on the plot key.
+This overrides the default axis.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_asp">asp</code></td>
+<td>
+<p>the <code class="reqn">y/x</code> aspect ratio, see <code>plot.window</code>.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_xaxs">xaxs</code></td>
+<td>
+<p>the x axis style.  The default is to use internal
+labeling.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_yaxs">yaxs</code></td>
+<td>
+<p>the y axis style.  The default is to use internal
+labeling.</p>
+</td></tr>
+<tr><td><code id="filled.contour_:_las">las</code></td>
+<td>
+<p>the style of labeling to be used.  The default is to
+use horizontal labeling. </p>
+</td></tr>
+<tr><td><code id="filled.contour_:_...">...</code></td>
+<td>
+<p>additional graphical parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>This function currently uses the <code>layout</code> function and so
+is restricted to a full page display.  In future it is likely to
+be replaced by a genuine <code>levelplot</code> function which will
+work in multipanel displays.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Ross Ihaka.</p>
+
+
+<h3>References</h3>
+
+<p>Cleveland, W. S. (1993).
+<em>Visualizing Data</em>,
+Summit, New Jersey: Hobart.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>contour</code>, <code>image</code>, <code>palette</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(volcano)
+filled.contour(volcano, color = terrain.colors, asp = 1)# simple
+
+x &lt;- 10*1:nrow(volcano)
+y &lt;- 10*1:ncol(volcano)
+filled.contour(x, y, volcano, color = terrain.colors,
+    plot.title = title(main = "The Topography of Maunga Whau",
+    xlab = "Meters North", ylab = "Meters West"),
+    plot.axes = { axis(1, seq(100, 800, by = 100))
+                  axis(2, seq(100, 600, by = 100)) },
+    key.title = title(main="Height (Meters)"),
+    key.axes = axis(4, seq(90, 190, by = 10)))# maybe also asp=1
+mtext(paste("filled.contour(.) from", R.version.string),
+      side=1, line=4, adj=1, cex=.6)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65.1 ]</div>
+</div>
+</body></html>

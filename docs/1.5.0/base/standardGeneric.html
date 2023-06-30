@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><title>R: Formal Method System Placeholders</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/standardGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/standardGeneric.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>standardGeneric {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='standardGeneric'>Formal Method System Placeholders</h2>
+
+<h3>Description</h3>
+
+<p>These routines are primitives used with the <code>methods</code> package.
+They should not be used without it and do not need to be called
+directly in any case.
+</p>
+
+<dl>
+<dt><code>standardGeneric</code>:</dt><dd>
+<p>dispatch the method defined for generic function named <code>f</code>,
+using the actual arguments in the frame from which
+<code>standardGeneric</code> is called.
+</p>
+</dd>
+<dt><code>objWithClass</code>:</dt><dd>
+<p>return the result of setting the class of <code>object</code> to
+<code>value</code>.  Defined as a separate primitive function because R
+types cannot generally be changed in place.
+</p>
+</dd>
+<dt><code>dataClass</code>:</dt><dd><p> returns a single string for the class of
+<code>object</code> even in the case that the object has an old-style
+class attribute with multiple strings.
+</p>
+</dd>
+<dt><code>topicName</code>:</dt><dd>
+<p>the string used internally to find documenation of the given type
+and topic.  Called by the <code>?</code> operator and the special prompt
+functions in the methods package.
+</p>
+</dd>
+</dl>
+
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>standardGeneric(f)
+objWithClass(object, value)
+dataClass(object)
+topicName(type, topic)
+</code></pre>
+
+
+<h3>Author(s)</h3>
+
+<p> John Chambers </p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.0 ]</div>
+</div>
+</body></html>

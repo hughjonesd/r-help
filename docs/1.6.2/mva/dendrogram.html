@@ -1,0 +1,208 @@
+<!DOCTYPE html><html><head><title>R: General Tree Structures</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/dendrogram.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/dendrogram.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dendrogram {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dendrogram'>General Tree Structures</h2>
+
+<h3>Description</h3>
+
+<p>Class <code>"dendrogram"</code> provides general functions for handling
+tree-like structures.  It is intended as a replacement for similar
+functions in hierarchical clustering and classification/regression
+trees, such that all of these can use the same engine for plotting or
+cutting trees.
+</p>
+<p>The code is still in testing stage and the API may
+change in the future.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>as.dendrogram(object, ...)
+as.dendrogram.hclust(object, ...)
+## S3 method for class 'dendrogram'
+plot(x, type=c("rectangle", "triangle"),
+         center=FALSE, edge.root= !is.null(attr(x,"edgetext")),
+         nodePar = NULL, edgePar = list(), xlab="", ylab="",
+         horiz = FALSE, ...)
+## S3 method for class 'dendrogram'
+cut(x, h, ...)
+
+
+## S3 method for class 'dendrogram'
+print(x, digits, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dendrogram_:_object">object</code></td>
+<td>
+<p>any <span class="rlang"><b>R</b></span> object that can be made into a class
+<code>"dendrogram"</code> one.</p>
+</td></tr>
+<tr><td><code id="dendrogram_:_x">x</code></td>
+<td>
+<p>object of class <code>"dendrogram"</code>.</p>
+</td></tr>
+<tr><td><code id="dendrogram_:_type">type</code></td>
+<td>
+<p>type of plot.</p>
+</td></tr>
+<tr><td><code id="dendrogram_:_center">center</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, nodes are plotted centered with
+respect to the leaves in the branch.  Otherwise (default), plot them
+in the middle of all direct child nodes.</p>
+</td></tr>
+<tr><td><code id="dendrogram_:_edge.root">edge.root</code></td>
+<td>
+<p>logical; if true, draw an edge to the root node.</p>
+</td></tr>
+<tr><td><code id="dendrogram_:_nodePar">nodePar</code></td>
+<td>
+<p>a <code>list</code> of plotting parameters to use for the
+nodes (see <code>points</code>) or <code>NULL</code> by default which
+does not draw symbols at the nodes.  The list may contain components
+named <code>pch</code>, <code>cex</code>, <code>col</code>, and/or <code>bg</code> each of
+which can have length two for specifying separate attributes for
+<em>inner</em> nodes and <em>leaves</em>.</p>
+</td></tr>
+<tr><td><code id="dendrogram_:_edgePar">edgePar</code></td>
+<td>
+<p>a <code>list</code> of plotting parameters to use for the
+edge (see <code>lines</code>).  The list may contain components
+named <code>col</code>, <code>lty</code> and/or <code>lwd</code>.</p>
+</td></tr>
+<tr><td><code id="dendrogram_:_horiz">horiz</code></td>
+<td>
+<p>logical indicating if the dendrogram should be draw
+<em>horizontally</em> or not.</p>
+</td></tr>
+<tr><td><code id="dendrogram_:_h">h</code></td>
+<td>
+<p>height at which the tree is cut.</p>
+</td></tr>
+<tr><td><code id="dendrogram_:_...">...</code>, <code id="dendrogram_:_xlab">xlab</code>, <code id="dendrogram_:_ylab">ylab</code></td>
+<td>
+<p>graphical parameters, or arguments for
+other methods.</p>
+</td></tr>
+<tr><td><code id="dendrogram_:_digits">digits</code></td>
+<td>
+<p>integer specifiying the precision for printing, see
+<code>print.default</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Warning: This documentation is preliminary.
+</p>
+<p>The dendrogram is directly represented as a nested list where each
+component corresponds to a branch of the tree.  Hence, the first
+branch of tree <code>z</code> is <code>z[[1]]</code>, the second branch of the
+corresponding subtree is <code>z[[1]][[2]]</code> etc.. Each node of the tree
+carries some information needed for efficient plotting or cutting as
+attributes:
+</p>
+
+<dl>
+<dt><code>members</code></dt><dd><p>total number of leaves in the branch</p>
+</dd>
+<dt><code>height</code></dt><dd><p>numeric non-negative height at which the node
+is plotted.</p>
+</dd>
+<dt><code>midpoint</code></dt><dd><p>numeric horizontal distance of the node from
+the left border of the branch.  This is needed at least for
+<code>plot(*, center=FALSE)</code>.</p>
+</dd>
+<dt><code>text</code></dt><dd><p>character; the label of the node</p>
+</dd>
+<dt><code>edgetext</code></dt><dd><p>character; the label for the edge leading to
+the node</p>
+</dd>
+<dt><code>nodePar</code></dt><dd><p>a named list of length one vectors specifying
+node-specific attributes for <code>points</code> plotting, see
+the <code>nodePar</code> argument above.</p>
+</dd>
+<dt><code>edgePar</code></dt><dd><p>a named list of length one vectors specifying
+attributes for <code>segments</code> plotting of the edge leading
+to the node, see the <code>edgePar</code> argument above.</p>
+</dd>
+<dt><code>leaf</code></dt><dd><p>logical, if <code>TRUE</code>, the node is a leaf of
+the tree.</p>
+</dd>
+</dl>
+
+<p><code>cut.dendrogram()</code> returns a list with components <code>$upper</code>
+and <code>$lower</code>, the first is a truncated version of the original
+tree, also of class <code>dendrogram</code>, the latter a list with the
+branches obtained from cutting the tree, each a <code>dendrogram</code>.
+</p>
+<p>There are <code>[[</code>, <code>print</code>, and <code>str</code>
+methods for <code>"dendrogram"</code> objects where the first one
+(extraction) ensures that selecting sub-branches keeps the class.
+</p>
+<p>Objects of class <code>"hclust"</code> can be converted to class
+<code>"dendrogram"</code> using method <code>as.dendrogram</code>.
+</p>
+<p><code>isLeaf()</code>, <code>plotNode()</code> and <code>plotNodeLimit()</code> are helper
+functions. 
+</p>
+
+
+<h3>Note</h3>
+
+<p>When using <code>type = "triangle"</code>, <code>center = TRUE</code> often looks
+better.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>library(mva)
+data(USArrests)
+hc &lt;- hclust(dist(USArrests), "ave")
+(dend1 &lt;- as.dendrogram(hc)) # "print()" method
+str(dend1) # "str()" method
+
+op &lt;- par(mfrow= c(2,2), mar = c(3,3,1,1))
+plot(dend1)
+## "triangle" type and show inner nodes:
+plot(dend1, nodePar=list(pch = c(1,NA),cex=0.8), type = "t", center=TRUE)
+plot(dend1, edgePar=list(col = 1:2, lty = 2:3), edge.root = TRUE)
+plot(dend1, nodePar=list(pch = 2:1,cex=.4*2:1, col = 2:3), horiz = TRUE)
+
+dend2 &lt;- cut(dend1, h=70)
+plot(dend2$upper)
+## leafs are wrong horizontally:%% FIXME ?!?
+plot(dend2$upper, nodePar=list(pch = c(1,7), col = 2:1))
+##  dend2$lower is *NOT* a dendrogram, but a list of .. :
+plot(dend2$lower[[3]], nodePar=list(col=4), horiz = TRUE, type = "tr")
+## "inner" and "leaf" edges in different type &amp; color :
+plot(dend2$lower[[2]], nodePar=list(col=1),# non empty list
+     edgePar = list(lty=1:2, col=2:1), edge.root=TRUE)
+par(op)
+</code></pre>
+
+
+</div>
+</body></html>

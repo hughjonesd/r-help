@@ -1,0 +1,50 @@
+<!DOCTYPE html><html><head><title>R: Median Absolute Deviation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/mad.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/mad.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mad {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mad'>Median Absolute Deviation</h2>
+
+<h3>Description</h3>
+
+<p><code>mad</code> provides a scale estimate based on the
+median absolute deviation.
+The actual value calculated is
+<code>constant * (median(abs(x - center)))</code>
+with the default value of
+<code>center</code> being <code>median(x)</code>.
+</p>
+<p>If <code>na.rm</code> is <code>TRUE</code> then <code>NA</code>
+values are stripped from <code>x</code> before computation takes place.
+If this is not done then an <code>NA</code> value in
+<code>x</code> will cause <code>mad</code> to return <code>NA</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mad(x, center, constant=1.4826, na.rm=FALSE)
+</code></pre>
+
+
+<h3>See Also</h3>
+
+<p><code>median</code>, <code>var</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>R: Validate a Justification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/valid.just.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/valid.just.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>valid.just {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='valid.just'>Validate a Justification</h2>
+
+<h3>Description</h3>
+
+<p>Utility functions for determining
+whether a justification specification is valid
+and for resolving a single justification value from
+a combination of character and numeric values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>valid.just(just)
+resolveHJust(just, hjust) 
+resolveVJust(just, vjust) 
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="valid.just_:_just">just</code></td>
+<td>
+<p>A justification either as a character value,
+e.g., <code>"left"</code>, or as a numeric value, e.g., 0.</p>
+</td></tr>
+<tr><td><code id="valid.just_:_hjust">hjust</code></td>
+<td>
+<p>A numeric horizontal justification</p>
+</td></tr>
+<tr><td><code id="valid.just_:_vjust">vjust</code></td>
+<td>
+<p>A numeric vertical justification</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These functions may be useful within a <code>validDetails</code> method
+when writing a new grob class.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A numeric representation of the justification (e.g.,
+<code>"left"</code> becomes 0, <code>"right"</code> becomes 1, etc, ...).
+An error is given if the justification is not valid.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 4.2.0 ]</div>
+</div>
+</body></html>

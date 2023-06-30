@@ -1,0 +1,121 @@
+<!DOCTYPE html><html><head><title>R: Create a Socket Connection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4-revised. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/make.socket.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/make.socket.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>make.socket {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='make.socket'>Create a Socket Connection</h2>
+
+<h3>Description</h3>
+
+<p>With <code>server = FALSE</code> attempts to open a client socket to the
+specified port and host.  With <code>server = TRUE</code> the <span class="rlang"><b>R</b></span> process
+listens on the specified port for a connection and then returns a
+server socket.  It is a good idea to use <code>on.exit</code> to
+ensure that a socket is closed, as you only get 64 of them.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>make.socket(host = "localhost", port, fail = TRUE, server = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="make.socket_:_host">host</code></td>
+<td>
+<p>name of remote host</p>
+</td></tr>
+<tr><td><code id="make.socket_:_port">port</code></td>
+<td>
+<p>port to connect to/listen on</p>
+</td></tr>
+<tr><td><code id="make.socket_:_fail">fail</code></td>
+<td>
+<p>failure to connect is an error?</p>
+</td></tr>
+<tr><td><code id="make.socket_:_server">server</code></td>
+<td>
+<p>a server socket?</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"socket"</code>, a list with components:
+</p>
+<table>
+<tr><td><code>socket</code></td>
+<td>
+<p>socket number.  This is for internal use.  On a
+Unix-alike it is a file descriptor.</p>
+</td></tr>
+<tr><td><code>port</code></td>
+<td>
+<p>port number of the connection.</p>
+</td></tr>
+<tr><td><code>host</code></td>
+<td>
+<p>name of remote computer.</p>
+</td></tr>
+</table>
+
+
+<h3>Warning</h3>
+
+<p>I don't know if the connecting host name returned
+when <code>server = TRUE</code> can be trusted.  I suspect not.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Thomas Lumley</p>
+
+
+<h3>References</h3>
+
+<p>Adapted from Luke Tierney's code for <code>XLISP-Stat</code>, in turn
+based on code from Robbins and Robbins &ldquo;Practical UNIX Programming&rdquo;.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>close.socket</code>, <code>read.socket</code>.
+</p>
+<p>Compiling in support for sockets is optional: see
+<code>capabilities("sockets")</code> to see if it is available.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>daytime &lt;- function(host = "localhost"){
+    a &lt;- make.socket(host, 13)
+    on.exit(close.socket(a))
+    read.socket(a)
+}
+## Official time (UTC) from US Naval Observatory
+## Not run: daytime("tick.usno.navy.mil")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 3.2.4-revised ]</div>
+</div>
+</body></html>

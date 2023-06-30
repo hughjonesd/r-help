@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><title>R: R Driver for Stangle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/Rtangle.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/Rtangle.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Rtangle {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Rtangle'>R Driver for Stangle</h2>
+
+<h3>Description</h3>
+
+<p>A driver for <code>Stangle</code> that extracts <span class="rlang"><b>R</b></span> code chunks.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Rtangle()
+RtangleSetup(file, syntax, output = NULL, annotate = TRUE,
+             split = FALSE, prefix = TRUE, quiet = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Rtangle_:_file">file</code></td>
+<td>
+<p>Name of Sweave source file.  See the description of the
+corresponding argument of <code>Sweave</code>.</p>
+</td></tr>
+<tr><td><code id="Rtangle_:_syntax">syntax</code></td>
+<td>
+<p>An object of class <code>SweaveSyntax</code>.</p>
+</td></tr>
+<tr><td><code id="Rtangle_:_output">output</code></td>
+<td>
+<p>Name of output file used unless <code>split = TRUE</code>:
+see &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="Rtangle_:_annotate">annotate</code></td>
+<td>
+<p>By default, code chunks are separated by comment
+lines specifying the names and numbers of the code chunks. If
+<code>FALSE</code>, only the code chunks without any decorating comments
+are extracted.</p>
+</td></tr>
+<tr><td><code id="Rtangle_:_split">split</code></td>
+<td>
+<p>Split output into a file for each code chunk?</p>
+</td></tr>
+<tr><td><code id="Rtangle_:_prefix">prefix</code></td>
+<td>
+<p>If <code>split = TRUE</code>, prefix the chunk labels by the
+basename of the input file to get output file names?</p>
+</td></tr>
+<tr><td><code id="Rtangle_:_quiet">quiet</code></td>
+<td>
+<p>If <code>TRUE</code> all progress messages are suppressed.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Unless <code>split = TRUE</code>, the default name of the output file is
+<code>basename(file)</code> with an extension corresponding to the Sweave
+syntax (e.g. &lsquo;<span class="file">Rnw</span>&rsquo;, &lsquo;<span class="file">Stex</span>&rsquo;) replaced by &lsquo;<span class="file">R</span>&rsquo;.
+</p>
+<p>If splitting is selected (including by the options in the file), each
+chunk is written to a separate file with extension the name of the
+&lsquo;engine&rsquo; (default &lsquo;<span class="file">.R</span>&rsquo;).
+</p>
+<p>Note that this does not simple extract the code chunks verbatim
+because code chunks can re-use earlier chunks.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Friedrich Leisch and R-core.</p>
+
+
+<h3>See Also</h3>
+
+<p>&lsquo;<a href="../doc/Sweave.pdf">Sweave User Manual</a>&rsquo;, a vignette in
+the <span class="pkg">utils</span> package.
+</p>
+<p><code>Sweave</code>, <code>RweaveLatex</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.13.0 ]</div>
+</div>
+</body></html>

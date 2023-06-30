@@ -1,0 +1,130 @@
+<!DOCTYPE html><html><head><title>R: Search for Key Words or Phrases in Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/RSiteSearch.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/RSiteSearch.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>RSiteSearch {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='RSiteSearch'>
+Search for Key Words or Phrases in Documentation
+</h2>
+
+<h3>Description</h3>
+
+<p>Search for key words or phrases in
+help pages, vignettes or task views, using the search engine
+at <a href="http://search.r-project.org">http://search.r-project.org</a> and view them in a web browser.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>RSiteSearch(string,
+            restrict = c("functions", "vignettes", "views"),
+            format = c("normal", "short"),
+            sortby = c("score", "date:late", "date:early",
+                       "subject", "subject:descending",
+                       "from", "from:descending",
+                       "size", "size:descending"),
+            matchesPerPage = 20)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="RSiteSearch_:_string">string</code></td>
+<td>
+<p>A character string specifying word(s) or a phrase to
+search.  If the words are to be searched as one entity, enclose all
+words in braces (see the first example).</p>
+</td></tr>
+<tr><td><code id="RSiteSearch_:_restrict">restrict</code></td>
+<td>
+<p>a character vector, typically of length greater than one.
+Possible areas to search in:
+<code>functions</code> for help pages,
+<code>views</code> for task views and
+<code>vignettes</code> for package vignettes.</p>
+</td></tr>
+<tr><td><code id="RSiteSearch_:_format">format</code></td>
+<td>
+<p><code>normal</code> or <code>short</code> (no excerpts); can be
+abbreviated.</p>
+</td></tr>
+<tr><td><code id="RSiteSearch_:_sortby">sortby</code></td>
+<td>
+<p>character string (can be abbreviated) indicating how to
+sort the search results:<br />
+(<code>score</code>,
+<code>date:late</code> for sorting by date with latest results first,
+<code>date:early</code> for earliest first,
+<code>subject</code> for subject in alphabetical order,
+<code>subject:descending</code> for reverse alphabetical order,
+<code>from</code> or <code>from:descending</code> for sender (when applicable),
+<code>size</code> or <code>size:descending</code> for size.)</p>
+</td></tr>
+<tr><td><code id="RSiteSearch_:_matchesPerPage">matchesPerPage</code></td>
+<td>
+<p>How many items to show per page.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is designed to work with the search site at
+<a href="http://search.r-project.org">http://search.r-project.org</a>, and depends on that site
+continuing to be made available (thanks to Jonathan Baron and the
+School of Arts and Sciences of the University of Pennsylvania).
+</p>
+<p>Unique partial matches will work for all arguments.  Each new
+browser window will stay open unless you close it.
+</p>
+
+
+<h3>Value</h3>
+
+<p>(Invisibly) the complete URL passed to the browser,
+including the query string.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Andy Liaw and Jonathan Baron</p>
+
+
+<h3>See Also</h3>
+
+<p><code>help.search</code>, <code>help.start</code> for local searches.
+</p>
+<p><code>browseURL</code> for how the help file is displayed.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># need Internet connection
+RSiteSearch("{logistic regression}") # matches exact phrase
+Sys.sleep(5) # allow browser to open, take a quick look
+## Search in vignettes and store the query-string:
+fullquery &lt;- RSiteSearch("lattice", restrict = "vignettes")
+fullquery # a string of ~ 110 characters
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 3.1.3 ]</div>
+</div>
+</body></html>

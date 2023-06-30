@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head><title>R: Force an Object to Belong to a Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/as.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/as.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>as {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='as'>Force an Object to Belong to a Class</h2>
+
+<h3>Description</h3>
+
+<p>Coerce an object to a given class.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>as(object, Class, strict=TRUE, ext)
+
+as(object, Class) &lt;- value
+
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="as_:_object">object</code></td>
+<td>
+<p>any <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+<tr><td><code id="as_:_Class">Class</code></td>
+<td>
+<p>the name of the class to which <code>object</code> should be
+coerced. </p>
+</td></tr>
+<tr><td><code id="as_:_strict">strict</code></td>
+<td>
+<p>logical flag.  If <code>TRUE</code>, the returned object
+must be strictly from the target class (unless that class is a
+virtual class, in which case the object will be from the closest
+actual class, in particular the original object, if that class extends the
+virtual class directly).
+</p>
+<p>If <code>strict = FALSE</code>, any simple extension of the target class
+will be returned, without further change.  A simple extension is,
+roughly, one that just adds slots to an existing class.</p>
+</td></tr>
+<tr><td><code id="as_:_value">value</code></td>
+<td>
+<p>The value to use to modify <code>object</code> (see the
+discussion below).  You should supply an object with class
+<code>Class</code>; some coercion is done, but you're unwise to rely on
+it.</p>
+</td></tr>
+<tr><td><code id="as_:_ext">ext</code></td>
+<td>
+<p>an optional object
+defining how <code>Class</code> is extended by the class of the
+object (as returned by <code>possibleExtends</code>).
+This argument is used internally;
+do not use it directly.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Description</h3>
+
+<p><code>as(object)</code>
+returns the version of this object coerced to be the given
+<code>Class</code>.  When used in the replacement form on the left of
+an assignment, the portion of the object corresponding to
+<code>Class</code> is replaced by <code>value</code>.
+</p>
+<p>The operation of <code>as()</code> in either form depends on the
+definition of coerce methods.  Methods are defined automatically
+when the two classes are related by inheritance; that is, when
+one of the classes is a subclass of the other.
+</p>
+<p>Coerce methods are also predefined for basic classes (including all
+the types of vectors, functions and a few others).
+</p>
+<p>Beyond these two sources of methods, further methods are defined
+by calls to the <code>setAs</code> function.  See that
+documentation also for details of how coerce methods work. Use
+<code>showMethods(coerce)</code> for a list of all currently defined methods, as in the
+example below.
+</p>
+
+
+<h3>Basic Coercion Methods</h3>
+
+<p>Methods are pre-defined for coercing any object to one of the basic
+datatypes.  For example, <code>as(x, "numeric")</code> uses the existing
+<code>as.numeric</code> function.  These and all other existing methods
+can be listed as shown in the example.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, John M. (2016)
+<em>Extending R</em>,
+Chapman &amp; Hall.
+(Chapters 9 and 10.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p>If you think of using <code>try(as(x, cl))</code>, consider
+<code>canCoerce(x, cl)</code> instead.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+## Show all the existing methods for as()
+showMethods("coerce")
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 3.5.2 ]</div>
+</div>
+</body></html>

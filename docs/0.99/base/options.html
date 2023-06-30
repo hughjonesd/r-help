@@ -1,0 +1,291 @@
+<!DOCTYPE html><html><head><title>R: Options Settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.99. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>options {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='options'>Options Settings</h2>
+
+<h3>Description</h3>
+
+<p><code>options</code> allows the user to set and examine a variety of global
+&ldquo;options&rdquo; which affect the way in which <span class="rlang"><b>R</b></span> computes and displays
+its results.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>options(...)
+getOption(x)
+.Options
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="options_:_...">...</code></td>
+<td>
+<p>any options can be defined, using <code>name = value</code>.
+However, only the ones below are used in &ldquo;base <span class="rlang"><b>R</b></span>&rdquo;.
+</p>
+<p>Further, <code>options('name') == options()['name']</code>, see the example.
+</p>
+</td></tr>
+<tr><td><code id="options_:_prompt">prompt</code></td>
+<td>
+<p>a string, used for <span class="rlang"><b>R</b></span>'s prompt; should usually end in a
+blank (<code>" "</code>).</p>
+</td></tr>
+<tr><td><code id="options_:_continue">continue</code></td>
+<td>
+<p>a string setting the prompt used for lines which continue
+over one line.</p>
+</td></tr>
+<tr><td><code id="options_:_width">width</code></td>
+<td>
+<p>controls the number of characters on a line.  You may
+want to change this if you re-size the window that <span class="rlang"><b>R</b></span> is running in.</p>
+</td></tr>
+<tr><td><code id="options_:_digits">digits</code></td>
+<td>
+<p>controls the number of digits to print when printing
+numeric values.  It is a suggestion only.</p>
+</td></tr>
+<tr><td><code id="options_:_editor">editor</code></td>
+<td>
+<p>sets the default text editor, e.g., for
+<code>edit</code>. Set from the environment variable <code>VISUAL</code>
+on UNIX.</p>
+</td></tr>
+<tr><td><code id="options_:_pager">pager</code></td>
+<td>
+<p>the (stand-alone) program used for displaying ASCII files on
+<span class="rlang"><b>R</b></span>'s console.  Defaults to &lsquo;<span class="file">\$R\_HOME/bin/pager</span>&rsquo; on UNIX.</p>
+</td></tr>
+<tr><td><code id="options_:_browser">browser</code></td>
+<td>
+<p>default HTML browser used by <code>help.start()</code>
+on UNIX.</p>
+</td></tr>
+<tr><td><code id="options_:_mailer">mailer</code></td>
+<td>
+<p>default mailer used by <code>bug.report()</code>. can
+be <code>"none"</code>.</p>
+</td></tr>
+<tr><td><code id="options_:_contrasts">contrasts</code></td>
+<td>
+<p>the default <code>contrasts</code> used in model
+fitting such as with <code>aov</code> or <code>lm</code>.  A
+character vector of length two, the first giving the function to be
+used with unordered factors and the second the function to be used
+with ordered factors.</p>
+</td></tr>
+<tr><td><code id="options_:_expressions">expressions</code></td>
+<td>
+<p>sets a limit on the number of nested expressions that
+will be evaluated.  This is especially important on the Macintosh
+since stack overflow is likely if this is set too high.</p>
+</td></tr>
+<tr><td><code id="options_:_keep.source">keep.source</code></td>
+<td>
+<p>When <code>TRUE</code>, the default, the source code for
+functions loaded by is stored in their <code>"source"</code> attribute,
+allowing comments to be kept in the right places.  This does not apply
+to functions loaded by <code>library</code>.</p>
+</td></tr>
+<tr><td><code id="options_:_na.action">na.action</code></td>
+<td>
+<p>the name of a function for treating missing values
+(<code>NA</code>'s) for certain situations.</p>
+</td></tr>
+<tr><td><code id="options_:_papersize">papersize</code></td>
+<td>
+<p>the paper format used for graphics printing; currently
+<b>read-only</b>, set by environment variable <code>R_PAPERSIZE</code>, or in
+&lsquo;<span class="file">config.site</span>&rsquo;.</p>
+</td></tr>
+<tr><td><code id="options_:_printcmd">printcmd</code></td>
+<td>
+<p>the command used for graphics printing; currently
+<b>read-only</b>, set by environment variable <code>R_PRINTCMD</code>, or in
+&lsquo;<span class="file">config.site</span>&rsquo;.</p>
+</td></tr>
+<tr><td><code id="options_:_latexcmd">latexcmd</code>, <code id="options_:_dvipscmd">dvipscmd</code></td>
+<td>
+<p>character strings giving commands to be used
+in off-line printing of help pages.</p>
+</td></tr>
+<tr><td><code id="options_:_show.signif.stars">show.signif.stars</code>, <code id="options_:_show.coef.Pvalues">show.coef.Pvalues</code></td>
+<td>
+<p>logical, affecting P value
+printing, see <code>print.coefmat</code>.</p>
+</td></tr>
+<tr><td><code id="options_:_ts.eps">ts.eps</code></td>
+<td>
+<p>the relative tolerance for certain time series
+(<code>ts</code>) computations.</p>
+</td></tr>
+<tr><td><code id="options_:_error">error</code></td>
+<td>
+<p>an expression governing the handling of non-catastrophic
+errors such as those generated by <code>stop</code> as well as by
+signals and internally detected errors. The default expression is
+<code>NULL</code>: see <code>stop</code> for the behaviour in that case.</p>
+</td></tr>
+<tr><td><code id="options_:_warn">warn</code></td>
+<td>
+<p>sets the handling of warning messages.  If <code>warn</code>
+is negative all warnings are ignored.  If <code>warn</code> is zero
+(the default) warnings are stored until the top&ndash;level function
+returns.  If fewer than 10 warnings were signalled they will be printed
+otherwise a message saying how many (max 50) were signalled.  A
+top&ndash;level variable called <code>last.warning</code> is created and can be
+viewed through the function <code>warnings</code>.  If <code>warn</code> is
+one, warnings are printed as they occur.  If <code>warn</code> is two or
+larger all warnings are turned into errors.</p>
+</td></tr>
+<tr><td><code id="options_:_echo">echo</code></td>
+<td>
+<p>logical. Only used in non-interactive mode, when it
+controls whether input is echoed. Command-line options
+<code>--quiet</code> and <code>--slave</code> set this initially to <code>FALSE</code>.</p>
+</td></tr>
+<tr><td><code id="options_:_verbose">verbose</code></td>
+<td>
+<p>logical. Should <span class="rlang"><b>R</b></span> report extra information on
+progress? Set to <code>TRUE</code> by the command-line option
+<code>--verbose</code>.</p>
+</td></tr>
+<tr><td><code id="options_:_device">device</code></td>
+<td>
+<p>a character string giving the default device for that session.</p>
+</td></tr>
+<tr><td><code id="options_:_X11colortype">X11colortype</code></td>
+<td>
+<p>The default colour type for <code>X11</code> devices.</p>
+</td></tr>
+<tr><td><code id="options_:_CRAN">CRAN</code></td>
+<td>
+<p>The URL of the preferred CRAN node for use by
+<code>update.packages</code>. Defaults to
+<a href="http://cran.r-project.org">http://cran.r-project.org</a>.</p>
+</td></tr> 
+<tr><td><code id="options_:_unzip">unzip</code></td>
+<td>
+<p>the command used unzipping help files.
+</p>
+</td></tr>
+<tr><td><code id="options_:_x">x</code></td>
+<td>
+<p>a character string holding one of the above option names.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Invoking <code>options()</code> with no arguments returns a list with the
+current values of the options.  To access the value of a single
+option, one should use <code>getOption("width")</code>, e.g., rather than
+<code>options("width")</code> which is a <em>list</em> of length one.
+</p>
+<p>The default settings of some of these options are
+</p>
+
+<table>
+<tr>
+ <td style="text-align: left;">
+    <code>prompt</code> </td><td style="text-align: left;"> <code>"&gt; "</code> </td><td style="text-align: left;">
+    <code>continue</code> </td><td style="text-align: left;"> <code>"+ "</code></td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+    <code>width</code>  </td><td style="text-align: left;"> <code>80</code> </td><td style="text-align: left;">
+    <code>digits</code> </td><td style="text-align: left;"> <code>7</code></td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+    <code>expressions</code> </td><td style="text-align: left;"> <code>500</code> </td><td style="text-align: left;">
+    <code>keep.source</code> </td><td style="text-align: left;"> <code>TRUE</code></td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+    <code>show.signif.stars</code> </td><td style="text-align: left;"> <code>TRUE</code> </td><td style="text-align: left;">
+    <code>show.coef.Pvalues</code> </td><td style="text-align: left;"> <code>TRUE</code></td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+    <code>na.action</code> </td><td style="text-align: left;"> <code>na.omit</code> </td><td style="text-align: left;">
+    <code>ts.eps</code> </td><td style="text-align: left;"> <code>1e-5</code></td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+    <code>error</code> </td><td style="text-align: left;"> <code>NULL</code> </td><td style="text-align: left;">
+    <code>warn</code> </td><td style="text-align: left;"> <code>0</code></td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+    <code>echo</code> </td><td style="text-align: left;"> <code>TRUE</code> </td><td style="text-align: left;">
+    <code>verbose</code> </td><td style="text-align: left;"> <code>FALSE</code>
+  </td>
+</tr>
+
+</table>
+
+<p>Others are set from environment variables or are platform-dependent.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list (in any case) with the previous values of the options changed,
+or all options when no arguments were given.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>options() # printing all current options
+op &lt;- options(); str(op) # nicer printing
+
+# .Options is the same:
+all(sapply(1:length(op), function(i) all(.Options[[i]] == op[[i]])))
+
+options('width')[[1]] == options()$width # the latter needs more memory
+options(digits=20)
+pi
+
+# set the editor, and save previous value
+old.o &lt;- options(editor="nedit")
+old.o
+
+options(op)     # reset (all) initial options
+options('digits')
+
+## Not run: ## set contrast handling to be like S
+options(contrasts=c("contr.helmert", "contr.poly"))
+
+## End(Not run)
+## Not run: ## on error, terminate the R session with error status 66
+options(error=quote(q("no", status=66, runLast=FALSE)))
+stop("test it")
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.99 ]</div>
+</div>
+</body></html>

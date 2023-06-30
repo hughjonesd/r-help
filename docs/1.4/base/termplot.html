@@ -1,0 +1,153 @@
+<!DOCTYPE html><html><head><title>R: Plot regression terms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/termplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/termplot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>termplot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='termplot'>Plot regression terms</h2>
+
+<h3>Description</h3>
+
+<p>Plots regression terms against their predictors, optionally with
+standard errors and partial residuals added.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>termplot(model, data=model.frame(model), partial.resid=FALSE, rug=FALSE,
+         terms=NULL, se=FALSE, xlabs=NULL, ylabs=NULL, main = NULL,
+         col.term = 2, lwd.term = 1.5,
+         col.se = "orange", lty.se = 2, lwd.se = 1,
+         col.res = "gray", cex = 1, pch = par("pch"),
+         ask = interactive() &amp;&amp; nb.fig &lt; n.tms &amp;&amp; .Device != "postscript",
+         ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="termplot_:_model">model</code></td>
+<td>
+<p>fitted model object</p>
+</td></tr>
+<tr><td><code id="termplot_:_data">data</code></td>
+<td>
+<p>data frame in which the variables in <code>model</code> can be found</p>
+</td></tr>
+<tr><td><code id="termplot_:_partial.resid">partial.resid</code></td>
+<td>
+<p>logical; should partial residuals be plotted?</p>
+</td></tr>
+<tr><td><code id="termplot_:_rug">rug</code></td>
+<td>
+<p>add rugplots (jittered 1-d histograms) to the axes?</p>
+</td></tr>
+<tr><td><code id="termplot_:_terms">terms</code></td>
+<td>
+<p>which terms to plot (default <code>NULL</code> means all terms)</p>
+</td></tr>
+<tr><td><code id="termplot_:_se">se</code></td>
+<td>
+<p>plot pointwise standard errors?</p>
+</td></tr>
+<tr><td><code id="termplot_:_xlabs">xlabs</code></td>
+<td>
+<p>vector of labels for the x axes</p>
+</td></tr>
+<tr><td><code id="termplot_:_ylabs">ylabs</code></td>
+<td>
+<p>vector of labels for the y axes</p>
+</td></tr>
+<tr><td><code id="termplot_:_main">main</code></td>
+<td>
+<p>logical, or vector of main titles;  if <code>TRUE</code>, the
+model's call is taken as main title, <code>NULL</code> or <code>FALSE</code> mean
+no titles.</p>
+</td></tr>
+<tr><td><code id="termplot_:_col.term">col.term</code>, <code id="termplot_:_lwd.term">lwd.term</code></td>
+<td>
+<p>color and line width for the &ldquo;term curve&rdquo;,
+see <code>lines</code>.</p>
+</td></tr>
+<tr><td><code id="termplot_:_col.se">col.se</code>, <code id="termplot_:_lty.se">lty.se</code>, <code id="termplot_:_lwd.se">lwd.se</code></td>
+<td>
+<p>color, line type and line width for the
+&ldquo;twice-standard-error curve&rdquo; when <code>se = TRUE</code>.</p>
+</td></tr>
+<tr><td><code id="termplot_:_col.res">col.res</code>, <code id="termplot_:_cex">cex</code>, <code id="termplot_:_pch">pch</code></td>
+<td>
+<p>color, plotting character expansion and type
+for partial residuals, when <code>partial.resid = TRUE</code>, see
+<code>points</code>.</p>
+</td></tr>
+<tr><td><code id="termplot_:_ask">ask</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the user is <em>ask</em>ed before
+each plot, see <code>par(ask=.)</code>.</p>
+</td></tr>
+<tr><td><code id="termplot_:_...">...</code></td>
+<td>
+<p>other graphical parameters</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The model object must have a <code>predict</code> method that accepts
+<code>type=terms</code>, eg <code>glm</code> in the base package,
+<code>coxph</code> and <code>survreg</code> in the
+<code>survival5</code> package.
+</p>
+<p>For the <code>partial.resid=TRUE</code> option it must have a
+<code>residuals</code> method that accepts <code>type="partial"</code>,
+which <code>lm</code> and <code>glm</code> do.
+</p>
+<p>It is often necessary to specify the <code>data</code> argument, because it is
+not possible to reconstruct eg <code>x</code> from a model frame containing
+<code>sin(x)</code>.  The <code>data</code> argument must have exactly the same
+rows as the model frame of the model object so, for example, missing
+data must  have been removed in the same way.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>For (generalized) linear models, <code>plot.lm</code> and
+<code>predict.glm</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>rs &lt;- require(splines)
+x &lt;- 1:100
+z &lt;- factor(rep(1:4,25))
+y &lt;- rnorm(100,sin(x/10)+as.numeric(z))
+model &lt;- glm(y ~ ns(x,6) + z)
+
+par(mfrow=c(2,2)) ## 2 x 2 plots for same model :
+termplot(model, main = paste("termplot( ", deparse(model$call)," ...)"))
+termplot(model, rug=TRUE)
+termplot(model, partial=TRUE, rug= TRUE,
+         main="termplot(..., partial = TRUE, rug = TRUE)")
+termplot(model, partial=TRUE, se = TRUE, main = TRUE)
+if(rs) detach("package:splines")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4 ]</div>
+</div>
+</body></html>

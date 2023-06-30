@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><title>R: Compact PDF Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/compactPDF.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/compactPDF.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>compactPDF {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='compactPDF'>
+Compact PDF Files
+</h2>
+
+<h3>Description</h3>
+
+<p>Re-save PDF files (especially vignettes) more compactly.
+Support function for <code>R CMD build --compact-vignettes</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>compactPDF(paths, qpdf = Sys.getenv("R_QPDF", "qpdf"),
+           gs_cmd = Sys.getenv("R_GSCMD", ""),
+           gs_quality = c("printer", "ebook", "screen"),
+           gs_extras = character())
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="compactPDF_:_paths">paths</code></td>
+<td>
+<p>A character vector of paths to PDF files, or a length-one
+character vector naming a directory, when all &lsquo;<span class="file">.pdf</span>&rsquo; files in
+that directory will be used.</p>
+</td></tr>
+<tr><td><code id="compactPDF_:_qpdf">qpdf</code></td>
+<td>
+<p>Character string giving the path to the <code>qpdf</code>
+command.</p>
+</td></tr>
+<tr><td><code id="compactPDF_:_gs_cmd">gs_cmd</code></td>
+<td>
+<p>Character string giving the path to the GhostScript
+executable, if that is to be used.  On Windows this is the path to
+&lsquo;<span class="file">gswin32c.exe</span>&rsquo; or &lsquo;<span class="file">gswin64c.exe</span>&rsquo;.</p>
+</td></tr>
+<tr><td><code id="compactPDF_:_gs_quality">gs_quality</code></td>
+<td>
+<p>A character string indicating the quality required:
+the options are respectively 300, 150 and 72dpi.</p>
+</td></tr>
+<tr><td><code id="compactPDF_:_gs_extras">gs_extras</code></td>
+<td>
+<p>An optional character vector of further options to be
+passed to GhostScript.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This by default makes use of <code>qpdf</code>, available from
+<a href="http://qpdf.sourceforge.net/">http://qpdf.sourceforge.net/</a> (including as a Windows binary) and
+included with the CRAN Mac OS X distribution of <span class="rlang"><b>R</b></span>.  If <code>gs_cmd</code>
+is non-empty, GhostScript will used instead.
+</p>
+<p><code>qpdf</code> or <code>gs_cmd</code> is run on all PDF files found, and
+those which are reduced in size by at least 10% and 10Kb are
+replaced.
+</p>
+<p>The strategy of our use of <code>qpdf</code> is to (losslessly) compress
+PDF streams and objects.  Ghostscript does that and more (including
+downsampling images) and consequently is much slower and may lose
+quality (but can also produce much smaller PDF files).
+</p>
+<p>Where PDF files are changed they will become PDF version 1.5 files:
+these were first supported by Acrobat Reader 6 in 2003, so this is
+very unlikely to cause difficulties.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>c("compactPDF", "data.frame")</code> with a
+<code>format</code> and <code>print</code> method.  This has two columns, the old
+and new sizes in bytes for the files that were changed.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The external tools used may change in future releases.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>resaveRdaFiles</code>.
+</p>
+<p>Many other (and sometimes more effective) tools to compact PDF files
+are available, including Adobe Acrobat (not Reader).
+See the &lsquo;Writing R Extensions&rsquo; manual.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.14.0 ]</div>
+</div>
+</body></html>

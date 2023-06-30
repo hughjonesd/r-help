@@ -1,0 +1,184 @@
+<!DOCTYPE html><html><head><title>R: Use C-style String Formatting Commands</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sprintf.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sprintf.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>sprintf {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='sprintf'>Use C-style String Formatting Commands</h2>
+
+<h3>Description</h3>
+
+<p>A wrapper for the C function <code>sprintf</code>, that
+returns a character vector of length one containing a formatted
+combination of text and variable values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>sprintf(fmt, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="sprintf_:_fmt">fmt</code></td>
+<td>
+<p>a format string</p>
+</td></tr>
+<tr><td><code id="sprintf_:_...">...</code></td>
+<td>
+<p>values to be passed into <code>fmt</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is just a wrapper for the system's C call.  No attempt is made to
+check that the mode of the values passed match the format supplied,
+and <span class="rlang"><b>R</b></span>'s special values (<code>NA</code>, <code>Inf</code>, <code>-Inf</code> and on
+most platforms <code>NaN</code>) are unlikely to be handled correctly.
+</p>
+<p>The following is abstracted from K&amp;R (see References, below).  The
+string <code>fmt</code> contains normal characters, which are passed through
+to the output string, and also special characters that operate on the
+arguments provided through <code>...</code>.  Special characters start
+with a <code>%</code> and terminate with one of the letters in the set
+<code>difeEgGs%</code>.  These letters denote the following types:
+</p>
+
+<dl>
+<dt><code>d,i</code></dt><dd><p>Integer value</p>
+</dd>
+<dt><code>f</code></dt><dd><p>Double precision value, in decimal notation of the form
+&quot;[-]mmm.ddd&quot;.  The number of decimal places is specified by the
+precision: the default is 6; a precision of 0 suppresses the decimal point.</p>
+</dd>
+<dt><code>e,E</code></dt><dd><p>Double precision value, in decimal notation of the form
+<code>[-]m.ddde[+-]xx</code> or <code>[-]m.dddE[+-]xx</code></p>
+</dd>
+<dt><code>g,G</code></dt><dd><p>Double precision value, in <code>%e</code> or
+<code>%E</code> format if the exponent is less than -4 or greater than or
+equal to the precision, and <code>%f</code> format otherwise</p>
+</dd>
+<dt><code>s</code></dt><dd><p>Character string</p>
+</dd>
+<dt><code>%</code></dt><dd><p>Literal <code>%</code> (none of the formatting
+characters given below are permitted in this case)</p>
+</dd>
+</dl>
+
+<p>In addition, between the initial <code>%</code> and the terminating
+conversion character there may be, in any order:
+</p>
+
+<dl>
+<dt><code>m.n</code></dt><dd><p>Two numbers separated by a period, denoting the
+field width (<code>m</code>) and the precision (<code>n</code>)</p>
+</dd>
+<dt><code>-</code></dt><dd><p>Left adjustment of converted argument in its field</p>
+</dd>
+<dt><code>+</code></dt><dd><p>Always print number with sign</p>
+</dd>
+<dt>a space</dt><dd><p>Prefix a space if the first number is not a sign</p>
+</dd>
+<dt><code>0</code></dt><dd><p>For numbers, pad to the field width with leading zeros</p>
+</dd>
+</dl>
+
+<p>Note that the arguments are simply passed through to <code>sprintf</code>,
+and so any formatting errors, e.g. passing a float to the conversion
+character <code>i</code>, are replicated in the resulting string.  See the
+examples for an illustration.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of length one.</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jonathan Rougier, <a href="mailto:J.C.Rougier@durham.ac.uk">J.C.Rougier@durham.ac.uk</a></p>
+
+
+<h3>References</h3>
+
+<p>Kernighan, B. W. and Ritchie, D. M. (1988)
+<em>The C Programming Language.</em> Second edition, Prentice Hall.
+describes the format options in table B-1 in the Appendix.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>formatC</code> for a way of formatting vectors of
+numbers in a similar fashion but with more error-checking and with
+handling of special values.
+</p>
+<p><code>paste</code> for another way of
+creating a vector combining text and values.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+## be careful with the format: most things in R are floats
+
+sprintf("%s is %f feet tall\n", "Sven", 7) # OK
+sprintf("%s is %i feet tall\n", "Sven", 7) # not OK
+sprintf("%s is %i feet tall\n", "Sven", as.integer(7)) # OK again
+
+## use a literal % :
+
+sprintf("%.0f%% said yes (out of a sample of size %.0f)", 66.666, 3)
+
+## various formats of pi :
+
+sprintf("%f", pi)
+sprintf("%.3f", pi)
+sprintf("%1.0f", pi)
+sprintf("%5.1f", pi)
+sprintf("%05.1f", pi)
+sprintf("%+f", pi)
+sprintf("% f", pi)
+sprintf("%-10f", pi)# left justified
+sprintf("%e", pi)
+sprintf("%E", pi)
+sprintf("%g", pi)
+sprintf("%g",   1e6 * pi) # -&gt; exponential
+sprintf("%.9g", 1e6 * pi) # -&gt; "fixed"
+sprintf("%G", 1e-6 * pi)
+
+## no truncation:
+sprintf("%1.f",101)
+
+## More sophisticated:
+
+lapply(c("a", "ABC", "and an even longer one"),
+       function(ch) sprintf("10-string `%10s'", ch))
+
+sapply(1:18, function(n)
+       sprintf(paste("e with %2d digits = %.",n,"g",sep=""),
+               n, exp(1)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.1 ]</div>
+</div>
+</body></html>

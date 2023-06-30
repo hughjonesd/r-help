@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><title>R: Construct Self-starting Nonlinear Models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/selfStart.default.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/selfStart.default.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>selfStart.default {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='selfStart.default'>Construct Self-starting Nonlinear Models</h2>
+
+<h3>Description</h3>
+
+<p>A method for the generic function &lsquo;selfStart&rsquo; for formula objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>selfStart(model, initial, parameters, template)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="selfStart.default_:_model">model</code></td>
+<td>
+<p>a function object defining a nonlinear model.</p>
+</td></tr>
+<tr><td><code id="selfStart.default_:_initial">initial</code></td>
+<td>
+<p>a function object, taking three arguments: <code>mCall</code>,
+<code>data</code>, and <code>LHS</code>, representing, respectively, a matched
+call to the function <code>model</code>, a data frame in
+which to interpret the variables in <code>mCall</code>, and the expression
+from the left-hand side of the model formula in the call to <code>nls</code>.
+This function should return initial values for the parameters in
+<code>model</code>.</p>
+</td></tr>
+<tr><td><code id="selfStart.default_:_parameters">parameters</code>, <code id="selfStart.default_:_template">template</code></td>
+<td>
+<p>these arguments are included for
+consistency with the generic function, but are not used
+in the <code>default</code> method. See the documentation on
+<code>selfStart.formula</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a function object of class <code>selfStart</code>, corresponding to a
+self-starting nonlinear model function. An <code>initial</code> attribute
+(defined by the <code>initial</code> argument) is added to the function to
+calculate starting estimates for the parameters in the model
+automatically. 
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jose Pinheiro and Douglas Bates</p>
+
+
+<h3>See Also</h3>
+
+<p><code>selfStart.formula</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>library(nls)
+# `first.order.log.model' is a function object defining a first order
+# compartment model 
+# `first.order.log.initial' is a function object which calculates initial
+# values for the parameters in `first.order.log.model'
+
+# self-starting first order compartment model
+## Not run: 
+SSfol &lt;- selfStart(first.order.log.model, first.order.log.initial)
+
+## End(Not run)
+</code></pre>
+
+
+</div>
+</body></html>

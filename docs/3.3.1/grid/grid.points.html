@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><title>R: Draw Data Symbols</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.points.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.points.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.points {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.points'>Draw Data Symbols</h2>
+
+<h3>Description</h3>
+
+<p>These functions create and draw data symbols.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.points(x = stats::runif(10),
+            y = stats::runif(10),
+            pch = 1, size = unit(1, "char"),
+            default.units = "native", name = NULL,
+            gp = gpar(), draw = TRUE, vp = NULL)
+pointsGrob(x = stats::runif(10),
+           y = stats::runif(10),
+           pch = 1, size = unit(1, "char"),
+           default.units = "native", name = NULL,
+           gp = gpar(), vp = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.points_:_x">x</code></td>
+<td>
+<p>numeric vector or unit object specifying x-values.</p>
+</td></tr>
+<tr><td><code id="grid.points_:_y">y</code></td>
+<td>
+<p>numeric vector or unit object specifying y-values.</p>
+</td></tr>
+<tr><td><code id="grid.points_:_pch">pch</code></td>
+<td>
+<p>numeric or character vector indicating what sort of
+plotting symbol to use.  See <code>points</code> for the
+interpretation of these values, and note <code>fill</code> below.</p>
+</td></tr>
+<tr><td><code id="grid.points_:_size">size</code></td>
+<td>
+<p>unit object specifying the size of the plotting symbols.</p>
+</td></tr>
+<tr><td><code id="grid.points_:_default.units">default.units</code></td>
+<td>
+<p>string indicating the default units to use
+if <code>x</code> or <code>y</code> are only given as numeric vectors.</p>
+</td></tr>
+<tr><td><code id="grid.points_:_name">name</code></td>
+<td>
+<p>character identifier. </p>
+</td></tr>
+<tr><td><code id="grid.points_:_gp">gp</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object of class <code>gpar</code>, typically the output
+from a call to the function <code>gpar</code>.  This is basically
+a list of graphical parameter settings; note that <code>fill</code> (and
+not <code>bg</code> as in package <span class="pkg">graphics</span> <code>points</code>) is
+used to &ldquo;fill&rdquo;, i.e., color the background of symbols with
+<code>pch = 21:25</code>.</p>
+</td></tr>
+<tr><td><code id="grid.points_:_draw">draw</code></td>
+<td>
+<p>logical indicating whether graphics output should be produced.</p>
+</td></tr>
+<tr><td><code id="grid.points_:_vp">vp</code></td>
+<td>
+<p>A Grid viewport object (or NULL).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Both functions create a points grob (a graphical object describing
+points), but only <code>grid.points</code> draws the points (and then only
+if <code>draw</code> is <code>TRUE</code>).
+</p>
+
+
+<h3>Value</h3>
+
+<p>A points <code>grob</code>.  <code>grid.points</code> returns the value invisibly.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p>Grid,
+<code>viewport</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 3.3.1 ]</div>
+</div>
+</body></html>

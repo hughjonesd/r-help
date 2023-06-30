@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>R: Multivariate Analysis of Variance</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/manova.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/manova.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>manova {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='manova'>Multivariate Analysis of Variance</h2>
+
+<h3>Description</h3>
+
+<p>A class for the multivariate analysis of variance.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>manova(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="manova_:_...">...</code></td>
+<td>
+<p>Arguments to be passed to <code>aov</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Class <code>"manova"</code> differs from class <code>"aov"</code> in selecting a
+different <code>summary</code> method.  Function <code>manova</code> calls
+<code>aov</code> and then add class <code>"manova"</code> to the result
+object for each stratum.
+</p>
+
+
+<h3>Value</h3>
+
+<p>See <code>aov</code> and the comments in &lsquo;Details&rsquo; here.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>manova</code> does not support multistratum analysis of variance, so
+the formula should not include an <code>Error</code> term.
+</p>
+
+
+<h3>References</h3>
+
+<p>Krzanowski, W. J. (1988) <em>Principles of Multivariate Analysis. A
+User's Perspective.</em> Oxford.
+</p>
+<p>Hand, D. J. and Taylor, C. C.  (1987)
+<em>Multivariate Analysis of Variance and Repeated Measures.</em>
+Chapman and Hall.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>aov</code>, <code>summary.manova</code>, the latter containing
+examples.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.6.2 ]</div>
+</div>
+</body></html>

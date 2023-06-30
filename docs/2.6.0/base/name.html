@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Names and Symbols</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/name.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/name.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>name {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='name'>Names and Symbols</h2>
+
+<h3>Description</h3>
+
+<p>A &lsquo;name&rsquo; (also known as a &lsquo;symbol&rsquo;) is a way to refer to
+<span class="rlang"><b>R</b></span> objects by name (rather than the value of the object, if any, bound
+to that name).
+</p>
+<p><code>as.name</code> and <code>as.symbol</code> are identical: they attempt to
+coerce the argument to a name.
+</p>
+<p><code>is.symbol</code> and the identical <code>is.name</code> return <code>TRUE</code>
+or <code>FALSE</code> depending on whether the argument is a name or not.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>as.symbol(x)
+is.symbol(x)
+
+as.name(x)
+is.name(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="name_:_x">x</code></td>
+<td>
+<p>object to be coerced or tested.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>as.name</code> first coerces its argument internally to a character
+vector (so methods for <code>as.character</code> are not used).  It then
+takes the first element and provided it is not <code>""</code>, returns a
+symbol of that name (and if the element is <code>NA_character_</code>, the
+name is <code>`NA`</code>. 
+</p>
+<p><code>as.name</code> is implemented as <code>as.vector(x, "symbol")</code>,
+and hence will dispatch methods for the generic function <code>as.vector</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>as.name</code> and <code>as.symbol</code>, an <span class="rlang"><b>R</b></span> object of type
+<code>"symbol"</code> (see <code>typeof</code>).
+</p>
+<p>For <code>is.name</code> and <code>is.symbol</code>, a length-one logical vector
+with value <code>TRUE</code> or <code>FALSE</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The term &lsquo;symbol&rsquo; is from the LISP background of <span class="rlang"><b>R</b></span>, whereas
+&lsquo;name&rsquo; has been the standard S term for this.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>call</code>, <code>is.language</code>.
+For the internal object mode, <code>typeof</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>an &lt;- as.name("arrg")
+is.name(an) # TRUE
+mode(an)   # name
+typeof(an) # symbol
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.6.0 ]</div>
+</div>
+</body></html>

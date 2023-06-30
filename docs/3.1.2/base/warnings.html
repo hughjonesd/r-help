@@ -1,0 +1,102 @@
+<!DOCTYPE html><html><head><title>R: Print Warning Messages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/warnings.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/warnings.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>warnings {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='warnings'>Print Warning Messages</h2>
+
+<h3>Description</h3>
+
+<p><code>warnings</code> and its <code>print</code> method print the
+variable <code>last.warning</code> in a pleasing form.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>warnings(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="warnings_:_...">...</code></td>
+<td>
+<p>arguments to be passed to <code>cat</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>See the description of <code>options("warn")</code> for the
+circumstances under which there is a <code>last.warning</code> object and
+<code>warnings()</code> is used.  In essence this is if <code>options(warn =
+    0)</code> and <code>warning</code> has been called at least once.
+</p>
+<p>It is possible that <code>last.warning</code> refers to the last recorded
+warning and not to the last warning, for example if <code>options(warn)</code> has
+been changed or if a catastrophic error occurred.
+</p>
+
+
+<h3>Value</h3>
+
+<p>an object of S3 class <code>"warnings"</code>, basically a named
+<code>list</code>.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>It is undocumented where <code>last.warning</code> is stored nor that it is
+visible, and this is subject to change.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>warning</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## NB this example is intended to be pasted in,
+##    rather than run by example()
+ow &lt;- options("warn")
+for(w in -1:1) {
+   options(warn = w); cat("\n warn =", w, "\n")
+   for(i in 1:3) { cat(i,"..\n"); m &lt;- matrix(1:7, 3,4) }
+}
+warnings()
+options(ow) # reset
+tail(warnings(), 2) # see the last two warnings only (via '[' method)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.1.2 ]</div>
+</div>
+</body></html>

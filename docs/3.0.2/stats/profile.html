@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>R: Generic Function for Profiling Models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/profile.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/profile.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>profile {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='profile'>Generic Function for Profiling Models</h2>
+
+<h3>Description</h3>
+
+<p>Investigates behavior of objective function near the solution
+represented by <code>fitted</code>.
+</p>
+<p>See documentation on method functions for further details.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>profile(fitted, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="profile_:_fitted">fitted</code></td>
+<td>
+<p>the original fitted model object.</p>
+</td></tr>
+<tr><td><code id="profile_:_...">...</code></td>
+<td>
+<p>additional parameters. See documentation on individual
+methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with an element for each parameter being profiled. See the
+individual methods for further details.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>profile.nls</code>,
+<code>profile.glm</code> in package <a href="http://CRAN.R-project.org/package=MASS"><span class="pkg">MASS</span></a>,
+...
+</p>
+<p>For profiling R code, see <code>Rprof</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.0.2 ]</div>
+</div>
+</body></html>

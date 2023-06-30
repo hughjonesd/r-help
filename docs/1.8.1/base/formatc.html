@@ -1,0 +1,174 @@
+<!DOCTYPE html><html><head><title>R: Formatting Using C-style Formats</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>formatC {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='formatC'>Formatting Using C-style Formats</h2>
+
+<h3>Description</h3>
+
+<p>Formatting numbers individually and flexibly, using <code>C</code> style
+format specifications.  <code>format.char</code> is a helper function for
+<code>formatC</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>formatC(x, digits = NULL, width = NULL,
+        format = NULL, flag = "", mode = NULL,
+        big.mark = "", big.interval = 3,
+      small.mark = "", small.interval = 5,
+    decimal.mark = ".")
+
+format.char(x, width = NULL, flag = "-")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="formatC_:_x">x</code></td>
+<td>
+<p>an atomic numerical or character object, typically a vector
+of real numbers.</p>
+</td></tr>
+<tr><td><code id="formatC_:_digits">digits</code></td>
+<td>
+<p>the desired number of digits after the decimal
+point (<code>format = "f"</code>) or <em>significant</em> digits
+(<code>format = "g"</code>, <code>= "e"</code> or <code>= "fg"</code>).
+</p>
+<p>Default: 2 for integer, 4 for real numbers.  If less than 0,
+the C default of 6 digits is used.</p>
+</td></tr>
+<tr><td><code id="formatC_:_width">width</code></td>
+<td>
+<p>the total field width; if both <code>digits</code> and
+<code>width</code> are unspecified, <code>width</code> defaults to 1,
+otherwise to <code>digits + 1</code>.  <code>width = 0</code> will use
+<code>width = digits</code>, <code>width &lt; 0</code> means left
+justify the number in this field (equivalent to <code>flag ="-"</code>).
+If necessary, the result will have more characters than <code>width</code>.</p>
+</td></tr>
+<tr><td><code id="formatC_:_format">format</code></td>
+<td>
+<p>equal to <code>"d"</code>  (for integers), <code>"f"</code>,
+<code>"e"</code>, <code>"E"</code>, <code>"g"</code>, <code>"G"</code>, <code>"fg"</code> (for
+reals), or <code>"s"</code> (for strings). Default is <code>"d"</code> for
+integers, <code>"g"</code> for reals.
+</p>
+<p><code>"f"</code> gives numbers in the usual
+<code>xxx.xxx</code> format;  <code>"e"</code> and <code>"E"</code> give <code>n.ddde+nn</code> or
+<code>n.dddE+nn</code> (scientific format); <code>"g"</code> and <code>"G"</code> put
+<code>x[i]</code> into scientific format only if it saves space to do so.
+</p>
+<p><code>"fg"</code> uses fixed format as <code>"f"</code>, but <code>digits</code> as
+the minimum number of <em>significant</em> digits.  That this can lead
+to quite long result strings, see examples below.  Note that unlike
+<code>signif</code> this prints large numbers with
+more significant digits than <code>digits</code>.</p>
+</td></tr>
+<tr><td><code id="formatC_:_flag">flag</code></td>
+<td>
+<p>format modifier as in Kernighan and Ritchie (1988, page 243).
+<code>"0"</code>  pads leading zeros; <code>"-"</code> does left adjustment,
+others are <code>"+"</code>, <code>" "</code>, and <code>"#"</code>.</p>
+</td></tr>
+<tr><td><code id="formatC_:_mode">mode</code></td>
+<td>
+<p><code>"double"</code> (or <code>"real"</code>), <code>"integer"</code> or
+<code>"character"</code>.
+Default: Determined from the storage mode of <code>x</code>.</p>
+</td></tr>
+<tr><td><code id="formatC_:_big.mark">big.mark</code>, <code id="formatC_:_big.interval">big.interval</code>, <code id="formatC_:_small.mark">small.mark</code>, <code id="formatC_:_small.interval">small.interval</code>, <code id="formatC_:_decimal.mark">decimal.mark</code></td>
+<td>
+<p>used for prettying longer decimal sequences, passed to
+<code>prettyNum</code>: that help page explains the details.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If you set <code>format</code> it over-rides the setting of <code>mode</code>, so
+<code>formatC(123.45, mode="double", format="d")</code> gives <code>123</code>.
+</p>
+<p>The rendering of scientific format is platform-dependent: some systems
+use <code>n.ddde+nnn</code> or <code>n.dddenn</code> rather than <code>n.ddde+nn</code>.
+</p>
+<p><code>formatC</code> does not necessarily align the numbers on the decimal
+point, so <code>formatC(c(6.11, 13.1), digits=2, format="fg")</code> gives
+<code>c("6.1", " 13")</code>.  If you want common formatting for several
+numbers, use <code>format</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character object of same size and attributes as <code>x</code>.
+Unlike <code>format</code>, each number is formatted individually.
+Looping over each element of <code>x</code>, <code>sprintf(...)</code> is
+called (inside the C function <code>str_signif</code>).
+</p>
+<p><code>format.char(x)</code> and <code>formatC</code>, for character <code>x</code>, do
+simple (left or right) padding with white space.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Originally written by Bill Dunlap, later much improved by Martin Maechler,
+it was first adapted for <span class="rlang"><b>R</b></span> by Friedrich Leisch.
+</p>
+
+
+<h3>References</h3>
+
+<p>Kernighan, B. W. and Ritchie, D. M. (1988)
+<em>The C Programming Language.</em>  Second edition. Prentice Hall.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>format</code>, <code>sprintf</code> for more general C like
+formatting.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>xx  &lt;- pi * 10^(-5:4)
+cbind(format(xx, digits=4), formatC(xx))
+cbind(formatC(xx, wid = 9, flag = "-"))
+cbind(formatC(xx, dig = 5, wid = 8, format = "f", flag = "0"))
+cbind(format(xx, digits=4), formatC(xx, dig = 4, format = "fg"))
+
+format.char(c("a", "Abc", "no way"), wid = -7)  # &lt;=&gt; flag = "-"
+formatC(    c("a", "Abc", "no way"), wid = -7)  # &lt;=&gt; flag = "-"
+formatC(c((-1:1)/0,c(1,100)*pi), wid=8, dig=1)
+
+xx &lt;- c(1e-12,-3.98765e-10,1.45645e-69,1e-70,pi*1e37,3.44e4)
+##       1        2             3        4      5       6
+formatC(xx)
+formatC(xx, format="fg")       # special "fixed" format.
+formatC(xx, format="f", dig=80)#&gt;&gt; also long strings
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.8.1 ]</div>
+</div>
+</body></html>

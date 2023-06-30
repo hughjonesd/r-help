@@ -1,0 +1,154 @@
+<!DOCTYPE html><html><head><title>R: Warning Messages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/warning.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/warning.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>warning {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='warning'>Warning Messages</h2>
+
+<h3>Description</h3>
+
+<p>Generates a warning message that corresponds to its argument(s) and
+(optionally) the expression or function from which it was called.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>warning(..., call. = TRUE, immediate. = FALSE, noBreaks. = FALSE,
+        domain = NULL)
+suppressWarnings(expr, classes = "warning")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="warning_:_...">...</code></td>
+<td>
+<p>zero or more objects which can be coerced to character
+(and which are pasted together with no separator) or a single
+condition object.</p>
+</td></tr>
+<tr><td><code id="warning_:_call.">call.</code></td>
+<td>
+<p>logical, indicating if the call should become part of the
+warning message.</p>
+</td></tr>
+<tr><td><code id="warning_:_immediate.">immediate.</code></td>
+<td>
+<p>logical, indicating if the call should be output
+immediately, even if <code>getOption("warn") &lt;= 0</code>.</p>
+</td></tr>
+<tr><td><code id="warning_:_noBreaks.">noBreaks.</code></td>
+<td>
+<p>logical, indicating as far as possible the message should
+be output as a single line when <code>options(warn = 1)</code>.</p>
+</td></tr>
+<tr><td><code id="warning_:_expr">expr</code></td>
+<td>
+<p>expression to evaluate.</p>
+</td></tr>
+<tr><td><code id="warning_:_domain">domain</code></td>
+<td>
+<p>see <code>gettext</code>.  If <code>NA</code>, messages will
+not be translated, see also the note in <code>stop</code>.</p>
+</td></tr>
+<tr><td><code id="warning_:_classes">classes</code></td>
+<td>
+<p>character, indicating which classes of warnings should
+be suppressed.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The result <em>depends</em> on the value of
+<code>options("warn")</code> and on handlers established in the
+executing code.
+</p>
+<p>If a condition object is supplied it should be the only argument, and
+further arguments will be ignored, with a message.
+</p>
+<p><code>warning</code> signals a warning condition by (effectively) calling
+<code>signalCondition</code>.  If there are no handlers or if all handlers
+return, then the value of <code>warn = getOption("warn")</code> is
+used to determine the appropriate action.  If <code>warn</code> is negative
+warnings are ignored; if it is zero they are stored and printed after
+the top&ndash;level function has completed; if it is one they are printed
+as they occur and if it is 2 (or larger) warnings are turned into
+errors. Calling <code>warning(immediate. = TRUE)</code> turns <code>warn &lt;=
+    0</code> into <code>warn = 1</code> for this call only.
+</p>
+<p>If <code>warn</code> is zero (the default), a read-only variable
+<code>last.warning</code> is created.  It contains the warnings which can be
+printed via a call to <code>warnings</code>.
+</p>
+<p>Warnings will be truncated to <code>getOption("warning.length")</code>
+characters, default 1000, indicated by <code>[... truncated]</code>.
+</p>
+<p>While the warning is being processed, a <code>muffleWarning</code> restart
+is available.  If this restart is invoked with <code>invokeRestart</code>,
+then <code>warning</code> returns immediately.
+</p>
+<p>An attempt is made to coerce other types of inputs to <code>warning</code>
+to character vectors.
+</p>
+<p><code>suppressWarnings</code> evaluates its expression in a context that
+ignores all warnings.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The warning message as <code>character</code> string, invisibly.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>stop</code> for fatal errors,
+<code>message</code> for diagnostic messages,
+<code>warnings</code>,
+and <code>options</code> with argument <code>warn=</code>.
+</p>
+<p><code>gettext</code> for the mechanisms for the automated translation
+of messages.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+testit &lt;- function() warning("testit")
+testit() ## shows call
+testit &lt;- function() warning("problem in testit", call. = FALSE)
+testit() ## no call
+suppressWarnings(warning("testit"))
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.1.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html><html><head><title>R: Singular Value Decomposition of a Matrix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/svd.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/svd.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>svd {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='svd'>Singular Value Decomposition of a Matrix</h2>
+
+<h3>Description</h3>
+
+<p>Compute the singular-value decomposition of a rectangular matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>svd(x, nu = min(n, p), nv = min(n, p))
+La.svd(x, nu = min(n, p), nv = min(n, p), method = c("dgesdd", "dgesvd"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="svd_:_x">x</code></td>
+<td>
+<p>a matrix whose SVD decomposition is to be computed.</p>
+</td></tr>
+<tr><td><code id="svd_:_nu">nu</code></td>
+<td>
+<p>the number of left  singular vectors to be computed.
+This must be one of <code>0</code>, <code>nrow(x)</code> and <code>ncol(x)</code>,
+except for <code>method = "dgesdd"</code>.</p>
+</td></tr>
+<tr><td><code id="svd_:_nv">nv</code></td>
+<td>
+<p>the number of right singular vectors to be computed.
+This must be one of <code>0</code> and <code>ncol(x)</code>.</p>
+</td></tr>
+<tr><td><code id="svd_:_method">method</code></td>
+<td>
+<p>The LAPACK routine to use in the real case.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The singular value decomposition plays an important role in many
+statistical techniques.
+</p>
+<p><code>svd</code> provides an interface to the LINPACK routine DSVDC.
+<code>La.svd</code> provides an interface to the LAPACK routines DGESVD and
+DGESDD.  The latter is usually substantially faster if singular
+vectors are required: see
+<a href="http://www.cs.berkeley.edu/~demmel/DOE2000/Report0100.html">http://www.cs.berkeley.edu/~demmel/DOE2000/Report0100.html</a>.
+Most benefit is seen with an optimized BLAS system.
+</p>
+<p><code>La.svd</code> is preferred to <code>svd</code> for new projects, but it is
+not an exact replacement as it returns the transpose of the right
+singular vector matrix, and the signs of the singular vectors may differ
+from those given by <code>svd</code>.  (They may also differ between methods
+and between platforms.)
+</p>
+<p>Both functions handle complex matrices via LAPACK routine ZGESVD.
+</p>
+<p>Computing the singular vectors is the slow part for large matrices.
+</p>
+<p>Using <code>method="dgesdd"</code> requires IEEE 754 arithmetic.  Should
+this not be supported on your platform, <code>method="dgesvd"</code> is
+used, with a warning.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The SVD decomposition of the matrix as computed by LINPACK,
+</p>
+<p style="text-align: center;"><code class="reqn"> \bold{X = U D V'},</code>
+</p>
+<p> where <code class="reqn">\bold{U}</code> and <code class="reqn">\bold{V}</code> are
+orthogonal, <code class="reqn">\bold{V'}</code> means <em>V transposed</em>, and
+<code class="reqn">\bold{D}</code> is a diagonal matrix with the singular
+values <code class="reqn">D_{ii}</code>.  Equivalently, <code class="reqn">\bold{D = U' X V}</code>,
+which is verified in the examples, below.
+</p>
+<p>The components in the returned value correspond directly
+to the values returned by DSVDC.
+</p>
+<table>
+<tr><td><code>d</code></td>
+<td>
+<p>a vector containing the singular values of <code>x</code>.</p>
+</td></tr>
+<tr><td><code>u</code></td>
+<td>
+<p>a matrix whose columns contain the left singular vectors of
+<code>x</code>.</p>
+</td></tr>
+<tr><td><code>v</code></td>
+<td>
+<p>a matrix whose columns contain the right singular vectors of
+<code>x</code>.</p>
+</td></tr>
+</table>
+<p>For <code>La.svd</code> the return value replaces <code>v</code> by <code>vt</code>, the
+(conjugated if complex) transpose of <code>v</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Dongarra, J. J., Bunch, J. R., Moler, C. B. and Stewart, G. W. (1978)
+<em>LINPACK Users Guide.</em>  Philadelphia: SIAM Publications.
+</p>
+<p>Anderson. E. and ten others (1999)
+<em>LAPACK Users' Guide</em>. Third Edition. SIAM.<br />
+Available on-line at
+<a href="http://www.netlib.org/lapack/lug/lapack_lug.html">http://www.netlib.org/lapack/lug/lapack_lug.html</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>eigen</code>, <code>qr</code>.
+</p>
+<p><code>capabilities</code> to test for IEEE 754 arithmetic.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>hilbert &lt;- function(n) { i &lt;- 1:n; 1 / outer(i - 1, i, "+") }
+str(X &lt;- hilbert(9)[,1:6])
+str(s &lt;- svd(X))
+Eps &lt;- 100 * .Machine$double.eps
+
+D &lt;- diag(s$d)
+stopifnot(abs(X - s$u %*% D %*% t(s$v)) &lt; Eps)#  X = U D V'
+stopifnot(abs(D - t(s$u) %*% X %*% s$v) &lt; Eps)#  D = U' X V
+
+X &lt;- cbind(1, 1:7)
+str(s &lt;- svd(X)); D &lt;- diag(s$d)
+stopifnot(abs(X - s$u %*% D %*% t(s$v)) &lt; Eps)#  X = U D V'
+stopifnot(abs(D - t(s$u) %*% X %*% s$v) &lt; Eps)#  D = U' X V
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.1 ]</div>
+</div>
+</body></html>

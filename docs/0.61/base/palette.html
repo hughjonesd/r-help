@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: Set or View the Graphics Palette</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/palette.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/palette.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>palette {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='palette'>Set or View the Graphics Palette</h2>
+
+<h3>Description</h3>
+
+<p>This function is used to view or manipulate the color
+palette which is used when a <code>col=</code> has a numeric index.
+</p>
+<p>If <code>value</code> has length 1 it is taken to be the name of
+a built in color palette.  If <code>value</code> has length greater
+than 1 it is assumed to contain a description of the colors
+which are to make up the new palette (either by name or
+by RGB levels).
+</p>
+<p>If <code>value</code> is omitted or has length 0, no change is made
+the current palette.
+</p>
+<p>Currently, the only built-in palette is <code>"default"</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>palette(value)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="palette_:_value">value</code></td>
+<td>
+<p>an optional character vector.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The palette which was in effect.  This is invisible unless
+the argument is omitted.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>colors</code> for the vector of built-in &ldquo;named&rdquo; colors;
+<code>hsv</code>, <code>gray</code>, <code>rainbow</code>,
+<code>terrain.colors</code>,... to construct colors.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>palette()           # obtain the current palette
+palette(rainbow(6)) # six color rainbow
+palette("default")  # reset back to the default
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61 ]</div>
+</div>
+</body></html>

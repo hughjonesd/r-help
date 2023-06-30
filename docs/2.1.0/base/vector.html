@@ -1,0 +1,133 @@
+<!DOCTYPE html><html><head><title>R: Vectors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/vector.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/vector.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>vector {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='vector'>Vectors</h2>
+
+<h3>Description</h3>
+
+<p><code>vector</code> produces a vector of the given length and mode.
+</p>
+<p><code>as.vector</code>, a generic, attempts to coerce its argument into a
+vector of mode <code>mode</code> (the default is to coerce to whichever mode
+is most convenient).  The attributes of <code>x</code> are removed.
+</p>
+<p><code>is.vector</code> returns <code>TRUE</code> if <code>x</code> is a vector (of mode
+logical, integer, real, complex, character, raw or list if not specified)
+and <code>FALSE</code> otherwise.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>vector(mode = "logical", length = 0)
+as.vector(x, mode = "any")
+is.vector(x, mode = "any")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="vector_:_mode">mode</code></td>
+<td>
+<p>A character string giving an atomic mode or <code>"list"</code>,
+or (not for <code>vector</code>) <code>"any"</code>.</p>
+</td></tr>
+<tr><td><code id="vector_:_length">length</code></td>
+<td>
+<p>A non-negative integer specifying the desired length.</p>
+</td></tr>
+<tr><td><code id="vector_:_x">x</code></td>
+<td>
+<p>An object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The atomic modes are <code>"logical"</code>, <code>"integer"</code>, <code>"numeric"</code>,
+<code>"complex"</code>, <code>"character"</code> and <code>"raw"</code>.
+</p>
+<p><code>is.vector</code> returns <code>FALSE</code> if <code>x</code> has any attributes
+except names.  (This is incompatible with S.)  On the other hand,
+<code>as.vector</code> removes <em>all</em> attributes including names.
+</p>
+<p>Note that factors are <em>not</em> vectors;  <code>is.vector</code> returns
+<code>FALSE</code> and <code>as.vector</code> converts to character mode.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>vector</code>, a vector of the given length and mode.  Logical
+vector elements are initialized to <code>FALSE</code>, numeric vector
+elements to <code>0</code>, character vector elements to <code>""</code>, raw
+vector elements to <code>nul</code> bytes and list elements to <code>NULL</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>as.vector</code> and <code>is.vector</code> are quite distinct from the
+meaning of the formal class <code>"vector"</code> in the <span class="pkg">methods</span>
+package, and hence <code>as(x, "vector")</code> and
+<code>is(x, "vector")</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>c</code>, <code>is.numeric</code>, <code>is.list</code>, etc.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>df &lt;- data.frame(x=1:3, y=5:7)
+## Not run: ## Error:
+  as.vector(data.frame(x=1:3, y=5:7), mode="numeric")
+
+## End(Not run)
+
+x &lt;- c(a = 1, b = 2)
+is.vector(x)
+as.vector(x)
+all.equal(x, as.vector(x)) ## FALSE
+
+
+###-- All the following are TRUE:
+is.list(df)
+! is.vector(df)
+! is.vector(df, mode="list")
+
+is.vector(list(), mode="list")
+is.vector(NULL,   mode="NULL")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.1.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><title>R: List Methods for S3 Generic Functions or Classes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/methods.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/methods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>methods {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='methods'>List Methods for S3 Generic Functions or Classes</h2>
+
+<h3>Description</h3>
+
+<p>List all available methods for an S3 generic function, or all
+methods for a class.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>methods(generic.function, class)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="methods_:_generic.function">generic.function</code></td>
+<td>
+<p>a generic function, or a character string naming a
+generic function.</p>
+</td></tr>
+<tr><td><code id="methods_:_class">class</code></td>
+<td>
+<p>a symbol or character string naming a class: only used if
+<code>generic.function</code> is not supplied.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Function <code>methods</code> can be used to find out about the methods for
+a particular generic function or class.  The functions listed are those
+which <em>are named like methods</em> and may not actually be methods
+(known exceptions are discarded in the code).  Note that the listed
+methods may not be user-visible objects, but often help will be
+available for them.
+</p>
+<p>If <code>class</code> is used, we check that a matching generic can be found
+for each user-visible object named.  If <code>generic.function</code> is
+given, there is a warning if it appears not to be a generic function.
+(The check for being generic used can be fooled.)
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"MethodsFunction"</code>, a
+character vector of function names with an <code>"info"</code> attribute.
+There is a <code>print</code> method which marks with an asterisk any
+methods which are not visible: such functions can be examined by
+<code>getS3method</code> or <code>getAnywhere</code>.
+</p>
+<p>The <code>"info"</code> attribute is a data frame, currently with a
+logical column, <code>visible</code> and a factor column <code>from</code>
+(indicating where the methods were found).
+</p>
+
+
+<h3>Note</h3>
+
+<p>This scheme is called <em>S3</em> (S version 3).  For new projects,
+it is recommended to use the more flexible and robust <em>S4</em> scheme
+provided in the <span class="pkg">methods</span> package.  Functions can have both S3
+and S4 methods, and function <code>showMethods</code> will
+list the S4 methods (possibly none).
+</p>
+<p>The original <code>methods</code> function was written by Martin Maechler.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. (1992)
+<em>Classes and methods: object-oriented programming in S.</em>
+Appendix A of <em>Statistical Models in S</em>
+eds J. M. Chambers and T. J. Hastie, Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>S3Methods</code>, <code>class</code>, <code>getS3method</code>.
+</p>
+<p>For S4, <code>showMethods</code>, <code>Methods</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(stats)
+
+methods(summary)
+methods(class = "aov")
+methods("[[")    # uses C-internal dispatching
+methods("$")
+methods("$&lt;-")   # replacement function
+methods("+")     # binary operator
+methods("Math")  # group generic
+require(graphics)
+methods("axis")  # looks like it has methods, but not generic
+## Not run: 
+methods(print)   # over 100
+
+## End(Not run)
+## --&gt; help(showMethods) for related examples
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.11.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html><html><head><title>R: Pretty Breakpoints</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/pretty.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/pretty.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>pretty {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='pretty'>Pretty Breakpoints</h2>
+
+<h3>Description</h3>
+
+<p>Compute a  sequence of about <code>n+1</code> equally spaced nice values which
+cover the range of the values in <code>x</code>.
+The values are chosen so that they are 1, 2 or 5 times a power of 10.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>pretty(x, n = 5, min.n = n %/% 3,  shrink.sml = 0.75,
+       high.u.bias = 1.5, u5.bias = .5 + 1.5*high.u.bias,
+       eps.correct = 0)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="pretty_:_x">x</code></td>
+<td>
+<p>numeric vector</p>
+</td></tr>
+<tr><td><code id="pretty_:_n">n</code></td>
+<td>
+<p>integer giving the <em>desired</em> number of
+intervals.  Non-integer values are rounded down.</p>
+</td></tr>
+<tr><td><code id="pretty_:_min.n">min.n</code></td>
+<td>
+<p>nonnegative integer giving the <em>minimal</em> number of
+intervals.  If <code>min.n == 0</code>, <code>pretty(.)</code> may return a
+single value.</p>
+</td></tr>
+<tr><td><code id="pretty_:_shrink.sml">shrink.sml</code></td>
+<td>
+<p>positive numeric
+by a which a default scale is shrunk in the case when
+<code>range(x)</code> is &ldquo;very small&rdquo; (usually 0).</p>
+</td></tr>
+<tr><td><code id="pretty_:_high.u.bias">high.u.bias</code></td>
+<td>
+<p>non-negative numeric, typically <code class="reqn">&gt; 1</code>.
+The interval unit is determined as {1,2,5,10} times <code>b</code>, a
+power of 10.  Larger <code>high.u.bias</code> values favor larger units.
+</p>
+</td></tr>
+<tr><td><code id="pretty_:_u5.bias">u5.bias</code></td>
+<td>
+<p>non-negative numeric
+multiplier favoring factor 5 over 2.  Default and &ldquo;optimal&rdquo;:
+<code>u5.bias = .5 + 1.5*high.u.bias</code>.</p>
+</td></tr>
+<tr><td><code id="pretty_:_eps.correct">eps.correct</code></td>
+<td>
+<p>integer code, one of {0,1,2}. If non-0, an
+&ldquo;<em>epsilon correction</em>&rdquo; is made at the boundaries such that
+the result boundaries will be outside <code>range(x)</code>; in the
+<em>small</em> case, the correction is only done if <code>eps.correct &gt;=2</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Let <code>d &lt;- max(x) - min(x)</code> <code class="reqn">\ge 0</code>.
+If <code>d</code> is not (very close) to 0, we let <code>c &lt;- d/n</code>,
+otherwise more or less <code>c &lt;- max(abs(range(x)))*shrink.sml / min.n</code>.
+Then, the <em>10 base</em> <code>b</code> is
+<code class="reqn">10^{\lfloor{\log_{10}(c)}\rfloor}</code> such
+that <code class="reqn">b \le c &lt; 10b</code>.
+</p>
+<p>Now determine the basic <em>unit</em> <code class="reqn">u</code> as one of
+<code class="reqn">\{1,2,5,10\} b</code>, depending on <code class="reqn">c/b \in [1,10)</code> and the two
+&ldquo;<em>bias</em>&rdquo; coefficients, <code class="reqn">h =</code><code>high.u.bias</code> and
+<code class="reqn">f =</code><code>u5.bias</code>.
+</p>
+<p>.........
+
+
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>pretty(1:15)     # 0  2  4  6  8 10 12 14 16
+pretty(1:15, h=2)# 0  5 10 15
+pretty(1:15, n=4)# 0  5 10 15
+pretty(1:15 * 2) # 0  5 10 15 20 25 30
+pretty(1:20)      # 0  5 10 15 20
+pretty(1:20, n=2) # 0 10 20
+pretty(1:20, n=10)# 0  2  4 ... 20
+
+for(k in 5:11) {
+  cat("k=",k,": "); print(diff(range(pretty(100 + c(0, pi*10^-k)))))}
+
+##-- more bizarre, when  min(x) == max(x):
+pretty(pi)
+
+add.names &lt;- function(v) { names(v) &lt;- paste(v); v}
+str(lapply(add.names(-10:20), pretty))
+str(lapply(add.names(0:20),   pretty, min = 0))
+sapply(    add.names(0:20),   pretty, min = 4)
+
+pretty(1.234e100)
+pretty(1001.1001)
+pretty(1001.1001, shrink = .2)
+for(k in -7:3)
+  cat("shrink=",formatC(2^k,wid=9),":",
+      formatC(pretty(1001.1001, shrink = 2^k), wid=6),"\n")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.8.0 ]</div>
+</div>
+</body></html>

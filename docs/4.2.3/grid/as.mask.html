@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: Define a Soft Mask</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/as.mask.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/as.mask.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>as.mask {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='as.mask'> Define a Soft Mask </h2>
+
+<h3>Description</h3>
+
+<p>Define either an alpha mask or a luminance mask,
+based on a grob.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>as.mask(x, type=c("alpha", "luminance"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="as.mask_:_x">x</code></td>
+<td>
+<p>A grob.</p>
+</td></tr>
+<tr><td><code id="as.mask_:_type">type</code></td>
+<td>
+<p>The type of mask.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A mask may be specified for a viewport either directly as
+a grob or using this function.  In the former case, the result
+is an alpha mask.  This function allows the user to define
+a luminance mask instead.
+</p>
+<p>Not all graphics devices support masks and those that do
+may only support one type of mask: for example
+<code>xfig</code> and <code>pictex</code> do not support masks and
+Cairo-based devices only support alpha masks.  
+</p>
+
+
+<h3>Value</h3>
+
+<p>A <code>"GridMask"</code> object.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p><code>viewport</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## NOTE: on devices without support for masks normal line segments 
+##       will be drawn
+grid.newpage()
+## Alpha mask
+grid.segments(y0=1, y1=0, gp=gpar(col=2, lwd=100))
+pushViewport(viewport(mask=circleGrob(gp=gpar(fill=rgb(0,0,0,.5)))))
+grid.segments(gp=gpar(col=3, lwd=100))
+grid.newpage()
+## Luminance mask
+grid.segments(y0=1, y1=0, gp=gpar(col=2, lwd=100))
+pushViewport(viewport(mask=as.mask(circleGrob(gp=gpar(fill="grey50")),
+                                   "luminance")))
+grid.segments(gp=gpar(col=3, lwd=100))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 4.2.3 ]</div>
+</div>
+</body></html>

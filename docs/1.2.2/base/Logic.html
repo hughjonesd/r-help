@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>R: Logical Operators</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Logic.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Logic.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Logic {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Logic'>Logical Operators</h2>
+
+<h3>Description</h3>
+
+<p>These operators act on logical vectors.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>! x
+x &amp; y
+x &amp;&amp; y
+x | y
+x || y
+xor(x, y)
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p><code>!</code> indicates logical negation (NOT).
+</p>
+<p><code>&amp;</code> and <code>&amp;&amp;</code> indicate logical AND and <code>|</code> and <code>||</code>
+indicate logical OR.  The shorter form performs elementwise
+comparisons in much the same way as arithmetic operators.  The longer
+form evaluates left to right examining only the first element of each
+vector.  Evaluation proceeds only until the result is determined.  The
+longer form is appropriate for programming control-flow.
+</p>
+<p><code>xor</code> indicates elementwise exclusive OR.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>TRUE</code> or <code>logical</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>y &lt;- 1 + (x &lt;- rpois(50, lambda=1.5) / 4 - 1)
+x[(x &gt; 0) &amp; (x &lt; 1)]    # all x values between 0 and 1
+if (any(x == 0) || any(y == 0)) "zero encountered"
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.2 ]</div>
+</div>
+</body></html>

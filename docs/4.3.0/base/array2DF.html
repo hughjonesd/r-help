@@ -1,0 +1,203 @@
+<!DOCTYPE html><html><head><title>R: Convert array to data frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/array2DF.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/array2DF.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>array2DF {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='array2DF'>Convert array to data frame</h2>
+
+<h3>Description</h3>
+
+<p><code>array2DF</code> converts an array, including list arrays commonly
+returned by <code>tapply</code>, into data frames for use in further
+analysis or plotting functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>array2DF(x, responseName = "Value",
+         sep = "", base = list(LETTERS),
+         simplify = TRUE, allowLong = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="array2DF_:_x">x</code></td>
+<td>
+<p>an array object.</p>
+</td></tr>
+<tr><td><code id="array2DF_:_responseName">responseName</code></td>
+<td>
+<p>character string, used for creating column name(s)
+in the result, if required. </p>
+</td></tr>
+<tr><td><code id="array2DF_:_sep">sep</code></td>
+<td>
+<p>character string, used as separator when creating new
+names, if required. </p>
+</td></tr>
+<tr><td><code id="array2DF_:_base">base</code></td>
+<td>
+<p>character vector, giving an initial set of names to create
+dimnames of <code>x</code>, if missing. </p>
+</td></tr>
+<tr><td><code id="array2DF_:_simplify">simplify</code></td>
+<td>
+<p>logical, whether to attempt simplification of the
+result. </p>
+</td></tr>
+<tr><td><code id="array2DF_:_allowLong">allowLong</code></td>
+<td>
+<p>logical, specifying whether a long format data frame
+should be returned if <code>x</code> is a list array and all elements of
+<code>x</code> are unnamed atomic vectors. Ignored unless <code>simplify =
+    TRUE</code>. </p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The main use of <code>array2DF</code> is to convert an array, as typically
+returned by <code>tapply</code>, into a data frame.
+</p>
+<p>When <code>simplify = FALSE</code>, this is similar to
+<code>as.data.frame.table</code>, except that it works for list
+arrays as well as atomic arrays. Specifically, the resulting data
+frame has one row for each element of the array, with one column for
+each dimension of the array giving the corresponding
+<code>dimnames</code>. The contents of the array are placed in a
+column whose name is given by the <code>responseName</code> argument. The
+mode of this column is the same as that of <code>x</code>, usually an atomic
+vector or a list.
+</p>
+<p>If <code>x</code> does not have <code>dimnames</code>, they are
+automatically created using <code>base</code> and <code>sep</code>.
+</p>
+<p>In the default case, when <code>simplify = TRUE</code>, some common cases
+are handled specially.
+</p>
+<p>If all components of <code>x</code> are data frames with identical column
+names (with possibly different numbers of rows), they are
+<code>rbind</code>-ed to form the response. The additional columns
+giving <code>dimnames</code> are repeated according to the number of
+rows, and <code>responseName</code> is ignored in this case.
+</p>
+<p>If all components of <code>x</code> are <em>unnamed</em> atomic vectors
+<em>and</em> <code>allowLong = TRUE</code>, each component is treated as a
+single-column data frame with column name given by
+<code>responseName</code>, and processed as above.
+</p>
+<p>In all other cases, an attempt to simplify is made by
+<code>simplify2array</code>. If this results in multiple unnamed
+columns, names are constructed using <code>responseName</code> and
+<code>sep</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame with at least <code>length(dim(x)) + 1</code> columns. The
+first <code>length(dim(x))</code> columns each represent one dimension of
+<code>x</code> and gives the corresponding values of <code>dimnames</code>, which
+are implicitly created if necessary. The remaining columns contain the
+contents of <code>x</code>, after attempted simplification if requested.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>tapply</code>, <code>as.data.frame.table</code>,
+<code>split</code>, <code>aggregate</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>s1 &lt;- with(ToothGrowth,
+           tapply(len, list(dose, supp), mean, simplify = TRUE))
+
+s2 &lt;- with(ToothGrowth,
+           tapply(len, list(dose, supp), mean, simplify = FALSE))
+
+str(s1) # atomic array
+str(s2) # list array
+
+str(array2DF(s1, simplify = FALSE)) # Value column is vector
+str(array2DF(s2, simplify = FALSE)) # Value column is list
+str(array2DF(s2, simplify = TRUE))  # simplified to vector
+
+### The remaining examples use the default 'simplify = TRUE' 
+
+## List array with list components: columns are lists (no simplification)
+
+with(ToothGrowth,
+     tapply(len, list(dose, supp),
+     function(x) t.test(x)[c("p.value", "alternative")])) |&gt;
+  array2DF() |&gt; str()
+
+## List array with data frame components: columns are atomic (simplified)
+
+with(ToothGrowth,
+     tapply(len, list(dose, supp),
+     function(x) with(t.test(x), data.frame(p.value, alternative)))) |&gt;
+  array2DF() |&gt; str()
+
+## named vectors
+
+with(ToothGrowth,
+     tapply(len, list(dose, supp),
+            quantile)) |&gt; array2DF()
+
+## unnamed vectors: long format
+
+with(ToothGrowth,
+     tapply(len, list(dose, supp),
+            sample, size = 5)) |&gt; array2DF()
+
+## unnamed vectors: wide format
+
+with(ToothGrowth,
+     tapply(len, list(dose, supp),
+            sample, size = 5)) |&gt; array2DF(allowLong = FALSE)
+
+## unnamed vectors of unequal length
+
+with(ToothGrowth[-1, ],
+     tapply(len, list(dose, supp),
+            sample, replace = TRUE)) |&gt;
+  array2DF(allowLong = FALSE)
+
+## unnamed vectors of unequal length with allowLong = TRUE
+## (within-group bootstrap)
+
+with(ToothGrowth[-1, ],
+     tapply(len, list(dose, supp), sample, replace = TRUE)) |&gt;
+  array2DF() |&gt; str()
+
+## data frame input
+
+tapply(ToothGrowth, ~ dose + supp, FUN = with,
+       data.frame(n = length(len), mean = mean(len), sd = sd(len))) |&gt;
+  array2DF()
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.3.0 ]</div>
+</div>
+</body></html>

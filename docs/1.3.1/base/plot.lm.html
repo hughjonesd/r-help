@@ -1,0 +1,179 @@
+<!DOCTYPE html><html><head><title>R: Plot Diagnostics for an lm Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/plot.lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/plot.lm.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.lm {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.lm'>Plot Diagnostics for an lm Object</h2>
+
+<h3>Description</h3>
+
+<p>Four plots (selectable by <code>which</code>) are currently provided: a plot
+of residuals against fitted values, a Scale-Location plot of
+<code class="reqn">\sqrt{| residuals |}</code> against fitted values, a Normal Q-Q plot,
+and a plot of Cook's distances versus row labels.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>plot.lm(x, which = 1:4,
+        caption = c("Residuals vs Fitted", "Normal Q-Q plot",
+                    "Scale-Location plot", "Cook's distance plot"),
+        panel = points,
+        sub.caption = deparse(x$call), main = "",
+        ask = nb.fig &lt; length(which) &amp;&amp; dev.interactive(),
+        ...,
+        id.n = 3, labels.id = names(residuals(x)), cex.id = 0.25)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.lm_:_x">x</code></td>
+<td>
+<p><code>lm</code> object, typically result of <code>lm</code> or
+<code>glm</code>.</p>
+</td></tr>
+<tr><td><code id="plot.lm_:_which">which</code></td>
+<td>
+<p>If a subset of the plots is required, specify a subset of
+the numbers <code>1:4</code>.</p>
+</td></tr>
+<tr><td><code id="plot.lm_:_caption">caption</code></td>
+<td>
+<p>Captions to appear above the plots</p>
+</td></tr>
+<tr><td><code id="plot.lm_:_panel">panel</code></td>
+<td>
+<p>Panel function.  A useful alternative to
+<code>points</code> is <code>panel.smooth</code>.</p>
+</td></tr>
+<tr><td><code id="plot.lm_:_sub.caption">sub.caption</code></td>
+<td>
+<p>common title&mdash;above figures if there are multiple;
+used as <code>sub</code> (s.<code>title</code>) otherwise.</p>
+</td></tr>
+<tr><td><code id="plot.lm_:_main">main</code></td>
+<td>
+<p>title to each plot&mdash;in addition to the above
+<code>caption</code>.</p>
+</td></tr>
+<tr><td><code id="plot.lm_:_ask">ask</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the user is <em>ask</em>ed before
+each plot, see <code>par(ask=.)</code>.</p>
+</td></tr>
+<tr><td><code id="plot.lm_:_...">...</code></td>
+<td>
+<p>other parameters to be passed through to plotting
+functions.</p>
+</td></tr>
+<tr><td><code id="plot.lm_:_id.n">id.n</code></td>
+<td>
+<p>number of points to be labelled in each plot, starting
+with the most extreme.</p>
+</td></tr>
+<tr><td><code id="plot.lm_:_labels.id">labels.id</code></td>
+<td>
+<p>vector of labels, from which the labels for extreme
+points will be chosen.  <code>NULL</code> uses observation numbers.</p>
+</td></tr>
+<tr><td><code id="plot.lm_:_cex.id">cex.id</code></td>
+<td>
+<p>magnification of point labels.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>sub.caption</code>&mdash;by default the function call&mdash;is shown as
+a subtitle (under the x-axis title) on each plot when plots are on
+separate pages, or as a subtitle in the outer margin (if any) when
+there are multiple plots per page.
+</p>
+<p>The &ldquo;Scale-Location&rdquo; plot, also called &ldquo;Spread-Location&rdquo; or
+&ldquo;S-L&rdquo; plot, takes the square root of the absolute residuals in
+order to diminish skewness (<code class="reqn">\sqrt{| E |}</code> is much less skewed
+than <code class="reqn">| E |</code> for Gaussian zero-mean <code class="reqn">E</code>).
+</p>
+<p>This &lsquo;S-L&rsquo; and the Q-Q plot use <em>standardized</em> residuals which
+have identical variance (under the hypothesis).  They are given as
+<code class="reqn">R_i / (s \times \sqrt{1 - h_{ii}})</code>
+where <code class="reqn">h_{ii}</code> are the diagonal entries of the hat matrix,
+
+<code>lm.influence()</code><code>$hat</code>, see also <code>hat</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>John Maindonald and Martin Maechler.
+</p>
+
+
+<h3>References</h3>
+
+<p>Belsley, D. A., Kuh, E. and Welsch, R. E. (1980)
+<em>Regression Diagnostics.</em>  New York: Wiley.
+</p>
+<p>Cook, R. D. and Weisberg, S. (1982)
+<em>Residuals and Influence in Regression.</em>
+London: Chapman and Hall.
+</p>
+<p>Hinkley, D. V. (1975) On power transformations to
+symmetry. <em>Biometrika</em> <b>62</b>, 101&ndash;111.
+</p>
+<p>McCullagh, P. and Nelder, J. A. (1989)
+<em>Generalized Linear Models.</em>
+London: Chapman and Hall.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>termplot</code>, <code>lm.influence</code>,
+<code>cooks.distance</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Analysis of the life-cycle savings data
+## given in Belsley, Kuh and Welsch.
+data(LifeCycleSavings)
+plot(lm.SR &lt;- lm(sr ~ pop15 + pop75 + dpi + ddpi, data = LifeCycleSavings))
+
+## 4 plots on 1 page; allow room for printing model formula in outer margin:
+par(mfrow = c(2, 2), oma = c(0, 0, 2, 0))
+plot(lm.SR)
+plot(lm.SR, id.n = NULL)               # no id's
+plot(lm.SR, id.n = 5, labels.id = NULL)# 5 id numbers
+
+## Fit a smmooth curve, where applicable:
+plot(lm.SR, panel = panel.smooth)
+## Gives a smoother curve
+plot(lm.SR, panel = function(x,y) panel.smooth(x, y, span = 1))
+
+par(mfrow=c(2,1))# same oma as above
+plot(lm.SR, which = 1:2, sub.caption = "Saving Rates, n=50, p=5")
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3.1 ]</div>
+</div>
+</body></html>

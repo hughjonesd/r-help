@@ -1,0 +1,224 @@
+<!DOCTYPE html><html><head><title>R: Check Source Packages and Their Reverse Dependencies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/check_packages_in_dir.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/check_packages_in_dir.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>check_packages_in_dir {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='check_packages_in_dir'>Check Source Packages and Their Reverse Dependencies</h2>
+
+<h3>Description</h3>
+
+<p>Check source packages in a given directory, optionally with their
+reverse dependencies.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>check_packages_in_dir(dir,
+                      check_args = character(),
+                      check_args_db = list(),
+                      reverse = NULL,
+                      check_env = character(),
+                      xvfb = FALSE,
+                      Ncpus = getOption("Ncpus", 1L),
+                      clean = TRUE,
+                      ...)
+
+summarize_check_packages_in_dir_results(dir, all = TRUE,
+                                        full = FALSE)
+summarize_check_packages_in_dir_timings(dir, all = FALSE,
+                                        full = FALSE)
+summarize_check_packages_in_dir_depends(dir, all = FALSE,
+                                        which = c("Depends",
+                                                  "Imports",
+                                                  "LinkingTo"))
+
+check_packages_in_dir_changes(dir, old,
+                              outputs = FALSE, sources = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="check_packages_in_dir_:_dir">dir</code></td>
+<td>
+<p>a character string giving the path to the directory with
+the source &lsquo;<span class="file">.tar.gz</span>&rsquo; files to be checked.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_check_args">check_args</code></td>
+<td>
+<p>a character vector with arguments to be passed to
+<code>R CMD check</code>, or a list of length two of such character
+vectors to be used for checking packages and reverse dependencies,
+respectively.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_check_args_db">check_args_db</code></td>
+<td>
+<p>a named list of character vectors with arguments
+to be passed to <code>R CMD check</code>, with names the respective
+package names.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_reverse">reverse</code></td>
+<td>
+<p>a list with names partially matching <code>"repos"</code>,
+<code>"which"</code>, or <code>"recursive"</code>, giving the repositories to
+use for locating reverse dependencies (default:
+<code>getOption("repos")</code>), the types of reverse dependencies
+(default: <code>c("Depends", "Imports", "LinkingTo")</code>, with
+shorthands <code>"most"</code> and <code>"all"</code> as for
+<code>package_dependencies</code>), and indicating whether to also
+check reverse dependencies of reverse dependencies and so on
+(default: <code>FALSE</code>), or <code>NULL</code> (default), in which case no
+reverse dependencies are checked.</p>
+</td></tr> 
+<tr><td><code id="check_packages_in_dir_:_check_env">check_env</code></td>
+<td>
+<p>a character vector of name=value strings to set
+environment variables for checking, or a list of length two of such
+character vectors to be used for checking packages and reverse
+dependencies, respectively.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_xvfb">xvfb</code></td>
+<td>
+<p>a logical indicating whether to perform checking inside a
+virtual framebuffer X server (Unix only), or a character vector of
+Xvfb options for doing so.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_Ncpus">Ncpus</code></td>
+<td>
+<p>the number of parallel processes to use for parallel
+installation and checking.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_clean">clean</code></td>
+<td>
+<p>a logical indicating whether to remove the downloaded
+reverse dependency sources.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_...">...</code></td>
+<td>
+<p>currently not used.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_all">all</code></td>
+<td>
+<p>a logical indicating whether to also summarize the reverse
+dependencies checked.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_full">full</code></td>
+<td>
+<p>a logical indicating whether to also give details for
+checks with non-ok results, or summarize check example timings (if
+available).</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_which">which</code></td>
+<td>
+<p>see <code>package_dependencies</code>.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_old">old</code></td>
+<td>
+<p>a character string giving the path to the directory of a
+previous <code>check_packages_in_dir</code> run.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_outputs">outputs</code></td>
+<td>
+<p>a logical indicating whether to analyze changes in
+the outputs of the checks performed, or only (default) the status of
+the checks.</p>
+</td></tr>
+<tr><td><code id="check_packages_in_dir_:_sources">sources</code></td>
+<td>
+<p>a logical indicating whether to also investigate the
+changes in the source files checked (default: <code>FALSE</code>).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>check_packages_in_dir</code> allows to conveniently check source
+package &lsquo;<span class="file">.tar.gz</span>&rsquo; files in the given directory <code>dir</code>, along
+with their reverse dependencies as controlled by <code>reverse</code>.
+</p>
+<p>The <code>"which"</code> component of <code>reverse</code> can also be a list, in
+which case reverse dependencies are obtained for each element of the
+list and the corresponding element of the <code>"recursive"</code> component
+of <code>reverse</code> (which is recycled as needed).
+</p>
+<p>If needed, the source &lsquo;<span class="file">.tar.gz</span>&rsquo; files of the reverse dependencies
+to be checked as well are downloaded into <code>dir</code> (and removed at
+the end if <code>clean</code> is true).  Next, all packages (additionally)
+needed for checking are installed to the &lsquo;<span class="file">Library</span>&rsquo; subdirectory
+of <code>dir</code>.  Then, all &lsquo;<span class="file">.tar.gz</span>&rsquo; files are checked using the
+given arguments and environment variables, with outputs and messages
+to files in the &lsquo;<span class="file">Outputs</span>&rsquo; subdirectory of <code>dir</code>.  The
+&lsquo;<span class="file">*.Rcheck</span>&rsquo; directories with the check results of the reverse
+dependencies are renamed by prefixing their base names with
+&lsquo;<span class="samp">&#8288;rdepends_&#8288;</span>&rsquo;.
+</p>
+<p>Results and timings can conveniently be summarized using
+<code>summarize_check_packages_in_dir_results</code> and
+<code>summarize_check_packages_in_dir_timings</code>, respectively.
+</p>
+<p>Installation and checking is performed in parallel if <code>Ncpus</code> is
+greater than one: this will use <code>mclapply</code> on
+Unix and <code>parLapply</code> on Windows.
+</p>
+<p><code>check_packages_in_dir</code> returns an object inheriting from class
+<code>"check_packages_in_dir"</code> which has <code>print</code> and
+<code>summary</code> methods.
+</p>
+<p><code>check_packages_in_dir_changes</code> allows to analyze the effect of
+changing (some of) the sources.  With <code>dir</code> and <code>old</code> the
+paths to the directories with the new and old sources, respectively,
+and the corresponding check results, possible changes in the check
+results can conveniently be analyzed as controlled via options
+<code>outputs</code> and <code>sources</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This functionality is still experimental: interfaces may change in
+future versions. 
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## Check packages in dir without reverse dependencies:
+check_packages_in_dir(dir)
+## Check packages in dir and their reverse dependencies using the
+## defaults (all repositories in getOption("repos"), all "strong"
+## reverse dependencies, no recursive reverse dependencies):
+check_packages_in_dir(dir, reverse = list())
+## Check packages in dir with their reverse dependencies from CRAN,
+## using all strong reverse dependencies and reverse suggests:
+check_packages_in_dir(dir,
+                      reverse = list(repos = getOption("repos")["CRAN"],
+                                     which = "most"))                   
+## Check packages in dir with their reverse dependencies from CRAN,
+## using '--as-cran' for the former but not the latter:
+check_packages_in_dir(dir,
+                      check_args = c("--as-cran", ""),
+                      reverse = list(repos = getOption("repos")["CRAN"]))
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 3.3.2 ]</div>
+</div>
+</body></html>

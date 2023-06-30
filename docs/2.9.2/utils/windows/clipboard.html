@@ -1,0 +1,178 @@
+<!DOCTYPE html><html><head><title>R: Read/Write to/from the Windows Clipboard</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/clipboard.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/clipboard.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>clipboard {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='clipboard'>Read/Write to/from the Windows Clipboard</h2>
+
+<h3>Description</h3>
+
+<p>Transfer text between a character vector and the Windows clipboard.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getClipboardFormats(numeric = FALSE)
+readClipboard(format = 1, raw = FALSE)
+writeClipboard(str, format = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="clipboard_:_numeric">numeric</code></td>
+<td>
+<p>logical: should the result be in human-readable form
+(the default) or raw numbers?</p>
+</td></tr>
+<tr><td><code id="clipboard_:_format">format</code></td>
+<td>
+<p>an integer giving the desired format.</p>
+</td></tr>
+<tr><td><code id="clipboard_:_raw">raw</code></td>
+<td>
+<p>should the value be returned as a raw vector rather than
+as a character vector?</p>
+</td></tr>
+<tr><td><code id="clipboard_:_str">str</code></td>
+<td>
+<p>a character vector or a raw vector.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The Windows clipboard offers data in a number of formats: see e.g.
+<a href="http://msdn2.microsoft.com/en-us/library/ms649013.aspx">http://msdn2.microsoft.com/en-us/library/ms649013.aspx</a>.
+</p>
+<p>The standard formats include
+</p>
+
+<table>
+<tr>
+ <td style="text-align: left;">
+  CF_TEXT	 </td><td style="text-align: right;"> 	1  </td><td style="text-align: left;"> Text in the machine's locale</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_BITMAP	 </td><td style="text-align: right;"> 	2  </td><td style="text-align: left;"> </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_METAFILEPICT </td><td style="text-align: right;">	3  </td><td style="text-align: left;"> Metafile picture</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_SYLK	 </td><td style="text-align: right;"> 	4  </td><td style="text-align: left;"> Symbolic link</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_DIF	 </td><td style="text-align: right;"> 	5  </td><td style="text-align: left;"> Data Interchange Fornat</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_TIFF	 </td><td style="text-align: right;"> 	6  </td><td style="text-align: left;"> Tagged-Image File Format</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_OEMTEXT	 </td><td style="text-align: right;"> 	7  </td><td style="text-align: left;"> Text in the OEM codepage</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_DIB	 </td><td style="text-align: right;"> 	8  </td><td style="text-align: left;"> Device-Independent Bitmap</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_PALETTE	 </td><td style="text-align: right;"> 	9  </td><td style="text-align: left;"> </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_PENDATA	 </td><td style="text-align: right;"> 	10 </td><td style="text-align: left;"> </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_RIFF	 </td><td style="text-align: right;"> 	11 </td><td style="text-align: left;"> Audio data</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_WAVE	 </td><td style="text-align: right;"> 	12 </td><td style="text-align: left;"> Audio data</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_UNICODETEXT </td><td style="text-align: right;"> 	13 </td><td style="text-align: left;"> Text in Unicode (UCS-2)</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_ENHMETAFILE </td><td style="text-align: right;"> 	14 </td><td style="text-align: left;"> Enhanced metafile</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_HDROP	 </td><td style="text-align: right;"> 	15 </td><td style="text-align: left;"> Drag-and-drop data</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_LOCALE	 </td><td style="text-align: right;"> 	16 </td><td style="text-align: left;"> Locale for the text on the clipboard</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  CF_MAX	 </td><td style="text-align: right;"> 	17 </td><td style="text-align: left;"> Shell-oriented formats</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  </td>
+</tr>
+
+</table>
+
+<p>Applications normally make data available in one or more of these and
+possibly additional private formats.  Use <code>raw = TRUE</code> to read binary
+formats, <code>raw = FALSE</code> (the default) for text formats.  The
+current codepage is used to convert text to Unicode text, and
+information on that is contained in the <code>CF_LOCALE</code> format.
+(Take care if you are running R in a different locale from Windows.)
+</p>
+<p>The <code>writeClipboard</code> function will write a character vector as
+text or Unicode text with standard CR-LF line terminators.  It will
+copy a raw vector directly to the clipboard without any changes.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>getClipboardFormats</code>, a character or integer vector of
+available formats, in numeric order.  If non human-readable character
+representation is known, the number is returned.
+</p>
+<p>For <code>readClipboard</code>, a character vector by default, a raw vector
+if <code>raw</code> is <code>TRUE</code>, or <code>NULL</code>, if the format is
+unavailable.
+</p>
+<p>For <code>writeClipboard</code> an invisible logical indicating success or
+failure.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>file</code> which can be used to set up a connection to a clipboard.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.9.2 ]</div>
+</div>
+</body></html>

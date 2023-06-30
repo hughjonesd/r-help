@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><title>R: Evaluate an (Unevaluated) Expression</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/eval.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/eval.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>eval {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='eval'>Evaluate an (Unevaluated) Expression</h2>
+
+<h3>Description</h3>
+
+<p>This function evaluates the expression <code>expr</code> argument in the
+environment specified by <code>envir</code> and returns the computed value.  If
+<code>envir</code> is not specified, then
+<code>sys.frame(sys.parent())</code>, the environment where the
+call to <code>eval</code> was made is used.
+This allows you to assign complicated expressions to symbols and then
+evaluate them. If you want to evaluate <code>expr</code> in <code>envir</code> then
+you must wrap a call to <code>expression</code> around it.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>eval(expr, envir=sys.frame(sys.parent()))</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="eval_:_expr">expr</code></td>
+<td>
+<p>object of mode <code>expression</code> or an &ldquo;unevaluated
+expression&rdquo;.</p>
+</td></tr>
+<tr><td><code id="eval_:_envir">envir</code></td>
+<td>
+<p>the <code>environment</code> in which <code>expr</code> is to be
+evaluated.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>expression</code>, <code>sys.frame</code>, <code>environment</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>eval(2 ^ 2 ^ 3)
+mEx &lt;- expression(2^2^3); mEx; 1 + eval(mEx)
+eval({ xx &lt;- pi; xx^2}) ; xx
+
+ev &lt;- function() {
+	e1 &lt;- sys.frame(sys.parent())
+	## Evaluate a in e1
+	aa &lt;- eval(expression(a),e1)
+	## evaluate the expression bound to a in e1
+	a &lt;- expression(x+y)
+	list(aa = aa, eval = eval(a, e1))
+}
+tst.ev &lt;- function(a = 7) { x &lt;- pi; y &lt;- 1; ev() }
+tst.ev()#-&gt; aa : 7,  eval : 4.14
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.60 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>R: Object Classes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/class.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/class.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>class {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='class'>Object Classes</h2>
+
+<h3>Description</h3>
+
+<p><span class="rlang"><b>R</b></span> possesses a simple generic function mechanism which can be used for
+an object-oriented style of programming.  Method despatch takes place
+based on the class of the first argument to the generic function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>class(x)
+class(x) &lt;- names
+unclass(x)
+inherits(x, what, which = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="class_:_x">x</code></td>
+<td>
+<p>an objects</p>
+</td></tr>
+<tr><td><code id="class_:_what">what</code></td>
+<td>
+<p>a character vector naming classes.</p>
+</td></tr>
+<tr><td><code id="class_:_which">which</code></td>
+<td>
+<p>logical affecting return value: see Details.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>An <span class="rlang"><b>R</b></span> &ldquo;object&rdquo; is a data object which has a <code>class</code> attribute.
+A class attribute is a character vector giving the names of
+the classes which the object &ldquo;inherits&rdquo; from.  When a generic
+function <code>fun</code> is applied to an object with class attribute
+<code>c("first", "second")</code>, the system searches for a function called
+<code>fun.first</code> and, if it finds it, applies it to the object.  If no
+such function is found, a function called <code>fun.second</code> is tried.
+If no class name produces a suitable function, the function
+<code>fun.default</code> is used.
+</p>
+<p>The function <code>class</code> prints the vector of names of classes an
+object inherits from.  Correspondingly, <code>class&lt;-</code> sets the
+classes an object inherits from.
+</p>
+<p><code>unclass</code> returns (a copy of) its argument with its class
+information removed.
+</p>
+<p><code>inherits</code> indicates whether its first argument inherits from any
+of the classes specified in the <code>what</code> argument.  If <code>which</code>
+is <code>TRUE</code> then an integer vector of the same length as
+<code>what</code> is returned. Each element indicates the position in the
+<code>class(x)</code> matched by the element of <code>what</code>; zero indicates
+no match. If <code>which</code> is <code>FALSE</code> then <code>TRUE</code> is 
+returned by <code>inherits</code> if any of the names in <code>what</code> match
+with any <code>class</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>UseMethod</code>, <code>NextMethod</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>  x &lt;- 10
+  inherits(x, "a") #FALSE
+  class(x)&lt;-c("a", "b")
+  inherits(x,"a") #TRUE
+  inherits(x, "a", TRUE) # 1
+  inherits(x, c("a", "b", "c"), TRUE) # 1 2 0
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.1 ]</div>
+</div>
+</body></html>

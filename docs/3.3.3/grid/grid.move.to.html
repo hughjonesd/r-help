@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><title>R: Move or Draw to a Specified Position</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.move.to.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.move.to.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.move.to {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.move.to'> Move or Draw to a Specified Position </h2>
+
+<h3>Description</h3>
+
+<p>Grid has the notion of a current location.  These functions
+sets that location.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.move.to(x = 0, y = 0, default.units = "npc", name = NULL,
+             draw = TRUE, vp = NULL)
+
+moveToGrob(x = 0, y = 0, default.units = "npc", name = NULL,
+           vp = NULL)
+
+grid.line.to(x = 1, y = 1, default.units = "npc",
+             arrow = NULL, name = NULL,
+             gp = gpar(), draw = TRUE, vp = NULL)
+
+lineToGrob(x = 1, y = 1, default.units = "npc", arrow = NULL,
+           name = NULL, gp = gpar(), vp = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.move.to_:_x">x</code></td>
+<td>
+<p>A numeric value or a unit object specifying an x-value.</p>
+</td></tr>
+<tr><td><code id="grid.move.to_:_y">y</code></td>
+<td>
+<p>A numeric value or a unit object specifying a y-value.</p>
+</td></tr>
+<tr><td><code id="grid.move.to_:_default.units">default.units</code></td>
+<td>
+<p>A string indicating the default units to use
+if <code>x</code> or <code>y</code> are only given as numeric values.</p>
+</td></tr>
+<tr><td><code id="grid.move.to_:_arrow">arrow</code></td>
+<td>
+<p>A list describing arrow heads to place at either end
+of the line, as produced by the <code>arrow</code> function.</p>
+</td></tr>
+<tr><td><code id="grid.move.to_:_name">name</code></td>
+<td>
+<p> A character identifier. </p>
+</td></tr>
+<tr><td><code id="grid.move.to_:_draw">draw</code></td>
+<td>
+<p>A logical value indicating whether graphics output
+should be produced.</p>
+</td></tr>
+<tr><td><code id="grid.move.to_:_gp">gp</code></td>
+<td>
+<p>An object of class <code>gpar</code>, typically the output
+from a call to the function <code>gpar</code>.  This is basically
+a list of graphical parameter settings.</p>
+</td></tr>
+<tr><td><code id="grid.move.to_:_vp">vp</code></td>
+<td>
+<p>A Grid viewport object (or NULL).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Both functions create a move.to/line.to grob (a graphical object describing a
+move-to/line-to), but only <code>grid.move.to/line.to()</code>
+draws the move.to/line.to (and then only if <code>draw</code> is <code>TRUE</code>).
+</p>
+
+
+<h3>Value</h3>
+
+<p>A move.to/line.to grob.
+<code>grid.move.to/line.to()</code> returns the value invisibly.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p>Grid,
+<code>viewport</code>,
+<code>arrow</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>grid.newpage()
+grid.move.to(0.5, 0.5)
+grid.line.to(1, 1)
+grid.line.to(0.5, 0)
+pushViewport(viewport(x=0, y=0, w=0.25, h=0.25, just=c("left", "bottom")))
+grid.rect()
+grid.grill()
+grid.line.to(0.5, 0.5)
+popViewport()
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 3.3.3 ]</div>
+</div>
+</body></html>

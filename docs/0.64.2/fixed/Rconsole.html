@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>R: R for Windows Configuration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/fixed/html/Rconsole.html'>https://stat.ethz.ch/R-manual/R-patched/library/fixed/html/Rconsole.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Rwin configuration {fixed}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Rwin+20configuration'>R for Windows Configuration</h2>
+
+<h3>Description</h3>
+
+<p>The file <code>Rconsole</code> configures the R GUI console in this
+Windows port. The file <code>Rdevga</code> configures the graphics devices
+<code>x11</code>, <code>win.graph</code>, <code>win.metafile</code> and <code>win.print</code>.
+</p>
+
+
+<h3>Details</h3>
+
+<p>There are system copies of these files in <code>RHOME\etc</code>. Users
+can have personal copies of the files: these are looked for in the
+location given by the environment variable <code>R_HOME</code>. The system
+files are read only if a corresponding personal file is not found.
+</p>
+<p>If the environment variable <code>R_HOME</code> is not set, the <span class="rlang"><b>R</b></span> system
+sets it to <code>HOME</code> if that is set (stripping any trailing slash)
+otherwise to the working directory.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Each of the files contains details in comments of how to set the
+values.
+</p>
+<p>At the time of writing <code>Rdevga</code> configured the mapping of font
+numbers to fonts, and <code>Rconsole</code> configured the appearance
+(single or multiple document interface, toolbar, statusbar on MDI),
+size and colours of the GUI console, and whether resizing the
+console sets <code>options("width")</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Guido Masarotto</p>
+
+
+<h3>See Also</h3>
+
+<p><code>x11</code></p>
+
+
+</div>
+</body></html>

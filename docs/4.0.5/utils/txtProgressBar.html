@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head><title>R: Text Progress Bar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/txtProgressBar.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/txtProgressBar.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>txtProgressBar {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='txtProgressBar'>Text Progress Bar</h2>
+
+<h3>Description</h3>
+
+<p>Text progress bar in the <span class="rlang"><b>R</b></span> console.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>txtProgressBar(min = 0, max = 1, initial = 0, char = "=",
+               width = NA, title, label, style = 1, file = "")
+
+getTxtProgressBar(pb)
+setTxtProgressBar(pb, value, title = NULL, label = NULL)
+## S3 method for class 'txtProgressBar'
+close(con, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="txtProgressBar_:_min">min</code>, <code id="txtProgressBar_:_max">max</code></td>
+<td>
+<p>(finite) numeric values for the extremes of the
+progress bar. Must have <code>min &lt; max</code>.</p>
+</td></tr>
+<tr><td><code id="txtProgressBar_:_initial">initial</code>, <code id="txtProgressBar_:_value">value</code></td>
+<td>
+<p>initial or new value for the progress bar.  See
+&lsquo;Details&rsquo; for what happens with invalid values.</p>
+</td></tr>
+<tr><td><code id="txtProgressBar_:_char">char</code></td>
+<td>
+<p>the character (or character string) to form the progress bar.</p>
+</td></tr>
+<tr><td><code id="txtProgressBar_:_width">width</code></td>
+<td>
+<p>the width of the progress bar, as a multiple of the width
+of <code>char</code>.  If <code>NA</code>, the default, the number of characters
+is that which fits into <code>getOption("width")</code>.</p>
+</td></tr>
+<tr><td><code id="txtProgressBar_:_style">style</code></td>
+<td>
+<p>the &lsquo;style&rsquo; of the bar &ndash; see &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="txtProgressBar_:_file">file</code></td>
+<td>
+<p>an open connection object or <code>""</code> which indicates
+the console: <code>stderr()</code> might be useful here.</p>
+</td></tr>
+<tr><td><code id="txtProgressBar_:_pb">pb</code>, <code id="txtProgressBar_:_con">con</code></td>
+<td>
+<p>an object of class <code>"txtProgressBar"</code>.</p>
+</td></tr>
+<tr><td><code id="txtProgressBar_:_title">title</code>, <code id="txtProgressBar_:_label">label</code></td>
+<td>
+<p>ignored, for compatibility with other progress bars.</p>
+</td></tr>
+<tr><td><code id="txtProgressBar_:_...">...</code></td>
+<td>
+<p>for consistency with the generic.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>txtProgressBar</code> will display a progress bar on the <span class="rlang"><b>R</b></span> console
+(or a connection) via a text representation.
+</p>
+<p><code>setTxtProgessBar</code> will update the value.  Missing
+(<code>NA</code>) and out-of-range values of <code>value</code> will be
+(silently) ignored.  (Such values of <code>initial</code> cause the progress
+bar not to be displayed until a valid value is set.)
+</p>
+<p>The progress bar should be <code>close</code>d when finished with: this
+outputs the final newline character.
+</p>
+<p><code>style = 1</code> and <code>style = 2</code> just shows a line of
+<code>char</code>. They differ in that <code>style = 2</code> redraws the line
+each time, which is useful if other code might be writing to the <span class="rlang"><b>R</b></span>
+console.  <code>style = 3</code> marks the end of the range by <code>|</code> and
+gives a percentage to the right of the bar.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>txtProgressBar</code> an object of class <code>"txtProgressBar"</code>.
+</p>
+<p>For <code>getTxtProgressBar</code> and <code>setTxtProgressBar</code>, a
+length-one numeric vector giving the previous value (invisibly for
+<code>setTxtProgressBar</code>).
+</p>
+
+
+<h3>Note</h3>
+
+<p>Using <code>style</code> 2 or 3 or reducing the value with <code>style = 1</code>
+uses &lsquo;<span class="samp">&#8288;\r&#8288;</span>&rsquo; to return to the left margin &ndash; the interpretation of
+carriage return is up to the terminal or console in which <span class="rlang"><b>R</b></span> is
+running, and this is liable to produce ugly output on a connection
+other than a terminal, including when <code>stdout()</code> is
+redirected to a file.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>winProgressBar</code> (Windows only),
+<code>tkProgressBar</code> (Unix-alike platforms).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'> # slow
+testit &lt;- function(x = sort(runif(20)), ...)
+{
+    pb &lt;- txtProgressBar(...)
+    for(i in c(0, x, 1)) {Sys.sleep(0.5); setTxtProgressBar(pb, i)}
+    Sys.sleep(1)
+    close(pb)
+}
+testit()
+testit(runif(10))
+testit(style = 3)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 4.0.5 ]</div>
+</div>
+</body></html>

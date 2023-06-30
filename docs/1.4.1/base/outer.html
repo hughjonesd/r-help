@@ -1,0 +1,102 @@
+<!DOCTYPE html><html><head><title>R: Outer Product of Arrays</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/outer.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/outer.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>outer {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='outer'>Outer Product of Arrays</h2>
+
+<h3>Description</h3>
+
+<p>The outer product of the arrays <code>X</code> and <code>Y</code> is the array
+<code>A</code> with dimension <code>c(dim(X), dim(Y))</code> where element
+<code>A[c(arrayindex.x, arrayindex.y)]
+    = FUN(X[arrayindex.x], Y[arrayindex.y], ...)</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>outer(X, Y, FUN="*", ...)
+x %o% y
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="outer_:_X">X</code></td>
+<td>
+<p>A vector or array.</p>
+</td></tr>
+<tr><td><code id="outer_:_Y">Y</code></td>
+<td>
+<p>A vector or array.</p>
+</td></tr>
+<tr><td><code id="outer_:_FUN">FUN</code></td>
+<td>
+<p>a function to use on the outer products, it may be a quoted
+string.</p>
+</td></tr>
+<tr><td><code id="outer_:_...">...</code></td>
+<td>
+<p>optional arguments to be passed to <code>FUN</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>FUN</code> must be a function (or the name of it) which expects at
+least two arguments and which operates elementwise on arrays.
+</p>
+<p>Where they exist, the [dim]names of <code>X</code> and <code>Y</code> will be
+preserved.
+</p>
+<p><code>%o%</code> is an alias for <code>outer</code> (where <code>FUN</code>
+cannot be changed from <code>"*"</code>).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jonathan Rougier</p>
+
+
+<h3>See Also</h3>
+
+<p><code>matmult</code> for usual (<em>inner</em>) matrix vector
+multiplication;
+<code>kronecker</code> which is based on <code>outer</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:9; names(x) &lt;- x
+# Multiplication &amp; Power Tables
+x %o% x
+y &lt;- 2:8; names(y) &lt;- paste(y,":",sep="")
+outer(y, x, "^")
+
+outer(month.abb, 1999:2003, FUN = "paste")
+
+## three way multiplication table:
+x %o% x %o% y[1:3]
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4.1 ]</div>
+</div>
+</body></html>

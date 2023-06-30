@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>R: The F Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/F.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/F.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>F {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='F'>The F Distribution</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>df(x, n1, n2)
+pf(q, n1, n2)
+qf(p, n1, n2)
+rf(n, n1, n2)
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>These functions provide information about the F distribution with
+<code>n1</code> and <code>n2</code> degrees of freedom. 
+<code>df</code> gives the density,
+<code>pf</code> gives the distribution function
+<code>qf</code> gives the quantile function
+and
+<code>rf</code> generates random deviates.
+</p>
+<p>The F distribution with <code class="reqn">n_1</code> and <code class="reqn">n_2</code> degrees of
+freedom has density
+</p>
+<p style="text-align: center;"><code class="reqn">
+    f(x) =
+    \frac{\Gamma(n_1/2 + n_2/2)}{\Gamma(n_1/2)\Gamma(n_2/2)}
+    \left(\frac{n_1}{n_2}\right)^{n_1/2}
+    x^{n_1/2-1}
+    \left(1 + \frac{n_1 x}{n_2}\right)^{-(n_1 + n_2) / 2}</code>
+</p>
+
+<p>for <code class="reqn">x &gt; 0</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dt</code> for Student's t distribution which is (almost)
+equivalent to <code>*f(..., n2 = 1)</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>df(1,1,1) == dt(1,1)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61 ]</div>
+</div>
+</body></html>

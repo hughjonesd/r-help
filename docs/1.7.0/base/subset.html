@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><title>R: Subsetting Vectors and Data Frames</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/subset.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/subset.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>subset {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='subset'>Subsetting Vectors and Data Frames</h2>
+
+<h3>Description</h3>
+
+<p>Return subsets of vectors or data frames which meet conditions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>subset(x, ...)
+subset.default(x, subset, ...)
+subset.data.frame(x, subset, select, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="subset_:_x">x</code></td>
+<td>
+<p>object to be subsetted</p>
+</td></tr>
+<tr><td><code id="subset_:_...">...</code></td>
+<td>
+<p>how to subset, depends on object</p>
+</td></tr>
+<tr><td><code id="subset_:_subset">subset</code></td>
+<td>
+<p>logical expression</p>
+</td></tr>
+<tr><td><code id="subset_:_select">select</code></td>
+<td>
+<p>expression, indicating variables to select from a
+data frame</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For ordinary vectors, the result is simply
+<code>x[subset &amp; !is.na(subset)]</code>.
+</p>
+<p>For dataframes, the <code>subset</code> argument works similarly on the
+rows.  Note that <code>subset</code> will be evaluated in the dataframe.
+</p>
+<p>The <code>select</code> argument exists only for dataframes.  It works by
+first replacing variable names in the selection expression with the
+corresponding column numbers in the dataframe and then using the
+resulting integer vector to index the columns.  This allows the use
+of the standard indexing conventions so that for examples ranges of
+variables can be specified easily.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Selected rows and columns of the object <code>x</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Peter Dalgaard</p>
+
+
+<h3>See Also</h3>
+
+<p><code>[</code>, 
+<code>transform</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(airquality)
+subset(airquality, Temp &gt; 80, select = c(Ozone, Temp))
+subset(airquality, Day == 1, select = -Temp)
+subset(airquality, select = Ozone:Wind)
+
+attach(airquality)
+subset(Ozone, Temp &gt; 80)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.7.0 ]</div>
+</div>
+</body></html>

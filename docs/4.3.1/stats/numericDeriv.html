@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><title>R: Evaluate Derivatives Numerically</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/numericDeriv.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/numericDeriv.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>numericDeriv {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='numericDeriv'>Evaluate Derivatives Numerically</h2>
+
+<h3>Description</h3>
+
+<p><code>numericDeriv</code> numerically evaluates the gradient of an expression.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>numericDeriv(expr, theta, rho = parent.frame(), dir = 1,
+             eps = .Machine$double.eps ^ (1/if(central) 3 else 2), central = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="numericDeriv_:_expr">expr</code></td>
+<td>
+<p><code>expression</code> or <code>call</code> to be
+differentiated.  Should evaluate to a <code>numeric</code> vector.</p>
+</td></tr>
+<tr><td><code id="numericDeriv_:_theta">theta</code></td>
+<td>
+<p><code>character</code> vector of names of numeric variables
+used in <code>expr</code>.</p>
+</td></tr>
+<tr><td><code id="numericDeriv_:_rho">rho</code></td>
+<td>
+<p><code>environment</code> containing all the variables needed to
+evaluate <code>expr</code>.</p>
+</td></tr>
+<tr><td><code id="numericDeriv_:_dir">dir</code></td>
+<td>
+<p>numeric vector of directions, typically with values in
+<code>-1, 1</code> to use for the finite differences;
+will be recycled to the length of <code>theta</code>.</p>
+</td></tr>
+<tr><td><code id="numericDeriv_:_eps">eps</code></td>
+<td>
+<p>a positive number, to be used as unit step size <code class="reqn">h</code> for
+the approximate numerical derivative <code class="reqn"> (f(x+h)-f(x))/h </code> or the
+central version, see <code>central</code>.</p>
+</td></tr>
+<tr><td><code id="numericDeriv_:_central">central</code></td>
+<td>
+<p>logical indicating if <em>central</em> divided differences
+should be computed, i.e., <code class="reqn"> (f(x+h) - f(x-h)) / 2h </code>.  These are
+typically more accurate but need more evaluations of <code class="reqn">f()</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is a front end to the C function <code>numeric_deriv</code>, which is
+described in <em>Writing R Extensions</em>.
+</p>
+<p>The numeric variables must be of type <code>double</code> and not <code>integer</code>.
+
+</p>
+
+
+<h3>Value</h3>
+
+<p>The value of <code>eval(expr, envir = rho)</code> plus a matrix
+attribute <code>"gradient"</code>.  The columns of this matrix are
+the derivatives of the value with respect to the variables listed in
+<code>theta</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Saikat DebRoy <a href="mailto:saikat@stat.wisc.edu">saikat@stat.wisc.edu</a>;
+tweaks and <code>eps</code>, <code>central</code> options by R Core Team.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>myenv &lt;- new.env()
+myenv$mean &lt;- 0.
+myenv$sd   &lt;- 1.
+myenv$x    &lt;- seq(-3., 3., length.out = 31)
+nD &lt;- numericDeriv(quote(pnorm(x, mean, sd)), c("mean", "sd"), myenv)
+str(nD)
+
+## Visualize :
+require(graphics)
+matplot(myenv$x, cbind(c(nD), attr(nD, "gradient")), type="l")
+abline(h=0, lty=3)
+## "gradient" is close to the true derivatives, you don't see any diff.:
+curve( - dnorm(x), col=2, lty=3, lwd=2, add=TRUE)
+curve(-x*dnorm(x), col=3, lty=3, lwd=2, add=TRUE)
+##
+## IGNORE_RDIFF_BEGIN
+# shows 1.609e-8 on most platforms
+all.equal(attr(nD,"gradient"),
+          with(myenv, cbind(-dnorm(x), -x*dnorm(x))))
+## IGNORE_RDIFF_END
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 4.3.1 ]</div>
+</div>
+</body></html>

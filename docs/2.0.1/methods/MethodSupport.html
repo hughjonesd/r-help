@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><title>R: Additional (Support) Functions for Methods</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/MethodSupport.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/MethodSupport.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>MethodSupport {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='MethodSupport'>Additional (Support) Functions for Methods</h2>
+
+<h3>Description</h3>
+
+<p>These are support routines for computations on formal methods.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getMethodsForDispatch(f, fdef)
+
+cacheMethod(f, sig, def, args, fdef)
+
+resetGeneric(f, fdef, mlist, where, deflt)
+</code></pre>
+
+
+<h3>Summary of Functions</h3>
+
+
+<dl>
+<dt><code>resetGeneric</code>:</dt><dd> 
+<p>reset the currently defined methods for this generic to the
+currently visible methods, looking from environment <code>where</code>.  Returns <code>TRUE</code>
+or <code>FALSE</code> according to whether information for the function
+was found in the metadata.
+</p>
+<p>Normally not called directly, since changes to methods,
+attaching and detaching packages all generate a call automatically.
+</p>
+</dd>
+<dt><code>cacheMethod</code>:</dt><dd>
+<p>Store the definition for this function and signature in the method
+metadata for the function.  Used to store extensions of coerce
+methods found through inheritance.
+</p>
+<p>No persistent effect, since the method metadata is session-scope
+only.
+</p>
+</dd>
+<dt><code>getMethodsForDispatch</code>:</dt><dd>
+<p>Get the current methods list object representing the methods for
+function <code>f</code>, merged from the various packages and with any
+additional caching information stored in the <code>allMethods</code>
+slot.
+</p>
+<p>If methods have not yet been merged, calling
+<code>getMethodsForDispatch</code> will cause the merge to take place.
+</p>
+</dd>
+</dl>
+
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.0.1 ]</div>
+</div>
+</body></html>

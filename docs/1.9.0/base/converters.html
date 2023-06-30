@@ -1,0 +1,140 @@
+<!DOCTYPE html><html><head><title>R: Management of .C argument conversion list</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/converters.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/converters.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>getNumCConverters {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='getNumCConverters'>Management of .C argument conversion list</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide facilities to manage the extensible
+list of converters used to translate R objects to C
+pointers for use in <code>.C</code> calls.
+The number and a description of each element in the list 
+can be retrieved. One can also query and set the activity
+status of individual elements, temporarily ignoring them.
+And one can remove individual elements.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getNumCConverters()
+getCConverterDescriptions()
+getCConverterStatus()
+setCConverterStatus(id, status)
+removeCConverter(id)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="getNumCConverters_:_id">id</code></td>
+<td>
+<p>either a number or a string identifying the element of interest in the converter
+list. A string is matched against the description strings for each element to identify
+the element. Integers are specified starting at 1 (rather than 0).</p>
+</td></tr>
+<tr><td><code id="getNumCConverters_:_status">status</code></td>
+<td>
+<p>a logical value specifying whether the element is to be considered
+active (<code>TRUE</code>) or not (<code>FALSE</code>).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The internal list of converters is potentially used when converting
+individual arguments in a <code>.C</code> call.  If an argument has a
+non-trivial class attribute, we iterate over the list of converters
+looking for the first that &ldquo;matches&rdquo;.  If we find a matching
+converter, we have it create the C-level pointer corresponding to the
+R object.  When the call to the C routine is complete, we use the same
+converter for that argument to reverse the conversion and create an R
+object from the current value in the C pointer. This is done
+separately for all the arguments.
+</p>
+<p>The functions documented here provide R user-level capabilities
+for investigating and managing the list of converters.
+There is currently no mechanism for adding an element to the
+converter list within the R language. This must be done in
+C code using the routine <code>R_addToCConverter()</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>getNumCConverters</code> returns an integer giving the number
+of elements in the list, both active and inactive.
+</p>
+<p><code>getCConverterDescriptions</code> returns a character vector containing
+the description string of each element of the converter list.
+</p>
+<p><code>getCConverterStatus</code> returns a logical vector with a value for
+each element in the converter list. Each value indicates whether that
+converter is active (<code>TRUE</code>) or inactive (<code>FALSE</code>).
+The names of the elements are the description strings returned
+by <code>getCConverterDescriptions</code>.
+</p>
+<p><code>setCConverterStatus</code> returns the logical value indicating the
+activity status of the specified element before the call to change it
+took effect.  This is <code>TRUE</code> for active and <code>FALSE</code> for
+inactive.
+</p>
+<p><code>removeCConverter</code> returns <code>TRUE</code> if
+an element in the converter list was identified and removed.
+In the case that no such element was found, an error occurs.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Temple Lang</p>
+
+
+<h3>References</h3>
+
+<p><a href="http://developer.R-project.org/CObjectConversion.pdf">http://developer.R-project.org/CObjectConversion.pdf</a></p>
+
+
+<h3>See Also</h3>
+
+<p><code>.C</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'> getNumCConverters()
+ getCConverterDescriptions()
+ getCConverterStatus()
+## Not run: 
+  old &lt;- setCConverterStatus(1,FALSE)
+
+  setCConverterStatus(1,old)
+
+## End(Not run)
+## Not run: 
+  removeCConverter(1)
+  removeCConverter(getCConverterDescriptions()[1])
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.0 ]</div>
+</div>
+</body></html>

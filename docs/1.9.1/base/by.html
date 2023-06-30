@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Apply a Function to a Data Frame split by Factors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/by.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/by.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>by {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='by'>Apply a Function to a Data Frame split by Factors</h2>
+
+<h3>Description</h3>
+
+<p>Function <code>by</code> is an object-oriented wrapper for
+<code>tapply</code> applied to data frames.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>by(data, INDICES, FUN, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="by_:_data">data</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object, normally a data frame, possibly a matrix.</p>
+</td></tr>
+<tr><td><code id="by_:_INDICES">INDICES</code></td>
+<td>
+<p>a factor or a list of factors, each of length <code>nrow(x)</code>.</p>
+</td></tr>
+<tr><td><code id="by_:_FUN">FUN</code></td>
+<td>
+<p>a function to be applied to data frame subsets of <code>x</code>.</p>
+</td></tr>
+<tr><td><code id="by_:_...">...</code></td>
+<td>
+<p>further arguments to <code>FUN</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A data frame is split by row into data frames
+subsetted by the values of one or more factors, and function
+<code>FUN</code> is applied to each subset in term.
+</p>
+<p>Object <code>data</code> will be coerced to a data frame by default.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of class <code>"by"</code>, giving the results for each subset.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>tapply</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(stats)
+data(warpbreaks)
+attach(warpbreaks)
+by(warpbreaks[, 1:2], tension, summary)
+by(warpbreaks[, 1], list(wool=wool, tension=tension), summary)
+by(warpbreaks, tension, function(x) lm(breaks ~ wool, data=x))
+
+## now suppose we want to extract the coefficients by group
+tmp &lt;- by(warpbreaks, tension, function(x) lm(breaks ~ wool, data=x))
+sapply(tmp, coef)
+
+detach("warpbreaks")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.1 ]</div>
+</div>
+</body></html>

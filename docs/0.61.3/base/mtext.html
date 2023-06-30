@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><title>R: Write text into the margins of a plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/mtext.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/mtext.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mtext {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mtext'>Write text into the margins of a plot</h2>
+
+<h3>Description</h3>
+
+<p><code>text</code> is written in one of the four margins (<code>side</code>) of the plot.
+<code>line</code> measures the distance outwardly in character size units.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mtext(text, side=3, line=0, outer=FALSE, at=NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="mtext_:_text">text</code></td>
+<td>
+<p>character string to be written.</p>
+</td></tr>
+<tr><td><code id="mtext_:_side">side</code></td>
+<td>
+<p>on which side of the plot (1=bottom, 2=left, 3=top, 4=right).</p>
+</td></tr>
+<tr><td><code id="mtext_:_line">line</code></td>
+<td>
+<p>on which MARgin line, starting at 0 counting outwards.</p>
+</td></tr>
+<tr><td><code id="mtext_:_outer">outer</code></td>
+<td>
+<p>use outer margins if available.</p>
+</td></tr>
+<tr><td><code id="mtext_:_at">at</code></td>
+<td>
+<p>give location in user-coordinates.</p>
+</td></tr>
+<tr><td><code id="mtext_:_...">...</code></td>
+<td>
+<p>Further graphical parameters; currently supported are:</p>
+</td></tr>
+<tr><td><code id="mtext_:_adj">adj</code></td>
+<td>
+<p>length = 1 or 2 : adjustment in x- (and optionally y-) direction.</p>
+</td></tr>
+<tr><td><code id="mtext_:_cex">cex</code></td>
+<td>
+<p>character expansion factor (default = 1).</p>
+</td></tr>
+<tr><td><code id="mtext_:_col">col</code></td>
+<td>
+<p>color to use.</p>
+</td></tr>
+<tr><td><code id="mtext_:_font">font</code></td>
+<td>
+<p>font for text.</p>
+</td></tr>
+</table>
+
+
+<h3>Side Effects</h3>
+
+<p>The given text is written onto the current plot.</p>
+
+
+<h3>See Also</h3>
+
+<p><code>title</code>, <code>text</code>, <code>plot</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>plot(1:10, (-4:5)^2, main="Parabola Points", xlab="xlab")
+mtext("10 of them")
+for(s in c(1:2,4))
+    mtext(paste("mtext(..,side=",s,")"), side=s)
+mtext("mtext(.., line= -2)", line = -2)
+mtext("mtext(.., line= -1, adj = 0)", line = -1, adj =0)
+##--- log axis :
+plot(1:10, exp(1:10), log='y', main="log='y'", xlab="xlab")
+for(s in 1:4) mtext(paste("mtext(..,side=",s,")"), side=s)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61.3 ]</div>
+</div>
+</body></html>

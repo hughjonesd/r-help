@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><title>R: Create Alias (Pointer) to R Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/zAlias.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/zAlias.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>.Alias {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='.Alias'>Create Alias (Pointer) to R Object</h2>
+
+<h3>Description</h3>
+
+<p><code>.Alias</code> creates an <b>alias</b> to another (part of) an <span class="rlang"><b>R</b></span>
+object which is more (memory-) efficient than usual assignment.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>new &lt;- .Alias(expr)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id=".Alias_:_expr">expr</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> expression; typically a name.</p>
+</td></tr>
+<tr><td><code id=".Alias_:_new">new</code></td>
+<td>
+<p>new name by which <code>expr</code> can be accessed.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><em>an identical copy</em> of <code>expr</code>.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>This has a <b>dangerous</b> semantic, and consequences can be
+unexpected (it can be used to defeat the call-by-value illusion).
+Know what you are doing <em>before</em> using <code>.Alias</code>!
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>&lt;-</code> for usual assignments.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>mop &lt;- options()
+mop$browser &lt;- "a browser"   # not set on all platforms
+Op &lt;- .Alias(mop)
+## A change to mop is reflected in Op and vice versa
+## -- ONLY if no new slots are created ...
+mop$digits &lt;- "Wow!"
+Op$browser &lt;- "another one"
+mop$browser; Op$digits
+all(names(mop) == names(Op) &amp;
+    sapply(seq(mop), function(i) all(Op[[i]] == mop[[i]])))
+##&gt; TRUE -- Op and mop ARE the same thing !
+
+mop$newslot &lt;- pi #---&gt;&gt; 'newslot' ==&gt; (shallow) COPY of 'mop'
+Op$newslot # R: still the old one, i.e. NULL
+all(names(mop) == names(Op))# no longer TRUE
+
+## Feel the power: `call by reference', a function modifying its argument:
+tst.Al &lt;- function(x) {
+   y &lt;- .Alias(x) ; attributes(y) &lt;- NULL ; invisible()
+}
+(x0 &lt;- structure(1:5, my.att = "Y"))
+tst.Al(x0) # *changes* x0 :
+x0
+stopifnot(is.null(attributes(x0)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.1 ]</div>
+</div>
+</body></html>

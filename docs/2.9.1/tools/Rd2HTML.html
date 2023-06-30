@@ -1,0 +1,201 @@
+<!DOCTYPE html><html><head><title>R: Work with an Rd object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/Rd2HTML.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/Rd2HTML.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Rd2HTML {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Rd2HTML'> Work with an Rd object </h2>
+
+<h3>Description</h3>
+
+<p>These experimental functions take the output of the
+<code>parse_Rd</code> function and check it or produce a help
+page from it.  Their interfaces (and existence!) are subject to
+change.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Rd2HTML(Rd, out = "", package = "", defines = .Platform$OS.type,
+        encoding = "unknown", Links = NULL, CHM = FALSE)
+
+Rd2txt(Rd, out = "", package = "", defines = .Platform$OS.type)
+
+Rd2latex(Rd, out = "", defines = .Platform$OS.type, encoding = "unknown")
+
+Rd2ex(Rd, out = "", defines = .Platform$OS.type, encoding = "unknown")
+
+checkRd(Rd, defines = .Platform$OS.type, encoding = "unknown",
+        unknownOK = FALSE, listOK = TRUE)
+
+findHTMLlinks(pkgDir = "", lib.loc = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Rd2HTML_:_Rd">Rd</code></td>
+<td>
+<p> the <code>Rd</code> object. </p>
+</td></tr>
+<tr><td><code id="Rd2HTML_:_out">out</code></td>
+<td>
+<p> a filename or connection object to which to write the output. </p>
+</td></tr>
+<tr><td><code id="Rd2HTML_:_package">package</code></td>
+<td>
+<p> the package to list in the output. </p>
+</td></tr>
+<tr><td><code id="Rd2HTML_:_defines">defines</code></td>
+<td>
+<p> string(s) to use in <code>"#ifdef"</code> tests. </p>
+</td></tr>
+<tr><td><code id="Rd2HTML_:_encoding">encoding</code></td>
+<td>
+<p> encoding to use if the file does not specify one. </p>
+</td></tr>
+<tr><td><code id="Rd2HTML_:_Links">Links</code></td>
+<td>
+<p><code>NULL</code> or a named (by topics) character vector of
+links, as returned by <code>findHTMLlinks</code>.</p>
+</td></tr>
+<tr><td><code id="Rd2HTML_:_CHM">CHM</code></td>
+<td>
+<p>logical: prepare HTML suitable for Compiled HTML?</p>
+</td></tr> 
+<tr><td><code id="Rd2HTML_:_unknownOK">unknownOK</code></td>
+<td>
+<p> unrecognized macros are treated as errors if
+<code>FALSE</code>, otherwise warnings. </p>
+</td></tr>
+<tr><td><code id="Rd2HTML_:_listOK">listOK</code></td>
+<td>
+<p> unnecessary non-empty braces (e.g. around text, not
+as an argument) are treated as errors if <code>FALSE</code>, otherwise warnings. </p>
+</td></tr>
+<tr><td><code id="Rd2HTML_:_pkgDir">pkgDir</code></td>
+<td>
+<p>The top-level directory of an installed package.</p>
+</td></tr>
+<tr><td><code id="Rd2HTML_:_lib.loc">lib.loc</code></td>
+<td>
+<p>character vector describing the location of <span class="rlang"><b>R</b></span> library trees
+to scan: the default indicates <code>.libPaths()</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>Rd2HTML</code> converter is still in development, and currently
+has the following known deficiencies:
+</p>
+
+<ul>
+<li> <p><code>"\enc"</code> is not supported.
+</p>
+</li>
+<li><p> Error messages are not as informative as they could be.  Often
+using <code>parse_Rd(..., verbose = TRUE)</code> will give a better idea
+of what is wrong.
+</p>
+</li>
+<li><p> Formatting is not always optimal.
+</p>
+</li></ul>
+
+<p><code>Rd2ex</code> extracts the examples in the format used by
+<code>example</code> and <span class="rlang"><b>R</b></span> utilities.  it reproduces the previous
+version up to
+</p>
+
+<ul>
+<li><p> The parser does not interpret markup in <span class="rlang"><b>R</b></span> comments: this used
+to be done.
+</p>
+</li>
+<li><p> Small improvements in layout.
+</p>
+</li></ul>
+
+<p><code>findHTMLlinks</code> uses in decreasing priority
+</p>
+
+<ul>
+<li><p> The package in <code>pkgDir</code>: this is used when converting
+HTML help for that package.
+</p>
+</li>
+<li><p> The packages that are loaded in a vanilla <span class="rlang"><b>R</b></span> session.
+</p>
+</li>
+<li><p> Other packages found in the library trees specified by
+<code>lib.loc</code> in the order of the trees and alphabetically within a
+library tree.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p><code>Rd2*</code> are executed mainly for the side effect of writing the
+converted help page.  Its value is the name of that page.
+</p>
+<p><code>checkRd</code> returns <code>TRUE</code> if the file has no errors; it
+generates an R error otherwise.
+</p>
+<p><code>findHTMLlinks</code> returns a namesd character vector of relative
+file paths, in the same package or in a package in the same library tree.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Murdoch, Brian Ripley
+</p>
+
+
+<h3>References</h3>
+
+ <p><a href="http://developer.r-project.org/parseRd.pdf">http://developer.r-project.org/parseRd.pdf</a> </p>
+
+
+<h3>See Also</h3>
+
+<p><code>parse_Rd</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+toolsRd &lt;- Rd_db("tools")
+con &lt;- textConnection(toolsRd[[grep("Rd2HTML.Rd", names(toolsRd))]], "rt")
+outfile &lt;- paste(tempfile(), ".html", sep="")
+browseURL(Rd2HTML(con, outfile, package="tools"))
+close(con)
+ 
+con &lt;- textConnection(toolsRd[["Rd2HTML.Rd"]], "rt")
+checkRd(con) # A stricter test than Rd2HTML uses
+close(con)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.9.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html><html><head><title>R: Find Aliases (Dependencies) in a Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/alias.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/alias.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>alias {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='alias'>Find Aliases (Dependencies) in a Model</h2>
+
+<h3>Description</h3>
+
+<p>Find aliases (linearly dependent terms) in a linear model specified by
+a formula.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>alias(object, ...)
+
+## S3 method for class 'formula'
+alias(object, data, ...)
+
+## S3 method for class 'lm'
+alias(object, complete = TRUE, partial = FALSE,
+      partial.pattern = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="alias_:_object">object</code></td>
+<td>
+<p>A fitted model object, for example from <code>lm</code> or
+<code>aov</code>, or a formula for <code>alias.formula</code>.</p>
+</td></tr>
+<tr><td><code id="alias_:_data">data</code></td>
+<td>
+<p>Optionally, a data frame to search for the objects
+in the formula.</p>
+</td></tr>
+<tr><td><code id="alias_:_complete">complete</code></td>
+<td>
+<p>Should information on complete aliasing be included?</p>
+</td></tr>
+<tr><td><code id="alias_:_partial">partial</code></td>
+<td>
+<p>Should information on partial aliasing be included?</p>
+</td></tr>
+<tr><td><code id="alias_:_partial.pattern">partial.pattern</code></td>
+<td>
+<p>Should partial aliasing be presented in a
+schematic way? If this is done, the results are presented in a
+more compact way, usually giving the deciles of the coefficients.</p>
+</td></tr>
+<tr><td><code id="alias_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Although the main method is for class <code>"lm"</code>, <code>alias</code> is
+most useful for experimental designs and so is used with fits from
+<code>aov</code>.
+Complete aliasing refers to effects in linear models that cannot be estimated
+independently of the terms which occur earlier in the model and so
+have their coefficients omitted from the fit. Partial aliasing refers
+to effects that can be estimated less precisely because of
+correlations induced by the design.
+</p>
+<p>Some parts of the <code>"lm"</code> method require recommended package
+<a href="https://CRAN.R-project.org/package=MASS"><span class="pkg">MASS</span></a> to be installed. 
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list (of <code>class</code> <code>"listof"</code>) containing components
+</p>
+<table>
+<tr><td><code>Model</code></td>
+<td>
+<p>Description of the model; usually the formula.</p>
+</td></tr>
+<tr><td><code>Complete</code></td>
+<td>
+<p>A matrix with columns corresponding to effects that
+are linearly dependent on the rows.</p>
+</td></tr>
+<tr><td><code>Partial</code></td>
+<td>
+<p>The correlations of the estimable effects, with a zero
+diagonal. An object of class <code>"mtable"</code> which has its own
+<code>print</code> method.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>The aliasing pattern may depend on the contrasts in use: Helmert
+contrasts are probably most useful.
+</p>
+<p>The defaults are different from those in S.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>The design was inspired by the S function of the same name described
+in Chambers <em>et al</em> (1992).
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M., Freeny, A and Heiberger, R. M. (1992)
+<em>Analysis of variance; designed experiments.</em>
+Chapter 5 of <em>Statistical Models in S</em>
+eds J. M. Chambers and T. J. Hastie, Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+op &lt;- options(contrasts = c("contr.helmert", "contr.poly"))
+npk.aov &lt;- aov(yield ~ block + N*P*K, npk)
+alias(npk.aov)
+options(op)  # reset
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.2.2 ]</div>
+</div>
+</body></html>

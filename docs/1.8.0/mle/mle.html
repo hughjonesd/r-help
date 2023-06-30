@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: Maximum likelihood estimation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/mle/html/mle.html'>https://stat.ethz.ch/R-manual/R-patched/library/mle/html/mle.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mle {mle}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mle'>Maximum likelihood estimation</h2>
+
+<h3>Description</h3>
+
+<p>Estimate parameters by the method of maximum likelihood.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mle(minuslogl, start = formals(minuslogl), method = "BFGS", fixed = list(), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="mle_:_minuslogl">minuslogl</code></td>
+<td>
+<p>Function to calculate negative log-likelihood</p>
+</td></tr>
+<tr><td><code id="mle_:_start">start</code></td>
+<td>
+<p>Named list. Initial values for optimizer</p>
+</td></tr>
+<tr><td><code id="mle_:_method">method</code></td>
+<td>
+<p>Optimization method to use. See <code>optim</code></p>
+</td></tr>
+<tr><td><code id="mle_:_fixed">fixed</code></td>
+<td>
+<p>Named list. Parameter values to keep fixed during
+optimization</p>
+</td></tr>
+<tr><td><code id="mle_:_...">...</code></td>
+<td>
+<p>Further arguments to pass to <code>optim</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>optim</code> optimizer is used to find the minimum of the negative
+log-likelihood. An approximate covariance matrix for the parameters is
+obtained by inverting the Hessian matrix at the optimum.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"mle"</code>
+</p>
+
+
+<h3>Note</h3>
+
+<p>Be careful to note that the argument is -log L (not -2 log L). It
+is for the user to ensure that the likelihood is correct, and that
+asymptotic likelihood inference is valid.</p>
+
+
+<h3>See Also</h3>
+
+<p><code>mle-class</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 0:10
+y &lt;- c(26, 17, 13, 12, 20, 5, 9, 8, 5, 4, 8)
+ll &lt;- function(ymax=15,xhalf=6)
+    -sum(dpois(y,lambda=ymax/(1+x/xhalf),log=TRUE))
+mle(ll)
+mle(ll,fixed=list(xhalf=6))
+</code></pre>
+
+
+</div>
+</body></html>

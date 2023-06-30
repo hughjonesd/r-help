@@ -1,0 +1,151 @@
+<!DOCTYPE html><html><head><title>R: Environment Variables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/EnvVar.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/EnvVar.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>EnvVar {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='EnvVar'>Environment Variables</h2>
+
+<h3>Description</h3>
+
+<p>Details of some of the environment variables which affect an <span class="rlang"><b>R</b></span> session.
+</p>
+
+
+<h3>Details</h3>
+
+<p>It is impossible to list all the environment variables which can
+affect an <span class="rlang"><b>R</b></span> session: some affect the OS system functions which <span class="rlang"><b>R</b></span>
+uses, and others will affect add-on packages.  But here are notes on
+some of the more important ones.
+</p>
+
+<dl>
+<dt><code>HOME</code>:</dt><dd><p>The user's &lsquo;home&rsquo; directory.</p>
+</dd>
+<dt><code>LANGUAGE</code>:</dt><dd><p>Optional.  The language(s) to be used for
+message translations.</p>
+</dd>
+<dt><code>LC_ALL</code>:</dt><dd><p>(etc) Optional.  Use to set various aspects of
+the locale &ndash; see <code>Sys.getlocale</code>.</p>
+</dd>
+<dt><code>R_BATCH</code>:</dt><dd><p>Optional &ndash; set in a batch session.</p>
+</dd>
+<dt><code>R_COMPLETION</code>:</dt><dd><p>Optional.  If set to <code>FALSE</code>,
+comand-line completion is not used.  (Not used by Mac OS GUI.)</p>
+</dd>
+<dt><code>R_DEFAULT_PACKAGES</code>:</dt><dd><p>A comma-separated list of packages
+which are to be loaded in every session.  See <code>options</code>.</p>
+</dd>
+<dt><code>R_ENVIRON</code>:</dt><dd><p>Optional.  The path to the site environment
+file: see Startup.</p>
+</dd>
+<dt><code>R_GSCMD</code>:</dt><dd><p>Optional.  The path to GhostScript.</p>
+</dd>
+<dt><code>R_HISTFILE</code>:</dt><dd><p>Optional.  The path of the history file:
+see Startup.</p>
+</dd>
+<dt><code>R_HISTSIZE</code>:</dt><dd><p>Optional.  The maximum size of the history
+file, in lines.</p>
+</dd>
+<dt><code>R_HOME</code>:</dt><dd><p>The top-level directory of the <span class="rlang"><b>R</b></span>
+installation.  Set by <span class="rlang"><b>R</b></span>.</p>
+</dd>
+<dt><code>R_LIBS</code>:</dt><dd><p>Optional.  Setting for <code>.libPaths</code>.</p>
+</dd>
+<dt><code>R_LIBS_SITE</code>:</dt><dd><p>Optional.  Setting for <code>.libPaths</code>.</p>
+</dd>
+<dt><code>R_LIBS_USER</code>:</dt><dd><p>Optional.  Setting for <code>.libPaths</code>.</p>
+</dd>
+<dt><code>R_PAPERSIZE</code>:</dt><dd><p>Optional.  The default papersize,
+e.g. for <code>pdf</code> and <code>postscript</code>.</p>
+</dd>
+<dt><code>R_PROFILE</code>:</dt><dd><p>Optional.  The path to the site profile
+file: see Startup.</p>
+</dd>
+<dt><code>R_RD4DVI</code>:</dt><dd><p>Options for <code>latex</code> processing of
+<code>Rd</code> files.</p>
+</dd>
+<dt><code>R_RD4PDF</code>:</dt><dd><p>Options for <code>pdflatex</code> processing of
+<code>Rd</code> files.</p>
+</dd>
+<dt><code>TMPDIR</code>, <code>TMP</code>, <code>TEMP</code>:</dt><dd><p>Consulted (in that
+order) when setting the temporary directory.  See
+<code>tempdir</code>.</p>
+</dd>
+<dt><code>TZ</code>:</dt><dd><p>Optional. The current timezone.  See
+<code>as.POSIXlt</code> for the system-specific formats.</p>
+</dd>
+<dt><code>no_proxy</code>, <code>http_proxy</code>, <code>ftp_proxy</code>:</dt><dd>
+<p>(and more).  Optional.  Settings for <code>download.file</code>.</p>
+</dd>
+</dl>
+
+
+
+<h3>Unix-specific</h3>
+
+<p>Some variables set on Unix-alikes, and not (in general) on Windows.
+</p>
+
+<dl>
+<dt><code>DISPLAY</code>:</dt><dd><p>Optional: used by <code>X11</code>, Tk (in
+package <span class="pkg">tcltk</span>), the data editor and various packages.</p>
+</dd>
+<dt><code>EDITOR</code>:</dt><dd><p>The path to default editor.</p>
+</dd>
+<dt><code>PAGER</code>:</dt><dd><p>The path to default pager.</p>
+</dd>
+<dt><code>R_BROWSER</code>:</dt><dd><p>The path to default browser.</p>
+</dd>
+<dt><code>R_DOC_DIR</code>:</dt><dd><p>The location of the <span class="rlang"><b>R</b></span> &lsquo;<span class="file">doc</span>&rsquo; directory.</p>
+</dd>
+<dt><code>R_DVIPSCMD</code>:</dt><dd><p>The path to <code>dvips</code>.</p>
+</dd>
+<dt><code>R_INCLUDE_DIR</code>:</dt><dd><p>The location of the <span class="rlang"><b>R</b></span> &lsquo;<span class="file">include</span>&rsquo;
+directory.</p>
+</dd>
+<dt><code>R_LATEXCMD</code>:</dt><dd><p>The path to <code>latex</code>.</p>
+</dd>
+<dt><code>R_MAKEINDEXCMD</code>:</dt><dd><p>The path to <code>makeindex</code>.</p>
+</dd>
+<dt><code>R_PDFVIEWER</code>:</dt><dd><p>The path to default PDF viewer.</p>
+</dd>
+<dt><code>R_PLATFORM</code>:</dt><dd><p>The platform &ndash; a string of the form
+<code><var>cpu</var>-<var>vendor</var>-<var>os</var></code>, see <code>R.Version</code>.</p>
+</dd>
+<dt><code>R_PRINTCMD</code>:</dt><dd><p>Print command to be used by
+<code>postscript</code>.</p>
+</dd>
+<dt><code>R_SHARE_DIR</code>:</dt><dd><p>The location of the <span class="rlang"><b>R</b></span> &lsquo;<span class="file">share</span>&rsquo;
+directory.</p>
+</dd> 
+<dt><code>R_UNZIPCMD</code>:</dt><dd><p>The path to <code>unzip</code>.</p>
+</dd>
+<dt><code>R_ZIPCMD</code>:</dt><dd><p>The path to <code>zip</code>.</p>
+</dd>
+</dl>
+
+
+
+<h3>See Also</h3>
+
+<p><code>Sys.getenv</code> and <code>Sys.setenv</code> to read and set
+environmental variables in an <span class="rlang"><b>R</b></span> session.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.7.2 ]</div>
+</div>
+</body></html>

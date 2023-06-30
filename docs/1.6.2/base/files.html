@@ -1,0 +1,147 @@
+<!DOCTYPE html><html><head><title>R: File Manipulation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/files.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/files.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>files {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='files'>File Manipulation</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide a low-level interface to the computer's
+file system.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>file.create(...)
+file.exists(...)
+file.remove(...)
+file.rename(from, to)
+file.append(file1, file2)
+file.copy(from, to, overwrite = FALSE)
+dir.create(path)
+basename(path)
+dirname(path)
+path.expand(path)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="files_:_...">...</code>, <code id="files_:_file1">file1</code>, <code id="files_:_file2">file2</code>, <code id="files_:_from">from</code>, <code id="files_:_to">to</code>, <code id="files_:_path">path</code></td>
+<td>
+<p>character vectors,
+containing file names.</p>
+</td></tr>
+<tr><td><code id="files_:_overwrite">overwrite</code></td>
+<td>
+<p>logical; should the destination files be overwritten?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>...</code> arguments are concatenated to form one character
+string: you can specify the files separately or as one vector.
+</p>
+<p><code>file.create</code> creates files with the given names if they
+do not already exist and truncates them if they do.
+It returns a logical vector indicating the success or failure
+of the operation for each file.
+</p>
+<p><code>file.exists</code> returns a logical vector indicating whether
+the files named by its argument exist.
+</p>
+<p><code>file.remove</code> attempts to remove the files named in its
+argument.  It returns a logical vector indicating whether or
+not it succeeded in removing each file.
+</p>
+<p><code>file.rename</code> attempts to rename a file.  It returns a logical
+value indicating whether the operation succeeded.
+</p>
+<p><code>file.append</code> attempts to append the files named by its
+second argument to those named by its first.  The <span class="rlang"><b>R</b></span> subscript
+recycling rule is used to align names given in vectors
+of different lengths.
+</p>
+<p><code>file.copy</code> works in a similar way to <code>file.append</code> but with
+the arguments in the natural order for copying. Copying to existing
+destination files is skipped unless <code>overwrite = TRUE</code>.
+The <code>to</code> argument can specify a single existing directory.
+</p>
+<p><code>dir.create</code> creates the last element of the path. It returns a
+logical, true for success.
+</p>
+<p><code>basename</code> removes all of the path up to the last path separator
+(if any).
+</p>
+<p><code>dirname</code> returns the part of the <code>path</code> up to (but
+excluding) the last path separator, or <code>"."</code> if there is no path
+separator.  Tilde expansion is done: see the description for
+<code>path.expand</code> below.
+</p>
+<p>In both <code>basename</code> and <code>dirname</code> trailing file separators
+are removed before dissecting the path, and for <code>dirname</code> any
+trailing file separators are removed from the result.
+</p>
+<p><code>path.expand</code> expands path(s) by replacing a leading tilde by the
+user's home directory (if defined on that platform).
+On <em>some Unix</em> versions, a leading <code>~user</code> will expand to
+the home directory of <code>user</code>, but not on Unix versions without
+<code>readline</code> installed.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Ross Ihaka, Brian Ripley
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>file.info</code>, <code>file.access</code>, <code>file.path</code>,
+<code>file.show</code>, <code>list.files</code>,
+<code>unlink</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>cat("file A\n", file="A")
+cat("file B\n", file="B")
+file.append("A", "B")
+file.create("A")
+file.append("A", rep("B", 10))
+if(interactive()) file.show("A")
+file.copy("A", "C")
+dir.create("tmp")
+file.copy(c("A", "B"), "tmp")
+unlink("tmp", recursive=TRUE)
+file.remove("A", "B", "C")
+
+basename(file.path("","p1","p2","p3","filename"))
+dirname(file.path("","p1","p2","p3","filename"))
+
+path.expand("~/foo")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.2 ]</div>
+</div>
+</body></html>

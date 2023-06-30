@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: Hypertext Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.start.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.start.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>help.start {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='help.start'>Hypertext Documentation</h2>
+
+<h3>Description</h3>
+
+<p>Start the hypertext (currently HTML) version of <span class="rlang"><b>R</b></span>'s online
+documentation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>help.start(gui = "irrelevant", browser = getOption("browser"),
+           remote = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="help.start_:_gui">gui</code></td>
+<td>
+<p>just for compatibility with S-PLUS.</p>
+</td></tr>
+<tr><td><code id="help.start_:_browser">browser</code></td>
+<td>
+<p>the name of the program to be used as hypertext
+browser. It should be in the PATH, or a full path specified.
+</p>
+</td></tr>
+<tr><td><code id="help.start_:_remote">remote</code></td>
+<td>
+<p>A character giving a valid URL for the &lsquo;<span class="file">\$R\_HOME</span>&rsquo;
+directory on a remote location.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>All the packages in the known library trees are linked to directory
+&lsquo;<span class="file">.R</span>&rsquo; in the per-session temporary directory.  The links are
+re-made each time <code>help.start</code> is run, which should be done
+after packages are installed, updated or removed.
+</p>
+<p>If the browser given by the <code>browser</code> argument is different from
+the default browser as specified by <code>options("browser")</code>, the
+default is changed to the given browser so that it gets used for all
+future help requests.
+</p>
+
+
+<h3>Note</h3>
+
+<p>There is a Java-based search facility available from the HTML page
+that <code>help.start</code> brings up.  Should this not work, please
+consult the &lsquo;R Installation and Administration&rsquo; manual which is
+linked from that page.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>help()</code> for on- and off-line help in ASCII/Editor or
+PostScript format.
+</p>
+<p><code>browseURL</code> for how the help file is displayed.
+</p>
+<p><code>RSiteSearch</code> to access an on-line search of <span class="rlang"><b>R</b></span> resources.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: help.start()
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.2.0 ]</div>
+</div>
+</body></html>

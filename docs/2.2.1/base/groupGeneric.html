@@ -1,0 +1,298 @@
+<!DOCTYPE html><html><head><title>R: Group Generic Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/groupGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/groupGeneric.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>groupGeneric {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='groupGeneric'>Group Generic Functions</h2>
+
+<h3>Description</h3>
+
+<p>Group generic functions can be defined with either S3 and S4 methods
+(with different groups).  Methods are defined for the group of functions
+as a whole.
+</p>
+<p>A method defined for an individual member of the group takes
+precedence over a method defined for the group as a whole.
+</p>
+<p>When package <span class="pkg">methods</span> is attached there are objects visible with
+the names of the group generics: these functions should never be
+called directly (a suitable error message will result if they are).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 methods have prototypes:
+Math(x, ...)
+Ops(e1, e2)
+Summary(x, ...)
+Complex(z)
+
+## S4 methods have prototypes:
+Arith(e1, e2)
+Compare(e1, e2)
+Ops(e1, e2)
+Math(x)
+Math2(x, digits)
+Summary(x, ..., na.rm = FALSE)
+Complex(z)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="groupGeneric_:_x">x</code>, <code id="groupGeneric_:_z">z</code>, <code id="groupGeneric_:_e1">e1</code>, <code id="groupGeneric_:_e2">e2</code></td>
+<td>
+<p>objects.</p>
+</td></tr>
+<tr><td><code id="groupGeneric_:_digits">digits</code></td>
+<td>
+<p>number of digits to be used in <code>round</code> or <code>signif</code>.</p>
+</td></tr>
+<tr><td><code id="groupGeneric_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from methods.</p>
+</td></tr>
+<tr><td><code id="groupGeneric_:_na.rm">na.rm</code></td>
+<td>
+<p>logical: should missing values be removed?</p>
+</td></tr>
+</table>
+
+
+<h3>S3 Group Dispatching</h3>
+
+
+<p>There are four <em>groups</em> for which S3 methods can be written,
+namely the <code>"Math"</code>, <code>"Ops"</code>, <code>"Summary"</code> and
+<code>"Complex"</code> groups.  These are not <span class="rlang"><b>R</b></span> objects, but methods can be
+supplied for them and base <span class="rlang"><b>R</b></span> contains <code>factor</code>,
+<code>data.frame</code> and <code>difftime</code> methods for
+the first three groups.
+(There are also a <code>ordered</code> method for <code>Ops</code>,
+<code>POSIXt</code> methods for <code>Math</code> and <code>Ops</code>, as well as a
+<code>ts</code> method for <code>Ops</code> in package <span class="pkg">stats</span>.)
+</p>
+
+
+
+
+
+
+
+<ol>
+<li><p> Group <code>"Math"</code>:
+</p>
+
+<ul>
+<li>
+<p><code>abs</code>, <code>sign</code>, <code>sqrt</code>, <br />
+<code>floor</code>, <code>ceiling</code>, <code>trunc</code>,<br />
+<code>round</code>, <code>signif</code>
+</p>
+</li>
+<li> <p><code>exp</code>, <code>log</code>, <br />
+<code>cos</code>, <code>sin</code>, <code>tan</code>,<br />
+<code>acos</code>, <code>asin</code>, <code>atan</code>
+</p>
+<p><code>cosh</code>, <code>sinh</code>, <code>tanh</code>,<br />
+<code>acosh</code>, <code>asinh</code>, <code>atanh</code>
+</p>
+</li>
+<li>
+<p><code>lgamma</code>, <code>gamma</code>, <code>gammaCody</code>,<br />
+<code>digamma</code>, <code>trigamma</code>
+
+
+
+
+
+
+
+
+</p>
+</li>
+<li> <p><code>cumsum</code>, <code>cumprod</code>, <code>cummax</code>, <code>cummin</code>
+
+</p>
+</li></ul>
+
+</li>
+<li><p> Group <code>"Ops"</code>:
+</p>
+
+<ul>
+<li>
+<p><code>"+"</code>, <code>"-"</code>, <code>"*"</code>, <code>"/"</code>,
+<code>"^"</code>, <code>"%%"</code>, <code>"%/%"</code>
+
+</p>
+</li>
+<li> <p><code>"&amp;"</code>, <code>"|"</code>, <code>"!"</code>
+
+</p>
+</li>
+<li> <p><code>"=="</code>, <code>"!="</code>,
+<code>"&lt;"</code>, <code>"&lt;="</code>, <code>"&gt;="</code>, <code>"&gt;"</code>
+
+</p>
+</li></ul>
+
+</li>
+<li><p> Group <code>"Summary"</code>:
+</p>
+
+<ul>
+<li> <p><code>all</code>, <code>any</code>
+
+</p>
+</li>
+<li> <p><code>sum</code>, <code>prod</code>
+
+</p>
+</li>
+<li> <p><code>min</code>, <code>max</code>
+
+</p>
+</li>
+<li> <p><code>range</code>
+</p>
+</li></ul>
+
+</li>
+<li><p> Group <code>Complex</code>:
+</p>
+
+<ul>
+<li> <p><code>Arg</code>, <code>Conj</code>, <code>Im</code>, <code>Mod</code>, <code>Re</code>
+
+</p>
+</li></ul>
+
+</li></ol>
+
+<p>Note that a method will used for either one of these groups or one of
+its members <em>only</em> if it corresponds to a <code>"class"</code>
+attribute, as the internal code dispatches on <code>oldClass</code>
+and not on <code>class</code>.  This is for efficiency: having to
+dispatch on, say, <code>Ops.integer</code> would be too slow.
+</p>
+<p>The number of arguments supplied for <code>"Math"</code> group generic
+methods is not checked prior to dispatch. (Most have default methods
+expecting one argument, but three expect two.)
+</p>
+
+
+<h3>S4 Group Dispatching</h3>
+
+<p>When package <span class="pkg">methods</span> is attached (which it is by default),
+formal (S4) methods can be defined for groups.
+</p>
+<p>The functions belonging to the various groups are as follows:
+</p>
+
+<dl>
+<dt><code>Arith</code></dt><dd><p><code>"+"</code>, <code>"-"</code>, <code>"*"</code>, <code>"^"</code>,
+<code>"%%"</code>, <code>"%/%"</code>, <code>"/"</code></p>
+</dd>
+<dt><code>Compare</code></dt><dd><p><code>"=="</code>, <code>"&gt;"</code>, <code>"&lt;"</code>,
+<code>"!="</code>, <code>"&lt;="</code>, <code>"&gt;="</code></p>
+</dd>
+<dt><code>Ops</code></dt><dd><p><code>"Arith"</code>, <code>"Compare"</code></p>
+</dd>
+<dt><code>Math</code></dt><dd><p><code>"log"</code>, <code>"sqrt"</code>, <code>"log10"</code>,
+<code>"cumprod"</code>, <code>"abs"</code>, <code>"acos"</code>, <code>"acosh"</code>,
+<code>"asin"</code>, <code>"asinh"</code>, <code>"atan"</code>, <code>"atanh"</code>,
+<code>"ceiling"</code>, <code>"cos"</code>, <code>"cosh"</code>, <code>"cumsum"</code>,
+<code>"exp"</code>, <code>"floor"</code>, <code>"gamma"</code>, <code>"lgamma"</code>,
+<code>"sin"</code>, <code>"sinh"</code>, <code>"tan"</code>, <code>"tanh"</code>,
+<code>"trunc"</code></p>
+</dd>
+<dt><code>Math2</code></dt><dd><p><code>"round"</code>, <code>"signif"</code></p>
+</dd>
+<dt><code>Summary</code></dt><dd><p><code>"max"</code>, <code>"min"</code>, <code>"range"</code>,
+<code>"prod"</code>, <code>"sum"</code>, <code>"any"</code>, <code>"all"</code></p>
+</dd>
+<dt><code>Complex</code></dt><dd><p><code>"Arg"</code>, <code>"Conj"</code>, <code>"Im"</code>,
+<code>"Mod"</code>, <code>"Re"</code></p>
+</dd>
+</dl>
+
+<p>Functions with the group names exist in the <span class="pkg">methods</span> package but
+should not be called directly.
+</p>
+<p>All the functions in these groups (other than the group generics
+themselves) are basic functions in <span class="rlang"><b>R</b></span>.  They are not by default S4 generic
+functions, and many of them are defined as primitives, meaning that
+they do not have formal arguments.  However, you can still define
+formal methods for them.  The effect of doing so is to create an S4 generic
+function with the appropriate arguments, in the environment where the
+method definition is to be stored.  It all works more or less as you
+might expect, admittedly via a bit of trickery in the background.
+</p>
+<p>Note: currently those members which are not primitive functions must
+have been converted to S4 generic functions (preferably
+<em>before</em> setting an S4 group generic method) as it only sets
+methods for known S4 generics.  This can be done by a call to
+<code>setGeneric</code>, for example <code>setGeneric("round", group="Math2")</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Appendix A, <em>Classes and Methods</em> of<br />
+Chambers, J. M.  and Hastie, T. J. eds (1992)
+<em>Statistical Models in S.</em>
+Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Chambers, J. M. (1998) <em>Programming with Data.</em> Springer, pp. 352&ndash;4.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>methods</code> for methods of non-Internal generic functions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>methods("Math")
+methods("Ops")
+methods("Summary")
+
+d.fr &lt;- data.frame(x=1:9, y=rnorm(9))
+data.class(1 + d.fr) == "data.frame" ##-- add to d.f. ...
+
+if(.isMethodsDispatchOn()) {# package "methods" is attached or loaded
+  setClass("testComplex", representation(zz = "complex"))
+  ## method for whole group "Complex"
+  setMethod("Complex", "testComplex",
+            function(z) c("groupMethod", callGeneric(z@zz)))
+  ## exception for Arg() :
+  setMethod("Arg", "testComplex",
+            function(z) c("ArgMethod", Arg(z@zz)))
+  z1 &lt;- 1+2i
+  z2 &lt;- new("testComplex", zz = z1)
+  stopifnot(identical(Mod(z2), c("groupMethod", Mod(z1))))
+  stopifnot(identical(Arg(z2), c("ArgMethod", Arg(z1))))
+}
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.2.1 ]</div>
+</div>
+</body></html>

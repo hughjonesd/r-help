@@ -1,0 +1,122 @@
+<!DOCTYPE html><html><head><title>R: The Log Normal Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Lognormal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Lognormal.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Lognormal {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Lognormal'>The Log Normal Distribution</h2>
+
+<h3>Description</h3>
+
+<p>Density, distribution function, quantile function and random
+generation for the log normal distribution whose logarithm has mean
+equal to <code>meanlog</code> and standard  deviation equal to <code>sdlog</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dlnorm(x, meanlog = 0, sdlog = 1, log = FALSE)
+plnorm(q, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)
+qlnorm(p, meanlog = 0, sdlog = 1, lower.tail = TRUE, log.p = FALSE)
+rlnorm(n, meanlog = 0, sdlog = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Lognormal_:_x">x</code>, <code id="Lognormal_:_q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="Lognormal_:_p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="Lognormal_:_n">n</code></td>
+<td>
+<p>number of observations. If <code>length(n) &gt; 1</code>, the length
+is taken to be the number required.</p>
+</td></tr>
+<tr><td><code id="Lognormal_:_meanlog">meanlog</code>, <code id="Lognormal_:_sdlog">sdlog</code></td>
+<td>
+<p>mean and standard deviation of the distribution
+on the log scale with default values of <code>0</code> and <code>1</code> respectively.</p>
+</td></tr>
+<tr><td><code id="Lognormal_:_log">log</code>, <code id="Lognormal_:_log.p">log.p</code></td>
+<td>
+<p>logical; if TRUE, probabilities p are given as log(p).</p>
+</td></tr>
+<tr><td><code id="Lognormal_:_lower.tail">lower.tail</code></td>
+<td>
+<p>logical; if TRUE (default), probabilities are
+<code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The log normal distribution has density
+</p>
+<p style="text-align: center;"><code class="reqn">
+    f(x) = \frac{1}{\sqrt{2\pi}\sigma x} e^{-(\log(x) - \mu)^2/2 \sigma^2}%
+  </code>
+</p>
+
+<p>where <code class="reqn">\mu</code> and <code class="reqn">\sigma</code> are the mean and standard
+deviation of the logarithm.
+The mean is <code class="reqn">E(X) = exp(\mu + 1/2 \sigma^2)</code>, and the variance
+<code class="reqn">Var(X) = exp(2\mu + \sigma^2)(exp(\sigma^2) - 1)</code> and
+hence the coefficient of variation is
+<code class="reqn">\sqrt{exp(\sigma^2) - 1}</code> which is
+approximately <code class="reqn">\sigma</code> when that is small (e.g. <code class="reqn">\sigma &lt; 1/2</code>).
+
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>dlnorm</code> gives the density,
+<code>plnorm</code> gives the distribution function,
+<code>qlnorm</code> gives the quantile function, and
+<code>rlnorm</code> generates random deviates.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The cumulative hazard <code class="reqn">H(t) = - \log(1 - F(t))</code>
+is <code>-plnorm(t, r, lower = FALSE, log = TRUE)</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dnorm</code> for the normal distribution.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>dlnorm(1) == dnorm(0)
+x &lt;- rlnorm(1000)       # not yet always :
+all(abs(x  -  qlnorm(plnorm(x))) &lt; 1e4 * .Machine$double.eps * x)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.0 ]</div>
+</div>
+</body></html>

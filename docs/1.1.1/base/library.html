@@ -1,0 +1,239 @@
+<!DOCTYPE html><html><head><title>R: Loading and Listing of Packages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>library {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='library'>Loading and Listing of Packages</h2>
+
+<h3>Description</h3>
+
+<p><code>library</code> and <code>require</code> load add-on packages; <code>provide</code>
+allows code to register services that packages provide.
+<code>.First.lib</code> is called when a package is loaded;
+<code>.packages</code> returns information about package availability.
+<code>.path.package</code> returns information about where a package was
+loaded from.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>library(package, help = NULL, lib.loc = .lib.loc,
+        character.only = FALSE, logical.return = FALSE,
+        warn.conflicts = TRUE, keep.source = getOption("keep.source.pkgs"))
+require(package, quietly = FALSE, warn.conflicts = TRUE,
+        keep.source = getOption("keep.source.pkgs"))
+
+.First.lib(libname, pkgname)
+.Last.lib(libpath)
+
+.packages(all.available = FALSE, lib.loc = .lib.loc)
+.path.package(package = .packages(), quiet = FALSE)
+.lib.loc
+.Library
+.Autoloaded
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="library_:_package">package</code>, <code id="library_:_help">help</code></td>
+<td>
+<p><code>name</code> or character string giving the
+name of a package.</p>
+</td></tr>
+<tr><td><code id="library_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector describing the location of <span class="rlang"><b>R</b></span>
+library trees to search through.</p>
+</td></tr>
+<tr><td><code id="library_:_character.only">character.only</code></td>
+<td>
+<p>a logical indicating whether <code>package</code> or
+<code>help</code> can be assumed to be character strings.</p>
+</td></tr>
+<tr><td><code id="library_:_logical.return">logical.return</code></td>
+<td>
+<p>logical.  If it is <code>TRUE</code>,  <code>FALSE</code> or
+<code>TRUE</code> is returned to indicate success.</p>
+</td></tr>
+<tr><td><code id="library_:_warn.conflicts">warn.conflicts</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, warnings are
+printed about <code>conflicts</code> from attaching the new
+package, unless that package contains an object <code>.conflicts.OK</code>.</p>
+</td></tr>
+<tr><td><code id="library_:_keep.source">keep.source</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, functions &ldquo;keep their
+source&rdquo; including comments, see <code>options(keep.source = *)</code>.</p>
+</td></tr>
+<tr><td><code id="library_:_quietly">quietly</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, a warning will not be
+printed if the package cannot be found.</p>
+</td></tr>
+<tr><td><code id="library_:_libname">libname</code></td>
+<td>
+<p>a character string giving the library directory where
+the package was found.</p>
+</td></tr>
+<tr><td><code id="library_:_pkgname">pkgname</code></td>
+<td>
+<p>a character string giving the name of the package.</p>
+</td></tr>
+<tr><td><code id="library_:_libpath">libpath</code></td>
+<td>
+<p>a character string giving the complete path to the package.</p>
+</td></tr>
+<tr><td><code id="library_:_all.available">all.available</code></td>
+<td>
+<p>logical; if <code>TRUE</code> return <code>character</code>
+vector of all available packages in <code>lib.loc</code>.</p>
+</td></tr>
+<tr><td><code id="library_:_quiet">quiet</code></td>
+<td>
+<p>logical. Should <code>.path.package</code> not give warnings or
+an error if the package(s) are not loaded?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>library(package)</code> and <code>require(package)</code> both load the
+package with name <code>package</code>.  <code>require</code> is designed for use
+inside other functions; it returns <code>FALSE</code> and optionally gives a
+warning, rather than giving an error, if the package does not exist.
+Both functions check and update the list of currently loaded packages
+and do not reload code that is already loaded.
+</p>
+<p>For large packages, setting <code>keep.source = FALSE</code> may save quite
+a bit of memory.
+</p>
+<p>If <code>library</code> is called with no <code>package</code> or <code>help</code>
+argument, it gives a list of all available packages in <code>lib.loc</code>
+and invisibly returns their names (same as
+<code>.packages(all = TRUE)</code>).
+</p>
+<p><code>library(help = somename)</code> prints information on the package
+<code>somename</code>, typically by listing the most important user level
+objects it contains.
+</p>
+<p><code>.First.lib</code> is called when a package is loaded by
+<code>library</code>.  It is called with two arguments, the name of the
+library directory where the package was found (i.e., the corresponding
+element of <code>lib.loc</code>), and the name of the package (in that
+order).  It is a good place to put calls to <code>library.dynam()</code>
+which are needed when loading a package into this function (don't call
+<code>library.dynam()</code> directly, as this will not work if the package
+is not installed in a &ldquo;standard&rdquo; location).  <code>.First.lib</code>
+is invoked after <code>search()</code> has been updated, so
+<code>pos.to.env(match("package:name"), search())</code> will return the
+environment in which the package is stored.  If calling
+<code>.First.lib</code> gives an error the loading of the package is
+abandoned, and the package will be unavailable.  Similarly, if the
+option <code>".First.lib"</code> has a list element with the package's name,
+this element is called in the same manner as <code>.First.lib</code> when
+the package is loaded.  This mechanism allows the user to set package
+&ldquo;load hooks&rdquo; in addition to startup code as provided by the package
+maintainers.
+</p>
+<p><code>.Last.lib</code> is called when a package is detached.  Beware
+that it might be called if <code>.First.lib</code> has failed, so it
+should be written defensively. (It is called within <code>try</code>,
+so errors will not stop the package being detached.)
+</p>
+<p><code>.packages()</code> returns the &ldquo;base names&rdquo; of the currently attached
+packages <em>invisibly</em> whereas
+<code>.packages(all.available = TRUE)</code> gives (visibly) <em>all</em>
+packages available in the library location path <code>lib.loc</code>.
+</p>
+<p><code>.path.package</code> returns the paths from which the named packages were
+loaded, or if none were named, for all currently loaded packages.
+Unless <code>quiet = TRUE</code> it will warn if some of the packages named
+are not loaded, and given an error if none are.
+</p>
+<p><code>.Autoloaded</code> contains the &ldquo;base names&rdquo; of the packages for
+which autoloading has been promised.
+</p>
+<p><code>.Library</code> is a character string giving the location of the
+default library, the &ldquo;library&rdquo; subdirectory of <code>R_HOME</code>.
+<code>.lib.loc</code> is a character vector with the locations of all
+library trees that <span class="rlang"><b>R</b></span> should use.  It is initialized at startup from
+the environment variable <code>R_LIBS</code> (<code>RLIBS</code> as used by older
+versions of <span class="rlang"><b>R</b></span> is no longer accepted) (which should be a
+colon-separated
+list of directories at which <span class="rlang"><b>R</b></span> library trees are rooted) followed by
+<code>.Library</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>library</code> returns the list of loaded (or available) packages
+(or <code>TRUE</code> if <code>logical.return</code> is <code>TRUE</code>).
+<code>require</code> returns a logical indicating whether the required
+package is available.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>R core;  Guido Masarotto for the <code>all.available=TRUE</code>
+part of <code>.packages</code>.</p>
+
+
+<h3>See Also</h3>
+
+<p><code>attach</code>, <code>detach</code>, <code>search</code>,
+<code>objects</code>, <code>autoload</code>,
+<code>library.dynam</code>,
+<code>data</code>, <code>install.packages</code>.
+<code>INSTALL</code>, <code>REMOVE</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>(.packages())		    # maybe just "base"
+.packages(all = TRUE)       # return all available as char.vector
+library()                   # list all available packages
+library(lib = .Library)     # list all packages in the default library
+library(help = eda)         # documentation on package "eda"
+library(eda)                # load package "eda"
+require(eda)                # the same
+(.packages())		    # "eda", too
+.path.package()
+.Autoloaded     # maybe "ctest"
+
+.lib.loc
+.Library == .lib.loc[length(.lib.loc)]  # `by definition'
+
+require(nonexistent)        # FALSE
+## Not run: ## Suppose a package needs to call a shared library named "foo.EXT",
+## where "EXT" is the system-specific extension.  Then you should use
+.First.lib &lt;- function(lib, pkg) {
+  library.dynam("foo", pkg, lib)
+}
+## End(Not run)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html><html><head><title>R: Progress Bars under Windows</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/winProgressBar.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/winProgressBar.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>winProgressBar {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='winProgressBar'>Progress Bars under Windows</h2>
+
+<h3>Description</h3>
+
+<p>Put up a Windows progress bar widget.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>winProgressBar(title = "R progress bar", label = "",
+               min = 0, max = 1, initial = 0, width = 300)
+
+getWinProgressBar(pb)
+setWinProgressBar(pb, value, title = NULL, label = NULL)
+## S3 method for class 'winProgressBar'
+close(con, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="winProgressBar_:_title">title</code>, <code id="winProgressBar_:_label">label</code></td>
+<td>
+<p>character strings, giving the window title and the
+label on the dialog box respectively.</p>
+</td></tr>
+<tr><td><code id="winProgressBar_:_min">min</code>, <code id="winProgressBar_:_max">max</code></td>
+<td>
+<p>(finite) numeric values for the extremes of the
+progress bar.</p>
+</td></tr>
+<tr><td><code id="winProgressBar_:_initial">initial</code>, <code id="winProgressBar_:_value">value</code></td>
+<td>
+<p>initial or new value for the progress bar.</p>
+</td></tr>
+<tr><td><code id="winProgressBar_:_width">width</code></td>
+<td>
+<p>the width of the progress bar in pixels: the dialog box
+will be 40 pixels wider (plus frame).</p>
+</td></tr>
+<tr><td><code id="winProgressBar_:_pb">pb</code>, <code id="winProgressBar_:_con">con</code></td>
+<td>
+<p>an object of class <code>"winProgressBar"</code>.</p>
+</td></tr>
+<tr><td><code id="winProgressBar_:_...">...</code></td>
+<td>
+<p>for consistency with the generic.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>winProgressBar</code> will display a progress bar centred on the
+screen.  Space will be allocated for the label only if it is non-empty.
+</p>
+<p><code>setWinProgessBar</code> will update the value and for non-<code>NULL</code>
+values, the title and label (provided there was one when the widget
+was created).  Missing (<code>NA</code>) and out-of-range values of
+<code>value</code> will be (silently) ignored.
+</p>
+<p>The progress bar should be <code>close</code>d when finished with, but it
+will be garbage-collected once no <span class="rlang"><b>R</b></span> object refers to it. 
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>winProgressBar</code> an object of class <code>"winProgressBar"</code>.
+</p>
+<p>For <code>getWinProgressBar</code> and <code>setWinProgressBar</code>, a
+length-one numeric vector giving the previous value (invisibly for
+<code>setWinProgressBar</code>).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>txtProgressBar</code>, <code>tkProgressBar</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+pb &lt;- winProgressBar("test progress bar", "Some information in %",
+                     0, 100, 50)
+Sys.sleep(0.5)
+u &lt;- c(0, sort(runif(20, 0 ,100)), 100)
+for(i in u) {
+    Sys.sleep(0.1)
+    info &lt;- sprintf("%d%% done", round(i))
+    setWinProgressBar(pb, i, sprintf("test (%s)", info), info)
+}
+Sys.sleep(5)
+close(pb)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.14.2 ]</div>
+</div>
+</body></html>

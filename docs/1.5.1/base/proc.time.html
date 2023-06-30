@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><title>R: Running Time of R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/proc.time.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/proc.time.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>proc.time {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='proc.time'>Running Time of R</h2>
+
+<h3>Description</h3>
+
+<p><code>proc.time</code> determines how much time (in seconds) the currently
+running <span class="rlang"><b>R</b></span> process already consumed.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>proc.time()
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>A numeric vector of length 5, containing the user, system, and total
+elapsed times for the currently running <span class="rlang"><b>R</b></span> process, and the cumulative
+sum of user and system times of any child processes spawned by it.
+</p>
+<p>The resolution of the times will be system-specific; it is common for
+them to be recorded to of the order of 1/100 second, and elapsed
+time is rounded to the nearest 1/100.
+</p>
+<p>It is most useful for &ldquo;timing&rdquo; the evaluation of <span class="rlang"><b>R</b></span> expressions,
+which can be done conveniently with <code>system.time</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>It is possible to compile <span class="rlang"><b>R</b></span> without support for <code>proc.time</code>,
+when the function will not exist.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>system.time</code> for timing a valid <span class="rlang"><b>R</b></span> expression,
+<code>gc.time</code> for how much of the time was spent in garbage
+collection.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>ptm &lt;- proc.time()
+for (i in 1:50) mad(runif(500))
+proc.time() - ptm
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.1 ]</div>
+</div>
+</body></html>

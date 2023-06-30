@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><title>R: The Null Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/NULL.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/NULL.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>NULL {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='NULL'>The Null Object</h2>
+
+<h3>Description</h3>
+
+<p><code>NULL</code> represents the null object in R.
+NULL is used mainly to represent the lists with zero length,
+and is often returned by expressions and functions whose
+value is undefined.
+</p>
+<p><code>as.null</code> ignores its argument and returns the value <code>NULL</code>.
+</p>
+<p><code>is.null</code> returns <code>TRUE</code> if its argument
+is <code>NULL</code> and <code>FALSE</code> otherwise.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>NULL
+as.null(x)
+is.null(x)
+</code></pre>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>is.null(list())    # TRUE (not so in S)
+is.null(integer(0))# F
+is.null(logical(0))# F
+as.null(list(a=1,b='c'))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.90.1 ]</div>
+</div>
+</body></html>

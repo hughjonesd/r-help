@@ -1,0 +1,134 @@
+<!DOCTYPE html><html><head><title>R: Report the Space Allocated for an Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/object.size.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/object.size.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>object.size {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='object.size'>Report the Space Allocated for an Object</h2>
+
+<h3>Description</h3>
+
+<p>Provides an estimate of the memory that is being used to store an <span class="rlang"><b>R</b></span> object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>object.size(x)
+
+## S3 method for class 'object_size'
+format(x, units = "b", ...)
+## S3 method for class 'object_size'
+print(x, quote = FALSE, units = "b", ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="object.size_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+<tr><td><code id="object.size_:_quote">quote</code></td>
+<td>
+<p>logical, indicating whether or not the result should be
+printed with surrounding quotes.</p>
+</td></tr>
+<tr><td><code id="object.size_:_units">units</code></td>
+<td>
+<p>the units to be used in printing the size.  Allowed
+values are
+<code>"b"</code>, <code>"Kb"</code>, <code>"Mb"</code>, <code>"Gb"</code>, <code>"Tb"</code>, <code>"Pb"</code>,
+<code>"B"</code>, <code>"KB"</code>, <code>"MB"</code>, <code>"GB"</code>, <code>"TB"</code>, <code>"PB"</code>,
+<code>"KiB"</code>, <code>"MiB"</code>, <code>"GiB"</code>, <code>"TiB"</code>,
+<code>"PiB"</code>, <code>"EiB"</code>, <code>"ZiB"</code>, <code>"YiB"</code>,
+and <code>"auto"</code> (see &lsquo;Details&rsquo;).  Can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="object.size_:_...">...</code></td>
+<td>
+<p>arguments to be passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Exactly which parts of the memory allocation should be attributed to
+which object is not clear-cut.  This function merely provides a rough
+indication: it should be reasonably accurate for atomic vectors, but
+does not detect if elements of a list are shared, for example.
+(Sharing amongst elements of a character vector is taken into account,
+but not that between character vectors in a single object.)
+</p>
+<p>The calculation is of the size of the object, and excludes the space
+needed to store its name in the symbol table.
+</p>
+<p>Associated space (e.g., the environment of a function and what the
+pointer in a <code>EXTPTRSXP</code> points to) is not included in the
+calculation.
+</p>
+<p>Object sizes are larger on 64-bit builds than 32-bit ones, but will
+very likely be the same on different platforms with the same word
+length and pointer size.
+</p>
+<p><code>units = "auto"</code> in the <code>format</code> and <code>print</code> methods
+chooses the largest units in which the result is one or more (before
+rounding).  Values in kilobytes, megabytes or gigabytes are rounded to
+the nearest <code>0.1</code>.
+</p>
+<p>The IEC standard for <em>binary</em> byte size units uses notation <code>KiB</code>,
+etc.  Note that our uses of <code>Kb</code>, <code>Mb</code>, etc, also mean
+multiples of <code>1024</code> (and not of <code>1000</code>) and hence the numbers
+for <code>Kb</code>, <code>KB</code>, and <code>KiB</code> are all the same - contrary
+to SI standard but according to widespread tradition.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"object_size"</code> with a length-one double value,
+an estimate of the memory allocation attributable to the object in bytes.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Memory-limits</code> for the design limitations on object size.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>object.size(letters)
+object.size(ls)
+format(object.size(library), units = "auto")
+
+sl &lt;- object.size(rep(letters, 1000))
+(fsl &lt;- sapply(c("Kb", "KB", "KiB"),
+               function(u) format(sl, units = u)))
+stopifnot(identical( ## assert that all three are the same :
+             unique(substr(as.vector(fsl), 1,5)),
+             format(round(as.vector(sl)/1024, 1))))
+
+## find the 10 largest objects in the base package
+z &lt;- sapply(ls("package:base"), function(x)
+            object.size(get(x, envir = baseenv())))
+as.matrix(rev(sort(z))[1:10])
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 3.3.3 ]</div>
+</div>
+</body></html>

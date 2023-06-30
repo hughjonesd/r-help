@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: Object Attribute Lists</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/attributes.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/attributes.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>attributes {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='attributes'>Object Attribute Lists</h2>
+
+<h3>Description</h3>
+
+<p>These functions access an object's attribute list.
+The first form above returns the an object's attribute list.
+The assignment forms make the list on the right-hand
+side of the assignment the object's attribute list (if appropriate).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>attributes(obj)
+attributes(obj) &lt;- value
+mostattributes(obj) &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="attributes_:_obj">obj</code></td>
+<td>
+<p>an object</p>
+</td></tr>
+<tr><td><code id="attributes_:_value">value</code></td>
+<td>
+<p>an appropriate attribute list, or <code>NULL</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>mostattributes</code> assignment takes special care for the
+<code>dim</code>, <code>names</code> and <code>dimnames</code>
+attributes, and assigns them only when that is valid whereas as
+<code>attributes</code> assignment would give an error in that case.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>attr</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- cbind(a=1:3, pi=pi) # simple matrix w/ dimnames
+attributes(x)
+
+## strip an object's attributes:
+attributes(x) &lt;- NULL
+x # now just a vector of length 6
+
+mostattributes(x) &lt;- list(mycomment = "really special", dim = 3:2,
+   dimnames = list(LETTERS[1:3], letters[1:5]), names = paste(1:6))
+x # dim(), but not {dim}names
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.0 ]</div>
+</div>
+</body></html>

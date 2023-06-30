@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Character Vectors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/character.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/character.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>character {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='character'>Character Vectors</h2>
+
+<h3>Description</h3>
+
+<p>Create or test for objects of type <code>"character"</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>character(length = 0)
+as.character(x, ...)
+is.character(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="character_:_length">length</code></td>
+<td>
+<p>desired length.</p>
+</td></tr>
+<tr><td><code id="character_:_x">x</code></td>
+<td>
+<p>object to be coerced or tested.</p>
+</td></tr>
+<tr><td><code id="character_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>character</code> creates a character vector of the specified length.
+The elements of the vector are all equal to <code>""</code>.
+</p>
+<p><code>as.character</code> attempts to coerce its argument to character type.
+</p>
+<p><code>is.character</code> returns <code>TRUE</code> or <code>FALSE</code> depending on
+whether its argument is of character type or not.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>as.character</code> truncates components of language objects to 500
+characters (was about 70 before 1.3.1).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>paste</code>, <code>substr</code> and <code>strsplit</code>
+for character concatenation and splitting,
+<code>chartr</code> for character translation and casefolding (e.g. upper
+to lower case) and <code>sub</code>, <code>grep</code> etc for
+string matching and substitutions.  Note that
+<code>help.search(keyword = "character")</code> gives even more links.
+
+<code>deparse</code>, which is normally preferable to
+<code>as.character</code> for language objects.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>form &lt;- y ~ a + b + c
+as.character(form)  ## length 3
+deparse(form)       ## like the input
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.2 ]</div>
+</div>
+</body></html>

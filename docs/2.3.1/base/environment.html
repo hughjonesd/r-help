@@ -1,0 +1,176 @@
+<!DOCTYPE html><html><head><title>R: Environment Access</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/environment.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/environment.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>environment {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='environment'>Environment Access</h2>
+
+<h3>Description</h3>
+
+<p>Get, set, test for and create environments.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>environment(fun = NULL)
+environment(fun) &lt;- value
+
+is.environment(obj)
+
+.GlobalEnv
+globalenv()
+.BaseNamespaceEnv
+
+emptyenv()
+baseenv()
+
+new.env(hash = FALSE, parent = parent.frame())
+
+parent.env(env)
+parent.env(env) &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="environment_:_fun">fun</code></td>
+<td>
+<p>a <code>function</code>, a <code>formula</code>, or
+<code>NULL</code>, which is the default.</p>
+</td></tr>
+<tr><td><code id="environment_:_value">value</code></td>
+<td>
+<p>an environment to associate with the function</p>
+</td></tr>
+<tr><td><code id="environment_:_obj">obj</code></td>
+<td>
+<p>an arbitrary <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+<tr><td><code id="environment_:_hash">hash</code></td>
+<td>
+<p>a logical, if <code>TRUE</code> the environment will be hashed</p>
+</td></tr>
+<tr><td><code id="environment_:_parent">parent</code></td>
+<td>
+<p>an environment to be used as the enclosure of the
+environment created.</p>
+</td></tr>
+<tr><td><code id="environment_:_env">env</code></td>
+<td>
+<p>an environment</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+     
+<p>Environments consist of a <em>frame</em>, or collection of named
+objects, and a pointer to an <em>enclosing environment</em>.  The most
+common example is the frame of variables local to a function call;
+its enclosure is the environment where the function was
+defined.  The enclosing environment is distinguished from the
+<em>parent frame</em>:  the latter (returned by
+<code>parent.frame</code>) refers to the environment of the caller
+of a function.
+</p>
+<p>When <code>get</code> or <code>exists</code> search an environment
+with the default <code>inherits = TRUE</code>, they look for the variable
+in the frame, then in the enclosing frame, and so on.
+</p>
+<p>The global environment <code>.GlobalEnv</code>, more often known as the
+user's workspace, is the first item on the search path.  It can also
+be accessed by <code>globalenv()</code>.  On the search path, each item's
+enclosure is the next item.
+</p>
+<p>The object <code>.BaseNamespaceEnv</code> is the namespace environment for
+the base package.  The environment of the base package itself is
+available as <code>baseenv()</code>.  The ultimate enclosure of any environment
+is the empty environment <code>emptyenv()</code>, to which nothing may
+be assigned.
+If one follows the <code>parent.env()</code> chain of enclosures back far
+enough from any environment, eventually one reaches the empty
+environment.
+</p>
+<p>The replacement function <code>parent.env&lt;-</code> is extremely dangerous as
+it can be used to destructively change environments in ways that
+violate assumptions made by the internal C code.  It may be removed
+in the near future.
+</p>
+<p><code>is.environment</code> is generic: you can write methods to handle
+specific classes of objects, see InternalMethods.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>fun</code> is a function or a formula then <code>environment(fun)</code>
+returns the environment associated with that function or formula.
+If <code>fun</code> is <code>NULL</code> then the current evaluation environment is
+returned.
+</p>
+<p>The replacement form sets the environment of the function or formula
+<code>fun</code> to the <code>value</code> given.
+</p>
+<p><code>is.environment(obj)</code> returns <code>TRUE</code> iff <code>obj</code> is an
+<code>environment</code>.
+</p>
+<p><code>new.env</code> returns a new (empty) environment enclosed in the
+parent's environment, by default.
+</p>
+<p><code>parent.env</code> returns the parent environment of its argument.
+</p>
+<p><code>parent.env&lt;-</code> sets the enclosing environment of its first
+argument. </p>
+
+
+<h3>See Also</h3>
+
+<p>The <code>envir</code> argument of <code>eval</code>, <code>get</code>,
+and <code>exists</code>.
+</p>
+<p><code>ls</code> may be used to view the objects in an environment.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>f &lt;- function() "top level function"
+
+##-- all three give the same:
+environment()
+environment(f)
+.GlobalEnv
+
+ls(envir=environment(approxfun(1:2,1:2, method="const")))
+
+is.environment(.GlobalEnv) # TRUE
+
+e1 &lt;- new.env(parent = baseenv())  # this one has enclosure package:base.
+e2 &lt;- new.env(parent = e1)
+assign("a", 3, env=e1)
+ls(e1)
+ls(e2)
+exists("a", env=e2)	# this succeeds by inheritance	   
+exists("a", env=e2, inherits = FALSE)
+exists("+", env=e2)	# this succeeds by inheritance
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.3.1 ]</div>
+</div>
+</body></html>

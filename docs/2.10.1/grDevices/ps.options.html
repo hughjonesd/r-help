@@ -1,0 +1,115 @@
+<!DOCTYPE html><html><head><title>R: Auxiliary Function to Set/View Defaults for Arguments of...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/ps.options.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/ps.options.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ps.options {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ps.options'>Auxiliary Function to Set/View Defaults for Arguments of postscript</h2>
+
+<h3>Description</h3>
+
+<p>The auxiliary function <code>ps.options</code> can be used to set or view
+(if called without arguments) the default values for some of the
+arguments to <code>postscript</code>.
+</p>
+<p><code>ps.options</code> needs to be called before calling <code>postscript</code>,
+and the default values it sets can be overridden by supplying
+arguments to <code>postscript</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>ps.options(..., reset = FALSE, override.check = FALSE)
+
+setEPS(...)
+setPS(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="ps.options_:_...">...</code></td>
+<td>
+<p>arguments <code>onefile</code>, <code>family</code>, <code>title</code>,
+<code>fonts</code>,
+<code>encoding</code>, <code>bg</code>, <code>fg</code>, <code>width</code>, <code>height</code>,
+<code>horizontal</code>, <code>pointsize</code>,  <code>paper</code>,
+<code>pagecentre</code>, <code>print.it</code>, <code>command</code>,
+<code>colormodel</code> and <code>fillOddEven</code> can be supplied.  <code>onefile</code>,
+<code>horizontal</code> and <code>paper</code> are <em>ignored</em>
+for <code>setEPS</code> and <code>setPS</code>.</p>
+</td></tr>
+<tr><td><code id="ps.options_:_reset">reset</code></td>
+<td>
+<p>logical: should the defaults be reset to their
+&lsquo;factory-fresh&rsquo; values?</p>
+</td></tr>
+<tr><td><code id="ps.options_:_override.check">override.check</code></td>
+<td>
+<p>logical argument passed to
+<code>check.options</code>.  See the Examples.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If both <code>reset = TRUE</code> and <code>...</code> are supplied the defaults
+are first reset to the &lsquo;factory-fresh&rsquo; values and then the new
+values are applied.
+</p>
+<p>For backwards compatibility argument <code>append</code> is accepted but
+ignored with a warning.
+</p>
+<p><code>setEPS</code> and <code>setPS</code> are wrappers to set defaults
+appropriate for figures for inclusion in documents (the default size
+is 7 inches square unless <code>width</code> or <code>height</code> is supplied)
+and for spooling to a PostScript printer respectively.  For historical
+reasons the latter is the ultimate default.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A named list of all the previous defaults.  If <code>...</code> or
+<code>reset = TRUE</code> is supplied the result has the visibility flag
+turned off.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>postscript</code>, <code>pdf.options</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>ps.options(bg = "pink")
+utils::str(ps.options())
+
+### ---- error checking of arguments: ----
+ps.options(width=0:12, onefile=0, bg=pi)
+# override the check for 'width', but not 'bg':
+ps.options(width=0:12, bg=pi, override.check = c(TRUE,FALSE))
+utils::str(ps.options())
+ps.options(reset = TRUE) # back to factory-fresh
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.10.1 ]</div>
+</div>
+</body></html>

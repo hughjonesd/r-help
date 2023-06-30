@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><title>R: Reshape data frame to wide format</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/reshapeWide.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/reshapeWide.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>reshapeWide {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='reshapeWide'>Reshape data frame to wide format</h2>
+
+<h3>Description</h3>
+
+<p>(EXPERIMENTAL). Convert data frame with repeated measurements in long
+format, 1 row per observation to wide format with repeated
+observations in multiple variables across rows.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>reshapeWide(x, i=reshape.i, j=reshape.j,
+            val=reshape.v, jnames=levels(j))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="reshapeWide_:_x">x</code></td>
+<td>
+<p>The data frame to convert</p>
+</td></tr>
+<tr><td><code id="reshapeWide_:_i">i</code></td>
+<td>
+<p>Factor or numeric. Indicates observations in same row of the
+wide format</p>
+</td></tr>
+<tr><td><code id="reshapeWide_:_j">j</code></td>
+<td>
+<p>Factor or numeric. Indicates observations in same column of
+wide format</p>
+</td></tr>
+<tr><td><code id="reshapeWide_:_val">val</code></td>
+<td>
+<p>Value to reshape for.</p>
+</td></tr>
+<tr><td><code id="reshapeWide_:_jnames">jnames</code></td>
+<td>
+<p>Names of new variables in reshaped frame</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>val</code>, <code>i</code>, and <code>j</code> are interpreted relative to
+<code>x</code>.
+This essentially places the values of <code>val</code> in a table defined by
+<code>i</code> and <code>j</code>, which are assumed to span the data set (exactly
+one observation in each cell of their cross-tabulation). Any
+other variables in the data frame will be
+assumed to have the same value for all values of <code>j</code> (given
+<code>i</code>) and are
+collapsed into a single value.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The reshaped data frame.
+</p>
+
+
+<h3>WARNING</h3>
+
+<p>There is no check that the names given to the new
+columns are
+valid identifiers or unique within the data frame. Variables in
+<code>x</code> are not checked to have constant values given <code>i</code>.</p>
+
+
+<h3>Bugs</h3>
+
+<p>There ought to be a way to have multiple <code>val</code> variables.</p>
+
+
+<h3>Note</h3>
+
+<p>The defaults are set to use the names that result
+from a call to <code>reshapeLong</code>.</p>
+
+
+<h3>See Also</h3>
+
+<p><code>reshapeLong</code>, <code>unstack</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>dd&lt;-as.data.frame(matrix(1:24,4))
+(dd1&lt;-reshapeLong(dd,V3:V5))
+reshapeWide(dd1)
+reshapeWide(dd1,jnames=c("A","B","C"))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.1 ]</div>
+</div>
+</body></html>

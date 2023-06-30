@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><title>R: Report Time Spent in Garbage Collection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/gc.time.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/gc.time.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>gc.time {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='gc.time'>Report Time Spent in Garbage Collection</h2>
+
+<h3>Description</h3>
+
+<p>This function reports the time spent in garbage collection so far in
+the <span class="rlang"><b>R</b></span> session while GC timing was enabled.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>gc.time(on = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="gc.time_:_on">on</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, GC timing is enabled.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Due to timer resolution this may be under-estimate.
+</p>
+<p>This is a primitive.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A numerical vector of length 5 giving the user CPU time, the system
+CPU time, the elapsed time and children's user and system CPU times
+(normally both zero), of time spent doing garbage collection whilst
+GC timing was enabled.
+</p>
+<p>Times of child processes are not available on Windows and will always
+be given as <code>NA</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>gc</code>,
+<code>proc.time</code> for the timings for the session.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>gc.time()
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.0.1 ]</div>
+</div>
+</body></html>

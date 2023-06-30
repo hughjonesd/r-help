@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><title>R: Tcl/Tk Interface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tcltk/html/tcltk-package.html'>https://stat.ethz.ch/R-manual/R-patched/library/tcltk/html/tcltk-package.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>tcltk-package {tcltk}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='tcltk-package'>
+Tcl/Tk Interface
+</h2>
+
+<h3>Description</h3>
+
+<p>Interface and language bindings to Tcl/Tk GUI elements.
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package provides access to the platform-independent Tcl scripting
+language and Tk GUI elements.  See TkWidgets for a list of
+supported widgets, TkWidgetcmds for commands to work with them,
+and references in those files for more.
+</p>
+<p>The Tcl/Tk documentation is in
+the system man pages.
+</p>
+<p>For a complete list of functions, use <code>ls("package:tcltk")</code>.
+</p>
+<p>Note that Tk will not be initialized if there is no <code>DISPLAY</code>
+variable set, but Tcl can still be used.  This is most useful to allow
+the loading of a package which depends on <span class="pkg">tcltk</span> in a session that
+does not actually use it (e.g., during installation).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>R Core Team
+</p>
+<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tcltk</em> version 4.2.2 ]</div>
+</div>
+</body></html>

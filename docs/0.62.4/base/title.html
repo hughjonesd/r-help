@@ -1,0 +1,94 @@
+<!DOCTYPE html><html><head><title>R: Plot Annotation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/title.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/title.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>title {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='title'>Plot Annotation</h2>
+
+<h3>Description</h3>
+
+<p>This function can be used to add labels to a plot.  Its first four
+principal arguments can also be used as arguments in most high-level
+plotting functions.  They must be of type <code>character</code> or
+<code>expression</code>. In the latter case, quite a bit of
+mathematical notation is available such as sub- and superscripts,
+greek letters, fractions, etc.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>title(main = "", sub = "", xlab = "", ylab = "", ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="title_:_main">main</code></td>
+<td>
+<p>The main title (on top) using font and size (character
+expansion) <code>par("font.main")</code> and color
+<code>par("col.main")</code>.</p>
+</td></tr>
+<tr><td><code id="title_:_sub">sub</code></td>
+<td>
+<p>Sub-title (at bottom) using font and size
+<code>par("font.sub")</code> and color <code>par("col.sub")</code>.</p>
+</td></tr>
+<tr><td><code id="title_:_xlab">xlab</code></td>
+<td>
+<p>X axis label using font and character expansion
+<code>par("font.axis")</code> and color <code>par("col.axis")</code>.</p>
+</td></tr>
+<tr><td><code id="title_:_ylab">ylab</code></td>
+<td>
+<p>Y axis label, same font attributes as <code>xlab</code>.</p>
+</td></tr>
+<tr><td><code id="title_:_...">...</code></td>
+<td>
+<p>further graphical parameters (from <code>par</code>).</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>mtext</code>, <code>text</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>plot(cars, main = "")
+title(main = "Stopping Distance versus Speed")
+
+x &lt;- seq(-4, 4, len = 101)
+y &lt;- cbind(sin(x), cos(x))
+matplot(x, y, type = "l", xaxt = "n",
+        main = expression(paste(plain(sin) * phi, "  and  ",
+                                plain(cos) * phi)),
+	ylab = expression("sin" * phi, "cos" * phi),    # only 1st is taken
+	xlab = expression(paste("Phase Angle ", phi)),
+	col.main = "blue")
+axis(1, at = c(-pi, -pi/2, 0, pi/2, pi),
+     lab = expression(-pi, -pi/2, 0, pi/2, pi))
+abline(h = 0, v = pi/2 * c(-1,1), lty = 2, lwd = .1, col = "gray70")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.4 ]</div>
+</div>
+</body></html>

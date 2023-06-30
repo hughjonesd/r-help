@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>R: Get Current Date and Time</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.time.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.time.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Sys.time {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Sys.time'>Get Current Date and Time</h2>
+
+<h3>Description</h3>
+
+<p><code>Sys.time</code> and <code>Sys.Date</code> returns the system's idea of the
+current date with and without time.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Sys.time()
+Sys.Date()
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p><code>Sys.time</code> returns an absolute date-time value which can be
+converted to various time zones and may return different days.
+</p>
+<p><code>Sys.Date</code> returns the current day in the current timezone.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>Sys.time</code> returns an object of class <code>"POSIXct"</code> (see
+DateTimeClasses).  On almost all systems it will have
+sub-second accuracy, possibly microseconds or better.  On Windows it
+increments in clock ticks (usually 1/60 of a second) reported to
+millisecond accuracy.
+</p>
+<p><code>Sys.Date</code> returns an object of class <code>"Date"</code> (see Date).
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>Sys.time</code> may return fractional seconds, but they are ignored by
+the default conversions (e.g. printing) for class <code>"POSIXct"</code>.
+See the examples and <code>format.POSIXct</code> for ways to reveal them.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>date</code> for the system time in a fixed-format character
+string.
+</p>
+<p><code>Sys.timezone</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+Sys.time()
+## print with possibly greater accuracy:
+op &lt;- options(digits.secs = 6)
+Sys.time()
+options(op)
+
+## locale-specific version of date()
+format(Sys.time(), "%a %b %d %X %Y")
+
+Sys.Date()
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.15.3 ]</div>
+</div>
+</body></html>

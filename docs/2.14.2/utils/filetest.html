@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>R: Shell-style Tests on Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/filetest.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/filetest.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>file_test {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='file_test'>
+Shell-style Tests on Files
+</h2>
+
+<h3>Description</h3>
+
+<p>Utility for shell-style file tests.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>file_test(op, x, y)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="file_test_:_op">op</code></td>
+<td>
+<p>a character string specifying the test to be performed.
+Unary tests (only <code>x</code> is used) are <code>"-f"</code> (existence and
+not being a directory), <code>"-d"</code> (existence and directory) and
+<code>"-x"</code> (executable as a file or searchable as a directory). 
+Binary tests are <code>"-nt"</code> (strictly newer than, using the modification
+dates) and <code>"-ot"</code> (strictly older than): in both cases the
+test is false unless both files exist.</p>
+</td></tr>
+<tr><td><code id="file_test_:_x">x</code>, <code id="file_test_:_y">y</code></td>
+<td>
+<p>character vectors giving file paths.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>&lsquo;Existence&rsquo; here means being on the file system and accessible
+by the <code>stat</code> system call (or a 64-bit extension) &ndash; on a
+Unix-alike this requires execute permission on all of the directories in
+the path that leads to the file, but no permissions on the file
+itself.
+</p>
+<p>For the meaning of <code>"-x"</code> on Windows see <code>file.access</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>file.exists</code> which only tests for existence
+(<code>test -e</code> on some systems) but not for not being a directory.
+</p>
+<p><code>file.path</code>, <code>file.info</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>dir &lt;- file.path(R.home(), "library", "stats")
+file_test("-d", dir)
+file_test("-nt", file.path(dir, "R"), file.path(dir, "demo"))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.14.2 ]</div>
+</div>
+</body></html>

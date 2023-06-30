@@ -1,0 +1,135 @@
+<!DOCTYPE html><html><head><title>R: Report Capabilities of this Build of R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/capabilities.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/capabilities.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>capabilities {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='capabilities'>Report Capabilities of this Build of R</h2>
+
+<h3>Description</h3>
+
+<p>Report on the optional features which have been compiled into this
+build of <span class="rlang"><b>R</b></span>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>capabilities(what = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="capabilities_:_what">what</code></td>
+<td>
+<p>character vector or <code>NULL</code>, specifying
+required components.  <code>NULL</code> implies that all are required.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A named logical vector. Current components are
+</p>
+<table>
+<tr><td><code>jpeg</code></td>
+<td>
+<p>Is the <code>jpeg</code> function operational?</p>
+</td></tr>
+<tr><td><code>png</code></td>
+<td>
+<p>Is the <code>png</code> function operational?</p>
+</td></tr>
+<tr><td><code>tcltk</code></td>
+<td>
+<p>Is the <span class="pkg">tcltk</span> package operational?</p>
+</td></tr>
+<tr><td><code>X11</code></td>
+<td>
+<p>(Unix)  Are <code>X11</code> and the data editor available?</p>
+</td></tr>
+<tr><td><code>GNOME</code></td>
+<td>
+<p>(Unix)  Is the GNOME GUI in use and are <code>GTK</code> and
+<code>GNOME</code> graphics devices available?</p>
+</td></tr>
+<tr><td><code>libz</code></td>
+<td>
+<p>Is <code>gzfile</code> available?  From <span class="rlang"><b>R</b></span> 1.5.0 this
+will always be true.</p>
+</td></tr>
+<tr><td><code>http/ftp</code></td>
+<td>
+<p>Are <code>url</code> and the internal method for
+<code>download.file</code> available?</p>
+</td></tr>
+<tr><td><code>sockets</code></td>
+<td>
+<p>Are <code>make.socket</code> and related functions
+available?</p>
+</td></tr>
+<tr><td><code>libxml</code></td>
+<td>
+<p>Is there support for integrating <code>libxml</code> with
+the <span class="rlang"><b>R</b></span> event loop?</p>
+</td></tr>
+<tr><td><code>cledit</code></td>
+<td>
+<p>Is command-line editing available in the current <span class="rlang"><b>R</b></span>
+session?  This is false in non-interactive sessions.
+It will be true if <code>readline</code> supported has been compiled in
+and <span class="option">--no-readline</span> was <em>not</em> invoked.
+</p>
+</td></tr>
+<tr><td><code>IEEE754</code></td>
+<td>
+<p>Does this platform have IEEE 754 arithmetic?  Note
+that this is more correctly known by the international standard
+IEC 60559.</p>
+</td></tr>
+<tr><td><code>bzip2</code></td>
+<td>
+<p>Is <code>bzfile</code> available?</p>
+</td></tr>
+<tr><td><code>PCRE</code></td>
+<td>
+<p>Is the Perl-Compatible Regular Expression library
+available?  This is needed for the <code>perl = TRUE</code> option to
+<code>grep</code> are related function.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>.Platform</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>capabilities()
+
+if(!capabilities("http/ftp"))
+   warning("internal download.file() is not available")
+
+## See also the examples for 'connections'.
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html><html><head><title>R: Plot Autocovariance and Autocorrelation Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.acf.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.acf.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.acf {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.acf'>Plot Autocovariance and Autocorrelation Functions</h2>
+
+<h3>Description</h3>
+
+<p>Plot method for objects of class <code>"acf"</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'acf'
+plot(x, ci = 0.95, type = "h", xlab = "Lag", ylab = NULL,
+     ylim = NULL, main = NULL,
+     ci.col = "blue", ci.type = c("white", "ma"),
+     max.mfrow = 6, ask = Npgs &gt; 1 &amp;&amp; dev.interactive(),
+     mar = if(nser &gt; 2) c(3,2,2,0.8) else par("mar"),
+     oma = if(nser &gt; 2) c(1,1.2,1,1) else par("oma"),
+     mgp = if(nser &gt; 2) c(1.5,0.6,0) else par("mgp"),
+     xpd = par("xpd"),
+     cex.main = if(nser &gt; 2) 1 else par("cex.main"),
+     verbose = getOption("verbose"),
+     ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.acf_:_x">x</code></td>
+<td>
+<p>an object of class <code>"acf"</code>.</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_ci">ci</code></td>
+<td>
+<p>coverage probability for confidence interval.  Plotting of
+the confidence interval is suppressed if <code>ci</code> is zero or
+negative.</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_type">type</code></td>
+<td>
+<p>the type of plot to be drawn, default to histogram like
+vertical lines.</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_xlab">xlab</code></td>
+<td>
+<p>the x label of the plot.</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_ylab">ylab</code></td>
+<td>
+<p>the y label of the plot.</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_ylim">ylim</code></td>
+<td>
+<p>numeric of length 2 giving the y limits for the plot.</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_main">main</code></td>
+<td>
+<p>overall title for the plot.</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_ci.col">ci.col</code></td>
+<td>
+<p>colour to plot the confidence interval lines.</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_ci.type">ci.type</code></td>
+<td>
+<p>should the confidence limits assume a white noise
+input or for lag <code class="reqn">k</code> an MA(<code class="reqn">k-1</code>) input?</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_max.mfrow">max.mfrow</code></td>
+<td>
+<p>positive integer; for multivariate <code>x</code>
+indicating how many rows and columns of plots should be put on one
+page, using <code>par(mfrow = c(m,m))</code>.</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_ask">ask</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the user is asked before a new
+page is started.</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_mar">mar</code>, <code id="plot.acf_:_oma">oma</code>, <code id="plot.acf_:_mgp">mgp</code>, <code id="plot.acf_:_xpd">xpd</code>, <code id="plot.acf_:_cex.main">cex.main</code></td>
+<td>
+<p>graphics parameters as in
+<code>par(*)</code>, by default adjusted to use smaller than
+default margins for multivariate <code>x</code> only.
+</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_verbose">verbose</code></td>
+<td>
+<p>logical.  Should <span class="rlang"><b>R</b></span> report extra information on
+progress?</p>
+</td></tr>
+<tr><td><code id="plot.acf_:_...">...</code></td>
+<td>
+<p>graphics parameters to be passed to the plotting
+routines.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>The confidence interval plotted in <code>plot.acf</code> is based on an
+<em>uncorrelated</em> series and should be treated with appropriate
+caution.  Using <code>ci.type = "ma"</code> may be less potentially
+misleading.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>acf</code> which calls <code>plot.acf</code> by default.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+
+z4  &lt;- ts(matrix(rnorm(400), 100, 4), start=c(1961, 1), frequency=12)
+z7  &lt;- ts(matrix(rnorm(700), 100, 7), start=c(1961, 1), frequency=12)
+acf(z4)
+acf(z7, max.mfrow = 7)# squeeze on 1 page
+acf(z7) # multi-page
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.7.2 ]</div>
+</div>
+</body></html>

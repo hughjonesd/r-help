@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>R: Numeric Constants</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/NumericConstants.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/NumericConstants.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>NumericConstants {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='NumericConstants'>Numeric Constants</h2>
+
+<h3>Description</h3>
+
+<p>How <span class="rlang"><b>R</b></span> parses numeric constants.
+</p>
+
+
+<h3>Details</h3>
+
+<p><span class="rlang"><b>R</b></span> parses numeric constants in its input in a very similar way to C
+floating-point constants.
+</p>
+<p><code>Inf</code> and <code>NaN</code> are numeric constants.  All
+other numeric constants start with a digit or period.
+</p>
+<p>Hexadecimal constants start with <code>0x</code> or <code>0X</code> followed by
+a non-empty sequence from <code>0-9 a-f A-F</code> which is interpreted as a
+hexadecimal number.
+</p>
+<p>Decimal constants consists of a nonempty sequence of digits possibly
+containing a period (the decimal point), optionally followed by a
+decimal exponent.  A decimal exponent consists of an <code>E</code> or
+<code>e</code> followed by an optional plus or minus sign followed by a
+non-empty sequence of digits, and indicates multiplication by a power
+of ten.
+</p>
+<p>A numeric constant immediately followed by <code>i</code> is regarded as an
+imaginary complex number.
+</p>
+<p>Only the ASCII digits 0&ndash;9 are recognized as digits, even in languages
+which have other representations of digits.
+The &lsquo;decimal separator&rsquo; is always a period and never a comma.
+</p>
+<p>Note that a leading plus or minus is not part of numeric constant but
+a unary operator applied to the constant.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Syntax</code>.
+</p>
+<p><code>Quotes</code> for the parsing of character constants,
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.3.0 ]</div>
+</div>
+</body></html>

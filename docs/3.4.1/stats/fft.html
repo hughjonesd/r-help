@@ -1,0 +1,139 @@
+<!DOCTYPE html><html><head><title>R: Fast Discrete Fourier Transform (FFT)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/fft.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/fft.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>fft {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='fft'>Fast Discrete Fourier Transform (FFT)</h2>
+
+<h3>Description</h3>
+
+<p>Computes the Discrete Fourier Transform (DFT) of an array with a fast
+algorithm, the &ldquo;Fast Fourier Transform&rdquo; (FFT).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>fft(z, inverse = FALSE)
+mvfft(z, inverse = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="fft_:_z">z</code></td>
+<td>
+<p>a real or complex array containing the values to be
+transformed.  Long vectors are not supported.</p>
+</td></tr>
+<tr><td><code id="fft_:_inverse">inverse</code></td>
+<td>
+<p>if <code>TRUE</code>, the unnormalized inverse transform is
+computed (the inverse has a <code>+</code> in the exponent of <code class="reqn">e</code>,
+but here, we do <em>not</em> divide by <code>1/length(x)</code>).</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>When <code>z</code> is a vector, the value computed and returned by
+<code>fft</code> is the unnormalized univariate discrete Fourier transform of the
+sequence of values in <code>z</code>.  Specifically, <code>y &lt;- fft(z)</code> returns
+</p>
+<p style="text-align: center;"><code class="reqn">y[h] = \sum_{k=1}^n z[k] \exp(-2\pi i (k-1) (h-1)/n)</code>
+</p>
+
+<p>for <code class="reqn">h = 1,\ldots,n</code> where n = <code>length(y)</code>.  If
+<code>inverse</code> is <code>TRUE</code>, <code class="reqn">\exp(-2\pi\ldots)</code>
+is replaced with <code class="reqn">\exp(2\pi\ldots)</code>.
+</p>
+<p>When <code>z</code> contains an array, <code>fft</code> computes and returns the
+multivariate (spatial) transform.  If <code>inverse</code> is <code>TRUE</code>,
+the (unnormalized) inverse Fourier transform is returned, i.e.,
+if <code>y &lt;- fft(z)</code>, then <code>z</code> is
+<code>fft(y, inverse = TRUE) / length(y)</code>.
+</p>
+<p>By contrast, <code>mvfft</code> takes a real or complex matrix as argument,
+and returns a similar shaped matrix, but with each column replaced by
+its discrete Fourier transform.  This is useful for analyzing
+vector-valued series.
+</p>
+<p>The FFT is fastest when the length of the series being transformed
+is highly composite (i.e., has many factors).  If this is not the
+case, the transform may take a long time to compute and will use a
+large amount of memory.
+</p>
+
+
+<h3>Source</h3>
+
+<p>Uses C translation of Fortran code in Singleton (1979).
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Singleton, R. C. (1979)
+Mixed Radix Fast Fourier Transforms,
+in <em>Programs for Digital Signal Processing</em>,
+IEEE Digital Signal Processing Committee eds.
+IEEE Press.
+</p>
+<p>Cooley, James W., and Tukey, John W. (1965)
+An algorithm for the machine calculation of complex Fourier series,
+<em>Math. Comput.</em> <b>19</b>(90), 297&ndash;301.
+<a href="https://dx.doi.org/10.1090/S0025-5718-1965-0178586-1">https://dx.doi.org/10.1090/S0025-5718-1965-0178586-1</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>convolve</code>, <code>nextn</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:4
+fft(x)
+fft(fft(x), inverse = TRUE)/length(x)
+
+## Slow Discrete Fourier Transform (DFT) - e.g., for checking the formula
+fft0 &lt;- function(z, inverse=FALSE) {
+  n &lt;- length(z)
+  if(n == 0) return(z)
+  k &lt;- 0:(n-1)
+  ff &lt;- (if(inverse) 1 else -1) * 2*pi * 1i * k/n
+  vapply(1:n, function(h) sum(z * exp(ff*(h-1))), complex(1))
+}
+
+relD &lt;- function(x,y) 2* abs(x - y) / abs(x + y)
+n &lt;- 2^8
+z &lt;- complex(n, rnorm(n), rnorm(n))
+## relative differences in the order of 4*10^{-14} :
+summary(relD(fft(z), fft0(z)))
+summary(relD(fft(z, inverse=TRUE), fft0(z, inverse=TRUE)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.4.1 ]</div>
+</div>
+</body></html>

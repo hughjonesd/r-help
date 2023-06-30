@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: Diagnostic Plots for Time-Series Fits</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/tsdiag.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/tsdiag.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>tsdiag {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='tsdiag'>Diagnostic Plots for Time-Series Fits</h2>
+
+<h3>Description</h3>
+
+<p>A generic function to plot time-series diagnostics.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>tsdiag(object, gof.lag, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="tsdiag_:_object">object</code></td>
+<td>
+<p>a fitted time-series model</p>
+</td></tr>
+<tr><td><code id="tsdiag_:_gof.lag">gof.lag</code></td>
+<td>
+<p>the maximum number of lags for a Portmanteau
+goodness-of-fit test</p>
+</td></tr>
+<tr><td><code id="tsdiag_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to particular methods</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is a generic function. It will generally plot the residuals,
+often standardized, the autocorrelation function of the residuals, and
+the p-values of a Portmanteau test for all lags up to <code>gof.lag</code>.
+</p>
+<p>The methods for <code>arima</code> and <code>StructTS</code> objects
+plots residuals scaled by the estimate of their (individual) variance,
+and use the Ljung&ndash;Box version of the portmanteau test.
+</p>
+
+
+<h3>Value</h3>
+
+<p>None. Diagnostics are plotted.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>arima</code>, <code>StructTS</code>, <code>Box.test</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+fit &lt;- arima(lh, c(1,0,0))
+tsdiag(fit)
+
+## see also examples(arima)
+
+(fit &lt;- StructTS(log10(JohnsonJohnson), type = "BSM"))
+tsdiag(fit)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.6.1 ]</div>
+</div>
+</body></html>

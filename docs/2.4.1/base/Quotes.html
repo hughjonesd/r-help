@@ -1,0 +1,102 @@
+<!DOCTYPE html><html><head><title>R: Quotes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Quotes.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Quotes.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Quotes {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Quotes'>Quotes</h2>
+
+<h3>Description</h3>
+
+<p>Descriptions of the various uses of quoting in <span class="rlang"><b>R</b></span>.
+</p>
+
+
+<h3>Details</h3>
+
+<p>Three types of quote are part of the syntax of <span class="rlang"><b>R</b></span>: single and double
+quotation marks and the backtick (or back quote, <code>`}).
+  In addition, backslash is used for quoting the following character(s)
+  inside character constants.
+}
+\section{Character constants}{
+  Single and double quotes delimit character constants.  They can be used
+  interchangeably but double quotes are preferred (and character
+  constants are printed using double quotes), so single quotes are
+  normally only used to delimit character constants containing double
+  quotes.
+
+  Backslash is used to start an escape sequence inside character constants.
+  Unless specified in the following table, an escaped character is
+  interpreted as the character itself.
+  Single quotes need to be escaped by backslash in single-quoted
+  strings, and double quotes in double-quoted strings.
+
+  \tabular{ll}{
+    \code{\n}\tab newline\cr
+    \code{\r}\tab carriage return\cr
+    \code{\t}\tab tab\cr
+    \code{\b}\tab backspace\cr
+    \code{\a}\tab alert (bell)\cr
+    \code{\f}\tab form feed\cr
+    \code{\v}\tab vertical tab\cr
+    \code{\\}\tab backslash \code{\}\cr
+    \code{\nnn}\tab character with given octal code (1, 2 or 3 digits)\cr
+    \code{\xnn}\tab character with given hex code (1 or 2 hex digits)\cr
+    \code{\unnnn}\tab Unicode character with given code (1--4 hex digits)\cr
+    \code{\Unnnnnnnn}\tab Unicode character with given code (1--8 hex digits)\cr
+  }
+  The last two are only supported on versions of \R built with MBCS
+  support, and the last is not supported on Windows.  (They are an error
+  if used where not supported.)  All except the Unicode escape sequences
+  are also supported when reading character strings from a connection by
+  \code{scan}.
+
+  These forms will also be used by \code{print.default}
+  when outputting non-printable characters (including backslash).
+}
+\section{Names and Identifiers}{
+  Identifiers consist of a sequence of letters, digits, the period
+  (\code{.}) and the underscore.  They must not start with a digit nor
+  underscore, nor with a period followed by a digit.
+
+  The definition of a \emph{letter} depends on the current locale, but
+  only ASCII digits are considered to be digits.
+
+  Such identifiers are also known as \emph{syntactic names} and may be used
+  directly in \R code.  Almost always, other names can be used
+  provided they are quoted.  The preferred quote is the backtick
+  (\code{`</code>), and <code>deparse</code> will normally use it, but under
+many circumstances single or double quotes can be used (as a character
+constant will often be converted to a name).  One place where
+backticks may be essential is to delimit variable names in formulae:
+see <code>formula</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Syntax</code> for other aspects of the syntax.
+</p>
+<p><code>sQuote</code> for quoting English text.
+</p>
+<p><code>shQuote</code> for quoting OS commands.
+</p>
+<p>The <em>R Language Definition</em> manual.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.4.1 ]</div>
+</div>
+</body></html>

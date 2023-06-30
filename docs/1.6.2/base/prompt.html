@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><title>R: Produce Prototype of an R Documentation File</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/prompt.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/prompt.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>prompt {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='prompt'>Produce Prototype of an R Documentation File</h2>
+
+<h3>Description</h3>
+
+<p>Facilitate the constructing of files documenting <span class="rlang"><b>R</b></span> functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>prompt(object, ...)
+
+prompt.default(object,
+    filename = paste(name, ".Rd", sep = ""),
+    name = NULL, force.function = FALSE, ...)
+
+prompt.data.frame(object,
+    filename = paste(name, ".Rd", sep = ""), name = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="prompt_:_object">object</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object, typically a function</p>
+</td></tr>
+<tr><td><code id="prompt_:_name">name</code></td>
+<td>
+<p>character string specifying the name of the object.</p>
+</td></tr>
+<tr><td><code id="prompt_:_filename">filename</code></td>
+<td>
+<p>name of the output file</p>
+</td></tr>
+<tr><td><code id="prompt_:_force.function">force.function</code></td>
+<td>
+<p>treat <code>object</code> as function in any case</p>
+</td></tr>
+<tr><td><code id="prompt_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>An ASCII file <code>filename</code> is produced containing the proper
+function and argument names of <code>object</code>.  You have to edit it
+before adding the documentation to the source tree, i.e., (currently)
+to &lsquo;<span class="file">\$R\_HOME/src/library/base/man/</span>&rsquo;.
+</p>
+<p>When <code>prompt</code> is used in <code>for</code> loops or scripts, the
+explicit <code>name</code> specification will be useful.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The documentation file produced by <code>prompt.data.frame</code> does not
+have the same format as many of the data frame documentation files in
+the <code>base</code> library.  We are trying to settle on a preferred
+format for the documentation.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Douglas Bates for <code>prompt.data.frame</code></p>
+
+
+<h3>See Also</h3>
+
+<p><code>help</code> and the chapter on &ldquo;Writing <span class="rlang"><b>R</b></span> documentation&rdquo; in
+&ldquo;Writing <span class="rlang"><b>R</b></span> Extensions&rdquo; (see the &lsquo;<span class="file">doc/manual</span>&rsquo;
+subdirectory of the <span class="rlang"><b>R</b></span> source tree).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>prompt(plot.default)
+prompt(interactive, force.function = TRUE)
+unlink("plot.default.Rd")
+unlink("interactive.Rd")
+
+data(women) # data.frame
+prompt(women)
+unlink("women.Rd")
+
+data(sunspots) # non-data.frame data
+prompt(sunspots)
+unlink("sunspots.Rd")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>R: Girth, Height and Volume for Black Cherry Trees</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/trees.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/trees.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>trees {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='trees'>Girth, Height and Volume for Black Cherry Trees</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(trees)</code></pre>
+
+
+<h3>Format</h3>
+
+<p>A data frame with 31 observations on 3 variables.
+</p>
+
+<table>
+<tr>
+ <td style="text-align: right;">
+  [,1]  </td><td style="text-align: left;"> Girth   </td><td style="text-align: left;"> numeric  </td><td style="text-align: left;"> Tree diameter at 4 ft 6 in</td>
+</tr>
+<tr>
+ <td style="text-align: right;">
+  [,2]  </td><td style="text-align: left;"> Height  </td><td style="text-align: left;"> numeric  </td><td style="text-align: left;"> Height in ft</td>
+</tr>
+<tr>
+ <td style="text-align: right;">
+  [,3]  </td><td style="text-align: left;"> Volume  </td><td style="text-align: left;"> numeric  </td><td style="text-align: left;"> Volume of timber in cubic ft</td>
+</tr>
+<tr>
+ <td style="text-align: right;">
+</td>
+</tr>
+
+</table>
+
+<p>T. A. Ryan, B. L. Joiner and B. F. Ryan (1976).
+The Minitab Student Handbook. Duxbury Press.
+</p>
+
+<p>This data set provides measurements of the girth, height and volume
+of timber in 31 felled black cherry trees.  Note that girth is the
+diameter of the tree at 4 ft 6 in above the ground.
+</p>
+
+<p>A. C. Atkinson (1985).  Plots, Transformations and Regression.
+Oxford University Press.
+</p>
+
+<p>datasets
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.1 ]</div>
+</div>
+</body></html>

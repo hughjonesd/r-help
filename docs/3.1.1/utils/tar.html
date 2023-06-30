@@ -1,0 +1,189 @@
+<!DOCTYPE html><html><head><title>R: Create a Tar Archive</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/tar.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/tar.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>tar {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='tar'>
+Create a Tar Archive
+</h2>
+
+<h3>Description</h3>
+
+<p>Create a tar archive.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>tar(tarfile, files = NULL,
+    compression = c("none", "gzip", "bzip2", "xz"),
+    compression_level = 6, tar = Sys.getenv("tar"),
+    extra_flags = "")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="tar_:_tarfile">tarfile</code></td>
+<td>
+<p>The pathname of the tar file: tilde expansion (see
+<code>path.expand</code>) will be performed.  Alternatively, a
+connection that can be used for binary writes.</p>
+</td></tr>
+<tr><td><code id="tar_:_files">files</code></td>
+<td>
+<p>A character vector of filepaths to be archived:
+the default is to archive all files under the current directory.</p>
+</td></tr>
+<tr><td><code id="tar_:_compression">compression</code></td>
+<td>
+<p>character string giving the type of compression to
+be used (default none).  Can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="tar_:_compression_level">compression_level</code></td>
+<td>
+<p>integer: the level of compression.  Only used
+for the internal method.</p>
+</td></tr>
+<tr><td><code id="tar_:_tar">tar</code></td>
+<td>
+<p>character string: the path to the command to be used.  If
+the command itself contains spaces it needs to be quoted (e.g. by
+<code>shQuote</code>) &ndash; but argument <code>tar</code> can also contain
+flags separated from the command by spaces.</p>
+</td></tr>
+<tr><td><code id="tar_:_extra_flags">extra_flags</code></td>
+<td>
+<p>any extra flags for an external <code>tar</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is either a wrapper for a <code>tar</code> command or uses an
+internal implementation in <span class="rlang"><b>R</b></span>.  The latter is used if <code>tarfile</code>
+is a connection or if the argument <code>tar</code> is <code>"internal"</code> or
+<code>""</code> (the &lsquo;factory-fresh&rsquo; default).  Note that whereas
+Unix-alike versions of <span class="rlang"><b>R</b></span> set the environment variable <span class="env">TAR</span>, its
+value is not the default for this function.
+</p>
+<p>Argument <code>extra_flags</code> is passed to an external <code>tar</code> and
+so is platform-dependent.  Possibly useful values include <span class="option">-h</span>
+(follow symbolic links, also <span class="option">-L</span> on some platforms),
+&lsquo;<span class="samp">&#8288;--acls&#8288;</span>&rsquo;, <span class="option">--exclude-backups</span>, <span class="option">--exclude-vcs</span> (and
+similar) and on Windows <span class="option">--force-local</span> (so drives can be
+included in filepaths: however, this is the default for the
+<code>Rtools</code> <code>tar</code>).  For GNU <code>tar</code>,
+<span class="option">--format=ustar</span> forces a more portable format (the current
+default in version 1.26 is <span class="option">--format=gnu</span>, but the manual says
+the intention is to change to <span class="option">--format=pax</span> which GNU
+incorrectly calls &lsquo;POSIX&rsquo; &ndash; it was never part of the POSIX
+standard for <code>tar</code>).  For libarchive <code>tar</code>,
+<span class="option">--format=ustar</span> is more portable than the default.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The return code from <code>system</code> or <code>0</code> for the internal
+version, invisibly.
+</p>
+
+
+<h3>Portability</h3>
+
+<p>The &lsquo;tar&rsquo; format no longer has an agreed standard!
+&lsquo;Unix Standard Tar&rsquo; was part of POSIX 1003.1:1998 but has been
+removed in favour of <code>pax</code>, and in any case many common
+implementations diverged from the former standard.  Most <span class="rlang"><b>R</b></span> platforms
+use a version of GNU <code>tar</code> (including <code>Rtools</code> on
+Windows, but the behaviour seems to be changed with each version), Mac
+OS &gt;= 10.6 and FreeBSD use <code>bsdttar</code> from the &lsquo;libarchive&rsquo;
+project, and commercial Unixes will have their own versions.
+</p>
+<p>Known problems arise from
+</p>
+
+<ul>
+<li><p> The handling of file paths of more than 100 bytes.  These were
+unsupported in early versions of <code>tar</code>, and supported in one
+way by POSIX <code>tar</code> and in another by GNU <code>tar</code> and
+yet another by the POSIX <code>pax</code> command which
+recent<code>tar</code> programs often support.  The internal
+implementation warns on paths of more than 100 bytes,
+uses the &lsquo;ustar&rsquo; way from the 1998 POSIX
+standard which supports up to 256 bytes (depending on the path: in
+particular the final component is limited to 100 bytes) if possible,
+or the GNU way (which is widely supported).
+</p>
+<p>Most formats do not record the encoding of file paths.
+</p>
+</li>
+<li><p> (File) links.  <code>tar</code> was developed on an OS that used
+hard links, and physical files that were referred to more than once
+in the list of files to be included were included only once, the
+remaining instances being added as links.  Later a means to include
+symbolic links was added.  The internal implementation supports
+symbolic links (on OSes that support them), only.  Of course, the
+question arises as to how links should be unpacked on OSes that do
+not support them: for regular files, at least, file copies can be
+used.
+</p>
+<p>Names of links in the &lsquo;ustar&rsquo; format are restricted to 100
+bytes.  There is an GNU extension for arbitrarily long link names,
+but <code>bsdtar</code> does not read.  The internal method uses the
+GNU extension, with a warning.
+</p>
+</li>
+<li><p> Header fields, in particular the padding to be used when
+fields are not full or not used.  POSIX did define the correct
+behaviour but commonly used implementations did (and still do)
+not comply.
+</p>
+</li>
+<li><p> File sizes.  The &lsquo;ustar&rsquo; format is restricted to 8GB
+per (uncompressed) file.
+</p>
+</li></ul>
+
+<p>For portability, avoid file paths of more than 100 bytes and all links
+(especially hard links and symbolic links to directories).
+</p>
+<p>The internal implementation writes only the blocks of 512 bytes
+required (including trailing blocks of nuls), unlike GNU <code>tar</code>
+which by default pads with &lsquo;<span class="samp">&#8288;nul&#8288;</span>&rsquo; to a multiple of 20 blocks
+(10KB).  Implementations which pad differ on whether the block padding
+should occur before or after compression (or both): padding was
+designed for improved performance on physical tape drives.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/Tar_(file_format)">http://en.wikipedia.org/wiki/Tar_(file_format)</a>,
+<a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/pax.html#tag_20_92_13_06">http://pubs.opengroup.org/onlinepubs/9699919799/utilities/pax.html#tag_20_92_13_06</a>
+for the way the POSIX utility <code>pax</code> handles <code>tar</code> formats.
+</p>
+<p><a href="https://github.com/libarchive/libarchive/wiki/FormatTar">https://github.com/libarchive/libarchive/wiki/FormatTar</a>.
+</p>
+<p><code>untar</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 3.1.1 ]</div>
+</div>
+</body></html>

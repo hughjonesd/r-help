@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><title>R: Loading Shared Libraries</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.dynam.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.dynam.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>library.dynam {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='library.dynam'>Loading Shared Libraries</h2>
+
+<h3>Description</h3>
+
+<p>Load the specified file of compiled code if it has not been loaded
+already, or unloads it.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>library.dynam(chname, package = NULL, lib.loc = NULL,
+              verbose = getOption("verbose"),
+              file.ext = .Platform$dynlib.ext, ...)
+library.dynam.unload(chname, libpath,
+              verbose = getOption("verbose"),
+              file.ext = .Platform$dynlib.ext)
+.dynLibs(new)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="library.dynam_:_chname">chname</code></td>
+<td>
+<p>a character string naming a shared library to load.</p>
+</td></tr>
+<tr><td><code id="library.dynam_:_package">package</code></td>
+<td>
+<p>a character vector with the names of packages to search
+through, or <code>NULL</code>.  By default, all packages in the search
+path are used.</p>
+</td></tr>
+<tr><td><code id="library.dynam_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector describing the location of <span class="rlang"><b>R</b></span>
+library trees to search through, or <code>NULL</code>.  The default value
+of <code>NULL</code> corresponds to all libraries currently known.</p>
+</td></tr>
+<tr><td><code id="library.dynam_:_libpath">libpath</code></td>
+<td>
+<p>the path to the loaded package whose shared library is
+to be unloaded.</p>
+</td></tr>
+<tr><td><code id="library.dynam_:_verbose">verbose</code></td>
+<td>
+<p>a logical value indicating whether an announcement
+is printed on the console before loading the shared library.  The
+default value is taken from the verbose entry in the system
+options.</p>
+</td></tr>
+<tr><td><code id="library.dynam_:_file.ext">file.ext</code></td>
+<td>
+<p>the extension to append to the file name to specify
+the library to be loaded. This defaults to the appropriate value
+for the operating system.</p>
+</td></tr>
+<tr><td><code id="library.dynam_:_...">...</code></td>
+<td>
+<p>additional arguments needed by some libraries that
+are passed to the call to <code>dyn.load</code> to control
+how the library is loaded.</p>
+</td></tr>
+<tr><td><code id="library.dynam_:_new">new</code></td>
+<td>
+<p>a list of DLLInfo objects corresponding to the shared
+libraries loaded by packages.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>library.dynam</code> is designed to be used inside a package rather
+than at the command line, and should really only be used inside
+<code>.First.lib</code> on <code>.onLoad</code>.  The
+system-specific extension for shared libraries
+(e.g., &lsquo;<span class="file">.so</span>&rsquo; or &lsquo;<span class="file">.sl</span>&rsquo; on Unix systems)
+should not be added.
+</p>
+<p><code>library.dynam.unload</code> is designed for use in
+<code>.Last.lib</code> or <code>.onUnload</code>.
+</p>
+<p><code>.dynLibs</code> is used for getting or setting the shared libraries
+which were loaded by packages (using <code>library.dynam</code>).  Versions
+of <span class="rlang"><b>R</b></span> prior to 2.1.0 simply recorded the (names of) packages which had
+loaded shared libraries.  Versions of <span class="rlang"><b>R</b></span> prior to 1.6.0 used an
+internal global variable <code>.Dyn.libs</code> for storing this
+information: this variable is now defunct.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>chname</code> is not specified, <code>library.dynam</code> returns an
+object of class <code>"DLLInfoList"</code> corresponding to the shared
+libraries loaded by packages.
+</p>
+<p>If <code>chname</code> is specifed, an object of class <code>"DLLInfo"</code> that
+identifies the DLL and can be used in future calls is returned
+invisibly.  For packages that have namespaces, a list of these objects
+is stored in the namespace's environment for use at run-time.
+</p>
+<p><code>library.dynam.unload</code> invisibly returns an object of class
+<code>"DLLInfo"</code> identifying the DLL successfully unloaded.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>getLoadedDLLs</code> for information on DLLInfo and DLLInfoList
+objects.
+</p>
+<p><code>.First.lib</code>, <code>library</code>,
+<code>dyn.load</code>, <code>.packages</code>,
+<code>.libPaths</code>
+</p>
+<p><code>SHLIB</code> for how to create suitable shared libraries.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Which DLLs were "dynamically loaded" by packages?
+library.dynam() 
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.1.0 ]</div>
+</div>
+</body></html>

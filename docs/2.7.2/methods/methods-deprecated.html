@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>R: Deprecated Functions in Methods package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/methods-deprecated.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/methods-deprecated.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>methods-deprecated {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='methods-deprecated'>Deprecated Functions in Methods package</h2>
+
+<h3>Description</h3>
+
+<p>These functions are provided for compatibility with older versions of
+<span class="rlang"><b>R</b></span> only, and may be defunct as soon as the next release.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getAllMethods(f, fdef, where)
+mlistMetaName (name, package)
+removeMethodsObject(f, where)
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>The original help page for these functions is often
+available at <code>help("oldName-deprecated")</code> (note the quotes).
+Functions in packages other than the methods package are listed in
+<code>help("pkg-deprecated")</code>.
+</p>
+
+
+<h3>Summary of Functions</h3>
+
+
+<dl>
+<dt><code>getAllMethods</code>:</dt><dd>
+<p>This function replicates the behavior of
+<code>getMethods</code>, which should be called instead to obtain
+approximately the old behavior of <code>getAllMethods</code>.  However, a
+better substitution is to use <code>findMethods</code>, which
+returns a simpler structure.
+</p>
+<p>(The following is the original description, which has not been
+accurate since approximately version 2.5.0 of <span class="rlang"><b>R</b></span>.) 
+</p>
+<p>A generic function (with methods) representing the merge of all
+the methods defined for this generic starting from environment
+<code>where</code>, including all parent environments.  By default,
+uses the global environment (and therefore all packages on the
+search list).  This function exists largely
+to re-compute the full set of methods when a change to the
+available methods occurs.  Since all such recomputations are
+supposed to be automatic, direct calls to <code>getAllMethods</code>
+should not be needed.
+</p>
+<p>If the generic <code>f</code> has a group generic, methods for this
+group generic (and further generations of group generics, if any)
+are also merged.
+</p>
+<p>The merging rule is as follows: each generic is merged across
+packages, and the group generics are then merged, finally adding
+the directly defined methods of <code>f</code>.
+</p>
+<p>The effect of the merging rule is that any method directly defined
+for <code>f</code> on any included package overrides a method for the
+same signature defined for the group generic; similarly for the
+group generic and its group, if any, etc.
+</p>
+<p>For <code>f</code> or for a specific group generic, methods override in
+the order of the packages being searched.  A method for a
+particular signature on a particular package overrides any methods
+for the same signature on packages later on in the list of
+packages being searched.
+</p>
+<p>The slot <code>"allMethods"</code> of the merged methods list is set to
+a copy of the methods slot; this is the slot where inherited
+methods are stored.)
+</p>
+</dd>
+<dt><code>mlistMetaName</code>:</dt><dd><p>Utility to  return the mangled
+name for the object that stored the <code>MethodsList</code>
+representation of the methods for a particular generic function,
+typically in the environment of a package.
+</p>
+<p>These objects are no longer used, and will likely not be generated
+starting in version 2.8.0 of <span class="rlang"><b>R</b></span>.
+</p>
+</dd>
+<dt><code>removeMethodsObject</code>:</dt><dd>
+<p>remove the metadata object containing methods for <code>f</code>.
+</p>
+</dd>
+</dl>
+
+
+
+<h3>See Also</h3>
+
+<p><code>Deprecated</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.7.2 ]</div>
+</div>
+</body></html>

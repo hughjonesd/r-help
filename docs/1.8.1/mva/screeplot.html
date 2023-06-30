@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: Screeplot of PCA Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/screeplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/screeplot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>screeplot {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='screeplot'>Screeplot of PCA Results</h2>
+
+<h3>Description</h3>
+
+<p><code>screeplot</code> plots the variances against the number of the
+principal component. This is also the <code>plot</code> method for class
+<code>"princomp"</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>screeplot(x, npcs = min(10, length(x$sdev)),
+          type = c("barplot", "lines"), main = deparse(substitute(x)), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="screeplot_:_x">x</code></td>
+<td>
+<p>an object of class <code>"princomp"</code>, as
+from <code>princomp()</code>.</p>
+</td></tr>
+<tr><td><code id="screeplot_:_npcs">npcs</code></td>
+<td>
+<p>the number of principal components to be plotted.</p>
+</td></tr>
+<tr><td><code id="screeplot_:_type">type</code></td>
+<td>
+<p>the type of plot.</p>
+</td></tr>
+<tr><td><code id="screeplot_:_main">main</code>, <code id="screeplot_:_...">...</code></td>
+<td>
+<p>graphics parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Mardia, K. V., J. T. Kent and J. M. Bibby (1979).
+<em>Multivariate Analysis</em>, London: Academic Press.
+</p>
+<p>Venables, W. N. and B. D. Ripley (2002).
+<em>Modern Applied Statistics with S</em>, Springer-Verlag.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>princomp</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## The variances of the variables in the
+## USArrests data vary by orders of magnitude, so scaling is appropriate
+data(USArrests)
+(pc.cr &lt;- princomp(USArrests, cor = TRUE))  # inappropriate
+screeplot(pc.cr)
+
+data(Harman74.cor)
+fit &lt;- princomp(covmat=Harman74.cor)
+screeplot(fit)
+screeplot(fit, npcs=24, type="lines")
+</code></pre>
+
+
+</div>
+</body></html>

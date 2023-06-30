@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><title>R: Methods for Function profile in Package 'stats4'</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/profile-methods.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/profile-methods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>profile-methods {stats4}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='profile-methods'>Methods for Function profile in Package &lsquo;stats4&rsquo;</h2>
+
+<h3>Description</h3>
+
+<p>Profile likelihood for <code>"mle"</code> objects.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S4 method for signature 'mle'
+profile(fitted, which = 1:p, maxsteps = 100, alpha = 0.01,
+        zmax = sqrt(qchisq(1 - alpha, 1L)), del = zmax/5,
+        trace = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="profile-methods_:_fitted">fitted</code></td>
+<td>
+<p>Object to be profiled</p>
+</td></tr>
+<tr><td><code id="profile-methods_:_which">which</code></td>
+<td>
+<p>Optionally select subset of parameters to profile.</p>
+</td></tr>
+<tr><td><code id="profile-methods_:_maxsteps">maxsteps</code></td>
+<td>
+<p>Maximum number of steps to bracket <code>zmax</code>.</p>
+</td></tr>
+<tr><td><code id="profile-methods_:_alpha">alpha</code></td>
+<td>
+<p>Significance level corresponding to <code>zmax</code>, based on
+a Scheffe-style multiple testing interval.  Ignored
+if <code>zmax</code> is specified.</p>
+</td></tr>
+<tr><td><code id="profile-methods_:_zmax">zmax</code></td>
+<td>
+<p>Cutoff for the profiled value of the signed root-likelihood.</p>
+</td></tr>
+<tr><td><code id="profile-methods_:_del">del</code></td>
+<td>
+<p>Initial stepsize on root-likelihood scale.</p>
+</td></tr>
+<tr><td><code id="profile-methods_:_trace">trace</code></td>
+<td>
+<p>Logical. Print intermediate results.</p>
+</td></tr>
+<tr><td><code id="profile-methods_:_...">...</code></td>
+<td>
+<p>Currently unused.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The profiling algoritm tries to find an approximately evenly spaced
+set of at least five parameter values (in each direction from the
+optimum) to cover  
+the root-likelihood function. Some care is taken to try and get sensible
+results in cases of high parameter curvature. Notice that it may not
+always be possible to obtain the cutoff value, since the likelihood
+might level off.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"profile.mle"</code>, see  <code>"profile.mle-class"</code>.
+</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt>fitted = &quot;ANY&quot;</dt><dd><p>Generic function: see <code>profile</code>.</p>
+</dd>
+<dt>fitted = &quot;mle&quot;</dt><dd><p>Profile the likelihood in the vicinity of the
+optimum of an <code>"mle"</code> object.</p>
+</dd>
+</dl>
+
+<hr /><div style="text-align: center;">[Package <em>stats4</em> version 2.9.2 ]</div>
+</div>
+</body></html>

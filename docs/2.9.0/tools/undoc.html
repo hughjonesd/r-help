@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Find Undocumented Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/undoc.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/undoc.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>undoc {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='undoc'>Find Undocumented Objects</h2>
+
+<h3>Description</h3>
+
+<p>Finds the objects in a package which are undocumented, in the sense
+that they are visible to the user (or data objects or S4 classes
+provided by the package), but no documentation entry exists.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>undoc(package, dir, lib.loc = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="undoc_:_package">package</code></td>
+<td>
+<p>a character string naming an installed package.</p>
+</td></tr>
+<tr><td><code id="undoc_:_dir">dir</code></td>
+<td>
+<p>a character string specifying the path to a package's root
+source directory.  This must contain the subdirectory &lsquo;<span class="file">man</span>&rsquo;
+with <span class="rlang"><b>R</b></span> documentation sources (in Rd format), and at least one of
+the &lsquo;<span class="file">R</span>&rsquo; or &lsquo;<span class="file">data</span>&rsquo; subdirectories with <span class="rlang"><b>R</b></span> code or data
+objects, respectively.</p>
+</td></tr>
+<tr><td><code id="undoc_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
+or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
+libraries currently known.  The specified library trees are used to
+search for <code>package</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is useful for package maintainers mostly.  In principle,
+<em>all</em> user-level <span class="rlang"><b>R</b></span> objects should be documented.
+</p>
+<p>The <span class="pkg">base</span> package is special as it contains the primitives and
+these do not have definitions available at code level.  We provide
+equivalent closures in environments <code>.ArgsEnv</code> and
+<code>.GenericArgsEnv</code> in the <span class="pkg">base</span> package that are used
+for various purposes: <code>undoc("base")</code> checks that all the
+primitives that are not language constructs are prototyped in those
+environments and no others are.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"undoc"</code> which is a list of character vectors
+containing the names of the undocumented objects split according to
+documentation type.  This representation is still experimental, and
+might change in future versions.
+</p>
+<p>There is a <code>print</code> method for nicely displaying the information
+contained in such objects.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>codoc</code>, <code>QC</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>undoc("tools")                  # Undocumented objects in 'tools'
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.9.0 ]</div>
+</div>
+</body></html>

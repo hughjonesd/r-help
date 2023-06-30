@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>R: Change Wildcard or Globbing Pattern into Regular Expression</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/glob2rx.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/glob2rx.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>glob2rx {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='glob2rx'>Change Wildcard or Globbing Pattern into Regular Expression</h2>
+
+<h3>Description</h3>
+
+<p>Change <em>wildcard</em> aka <em>globbing</em> patterns into the
+corresponding regular expressions (<code>regexp</code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>glob2rx(pattern, trim.head = FALSE, trim.tail = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="glob2rx_:_pattern">pattern</code></td>
+<td>
+<p>character vector</p>
+</td></tr>
+<tr><td><code id="glob2rx_:_trim.head">trim.head</code></td>
+<td>
+<p>logical specifying if leading <code>"^.*"</code> should be
+trimmed from the result.</p>
+</td></tr>
+<tr><td><code id="glob2rx_:_trim.tail">trim.tail</code></td>
+<td>
+<p>logical specifying if trailing <code>".*$"</code> should be
+trimmed from the result.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This takes a wildcard as used by most shells and returns an equivalent
+regular expression.  <code>?</code> is mapped to <code>.</code> (match a single
+character), <code>*</code> to <code>.*</code> (match any string, including an
+empty one), and the pattern is anchored (it must start at the
+beginning and end at the end).  Optionally, the resulting regexp is
+simplified.
+</p>
+<p>Note that now even <code>(</code>, <code>[</code> and <code>{</code> can be used
+in <code>pattern</code>, but <code>glob2rx()</code> may not work correctly with
+arbitrary characters in <code>pattern</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of the same length as the input <code>pattern</code>
+where each wildcard is translated to the corresponding
+regular expression.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Martin Maechler, Unix/sed based version, 1991; current: 2004</p>
+
+
+<h3>See Also</h3>
+
+<p><code>regexp</code> about regular expression,
+<code>sub</code>, etc about substitutions using regexps.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>stopifnot(glob2rx("abc.*") == "^abc\\.",
+          glob2rx("a?b.*") == "^a.b\\.",
+          glob2rx("a?b.*", trim.tail = FALSE) == "^a.b\\..*$",
+          glob2rx("*.doc") == "^.*\\.doc$",
+          glob2rx("*.doc", trim.head = TRUE) == "\\.doc$",
+          glob2rx("*.t*")  == "^.*\\.t",
+          glob2rx("*.t??") == "^.*\\.t..$",
+          glob2rx("*[*")  == "^.*\\["
+)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 3.6.2 ]</div>
+</div>
+</body></html>

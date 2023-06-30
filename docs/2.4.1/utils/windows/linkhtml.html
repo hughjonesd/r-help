@@ -1,0 +1,107 @@
+<!DOCTYPE html><html><head><title>R: Update HTML documentation files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/linkhtml.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/linkhtml.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>link.html.help {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='link.html.help'>Update HTML documentation files</h2>
+
+<h3>Description</h3>
+
+<p>Functions to re-create the HTML documentation files to reflect all
+installed packages. <code>make.packages.html</code> creates
+the list of packages and <code>make.search.html</code> creates the
+database used by the Java search engine. <code>link.html.help</code> runs
+both, as well as <code>fixup.libraries.URLs</code> which attempts to
+fix up cross-library links.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>link.html.help(verbose = FALSE, lib.loc = .libPaths())
+make.packages.html(lib.loc = .libPaths())
+make.search.html(lib.loc = .libPaths())
+
+fixup.package.URLs(pkg, force = FALSE)
+fixup.libraries.URLs(lib.loc = .libPaths())
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="link.html.help_:_verbose">verbose</code></td>
+<td>
+<p>logical. If true, print out a message. For use to
+explain a delay when called from other functions.</p>
+</td></tr>
+<tr><td><code id="link.html.help_:_lib.loc">lib.loc</code></td>
+<td>
+<p>character vector. List of libraries to be included.</p>
+</td></tr>
+<tr><td><code id="link.html.help_:_pkg">pkg</code></td>
+<td>
+<p>character vector. The full path to a package.</p>
+</td></tr>
+<tr><td><code id="link.html.help_:_force">force</code></td>
+<td>
+<p>logical. Should the links be fixed even if the stamp is
+present?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Cross-library links do not work on this platform.
+<code>fixup.package.URLs</code> attempts to correct links in the
+named package to the <code>doc</code> directory (usually to icons) and to the
+<code>base</code>, <code>datasets</code>, <code>utils</code>, <code>grDevices</code>,
+<code>graphics</code> and <code>stats</code> packages,
+and then stamps a file &lsquo;<span class="file">fixedHTMLlinks</span>&rsquo; in the package directory.
+If that file is found, no correction is attempted unless <code>force =
+    TRUE</code> or the <span class="rlang"><b>R</b></span> installation directory (recorded in the stamp) has been
+changed.
+</p>
+<p><code>fixup.libraries.URLs</code> calls <code>fixup.package.URLs</code> on all
+packages in current library trees except the standard one.
+</p>
+<p>The functions will give a warning if the files are not writeable.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>make.packages.html</code> and <code>fixup.package.URLs</code> return a
+logical showing if they suceeded.
+</p>
+<p>The files
+&lsquo;<span class="file">R\_HOME\doc\html\packages.html</span>&rsquo; and
+&lsquo;<span class="file">R\_HOME\doc\html\search\index.txt</span>&rsquo; are (re-)created by
+<code>make.packages.html</code> and <code>make.search.html</code> respectively.
+</p>
+
+
+<h3>Note</h3>
+
+<p>You will need write permission in the &lsquo;<span class="file">R\_HOME\doc\html</span>&rsquo;
+directory to use any of the first three functions, and in the
+appropriate library trees to use the last two.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.4.1 ]</div>
+</div>
+</body></html>

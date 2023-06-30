@@ -1,0 +1,160 @@
+<!DOCTYPE html><html><head><title>R: Box Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>boxplot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='boxplot'>Box Plots</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>boxplot(x, ..., range = 1.5, width = NULL, varwidth = FALSE,
+        notch = FALSE, names.x, data = sys.frame(sys.parent()),
+        plot = TRUE, border = par("fg"), col = NULL, log = "",
+        pars = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="boxplot_:_...">...</code></td>
+<td>
+<p>the data from which the boxplots are to be produced.  The
+data can be specified as separate vectors, each corresponding to a
+component boxplot, or as a single list containing such vectors.
+Alternatively a symbolic specification of the form <code>x ~ g</code> can
+be given, indicating the the observations in the vector <code>x</code> are
+to be grouped according to the levels of the factor <code>g</code>.  In
+this case the argument <code>data</code> can be used to provide values for
+the variables in the specification.
+<code>NA</code>s are allowed in the data.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_range">range</code></td>
+<td>
+<p>this determines how far the plot whiskers extend out from
+the box.  If <code>range</code> is positive, the whiskers extend to the
+most extreme data point which is no more than <code>range</code> times the
+interquartile range from the box.
+A value of zero causes the whiskers to extend to the data extremes.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_width">width</code></td>
+<td>
+<p>a vector giving the relative widths of the boxes making
+up the plot.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_varwidth">varwidth</code></td>
+<td>
+<p>if <code>varwidth</code> is <code>TRUE</code>, the boxes are drawn
+with widths proportional to the square-roots of the number of
+observations in the groups.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_notch">notch</code></td>
+<td>
+<p>if <code>notch</code> is <code>TRUE</code>, a notch is drawn in each
+side of the boxes.  If the notches of two plots do not overlap then
+the medians are significantly different at the 5 percent level.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_names.x">names.x</code></td>
+<td>
+<p>group labels which while be printed under each boxplot.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_data">data</code></td>
+<td>
+<p><code>data.frame</code>, <code>list</code>, or
+<code>environment</code> in which variable names are evaluated when
+<code>x</code> is a formula.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_plot">plot</code></td>
+<td>
+<p>if <code>TRUE</code> (the default) then a boxplot is produced.
+If not, the summaries which the boxplots are based on are returned.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_border">border</code></td>
+<td>
+<p>an optional vector of colors for the outlines of the
+boxplots.  The values in <code>border</code> are recycled if the length of
+<code>border</code> is less than the number of plots.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_col">col</code></td>
+<td>
+<p>if <code>col</code> is non-null it is assumed to contain colors
+to be used to col the bodies of the box plots.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_log">log</code></td>
+<td>
+<p>character indicating if x- or y- or both coordinates should
+be plotted in log scale.</p>
+</td></tr>
+<tr><td><code id="boxplot_:_pars">pars</code>, <code id="boxplot_:_...">...</code></td>
+<td>
+<p>graphical parameters can also be passed as arguments to
+<code>boxplot</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>This function is usually invoked for its side effect which is to
+produce box-and-whisker plots of the given values.  However, it also
+returns a list with one component corresponding to each plot.  The
+components are themselves lists with named components as follows:
+</p>
+<table>
+<tr><td><code>stats</code></td>
+<td>
+<p>a vector containing the extreme of the lower whisker, the
+lower hinge, the median, the upper hinge and the extreme of the
+upper whisker.</p>
+</td></tr>
+<tr><td><code>n</code></td>
+<td>
+<p>the number of observations in the sample.</p>
+</td></tr>
+<tr><td><code>conf</code></td>
+<td>
+<p>the lower and upper extremes of the notch.</p>
+</td></tr>
+<tr><td><code>out</code></td>
+<td>
+<p>the values of any data points which lie beyond the extremes
+of the whiskers.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>boxplot.stats</code> which does the computation,
+<code>bxp</code> for the plotting, and <code>stripplot</code> for an
+alternative (with small data sets).
+</p>
+<p><code>plot.default</code> for some high-level plotting parameters.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(insects)
+boxplot(count ~ spray, data = insects, col = "lightgray")
+
+data(bees)
+boxplot(decrease ~ treatment, data = bees, log = "y", col="bisque")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.1 ]</div>
+</div>
+</body></html>

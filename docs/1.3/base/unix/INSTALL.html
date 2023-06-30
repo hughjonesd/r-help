@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><title>R: Install Add-on Packages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/INSTALL.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/INSTALL.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>INSTALL {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='INSTALL'>Install Add-on Packages</h2>
+
+<h3>Description</h3>
+
+<p>Utility for installing add-on packages.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R CMD INSTALL [options] [-l lib] pkgs</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="INSTALL_:_pkgs">pkgs</code></td>
+<td>
+<p>A list with the path names of the packages to be
+installed.</p>
+</td></tr>
+<tr><td><code id="INSTALL_:_lib">lib</code></td>
+<td>
+<p>the path name of the <span class="rlang"><b>R</b></span> library tree to install to.</p>
+</td></tr>
+<tr><td><code id="INSTALL_:_options">options</code></td>
+<td>
+<p>a list of options through which in particular the
+process for building the help files can be controlled.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If used as <code>R CMD INSTALL pkgs</code> without explicitly specifying
+<code>lib</code>, packages are installed into the library tree rooted at the
+first directory given in <code>\$R\_LIBS</code> if this is set and non-null,
+and to the default library tree (which is rooted at
+&lsquo;<span class="file">\$R\_HOME/library</span>&rsquo;) otherwise.
+</p>
+<p>To install into the library tree <code>lib</code>, use
+<code>R CMD INSTALL -l lib pkgs</code>.
+</p>
+<p>Both <code>lib</code> and the elements of <code>pkgs</code> may be absolute or
+relative path names. <code>pkgs</code> can also contain name of package
+archive files of the form &lsquo;<span class="file">pkg\_version.tar.gz</span>&rsquo; as obtained from
+CRAN, these are then extracted in a temporary directory.
+</p>
+<p>Some package sources contain a &lsquo;<span class="file">configure</span>&rsquo; script that can be
+passed arguments or variables via the option <code>--configure-args</code>
+and <code>--configure-vars</code>, respectively, if necessary.  The latter
+is useful in particular if libraries or header files needed for the
+package are in non-system directories.  In this case, one can use the
+configure variables <code>LIBS</code> and <code>CPPFLAGS</code> to specify these
+locations (and set these via <code>--configure-vars</code>).  One can also
+bypass the configure mechanism using the option
+<code>--no-configure</code>.
+</p>
+<p>If <code>--no-docs</code> is given, no help files are built.  Options
+<code>--no-text</code>, <code>--no-html</code>, and <code>--no-latex</code> suppress
+creating the text, HTML, and LaTeX versions, respectively.  The
+default is to build help files in all three versions.
+</p>
+<p>If the option <code>--save</code> is used, the installation procedure
+creates a binary image of the package code, which is then loaded when
+the package is attached, rather than evaluating the package source at
+that time.  Having a file &lsquo;<span class="file">INSTALL.R</span>&rsquo; in the package directory
+(its contents don't matter) makes this the default behavior for the
+package (option <code>--no-save</code> overrides).  You may need
+<code>--save</code> if your package requires other packages to evaluate its
+own source.
+</p>
+<p>Use <code>R CMD INSTALL --help</code> for more usage information.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>REMOVE</code>,
+<code>update.packages</code> for automatic update of packages using
+the internet;
+the chapter on &ldquo;Creating R packages&rdquo; in &ldquo;Writing <span class="rlang"><b>R</b></span> Extensions&rdquo;
+(see the &lsquo;<span class="file">doc/manual</span>&rsquo; subdirectory of the <span class="rlang"><b>R</b></span> source tree).
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3 ]</div>
+</div>
+</body></html>

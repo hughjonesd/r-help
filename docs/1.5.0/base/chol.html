@@ -1,0 +1,142 @@
+<!DOCTYPE html><html><head><title>R: The Choleski Decomposition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/chol.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/chol.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>chol {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='chol'>The Choleski Decomposition</h2>
+
+<h3>Description</h3>
+
+<p>Compute the Choleski factorization of a symmetric (Hermitian),
+positive definite square matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>chol(x, pivot = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="chol_:_x">x</code></td>
+<td>
+<p>a symmetric, positive definite matrix</p>
+</td></tr>
+<tr><td><code id="chol_:_pivot">pivot</code></td>
+<td>
+<p>Should pivoting be used?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note that only the upper triangular part of <code>x</code> is used, so
+that <code class="reqn">R'R = x</code> when <code>x</code> is symmetric.
+</p>
+<p>If <code>pivot = FALSE</code> and <code>x</code> is not non-negative definite an
+error occurs.  If <code>x</code> is positive semi-definite (i.e. some zero
+eigenvalues) an error may or may not occur, depending on
+finite precision numerical errors.
+</p>
+<p>If <code>pivot = TRUE</code>, then the Choleski decomposition of a positive
+semi-definite <code>x</code> can be computed.  The rank of <code>x</code> is
+returned as <code>attr(Q, "rank")</code>, subject to numerical errors.
+The pivot is returned as <code>attr(Q, "pivot")</code>.  It is no longer
+the case that <code>t(Q) %*% Q</code> equals <code>x</code>.  However, setting
+<code>pivot &lt;- attr(Q, "pivot")</code> and <code>oo &lt;- order(pivot)</code>, it
+is true that <code>t(Q[, oo]) %*% Q[, oo]</code> equals <code>x</code>,
+or, alternatively, <code>t(Q) %*% Q</code> equals <code>x[pivot,
+  pivot]</code>.  See the examples.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The upper triangular factor of the Choleski decomposition, i.e., the
+matrix <code class="reqn">R</code> such that <code class="reqn">R'R = x</code> (see example).
+</p>
+<p>If pivoting is used, then two additional attributes
+<code>"pivot"</code> and <code>"rank"</code> are also returned.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>The code does not check for symmetry or for non-negative
+definiteness.  If <code>pivot = TRUE</code> and <code>x</code> is not non-negative
+definite then there will be no error message but a meaningless
+result will occur.  So only use <code>pivot = TRUE</code> when <code>x</code> is
+non-negative definite by construction.
+</p>
+
+
+<h3>References</h3>
+
+<p>Dongarra, J. J., Bunch, J. R., Moler, C. B. and Stewart, G. W. (1978)
+<em>LINPACK Users Guide.</em>  Philadelphia: SIAM Publications.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>chol2inv</code> for its <em>inverse</em> (without pivoting),
+<code>backsolve</code> for solving linear systems with upper
+triangular left sides.
+</p>
+<p><code>qr</code>, <code>svd</code> for related matrix factorizations.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>( m &lt;- matrix(c(5,1,1,3),2,2) )
+( cm &lt;- chol(m) )
+t(cm) %*% cm  #-- = 'm'
+all(abs(m  -  t(cm) %*% cm) &lt; 100* .Machine$double.eps) # TRUE
+
+
+x &lt;- matrix(c(1:5, (1:5)^2), 5, 2)
+m &lt;- crossprod(x)
+Q &lt;- chol(m)
+all.equal(t(Q) %*% Q, m) # TRUE
+
+Q &lt;- chol(m, pivot = TRUE)
+pivot &lt;- attr(Q, "pivot")
+oo &lt;- order(pivot)
+all.equal(t(Q[, oo]) %*% Q[, oo], m) # TRUE
+all.equal(t(Q) %*% Q, m[pivot, pivot]) # TRUE
+
+# now for something postitive semi-definite
+x &lt;- cbind(x, x[, 1]+3*x[, 2])
+m &lt;- crossprod(x)
+qr(m)$rank # is 2, as it should be
+
+test &lt;- try(Q &lt;- chol(m))
+
+(Q &lt;- chol(m, pivot = TRUE)) # NB wrong rank here ... you have been warned!
+pivot &lt;- attr(Q, "pivot")
+oo &lt;- order(pivot)
+all.equal(t(Q[, oo]) %*% Q[, oo], m) # TRUE
+all.equal(t(Q) %*% Q, m[pivot, pivot]) # TRUE
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.0 ]</div>
+</div>
+</body></html>

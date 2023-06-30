@@ -1,0 +1,274 @@
+<!DOCTYPE html><html><head><title>R: Distance Matrix Computation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/dist.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/dist.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dist {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dist'>Distance Matrix Computation</h2>
+
+<h3>Description</h3>
+
+<p>This function computes and returns the distance matrix computed by
+using the specified distance measure to compute the distances between
+the rows of a data matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dist(x, method = "euclidean", diag = FALSE, upper = FALSE, p = 2)
+
+as.dist(m, diag = FALSE, upper = FALSE)
+## Default S3 method:
+as.dist(m, diag = FALSE, upper = FALSE)
+
+## S3 method for class 'dist'
+print(x, diag = NULL, upper = NULL,
+      digits = getOption("digits"), justify = "none",
+      right = TRUE, ...)
+
+## S3 method for class 'dist'
+as.matrix(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dist_:_x">x</code></td>
+<td>
+<p>a numeric matrix, data frame or <code>"dist"</code> object.</p>
+</td></tr>
+<tr><td><code id="dist_:_method">method</code></td>
+<td>
+<p>the distance measure to be used. This must be one of
+<code>"euclidean"</code>, <code>"maximum"</code>, <code>"manhattan"</code>,
+<code>"canberra"</code>, <code>"binary"</code> or <code>"minkowski"</code>.
+Any unambiguous substring can be given.</p>
+</td></tr>
+<tr><td><code id="dist_:_diag">diag</code></td>
+<td>
+<p>logical value indicating whether the diagonal of the
+distance matrix should be printed by <code>print.dist</code>.</p>
+</td></tr>
+<tr><td><code id="dist_:_upper">upper</code></td>
+<td>
+<p>logical value indicating whether the upper triangle of the
+distance matrix should be printed by <code>print.dist</code>.</p>
+</td></tr>
+<tr><td><code id="dist_:_p">p</code></td>
+<td>
+<p>The power of the Minkowski distance.</p>
+</td></tr>
+<tr><td><code id="dist_:_m">m</code></td>
+<td>
+<p>An object with distance information to be converted to a
+<code>"dist"</code> object.  For the default method, a <code>"dist"</code>
+object, or a matrix (of distances) or an object which can be coerced
+to such a matrix using <code>as.matrix()</code>.  (Only the lower
+triangle of the matrix is used, the rest is ignored).</p>
+</td></tr>
+<tr><td><code id="dist_:_digits">digits</code>, <code id="dist_:_justify">justify</code></td>
+<td>
+<p>passed to <code>format</code> inside of
+<code>print()</code>.</p>
+</td></tr>
+<tr><td><code id="dist_:_right">right</code>, <code id="dist_:_...">...</code></td>
+<td>
+<p>further arguments, passed to other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Available distance measures are (written for two vectors <code class="reqn">x</code> and
+<code class="reqn">y</code>):
+</p>
+
+<dl>
+<dt><code>euclidean</code>:</dt><dd><p>Usual square distance between the two
+vectors (2 norm).</p>
+</dd>
+<dt><code>maximum</code>:</dt><dd><p>Maximum distance between two components of <code class="reqn">x</code>
+and <code class="reqn">y</code> (supremum norm)</p>
+</dd>
+<dt><code>manhattan</code>:</dt><dd><p>Absolute distance between the two vectors
+(1 norm).</p>
+</dd>
+<dt><code>canberra</code>:</dt><dd>
+<p><code class="reqn">\sum_i |x_i - y_i| / |x_i + y_i|</code>.
+Terms with zero numerator and denominator are omitted from the sum
+and treated as if the values were missing.
+</p>
+<p>This is intended for non-negative values (e.g. counts): taking the
+absolute value of the denominator is a 1998 <span class="rlang"><b>R</b></span> modification to
+avoid negative distances.
+</p>
+</dd>
+<dt><code>binary</code>:</dt><dd><p>(aka <em>asymmetric binary</em>): The vectors
+are regarded as binary bits, so non-zero elements are &lsquo;on&rsquo;
+and zero elements are &lsquo;off&rsquo;.  The distance is the
+<em>proportion</em> of bits in which only one is on amongst those in
+which at least one is on.</p>
+</dd>
+<dt><code>minkowski</code>:</dt><dd><p>The <code class="reqn">p</code> norm, the <code class="reqn">p</code>th root of the
+sum of the <code class="reqn">p</code>th powers of the differences of the components.</p>
+</dd>
+</dl>
+
+<p>Missing values are allowed, and are excluded from all computations
+involving the rows within which they occur.
+Further, when <code>Inf</code> values are involved, all pairs of values are
+excluded when their contribution to the distance gave <code>NaN</code> or
+<code>NA</code>.<br />
+If some columns are excluded in calculating a Euclidean, Manhattan,
+Canberra or Minkowski distance, the sum is scaled up proportionally
+to the number of columns used.  If all pairs are excluded when calculating a
+particular distance, the value is <code>NA</code>.
+</p>
+<p>The <code>"dist"</code> method of <code>as.matrix()</code> and <code>as.dist()</code>
+can be used for conversion between objects of class <code>"dist"</code>
+and conventional distance matrices.
+</p>
+<p><code>as.dist()</code> is a generic function.  Its default method handles
+objects inheriting from class <code>"dist"</code>, or coercible to matrices
+using <code>as.matrix()</code>.  Support for classes representing
+distances (also known as dissimilarities) can be added by providing an
+<code>as.matrix()</code> or, more directly, an <code>as.dist</code> method
+for such a class.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>dist</code> returns an object of class <code>"dist"</code>.
+</p>
+<p>The lower triangle of the distance matrix stored by columns in a
+vector, say <code>do</code>. If <code>n</code> is the number of
+observations, i.e., <code>n &lt;- attr(do, "Size")</code>, then
+for <code class="reqn">i &lt; j \le n</code>, the dissimilarity between (row) i and j is
+<code>do[n*(i-1) - i*(i-1)/2 + j-i]</code>.
+The length of the vector is <code class="reqn">n*(n-1)/2</code>, i.e., of order <code class="reqn">n^2</code>.
+</p>
+<p>The object has the following attributes (besides <code>"class"</code> equal
+to <code>"dist"</code>):
+</p>
+<table>
+<tr><td><code>Size</code></td>
+<td>
+<p>integer, the number of observations in the dataset.</p>
+</td></tr>
+<tr><td><code>Labels</code></td>
+<td>
+<p>optionally, contains the labels, if any, of the
+observations of the dataset.</p>
+</td></tr>
+<tr><td><code>Diag</code>, <code>Upper</code></td>
+<td>
+<p>logicals corresponding to the arguments <code>diag</code>
+and <code>upper</code> above, specifying how the object should be printed.</p>
+</td></tr>
+<tr><td><code>call</code></td>
+<td>
+<p>optionally, the <code>call</code> used to create the
+object.</p>
+</td></tr>
+<tr><td><code>method</code></td>
+<td>
+<p>optionally, the distance method used; resulting from
+<code>dist()</code>, the (<code>match.arg()</code>ed) <code>method</code>
+argument.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Mardia, K. V., Kent, J. T. and Bibby, J. M. (1979)
+<em>Multivariate Analysis.</em> Academic Press.
+</p>
+<p>Borg, I. and Groenen, P. (1997)
+<em>Modern Multidimensional Scaling.  Theory and Applications.</em>
+Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>daisy</code> in the <span class="pkg">cluster</span> package with more
+possibilities in the case of <em>mixed</em> (continuous / categorical)
+variables.
+<code>hclust</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+x &lt;- matrix(rnorm(100), nrow=5)
+dist(x)
+dist(x, diag = TRUE)
+dist(x, upper = TRUE)
+m &lt;- as.matrix(dist(x))
+d &lt;- as.dist(m)
+stopifnot(d == dist(x))
+
+## Use correlations between variables "as distance"
+dd &lt;- as.dist((1 - cor(USJudgeRatings))/2)
+round(1000 * dd) # (prints more nicely)
+plot(hclust(dd)) # to see a dendrogram of clustered variables
+
+## example of binary and canberra distances.
+x &lt;- c(0, 0, 1, 1, 1, 1)
+y &lt;- c(1, 0, 1, 1, 0, 1)
+dist(rbind(x,y), method= "binary")
+## answer 0.4 = 2/5
+dist(rbind(x,y), method= "canberra")
+## answer 2 * (6/5)
+
+## To find the names
+labels(eurodist)
+
+## Examples involving "Inf" :
+## 1)
+x[6] &lt;- Inf
+(m2 &lt;- rbind(x,y))
+dist(m2, method="binary")# warning, answer 0.5 = 2/4
+## These all give "Inf":
+stopifnot(Inf == dist(m2, method= "euclidean"),
+          Inf == dist(m2, method= "maximum"),
+          Inf == dist(m2, method= "manhattan"))
+##  "Inf" is same as very large number:
+x1 &lt;- x; x1[6] &lt;- 1e100
+stopifnot(dist(cbind(x ,y), method="canberra") ==
+    print(dist(cbind(x1,y), method="canberra")))
+
+## 2)
+y[6] &lt;- Inf #-&gt; 6-th pair is excluded
+dist(rbind(x,y), method="binary")   # warning; 0.5
+dist(rbind(x,y), method="canberra") # 3
+dist(rbind(x,y), method="maximum")  # 1
+dist(rbind(x,y), method="manhattan")# 2.4
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.11.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><title>R: Get the Default Grid Viewport</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/current.viewport.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/current.viewport.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>current.viewport {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='current.viewport'>Get the Default Grid Viewport</h2>
+
+<h3>Description</h3>
+
+<p>Returns the viewport that Grid is going to draw into.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>current.viewport(vp=NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="current.viewport_:_vp">vp</code></td>
+<td>
+<p>A Grid viewport object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function should only be used without the <code>vp</code>
+argument (i.e., only to return the current viewport).
+</p>
+<p>The <code>vp</code> argument only exists for historical reasons.
+It will be removed in future versions.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A Grid viewport object.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p><code>viewport</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 1.8.1 ]</div>
+</div>
+</body></html>

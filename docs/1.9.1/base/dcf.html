@@ -1,0 +1,132 @@
+<!DOCTYPE html><html><head><title>R: Read and Write Data in DCF Format</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dcf.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dcf.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dcf {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dcf'>Read and Write Data in DCF Format</h2>
+
+<h3>Description</h3>
+
+<p>Reads or writes an <span class="rlang"><b>R</b></span> object from/to a file in Debian Control File format.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>read.dcf(file, fields=NULL)
+write.dcf(x, file = "", append = FALSE,
+          indent = 0.1 * getOption("width"),
+          width = 0.9 * getOption("width"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dcf_:_file">file</code></td>
+<td>
+<p>either a character string naming a file or a connection.
+<code>""</code> indicates output to the console.</p>
+</td></tr>
+<tr><td><code id="dcf_:_fields">fields</code></td>
+<td>
+<p>Fields to read from the DCF file. Default is to read all
+fields.</p>
+</td></tr>
+<tr><td><code id="dcf_:_x">x</code></td>
+<td>
+<p>the object to be written, typically a data frame.  If not, it
+is attempted to coerce <code>x</code> to a data frame.</p>
+</td></tr>
+<tr><td><code id="dcf_:_append">append</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, the output is appended to the
+file.  If <code>FALSE</code>, any existing file of the name is destroyed.</p>
+</td></tr>
+<tr><td><code id="dcf_:_indent">indent</code></td>
+<td>
+<p>a positive integer specifying the indentation for
+continuation lines in output entries.</p>
+</td></tr>
+<tr><td><code id="dcf_:_width">width</code></td>
+<td>
+<p>a positive integer giving the target column for wrapping
+lines in the output.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>DCF is a simple format for storing databases in plain text files that
+can easily be directly read and written by humans. DCF is used in
+various places to store R system information, like descriptions and
+contents of packages.
+</p>
+<p>The DCF rules as implemented in R are:
+</p>
+
+<ol>
+<li><p> A database consists of one or more records, each with one or
+more named fields. Not every record must contain each field, a
+field may appear only once in a record.
+</p>
+</li>
+<li><p> Regular lines start with a non-whitespace character.
+</p>
+</li>
+<li><p> Regular lines are of form <code>tag:value</code>, i.e.,
+have a name tag and a value for the field, separated
+by <code>:</code> (only the first <code>:</code> counts). The value can be
+empty (=whitespace only).
+</p>
+</li>
+<li><p> Lines starting with whitespace are continuation lines (to the
+preceding field) if at least one character
+in the line is non-whitespace.
+</p>
+</li>
+<li><p> Records are separated by one or more empty (=whitespace only)
+lines.
+</p>
+</li></ol>
+
+<p><code>read.dcf</code> returns a character matrix with one line per record
+and one column per field. Leading and trailing whitespace of field
+values is ignored. If a tag name is specified, but the corresponding
+value is empty, then an empty string of length 0 is returned. If the
+tag name of a fields is never used in a record, then <code>NA</code> is
+returned.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>write.table</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Create a reduced version of the 'CONTENTS' file in package 'splines'
+x &lt;- read.dcf(file = system.file("CONTENTS", package = "splines"),
+              fields = c("Entry", "Description"))
+write.dcf(x)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.1 ]</div>
+</div>
+</body></html>

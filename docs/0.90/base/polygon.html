@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><title>R: Polygon Drawing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/polygon.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/polygon.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>polygon {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='polygon'>Polygon Drawing</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>polygon(x, y = NULL, density = -1, angle = 45, border=par("fg"), ...) {
+}
+{polygon}
+{
+\item{x,y}{vectors containing the coordinates of the vertices
+  of the polygon.}
+\item{density}{density of fill pattern. <em>NOT YET</em> implemented.}
+\item{angle}{angle of fill pattern. <em>NOT YET</em> implemented.}
+\item{border}{the color to draw the border.  Defaults to
+  <code>par("fg")</code>.  Use <code>border=0</code> to omit borders.} 
+\item{...}{graphical parameters can be given as arguments to
+  <code>polygon</code>, must importantly,}
+\item{col}{an integer specifying the color to be used in
+  filling the polygon.  The default is to leave polygons unfilled.}
+}
+{
+<code>polygon</code> draws the polygons whose vertices are
+given in <code>x</code> and <code>y</code>.
+}
+{
+  <code>segments</code> for even more flexibility,
+  <code>lines</code>, <code>rect</code>, <code>box</code>, <code>abline</code>.
+}	
+{
+n &lt;- 100
+xx &lt;- c(0:n, n:0)
+yy &lt;- c(c(0,cumsum(rnorm(n))), rev(c(0,cumsum(rnorm(n)))))
+plot   (xx, yy, type="n", xlab="Time", ylab="Distance")
+polygon(xx, yy, col="gray", border = "red")
+title("Distance Between Brownian Motions")
+}
+{aplot}
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.90 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html><html><head><title>R: Step Functions - Creation and Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stepfun.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stepfun.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>stepfun {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='stepfun'>Step Functions - Creation and Class</h2>
+
+<h3>Description</h3>
+
+<p>Given the vectors <code class="reqn">(x_1, \ldots, x_n)</code> and
+<code class="reqn">(y_0,y_1,\ldots, y_n)</code> (one value
+more!), <code>stepfun(x, y, ...)</code> returns an interpolating
+&lsquo;step&rsquo; function, say <code>fn</code>. I.e., <code class="reqn">fn(t) =
+    c</code><code class="reqn">_i</code> (constant) for <code class="reqn">t \in (x_i, x_{i+1})</code> and at the abscissa values, if (by default)
+<code>right = FALSE</code>, <code class="reqn">fn(x_i) = y_i</code> and for
+<code>right = TRUE</code>, <code class="reqn">fn(x_i) = y_{i-1}</code>, for
+<code class="reqn">i=1,\ldots,n</code>.
+</p>
+<p>The value of the constant <code class="reqn">c_i</code> above depends on the
+&lsquo;continuity&rsquo; parameter <code>f</code>.
+For the default, <code>right = FALSE, f = 0</code>,
+<code>fn</code> is a <em>cadlag</em> function, i.e., continuous from the right,
+limits from the left, so that the function is piecewise constant on
+intervals that include their <em>left</em> endpoint.
+In general, <code class="reqn">c_i</code> is interpolated in between the
+neighbouring <code class="reqn">y</code> values,
+<code class="reqn">c_i= (1-f) y_i + f\cdot y_{i+1}</code>.
+Therefore, for non-0 values of <code>f</code>, <code>fn</code> may no longer be a proper
+step function, since it can be discontinuous from both sides, unless
+<code>right = TRUE, f = 1</code> which is left-continuous (i.e., constant
+pieces contain their right endpoint).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>stepfun(x, y, f = as.numeric(right), ties = "ordered",
+        right = FALSE)
+
+is.stepfun(x)
+knots(Fn, ...)
+as.stepfun(x, ...)
+
+## S3 method for class 'stepfun'
+print(x, digits = getOption("digits") - 2, ...)
+
+## S3 method for class 'stepfun'
+summary(object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="stepfun_:_x">x</code></td>
+<td>
+<p>numeric vector giving the knots or jump locations of the step
+function for <code>stepfun()</code>.  For the other functions, <code>x</code> is
+as <code>object</code> below.</p>
+</td></tr>
+<tr><td><code id="stepfun_:_y">y</code></td>
+<td>
+<p>numeric vector one longer than <code>x</code>, giving the heights of
+the function values <em>between</em> the x values.</p>
+</td></tr>
+<tr><td><code id="stepfun_:_f">f</code></td>
+<td>
+<p>a number between 0 and 1, indicating how interpolation outside
+the given x values should happen.  See <code>approxfun</code>.</p>
+</td></tr>
+<tr><td><code id="stepfun_:_ties">ties</code></td>
+<td>
+<p>Handling of tied <code>x</code> values. Either a function or
+the string <code>"ordered"</code>.  See  <code>approxfun</code>.</p>
+</td></tr>
+<tr><td><code id="stepfun_:_right">right</code></td>
+<td>
+<p>logical, indicating if the intervals should be closed on
+the right (and open on the left) or vice versa.</p>
+</td></tr>
+<tr><td><code id="stepfun_:_Fn">Fn</code>, <code id="stepfun_:_object">object</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object inheriting from <code>"stepfun"</code>.</p>
+</td></tr>
+<tr><td><code id="stepfun_:_digits">digits</code></td>
+<td>
+<p>number of significant digits to use, see <code>print</code>.</p>
+</td></tr>
+<tr><td><code id="stepfun_:_...">...</code></td>
+<td>
+<p>potentially further arguments (required by the generic).</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A function of class <code>"stepfun"</code>, say <code>fn</code>.
+</p>
+<p>There are methods available for summarizing (<code>"summary(.)"</code>),
+representing (<code>"print(.)"</code>) and plotting  (<code>"plot(.)"</code>, see
+<code>plot.stepfun</code>) <code>"stepfun"</code> objects.
+</p>
+<p>The <code>environment</code> of <code>fn</code> contains all the
+information needed;
+</p>
+<table>
+<tr><td><code>"x"</code>, <code>"y"</code></td>
+<td>
+<p>the original arguments</p>
+</td></tr>
+<tr><td><code>"n"</code></td>
+<td>
+<p>number of knots (x values)</p>
+</td></tr>
+<tr><td><code>"f"</code></td>
+<td>
+<p>continuity parameter</p>
+</td></tr>
+<tr><td><code>"yleft"</code>, <code>"yright"</code></td>
+<td>
+<p>the function values <em>outside</em> the knots</p>
+</td></tr>
+<tr><td><code>"method"</code></td>
+<td>
+<p>(always <code>== "constant"</code>, from
+<code>approxfun(.)</code>).</p>
+</td></tr>
+</table>
+<p>The knots are also available via <code>knots(fn)</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The objects of class <code>"stepfun"</code> are not intended to be used for
+permanent storage and may change structure between versions of <span class="rlang"><b>R</b></span> (and
+did at <span class="rlang"><b>R</b></span> 3.0.0).  They can usually be re-created by
+</p>
+<pre>    eval(attr(old_obj, "call"), environment(old_obj))</pre>
+<p>since the data used is stored as part of the object's environment.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Martin Maechler, <a href="mailto:maechler@stat.math.ethz.ch">maechler@stat.math.ethz.ch</a> with some basic
+code from Thomas Lumley.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ecdf</code> for empirical distribution functions as
+special step functions and <code>plot.stepfun</code> for <em>plotting</em>
+step functions.
+</p>
+<p><code>approxfun</code> and <code>splinefun</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>y0 &lt;- c(1., 2., 4., 3.)
+sfun0  &lt;- stepfun(1:3, y0, f = 0)
+sfun.2 &lt;- stepfun(1:3, y0, f = 0.2)
+sfun1  &lt;- stepfun(1:3, y0, f = 1)
+sfun1c &lt;- stepfun(1:3, y0, right = TRUE) # hence f=1
+sfun0
+summary(sfun0)
+summary(sfun.2)
+
+## look at the internal structure:
+unclass(sfun0)
+ls(envir = environment(sfun0))
+
+x0 &lt;- seq(0.5, 3.5, by = 0.25)
+rbind(x = x0, f.f0 = sfun0(x0), f.f02 = sfun.2(x0),
+      f.f1 = sfun1(x0), f.f1c = sfun1c(x0))
+## Identities :
+stopifnot(identical(y0[-1], sfun0 (1:3)), # right = FALSE
+          identical(y0[-4], sfun1c(1:3))) # right = TRUE
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 4.2.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html><html><head><title>R: Generate an Object from a Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/new.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/new.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>new {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='new'> Generate an Object from a Class </h2>
+
+<h3>Description</h3>
+
+<p>A call to  <code>new</code> returns a newly allocated object from the
+class identified by the first argument.  This call in turn calls the
+method for the generic function <code>initialize</code> corresponding to
+the specified class, passing the <code>...</code> arguments to this
+method.
+In the default method for <code>initialize()</code>, named arguments provide
+values for the corresponding slots and unnamed arguments must be
+objects from superclasses of this class.
+</p>
+<p>A call to a generating function for a class (see
+<code>setClass</code>) will pass its ... arguments to a corresponding call to <code>new()</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>new(Class, ...)
+
+initialize(.Object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="new_:_Class">Class</code></td>
+<td>
+<p>either the name of a class, a <code>character</code>
+string, (the usual case) or the object describing the class (e.g.,
+the value returned by <code>getClass</code>). Note that the character
+string passed from a generating function includes the package name
+as an attribute, avoiding ambiguity if two packages have identically
+named classes.</p>
+</td></tr>
+<tr><td><code id="new_:_...">...</code></td>
+<td>
+<p>arguments to specify properties of the new object, to
+be passed to <code>initialize()</code>.</p>
+</td></tr>
+<tr><td><code id="new_:_.Object">.Object</code></td>
+<td>
+<p> An object:  see the &ldquo;Initialize Methods&rdquo; section.</p>
+</td></tr>
+</table>
+
+
+<h3>Initialize Methods</h3>
+
+<p>The generic function <code>initialize</code> is not called directly.
+A call to <code>new</code> begins by copying the prototype object from
+the class definition, and then calls <code>intialize()</code> with this
+object as the first argument, followed by the ... arguments. 
+</p>
+<p>The interpretation of the <code>...</code> arguments in a call to a
+generator function or to <code>new()</code> can be specialized to
+particular classes, by defining an appropriate method for <code>"initialize"</code>. 
+</p>
+<p>In the default method, unnamed arguments in the <code>...</code> are interpreted as
+objects from a superclass, and named arguments are interpreted as
+objects to be assigned into the correspondingly named slots.
+Explicitly specified slots override inherited information for the same slot,
+regardless of the order in which the arguments appear.
+</p>
+<p>The <code>initialize</code> methods do not have to have <code>...</code> as
+their second argument (see the examples).  Initialize methods are
+often written when the natural parameters describing the new object
+are not the names of the slots.  If you do define such a method,
+you should include  <code>...</code> as a formal argument, and your method should pass such
+arguments along via <code>callNextMethod</code>. 
+This helps the definition of future subclasses of your class.  If these
+have additional slots and your method
+does <em>not</em> have this argument, it will be difficult for these
+slots to be included in an initializing call.
+</p>
+<p>See
+<code>initialize-methods</code> for a discussion of some classes with existing
+methods. 
+</p>
+<p>Methods for <code>initialize</code> can be inherited only by simple
+inheritance, since it is a requirement that the method return an
+object from the target class.  See the
+<code>simpleInheritanceOnly</code> argument to <code>setGeneric</code> and
+the discussion in <code>setIs</code> for the general concept.
+</p>
+<p>Note that the basic vector classes, <code>"numeric"</code>, etc. are
+implicitly defined, so one can use <code>new</code> for these classes.
+The ... arguments are interpreted as objects of this type and are
+concatenated into the resulting vector.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, John M. (2016)
+<em>Extending R</em>,
+Chapman &amp; Hall.
+(Chapters 9 and 10.)
+</p>
+
+
+<h3>See Also</h3>
+
+ <p>Classes_Details for details of class definitions, and
+<code>setOldClass</code> for the relation to S3 classes. </p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## using the definition of class "track" from \link{setClass}
+
+
+
+## a new object with two slots specified
+t1 &lt;- new("track", x = seq_along(ydata), y = ydata)
+
+# a new object including an object from a superclass, plus a slot
+t2 &lt;- new("trackCurve", t1, smooth = ysmooth)
+
+### define a method for initialize, to ensure that new objects have
+### equal-length x and y slots.  In this version, the slots must still be
+### supplied by name.
+
+setMethod("initialize", "track", 
+    function(.Object, ...) {
+      .Object &lt;- callNextMethod()
+      if(length(.Object@x) != length(.Object@y))
+      stop("specified x and y of different lengths")
+      .Object
+    })
+
+### An alternative version that allows x and y to be supplied
+### unnamed.  A still more friendly version would make the default x
+### a vector of the same length as y, and vice versa.
+
+setMethod("initialize", "track",
+          function(.Object, x = numeric(0), y = numeric(0), ...) {
+              .Object &lt;- callNextMethod(.Object, ...)
+              if(length(x) != length(y))
+                  stop("specified x and y of different lengths")
+              .Object@x &lt;- x
+              .Object@y &lt;- y
+              .Object
+          })
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 4.0.1 ]</div>
+</div>
+</body></html>

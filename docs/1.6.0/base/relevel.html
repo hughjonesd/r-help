@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: Reorder Levels of Factor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/relevel.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/relevel.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>relevel {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='relevel'>Reorder Levels of Factor</h2>
+
+<h3>Description</h3>
+
+<p>The levels of a factor are re-ordered so that the level specified by
+<code>ref</code> is first and the others are moved down. This is useful
+for <code>contr.treatment</code> contrasts which take the first level as
+the reference.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>relevel(x, ref, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="relevel_:_x">x</code></td>
+<td>
+<p>An unordered factor.</p>
+</td></tr>
+<tr><td><code id="relevel_:_ref">ref</code></td>
+<td>
+<p>The reference level.</p>
+</td></tr>
+<tr><td><code id="relevel_:_...">...</code></td>
+<td>
+<p>Additional arguments for future methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A factor of the same length as <code>x</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>B. D. Ripley</p>
+
+
+<h3>See Also</h3>
+
+<p><code>factor</code>, <code>contr.treatment</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(warpbreaks)
+warpbreaks$tension &lt;- relevel(warpbreaks$tension, ref="M")
+summary(lm(breaks ~ wool + tension, data=warpbreaks))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.0 ]</div>
+</div>
+</body></html>

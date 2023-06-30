@@ -1,0 +1,188 @@
+<!DOCTYPE html><html><head><title>R: Autocovariance and Autocorrelation Function Estimation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/acf.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/acf.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>acf {ts}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='acf'>Autocovariance and Autocorrelation Function Estimation</h2>
+
+<h3>Description</h3>
+
+<p>The function <code>acf</code> computes (and by default plots) estimates of
+the autocovariance or autocorrelation function.  Function
+<code>pacf</code> is the function used for the partial autocorrelations.
+</p>
+<p>Function <code>ccf</code> computes the cross-correlation or
+cross-covariance of two univariate series.
+</p>
+<p>The generic function <code>plot</code> has a method for objects of class
+<code>"acf"</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>acf(x, lag.max = NULL,
+    type = c("correlation", "covariance", "partial"),
+    plot = TRUE, na.action, demean = TRUE, ...)
+pacf(x, lag.max = NULL, plot = TRUE, na.action, ...)
+ccf(x, y, lag.max = NULL, type = c("correlation", "covariance"),
+    plot = TRUE,na.action, ...)
+
+plot.acf(acf.obj, ci=0.95, ci.col="blue", ci.type=c("white", "ma"), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="acf_:_x">x</code>, <code id="acf_:_y">y</code></td>
+<td>
+<p>a univariate or multivariate (not <code>ccf</code>) time
+series object or a numeric vector or matrix.</p>
+</td></tr>
+<tr><td><code id="acf_:_lag.max">lag.max</code></td>
+<td>
+<p>maximum lag at which to calculate the acf.  Default
+is <code class="reqn">10\log_{10}(N)</code> where <code class="reqn">N</code> is the number
+of observations.</p>
+</td></tr>
+<tr><td><code id="acf_:_plot">plot</code></td>
+<td>
+<p>logical. If <code>TRUE</code> the acf is plotted.</p>
+</td></tr>
+<tr><td><code id="acf_:_type">type</code></td>
+<td>
+<p>character string giving the type of acf to be computed.
+Allowed values are
+<code>"correlation"</code> (the default), <code>"covariance"</code> or
+<code>"partial"</code>.</p>
+</td></tr>
+<tr><td><code id="acf_:_na.action">na.action</code></td>
+<td>
+<p>function to be called to handle missing values.</p>
+</td></tr>
+<tr><td><code id="acf_:_demean">demean</code></td>
+<td>
+<p>logical.  Should the covariances be about the sample
+means?</p>
+</td></tr>
+<tr><td><code id="acf_:_acf.obj">acf.obj</code></td>
+<td>
+<p>an object of class <code>"acf"</code>.</p>
+</td></tr>
+<tr><td><code id="acf_:_ci">ci</code></td>
+<td>
+<p>coverage probability for confidence interval.  Plotting of
+the confidence interval is suppressed if <code>ci</code> is
+zero or negative.</p>
+</td></tr>
+<tr><td><code id="acf_:_ci.col">ci.col</code></td>
+<td>
+<p>colour to plot the confidence interval lines.</p>
+</td></tr>
+<tr><td><code id="acf_:_ci.type">ci.type</code></td>
+<td>
+<p>should the confidence limits assume a white noise
+input or for lag <code class="reqn">k</code> an MA(<code class="reqn">k-1</code>) input?</p>
+</td></tr>
+<tr><td><code id="acf_:_...">...</code></td>
+<td>
+<p>graphical parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For <code>type</code> = <code>"correlation"</code> and <code>"covariance"</code>, the
+estimates are based on the sample covariance.
+</p>
+<p>The partial correlation coefficient is estimated by fitting
+autoregressive models of successively higher orders up to
+<code>lag.max</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"acf"</code>, which is a list with the following
+elements:
+</p>
+<table>
+<tr><td><code>lag</code></td>
+<td>
+<p>A three dimensional array containing the lags at which
+the acf is estimated.</p>
+</td></tr>
+<tr><td><code>acf</code></td>
+<td>
+<p>An array with the same dimensions as <code>lag</code>
+containing the estimated acf.</p>
+</td></tr>
+<tr><td><code>type</code></td>
+<td>
+<p>The type of correlation (same as the <code>type</code> argument).</p>
+</td></tr>
+<tr><td><code>n.used</code></td>
+<td>
+<p>The number of observations in the time series.</p>
+</td></tr>
+<tr><td><code>series</code></td>
+<td>
+<p>The name of the series <code>x</code>.</p>
+</td></tr>
+<tr><td><code>snames</code></td>
+<td>
+<p>The series names for a multivariate time series.</p>
+</td></tr>
+</table>
+<p>The result is returned invisibly if <code>plot</code> is <code>TRUE</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The confidence interval plotted in <code>plot.acf</code> is based on an
+<em>uncorrelated</em> series and should be treated with appropriate
+caution. Using <code>ci.type = "ma"</code> may be less potentially
+misleading.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Original: Paul Gilbert, Martyn Plummer.  Extensive modifications
+and univariate case of <code>pacf</code> by B.D. Ripley.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Examples from Venables &amp; Ripley
+data(lh)
+acf(lh)
+acf(lh, type="covariance")
+pacf(lh)
+
+data(UKLungDeaths)
+acf(ldeaths)
+acf(ldeaths, ci.type="ma")
+acf(ts.union(mdeaths, fdeaths))
+ccf(mdeaths, fdeaths) # just the cross-correlations.
+</code></pre>
+
+
+</div>
+</body></html>

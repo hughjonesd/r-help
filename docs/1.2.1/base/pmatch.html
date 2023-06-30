@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><title>R: Partial String Matching</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/pmatch.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/pmatch.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>pmatch {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='pmatch'>Partial String Matching</h2>
+
+<h3>Description</h3>
+
+<p><code>pmatch</code> seeks matches for the elements of its first argument
+among those of its second.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>pmatch(x, table, nomatch = NA, duplicates.ok = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="pmatch_:_x">x</code></td>
+<td>
+<p>the values to be matched.</p>
+</td></tr>
+<tr><td><code id="pmatch_:_table">table</code></td>
+<td>
+<p>the values to be matched against.</p>
+</td></tr>
+<tr><td><code id="pmatch_:_nomatch">nomatch</code></td>
+<td>
+<p>the value returned at non-matching or multiply
+partially matching positions.</p>
+</td></tr>
+<tr><td><code id="pmatch_:_duplicates.ok">duplicates.ok</code></td>
+<td>
+<p>should elements be in <code>table</code> be used more
+than once?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The behaviour differs by the value of <code>duplicates.ok</code>. Consider
+first the case if this is true.  First exact matches are considered,
+and the positions of the first exact matches are recorded. Then unique
+partial matches are considered, and if found recorded. (A partial
+match occurs if the whole of the element of <code>x</code> matches the
+beginning of the element of <code>table</code>.)  Finally,
+all remaining elements of <code>x</code> are regarded as unmatched.
+In addition, an empty string can match nothing, not even an exact
+match to an empty string.  This is the appropriate behaviour for
+partial matching of character indices, for example.
+</p>
+<p>If <code>duplicates.ok</code> is <code>FALSE</code>, values of <code>table</code> once
+matched are excluded from the search for subsequent matches.  This
+behaviour is equivalent to the <span class="rlang"><b>R</b></span> algorithm for argument
+matching, except for the consideration of empty strings (which in
+argument matching are matched after exact and partial matching to any
+remaining arguments).
+</p>
+<p><code>charmatch</code> is similar to <code>pmatch</code> with
+<code>duplicates.ok</code> true, the differences being that it
+differentiates between no match and an ambiguous partial match,  it
+does match empty strings, and it does not allow multiple exact matches.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A numeric vector of integers (including <code>NA</code> if <code>nomatch =
+    NA</code>) of the same length as <code>x</code>, giving the indices of the
+elements in <code>table</code> which matched, or <code>nomatch</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Versions of <span class="rlang"><b>R</b></span> prior to 1.0.0 had a different behaviour that was
+seriously incompatible with S (and the current version) when
+<code>duplicates.ok = TRUE</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Of this version, B. D. Ripley.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>match</code>, <code>charmatch</code> and
+<code>match.arg</code>, <code>match.fun</code>,
+<code>match.call</code>, for function argument matching etc.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>pmatch("", "")                             # returns NA
+pmatch("m",   c("mean", "median", "mode")) # returns NA
+pmatch("med", c("mean", "median", "mode")) # returns 2
+
+pmatch(c("", "ab", "ab"), c("abc", "ab"), dup=FALSE)
+pmatch(c("", "ab", "ab"), c("abc", "ab"), dup=TRUE)
+## compare
+charmatch(c("", "ab", "ab"), c("abc", "ab"))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>R: Add Text to a Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/text.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/text.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>text {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='text'>Add Text to a Plot</h2>
+
+<h3>Description</h3>
+
+<p><code>text</code> draws the strings given in the vector <code>labels</code> at the
+coordinates given by <code>x</code> and <code>y</code>.
+<code>y</code> may be missing since <code>xy.coords(x,y)</code> is used for
+construction of the coordinates.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>text (x, ...)
+text.default (x, y = NULL, labels = seq(along = x), adj = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="text_:_x">x</code>, <code id="text_:_y">y</code></td>
+<td>
+<p>numeric vectors of coordinates where the text
+<code>labels</code> should be written.</p>
+</td></tr>
+<tr><td><code id="text_:_labels">labels</code></td>
+<td>
+<p>character or expression with the <em>text</em> to be
+written.</p>
+</td></tr>
+<tr><td><code id="text_:_adj">adj</code></td>
+<td>
+<p>character or expression with the <em>text</em> to be
+written.</p>
+</td></tr>
+<tr><td><code id="text_:_...">...</code></td>
+<td>
+<p>further graphical parameters (from <code>par</code>),
+such as <code>cex</code>, etc.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>labels</code> must be of type <code>character</code> or
+<code>expression</code>.  In the latter case, quite a bit of
+mathematical notation is available such as sub- and superscripts,
+greek letters, fractions, etc.
+</p>
+<p><code>adj</code> allows <em>adj</em>ustment of the text with respect to <code>(x,y)</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>mtext</code>, <code>title</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>plot(-1:1,-1:1, type = "n", xlab = "Re", ylab = "Im")
+K &lt;- 16; text(exp(1i * 2 * pi * (1:K) / K), col = 2)
+
+plot(1:10, 1:10, main = "text(..) examples")
+points(c(6,2), c(2,1), pch = 3, cex = 4, col = "red")
+text(6, 2, "the text is CENTERED around (x,y) = (6,2) by default",
+     cex = .8)
+text(2, 1, "or Left/Bottom - JUSTIFIED at (2,1) by `adj = c(0,0)'",
+     adj = c(0,0))
+text(4, 9, expression(hat(beta) == (X^t * X)^{-1} * X^t * y))
+text(4, 8.4, "expression(hat(beta) == (X^t * X)^{-1} * X^t * y)", cex = .6)
+text(4, 7, expression(bar(x) == sum(frac(x[i], n), i==1, n)))
+text(4, 6.4, "expression(bar(x) == sum(frac(x[i], n), i==1, n))", cex = .6)
+text(8, 5, expression(paste(frac(1, sigma*sqrt(2*pi)), " ",
+                            plain(e)^{frac(-(x-mu)^2, 2*sigma^2)})))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.4 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html><html><head><title>R: Principal Components Analysis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/prcomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/prcomp.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>prcomp {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='prcomp'>Principal Components Analysis</h2>
+
+<h3>Description</h3>
+
+<p>Performs a principal components analysis on the given data matrix
+and returns the results as an object of class <code>prcomp</code>.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>prcomp(x, ...)
+
+## S3 method for class 'formula'
+prcomp(formula, data = NULL, subset, na.action, ...)
+
+## Default S3 method:
+prcomp(x, retx = TRUE, center = TRUE, scale. = FALSE, tol = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="prcomp_:_formula">formula</code></td>
+<td>
+<p>a formula with no response variable.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_data">data</code></td>
+<td>
+<p>an optional data frame containing the variables in the
+formula <code>formula</code>.  By default the variables are taken from
+<code>environment(formula)</code>.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_subset">subset</code></td>
+<td>
+<p>an optional vector used to select rows (observations) of the
+data matrix <code>x</code>.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_na.action">na.action</code></td>
+<td>
+<p>a function which indicates what should happen
+when the data contain <code>NA</code>s.  The default is set by
+the <code>na.action</code> setting of <code>options</code>, and is
+<code>na.fail</code> if that is unset. The &ldquo;factory-fresh&rdquo;
+default is <code>na.omit</code>.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_...">...</code></td>
+<td>
+<p>arguments passed to or from other methods. If <code>x</code> is
+a formula one might specify <code>scale.</code> or <code>tol</code>.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_x">x</code></td>
+<td>
+<p>a numeric or complex matrix (or data frame) which provides
+the data for the principal components analysis.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_retx">retx</code></td>
+<td>
+<p>a logical value indicating whether the rotated variables
+should be returned.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_center">center</code></td>
+<td>
+<p>a logical value indicating whether the variables
+should be shifted to be zero centered. Alternately, a vector of
+length equal the number of columns of <code>x</code> can be supplied.
+The value is passed to <code>scale</code>.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_scale.">scale.</code></td>
+<td>
+<p>a logical value indicating whether the variables should
+be scaled to have unit variance before the analysis takes
+place. The default is <code>FALSE</code> for consistency with S, but
+in general scaling is advisable.  Alternatively, a vector of length
+equal the number of columns of <code>x</code> can be supplied.  The
+value is passed to <code>scale</code>.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_tol">tol</code></td>
+<td>
+<p>a value indicating the magnitude below which components
+should be omitted. (Components are omitted if their
+standard deviations are less than or equal to <code>tol</code> times the
+standard deviation of the first component.)
+With the default null setting, no components
+are omitted.  Other settings for tol could be <code>tol = 0</code> or
+<code>tol = sqrt(.Machine$double.eps)</code>, which would omit
+essentially constant components.</p>
+</td></tr> 
+</table>
+
+
+<h3>Details</h3>
+
+<p>The calculation is done by a singular value decomposition of the
+(centered and possibly scaled) data matrix, not by using
+<code>eigen</code> on the covariance matrix.  This
+is generally the preferred method for numerical accuracy.  The
+<code>print</code> method for the these objects prints the results in a nice
+format and the <code>plot</code> method produces a scree plot.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>prcomp</code> returns an list with class <code>"prcomp"</code>
+containing the following components:
+</p>
+<table>
+<tr><td><code>sdev</code></td>
+<td>
+<p>the standard deviations of the principal components
+(i.e., the square roots of the eigenvalues of the
+covariance/correlation matrix, though the calculation
+is actually done with the singular values of the data matrix).</p>
+</td></tr>
+<tr><td><code>rotation</code></td>
+<td>
+<p>the matrix of variable loadings (i.e., a matrix
+whose columns contain the eigenvectors).  The function
+<code>princomp</code> returns this in the element <code>loadings</code>.</p>
+</td></tr>
+<tr><td><code>x</code></td>
+<td>
+<p>if <code>retx</code> is true the value of the rotated data (the
+centred (and scaled if requested) data multiplied by the
+<code>rotation</code> matrix) is returned.</p>
+</td></tr>
+<tr><td><code>center</code>, <code>scale</code></td>
+<td>
+<p>the centering and scaling used, or <code>FALSE</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>The signs of the columns of the rotation matrix are arbitrary, and
+so may differ between different programs for PCA, and even between
+different builds of <span class="rlang"><b>R</b></span>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+<p>Mardia, K. V., J. T. Kent, and J. M. Bibby (1979)
+<em>Multivariate Analysis</em>, London: Academic Press.
+</p>
+<p>Venables, W. N. and B. D. Ripley (2002)
+<em>Modern Applied Statistics with S</em>, Springer-Verlag.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>biplot.prcomp</code>,
+<code>princomp</code>, <code>cor</code>, <code>cov</code>,
+<code>svd</code>, <code>eigen</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## the variances of the variables in the
+## USArrests data vary by orders of magnitude, so scaling is appropriate
+prcomp(USArrests)  # inappropriate
+prcomp(USArrests, scale = TRUE)
+prcomp(~ Murder + Assault + Rape, data = USArrests, scale = TRUE)
+plot(prcomp(USArrests))
+summary(prcomp(USArrests, scale = TRUE))
+biplot(prcomp(USArrests, scale = TRUE))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.0.0 ]</div>
+</div>
+</body></html>

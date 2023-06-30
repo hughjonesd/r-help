@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>R: Canonical Correlations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60.ok. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cancor.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cancor.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>cancor {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='cancor'>Canonical Correlations</h2>
+
+<h3>Description</h3>
+
+<p>This function performs a canonical correlation
+analysis for the given data.  The analysis seeks
+linear combinations of the y variables which are
+well explained by linear combinations of the
+x variables.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>cancor(x, y, xcenter=TRUE, ycenter=TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="cancor_:_x">x</code></td>
+<td>
+<p>a matrix containing the x coordinates.</p>
+</td></tr>
+<tr><td><code id="cancor_:_y">y</code></td>
+<td>
+<p>a matrix containing the y coordinates.</p>
+</td></tr>
+<tr><td><code id="cancor_:_xcenter">xcenter</code></td>
+<td>
+<p>a parameter describing any centering to be done
+on the x values before the analysis.  The default is substract
+the column means, but it is possible to supply a vector of
+values to be subtracted from the columns. It is possible to
+turn off any adjustment.</p>
+</td></tr>
+<tr><td><code id="cancor_:_ycenter">ycenter</code></td>
+<td>
+<p>like the parameter <code>xcenter</code>, but for the
+y values.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list containing the following components:
+</p>
+<table>
+<tr><td><code>xcoef</code></td>
+<td>
+<p>estimated coefficients for the x variables.</p>
+</td></tr>
+<tr><td><code>ycoef</code></td>
+<td>
+<p>estimated coefficients for the y variables.</p>
+</td></tr>
+<tr><td><code>xcenter</code></td>
+<td>
+<p>the values used to adjust the x variables.</p>
+</td></tr>
+<tr><td><code>ycenter</code></td>
+<td>
+<p>the values used to adjust the x variables.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Hotelling H. (1936).
+&ldquo;Relations between two sets of variables&rdquo;.
+<em>Biometrika</em>, <b>28</b>, 321-327.
+</p>
+<p>Seber, G. A. F. (1984).
+<em>Multivariate Analysis</em>. New York: Wiley.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>qr</code>, <code>svd</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>soil &lt;- evap.x[,1:3]
+air &lt;- evap.x[,-(1:3)]
+airsoil &lt;- cancor(air, soil)
+</code></pre>
+
+
+</div>
+</body></html>

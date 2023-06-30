@@ -1,0 +1,261 @@
+<!DOCTYPE html><html><head><title>R: General Information on Methods</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/Methods.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/Methods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Methods {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Methods'>General Information on Methods</h2>
+
+<h3>Description</h3>
+
+<p>This documentation section covers some general topics on how methods
+work and how the <span class="pkg">methods</span> package interacts with the rest of R.  The
+information is usually not needed to get started with methods and
+classes, but may be helpful for moderately ambitious projects, or when
+something doesn't work as expected.
+</p>
+<p>The section <b>How Methods Work</b> describes the underlying
+mechanism; <b>Class Inheritance and Method Selection</b> provides more
+details on how class definitions determine which methods are used.
+</p>
+<p>The section <b>Changes with the Methods Package</b> outlines possible
+effects on other computations when running with package <span class="pkg">methods</span>.
+</p>
+
+
+<h3>How Methods Work</h3>
+
+<p>A generic function is a function that has associated with it a
+collection of other functions (the methods), all of which agree in
+formal arguments with the generic.  In R, the &ldquo;collection&rdquo; is an
+object of class <code>"MethodsList"</code>, which contains a named
+list of methods (the <code>methods</code> slot), and the name of one of the
+formal arguments to the function (the <code>argument</code> slot).  The
+names of the methods are the names of classes, and the corresponding
+element defines the method or methods to be used if the corresponding
+argument has that class.  For example, suppose a function <code>f</code> has
+formal arguments <code>x</code> and <code>y</code>.  The methods list object for
+that function has the object <code>as.name("x")</code> as its
+<code>argument</code> slot.  An element of the methods named <code>"track"</code>
+is selected if the actual argument corresponding to <code>x</code> is an
+object of class <code>"track"</code>.  If there is such an element, it can
+generally be either a function or another methods list object.
+</p>
+<p>In the first case, the function defines the method to use for any call
+in which <code>x</code> is of class <code>"track"</code>.  In the second case, the
+new methods list object defines the selection of methods depending on
+the remaining formal arguments, in this example, <code>y</code>.  The same
+selection process takes place, recursively, using the new methods list.
+Eventually, the selection returns either a function or <code>NULL</code>,
+meaning that no method matched the actual arguments.
+</p>
+<p>Each method selected corresponds conceptually to a <em>signature</em>;
+that is a named list of classes, with names corresponding to some or
+all of the formal arguments.  In the previous example, if selecting
+class <code>"track"</code> for <code>x</code>, finding that the selection was
+another methods list and then selecting class <code>"numeric"</code> for
+<code>y</code> would produce a method associated with the signature
+<code>x = "track", y = "numeric"</code>.
+</p>
+<p>The actual selection is done recursively, but you can see the methods
+arranged by signature by calling the function
+<code>showMethods</code>, and objects with the methods arranged this
+way (in two different forms) are returned by the functions
+<code>listFromMlist</code> and <code>linearizeMlist</code>.
+</p>
+<p>In an R session, each generic function has a single methods list
+object defining all the currently available methods.  The session
+methods list object is created the first time the function is called
+by merging all the relevant method definitions currently visible.
+Whenever something happens that might change the definitions (such as
+attaching or detaching a package with methods for this function, or
+explicitly defining or removing methods), the merged methods list
+object is removed.  The next call to the function will recompute the
+merged definitions.
+</p>
+<p>When methods list are merged, they can come from two sources:
+</p>
+
+<ol>
+<li><p> Methods list objects for the same function anywhere on the
+current search list.  These are merged so that methods in an
+environment earlier in the search list override methods for the same
+function later in the search list.  A method overrides only 
+another method for the same signature.  See the comments on class
+<code>"ANY"</code> in the section on <b>Inheritance</b>.
+</p>
+</li>
+<li><p> Methods list objects corresponding the group generic
+functions, if any, for this function.  Any generic function can be
+defined to belong to a group generic.  The methods for the group
+generic are available as methods for this function.  The group
+generic can itself be defined as belong to a group; as a result
+there is a list of group generic functions.  A method defined for a
+function and a particular signature overrides a method for the same
+signature for that function's group generic.
+</p>
+</li></ol>
+
+<p>Merging is done first on all methods for a particular function, and
+then over the generic and its group generics.
+</p>
+<p>The result is a single methods list object that contains all the
+methods <em>directly</em> defined for this function.  As calls to the
+function occur, this information may be supplemented by
+<em>inherited</em> methods, which we consider next.
+</p>
+
+
+<h3>Class Inheritance and Method Selection</h3>
+
+<p>If no method is found directly for the actual arguments in a call to a
+generic function, an attempt is made to match the available methods to
+the arguments by using <em>inheritance</em>.
+</p>
+<p>Each class definition potentially includes the names of one or more
+classes that the new class contains.  (These are sometimes called the
+<em>superclasses</em> of the new class.)  These classes themselves may
+extend other classes.  Putting all this information together produces
+the full list of superclasses for this class. (You can see this list
+for any class <code>"A"</code> from the expression <code>extends("A")</code>.)
+In addition, any class implicitly extends class <code>"ANY"</code>.
+When all the superclasses are needed, as they are for dispatching
+methods, they are ordered by how direct they are:  first, the direct
+classes contained directly in the definition of this class, then the
+superclasses of these classes, etc.
+</p>
+<p>The S language has an additional, explicit mechanism for defining superclasses, the
+<code>setIs</code> mechanism.
+This mechanism allows a class to extend another even though they do
+not have the same representation.  The extension is made possible by
+defining explicit methods to <code>coerce</code> an object to its superclass
+and to <code>replace</code> the data in the object corresponding to the
+superclass.  The <code>setIs</code> mechanism will be used less often
+and only when directly including the superclass does not make sense,
+but once defined, the superclass acts just as directly contained
+classes as far as method selection is concerned.
+</p>
+<p>A method will be selected by inheritance if we can find a method in
+the methods list for a signature corresponding to any
+combination of superclasses for each of the relevant arguments.
+The search for such a method is performed by the function
+<code>MethodsListSelect</code>, working as follows.
+</p>
+<p>The generic, <code>f</code> say,  has a signature, which by default
+is all its formal arguments, except ... (see
+<code>setGeneric</code>). For each of the formal arguments in that
+signature, in order, the class of the actual argument is matched
+against available methods.  A missing argument corresponds to class
+<code>"missing"</code>.  If no method corresponds to the class of the
+argument, the evaluator looks for a method corresponding to the
+the superclasses (the other classes that the actual class
+extends, always including
+<code>"ANY"</code>).  If no match is found, the dispatch fails, with an
+error.  (But if there is a default method, that will always match.)
+</p>
+<p>If the match succeeds, it can find either a single method, or a
+methods list.  In the first case, the search is over, and returns
+the method.  In the second case, the search proceeds, with the
+next argument in the signature of the generic.  <em>That</em> search
+may succeed or fail.  If it fails, the dispatch will try again with
+the next best match for the current argument, if there is one.
+The last match always corresponds to class <code>"ANY"</code>.
+</p>
+<p>The effect of this definition of the selection process is to order all
+possible inherited methods, first by the superclasses for the first
+argument, then within this by the superclasses for the second
+argument, and so on.
+</p>
+
+
+<h3>Changes with the Methods Package</h3>
+
+<p>The <span class="pkg">methods</span> package is designed to leave other computations in R
+unchanged.  There are, however, a few areas where the default
+functions and behavior are overridden when running with the methods
+package attached.  This section outlines those known to have some
+possible effect.
+</p>
+
+<dl>
+<dt><code>class</code>:</dt><dd>
+<p>The <span class="pkg">methods</span> package enforces the notion that every object
+has a class; in particular, <code>class(x)</code> is never <code>NULL</code>,
+as it would be for basic vectors, for example, when not using
+<span class="pkg">methods</span>. 
+</p>
+<p>In addition, when assigning a class, the value is required to be a
+single string.  (However, objects can have multiple class names if
+these were generated by old-style class computations.  The methods
+package does not hide the &ldquo;extra&rdquo; class names.)
+</p>
+<p>Computations using the notion of <code>NULL</code> class attributes or
+of class attributes with multiple class names are not really
+compatible with the ideas in the <span class="pkg">methods</span> package.  Formal
+classes and class inheritance are designed to give more flexible
+and reliable implementations of similar ideas.
+</p>
+<p>If you do have to mix the two approaches, any operations that use
+class attributes in the old sense should be written in terms of
+<code>attr(x, "class")</code>, not <code>class(x)</code>.  In particular, test
+for no class having been assigned with
+<code>is.null(attr(x, "class"))</code>.
+</p>
+</dd>
+<dt>Printing:</dt><dd>
+<p>To provide appropriate printing automatically for objects with
+formal class definitions, the <span class="pkg">methods</span> package overrides
+<code>print.default</code>, to look for methods for the generic function
+<code>show</code>, and to use a default method for objects with formal
+class definitions.
+</p>
+<p>The revised version of <code>print.default</code> is intended to produce
+identical printing to the original version for any object that
+does <em>not</em> have a formally defined class, including honoring
+old-style print methods.  So far, no exceptions are known.
+</p>
+</dd>
+</dl>
+
+
+
+<h3>References</h3>
+
+<p>The R package <span class="pkg">methods</span> implements, with a few exceptions, the
+programming interface for classes
+and methods in the book <em>Programming with Data</em> (John
+M. Chambers, Springer, 1998), in particular sections 1.6, 2.7, 2.8,
+and chapters 7 and 8.
+</p>
+<p>While the programming interface for the <span class="pkg">methods</span> package follows
+the reference, the R software is an original implementation, so
+details in the reference that reflect the S4 implementation may appear
+differently in R.  Also, there are extensions to the programming
+interface developed more recently than the reference.  For a
+discussion of details and ongoing development, see the web page 
+<a href="http://developer.r-project.org/methodsPackage.html">http://developer.r-project.org/methodsPackage.html</a> and the
+pointers from that page.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>setGeneric</code>,
+<code>setClass</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.0.0 ]</div>
+</div>
+</body></html>

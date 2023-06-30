@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><title>R: Type Conversion on Character Variables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/type.convert.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/type.convert.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>type.convert {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='type.convert'>Type Conversion on Character Variables</h2>
+
+<h3>Description</h3>
+
+<p>Convert a character vector to logical, integer, numeric, complex or
+factor as appropriate.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>type.convert(x, na.strings = "NA", as.is = FALSE, dec = ".",
+             numerals = c("allow.loss", "warn.loss", "no.loss"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="type.convert_:_x">x</code></td>
+<td>
+<p>a character vector.</p>
+</td></tr>
+<tr><td><code id="type.convert_:_na.strings">na.strings</code></td>
+<td>
+<p>a vector of strings which are to be interpreted as
+<code>NA</code> values.  Blank fields are also considered to be
+missing values in logical, integer, numeric or complex vectors.</p>
+</td></tr>
+<tr><td><code id="type.convert_:_as.is">as.is</code></td>
+<td>
+<p>logical.  See &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="type.convert_:_dec">dec</code></td>
+<td>
+<p>the character to be assumed for decimal points.</p>
+</td></tr>
+<tr><td><code id="type.convert_:_numerals">numerals</code></td>
+<td>
+<p>string indicating how to convert numbers whose
+conversion to double precision would lose accuracy, typically when
+<code>x</code> has more digits than can be stored in a <code>double</code>.
+Can be abbreviated.  Possible values are
+</p>
+
+<dl>
+<dt><code>numerals = "allow.loss"</code>, default:</dt><dd><p>the conversion
+happens with some accuracy loss.  This has been the only
+behavior of <span class="rlang"><b>R</b></span> versions 3.0.3 and earlier.</p>
+</dd>
+<dt><code>numerals = "warn.loss"</code>:</dt><dd><p>a <code>warning</code>
+about accuracy loss is signalled and the conversion happens as
+with <code>numerals = "allow.loss"</code>.</p>
+</dd>
+<dt><code>numerals = "no.loss"</code>:</dt><dd><p><code>x</code> is <em>not</em>
+converted to a number, but to a <code>factor</code> or left as
+character, depending on <code>as.is</code>.  This has been the only
+behavior of <span class="rlang"><b>R</b></span> version 3.1.0.</p>
+</dd>
+</dl>
+
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is principally a helper function for <code>read.table</code>.
+Given a character vector, it attempts to convert it to logical,
+integer, numeric or complex, and failing that converts it to factor
+unless <code>as.is = TRUE</code>.  The first type that can accept all the
+non-missing values is chosen.
+</p>
+<p>Vectors which are entirely missing values are converted to logical,
+since <code>NA</code> is primarily logical.
+</p>
+<p>Vectors containing just <code>F</code>, <code>T</code>, <code>FALSE</code>, <code>TRUE</code>
+and values from <code>na.strings</code> are converted to logical.  Vectors
+containing optional whitespace followed by decimal constants
+representable as <span class="rlang"><b>R</b></span> integers or values from <code>na.strings</code> are
+converted to integer.  Other vectors containing optional whitespace
+followed by other decimal or hexadecimal constants (see
+NumericConstants), or <code>NaN</code>, <code>Inf</code> or <code>infinity</code>
+(ignoring case) or values from <code>na.strings</code> are converted to
+numeric.  Where converting inputs to numeric or complex would result
+in loss of accuracy they can optionally be returned as strings (for
+<code>as.is = TRUE</code>) or factors.
+</p>
+<p>Since this is a helper function, the caller should always pass an
+appropriate value of <code>as.is</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An atomic vector or (for <code>as.is = FALSE</code>) a factor.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>read.table</code></p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 3.2.3 ]</div>
+</div>
+</body></html>

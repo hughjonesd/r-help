@@ -1,0 +1,122 @@
+<!DOCTYPE html><html><head><title>R: Family Objects for Models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/family.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/family.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>family {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='family'>Family Objects for Models</h2>
+
+<h3>Description</h3>
+
+<p>Family objects provide a convenient way to specify the details of the
+models used by functions such as <code>glm</code>.  See the
+documentation for <code>glm</code> for the details on how such model
+fitting takes place.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>family(object)
+
+binomial(link = "logit")
+gaussian(link ="identity")
+Gamma(link = "inverse")
+inverse.gaussian(link = "1/mu^2")
+poisson(link = "log")
+quasi(link = "identity", variance = "constant")
+
+print.family(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="family_:_link">link</code></td>
+<td>
+<p>a specification for the model link function.
+The <code>binomial</code> family admits the links <code>logit</code>,
+<code>probit</code> and <code>cloglog</code> (complementary log-log);
+the <code>Gamma</code> family the links <code>identity</code>,
+<code>inverse</code> and <code>log</code>,
+the <code>poisson</code> family the links <code>identity</code>
+<code>log</code> and <code>sqrt</code>, and
+the <code>quasi</code> family the links <code>logit</code>, <code>probit</code>,
+<code>cloglog</code>,  <code>identity</code>, <code>inverse</code>, <code>log</code>,
+<code>1/mu^2</code> and <code>sqrt</code>.
+The function <code>power</code> can also be used to create a
+power link function for the <code>quasi</code> family.
+</p>
+<p>The other families have only one permissible link function:
+<code>identity</code> for the <code>gaussian</code> family, and <code>1/mu^2</code>
+for the <code>inverse.gaussian</code> family.</p>
+</td></tr>
+<tr><td><code id="family_:_variance">variance</code></td>
+<td>
+<p>for all families, other than <code>quasi</code>, the
+variance function is determined by the family.  The <code>quasi</code>
+family will accept the specifications <code>constant</code>,
+<code>mu(1-mu)</code>, <code>mu</code>, <code>mu^2</code> and <code>mu^3</code> as variance
+function.</p>
+</td></tr>
+<tr><td><code id="family_:_object">object</code></td>
+<td>
+<p>the function <code>family</code> accesses the <code>family</code>
+objects which are stored within objects created by modelling
+functions (e.g. <code>glm</code>).</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>McCullagh P. and J. A. Nelder (1989).
+<em>Generalized Linear Models</em>.
+London: Chapman and Hall.
+</p>
+<p>Dobson, A. J. (1983).
+<em>An Introduction to Statistical Modelling</em>.
+London: Chapman and Hall.
+</p>
+<p>Cox, D. R. and E. J. Snell (1981).
+<em>Applied Statistics; Principles and Examples</em>.
+London: Chapman and Hall.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>glm</code>, <code>power</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>nf &lt;- gaussian()# Normal family
+nf
+str(nf)# internal STRucture
+
+gf &lt;- Gamma()
+gf
+str(gf)
+gf$linkinv
+all(1:10 == gf$linkfun(gf$linkinv(1:10)))# is TRUE
+gf$variance(-3:4) #- == (.)^2
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.1 ]</div>
+</div>
+</body></html>

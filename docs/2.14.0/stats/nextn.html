@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>R: Highly Composite Numbers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nextn.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nextn.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>nextn {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='nextn'>Highly Composite Numbers</h2>
+
+<h3>Description</h3>
+
+<p><code>nextn</code> returns the smallest integer,
+greater than or equal to <code>n</code>, which can be obtained
+as a product of powers of the values contained in <code>factors</code>.
+<code>nextn</code> is intended to be used to find a suitable length
+to zero-pad the argument of <code>fft</code> to
+so that the transform is computed quickly.
+The default value for <code>factors</code> ensures this.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>nextn(n, factors = c(2,3,5))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="nextn_:_n">n</code></td>
+<td>
+<p>an integer.</p>
+</td></tr>
+<tr><td><code id="nextn_:_factors">factors</code></td>
+<td>
+<p>a vector of positive integer factors.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>convolve</code>, <code>fft</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>nextn(1001) # 1024
+table(sapply(599:630, nextn))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.14.0 ]</div>
+</div>
+</body></html>

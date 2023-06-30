@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>R: Create a Grid Graphical Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grob.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grob.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.grob {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.grob'>Create a Grid Graphical Object</h2>
+
+<h3>Description</h3>
+
+<p>Creates a Grid graphical object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.grob(list.struct, cl = NULL, draw = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.grob_:_list.struct">list.struct</code></td>
+<td>
+<p>A list (preferably with each element named).</p>
+</td></tr>
+<tr><td><code id="grid.grob_:_cl">cl</code></td>
+<td>
+<p>A string giving the class attribute for the <code>list.struct</code></p>
+</td></tr>
+<tr><td><code id="grid.grob_:_draw">draw</code></td>
+<td>
+<p>A logical value to indicate whether to produce
+graphical output.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A Grid graphical object provides a pointer to the
+<code>list.struct</code>.  This has the important consequence that
+copies of the graphical object refer to the same <code>list.struct</code>.
+</p>
+<p>All Grid primitives (<code>grid.lines</code>, <code>grid.rect</code>, ...) and
+some higher-level Grid functions (e.g., <code>grid.xaxis</code> and
+<code>grid.yaxis</code>) return graphical objects.
+</p>
+<p>Grid provides several useful functions for graphical objects
+(e.g., <code>grid.draw</code> and <code>grid.edit</code>) which are designed to make
+it easier to produce new graphical objects.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"grob"</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p><code>grid.draw</code>,
+<code>grid.edit</code>,
+<code>grid.get</code>,
+<code>grid.copy</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Create a graphical object
+l &lt;- grid.lines(draw=FALSE)
+## View the list.struct
+grid.get(l)
+## Copy by reference
+l2 &lt;- l
+## Edit the common list.struct
+grid.edit(l2, gp=gpar(col="green"))
+## Copy by value
+l3 &lt;- grid.copy(l)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 1.8.0 ]</div>
+</div>
+</body></html>

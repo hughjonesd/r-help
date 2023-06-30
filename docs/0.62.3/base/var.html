@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><title>R: Covariance Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/var.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/var.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>var {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='var'>Covariance Matrices</h2>
+
+<h3>Description</h3>
+
+<p><code>var</code> computes the variance of <code>x</code> and the
+covariance of <code>x</code> and <code>y</code> if <code>x</code> and <code>y</code>
+are vectors. If <code>x</code> and <code>y</code> are matrices then
+the covariance between the columns of <code>x</code> and the
+the columns of <code>y</code> are computed.
+</p>
+<p>If <code>na.rm</code> is <code>TRUE</code> then the complete observations (rows)
+are use to compute the variance.  If <code>na.rm</code> is <code>FALSE</code>
+and there are missing values, then <code>var</code> will fail.
+</p>
+<p>The argument <code>use</code> can also be used for describing how
+to handle missing values.
+Specifying <code>use="all"</code> is equivalent to specifying
+<code>na.rm=FALSE</code> and specifying <code>use="pair"</code> is equivalent to
+<code>na.rm=TRUE</code>.
+If <code>use="pair"</code>, then all the observations which are
+complete for a pair of variables is used to compute the
+covariance for that pair of variables.
+This can result in covariance matrices which are not
+positive semidefinite.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>var(x, y=x, na.rm=FALSE, use)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="var_:_x">x</code></td>
+<td>
+<p>a matrix or vector.</p>
+</td></tr>
+<tr><td><code id="var_:_y">y</code></td>
+<td>
+<p>a matrix or vector.</p>
+</td></tr>
+<tr><td><code id="var_:_na.rm">na.rm</code></td>
+<td>
+<p>logical.</p>
+</td></tr>
+<tr><td><code id="var_:_use">use</code></td>
+<td>
+<p>an optional character string giving a
+method for computing covariances in the presence
+of missing values.  This must be one of <code>"all.obs"</code>,
+<code>"complete.obs"</code> or <code>"pairwise.complete.obs"</code>,
+with abbreviation being permited.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>var(1:10)
+# 9.166667
+
+var(1:5,1:5)
+# 2.5
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.3 ]</div>
+</div>
+</body></html>

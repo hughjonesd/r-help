@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><title>R: Grid Graphics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/Grid.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/Grid.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Grid {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Grid'>Grid Graphics</h2>
+
+<h3>Description</h3>
+
+<p>General information about the grid graphics package.
+</p>
+
+
+<h3>Details</h3>
+
+<p>Grid graphics provides an alternative to the standard R graphics.
+The user is able to define arbitrary rectangular regions (called
+<em>viewports</em>) on the graphics device and define a number of
+coordinate systems for each region.  Drawing can be specified to occur
+in any viewport using any of the available coordinate systems.
+</p>
+<p>Grid graphics and standard R graphics do not mix!
+</p>
+<p>Type <code>library(help = grid)</code> to see a list of (public)
+Grid graphics functions.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p><code>viewport</code>,
+<code>grid.layout</code>, and
+<code>unit</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Diagram of a simple layout
+grid.show.layout(grid.layout(4,2,
+                     heights=unit(rep(1, 4),
+                                  c("lines", "lines", "lines", "null")),
+                     widths=unit(c(1, 1), "inches")))
+## Diagram of a sample viewport
+grid.show.viewport(viewport(x=0.6, y=0.6,
+                            w=unit(1, "inches"), h=unit(1, "inches")))
+## A flash plotting example
+grid.multipanel(vp=viewport(0.5, 0.5, 0.8, 0.8))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 4.0.2 ]</div>
+</div>
+</body></html>

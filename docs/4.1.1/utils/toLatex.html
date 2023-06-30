@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>R: Converting R Objects to BibTeX or LaTeX</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/toLatex.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/toLatex.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>toLatex {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='toLatex'>Converting R Objects to BibTeX or LaTeX</h2>
+
+<h3>Description</h3>
+
+<p>These methods convert <span class="rlang"><b>R</b></span> objects to character vectors with
+BibTeX or LaTeX markup.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>toBibtex(object, ...)
+toLatex(object, ...)
+## S3 method for class 'Bibtex'
+print(x, prefix = "", ...)
+## S3 method for class 'Latex'
+print(x, prefix = "", ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="toLatex_:_object">object</code></td>
+<td>
+<p>object of a class for which a <code>toBibtex</code> or
+<code>toLatex</code> method exists.</p>
+</td></tr>
+<tr><td><code id="toLatex_:_x">x</code></td>
+<td>
+<p>object of class <code>"Bibtex"</code> or
+<code>"Latex"</code>.</p>
+</td></tr>
+<tr><td><code id="toLatex_:_prefix">prefix</code></td>
+<td>
+<p>a character string which is printed at the beginning of
+each line, mostly used to insert whitespace for indentation.</p>
+</td></tr>
+<tr><td><code id="toLatex_:_...">...</code></td>
+<td>
+<p>in the print methods, passed to <code>writeLines</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Objects of class <code>"Bibtex"</code> or <code>"Latex"</code> are simply
+character vectors where each element holds one line of the
+corresponding BibTeX or LaTeX file.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>citEntry</code> and <code>sessionInfo</code> for examples</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 4.1.1 ]</div>
+</div>
+</body></html>

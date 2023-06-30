@@ -1,0 +1,169 @@
+<!DOCTYPE html><html><head><title>R: Sequence Generation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/seq.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/seq.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>seq {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='seq'>Sequence Generation</h2>
+
+<h3>Description</h3>
+
+<p>Generate regular sequences.  <code>seq</code> is a standard generic with a
+default method.  <code>seq.int</code> is an internal generic which can be
+much faster but has a few restrictions.  <code>seq_along</code> and
+<code>seq_len</code> are very fast primitives for two common cases.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>seq(...)
+
+## Default S3 method:
+seq(from = 1, to = 1, by = ((to - from)/(length.out - 1)),
+    length.out = NULL, along.with = NULL, ...)
+
+seq.int(from, to, by, length.out, along.with, ...)
+
+seq_along(along.with)
+seq_len(length.out)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="seq_:_...">...</code></td>
+<td>
+<p>arguments passed to or from methods.</p>
+</td></tr>
+<tr><td><code id="seq_:_from">from</code>, <code id="seq_:_to">to</code></td>
+<td>
+<p>the starting and (maximal) end value of the sequence.</p>
+</td></tr>
+<tr><td><code id="seq_:_by">by</code></td>
+<td>
+<p>number: increment of the sequence.</p>
+</td></tr>
+<tr><td><code id="seq_:_length.out">length.out</code></td>
+<td>
+<p>desired length of the sequence.  A
+non-negative number, which for <code>seq</code> and <code>seq.int</code> will be
+rounded up if fractional.</p>
+</td></tr>
+<tr><td><code id="seq_:_along.with">along.with</code></td>
+<td>
+<p>take the length from the length of this argument.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The interpretation of the unnamed arguments of <code>seq</code> and
+<code>seq.int</code> is <em>not</em> standard, and it is recommended always to
+name the arguments when programming.
+</p>
+<p>Both <code>seq</code> are <code>seq.int</code> are generic, and only the default
+method is described here.  Typical usages are
+</p>
+<pre>
+seq(from, to)
+seq(from, to, by= )
+seq(from, to, length.out= )
+seq(along.with= )
+seq(from)
+seq(length.out= )
+</pre>
+<p>The first form generates the sequence <code>from, from+/-1, ..., to</code>
+(identical to <code>from:to</code>).
+</p>
+<p>The second form generates <code>from, from+by</code>, ..., up to the
+sequence value less than or equal to <code>to</code>.  Specifying
+<code>to - from</code> and <code>by</code> of opposite signs is an error.
+</p>
+<p>The third generates a sequence of <code>length.out</code> equally spaced
+values from <code>from</code> to <code>to</code>.  (<code>length.out</code> is usually
+abbreviated to <code>length</code> or <code>len</code>, and <code>seq_len</code> is much
+faster.)
+</p>
+<p>The fourth form generates the sequence <code>1, 2, ...,
+    length(along.with)</code>.  (<code>along.with</code> is usually abbreviated to
+<code>along</code>, and <code>seq_along</code> is much faster.) 
+</p>
+<p>The fifth form generates the sequence <code>1, 2, ..., length(from)</code>
+(as if argument <code>along.with</code> had been specified),
+<em>unless</em> the argument is numeric of length 1 when it is
+interpreted as <code>1:from</code> (even for <code>seq(0)</code> for
+compatibility with S).
+</p>
+<p>The final form generates <code>1, 2, ..., length.out</code> unless
+<code>length.out = 0</code>, when it generates <code>integer(0)</code>.
+</p>
+<p>Very small sequences (with <code>from - to</code> of the order of <code class="reqn">10^{-14}</code>
+times the larger of the ends) will return <code>from</code>.
+</p>
+<p>For <code>seq</code>(only), up to two of <code>from</code>, <code>to</code> and <code>by</code> can
+be supplied as complex values provided <code>length.out</code> or
+<code>along.with</code> is specified.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Currently, the default method returns a result of type
+<code>"integer"</code> if <code>from</code> is (numerically equal to an)
+integer and, e.g., only <code>to</code> is specified, or also if only
+<code>length</code> or only <code>along.with</code> is specified.  <strong>Note:</strong>
+this may change in the future and programmers should not rely on it.
+
+
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The methods <code>seq.Date</code> and <code>seq.POSIXt</code>.
+</p>
+<p><code>:</code>,
+<code>rep</code>,
+<code>sequence</code>,
+<code>row</code>,
+<code>col</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>seq(0, 1, length=11)
+seq(stats::rnorm(20))
+seq(1, 9, by = 2) # match
+seq(1, 9, by = pi)# stay below
+seq(1, 6, by = 3)
+seq(1.575, 5.125, by=0.05)
+seq(17) # same as 1:17
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.6.2 ]</div>
+</div>
+</body></html>

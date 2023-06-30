@@ -1,0 +1,112 @@
+<!DOCTYPE html><html><head><title>R: Solve an Upper or Lower Triangular System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/backsolve.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/backsolve.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>backsolve {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='backsolve'>Solve an Upper or Lower Triangular System</h2>
+
+<h3>Description</h3>
+
+<p>Solves a system of linear equations where the coefficient matrix is
+upper (or &lsquo;right&rsquo;, &lsquo;R&rsquo;) or lower (&lsquo;left&rsquo;,
+&lsquo;L&rsquo;) triangular.<br /> 
+</p>
+<p><code>x &lt;- backsolve   (R, b)</code> solves <code class="reqn">R x = b</code>, and<br />
+<code>x &lt;- forwardsolve(L, b)</code> solves <code class="reqn">L x = b</code>, respectively.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>   backsolve(r, x, k=ncol(r), upper.tri=TRUE, transpose=FALSE)
+forwardsolve(l, x, k=ncol(l), upper.tri=FALSE, transpose=FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="backsolve_:_r">r</code>, <code id="backsolve_:_l">l</code></td>
+<td>
+<p>an upper (or lower) triangular matrix giving the
+coefficients for the system to be solved.  Values below (above)
+the diagonal are ignored.</p>
+</td></tr>
+<tr><td><code id="backsolve_:_x">x</code></td>
+<td>
+<p>a matrix whose columns give the right-hand sides for
+the equations.</p>
+</td></tr>
+<tr><td><code id="backsolve_:_k">k</code></td>
+<td>
+<p>The number of columns of <code>r</code> and rows of <code>x</code> to use.</p>
+</td></tr>
+<tr><td><code id="backsolve_:_upper.tri">upper.tri</code></td>
+<td>
+<p>logical; if <code>TRUE</code> (default), the <em>upper</em>
+<em>tri</em>angular part of <code>r</code> is used.  Otherwise, the lower one.</p>
+</td></tr>
+<tr><td><code id="backsolve_:_transpose">transpose</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, solve <code class="reqn">r' * y = x</code> for
+<code class="reqn">y</code>, i.e., <code>t(r) %*% y == x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The solution of the triangular system.  The result will be a vector if
+<code>x</code> is a vector and a matrix if <code>x</code> is a matrix.
+</p>
+<p>Note that <code>forwardsolve(L, b)</code> is just a wrapper for
+<code>backsolve(L, b, upper.tri=FALSE)</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Dongarra, J. J., Bunch,J. R.,  Moler, C. B. and  Stewart, G. W. (1978)
+<em>LINPACK Users Guide.</em>  Philadelphia: SIAM Publications.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>chol</code>,
+<code>qr</code>,
+<code>solve</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## upper triangular matrix 'r':
+r &lt;- rbind(c(1,2,3),
+           c(0,1,1),
+           c(0,0,2))
+( y &lt;- backsolve(r, x &lt;- c(8,4,2)) ) # -1 3 1
+r %*% y # == x = (8,4,2)
+backsolve(r, x, transpose = TRUE) # 8 -12 -5
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.11.1 ]</div>
+</div>
+</body></html>

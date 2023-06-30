@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><title>R: Highlight non-ASCII characters</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/showNonASCII.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/showNonASCII.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>showNonASCII {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='showNonASCII'>Highlight non-ASCII characters</h2>
+
+<h3>Description</h3>
+
+<p>This function prints elements of a character vector which contain
+non-ASCII bytes, printing such bytes as a escape like <code>&lt;fc&gt;</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>showNonASCII(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="showNonASCII_:_x">x</code></td>
+<td>
+<p>a character vector.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This was originally written to help detect non-portable text in
+files in packages.
+</p>
+<p>It prints all lines of the files which contain non-ACII characters,
+preceded by the line number and with non-ASCII bytes highlighted
+<em>via</em> <code>iconv(sub = "byte")</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>out &lt;- c(
+"fa\xE7ile test of showNonASCII():",
+"\\details{",
+"   This is a good line",
+"   This has an \xfcmlaut in it.",
+"   OK again.",
+"}")
+cat(out, file = "my.Rd", sep = "\n")
+
+showNonASCII(readLines("my.Rd"))
+unlink("my.Rd")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.9.0 ]</div>
+</div>
+</body></html>

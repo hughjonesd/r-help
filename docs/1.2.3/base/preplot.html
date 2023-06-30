@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><title>R: Pre-computations for a Plotting Objeect</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/preplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/preplot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>preplot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='preplot'>Pre-computations for a Plotting Objeect</h2>
+
+<h3>Description</h3>
+
+<p>Compute an object to be used for plots relating to the given model object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>preplot(object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="preplot_:_object">object</code></td>
+<td>
+<p>a fitted model object.</p>
+</td></tr>
+<tr><td><code id="preplot_:_...">...</code></td>
+<td>
+<p>additional arguments for specific methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Only the generic function is currently provided in base <span class="rlang"><b>R</b></span>, but some
+add-on packages have methods. Principally here for S compatibility. 
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object set up to make a plot that describes <code>object</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.3 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head><title>R: Demonstrations of R Functionality</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/demo.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/demo.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>demo {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='demo'>Demonstrations of R Functionality</h2>
+
+<h3>Description</h3>
+
+<p><code>demo</code> is a user-friendly interface to running some demonstration
+<span class="rlang"><b>R</b></span> scripts.  <code>demo()</code> gives the list of available topics.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>demo(topic, package = NULL, lib.loc = NULL,
+     character.only = FALSE, verbose = getOption("verbose"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="demo_:_topic">topic</code></td>
+<td>
+<p>the topic which should be demonstrated, given as a
+name or literal character string, or a character string,
+depending on whether <code>character.only</code> is <code>FALSE</code> (default)
+or <code>TRUE</code>.  If omitted, the list of available topics is
+displayed.</p>
+</td></tr>
+<tr><td><code id="demo_:_package">package</code></td>
+<td>
+<p>a character vector giving the packages to look into for
+demos, or <code>NULL</code>.  By default, all packages in the search path
+are used.</p>
+</td></tr>
+<tr><td><code id="demo_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
+or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
+libraries currently known.  If the default is used, the loaded
+packages are searched before the libraries.</p>
+</td></tr>
+<tr><td><code id="demo_:_character.only">character.only</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, use <code>topic</code> as
+character string.</p>
+</td></tr>
+<tr><td><code id="demo_:_verbose">verbose</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, additional diagnostics are
+printed.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If no topics are given, <code>demo</code> lists the available demos.  The
+corresponding information is returned in an object of class
+<code>"packageIQR"</code>.  The structure of this class is experimental.  In
+earlier versions of R, an empty character vector was returned along
+with listing available demos.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>source</code> which is called by <code>demo</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>demo() # for attached packages
+
+## All available demos:
+demo(package = .packages(all.available = TRUE))
+
+demo(lm.glm, package="stats")
+## Not run: 
+ ch &lt;- "scoping"
+ demo(ch, character = TRUE)
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.5.1 ]</div>
+</div>
+</body></html>

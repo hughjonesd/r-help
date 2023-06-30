@@ -1,0 +1,80 @@
+<!DOCTYPE html><html><head><title>R: Set Environment Variables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/putenv.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/putenv.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Sys.putenv {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Sys.putenv'>Set Environment Variables</h2>
+
+<h3>Description</h3>
+
+<p><code>putenv</code> sets environment variables (for other processes called
+from within <span class="rlang"><b>R</b></span> or future calls to <code>Sys.getenv</code> from this
+<span class="rlang"><b>R</b></span> process).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Sys.putenv(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Sys.putenv_:_...">...</code></td>
+<td>
+<p>arguments in <code>name=value</code> form, with <code>value</code>
+coercible to a character string.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Non-standard <span class="rlang"><b>R</b></span> names must be quoted: see the Examples section.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A logical vector of the same length as <code>x</code>, with elements being
+true if setting the corresponding variable succeeded.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Not all systems need support <code>Sys.putenv</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Sys.getenv</code>,
+<code>setwd</code> for the working directory.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>print(Sys.putenv("R_TEST"="testit", ABC=123))
+Sys.getenv("R_TEST")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4.1 ]</div>
+</div>
+</body></html>

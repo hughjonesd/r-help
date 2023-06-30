@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>R: Value of Last Evaluated Expression</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Last.value.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Last.value.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Last.value {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Last.value'>Value of Last Evaluated Expression</h2>
+
+<h3>Description</h3>
+
+<p>The value of the internal evaluation of a top-level <span class="rlang"><b>R</b></span> expression
+is always assigned to <code>.Last.value</code> (in <code>package:base</code>)
+before further processing (e.g., printing).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.Last.value
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>The value of a top-level assignment <em>is</em> put in <code>.Last.value</code>,
+unlike S.
+</p>
+<p>Do not assign to <code>.Last.value</code> in the workspace, because this
+will always mask the object of the same name in <code>package:base</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>eval</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## These will not work correctly from example(),
+## but they will in make check or if pasted in,
+## as example() does not run them at the top level
+gamma(1:15)          # think of some intensive calculation...
+fac14 &lt;- .Last.value # keep them
+
+library("splines") # returns invisibly
+.Last.value    # shows what library(.) above returned
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.10.1 ]</div>
+</div>
+</body></html>

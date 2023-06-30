@@ -1,0 +1,144 @@
+<!DOCTYPE html><html><head><title>R: Show all the methods for the specified function(s)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/showMethods.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/showMethods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>showMethods {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='showMethods'> Show all the methods for the specified function(s)</h2>
+
+<h3>Description</h3>
+
+<p>Show a summary of the methods for one or more generic functions,
+possibly restricted to those involving specified classes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>showMethods(f = character(), where = topenv(parent.frame()),
+            classes = NULL, includeDefs = FALSE, inherited = TRUE,
+            printTo = stdout())
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="showMethods_:_f">f</code></td>
+<td>
+<p>one or more function names.  If omitted, all functions
+will be examined. </p>
+</td></tr>
+<tr><td><code id="showMethods_:_where">where</code></td>
+<td>
+<p>If <code>where</code> is supplied, the methods definition from
+that position will be used; otherwise, the current definition is
+used (which will include inherited methods that have arisen so far
+in the session). If <code>f</code> is omitted, <code>where</code> controls
+where to look for generic functions.</p>
+</td></tr>
+<tr><td><code id="showMethods_:_classes">classes</code></td>
+<td>
+<p> If argument <code>classes</code> is supplied, it is a vector
+of class names that restricts the displayed results to those methods
+whose signatures include one or more of those classes. </p>
+</td></tr>
+<tr><td><code id="showMethods_:_includeDefs">includeDefs</code></td>
+<td>
+<p> If <code>includeDefs</code> is <code>TRUE</code>, include the
+definitions of the individual methods in the printout. </p>
+</td></tr>
+<tr><td><code id="showMethods_:_inherited">inherited</code></td>
+<td>
+<p> If <code>inherits</code> is <code>TRUE</code>, then methods that
+have been found by inheritance, so far in the session, will be
+included and marked as inherited. Note that an inherited method
+will not usually appear until it has been used in this session.
+See <code>selectMethod</code> if you want to know what method is
+dispatched for particular classes of arguments.</p>
+</td></tr>
+<tr><td><code id="showMethods_:_printTo">printTo</code></td>
+<td>
+<p>The connection on which the printed information will be
+written.  If <code>printTo</code> is <code>FALSE</code>, the output will be
+collected as a character vector and returned as the value of the
+call to <code>showMethod</code>.   See <code>show</code>.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The output style is different from S-Plus in that it does not show the
+database from which the definition comes, but can optionally include
+the method definitions.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>printTo</code> is <code>FALSE</code>, the character vector that would
+have been printed is returned; otherwise the value is the connection
+or filename.
+</p>
+
+
+<h3>References</h3>
+
+<p>The R package <span class="pkg">methods</span> implements, with a few exceptions, the
+programming interface for classes and methods in the book
+<em>Programming with Data</em> (John M. Chambers, Springer, 1998), in
+particular sections 1.6, 2.7, 2.8, and chapters 7 and 8.
+</p>
+<p>While the programming interface for the <span class="pkg">methods</span> package follows
+the reference, the R software is an original implementation, so
+details in the reference that reflect the S4 implementation may appear
+differently in R.  Also, there are extensions to the programming
+interface developed more recently than the reference.  For a
+discussion of details and ongoing development, see the web page
+<a href="http://developer.r-project.org/methodsPackage.html">http://developer.r-project.org/methodsPackage.html</a> and the
+pointers from that page.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>setMethod</code>, and <code>GenericFunctions</code>
+for other tools involving methods;
+<code>selectMethod</code> will show you the method dispatched for a
+particular function and signature of classes for the arguments.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+## assuming the methods for plot
+## are set up as in the documentation for setMethod,
+## print (without definitions) the methods that involve
+## class "track"
+showMethods("plot", classes = "track")
+## Not run: 
+Function "plot":
+x = ANY, y = track
+x = track, y = missing
+x = track, y = ANY
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.0.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><title>R: File Paths not in the Native Encoding</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/UTF8filepaths.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/UTF8filepaths.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>UTF8filepaths {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='UTF8filepaths'>File Paths not in the Native Encoding</h2>
+
+<h3>Description</h3>
+
+<p>Most modern file systems store file-path components (names of
+directories and files) in a character encoding of wide scope: usually
+UTF-8 on a Unix-alike and UCS-2/UTF-16 on Windows.  However, this was
+not true when <span class="rlang"><b>R</b></span> was first developed and there are still exceptions
+amongst file systems, e.g. FAT32.
+</p>
+<p>This was not something anticipated by the C and POSIX standards which
+only provide means to access files <em>via</em> file paths encoded in
+the current locale, for example those specified in Latin-1 in a
+Latin-1 locale.
+</p>
+<p>Everything here apart from the specific section on Windows is about
+Unix-alikes.
+</p>
+
+
+<h3>Details</h3>
+
+<p>It is possible to mark character strings (elements of character
+vectors) as being in UTF-8 or Latin-1 (see <code>Encoding</code>).
+This allows file paths not in the native encoding to be
+expressed in <span class="rlang"><b>R</b></span> character vectors but there is almost no way to use
+them unless they can be translated to the native encoding.  That is of
+course not a problem if that is UTF-8, so these details are really only
+relevant to the use of a non-UTF-8 locale (including a C locale) on a
+Unix-alike.
+</p>
+<p>Functions to open a file such as <code>file</code>,
+<code>fifo</code>, <code>pipe</code>, <code>gzfile</code>,
+<code>bzfile</code>, <code>xzfile</code> and <code>unz</code> give
+an error for non-native filepaths.  Where functions look at existence
+such as <code>file.exists</code>, <code>dir.exists</code>,
+<code>unlink</code>, <code>file.info</code> and
+<code>list.files</code>, non-native filepaths are treated as
+non-existent.
+</p>
+<p>Many other functions use <code>file</code> or <code>gzfile</code> to open their
+files.
+</p>
+<p><code>file.path</code> allows non-native file paths to be combined,
+marking them as UTF-8 if needed.
+</p>
+<p><code>path.expand</code> only handles paths in the native encoding.  
+</p>
+
+
+<h3>Windows</h3>
+
+<p>Windows provides proprietary entry points to access its file systems,
+and these gained &lsquo;wide&rsquo; versions in Windows NT that allowed
+file paths in UCS-2/UTF-16 to be accessed from any locale.
+</p>
+<p>Some <span class="rlang"><b>R</b></span> functions use these entry points when file paths are marked
+as Latin-1 or UTF-8 to allow access to paths not in the current
+encoding.  These include
+
+<code>file</code>, <code>file.access</code>,
+<code>file.append</code>, <code>file.copy</code>,
+<code>file.create</code>, <code>file.exists</code>,
+<code>file.info</code>, <code>file.link</code>,
+<code>file.remove</code>, <code>file.rename</code>,
+<code>file.symlink</code>
+
+and
+
+<code>dir.create</code>, <code>dir.exists</code>,
+<code>normalizePath</code>, <code>path.expand</code>,
+<code>pipe</code>, <code>Sys.glob</code>,
+<code>Sys.junction</code>,
+<code>unlink</code>
+
+but not <code>gzfile</code> <code>bzfile</code>,
+<code>xzfile</code> nor <code>unz</code>.
+</p>
+<p>For functions using <code>gzfile</code> (including
+<code>load</code>, <code>readRDS</code>, <code>read.dcf</code> and
+<code>tar</code>), it is often possible to use a <code>gzcon</code>
+connection wrapping a <code>file</code> connection.
+</p>
+<p>Other notable exceptions are <code>list.files</code>,
+<code>list.dirs</code>, <code>system</code> and file-path inputs for
+graphics devices.
+</p>
+
+
+<h3>Historical comment</h3>
+
+<p>Before <span class="rlang"><b>R</b></span> 4.0.0, file paths marked as being in Latin-1 or UTF-8 were
+silently translated to the native encoding using escapes such as
+&lsquo;<span class="samp">&#8288;&lt;e7&gt;&#8288;</span>&rsquo; or &lsquo;<span class="samp">&#8288;&lt;U+00e7&gt;&#8288;</span>&rsquo;.  This created valid file names but
+maybe not those intended.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This document is still a work-in-progress.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.2.2 ]</div>
+</div>
+</body></html>

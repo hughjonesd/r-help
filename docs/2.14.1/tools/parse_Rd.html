@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><title>R: Parse an Rd file</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/parse_Rd.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/parse_Rd.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>parse_Rd {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='parse_Rd'> Parse an Rd file </h2>
+
+<h3>Description</h3>
+
+<p>This function reads an R documentation (Rd) file and parses it, for
+processing by other functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>parse_Rd(file, srcfile = NULL, encoding = "unknown",
+         verbose = FALSE, fragment = FALSE, warningCalls = TRUE)
+## S3 method for class 'Rd'
+print(x, deparse = FALSE, ...)
+## S3 method for class 'Rd'
+as.character(x, deparse = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="parse_Rd_:_file">file</code></td>
+<td>
+<p>A filename or text-mode connection.  At present filenames
+work best.</p>
+</td></tr>
+<tr><td><code id="parse_Rd_:_srcfile">srcfile</code></td>
+<td>
+<p><code>NULL</code>, or a <code>"srcfile"</code> object.  See the
+&lsquo;Details&rsquo; section.</p>
+</td></tr>
+<tr><td><code id="parse_Rd_:_encoding">encoding</code></td>
+<td>
+<p>Encoding to be assumed for input strings.</p>
+</td></tr>
+<tr><td><code id="parse_Rd_:_verbose">verbose</code></td>
+<td>
+<p>Logical indicating whether detailed parsing
+information should be printed.</p>
+</td></tr> 
+<tr><td><code id="parse_Rd_:_fragment">fragment</code></td>
+<td>
+<p>Logical indicating whether file represents a complete
+Rd file, or a fragment.</p>
+</td></tr>
+<tr><td><code id="parse_Rd_:_warningCalls">warningCalls</code></td>
+<td>
+<p>Logical: should parser warnings include the call?</p>
+</td></tr>
+<tr><td><code id="parse_Rd_:_x">x</code></td>
+<td>
+<p>An object of class Rd.</p>
+</td></tr>
+<tr><td><code id="parse_Rd_:_deparse">deparse</code></td>
+<td>
+<p>If <code>TRUE</code>, attempt to reinstate the escape characters
+so that the resulting characters will parse to the same object.</p>
+</td></tr>
+<tr><td><code id="parse_Rd_:_...">...</code></td>
+<td>
+<p>Further arguments to be passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function parses &lsquo;<span class="file">Rd</span>&rsquo; files according to the specification given
+in <a href="http://developer.r-project.org/parseRd.pdf">http://developer.r-project.org/parseRd.pdf</a>.
+</p>
+<p>It generates a warning for each parse error and attempts to continue
+parsing.  In order to continue, it is generally necessary to drop some
+parts of the file, so such warnings should not be ignored.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>parse_Rd</code> returns an object of class <code>"Rd"</code>.  The
+internal format of this object is subject to change.  The
+<code>as.character()</code> and <code>print()</code> methods defined for the
+class return character vectors and print them, respectively.
+</p>
+<p>Files without a marked encoding are by default assumed to be in the
+native encoding.  An alternate default can be set using the
+<code>encoding</code> argument.  All text in files is translated to the
+UTF-8 encoding in the parsed object.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p> Duncan Murdoch </p>
+
+
+<h3>References</h3>
+
+ <p><a href="http://developer.r-project.org/parseRd.pdf">http://developer.r-project.org/parseRd.pdf</a> </p>
+
+
+<h3>See Also</h3>
+
+<p><code>Rd2HTML</code> for the converters that use the output of
+<code>parse_Rd()</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.14.1 ]</div>
+</div>
+</body></html>

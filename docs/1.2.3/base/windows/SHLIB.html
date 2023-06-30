@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>R: Build a DLL for Dynamic Loading</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/SHLIB.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/SHLIB.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>SHLIB {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='SHLIB'>Build a DLL for Dynamic Loading</h2>
+
+<h3>Description</h3>
+
+<p>The given source files are first compiled.  All
+specified object files are then linked into a shared library which can
+be loaded into <span class="rlang"><b>R</b></span> using <code>dyn.load()</code>.  
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Rcmd SHLIB [-o dllname] files</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="SHLIB_:_files">files</code></td>
+<td>
+<p>a list of names of (typically) source files to be
+compiled and included in the library.  You can also include the name
+of object files which are automagically made from their sources.</p>
+</td></tr>
+<tr><td><code id="SHLIB_:_dllname">dllname</code></td>
+<td>
+<p>the full name of the shared library to be built,
+including the extension &lsquo;<span class="file">.dll</span>&rsquo;.  If
+not given, the name of the library is taken from the first source
+file.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>dyn.load</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.3 ]</div>
+</div>
+</body></html>

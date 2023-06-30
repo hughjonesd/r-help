@@ -1,0 +1,137 @@
+<!DOCTYPE html><html><head><title>R: Tk widgets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tcltk/html/TkWidgets.html'>https://stat.ethz.ch/R-manual/R-patched/library/tcltk/html/TkWidgets.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>TkWidgets {tcltk}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='TkWidgets'>Tk widgets</h2>
+
+<h3>Description</h3>
+
+<p>Create Tk widgets and associated <span class="rlang"><b>R</b></span> objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>tkwidget(parent, type, ...)
+
+tkbutton(parent, ...)
+tkcanvas(parent, ...)
+tkcheckbutton(parent, ...)
+tkentry(parent, ...)
+ttkentry(parent, ...)
+tkframe(parent, ...)
+tklabel(parent, ...)
+tklistbox(parent, ...)
+tkmenu(parent, ...)
+tkmenubutton(parent, ...)
+tkmessage(parent, ...)
+tkradiobutton(parent, ...)
+tkscale(parent, ...)
+tkscrollbar(parent, ...)
+tktext(parent, ...)
+tktoplevel(parent = .TkRoot, ...)
+
+ttkbutton(parent, ...)
+ttkcheckbutton(parent, ...)
+ttkcombobox(parent, ...)
+ttkframe(parent, ...)
+ttkimage(parent, ...)
+ttklabel(parent, ...)
+ttklabelframe(parent, ...)
+ttkmenubutton(parent, ...)
+ttknotebook(parent, ...)
+ttkpanedwindow(parent, ...)
+ttkprogressbar(parent, ...)
+ttkradiobutton(parent, ...)
+ttkscrollbar(parent, ...)
+ttkseparator(parent, ...)
+ttksizegrip(parent, ...)
+ttktreeview(parent, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="TkWidgets_:_parent">parent</code></td>
+<td>
+<p>Parent of widget window.</p>
+</td></tr>
+<tr><td><code id="TkWidgets_:_type">type</code></td>
+<td>
+<p>string describing the type of widget desired.</p>
+</td></tr>
+<tr><td><code id="TkWidgets_:_...">...</code></td>
+<td>
+<p>handled via <code>.Tcl.args</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These functions create Tk widgets.  <code>tkwidget</code> creates a widget of
+a given type, the others simply call <code>tkwidget</code> with the
+respective <code>type</code> argument.
+</p>
+<p>The functions starting <code>ttk</code> are for the themed widget set for Tk
+8.5 or later.  A tutorial can be found at <a href="http://www.tkdocs.com">http://www.tkdocs.com</a>.
+</p>
+<p>It is not possible to describe the widgets and their arguments in
+full.  Please refer to the Tcl/Tk documentation.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>TclInterface</code>, <code>TkCommands</code>,
+<code>TkWidgetcmds</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## These cannot be run by examples() but should be OK when pasted
+## into an interactive R session with the tcltk package loaded
+
+tt &lt;- tktoplevel()
+label.widget &lt;- tklabel(tt, text = "Hello, World!")
+button.widget &lt;- tkbutton(tt, text = "Push",
+                          command = function()cat("OW!\n"))
+tkpack(label.widget, button.widget) # geometry manager
+                                    # see Tk-commands
+
+## Push the button and then...
+
+tkdestroy(tt)
+
+## test for themed widgets
+if(as.character(tcl("info", "tclversion")) &gt;= "8.5") {
+  # make use of themed widgets
+  # list themes
+  as.character(tcl("ttk::style", "theme", "names"))
+  # select a theme -- here pre-XP windows
+  tcl("ttk::style", "theme use", "winnative")
+} else {
+  # use Tk 8.0 widgets
+}
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tcltk</em> version 3.0.0 ]</div>
+</div>
+</body></html>

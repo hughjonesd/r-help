@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><title>R: Utilities for Building and Checking Add-on Packages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/PkgUtils.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/PkgUtils.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>PkgUtils {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='PkgUtils'>Utilities for Building and Checking Add-on Packages</h2>
+
+<h3>Description</h3>
+
+<p>Utilities for checking whether the sources of an <span class="rlang"><b>R</b></span> add-on package
+work correctly, and for building a source or binary package from
+them.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R CMD build [options] pkgdirs
+R CMD check [options] pkgdirs
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="PkgUtils_:_pkgdirs">pkgdirs</code></td>
+<td>
+<p>a list of names of directories with sources of <span class="rlang"><b>R</b></span>
+add-on packages.</p>
+</td></tr>
+<tr><td><code id="PkgUtils_:_options">options</code></td>
+<td>
+<p>further options to control the processing, or for
+obtaining information about usage and version of the utility.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>R CMD check</code>
+checks <span class="rlang"><b>R</b></span> add-on packages from their sources, performing a wide
+variety of diagnostic checks.
+</p>
+<p><code>R CMD build</code>
+builds <span class="rlang"><b>R</b></span> source or binary packages from their sources.  The name(s)
+of the packages are taken from the &lsquo;<span class="file">DESCRIPTION</span>&rsquo; files and not
+from the directory names.
+</p>
+<p>Use
+<code>R CMD foo --help</code>
+to obtain usage information on utility <code>foo</code>.
+</p>
+<p>Several of the options to <code>build --binary</code> are passed to
+<code>INSTALL</code> so consult its help for the details.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The sections on &ldquo;Checking and building packages&rdquo; and
+&ldquo;Processing Rd format&rdquo; in &ldquo;Writing <span class="rlang"><b>R</b></span> Extensions&rdquo;
+(see the &lsquo;<span class="file">doc/manual</span>&rsquo; subdirectory of the <span class="rlang"><b>R</b></span> source tree).
+</p>
+<p><code>INSTALL</code> is called by <code>build --binary</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.9.1 ]</div>
+</div>
+</body></html>

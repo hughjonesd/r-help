@@ -1,0 +1,135 @@
+<!DOCTYPE html><html><head><title>R: Platform Specific Variables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Platform.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Platform.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>.Platform {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='.Platform'>Platform Specific Variables</h2>
+
+<h3>Description</h3>
+
+<p><code>.Platform</code> is a list with some details of the platform under
+which <span class="rlang"><b>R</b></span> was built.  This provides means to write OS-portable <span class="rlang"><b>R</b></span>
+code.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.Platform
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>A list with at least the following components:
+</p>
+<table>
+<tr><td><code>OS.type</code></td>
+<td>
+
+<p>character string, giving the <b>O</b>perating <b>S</b>ystem
+(family) of the computer.  One of <code>"unix"</code> or <code>"windows"</code>.
+</p>
+</td></tr>
+<tr><td><code>file.sep</code></td>
+<td>
+
+<p>character string, giving the <b>file</b> <b>sep</b>arator used on your
+platform: <code>"/"</code> on both Unix-alikes <em>and</em> on Windows (but
+not on the now abandoned port to Classic MacOS).
+</p>
+</td></tr>
+<tr><td><code>dynlib.ext</code></td>
+<td>
+
+<p>character string, giving the file name <b>ext</b>ension of
+<b>dyn</b>amically loadable <b>lib</b>raries, e.g., <code>".dll"</code> on
+Windows and <code>".so"</code> or <code>".sl"</code> on Unix-alikes.  (Note for
+MacOS X users: these are shared objects as loaded by
+<code>dyn.load</code> and not dylibs.)
+</p>
+</td></tr>
+<tr><td><code>GUI</code></td>
+<td>
+
+<p>character string, giving the type of GUI in use, or <code>"unknown"</code>
+if no GUI can be assumed.  Possible values are for Unix-alikes the
+values given via the <span class="option">-g</span> command-line flag (<code>"X11"</code>,
+<code>"Tk"</code>, <code>"none"</code> and perhaps others under alternative
+front-ends or embedded <span class="rlang"><b>R</b></span>), <code>"AQUA"</code> (running under
+<code>R.app</code> on MacOS X), <code>"RGui"</code> and <code>"RTerm"</code> (Windows).
+</p>
+</td></tr>
+<tr><td><code>endian</code></td>
+<td>
+
+<p>character string, <code>"big"</code> or <code>"little"</code>, giving the
+endianness of the processor in use.  This is relevant when it is
+necessary to know the order to read/write bytes of e.g. an integer or
+double from/to a connection: see <code>readBin</code>. 
+</p>
+</td></tr>
+<tr><td><code>pkgType</code></td>
+<td>
+
+<p>character string, the preferred setting for
+<code>options("pkgType")</code>. Values <code>"source"</code>,
+<code>"mac.binary"</code> and <code>"win.binary"</code> are currently in use.
+</p>
+</td></tr>
+<tr><td><code>path.sep</code></td>
+<td>
+
+<p>character string, giving the <b>path</b> <b>sep</b>arator,
+used on your platform, e.g., <code>":"</code> on Unix-alikes and
+<code>";"</code> on Windows.  Used to separate paths in variables
+such as <code>PATH</code> and <code>TEXINPUTS</code>.
+</p>
+</td></tr>
+<tr><td><code>r_arch</code></td>
+<td>
+
+<p>character string, possibly <code>""</code>.  The name of the
+architecture-specific directories used in this build of <span class="rlang"><b>R</b></span>.
+</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>R.version</code> and <code>Sys.info</code> give more details
+about the OS.  In particular, <code>R.version$platform</code> is the
+canonical name of the platform under which <span class="rlang"><b>R</b></span> was compiled.
+</p>
+<p><code>.Machine</code> for details of the arithmetic used, and
+<code>system</code> for invoking platform-specific system commands.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Note: this can be done in a system-independent way by file.info()$isdir
+if(.Platform$OS.type == "unix") {
+   system.test &lt;- function(...) { system(paste("test", ...)) == 0 }
+   dir.exists &lt;- function(dir) sapply(dir, function(d)system.test("-d", d))
+   dir.exists(c(R.home(), "/tmp", "~", "/NO"))# &gt; T T T F
+}
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.6.1 ]</div>
+</div>
+</body></html>

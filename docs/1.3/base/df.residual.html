@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><title>R: Residual Degrees-of-Freedom</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/df.residual.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/df.residual.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>df.residual {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='df.residual'>Residual Degrees-of-Freedom</h2>
+
+<h3>Description</h3>
+
+<p>Returns the residual degrees-of-freedom extracted from a fitted model
+object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>df.residual(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="df.residual_:_x">x</code></td>
+<td>
+<p>an object for which the degrees-of-freedom are desired.</p>
+</td></tr>
+<tr><td><code id="df.residual_:_...">...</code></td>
+<td>
+<p>additional optional arguments.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is a generic function which can be used to extract residual
+degrees-of-freedom for fitted models.  Consult the individual modeling
+functions for details details on how to use this function.
+</p>
+<p>There is no default method for this function.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The value of the residual degrees-of-freedom extracted from the object
+<code>x</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>deviance</code>, <code>glm</code>, <code>lm</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3 ]</div>
+</div>
+</body></html>

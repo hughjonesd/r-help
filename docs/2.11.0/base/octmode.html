@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><title>R: Display Numbers in Octal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/octmode.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/octmode.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>octmode {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='octmode'>Display Numbers in Octal</h2>
+
+<h3>Description</h3>
+
+<p>Convert or print integers in octal format, with as many digits as are
+needed to display the largest, using leading zeroes as necessary.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>as.octmode(x)
+
+## S3 method for class 'octmode'
+as.character(x, ...)
+
+## S3 method for class 'octmode'
+format(x, width = NULL, ...)
+
+## S3 method for class 'octmode'
+print(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="octmode_:_x">x</code></td>
+<td>
+<p>An object, for the methods inheriting from class <code>"octmode"</code>.</p>
+</td></tr>
+<tr><td><code id="octmode_:_width">width</code></td>
+<td>
+<p><code>NULL</code> or a positive integer specifying the minimum
+field width to be used, with padding by leading zeroes.</p>
+</td></tr>
+<tr><td><code id="octmode_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Class <code>"octmode"</code> consists of integer vectors with that class
+attribute, used merely to ensure that they are printed in octal
+notation, specifically for Unix-like file permissions such as
+<code>755</code>.  Subsetting (<code>[</code>) works too.
+</p>
+<p>If <code>width = NULL</code> (the default), the output is padded with
+leading zeroes to the smallest width needed for all the non-missing
+elements.
+</p>
+<p><code>as.octmode</code> can convert integers (of type <code>"integer"</code> or
+<code>"double"</code>) and character vectors whose elements contain only
+digits <code>0-7</code> (or are <code>NA</code>) to class <code>"octmode"</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>These are auxiliary functions for <code>file.info</code>.
+</p>
+<p><code>hexmode</code>, <code>sprintf</code> for other options in
+converting integers to octal, <code>strtoi</code> to convert octal
+strings to integers.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>(on &lt;- as.octmode(c(16,32, 127:129))) # "020" "040" "177" "200" "201"
+unclass(on[3:4]) # subsetting
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.11.0 ]</div>
+</div>
+</body></html>

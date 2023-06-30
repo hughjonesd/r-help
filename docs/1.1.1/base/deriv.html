@@ -1,0 +1,144 @@
+<!DOCTYPE html><html><head><title>R: Symbolic and Algorithmic Derivatives of Simple Expressions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/deriv.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/deriv.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>deriv {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='deriv'>Symbolic and Algorithmic Derivatives of Simple Expressions</h2>
+
+<h3>Description</h3>
+
+<p>Compute derivatives of simple expressions, symbolically.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>D(expr, namevec)
+deriv(expr, namevec, function.arg = NULL, tag = ".expr")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="deriv_:_expr">expr</code></td>
+<td>
+<p>expression which should be differentiated.</p>
+</td></tr>
+<tr><td><code id="deriv_:_namevec">namevec</code></td>
+<td>
+<p>character vector, giving the variable names with
+respect to which derivatives will be computed.</p>
+</td></tr>
+<tr><td><code id="deriv_:_function.arg">function.arg</code></td>
+<td>
+<p><em>NOT YET IMPLEMENTED</em>.  If specified, a
+function &lsquo;prototype&rsquo; (with empty <code>body</code>) which will be
+used to return a function with the given argument list, instead of
+an expression.</p>
+</td></tr>
+<tr><td><code id="deriv_:_tag">tag</code></td>
+<td>
+<p>character; the prefix to be used for the locally created
+variables in result..</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>D</code> is modelled after its S namesake for taking simple symbolic
+derivatives.
+</p>
+<p><code>deriv</code> is a <em>generic</em> function with a default and a
+<code>formula</code> method.  It returns a <code>call</code> for
+computing the <code>expr</code> and its (partial) derivatives,
+simultaneously.  It uses so-called <em>&ldquo;algorithmic
+derivatives&rdquo;</em>.
+</p>
+<p>Currently, <code>deriv.formula</code> just calls <code>deriv.default</code> after
+extracting the expression to the right of <code>~</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>D</code> returns an expression and therefore can easily be iterated
+for higher derivatives.
+</p>
+<p><code>deriv</code> returns a <code>call</code> object which becomes an
+<code>expression</code> when evaluated once.  Evaluation of the
+latter expression returns the function values with a
+<code>".gradient"</code> attribute containing the gradient matrix.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This help page should be fixed up by one of R&amp;R or someone else who
+fluently speaks the language in &lsquo;<span class="file">\$R\_HOME/src/main/deriv.c</span>&rsquo;.
+</p>
+<p>Its author, MM, has only got a vague idea and thinks that a help page
+is better than none.
+</p>
+
+
+<h3>References</h3>
+
+<p>Griewank, A.  and  Corliss, G. F. (1991)
+<em>Automatic Differentiation of Algorithms: Theory, Implementation,
+and Application</em>.
+SIAM proceedings, Philadelphia.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>nlm</code> for numeric minimization which should make use of
+derivatives.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## formula argument :
+dx2x &lt;- deriv(~ x^2, "x") ; dx2x
+## Not run: expression({
+         .value &lt;- x^2
+         .grad &lt;- array(0, c(length(.value), 1), list(NULL, c("x")))
+         .grad[, "x"] &lt;- 2 * x
+         attr(.value, "gradient") &lt;- .grad
+         .value
+})
+## End(Not run)
+mode(dx2x)
+x &lt;- -1:2
+eval(dx2x)
+
+
+## Something `tougher':
+trig.exp &lt;- expression(sin(cos(x + y^2)))
+( D.sc &lt;- D(trig.exp, c("x", "y")) )
+
+( dxy &lt;- deriv(trig.exp, c("x", "y")) )
+y &lt;- 1
+eval(dxy)
+eval(D.sc)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><title>R: Extract Log-Likelihood</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/logLik.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/logLik.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>logLik {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='logLik'>Extract Log-Likelihood</h2>
+
+<h3>Description</h3>
+
+<p>This function is generic; method functions can be written to handle
+specific classes of objects. Classes which already have methods for
+this function include: <code>corStruct</code>, <code>gls</code>, <code>lm</code>,
+<code>lme</code>, <code>lmList</code>, <code>lmeStruct</code>, <code>reStruct</code>, and
+<code>varFunc</code>. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>logLik(object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="logLik_:_object">object</code></td>
+<td>
+<p>any object from which a log-likelihood value, or a
+contribution to a log-likelihood value, can be extracted.</p>
+</td></tr>
+<tr><td><code id="logLik_:_...">...</code></td>
+<td>
+<p>some methods for this generic function require additional
+arguments.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>will depend on the method function used; see the appropriate
+documentation.  
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jose Pinheiro and Douglas Bates</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## see the method function documentation
+</code></pre>
+
+
+</div>
+</body></html>

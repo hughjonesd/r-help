@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><title>R: Get a Windows Handle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/getWindowsHandle.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/getWindowsHandle.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>getWindowsHandle {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='getWindowsHandle'>Get a Windows Handle</h2>
+
+<h3>Description</h3>
+
+<p>Get the Windows handle of a window or of the <span class="rlang"><b>R</b></span> process in MS Windows.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getWindowsHandle(which = "Console")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="getWindowsHandle_:_which">which</code></td>
+<td>
+<p>a string (see below), or the number of a graphics device
+window (which must a <code>windows</code> one).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>getWindowsHandle</code> gets the Windows handle.
+Possible choices for <code>which</code> are:
+</p>
+
+<table>
+<tr>
+ <td style="text-align: left;">
+  <code>"Console"</code> </td><td style="text-align: left;"> The console window handle. </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  <code>"Frame"</code>   </td><td style="text-align: left;"> The MDI frame window handle. </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  <code>"Process"</code> </td><td style="text-align: left;"> The process pseudo-handle. </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+  A device number </td><td style="text-align: left;"> The window handle of a graphics device
+ </td>
+</tr>
+
+</table>
+
+<p>These values are not normally useful to users, but may be used by
+developers making add-ons to <span class="rlang"><b>R</b></span>.
+</p>
+<p><code>NULL</code> is returned for the Frame handle if not running in MDI mode,
+for the Console handle when running Rterm, for any unrecognized
+string for <code>which</code>, or for a graphics device with no
+corresponding window.
+</p>
+<p>Other windows (help browsers, etc.) are not accessible
+through this function.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An external pointer holding the Windows handle, or <code>NULL</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This is only available on Windows.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>getIdentification</code>, <code>getWindowsHandles</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>if(.Platform$OS.type == "windows")
+  print( getWindowsHandle() )
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 4.1.1 ]</div>
+</div>
+</body></html>

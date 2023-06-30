@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>R: Kronecker Product of Arrays</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/kronecker.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/kronecker.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>kronecker {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='kronecker'>Kronecker Product of Arrays</h2>
+
+<h3>Description</h3>
+
+<p>Computes the generalised kronecker product of two arrays,
+<code>X</code> and <code>Y</code>.  <code>kronecker(X, Y)</code> returns an array
+<code>A</code> with dimensions <code>dim(X) * dim(Y)</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>kronecker(X, Y, FUN = "*", ...)
+X %x% Y
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="kronecker_:_X">X</code></td>
+<td>
+<p>vector or array.</p>
+</td></tr>
+<tr><td><code id="kronecker_:_Y">Y</code></td>
+<td>
+<p>vector or array.</p>
+</td></tr>
+<tr><td><code id="kronecker_:_FUN">FUN</code></td>
+<td>
+<p>a function, possibly specified as character (string).</p>
+</td></tr>
+<tr><td><code id="kronecker_:_...">...</code></td>
+<td>
+<p>optional arguments to be passed to <code>FUN</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>X</code> and <code>Y</code> do not have the same number of dimensions,
+the smaller array is padded with dimensions of size one.  <code>A</code>
+consists of submatrices constructed by taking <code>X</code> one term at a time
+and expanding that term as <code>FUN(x, Y, ...)</code>.
+</p>
+<p><code>%x%</code> is an <code>.Alias</code> for <code>kronecker</code> (where
+<code>FUN</code> is hardwired to <code>"*"</code>).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jonathan Rougier</p>
+
+
+<h3>References</h3>
+
+<p>Searle, Shayle R. (1982)
+<em>Matrix Algebra Useful for Statistics</em>; John Wiley and Sons.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>outer</code> on which <code>kronecker</code> is built and
+<code>matmult</code> for usual matrix multiplication.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># simple scalar multiplication
+( M &lt;- matrix(1:6, ncol=2) )
+stopifnot(kronecker(4, M) == 4 * M)
+
+( A &lt;- matrix(0:3, ncol=2) )
+A %x% cbind(2:3)
+# Block diagonal array:
+kronecker(diag(3), M)
+stopifnot(kronecker(diag(3), M) == diag(3) %x% M)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1 ]</div>
+</div>
+</body></html>

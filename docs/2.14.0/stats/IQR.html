@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: The Interquartile Range</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/IQR.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/IQR.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>IQR {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='IQR'>The Interquartile Range</h2>
+
+<h3>Description</h3>
+
+<p>computes interquartile range of the <code>x</code> values.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>IQR(x, na.rm = FALSE, type = 7)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="IQR_:_x">x</code></td>
+<td>
+<p>a numeric vector.</p>
+</td></tr>
+<tr><td><code id="IQR_:_na.rm">na.rm</code></td>
+<td>
+<p>logical. Should missing values be removed?</p>
+</td></tr>
+<tr><td><code id="IQR_:_type">type</code></td>
+<td>
+<p>an integer selecting one of the many quantile algorithms,
+see <code>quantile</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note that this function computes the quartiles using the
+<code>quantile</code> function rather than following
+Tukey's recommendations,
+i.e., <code>IQR(x) = quantile(x,3/4) - quantile(x,1/4)</code>.
+</p>
+<p>For normally <code class="reqn">N(m,1)</code> distributed <code class="reqn">X</code>, the expected value of
+<code>IQR(X)</code> is <code>2*qnorm(3/4) = 1.3490</code>, i.e., for a normal-consistent
+estimate of the standard deviation, use <code>IQR(x) / 1.349</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Tukey, J. W. (1977).
+<em>Exploratory Data Analysis.</em>
+Reading: Addison-Wesley.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>fivenum</code>, <code>mad</code> which is more robust,
+<code>range</code>, <code>quantile</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>IQR(rivers)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.14.0 ]</div>
+</div>
+</body></html>

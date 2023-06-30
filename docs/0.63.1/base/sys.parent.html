@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>R: Functions to access the function call stack.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sys.parent.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sys.parent.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>sys.parent {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='sys.parent'>Functions to access the function call stack.</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide access to <code>environment</code>s (&ldquo;frames&rdquo;
+in S-speak) associated with functions further up the calling stack.
+You need access to two different types of environments.
+You need access to the environment where the arguments to a function
+are defined; this is what <code>sys.parent</code> does.
+You also need access to the environment where a function is being evaluated;
+this is what <code>sys.frame</code> does.
+</p>
+<p>Often <code>sys.parent</code> is the top-level environment, <code>.GlobalEnv</code>.
+This is given number 1 in the list of frames. Each subsequent function
+evaluation increases the frame stack by 1 and the environment for evaluation
+of that function is returned by <code>sys.frame</code> with the appropriate index.
+</p>
+<p><code>sys.call</code> and <code>sys.frame</code> both accept either positive or negative
+values for the argument <code>which</code>. Positive values of <code>which</code> count up
+from frame 1 and negative values are count back from frame n.
+</p>
+<p>Notice that even though the <code>sys.xxx</code> functions are interpreted their
+contexts are not counted nor are they reported. There is no access to
+them.
+</p>
+<p><code>sys.status</code> has not been implemented yet.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>sys.call(which=&lt;&lt;see below&gt;&gt;)
+sys.frame(which=&lt;&lt;see below&gt;&gt;)
+sys.nframe()
+sys.function(n=&lt;&lt;see below&gt;&gt;)
+sys.parent(n=1)
+
+sys.calls()
+sys.frames()
+sys.parents()
+sys.on.exit()
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="sys.parent_:_which">which</code></td>
+<td>
+<p>the frame number.</p>
+</td></tr>
+<tr><td><code id="sys.parent_:_n">n</code></td>
+<td>
+<p>the number of frame generations to go back.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>eval</code> for the usage of <code>sys.frame</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63.1 ]</div>
+</div>
+</body></html>

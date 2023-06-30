@@ -1,0 +1,150 @@
+<!DOCTYPE html><html><head><title>R: Type 1 and CID Fonts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/Type1Font.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/Type1Font.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Type1Font {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Type1Font'>Type 1 and CID Fonts</h2>
+
+<h3>Description</h3>
+
+<p>These functions are used to define the translation of a <span class="rlang"><b>R</b></span> graphics
+font family name to a Type 1 or CID font descriptions, used by both
+the <code>postscript</code> and <code>pdf</code> graphics devices.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Type1Font(family, metrics, encoding = "default")
+
+CIDFont(family, cmap, cmapEncoding, pdfresource = "")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Type1Font_:_family">family</code></td>
+<td>
+<p>a character string giving the name to be used internally
+for a Type 1 or CID-keyed font family.  This needs to uniquely
+identify each family, so if you modify a family which is in use
+(see <code>postscriptFonts</code>) you need to change the family name.</p>
+</td></tr>
+<tr><td><code id="Type1Font_:_metrics">metrics</code></td>
+<td>
+<p>a character vector of four or five strings giving paths
+to the afm (Adobe Font Metric) files for the font.</p>
+</td></tr>
+<tr><td><code id="Type1Font_:_cmap">cmap</code></td>
+<td>
+<p>the name of a CMap file for a CID-keyed font.</p>
+</td></tr>
+<tr><td><code id="Type1Font_:_encoding">encoding</code></td>
+<td>
+<p>for <code>Type1Font</code>, the name of an encoding file.
+Defaults to <code>"default"</code>, which maps on Unix-alikes to
+<code>"ISOLatin1.enc"</code> and on Windows to <code>"WinAnsi.enc"</code>.
+Otherwise, a file name in the &lsquo;<span class="file">enc</span>&rsquo; directory of the
+<span class="pkg">grDevices</span> package, which is used if the path does not contain a
+path separator.  An extension <code>".enc"</code> can be omitted.</p>
+</td></tr>
+<tr><td><code id="Type1Font_:_cmapEncoding">cmapEncoding</code></td>
+<td>
+
+<p>The name of a character encoding to be used with the named CMap
+file: strings will be translated to this encoding when written to
+the file.</p>
+</td></tr>
+<tr><td><code id="Type1Font_:_pdfresource">pdfresource</code></td>
+<td>
+<p>A chunk of PDF code;  only required for using
+a CID-keyed font on <code>pdf</code>; users should not be expected to
+provide this.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For <code>Type1Fonts</code>, if four &lsquo;<span class="file">.afm</span>&rsquo; files are supplied the
+fifth is taken to be <code>"Symbol.afm"</code>.  Relative paths are taken
+relative to the directory &lsquo;<span class="file"><var>R_HOME</var>/library/grDevices/afm</span>&rsquo;.
+The fifth (symbol) font must be in <code>AdobeSym</code> encoding.
+However, the glyphs in the first four fonts are referenced by name
+and any encoding given within the &lsquo;<span class="file">.afm</span>&rsquo; files is not used.
+</p>
+<p>The &lsquo;<span class="file">.afm</span>&rsquo; files may be compressed with (or without) final
+extension &lsquo;<span class="file">.gz</span>&rsquo;: the files which ship with <span class="rlang"><b>R</b></span> are installed as
+compressed files with this extension.
+</p>
+<p>Glyphs in CID-keyed fonts are accessed by ID (number) and not by name.
+The CMap file maps encoded strings (usually in a MBCS) to IDs, so
+<code>cmap</code> and <code>cmapEncoding</code> specifications must match.  There
+are no real bold or italic versions of CID fonts (bold/italic were
+very rarely used in traditional East Asian topography), and for the
+<code>pdf</code> device all four font faces will be identical.
+However, for the <code>postscript</code> device, bold and italic (and
+bold italic) are emulated.
+</p>
+<p>CID-keyed fonts are intended only for use for the glyphs of East Asian
+languages, which are all monospaced and are all treated as filling the
+same bounding box.  (Thus <code>plotmath</code> will work with such
+characters, but the spacing will be less carefully controlled than
+with Western glyphs.)  The CID-keyed fonts do contain other
+characters, including a Latin alphabet: non-East-Asian glyphs are
+regarded as monospaced with half the width of East Asian glyphs.  This
+is often the case, but sometimes Latin glyphs designed for
+proportional spacing are used (and may look odd).  We strongly
+recommend that CID-keyed fonts are <b>only</b> used for East Asian
+glyphs.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of class <code>"Type1Font"</code> or <code>"CIDFont"</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>postscript</code>, <code>pdf</code>,
+<code>postscriptFonts</code>, and <code>pdfFonts</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## This duplicates "ComputerModernItalic".
+CMitalic &lt;- Type1Font("ComputerModern2",
+                      c("CM_regular_10.afm", "CM_boldx_10.afm",
+                        "cmti10.afm", "cmbxti10.afm",
+                        "CM_symbol_10.afm"),
+                      encoding = "TeXtext.enc")
+
+## Not run: 
+## This could be used by
+postscript(family = CMitalic)
+## or
+postscriptFonts(CMitalic = CMitalic)  # once in a session
+postscript(family = "CMitalic", encoding = "TeXtext.enc")
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 4.0.0 ]</div>
+</div>
+</body></html>

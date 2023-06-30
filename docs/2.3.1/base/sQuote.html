@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Quote Text</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sQuote.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sQuote.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>sQuote {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='sQuote'>Quote Text</h2>
+
+<h3>Description</h3>
+
+<p>Single or double quote text by combining with appropriate single or
+double left and right quotation marks.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>sQuote(x)
+dQuote(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="sQuote_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object, to be coerced to a character vector.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The purpose of the functions is to provide a simple means of markup
+for quoting text to be used in the R output, e.g., in warnings or
+error messages.  Note that English quoting conventions are used,
+whatever the locale in use.
+</p>
+<p>The choice of the appropriate quotation marks depends on both the
+locale and the available character sets.  Older Unix/X11 fonts
+displayed the grave accent (0x60) and the apostrophe (0x27) in a way
+that they could also be used as matching open and close single
+quotation marks.  Using modern fonts, or non-Unix systems, these
+characters no longer produce matching glyphs.  Unicode provides left
+and right single quotation mark characters (U+2018 and U+2019); if
+Unicode cannot be assumed, it seems reasonable to use the apostrophe
+as an undirectional single quotation mark.
+</p>
+<p>Similarly, Unicode has left and right double quotation mark characters
+(U+201C and U+201D); if only ASCII's typewriter characteristics can be
+employed, than the ASCII quotation mark (0x22) should be used as both
+the left and right double quotation mark.
+</p>
+<p>By default, <code>sQuote</code> and <code>dQuote</code> employ undirectional 
+ASCII quotation style.  In a UTF-8 locale (see <code>l10n_info</code>),
+the Unicode directional quotes are used.
+</p>
+
+
+<h3>References</h3>
+
+<p>Markus Kuhn, &ldquo;ASCII and Unicode quotation marks&rdquo;.
+<a href="http://www.cl.cam.ac.uk/~mgk25/ucs/quotes.html">http://www.cl.cam.ac.uk/~mgk25/ucs/quotes.html</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Quotes</code> for quoting <span class="rlang"><b>R</b></span> code.
+</p>
+<p><code>shQuote</code> for quoting OS commands.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>paste("argument", sQuote("x"), "must be non-zero")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.3.1 ]</div>
+</div>
+</body></html>

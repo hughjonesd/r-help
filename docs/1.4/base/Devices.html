@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><title>R: List of Graphical Devices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Devices.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Devices.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Devices {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Devices'>List of Graphical Devices</h2>
+
+<h3>Description</h3>
+
+<p>The following graphics devices are currently available:
+</p>
+
+<ul>
+<li> <p><code>postscript</code> Writes PostScript graphics commands to
+a file
+</p>
+</li>
+<li> <p><code>pdf</code> Write PDF graphics commands to a file
+</p>
+</li>
+<li> <p><code>pictex</code> Writes LaTeX/PicTeX graphics commands to a
+file
+</p>
+</li>
+<li> <p><code>xfig</code> Device for XFIG graphics file format
+</p>
+</li>
+<li> <p><code>bitmap</code> bitmap pseudo-device via
+<code>GhostScript</code> (if available).
+</p>
+</li></ul>
+
+<p>The following devices will be available if <span class="rlang"><b>R</b></span> was compiled to use them
+and started with the appropriate <code>--gui</code> argument:
+</p>
+
+<ul>
+<li> <p><code>x11</code> The graphics driver for the X11 Window
+system
+</p>
+</li>
+<li> <p><code>png</code> PNG bitmap device
+</p>
+</li>
+<li> <p><code>jpeg</code> JPEG bitmap device
+</p>
+</li>
+<li> <p><code>GTK</code>, <code>GNOME</code> Graphics drivers for
+the GNOME GUI.
+</p>
+</li></ul>
+
+<p>None of these are available under <code>R CMD BATCH</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>x11(...)
+postscript(...)
+pdf(...)
+pictex(...)  
+png(...)
+jpeg(...)
+GTK(...)
+GNOME(...)
+xfig(...)
+bitmap(...)
+
+dev.interactive()
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p><code>dev.interactive()</code> returns a logical, <code>TRUE</code> iff an
+interactive (screen) device is in use.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The individual help files for further information on any of the
+devices listed here;
+</p>
+<p><code>dev.cur</code>, <code>dev.print</code>,
+<code>graphics.off</code>, <code>image</code>,
+<code>dev2bitmap</code>.
+</p>
+<p><code>capabilities</code> to see if <code>x11</code>, <code>jpeg</code>
+and <code>png</code> are available.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4 ]</div>
+</div>
+</body></html>

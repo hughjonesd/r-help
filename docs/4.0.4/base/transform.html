@@ -1,0 +1,108 @@
+<!DOCTYPE html><html><head><title>R: Transform an Object, for Example a Data Frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/transform.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/transform.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>transform {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='transform'>Transform an Object, for Example a Data Frame</h2>
+
+<h3>Description</h3>
+
+<p><code>transform</code> is a generic function, which&mdash;at least
+currently&mdash;only does anything useful with
+data frames.  <code>transform.default</code> converts its first argument to
+a data frame if possible and calls <code>transform.data.frame</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>transform(`_data`, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="transform_:__data">_data</code></td>
+<td>
+<p>The object to be transformed</p>
+</td></tr>
+<tr><td><code id="transform_:_...">...</code></td>
+<td>
+<p>Further arguments of the form <code>tag=value</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>...</code> arguments to <code>transform.data.frame</code> are tagged
+vector expressions, which are evaluated in the data frame
+<code>_data</code>.  The tags are matched against <code>names(_data)</code>, and for
+those that match, the value replace the corresponding variable in
+<code>_data</code>, and the others are appended to <code>_data</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The modified value of <code>_data</code>.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>This is a convenience function intended for use interactively.  For
+programming it is better to use the standard subsetting arithmetic functions,
+and in particular the non-standard evaluation of
+argument <code>transform</code> can have unanticipated consequences.
+</p>
+
+
+<h3>Note</h3>
+
+<p>If some of the values are not vectors of the appropriate length,
+you deserve whatever you get!
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Peter Dalgaard</p>
+
+
+<h3>See Also</h3>
+
+ <p><code>within</code> for a more flexible approach,
+<code>subset</code>,
+<code>list</code>,
+<code>data.frame</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>transform(airquality, Ozone = -Ozone)
+transform(airquality, new = -Ozone, Temp = (Temp-32)/1.8)
+
+attach(airquality)
+transform(Ozone, logOzone = log(Ozone)) # marginally interesting ...
+detach(airquality)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.0.4 ]</div>
+</div>
+</body></html>

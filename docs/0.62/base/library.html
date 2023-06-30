@@ -1,0 +1,232 @@
+<!DOCTYPE html><html><head><title>R: Loading and Listing of Packages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>library {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='library'>Loading and Listing of Packages</h2>
+
+<h3>Description</h3>
+
+<p><code>library(name)</code> and <code>require(name)</code> both load the package
+with name <code>name</code>.  <code>require</code> is designed for use inside
+other functions; it returns <code>FALSE</code> and optionally gives a
+warning, rather than giving an error, if the package does not exist.
+Both functions check and update the list of currently loaded packages
+and do not reload code that is already loaded.  <code>require</code> also
+checks the list <code>.Provided</code>.
+</p>
+<p><code>provide</code> allows code to register services that it provides.  The
+argument is stored in the list <code>.Provided</code>.  <code>provide</code>
+returns <code>FALSE</code> if the name was already present in
+<code>.Provided</code> or among the packages in <code>search()</code>.  The main
+use for <code>provide</code> is when multiple packages share code.	This is
+most likely when the code implements features present in S(-PLUS) but
+not in R. For example, the spline functions <code>ns</code>, <code>bs</code> and
+so on are not included in the <span class="rlang"><b>R</b></span> distribution.  A package containing
+these functions can use <code>provide(splines)</code> to register this fact.
+Another package that needs the functions can execute
+<code>require(splines)</code> rather than <code>library(splines)</code> to load
+the spline package only if their functionality is not already available.
+</p>
+<p>If <code>library</code> is called with no argument, it gives a list of all
+available packages.  <code>library(help = name)</code> prints information on
+the package <code>name</code>, typically by listing the most important user
+level objects it contains.
+</p>
+<p><code>.First.lib()</code> is called when a package is loaded by
+<code>library()</code>.  It is called with two arguments, the name of the
+library tree where the package was found (i.e., the corresponding
+element of <code>lib.loc</code>), and the name of the package (in that
+order).  It is a good place to put calls to <code>library.dynam()</code>
+which are needed when loading a package into this function (don't call
+<code>library.dynam()</code> directly, as this will not work if the package
+is not installed in a &ldquo;standard&rdquo; location).  <code>.First.lib()</code>
+is invoked after <code>search()</code> has been updated, so
+<code>pos.to.env(match("package:name"), search())</code> will return the
+environment in which the package is stored.
+</p>
+<p><code>.packages()</code> returns the &ldquo;base names&rdquo; of the currently attached
+packages <em>invisibly</em>.
+</p>
+<p><code>.Autoloaded</code> contains the &ldquo;base names&rdquo; of the packages for
+which autoloading has been promised.
+</p>
+<p><code>.Library</code> is a character string giving the location of the
+default library, the &ldquo;library&rdquo; subdirectory of <code>RHOME</code>.
+<code>.lib.loc</code> is a character vector with the locations of all
+library trees that <span class="rlang"><b>R</b></span> should use.  It is initialized at startup from
+the environment variable <code>RLIBS</code>, which should be a
+colon-separated list of directories at which <span class="rlang"><b>R</b></span> library trees are
+rooted, and <code>.Library</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>library(name, help = NULL, lib.loc = .lib.loc,
+	character.only = FALSE, logical.return = FALSE)
+require(name, quietly = FALSE)
+provide(name)
+
+.First.lib(libname, pkgname)
+
+.packages()
+.lib.loc
+.Library
+.Provided
+.Autoloaded
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="library_:_name">name</code>, <code id="library_:_help">help</code></td>
+<td>
+<p><code>name</code> or character string giving the name of a
+package.</p>
+</td></tr>
+<tr><td><code id="library_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector describing the location of <span class="rlang"><b>R</b></span>
+library trees to search through.</p>
+</td></tr>
+<tr><td><code id="library_:_character.only">character.only</code></td>
+<td>
+<p>a logical indicating whether <code>name</code> or
+<code>help</code> can be assumed to be character strings.</p>
+</td></tr>
+<tr><td><code id="library_:_quietly">quietly</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, a warning will not be
+printed if the package cannot be found.</p>
+</td></tr>
+<tr><td><code id="library_:_libname">libname</code></td>
+<td>
+<p>a character string giving the library directory where
+the package was found.</p>
+</td></tr>
+<tr><td><code id="library_:_pkgname">pkgname</code></td>
+<td>
+<p>a character string giving the name of the package.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>library</code> returns the list of loaded packages (or <code>TRUE</code> if
+<code>logical.return</code> is <code>TRUE</code>).
+<code>require</code> returns a logical indicating whether the required
+package is available.
+</p>
+
+
+<h3>Creating Packages</h3>
+
+<p>Packages provide a mechanism for loading optional code and attached
+documentation as needed.  The <span class="rlang"><b>R</b></span> distribution provides the example
+packages <code>eda</code>, <code>mva</code>, and <code>stepfun</code>.
+</p>
+<p>A package consists of a subdirectory containing the files
+&lsquo;<span class="file">DESCRIPTION</span>&rsquo;, &lsquo;<span class="file">INDEX</span>&rsquo;, and &lsquo;<span class="file">TITLE</span>&rsquo;, and the
+subdirectories &lsquo;<span class="file">R</span>&rsquo;, &lsquo;<span class="file">data</span>&rsquo;, &lsquo;<span class="file">exec</span>&rsquo;, &lsquo;<span class="file">man</span>&rsquo;, and
+&lsquo;<span class="file">src</span>&rsquo; (some of which can be missing).
+</p>
+<p>The &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file contains information about authors,
+version, copyright, etc., and looks like
+</p>
+<p>Package:<br />
+Version:<br />
+Author:<br />
+Description:<br />
+Depends:<br />
+License:
+</p>
+<p>Continuation lines (e.g., for descriptions longer than one line) start
+with a whitespace character.  The license field should contain an
+explicit statement or a well-known abbreviation (such as &lsquo;GPL&rsquo;,
+&lsquo;LGPL&rsquo;, &lsquo;BSD&rsquo; and &lsquo;Artistic&rsquo;), maybe followed by a reference to the
+actual license file.  It is very important that this information is
+included&mdash;otherwise, it may not even be legally correct for others
+to distribute copies of the package.
+</p>
+<p>The &lsquo;<span class="file">TITLE</span>&rsquo; file contains a line giving the name of the package
+and a brief description.  &lsquo;<span class="file">INDEX</span>&rsquo; contains a line for each
+sufficiently interesting object in the package, giving its name and a
+description (functions such as print methods not usually called
+explicitly might not be included).  Note that you can automatically
+create this file using the <code>Rdindex</code> program in &lsquo;<span class="file">RHOME/etc</span>&rsquo;,
+provided that Perl is available on your system.
+</p>
+<p>The &lsquo;<span class="file">R</span>&rsquo; subdirectory contains <span class="rlang"><b>R</b></span> code files.  The code files to
+be installed must start with a (lower- or uppercase) letter and have
+one of the extensions &lsquo;<span class="file">.R</span>&rsquo;, &lsquo;<span class="file">.S</span>&rsquo;, &lsquo;<span class="file">.q</span>&rsquo;, &lsquo;<span class="file">.r</span>&rsquo;, or
+&lsquo;<span class="file">.s</span>&rsquo;.  We recommend using &lsquo;<span class="file">.R</span>&rsquo;, as this extension seems to
+be not used by any other software.  If necessary, one of these files
+(historically &lsquo;<span class="file">zzz.R</span>&rsquo;) should use <code>library.dynam()</code>
+<em>inside</em> <code>.First.lib()</code> to load compiled code.
+</p>
+<p>The &lsquo;<span class="file">man</span>&rsquo; subdirectory should contain <span class="rlang"><b>R</b></span> documentation files for
+the objects in the package.  The documentation files to be installed
+must also start with a (lower- or uppercase) letter and have the
+extension &lsquo;<span class="file">.Rd</span>&rsquo; (the default) or &lsquo;<span class="file">.rd</span>&rsquo;.
+</p>
+<p>Source and a Makefile for the compiled code is in &lsquo;<span class="file">src</span>&rsquo;,
+containing C, FORTRAN, or Ratfor source.  The Makefile will be
+passed various machine-dependent compile and link flags, examples of
+which can be seen in the <code>eda</code> package.
+</p>
+<p>The &lsquo;<span class="file">data</span>&rsquo; subdirectory is for additional data files the package
+makes available for loading using <code>data()</code>.  Note that (at least
+currently) all such files are in fact R code files, and must have the
+extension &lsquo;<span class="file">.R</span>&rsquo;.
+</p>
+<p>Finally, &lsquo;<span class="file">exec</span>&rsquo; could contain additional executables the package
+needs, typically Shell or Perl scripts.  This mechanism is currently
+not used by any package, and still experimental.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>attach</code>, <code>detach</code>, <code>search</code>,
+<code>objects</code>, <code>autoload</code>,
+<code>library.dynam</code>;
+<code>INSTALL</code>, <code>REMOVE</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>( .packages() )	    	    # maybe just "base"
+library()		    # list all available packages
+library(lib = .Library)	    # list all packages in the default library
+library(help = eda)	    # documentation on package "eda"
+library(eda)		    # load package "eda"
+require(eda)		    # the same
+( .packages() )             # "eda", too
+require(nonexistent)	    # FALSE
+## Suppose the a package needs to call a shared library named "foo.EXT",
+## where "EXT" is the system-specific extension.  Then you should use
+.First.lib &lt;- function(lib, pkg) {
+  library.dynam("foo", pkg, lib)
+}
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62 ]</div>
+</div>
+</body></html>

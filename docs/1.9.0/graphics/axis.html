@@ -1,0 +1,176 @@
+<!DOCTYPE html><html><head><title>R: Add an Axis to a Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/axis.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/axis.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>axis {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='axis'>Add an Axis to a Plot</h2>
+
+<h3>Description</h3>
+
+<p>Adds an axis to the current plot, allowing the
+specification of the side, position, labels, and other options.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>axis(side, at = NULL, labels = TRUE, tick = TRUE, line = NA,
+     pos = NA, outer = FALSE, font = NA, vfont = NULL,
+     lty = "solid", lwd = 1, col = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="axis_:_side">side</code></td>
+<td>
+<p>an integer specifying which side of the plot the axis is
+to be drawn on.  The axis is placed as follows: 1=below,
+2=left, 3=above and 4=right.</p>
+</td></tr>
+<tr><td><code id="axis_:_at">at</code></td>
+<td>
+<p>the points at which tick-marks are to be drawn.  Non-finite
+(infinite, <code>NaN</code> or <code>NA</code>) values are omitted.  By default,
+when <code>NULL</code>, tickmark locations are computed, see Details below.</p>
+</td></tr>
+<tr><td><code id="axis_:_labels">labels</code></td>
+<td>
+<p>this can either be a logical value specifying whether
+(numerical) annotations are to be made at the tickmarks, or a vector
+of character strings to be placed at the tickpoints.</p>
+</td></tr>
+<tr><td><code id="axis_:_tick">tick</code></td>
+<td>
+<p>a logical value specifying whether tickmarks should be
+drawn</p>
+</td></tr></table>
+<p>.
+</p>
+<table>
+<tr><td><code id="axis_:_line">line</code></td>
+<td>
+<p>the number of lines into the margin which the axis will
+be drawn.  This overrides the value of the graphical parameter
+<code>mgp[3]</code>.  The relative placing of tickmarks and tick labels
+is unchanged.</p>
+</td></tr>
+<tr><td><code id="axis_:_pos">pos</code></td>
+<td>
+<p>the coordinate at which the axis line is to be drawn:
+this overrides the values of both <code>line</code> and <code>mgp[3]</code>.</p>
+</td></tr>
+<tr><td><code id="axis_:_outer">outer</code></td>
+<td>
+<p>a logical value indicating whether the axis should be
+drawn in the outer plot margin, rather than the standard plot
+margin.</p>
+</td></tr>
+<tr><td><code id="axis_:_font">font</code></td>
+<td>
+<p>font for text.</p>
+</td></tr>
+<tr><td><code id="axis_:_vfont">vfont</code></td>
+<td>
+<p>vector font for text.</p>
+</td></tr>
+<tr><td><code id="axis_:_lty">lty</code>, <code id="axis_:_lwd">lwd</code></td>
+<td>
+<p>line type, width for the axis line and the tick marks.</p>
+</td></tr>
+<tr><td><code id="axis_:_col">col</code></td>
+<td>
+<p>color for the axis line and the tick marks.  The default
+<code>NULL</code> means to use <code>par("fg")</code>.</p>
+</td></tr>
+<tr><td><code id="axis_:_...">...</code></td>
+<td>
+<p>other graphical parameters may also be passed as arguments to
+this function, particularly, <code>cex.axis</code>, <code>col.axis</code> and
+<code>font.axis</code> for axis annotation, <code>las</code> for
+vertical/horizontal label orientation, or <code>fg</code> instead of
+<code>col</code>, see <code>par</code> on these.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The axis line is drawn from the lowest to the highest value of
+<code>at</code>, but will be clipped at the plot region. Only ticks which
+are drawn from points within the plot region (up to a tolerance for
+rounding error) are plotted, but the ticks and their labels may well
+extend outside the plot region.
+</p>
+<p>When <code>at = NULL</code>, pretty tick mark locations are computed internally
+(the same way <code>axTicks(side)</code> would) from
+<code>par("usr", "lab")</code> and <code>par("xlog")</code> (or
+<code>"ylog"</code>).
+</p>
+<p>Several of the graphics parameters affect the way axes are drawn. The
+vertical (for sides 1 and 3) positions of the axis and the tick labels
+are controlled by <code>mgp</code>, the size of the ticks is controlled by
+<code>tck</code> and <code>tcl</code> and the appearance of the tick labels by
+<code>cex.axis</code>, <code>col.axis</code> and <code>font.axis</code> with
+orientation controlled by <code>las</code> (but not <code>srt</code>, unlike S
+which uses <code>srt</code> if <code>at</code> is supplied and <code>las</code> if it is
+not).
+</p>
+
+
+<h3>Value</h3>
+
+<p>This function is invoked for its side effect, which is to add an axis
+to an already existing plot.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>axTicks</code> returns the axis tick locations
+corresponding to <code>at=NULL</code>; <code>pretty</code> is more flexible
+for computing pretty tick coordinates and does <em>not</em> depend on
+(nor adapt to) the coordinate system in use.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>plot(1:4, rnorm(4), axes=FALSE)
+axis(1, 1:4, LETTERS[1:4])
+axis(2)
+box() #- to make it look "as usual"
+
+plot(1:7, rnorm(7), main = "axis() examples",
+     type = "s", xaxt = "n", frame = FALSE, col = "red")
+axis(1, 1:7, LETTERS[1:7], col.axis = "blue")
+# unusual options:
+axis(4, col = "violet", col.axis="dark violet", lwd = 2)
+axis(3, col = "gold", lty = 2, lwd = 0.5)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 1.9.0 ]</div>
+</div>
+</body></html>

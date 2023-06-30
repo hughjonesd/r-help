@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><title>R: Check for a Sealed Method or Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/isSealedMethod.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/isSealedMethod.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>isSealedMethod {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='isSealedMethod'> Check for a Sealed Method or Class </h2>
+
+<h3>Description</h3>
+
+<p>These functions check for either a method or a class that has been
+<em>sealed</em> when it was defined, and which therefore cannot be
+re-defined.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>isSealedMethod(f, signature, fdef, where)
+isSealedClass(Class, where)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="isSealedMethod_:_f">f</code></td>
+<td>
+<p> The quoted name of the generic function. </p>
+</td></tr>
+<tr><td><code id="isSealedMethod_:_signature">signature</code></td>
+<td>
+<p> The class names in the method's signature, as
+they would be supplied to <code>setMethod</code>. </p>
+</td></tr>
+<tr><td><code id="isSealedMethod_:_fdef">fdef</code></td>
+<td>
+<p> Optional, and usually omitted:  the generic function
+definition for <code>f</code>. </p>
+</td></tr>
+<tr><td><code id="isSealedMethod_:_Class">Class</code></td>
+<td>
+<p>The quoted name of the class.</p>
+</td></tr>
+<tr><td><code id="isSealedMethod_:_where">where</code></td>
+<td>
+<p>where to search for the method or class definition.  By
+default, searches from the top environment of the call to
+<code>isSealedMethod</code> or <code>isSealedClass</code>, typically the
+global environment or the namespace of a package containing a call
+to one of the functions.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>In the <span class="rlang"><b>R</b></span> implementation of classes and methods, it is possible to
+seal the definition of either a class or a method.  The basic
+classes (numeric and other types of vectors, matrix and array data)
+are sealed.  So also are the methods for the primitive functions on
+those data types.  The effect is that programmers cannot re-define
+the meaning of these basic data types and computations.  More
+precisely, for primitive functions that depend on only one data
+argument, methods cannot be specified for basic classes.  For
+functions (such as the arithmetic operators) that depend on two
+arguments, methods can be specified if <em>one</em> of those arguments
+is a basic class, but not if both are.
+</p>
+<p>Programmers can seal other class and method definitions by using the
+<code>sealed</code> argument to <code>setClass</code> or <code>setMethod</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The functions return <code>FALSE</code> if the method or class is not
+sealed (including the case that it is not defined); <code>TRUE</code> if
+it is.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, John M. (2008)
+<em>Software for Data Analysis: Programming with R</em>
+Springer.  (For the R version.)
+</p>
+<p>Chambers, John M. (1998)
+<em>Programming with Data</em>
+Springer (For the original S4 version.)
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## these are both TRUE
+isSealedMethod("+", c("numeric", "character"))
+isSealedClass("matrix")
+
+setClass("track", slots = c(x="numeric", y="numeric"))
+## but this is FALSE
+isSealedClass("track")
+## and so is this
+isSealedClass("A Name for an undefined Class")
+## and so are these, because only one of the two arguments is basic
+isSealedMethod("+", c("track", "numeric"))
+isSealedMethod("+", c("numeric", "track"))
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 3.3.3 ]</div>
+</div>
+</body></html>

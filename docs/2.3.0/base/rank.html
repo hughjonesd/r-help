@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><title>R: Sample Ranks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rank.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rank.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>rank {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='rank'>Sample Ranks</h2>
+
+<h3>Description</h3>
+
+<p>Returns the sample ranks of the values in a vector.
+Ties, i.e., equal values, result in ranks being averaged, by default.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rank(x, na.last = TRUE,
+     ties.method = c("average", "first", "random", "max", "min"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="rank_:_x">x</code></td>
+<td>
+<p>a numeric, complex, character or logical vector.</p>
+</td></tr>
+<tr><td><code id="rank_:_na.last">na.last</code></td>
+<td>
+<p>for controlling the treatment of <code>NA</code>s.
+If <code>TRUE</code>, missing values in the data are put last; if
+<code>FALSE</code>, they are put first; if <code>NA</code>, they are removed; if
+<code>"keep"</code> they are kept.</p>
+</td></tr>
+<tr><td><code id="rank_:_ties.method">ties.method</code></td>
+<td>
+<p>a character string specifying how ties are treated,
+see below; can be abbreviated.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If all components are different, the ranks are well defined, with
+values in <code>1:n</code> where <code>n &lt;- length(x)</code> and we assume no
+<code>NA</code>s for the moment.  Otherwise, with some values equal, called
+&lsquo;ties&rsquo;, the argument <code>ties.method</code> determines
+the result at the corresponding indices.  The <code>"first"</code> method
+results in a permutation with increasing values at each index set of
+ties.  The <code>"random"</code> method puts these in random order whereas the
+default, <code>"average"</code>, replaces them by their mean, and
+<code>"max"</code> and <code>"min"</code> replaces them by their maximum and
+minimum respectively, the latter being the typical &ldquo;sports&rdquo;
+ranking.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>order</code> and <code>sort</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>(r1 &lt;- rank(x1 &lt;- c(3, 1, 4, 15, 92)))
+x2 &lt;- c(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5)
+names(x2) &lt;- letters[1:11]
+(r2 &lt;- rank(x2)) # ties are averaged
+
+## rank() is "idempotent": rank(rank(x)) == rank(x) :
+stopifnot(rank(r1) == r1, rank(r2) == r2)
+
+## ranks without averaging
+rank(x2, ties.method= "first")  # first occurrence wins
+rank(x2, ties.method= "random") # ties broken at random
+rank(x2, ties.method= "random") # and again
+
+## keep ties ties, no average
+(rma &lt;- rank(x2, ties.method= "max"))  # as used classically
+(rmi &lt;- rank(x2, ties.method= "min"))  # as in Sports
+stopifnot(rma + rmi == round(r2 + r2))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.3.0 ]</div>
+</div>
+</body></html>

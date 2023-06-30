@@ -1,0 +1,148 @@
+<!DOCTYPE html><html><head><title>R: Apply Functions Over Array Margins</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/apply.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/apply.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>apply {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='apply'>Apply Functions Over Array Margins</h2>
+
+<h3>Description</h3>
+
+<p>Returns a vector or array or list of values obtained by applying a
+function to margins of an array.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>apply(X, MARGIN, FUN, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="apply_:_X">X</code></td>
+<td>
+<p>the array to be used.</p>
+</td></tr>
+<tr><td><code id="apply_:_MARGIN">MARGIN</code></td>
+<td>
+<p>a vector giving the subscripts which the function will
+be applied over.
+<code>1</code> indicates rows, <code>2</code> indicates columns,
+<code>c(1,2)</code> indicates rows and columns.</p>
+</td></tr>
+<tr><td><code id="apply_:_FUN">FUN</code></td>
+<td>
+<p>the function to be applied: see &lsquo;Details&rsquo;.
+In the case of functions like <code>+</code>, <code>%*%</code>, etc., the
+function name must be backquoted or quoted.</p>
+</td></tr>
+<tr><td><code id="apply_:_...">...</code></td>
+<td>
+<p>optional arguments to <code>FUN</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>X</code> is not an array but has a dimension attribute,
+<code>apply</code> attempts to coerce it to an array via <code>as.matrix</code>
+if it is two-dimensional (e.g., data frames) or via <code>as.array</code>.
+</p>
+<p><code>FUN</code> is found by a call to <code>match.fun</code> and typically
+is either a function or a symbol (e.g. a backquoted name) or a
+character string specifying a function to be searched for from the 
+environment of the call to <code>apply</code>. 
+</p>
+
+
+<h3>Value</h3>
+
+<p>If each call to <code>FUN</code> returns a vector of length <code>n</code>, then
+<code>apply</code> returns an array of dimension <code>c(n, dim(X)[MARGIN])</code>
+if <code>n &gt; 1</code>.  If <code>n</code> equals <code>1</code>, <code>apply</code> returns a
+vector if <code>MARGIN</code> has length 1 and an array of dimension
+<code>dim(X)[MARGIN]</code> otherwise.
+If <code>n</code> is <code>0</code>, the result has length 0 but not necessarily
+the &lsquo;correct&rsquo; dimension.
+</p>
+<p>If the calls to <code>FUN</code> return vectors of different lengths,
+<code>apply</code> returns a list of length <code>prod(dim(X)[MARGIN])</code> with
+<code>dim</code> set to <code>MARGIN</code> if this has length greater than one.
+</p>
+<p>In all cases the result is coerced by <code>as.vector</code> to one
+of the basic vector types before the dimensions are set, so that (for
+example) factor results will be coerced to a character array.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>lapply</code>, <code>tapply</code>, and convenience functions
+<code>sweep</code> and <code>aggregate</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Compute row and column sums for a matrix:
+x &lt;- cbind(x1 = 3, x2 = c(4:1, 2:5))
+dimnames(x)[[1]] &lt;- letters[1:8]
+apply(x, 2, mean, trim = .2)
+col.sums &lt;- apply(x, 2, sum)
+row.sums &lt;- apply(x, 1, sum)
+rbind(cbind(x, Rtot = row.sums), Ctot = c(col.sums, sum(col.sums)))
+
+stopifnot( apply(x, 2, is.vector))
+
+## Sort the columns of a matrix
+apply(x, 2, sort)
+
+##- function with extra args:
+cave &lt;- function(x, c1, c2) c(mean(x[c1]), mean(x[c2]))
+apply(x,1, cave,  c1="x1", c2=c("x1","x2"))
+
+ma &lt;- matrix(c(1:4, 1, 6:8), nrow = 2)
+ma
+apply(ma, 1, table)  #--&gt; a list of length 2
+apply(ma, 1, stats::quantile)# 5 x n matrix with rownames
+
+stopifnot(dim(ma) == dim(apply(ma, 1:2, sum)))
+
+## Example with different lengths for each call
+z &lt;- array(1:24, dim=2:4)
+zseq &lt;- apply(z, 1:2, function(x) seq(length=max(x)))
+zseq         ## a 2 x 3 matrix
+typeof(zseq) ## list
+dim(zseq) ## 2 3
+zseq[1,]
+apply(z, 3, function(x) seq(length=max(x)))
+# a list without a dim attribute
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.6.2 ]</div>
+</div>
+</body></html>

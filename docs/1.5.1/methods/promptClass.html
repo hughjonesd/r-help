@@ -1,0 +1,137 @@
+<!DOCTYPE html><html><head><title>R: Generate a Shell for Documentation of a Formal Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/promptClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/promptClass.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>promptClass {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='promptClass'>Generate a Shell for Documentation of a Formal Class</h2>
+
+<h3>Description</h3>
+
+<p>Assembles all relevant slot and method information for a class, with
+minimal markup for Rd processing; no QA facilities at present.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>promptClass(clName, filename, type = "class", keywords = "classes", where)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="promptClass_:_clName">clName</code></td>
+<td>
+<p> character string naming the class to be documented. </p>
+</td></tr>
+<tr><td><code id="promptClass_:_filename">filename</code></td>
+<td>
+<p> Usually, the filename on which the documentation
+shell should be written.  By default it is the topic name for
+the class documentation, followed by &quot;.Rd&quot;. See the example
+below.  The argument can also be any writable
+connection.</p>
+</td></tr>
+<tr><td><code id="promptClass_:_type">type</code></td>
+<td>
+<p>The documentation type to be declared in the output
+file.</p>
+</td></tr>
+<tr><td><code id="promptClass_:_keywords">keywords</code></td>
+<td>
+<p>The keywords to include in the shell of the
+documentation.  The keyword <code>"classes"</code> should be one of
+them.  </p>
+</td></tr>
+<tr><td><code id="promptClass_:_where">where</code></td>
+<td>
+<p> where to look for the definition of the class and of
+methods that use it:  by default, anywhere in the current search
+list.  </p>
+</td></tr> </table>
+
+
+<h3>Details</h3>
+
+ 
+<p>The class definition is found on the search list.  Using
+that definition, information about classes extended and slots is
+determined.
+</p>
+<p>In addition, the currently available generics with methods for this
+class are found (using <code>getGenerics</code>).  Note that these
+methods need not be in the same environment as the class definition; in
+particular, this part of the output may depend on which packages are
+currently in the search list.
+</p>
+<p>As with other prompt-style functions, the documentation shell is
+written to a file, which will need editing to give information about
+the <em>meaning</em> of the class.  The output of <code>promptClass</code> can
+only contain information from the metadata about the formal definition
+and how it is used.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The name of the file to which the shell is written (the value is
+<code>invisible</code>).
+A message is also printed notifying
+the user about the file.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>VJ Carey <a href="mailto:stvjc@channing.harvard.edu">stvjc@channing.harvard.edu</a> and John Chambers
+</p>
+
+
+<h3>References</h3>
+
+<p>The web page <a href="http://www.omegahat.org/RSMethods/index.html">http://www.omegahat.org/RSMethods/index.html</a> is the
+primary documentation.
+</p>
+<p>The functions in this package emulate the facility for classes and
+methods described in <em>Programming with Data</em> (John M. Chambers,
+Springer, 1998).  See this book for further details and examples.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>prompt</code> for documentation of functions, 
+<code>promptMethods</code> for documentation of method definitions.
+</p>
+<p>For processing of the edited documentation, either use <code>R CMD
+    Rdconv</code>, or include the edited file in the &lsquo;<span class="file">man</span>&rsquo;
+subdirectory of a package.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+## Not run: &gt; promptClass("track")
+A shell of class documentation has been written to the 
+file "track-class.Rd".
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.5.1 ]</div>
+</div>
+</body></html>

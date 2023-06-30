@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>R: Lazy Loading of Packages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/makeLazyLoading.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/makeLazyLoading.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>makeLazyLoading {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='makeLazyLoading'>Lazy Loading of Packages</h2>
+
+<h3>Description</h3>
+
+<p>Tools for lazy loading of packages from a database.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>makeLazyLoading(package, lib.loc = NULL, compress = TRUE,
+                keep.source = getOption("keep.source.pkgs"),
+                keep.parse.data = getOption("keep.parse.data.pkgs"),
+                set.install.dir = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="makeLazyLoading_:_package">package</code></td>
+<td>
+<p>package name string</p>
+</td></tr>
+<tr><td><code id="makeLazyLoading_:_lib.loc">lib.loc</code></td>
+<td>
+<p>library trees, as in <code>library</code></p>
+</td></tr>
+<tr><td><code id="makeLazyLoading_:_keep.source">keep.source</code></td>
+<td>
+<p>logical; should sources be kept when saving from source</p>
+</td></tr>
+<tr><td><code id="makeLazyLoading_:_keep.parse.data">keep.parse.data</code></td>
+<td>
+<p>logical; should parse data be kept with sources
+when <code>keep.source</code> is <code>TRUE</code>.</p>
+</td></tr>
+<tr><td><code id="makeLazyLoading_:_compress">compress</code></td>
+<td>
+<p>logical; whether to compress entries on the database.</p>
+</td></tr>
+<tr><td><code id="makeLazyLoading_:_set.install.dir">set.install.dir</code></td>
+<td>
+<p>character or null; if not null, set installation
+directory to this value before serializing internal data structures
+(for internal use, staged installation)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A tool to set up packages for lazy loading from a database.  For
+packages other than <span class="pkg">base</span> you can use
+<code>makeLazyLoading(package)</code> to convert them to use lazy loading.
+</p>
+<p>This is done when a package is installed.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Luke Tierney and Brian Ripley</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.1.0 ]</div>
+</div>
+</body></html>

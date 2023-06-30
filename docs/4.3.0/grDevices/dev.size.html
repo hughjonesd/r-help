@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>R: Find Size of Device Surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/dev.size.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/dev.size.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dev.size {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dev.size'> Find Size of Device Surface </h2>
+
+<h3>Description</h3>
+
+<p>Find the dimensions of the device surface of the current device.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dev.size(units = c("in", "cm", "px"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dev.size_:_units">units</code></td>
+<td>
+<p>the units in which to return the value &ndash; inches, cm, or
+pixels (device units).</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A two-element numeric vector giving width and height of the current
+device; a new device is opened if there is none, similarly to
+<code>dev.new()</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The size information in inches can be obtained by
+<code>par("din")</code>, but this provides a way to access it
+independent of the graphics sub-system in use.  Note that
+<code>par("din")</code> is only updated when a new plot is started, whereas
+<code>dev.size</code> tracks the size as an on-screen device is resized.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>dev.size("cm")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 4.3.0 ]</div>
+</div>
+</body></html>

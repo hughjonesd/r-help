@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><title>R: Report Configuration Options for PCRE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/pcre_config.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/pcre_config.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>pcre_config {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='pcre_config'>
+Report Configuration Options for PCRE
+</h2>
+
+<h3>Description</h3>
+
+<p>Report some of the configuration options of the version of PCRE in use
+in this <span class="rlang"><b>R</b></span> session.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>pcre_config()
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>A named logical vector, currently with elements
+</p>
+<table>
+<tr><td><code>UTF-8</code></td>
+<td>
+<p>Support for UTF-8 inputs.  Required nowadays.</p>
+</td></tr>
+<tr><td><code>Unicode properties</code></td>
+<td>
+<p>Support for &lsquo;<span class="samp">&#8288;\p{xx}&#8288;</span>&rsquo; and &lsquo;<span class="samp">&#8288;\P{xx}&#8288;</span>&rsquo;
+in regular expressions.  Desirable and used by some CRAN packages.</p>
+</td></tr>
+<tr><td><code>JIT</code></td>
+<td>
+<p>Support for just-in-time compilation.  Only available as a
+compile-time option on certain architectures as from PCRE 8.20, and
+not used by <span class="rlang"><b>R</b></span> itself prior to version 3.4.0.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>extSoftVersion</code> for the PCRE version.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>pcre_config()
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.3.3 ]</div>
+</div>
+</body></html>

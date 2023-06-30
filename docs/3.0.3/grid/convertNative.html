@@ -1,0 +1,107 @@
+<!DOCTYPE html><html><head><title>R: Convert a Unit Object to Native units</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/convertNative.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/convertNative.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>convertNative {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='convertNative'> Convert a Unit Object to Native units </h2>
+
+<h3>Description</h3>
+
+<p><b>This function is deprecated in grid version 0.8 and will be
+made defunct in grid version 1.9</b>
+</p>
+<p>You should use the <code>convertUnit()</code> function or one of its
+close allies instead.
+</p>
+<p>This function returns a numeric vector containing the specified
+x or y locations or dimensions, converted to &quot;user&quot; or &quot;data&quot;
+units, relative to the current viewport.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>convertNative(unit, dimension="x", type="location")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="convertNative_:_unit">unit</code></td>
+<td>
+<p> A unit object. </p>
+</td></tr>
+<tr><td><code id="convertNative_:_dimension">dimension</code></td>
+<td>
+<p> Either &quot;x&quot; or &quot;y&quot;. </p>
+</td></tr>
+<tr><td><code id="convertNative_:_type">type</code></td>
+<td>
+<p> Either &quot;location&quot; or &quot;dimension&quot;. </p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A numeric vector.
+</p>
+
+
+<h3>WARNING </h3>
+
+<p> If you draw objects based on output from these conversion
+functions, then resize your device, the objects will be drawn
+incorrectly &ndash; the base R display list will not recalculate these
+conversions.  This means that you can only rely on the results of
+these calculations if the size of your device is fixed.</p>
+
+
+<h3>Author(s)</h3>
+
+<p> Paul Murrell </p>
+
+
+<h3>See Also</h3>
+
+ <p><code>grid.convert</code>, <code>unit</code> </p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>grid.newpage()
+pushViewport(viewport(width=unit(.5, "npc"),
+                       height=unit(.5, "npc")))
+grid.rect()
+w &lt;- convertNative(unit(1, "inches"))
+h &lt;- convertNative(unit(1, "inches"), "y")
+# This rectangle starts off life as 1in square, but if you
+# resize the device it will no longer be 1in square
+grid.rect(width=unit(w, "native"), height=unit(h, "native"),
+          gp=gpar(col="red"))
+popViewport(1)
+
+# How to use grid.convert(), etc instead
+convertNative(unit(1, "inches")) ==
+  convertX(unit(1, "inches"), "native", valueOnly=TRUE)
+convertNative(unit(1, "inches"), "y", "dimension") ==
+  convertHeight(unit(1, "inches"), "native", valueOnly=TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 3.0.3 ]</div>
+</div>
+</body></html>

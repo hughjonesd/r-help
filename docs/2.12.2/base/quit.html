@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: Terminate an R Session</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/quit.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/quit.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>quit {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='quit'>Terminate an R Session</h2>
+
+<h3>Description</h3>
+
+<p>The function <code>quit</code> or its alias <code>q</code> terminate the current
+<span class="rlang"><b>R</b></span> session.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>quit(save = "default", status = 0, runLast = TRUE)
+   q(save = "default", status = 0, runLast = TRUE)
+.Last &lt;- function(x) { ...... }
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="quit_:_save">save</code></td>
+<td>
+<p>a character string indicating whether the environment
+(workspace) should be saved, one of <code>"no"</code>, <code>"yes"</code>,
+<code>"ask"</code> or <code>"default"</code>.</p>
+</td></tr>
+<tr><td><code id="quit_:_status">status</code></td>
+<td>
+<p>the (numerical) error status to be returned to the
+operating system, where relevant. Conventionally <code>0</code>
+indicates successful completion.</p>
+</td></tr>
+<tr><td><code id="quit_:_runLast">runLast</code></td>
+<td>
+<p>should <code>.Last()</code> be executed?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>save</code> must be one of <code>"no"</code>, <code>"yes"</code>,
+<code>"ask"</code> or <code>"default"</code>.  In the first case the workspace
+is not saved, in the second it is saved and in the third the user is
+prompted and can also decide <em>not</em> to quit.  The default is to
+ask in interactive use but may be overridden by command-line
+arguments (which must be supplied in non-interactive use).
+</p>
+<p>Immediately <em>before</em> terminating, the function <code>.Last()</code>
+is executed if it exists and <code>runLast</code> is true. If in
+interactive use there are errors in
+the <code>.Last</code> function, control will be returned to the command
+prompt, so do test the function thoroughly.  There is a system
+analogue, <code>.Last.sys()</code>, which is run after <code>.Last()</code>
+if <code>runLast</code> is true.
+</p>
+<p>Exactly what happens at termination of an <span class="rlang"><b>R</b></span> session depends on the
+platform and GUI interface in use.  A typical sequence is to run
+<code>.Last()</code> and <code>.Last.sys()</code> (unless <code>runLast</code> is
+false), to save the workspace if requested (and in most cases also
+to save the session history: see <code>savehistory</code>), then
+run any finalizers (see <code>reg.finalizer</code>) that have been
+set to be run on exit, close all open graphics devices, remove the
+session temporary directory and print any remaining warnings
+(e.g. from <code>.Last()</code> and device closure).
+</p>
+<p>Some error statuses are used by <span class="rlang"><b>R</b></span> itself.  The default error
+handler for non-interactive use effectively calls <code>q("no", 1,
+      FALSE)</code> and returns error code 1.  Error status 2 is used for <span class="rlang"><b>R</b></span>
+&lsquo;suicide&rsquo;, that is a catastrophic failure, and other small
+numbers are used by specific ports for initialization failures.  It
+is recommended that users choose statuses of 10 or more.
+</p>
+<p>Valid values of <code>status</code> are system-dependent, but <code>0:255</code>
+are normally valid.  (Many OSes will report the last byte of the
+value, that is report the number modulo 256.  But not all.)
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>.First</code> for setting things on startup.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: ## Unix-flavour example
+.Last &lt;- function() {
+  cat("Now sending PostScript graphics to the printer:\n")
+  system("lpr Rplots.ps")
+  cat("bye bye...\n")
+}
+quit("yes")
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.12.2 ]</div>
+</div>
+</body></html>

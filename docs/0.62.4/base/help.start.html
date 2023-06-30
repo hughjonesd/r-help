@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><title>R: Hypertext Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/help.start.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/help.start.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>help {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='help'>Hypertext Documentation</h2>
+
+<h3>Description</h3>
+
+<p>Start the hypertext (currently HTML) version of <span class="rlang"><b>R</b></span>'s online documentation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>help.start(gui = "irrelevant", browser = "netscape", remote = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="help_:_gui">gui</code></td>
+<td>
+<p>just for compatibility</p>
+</td></tr>
+<tr><td><code id="help_:_browser">browser</code></td>
+<td>
+<p>the name of the program to be used as hypertext browser.</p>
+</td></tr>
+<tr><td><code id="help_:_remote">remote</code></td>
+<td>
+<p>A character giving a valid URL for the &lsquo;<span class="file">\$RHOME</span>&rsquo; directory
+on a remote location.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>browser</code> needs to work with an <code>"-remote openURL(..)"</code>
+call.
+Then, the hypertext <span class="rlang"><b>R</b></span> help interface is opened in any already running
+browser or a new one if necessary.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>help()</code> for on- and off-line help in ASCII/Editor or
+PostScript format.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>help.start()
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.4 ]</div>
+</div>
+</body></html>

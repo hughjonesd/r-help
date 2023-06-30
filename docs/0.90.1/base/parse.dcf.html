@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Parse Debian Control File Format</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/parse.dcf.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/parse.dcf.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>parse.dcf {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='parse.dcf'>Parse Debian Control File Format</h2>
+
+<h3>Description</h3>
+
+<p>Parses text read from a file in Debian control file format, e.g., the
+&lsquo;<span class="file">DESCRIPTION</span>&rsquo; or &lsquo;<span class="file">CONTENTS</span>&rsquo; of a package.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>parse.dcf(desc = NULL, file = "", fields = NULL, versionfix = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="parse.dcf_:_text">text</code></td>
+<td>
+<p>A character vector containing one line of the file in each
+element.</p>
+</td></tr>
+<tr><td><code id="parse.dcf_:_file">file</code></td>
+<td>
+<p>Name of the file to be parsed.</p>
+</td></tr>
+<tr><td><code id="parse.dcf_:_fields">fields</code></td>
+<td>
+<p>A character vector of fields to return (if other fields
+occur in the file they are ignored.</p>
+</td></tr>
+<tr><td><code id="parse.dcf_:_versionfix">versionfix</code></td>
+<td>
+<p>Logical, if <code>TRUE</code> than the version field is
+truncated at the first whitespace character.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>If <code>fields = NULL</code>, a list with one element per entry is
+returned. Each entry is a list of character vectors, one per field.
+If <code>fields</code> are specified, then a character matrix with one row
+per entry and one column per field is returned. 
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>package.contents</code>, <code>library</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>file &lt;- system.file("CONTENTS", pkg="mva")
+parse.dcf(file=file)
+
+## same in 2 steps
+filecontent &lt;- scan(file=file, what="", sep="\n")
+parse.dcf(text=filecontent) 
+{utilities}
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.90.1 ]</div>
+</div>
+</body></html>

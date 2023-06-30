@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><title>R: Merge Two Data Frames</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/merge.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/merge.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>merge {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='merge'>Merge Two Data Frames</h2>
+
+<h3>Description</h3>
+
+<p>Merge two data frames by common columns or row names.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>merge(x, y, by, by.x, by.y, sort = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="merge_:_x">x</code>, <code id="merge_:_y">y</code></td>
+<td>
+<p>data frames, or objects to be coerced to one</p>
+</td></tr>
+<tr><td><code id="merge_:_by">by</code>, <code id="merge_:_by.x">by.x</code>, <code id="merge_:_by.y">by.y</code></td>
+<td>
+<p>specifcations of the common columns. See Details.</p>
+</td></tr>
+<tr><td><code id="merge_:_sort">sort</code></td>
+<td>
+<p>logical. Should the results be sorted on the <code>by</code> columns?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>By default the data frames are merged on the columns with names they
+both have, but separate specifcations of the columns can be given by
+<code>by.x</code> and <code>by.y</code>. Columns can be specified by name, number
+or by a logical vector: the name <code>"row.names"</code> or the number
+<code>0</code> specifies the row names.  The rows in the two data frames
+that match on the specified columns are extracted, and joined
+together. If there is more than one match, all possible matches
+contribute one row each.
+</p>
+<p>If the remaining columns in the data frames have any common names,
+these have <code>".x"</code> and <code>".y"</code> appended to make the names
+of the result unique.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame. The rows are by default lexicographically sorted on the
+common columns, but are otherwise in the order in which they occurred
+in <code>x</code>. The columns are the common columns followed by the
+remaining columns in <code>x</code> and then those in <code>y</code>.  If the
+matching involved row names, an extra column <code>Row.names</code> is added
+at the left, and in all cases the result has no special row names.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>data.frame</code>, <code>by</code>, <code>cbind</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>authors &lt;- data.frame(
+    surname = c("Tukey", "Venables", "Tierney", "Ripley", "McNeil"),
+    nationality = c("US", "Australia", "US", "UK", "Australia"),
+    deceased = c("yes", rep("no", 4)))
+books &lt;- data.frame(
+    name = c("Tukey", "Venables", "Tierney", "Ripley", "Ripley", "McNeil"),
+    title = c("Exploratory Data Analysis",
+              "Modern Applied Statistics ...",
+              "LISP-STAT",
+              "Spatial Statistics", "Stochastic Simulation",
+               "Interactive Data Analysis"),
+    other.author = c(NA, "Ripley", NA, NA, NA, NA))
+
+merge(authors, books, by.x = "surname", by.y = "name")
+merge(books, authors, by.x = "name", by.y = "surname")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.1 ]</div>
+</div>
+</body></html>

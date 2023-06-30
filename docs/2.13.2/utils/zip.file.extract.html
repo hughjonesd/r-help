@@ -1,0 +1,107 @@
+<!DOCTYPE html><html><head><title>R: Extract File from a Zip Archive</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/zip.file.extract.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/zip.file.extract.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>zip.file.extract {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='zip.file.extract'>Extract File from a Zip Archive</h2>
+
+<h3>Description</h3>
+
+<p>This will extract the file named <code>file</code> from the zip archive,
+if possible, and write it in a temporary location.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>zip.file.extract(file, zipname = "R.zip",
+                 unzip = getOption("unzip"), dir = tempdir())
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="zip.file.extract_:_file">file</code></td>
+<td>
+<p>file name. (If a path is given, see &lsquo;Note&rsquo;.)</p>
+</td></tr>
+<tr><td><code id="zip.file.extract_:_zipname">zipname</code></td>
+<td>
+<p>The file name (not path) of a <code>zip</code> archive,
+including the <code>".zip"</code> extension if required.</p>
+</td></tr>
+<tr><td><code id="zip.file.extract_:_unzip">unzip</code></td>
+<td>
+<p>character string: the method to be used, an empty string
+indicates <code>"internal"</code>.</p>
+</td></tr>
+<tr><td><code id="zip.file.extract_:_dir">dir</code></td>
+<td>
+<p>directory (&ldquo;folder&rdquo;) name into which the extraction
+happens.  Must be writable to the caller.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>All platforms support an <code>"internal"</code> unzip: this is the default
+under Windows and the fall-back under Unix if no <code>unzip</code> program
+was found during configuration and <span class="env">R_UNZIPCMD</span> is not set.
+</p>
+<p>The file will be extracted if it is in the archive and any required
+<code>unzip</code> utility is available.  It will be extracted to the
+directory given by <code>dir</code>, overwriting any existing file of
+that name.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The name of the original or extracted file.  Success is indicated by
+returning a different name.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The <code>"internal"</code> method is very simple, and will not set file dates.
+</p>
+<p>This is a helper function for <code>help</code>,
+<code>example</code> and <code>data</code>.  As such, it handles
+file paths in an unusual way.  Any path component of <code>zipname</code> is
+ignored, and the path to <code>file</code> is used only to determine the
+directory within which to find <code>zipname</code>.
+</p>
+
+
+<h3>Source</h3>
+
+<p>The C code uses <code>zlib</code> and is in particular based on the
+contributed &lsquo;<span class="samp">&#8288;minizip&#8288;</span>&rsquo; application in the <code>zlib</code> sources by
+Gilles Vollant.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>unzip</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.13.2 ]</div>
+</div>
+</body></html>

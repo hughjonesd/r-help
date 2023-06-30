@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>R: Format P Values</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/format.pval.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/format.pval.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>format.pval {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='format.pval'>Format P Values</h2>
+
+<h3>Description</h3>
+
+<p><code>format.pval</code> is intended for formatting p-values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>format.pval(pv, digits = max(1, getOption("digits") - 2),
+            eps = .Machine$double.eps, na.form = "NA", ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="format.pval_:_pv">pv</code></td>
+<td>
+<p>a numeric vector.</p>
+</td></tr>
+<tr><td><code id="format.pval_:_digits">digits</code></td>
+<td>
+<p>how many significant digits are to be used.</p>
+</td></tr>
+<tr><td><code id="format.pval_:_eps">eps</code></td>
+<td>
+<p>a numerical tolerance: see &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="format.pval_:_na.form">na.form</code></td>
+<td>
+<p>character representation of <code>NA</code>s.</p>
+</td></tr>
+<tr><td><code id="format.pval_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to <code>format</code>
+such as <code>nsmall</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>format.pval</code> is mainly an auxiliary function for
+<code>print.summary.lm</code> etc., and does separate formatting for
+fixed, floating point and very small values; those less than
+<code>eps</code> are formatted as <code>"&lt; [eps]"</code> (where &lsquo;[eps]&rsquo;
+stands for <code>format(eps, digits)</code>).
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>format.pval(c(stats::runif(5), pi^-100, NA))
+format.pval(c(0.1, 0.0001, 1e-27))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.4.0 ]</div>
+</div>
+</body></html>

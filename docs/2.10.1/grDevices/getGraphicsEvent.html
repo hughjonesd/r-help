@@ -1,0 +1,164 @@
+<!DOCTYPE html><html><head><title>R: Wait for a mouse or keyboard event from a graphics window</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/getGraphicsEvent.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/getGraphicsEvent.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>getGraphicsEvent {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='getGraphicsEvent'>Wait for a mouse or keyboard event from a graphics window</h2>
+
+<h3>Description</h3>
+
+<p>This function waits for input from a graphics window in the
+form of a mouse or keyboard event.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getGraphicsEvent(prompt = "Waiting for input", 
+                 onMouseDown = NULL, onMouseMove = NULL,
+                 onMouseUp = NULL, onKeybd = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="getGraphicsEvent_:_prompt">prompt</code></td>
+<td>
+<p>prompt to be displayed to the user</p>
+</td></tr>
+<tr><td><code id="getGraphicsEvent_:_onMouseDown">onMouseDown</code></td>
+<td>
+<p>a function to respond to mouse clicks</p>
+</td></tr>
+<tr><td><code id="getGraphicsEvent_:_onMouseMove">onMouseMove</code></td>
+<td>
+<p>a function to respond to mouse movement</p>
+</td></tr>
+<tr><td><code id="getGraphicsEvent_:_onMouseUp">onMouseUp</code></td>
+<td>
+<p>a function to respond to mouse button releases</p>
+</td></tr>
+<tr><td><code id="getGraphicsEvent_:_onKeybd">onKeybd</code></td>
+<td>
+<p>a function to respond to key presses</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function allows user input from some graphics devices (currently
+only the Windows screen display).  When called, event handlers may be 
+installed to respond to events involving the mouse or keyboard.  
+</p>
+<p>The mouse event handlers should be functions with header 
+<code>function(buttons, x, y)</code>.  The coordinates <code>x</code>
+and <code>y</code> will be passed to mouse event handlers in device independent
+coordinates (i.e. the lower left corner of the window is <code>(0,0)</code>, 
+the upper right is <code>(1,1)</code>).  The <code>buttons</code> argument 
+will be a vector listing the buttons
+that are pressed at the time of the event, with 0 for left, 1 for middle, and 2 
+for right.
+</p>
+<p>The keyboard event handler should be a function with header
+<code>function(key)</code>.  A single element character vector will be passed
+to this handler, corresponding to the key press.  Shift and other modifier
+keys will have been processed, so <code>shift-a</code> will be passed as
+<code>"A"</code>.  The following special keys may also be passed to the handler:
+</p>
+
+<ul>
+<li><p> Control keys, passed as <code>"Ctrl-A"</code>, etc.
+</p>
+</li>
+<li><p> Navigation keys, passed as one of <code>"Left", "Up", "Right", "Down",
+     "PgUp", "PgDn", "End", "Home"</code>
+</p>
+</li>
+<li><p> Edit keys, passed as one of <code>"Ins", "Del"</code>
+</p>
+</li>
+<li><p> Function keys, passed as one of <code>"F1", "F2", ...</code>
+</p>
+</li></ul>
+
+<p>The event handlers are standard R functions, and will be executed in
+an environment as though they had been called directly from <code>getGraphicsEvent</code>.
+</p>
+<p>Events will be processed until
+</p>
+
+<ul>
+<li><p> one of the event handlers returns
+a non-<code>NULL</code> value which will be returned as the value of
+<code>getGraphicsEvent</code>, or 
+</p>
+</li>
+<li><p> the user interrupts the function from the
+console.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A non-<code>NULL</code> value returned from one of the event handlers.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Murdoch</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+    mousedown &lt;- function(buttons, x, y) {
+        plx &lt;- grconvertX(x, "ndc", "user")
+        ply &lt;- grconvertY(y, "ndc", "user")    
+        cat("Buttons ", paste(buttons, collapse=" "), " at ndc",
+            x, y, "user", plx, ply, "\n")
+        points(plx, ply, col="red", pch=19, cex=2)
+        if (x &gt; 0.85 &amp;&amp; y &gt; 0.85) "Done"
+        else NULL
+    }
+    
+    mousemove &lt;- function(buttons, x, y) {
+        plx &lt;- grconvertX(x, "ndc", "user")
+        ply &lt;- grconvertY(y, "ndc", "user")    
+        points(plx, ply)
+        NULL
+    }
+    
+    keybd &lt;- function(key) {
+        cat("Key &lt;", key, "&gt;\n", sep = "")
+    }
+    
+    plot(0:1, 0:1, type='n')
+    getGraphicsEvent("Click on upper right to quit",
+                     onMouseDown = mousedown,
+                     onMouseMove = mousemove,
+                     onKeybd = keybd)
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.10.1 ]</div>
+</div>
+</body></html>

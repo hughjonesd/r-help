@@ -1,0 +1,155 @@
+<!DOCTYPE html><html><head><title>R: Invoke a System Command</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>system {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='system'>Invoke a System Command</h2>
+
+<h3>Description</h3>
+
+<p><code>system</code> invokes the system command specified by <code>command</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>system(command, intern=FALSE, wait=TRUE, input,
+       show.output.on.console=FALSE
+       invisible=FALSE, minimized=FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="system_:_command">command</code></td>
+<td>
+<p>the system command to be invoked, as a string.</p>
+</td></tr>
+<tr><td><code id="system_:_intern">intern</code></td>
+<td>
+<p>a logical, indicates whether to make the output of the
+command an <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+<tr><td><code id="system_:_wait">wait</code></td>
+<td>
+<p>should the <span class="rlang"><b>R</b></span> interpreter wait for the command to finish?
+The default is to wait, and the interpreter will always wait if
+<code>intern = TRUE</code>.</p>
+</td></tr>
+<tr><td><code id="system_:_input">input</code></td>
+<td>
+<p>if a character vector is supplied, this is copied one
+string per line to a temporary file, and the standard input of
+<code>command</code> is redirected to the file.</p>
+</td></tr>
+<tr><td><code id="system_:_show.output.on.console">show.output.on.console</code></td>
+<td>
+<p>a logical, indicates whether to capture 
+the output of the command and show it on the <span class="rlang"><b>R</b></span> console (not used
+by <code>Rterm</code>, which captures the output unless <code>wait</code>
+is false).</p>
+</td></tr>
+<tr><td><code id="system_:_invisible">invisible</code></td>
+<td>
+<p>a logical, indicates whether the command window
+should be visible on the screen.</p>
+</td></tr>
+<tr><td><code id="system_:_minimized">minimized</code></td>
+<td>
+<p>a logical, indicates whether the command window
+should be initially displayed as iconic.</p>
+</td></tr>      
+</table>
+
+
+<h3>Details</h3>
+
+<p>The command is run directly as a Windows command by the Windows API
+call <code>CreateProcess</code>: extensions of <code>.exe</code>, <code>.com</code>,
+<code>.cmd</code> and <code>.bat</code> are tried in turn if none
+is supplied. (To use DOS internal commands use
+<code>command.com /c cmd</code>.) The search path for <code>command</code>
+may be system-dependent: it will include the <span class="rlang"><b>R</b></span> <code>bin</code>
+directory, the working directory and the Windows system directories
+before <code>PATH</code>.
+</p>
+<p>Precisely what is seen by the user depends on whether <code>Rgui</code> or
+<code>Rterm</code> is being used.  For <code>Rgui</code> a new console will
+always be used, so a commands window will appear for the duration of
+console applications unless <code>invisible</code> is true. For
+<code>Rterm</code> a separate commands window
+will appear for console applications only if <code>wait=FALSE</code>.
+</p>
+<p><code>unix</code> is a <em>deprecated</em> alternative, available for
+backwards compatibility.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>intern=TRUE</code>, a character vector giving the output of the
+command, one line per character string. If the command could not be
+run or gives an error a <span class="rlang"><b>R</b></span> error is generated.
+</p>
+<p>If <code>intern=FALSE</code>, the return value is a error code, given the
+invisible attribute (so needs to be printed explicitly). If the
+command could not be run for any reason, the value is <code>-1</code> and
+an <span class="rlang"><b>R</b></span> warning is generated. Otherwise if <code>wait=FALSE</code> the value
+is the error code returned by the command, and if <code>wait=TRUE</code>
+it is the zero (the conventional success value),
+</p>
+<p>If <code>intern=FALSE</code> and <code>show.output.on.console=TRUE</code> 
+the text output from a command that is a console application will 
+appear in the <span class="rlang"><b>R</b></span> console (<code>Rgui</code>) or the window running <span class="rlang"><b>R</b></span> 
+(<code>Rterm</code>).
+</p>
+
+
+<h3>WARNING</h3>
+
+<p>The command cannot be interrupted by the <span class="rlang"><b>R</b></span> process.
+</p>
+<p>Do not run console applications that require user
+input from <code>Rgui</code> setting <code>intern=TRUE</code> and/or
+<code>show.output.on.console=TRUE</code>. They will not work,
+may hang and then will probably hang <code>Rgui</code> too.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Guido Masarotto and Brian Ripley</p>
+
+
+<h3>See Also</h3>
+
+<p><code>shell</code> for a less raw interface.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># launch an editor, wait for it to quit
+## Not run: system("notepad myfile.txt")
+# launch a Windows 9x process monitor (from Win9x KernelToys)
+## Not run: system("wintop", wait=FALSE)
+# launch your favourite (!) shell: 
+## Not run: system("command.com")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1 ]</div>
+</div>
+</body></html>

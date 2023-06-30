@@ -1,0 +1,228 @@
+<!DOCTYPE html><html><head><title>R: PDF Graphics Device</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/pdf.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/pdf.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>pdf {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='pdf'>PDF Graphics Device</h2>
+
+<h3>Description</h3>
+
+<p><code>pdf</code> starts the graphics device driver for producing PDF
+graphics.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>pdf(file = ifelse(onefile, "Rplots.pdf", "Rplot%03d.pdf"),
+    width = 6, height = 6, onefile = TRUE, family = "Helvetica",
+    title = "R Graphics Output", fonts = NULL, version = "1.1",
+    paper, encoding, bg, fg, pointsize)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="pdf_:_file">file</code></td>
+<td>
+<p>a character string giving the name of the file.
+For use with <code>onefile=FALSE</code> give a C integer format such
+as <code>"Rplot%03d.pdf"</code> (the default in that case).
+(See <code>postscript</code> for further details.)
+</p>
+</td></tr>
+<tr><td><code id="pdf_:_width">width</code>, <code id="pdf_:_height">height</code></td>
+<td>
+<p>the width and height of the graphics region in
+inches.</p>
+</td></tr>
+<tr><td><code id="pdf_:_onefile">onefile</code></td>
+<td>
+<p>logical: if true (the default) allow multiple figures
+in one file.  If false, generate a file name containing the page
+number.</p>
+</td></tr>
+<tr><td><code id="pdf_:_family">family</code></td>
+<td>
+<p>the font family to be used, one of <code>"AvantGarde"</code>,
+<code>"Bookman"</code>, <code>"Courier"</code>, <code>"Helvetica"</code>,
+<code>"Helvetica-Narrow"</code>, <code>"NewCenturySchoolbook"</code>,
+<code>"Palatino"</code> or <code>"Times"</code>.  <b>Note</b> some of the other
+specifications allowed for <code>postscript</code> may work.</p>
+</td></tr>
+<tr><td><code id="pdf_:_title">title</code></td>
+<td>
+<p>title string to embed in the file.</p>
+</td></tr>
+<tr><td><code id="pdf_:_paper">paper</code></td>
+<td>
+<p>the size of paper in the printer.  The choices are
+<code>"a4"</code>, <code>"letter"</code>, <code>"legal"</code> and
+<code>"executive"</code> (and these can be capitalized).
+The default is <code>"special"</code>, which means that the <code>width</code>
+and <code>height</code> specify the paper size.  A further choice is
+<code>"default"</code>; if this is selected, the
+papersize is taken from the option <code>"papersize"</code>
+if that is set and to <code>"a4"</code> if it is unset or empty.</p>
+</td></tr>
+<tr><td><code id="pdf_:_encoding">encoding</code></td>
+<td>
+<p>the name of an encoding file.  Defaults to
+<code>"ISOLatin1.enc"</code>
+in the &lsquo;<span class="file">afm</span>&rsquo; directory of the <span class="pkg">grDevices</span> package,
+which is used if the path does
+not contain a path separator.  An extension <code>".enc"</code> can be
+omitted.
+In a UTF-8 locale only <code>"ISOLatin1.enc"</code> is allowed.
+</p>
+</td></tr>
+<tr><td><code id="pdf_:_pointsize">pointsize</code></td>
+<td>
+<p>the default point size to be used.</p>
+</td></tr>
+<tr><td><code id="pdf_:_bg">bg</code></td>
+<td>
+<p>the default background color to be used.</p>
+</td></tr>
+<tr><td><code id="pdf_:_fg">fg</code></td>
+<td>
+<p>the default foreground color to be used.</p>
+</td></tr>
+<tr><td><code id="pdf_:_fonts">fonts</code></td>
+<td>
+<p>a character vector specifying device-independent
+R graphics font family names for fonts
+which will be included in the PDF file.</p>
+</td></tr>
+<tr><td><code id="pdf_:_version">version</code></td>
+<td>
+<p>a string describing the PDF version that will be
+used to produce output.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>pdf()</code> opens the file <code>file</code> and the PDF commands needed to
+plot any graphics requested are sent to that file.
+</p>
+<p>The <code>file</code> argument is interpreted as a C integer format as used
+by <code>sprintf</code>, with integer argument the page number.
+The default gives files &lsquo;<span class="file">Rplot001.pdf</span>&rsquo;, ..., &lsquo;<span class="file">Rplot999.pdf</span>&rsquo;,
+&lsquo;<span class="file">Rplot1000.pdf</span>&rsquo;, ....
+</p>
+<p>The <code>family</code> argument can be used to specify a PDF-specific
+font family as the initial/default font for the device.
+</p>
+<p>If a device-independent <span class="rlang"><b>R</b></span> graphics font family is specified (e.g., via
+<code>par(family=)</code> in the graphics package), the PDF device makes use
+of the PostScript font mappings to convert the <span class="rlang"><b>R</b></span> graphics font family
+to a PDF-specific font family description.  (See the
+documentation for <code>postscriptFonts</code>.)
+</p>
+<p><span class="rlang"><b>R</b></span> does <em>not</em> embed fonts in the PDF file though, so it is only
+possible straightforward to use mappings to the font families that are
+assumed to be available in any PDF viewer: <code>"Times"</code>
+(equivalently <code>"serif"</code>), <code>"Helvetica"</code> (equivalently
+<code>"sans"</code>), <code>"Courier"</code> (equivalently <code>"mono"</code>) and
+<code>"Symbol"</code> (equivalently <code>"symbol"</code>).  Other families may be
+specified, but it is the user's responsibility to ensure that these
+fonts are available on the system and third-party software, e.g.,
+ghostscript, may be required to embed the fonts so that the PDF can be
+included in other documents (e.g., LaTeX).  The URW-based families
+described for <code>postscript</code>  can be used with viewers such
+as GSView which are based on URW fonts.
+</p>
+<p>See <code>postscript</code> for details of encodings, as the internal
+code is shared between the drivers.  The native PDF encoding is given
+in file &lsquo;<span class="file">PDFDoc.enc</span>&rsquo;.
+</p>
+<p><code>pdf</code> writes uncompressed PDF.  It is primarily intended for
+producing PDF graphics for inclusion in other documents, and
+PDF-includers such as <code>pdftex</code> are usually able to handle
+compression.
+</p>
+<p>At present the PDF is fairly simple, with each page being represented
+as a single stream.  The <span class="rlang"><b>R</b></span> graphics model does not distinguish
+graphics objects at the level of the driver interface.
+</p>
+<p>The <code>version</code> argument modifies the sort of PDF code that
+gets produced.  At the moment this only concerns the production of
+transparent output.  The version must be greater than 1.4 for
+transparent output to be produced.  Specifying a lower version
+number may be useful if you want to produce PDF output that can be
+viewed on older PDF viewers.
+</p>
+<p>Line widths as controlled by <code>par(lwd=)</code> are in multiples of
+1/96inch.  Multiples less than 1 are allowed.  <code>pch="."</code> with
+<code>cex = 1</code> corresponds to a square of side 1/72 inch.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Acrobat Reader does not use the fonts specified but rather emulates
+them from multiple-master fonts.  This can be seen in imprecise
+centering of characters, for example the multiply and divide signs in
+Helvetica.
+</p>
+<p>Acrobat Reader 7.x can be extended by support for Central European
+fonts (but not on UNIX), and this will be needed for full use of
+encodings other than Latin-1. See
+<a href="http://www.adobe.com/products/acrobat/acrrasianfontpack.html">http://www.adobe.com/products/acrobat/acrrasianfontpack.html</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>postscriptFonts</code>,
+<code>Devices</code>,
+<code>postscript</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## Test function for encodings
+TestChars &lt;- function(encoding="ISOLatin1", ...)
+{
+    pdf(encoding=encoding, ...)
+    par(pty="s")
+    plot(c(-1,16), c(-1,16), type="n", xlab="", ylab="", xaxs="i", yaxs="i")
+    title(paste("Centred chars in encoding", encoding))
+    grid(17, 17, lty=1)
+    for(i in c(32:255)) {
+	x &lt;- i %% 16
+	y &lt;- i %/% 16
+	points(x, y, pch=i)
+    }
+    dev.off()
+}
+## there will be many warnings.
+TestChars("ISOLatin2")
+## this does not view properly in older viewers.
+## Lots of characters are not centred, as the Adobe afms do not contain them.
+TestChars("ISOLatin2", family="URWHelvetica")
+## works well for viewing in gs-based viewers, and often in xpdf.
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.2.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head><title>R: Cross Tabulation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/table.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/table.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>table {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='table'>Cross Tabulation</h2>
+
+<h3>Description</h3>
+
+<p><code>table</code> uses the cross-classifying factors provided as arguments
+to build a contingency table of the counts at each combination
+of factor levels.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>table(...)
+</code></pre>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Simple frequency distribution
+table(rpois(100,5))
+data(warpbreaks)
+attach(warpbreaks)
+## Check the design:
+table(wool,tension)
+data(state)
+table(state.division, state.region)
+
+data(airquality)
+attach(airquality)
+# simple two-way contingency table
+table(cut(Temp, quantile(Temp)), Month)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61 ]</div>
+</div>
+</body></html>

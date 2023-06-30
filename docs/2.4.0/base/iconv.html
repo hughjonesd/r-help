@@ -1,0 +1,134 @@
+<!DOCTYPE html><html><head><title>R: Convert Character Vector between Encodings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/iconv.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/iconv.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>iconv {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='iconv'>Convert Character Vector between Encodings</h2>
+
+<h3>Description</h3>
+
+<p>This uses system facilities to convert a character vector between
+encodings: the &lsquo;i&rsquo; stands for &lsquo;internationalization&rsquo;.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>iconv(x, from, to, sub=NA)
+
+iconvlist()
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="iconv_:_x">x</code></td>
+<td>
+<p>A character vector, or an object to be converted to a character
+vector by <code>as.character</code>.</p>
+</td></tr>
+<tr><td><code id="iconv_:_from">from</code></td>
+<td>
+<p>A character string describing the current encoding.</p>
+</td></tr>
+<tr><td><code id="iconv_:_to">to</code></td>
+<td>
+<p>A character string describing the target encoding.</p>
+</td></tr>
+<tr><td><code id="iconv_:_sub">sub</code></td>
+<td>
+<p>character string.  If not <code>NA</code> it is used to replace
+any non-convertible bytes in the input.  (This would normally be a
+single character, but can be more.  If <code>"byte"</code>, the indication is
+<code>"&lt;xx&gt;"</code> with the hex code of the byte.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The names of encodings and which ones are available (and indeed, if
+any are) is platform-dependent.  On systems that support <span class="rlang"><b>R</b></span>'s
+<code>iconv</code> you can use <code>""</code> for the encoding of the current
+locale, as well as <code>"latin1"</code> and <code>"UTF-8"</code>.
+</p>
+<p>On many platforms <code>iconvlist</code> provides an alphabetical list of
+the supported encodings.  On others, the information is on the man
+page for <code>iconv(5)</code> or elsewhere in the man pages (and beware
+that the system command <code>iconv</code> may not support the same set of
+encodings as the C functions <span class="rlang"><b>R</b></span> calls).
+Unfortunately, the names are rarely common across platforms.
+</p>
+<p>Elements of <code>x</code> which cannot be converted (perhaps because they
+are invalid or because they cannot be represented in the target
+encoding) will be returned as <code>NA</code> unless <code>sub</code> is specified.
+</p>
+<p>Some versions of <code>iconv</code> will allow transliteration by appending
+<code>//TRANSLIT</code> to the <code>to</code> encoding: see the examples.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of the same length and the same attributes as
+<code>x</code> (after conversion).
+</p>
+
+
+<h3>Note</h3>
+
+<p>Not all platforms support these functions.  See also
+<code>capabilities("iconv")</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>localeToCharset</code>, <code>file</code>. 
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+iconvlist()
+
+## convert from Latin-2 to UTF-8: two of the glibc iconv variants.
+iconv(x, "ISO_8859-2", "UTF-8")
+iconv(x, "LATIN2", "UTF-8")
+
+## Both x below are in latin1 and will only display correctly in a
+## latin1 locale.
+(x &lt;- "fa\xE7ile")
+charToRaw(xx &lt;- iconv(x, "latin1", "UTF-8"))
+## in a UTF-8 locale, print(xx)
+
+iconv(x, "latin1", "ASCII")          #   NA
+iconv(x, "latin1", "ASCII", "?")     # "fa?ile"
+iconv(x, "latin1", "ASCII", "")      # "faile"
+iconv(x, "latin1", "ASCII", "byte")  # "fa&lt;e7&gt;ile"
+
+# Extracts from R help files
+(x &lt;- c("Ekstr\xf8m", "J\xf6reskog", "bi\xdfchen Z\xfcrcher"))
+iconv(x, "latin1", "ASCII//TRANSLIT")
+iconv(x, "latin1", "ASCII", sub="byte")
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.4.0 ]</div>
+</div>
+</body></html>

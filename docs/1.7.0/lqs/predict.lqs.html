@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><title>R: Predict from an lqs Fit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/lqs/html/predict.lqs.html'>https://stat.ethz.ch/R-manual/R-patched/library/lqs/html/predict.lqs.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>predict.lqs {lqs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='predict.lqs'>
+Predict from an lqs Fit
+</h2>
+
+<h3>Description</h3>
+
+<p>Predict from an resistant regression fitted by <code>lqs</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'lqs'
+predict(object, newdata, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="predict.lqs_:_object">object</code></td>
+<td>
+
+<p>object inheriting from class <code>"lqs"</code>
+</p>
+</td></tr>
+<tr><td><code id="predict.lqs_:_newdata">newdata</code></td>
+<td>
+
+<p>matrix or data frame of cases to be predicted or, if object
+has a formula, a data frame with columns of the same names as the
+variables used. A vector will be interpreted
+as a row vector.  If <code>newdata</code> is missing, an attempt will be
+made to retrieve the data used to fit the <code>lqs</code> object.
+</p>
+</td></tr>
+<tr><td><code id="predict.lqs_:_...">...</code></td>
+<td>
+<p>arguments to be passed from or to other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is a method for the generic function
+<code>predict()</code> for class <code>lqs</code>.
+It can be invoked by calling <code>predict(x)</code> for an
+object <code>x</code> of the appropriate class, or directly by
+calling <code>predict.lqs(x)</code> regardless of the
+class of the object.
+</p>
+<p>Missing values in <code>newdata</code> are handled by returning <code>NA</code> if the
+linear fit cannot be evaluated. If <code>newdata</code> is omitted and
+the <code>na.action</code> of the fit omitted cases, these will be omitted on the
+prediction.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector of predictions.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>B.D. Ripley</p>
+
+
+<h3>See Also</h3>
+
+<p><code>lqs</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(stackloss)
+set.seed(123)
+fm &lt;- lqs(stack.loss ~ ., data = stackloss, method = "S", nsamp = "exact")
+predict(fm, stackloss)
+</code></pre>
+
+
+</div>
+</body></html>

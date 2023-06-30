@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>R: Query or Set Aspects of the Locale</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/locales.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/locales.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>locales {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='locales'>Query or Set Aspects of the Locale</h2>
+
+<h3>Description</h3>
+
+<p>Get details of or set aspects of the locale for the <span class="rlang"><b>R</b></span> process.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Sys.getlocale(category = "LC_ALL")
+Sys.setlocale(category = "LC_ALL", locale = "")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="locales_:_category">category</code></td>
+<td>
+<p>character string. Must be one of <code>"LC_ALL"</code>,
+<code>"LC_COLLATE"</code>, <code>"LC_CTYPE"</code>, <code>"LC_MONETARY"</code>,
+<code>"LC_NUMERIC"</code> or <code>"LC_TIME"</code>.</p>
+</td></tr>
+<tr><td><code id="locales_:_locale">locale</code></td>
+<td>
+<p>character string. A valid locale name on the system in
+use. Normally <code>""</code> (the default) will pick up the default
+locale for the system.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The locale describes aspects of the internationalization of a program.
+Initially most aspects of the locale of <span class="rlang"><b>R</b></span> are set to <code>"C"</code> (which
+is the default for the C language and reflects North-American usage).
+<span class="rlang"><b>R</b></span> does set <code>"LC_COLLATE"</code> and  <code>"LC_CTYPE"</code>, which allow the
+use of a different character set (typically ISO Latin 1) and alphabetic
+comparisons in that character set (including the use of
+<code>sort</code>) and <code>"LC_TIME"</code> may affect
+the behaviour of <code>as.POSIXlt</code> and <code>strptime</code>
+and functions which use them (but not <code>date</code>).
+</p>
+<p><span class="rlang"><b>R</b></span> can be built with no support for locales, but it is normally
+available on Unix and is available on Windows.
+</p>
+<p>Some systems will have other locale categories, but the six described
+here are those specified by POSIX.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character string of length one describing the locale in use (after
+setting for <code>Sys.setlocale</code>), or an empty character string if the
+locale is invalid (with a warning) or <code>NULL</code> if locale
+information is unavailable.
+</p>
+<p>For <code>category = "LC_ALL"</code> the details of the string are
+system-specific: it might be a single locale or a set of locales
+separated by <code>"/"</code> (Solaris) or <code>";"</code> (Windows). For
+portability, it is best to query categories individually. It is
+guaranteed that the result of <code>foo &lt;- Sys.getlocale()</code> can used
+in <code>Sys.setlocale("LC_ALL", locale = foo)</code> on the same machine.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>Setting <code>"LC_NUMERIC"</code> can produce output that <span class="rlang"><b>R</b></span> cannot then
+read by <code>scan</code> or <code>read.table</code> with their default arguments,
+which are not locale-specific.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>strptime</code> for uses of <code>category = "LC_TIME"</code>.
+<code>localeconv</code> for details of numerical representations.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>Sys.getlocale()
+Sys.getlocale("LC_TIME")
+## Not run: 
+Sys.setlocale("LC_TIME", "de")     # Solaris: details are OS-dependent
+Sys.setlocale("LC_TIME", "German") # Windows
+## End(Not run)
+
+Sys.setlocale("LC_COLLATE", "C")  # turn off locale-specific sorting
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4 ]</div>
+</div>
+</body></html>

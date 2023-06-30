@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>R: Make Legal R Names Out of Strings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/make.names.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/make.names.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>make.names {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='make.names'>Make Legal R Names Out of Strings</h2>
+
+<h3>Description</h3>
+
+<p>Make legal <span class="rlang"><b>R</b></span> names out of every <code>names[i]</code> string.
+Invalid characters are translated to <code>"."</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>make.names(names, unique=FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="make.names_:_names">names</code></td>
+<td>
+<p>character (vector) to be coerced to proper names.</p>
+</td></tr>
+<tr><td><code id="make.names_:_unique">unique</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the resulting strings are
+unique.  This may be desired for, e.g., column names.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>character vector of same length as <code>names</code> with each changed
+to a legal name.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>names</code>,<code>character</code>,<code>data.frame</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>make.names(c("a and b", "a_and_b"), unique=TRUE)#-&gt; "a.and.b"  "a.and.b1"
+
+all(make.names(letters) == letters)# TRUE
+
+data(state)
+state.name[make.names(state.name) != state.name]# those 10 with a space
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1 ]</div>
+</div>
+</body></html>

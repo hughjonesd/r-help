@@ -1,0 +1,135 @@
+<!DOCTYPE html><html><head><title>R: Options Settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>options {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='options'>Options Settings</h2>
+
+<h3>Description</h3>
+
+<p>This function allows the user to set and examine a variety of global
+&ldquo;options&rdquo; which affect the way in which <span class="rlang"><b>R</b></span> computes and displays
+its results.
+</p>
+<p>Invoking <code>options()</code> with no arguments returns a list with the
+current values of the options.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>options(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="options_:_...">...</code></td>
+<td>
+<p>any options can be defined, using <code>name = value</code>.
+However, only the ones below are used in &ldquo;base <span class="rlang"><b>R</b></span>&rdquo;.
+</p>
+<p>Further, <code>options('name') == options()['name']</code>, see the example.
+</p>
+</td></tr>
+<tr><td><code id="options_:_prompt">prompt</code></td>
+<td>
+<p>a string, used for <span class="rlang"><b>R</b></span>'s prompt; should usually end in a
+blank (<code>" "</code>).</p>
+</td></tr>
+<tr><td><code id="options_:_continue">continue</code></td>
+<td>
+<p>a string setting the prompt used for lines which continue
+over one line.</p>
+</td></tr>
+<tr><td><code id="options_:_width">width</code></td>
+<td>
+<p>controls the number of characters on a line. You may
+want to change this if you resize the window that <span class="rlang"><b>R</b></span> is running in.</p>
+</td></tr>
+<tr><td><code id="options_:_digits">digits</code></td>
+<td>
+<p>controls the number of digits to print when printing
+numeric values. It is a suggestion only.</p>
+</td></tr>
+<tr><td><code id="options_:_editor">editor</code></td>
+<td>
+<p>sets the default text editor, e.g., for <code>edit</code>.</p>
+</td></tr>
+<tr><td><code id="options_:_contrasts">contrasts</code></td>
+<td>
+<p>The default contrasts used in model fitting such as
+<code>lm</code>.</p>
+</td></tr>
+<tr><td><code id="options_:_expressions">expressions</code></td>
+<td>
+<p>sets a limit on the number of nested expressions that
+will be evaluated.   This is especially important on the Macintosh
+since stack overflow is likely if this is set too high.</p>
+</td></tr>
+<tr><td><code id="options_:_na.action">na.action</code></td>
+<td>
+<p>the name of a function for treating missing values
+(<code>NA</code>'s) for certain situations.</p>
+</td></tr>
+<tr><td><code id="options_:_papersize">papersize</code></td>
+<td>
+<p>the paper format used for graphics printing; currently
+<b>read-only</b>, set by environment variable R\_PAPERSIZE, or in
+&lsquo;<span class="file">config.site</span>&rsquo;.</p>
+</td></tr>
+<tr><td><code id="options_:_printcmd">printcmd</code></td>
+<td>
+<p>the command used for graphics printing; currently
+<b>read-only</b>, set by environment variable R\_PRINTCMD, or in
+&lsquo;<span class="file">config.site</span>&rsquo;.</p>
+</td></tr>
+<tr><td><code id="options_:_ts.eps">ts.eps</code></td>
+<td>
+<p>the relative tolerance for certain time series
+(<code>ts</code>) computations.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list (in any case) with the previous values of the options changed,
+or all options when no arguments were given.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>options()		 # printing all current options
+op &lt;- options(); str(op) # nicer printing
+
+options('width')[[1]] == options()$width # the latter needs more memory
+options(digits=20)
+pi
+
+# set the editor, and save previous value
+old.o &lt;- options(editor="nedit")
+old.o
+
+options(op)	# reset (all) initial options
+options('digits')
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61.3 ]</div>
+</div>
+</body></html>

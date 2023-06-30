@@ -1,0 +1,120 @@
+<!DOCTYPE html><html><head><title>R: Serial versions of 'mclapply', 'mcmapply' and 'pvec'</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcdummies.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcdummies.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mclapply {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mclapply'>Serial versions of <code>mclapply</code>, <code>mcmapply</code> and <code>pvec</code></h2>
+
+<h3>Description</h3>
+
+<p>These are simple serial versions of <code>mclapply</code>, <code>mcmapply</code>,
+<code>mcMap</code>  and <code>pvec</code> for Windows where forking is not available.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mclapply(X, FUN, ..., mc.preschedule = TRUE, mc.set.seed = TRUE,
+         mc.silent = FALSE, mc.cores = 1L,
+         mc.cleanup = TRUE, mc.allow.recursive = TRUE, affinity.list = NULL)
+
+mcmapply(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE, USE.NAMES = TRUE,
+        mc.preschedule = TRUE, mc.set.seed = TRUE,
+        mc.silent = FALSE, mc.cores = 1L, mc.cleanup = TRUE, affinity.list = NULL)
+
+mcMap(f, ...)
+
+pvec(v, FUN, ..., mc.set.seed = TRUE, mc.silent = FALSE,
+     mc.cores = 1L, mc.cleanup = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="mclapply_:_X">X</code></td>
+<td>
+<p>a vector (atomic or list) or an expressions vector.  Other
+objects (including classed objects) will be coerced by
+<code>as.list</code>.</p>
+</td></tr>
+<tr><td><code id="mclapply_:_v">v</code></td>
+<td>
+<p>vector to operate on.</p>
+</td></tr>
+<tr><td><code id="mclapply_:_FUN">FUN</code></td>
+<td>
+<p>the function to be applied to each element of <code>X</code> or
+<code>v</code>, or in parallel to <code>...</code> .</p>
+</td></tr>
+<tr><td><code id="mclapply_:_f">f</code></td>
+<td>
+<p>the function to be applied in parallel to <code>...</code>.</p>
+</td></tr>
+<tr><td><code id="mclapply_:_...">...</code></td>
+<td>
+<p>For <code>mclapply</code> and <code>pvec</code>, optional arguments to
+<code>FUN</code>.  For <code>mcmapply</code> and <code>mcMap</code>, vector or list
+inputs: see <code>mapply</code>.</p>
+</td></tr>
+<tr><td><code id="mclapply_:_MoreArgs">MoreArgs</code>, <code id="mclapply_:_SIMPLIFY">SIMPLIFY</code>, <code id="mclapply_:_USE.NAMES">USE.NAMES</code></td>
+<td>
+<p>see <code>mapply</code>.</p>
+</td></tr>
+<tr><td><code id="mclapply_:_mc.preschedule">mc.preschedule</code>, <code id="mclapply_:_mc.set.seed">mc.set.seed</code>, <code id="mclapply_:_mc.silent">mc.silent</code>, <code id="mclapply_:_mc.cleanup">mc.cleanup</code>, <code id="mclapply_:_mc.allow.recursive">mc.allow.recursive</code>, <code id="mclapply_:_affinity.list">affinity.list</code></td>
+<td>
+
+<p>Ignored on Windows.</p>
+</td></tr>
+<tr><td><code id="mclapply_:_mc.cores">mc.cores</code></td>
+<td>
+<p>The number of cores to use, i.e. at most how many
+child processes will be run simultaneously.   Must be exactly 1 on
+Windows (which uses the master process).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>mclapply</code> calls <code>lapply</code> and <code>pvec</code> makes a
+single call <code>FUN(v, ...)</code>.   On Unix-alikes <code>mc.cores &gt; 1</code>
+is allowed and uses parallel operations.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>mclapply</code>, a list of the same length as <code>X</code> and named
+by <code>X</code>.
+</p>
+<p>For <code>mcmapply</code>, a list, vector or array: see
+<code>mapply</code>.
+</p>
+<p>For <code>mcMap</code>, a list.
+</p>
+<p>For <code>pvec</code>, a vector of the same length as <code>v</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>parLapply</code>, <code>clusterMap</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>parallel</em> version 4.0.0 ]</div>
+</div>
+</body></html>

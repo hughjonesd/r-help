@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><title>R: Generate a Shell for Documentation of Formal Methods</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/promptMethods.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/promptMethods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>promptMethods {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='promptMethods'> Generate a Shell for Documentation of Formal Methods </h2>
+
+<h3>Description</h3>
+
+<p>Generates a shell of documentation for the methods of a generic
+function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>promptMethods(f, filename = NULL, methods)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="promptMethods_:_f">f</code></td>
+<td>
+<p>a character string naming the generic function whose methods
+are to be documented.</p>
+</td></tr>
+<tr><td><code id="promptMethods_:_filename">filename</code></td>
+<td>
+<p>usually, a connection or a character string giving the
+name of the file to which the documentation shell should be written.
+The default corresponds to the coded topic name for these methods
+(currently, <code>f</code> followed by <code>"-methods.Rd"</code>).  Can also be
+<code>FALSE</code> or <code>NA</code> (see below).</p>
+</td></tr>
+<tr><td><code id="promptMethods_:_methods">methods</code></td>
+<td>
+<p>Optional methods list object giving the methods to be
+documented.  By default, the first methods object for this generic
+is used (for example, if the current global environment has some
+methods for <code>f</code>, these would be documented).
+</p>
+<p>If this argument is supplied, it is likely to be
+<code>getMethods(f, where)</code>, with <code>where</code> some package
+containing methods for <code>f</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>filename</code> is <code>FALSE</code>, the text created is returned,
+presumably to be inserted some other documentation file, such as the
+documentation of the generic function itself (see
+<code>prompt</code>). 
+</p>
+<p>If <code>filename</code> is <code>NA</code>, a list-style representation of the
+documentation shell is created and returned.  Writing the shell to a
+file amounts to <code>cat(unlist(x), file = filename, sep = "\n")</code>,
+where <code>x</code> is the list-style representation.
+</p>
+<p>Otherwise, the documentation shell is written to the file specified by
+<code>filename</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>filename</code> is <code>FALSE</code>, the text generated;
+if <code>filename</code> is <code>NA</code>, a list-style representation of the
+documentation shell.
+Otherwise, the name of the file written to is returned invisibly.
+</p>
+
+
+<h3>References</h3>
+
+<p>The R package <span class="pkg">methods</span> implements, with a few exceptions, the
+programming interface for classes and methods in the book
+<em>Programming with Data</em> (John M. Chambers, Springer, 1998), in
+particular sections 1.6, 2.7, 2.8, and chapters 7 and 8.
+</p>
+<p>While the programming interface for the <span class="pkg">methods</span> package follows
+the reference, the R software is an original implementation, so
+details in the reference that reflect the S4 implementation may appear
+differently in R.  Also, there are extensions to the programming
+interface developed more recently than the reference.  For a
+discussion of details and ongoing development, see the web page 
+<a href="http://developer.r-project.org/methodsPackage.html">http://developer.r-project.org/methodsPackage.html</a> and the
+pointers from that page.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>prompt</code> and
+<code>promptClass</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.1.1 ]</div>
+</div>
+</body></html>

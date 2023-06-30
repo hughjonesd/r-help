@@ -1,0 +1,197 @@
+<!DOCTYPE html><html><head><title>R: Kernel Density Estimation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/density.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/density.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>density {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='density'>Kernel Density Estimation</h2>
+
+<h3>Description</h3>
+
+<p>The function <code>density</code> computes kernel density estimates
+with the given kernel and bandwidth
+(which is the standard deviation of the kernel).
+</p>
+<p>The functions <code>bw.ucv</code>, <code>bw.bcv</code> and <code>bw.sj</code>
+provide automated ways of selecting a bandwith for density
+estimates (assuming a Gaussian kernel).
+The techniques used are as follows; <code>bw.ucv</code> uses unbiased
+cross-validation, <code>bw.bcv</code> uses biased cross-validation and
+<code>bw.sj</code> uses the technique of Sheather and Jones.
+These cross-validation techniques are based on code from the
+Venables and Ripley MASS package.
+</p>
+<p>The generic functions <code>plot</code> and <code>print</code> have
+methods for density objects.
+</p>
+<p>The algorithm used in <code>density</code> disperses the mass of the
+empirical distribution function over a regular grid and then
+uses the fast Fourier transform to convolve this approximation
+with a discretized version of the kernel.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>density(x, n=512, kernel="gaussian", bw, adjust=1, width,
+        from, to, cut=3)
+
+bw.ucv(x, samples=100)
+bw.bcv(x, samples=100)
+bw.sj(x, samples=100)
+
+print(dobj)
+plot(dobj, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="density_:_x">x</code></td>
+<td>
+<p>the values for which the estimate is to be computed.</p>
+</td></tr>
+<tr><td><code id="density_:_n">n</code></td>
+<td>
+<p>the number of equally spaced points at which the density
+is to be estimated.  This is rounded up to the next power of 2,
+with a minimum value of 512.</p>
+</td></tr>
+<tr><td><code id="density_:_kernel">kernel</code></td>
+<td>
+<p>a character string giving the smoothing kernel to be used.
+This must be one of <code>"gaussian"</code>, <code>"rectangular"</code>, <code>"triangular"</code>,
+or <code>"cosine"</code>, and may be abbrevited to a single letter.</p>
+</td></tr>
+<tr><td><code id="density_:_bw">bw</code></td>
+<td>
+<p>the smoothing bandwith to be used.  This is the standard
+deviation of the smoothing kernel.  It defaults to 1.06 times the
+minimum of the standard deviation and the interquartile range divided by
+1.34 times the sample size to the negative one fifth power.
+The specified value of <code>bw</code> is multiplied by <code>adjust</code>.</p>
+</td></tr>
+<tr><td><code id="density_:_adjust">adjust</code></td>
+<td>
+<p>the bandwith used is actually <code>adjust*bw</code>.
+This makes it easy to specify values like &ldquo;half the default&rdquo; bandwidth.</p>
+</td></tr>
+<tr><td><code id="density_:_width">width</code></td>
+<td>
+<p>this exists for compatibility with S.</p>
+</td></tr>
+<tr><td><code id="density_:_from">from</code>, <code id="density_:_to">to</code></td>
+<td>
+<p>the left and right-most points of the grid at which the
+density is to be estimated.</p>
+</td></tr>
+<tr><td><code id="density_:_cut">cut</code></td>
+<td>
+<p>by default, the values of <code>left</code> and <code>right</code> are
+<code>cut</code> bandwiths beyond the extremes of the data.</p>
+</td></tr>
+<tr><td><code id="density_:_samples">samples</code></td>
+<td>
+<p>the sample size to take in the bandwidth
+selection functions. If <code>samples</code> is non-positive, the entire
+data set is used.</p>
+</td></tr>
+<tr><td><code id="density_:_dobj">dobj</code></td>
+<td>
+<p>a &ldquo;density&rdquo; object.</p>
+</td></tr>
+<tr><td><code id="density_:_...">...</code></td>
+<td>
+<p>plotting parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object with class &ldquo;density&rdquo;.
+The underlying structure is a list containing the following components.
+</p>
+<table>
+<tr><td><code>x</code></td>
+<td>
+<p>the coordinates of the points where the density is estimated.</p>
+</td></tr>
+<tr><td><code>y</code></td>
+<td>
+<p>the estimated density values.</p>
+</td></tr>
+<tr><td><code>bw</code></td>
+<td>
+<p>the bandwidth used.</p>
+</td></tr>
+<tr><td><code>n</code></td>
+<td>
+<p>the sample size <code>length(x)</code>.</p>
+</td></tr>
+<tr><td><code>call</code></td>
+<td>
+<p>the call which produced the result.</p>
+</td></tr>
+<tr><td><code>data.name</code></td>
+<td>
+<p>the deparsed name of the <code>x</code> argument.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Silverman, B. W. (1986).
+<em>Density Estimation</em>.
+London: Chapman and Hall.
+</p>
+<p>Venables, W. N. and B. D. Ripley (1994).
+<em>Modern Applied Statistics with S-Plus</em>.
+New York: Springer.
+</p>
+<p>Scott, D. W. (1992).
+<em>Multivariate Density Estimation.  Theory, Practice and Visualization</em>.
+New York: Wiley.
+</p>
+<p>Sheather, S. J. and M. C. Jones (1991).
+&ldquo;A reliable data-based bandwidth selection method for kernel density
+estimation.
+<em>J. Roy. Statist. Soc.</em> <b>B</b>, 683-690.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>convolve</code>, <code>hist</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># The Old Faithful geyser data
+data(faithful)
+d &lt;- density(faithful$eruptions, bw=0.15)
+d
+plot(d)
+
+plot(d, type="n")
+polygon(d, col="wheat")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61 ]</div>
+</div>
+</body></html>

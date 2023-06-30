@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Compile Files for Use with R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/COMPILE.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/COMPILE.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>COMPILE {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='COMPILE'>Compile Files for Use with R</h2>
+
+<h3>Description</h3>
+
+<p>Compile given source files so that they can subsequently be collected
+into a shared object using <code>R CMD SHLIB</code> or an executable
+program using <code>R CMD LINK</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R CMD COMPILE [options] srcfiles
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="COMPILE_:_srcfiles">srcfiles</code></td>
+<td>
+<p>A list of the names of source files to be compiled.
+Currently, C, C++, Objective C, Objective C++ and Fortran are
+supported; the corresponding files should have the extensions
+&lsquo;<span class="file">.c</span>&rsquo;, &lsquo;<span class="file">.cc</span>&rsquo; (or &lsquo;<span class="file">.cpp</span>&rsquo;), &lsquo;<span class="file">.m</span>&rsquo;,
+&lsquo;<span class="file">.mm</span>&rsquo; (or &lsquo;<span class="file">.M</span>&rsquo;), &lsquo;<span class="file">.f</span>&rsquo; and &lsquo;<span class="file">.f90</span>&rsquo; or &lsquo;<span class="file">.f95</span>&rsquo;,
+respectively.</p>
+</td></tr>
+<tr><td><code id="COMPILE_:_options">options</code></td>
+<td>
+<p>A list of compile-relevant settings, or for obtaining
+information about usage and version of the utility.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>R CMD SHLIB</code> can both compile and link files into a
+shared object: since it knows what run-time libraries are needed
+when passed C++, Fortran and Objective C(++) sources, passing source
+files to <code>R CMD SHLIB</code> is more reliable.
+</p>
+<p>Ratfor is not supported.  If you have Ratfor source code, you need to
+convert it to FORTRAN.  (On some Solaris systems mixing Ratfor and
+FORTRAN code will work.)
+</p>
+<p>Objective C and Objective C++ support is optional and will work only
+if the corresponding compilers were available at <span class="rlang"><b>R</b></span> configure time:
+their main usage is on OS X.
+</p>
+<p>Compilation arranges to include the paths to the <span class="rlang"><b>R</b></span> public C/C++ headers.
+</p>
+<p>As this compiles code suitable for incorporation into a shared object,
+it generates PIC code: that might occasionally be undesirable for the
+main code of an executable program.
+</p>
+<p>This is a <code>make</code>-based facility, so will not compile a source file
+if a newer corresponding &lsquo;<span class="file">.o</span>&rsquo; file is present.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Some binary distributions of <span class="rlang"><b>R</b></span> have <code>COMPILE</code> in a separate
+bundle, e.g. an <code>R-devel</code> RPM.
+</p>
+<p>This is not available on Windows.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>LINK</code>, <code>SHLIB</code>, <code>dyn.load</code>;
+the section on &ldquo;Customizing compilation under Unix&rdquo; in
+&ldquo;R Administration and Installation&rdquo;
+(see the &lsquo;<span class="file">doc/manual</span>&rsquo; subdirectory of the <span class="rlang"><b>R</b></span> source tree).
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 3.2.5 ]</div>
+</div>
+</body></html>

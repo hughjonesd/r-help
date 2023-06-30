@@ -1,0 +1,150 @@
+<!DOCTYPE html><html><head><title>R: Show an Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/show.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/show.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>show {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='show'>Show an Object</h2>
+
+<h3>Description</h3>
+
+<p>Display the object, by printing, plotting or whatever suits its class.
+</p>
+<p>The function <code>show</code> exists to be specialized by methods; the
+default method calls <code>showDefault</code>.  
+</p>
+<p>With library <code>methods</code> attached, methods for <code>show</code> will
+usually be invoked for automatic printing (see the details).
+</p>
+<p>The function <code>showDefault</code> allows redirection of output and
+optional use of old-style print methods, but normally will not be called directly.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>show(object)
+
+showDefault(object, printTo = stdout(), oldMethods = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="show_:_object">object</code></td>
+<td>
+<p>Any R object</p>
+</td></tr>
+<tr><td><code id="show_:_printTo">printTo</code></td>
+<td>
+<p>Either a file or connection, or else
+<code>FALSE</code>.  In the latter case, the lines of text that would
+have been printed are returned as the value of the call (in a
+character vector with one element per line of output).
+</p>
+</td></tr>
+<tr><td><code id="show_:_oldMethods">oldMethods</code></td>
+<td>
+<p>Should old-style print methods be used for this
+object?  <code>TRUE</code> by default if called directly, but <code>FALSE</code>
+when called from the methods package for automatic printing (to
+avoid potential recursion; see the
+details below).
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>methods</code> package overrides the base definition of
+<code>print.default</code> to arrange for automatic printing to honor
+methods for the function <code>show</code>.  This does not quite manage to
+override old-style printing methods, since the automatic printing in
+the evaluator will look first for the old-style method.
+</p>
+<p>If you have a class <code>myClass</code> and want to define a method for
+<code>show</code>, all will be well unless there is already a function named
+<code>print.myClass</code>.  In that case, to get your method dispatched for
+automatic printing, it will have to be a method for <code>print</code>.  A
+slight cheat is to override the function <code>print.myClass</code> yourself,
+and then call that function also in the method for <code>show</code>
+with signature <code>"myClass"</code>.
+</p>
+
+
+<h3>Value</h3>
+
+ <p><code>show</code> returns an invisible <code>NULL</code>.
+</p>
+<p>For <code>showDefault</code>, if <code>printTo</code> is
+<code>FALSE</code>, the value is a character vector containing the lines that would
+otherwise have been printed.
+</p>
+
+
+<h3>See Also</h3>
+
+ <p><code>showMethods</code> prints all the methods for one or
+more functions;  <code>showMlist</code> prints individual methods lists;
+<code>showClass</code> prints class definitions.  Neither of
+the latter two normally needs to be called directly.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## following the example shown in the setMethod documentation ...
+setClass("track",
+         representation(x="numeric", y="numeric"))
+setClass("trackCurve", 
+         representation("track", smooth = "numeric"))
+
+t1 &lt;- new("track", x=1:20, y=(1:20)^2)
+
+tc1 &lt;- new("trackCurve", t1)
+
+setMethod("show", "track",
+  function(object)print(rbind(x = object@x, y=object@y))
+)
+## The method will now be used for automatic printing of t1
+
+t1
+
+## Not run:   [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+x    1    2    3    4    5    6    7    8    9    10    11    12
+y    1    4    9   16   25   36   49   64   81   100   121   144
+  [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20]
+x    13    14    15    16    17    18    19    20
+y   169   196   225   256   289   324   361   400
+
+## End(Not run)
+## and also for tc1, an object of a class that extends "track"
+tc1
+
+## Not run:   [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+x    1    2    3    4    5    6    7    8    9    10    11    12
+y    1    4    9   16   25   36   49   64   81   100   121   144
+  [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20]
+x    13    14    15    16    17    18    19    20
+y   169   196   225   256   289   324   361   400
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.4 ]</div>
+</div>
+</body></html>

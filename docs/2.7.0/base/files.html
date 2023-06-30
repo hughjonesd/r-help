@@ -1,0 +1,202 @@
+<!DOCTYPE html><html><head><title>R: File and Directory Manipulation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/files.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/files.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>files {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='files'>File and Directory Manipulation</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide a low-level interface to the computer's
+file system.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>file.create(..., showWarnings = TRUE)
+file.exists(...)
+file.remove(...)
+file.rename(from, to)
+file.append(file1, file2)
+file.copy(from, to, overwrite = FALSE)
+file.symlink(from, to)
+dir.create(path, showWarnings = TRUE, recursive = FALSE,
+           mode = "0777")
+Sys.chmod(paths, mode = "0777")
+Sys.umask(mode = "0000")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="files_:_...">...</code>, <code id="files_:_file1">file1</code>, <code id="files_:_file2">file2</code>, <code id="files_:_from">from</code>, <code id="files_:_to">to</code>, <code id="files_:_paths">paths</code></td>
+<td>
+<p>character vectors,
+containing file names or paths.</p>
+</td></tr>
+<tr><td><code id="files_:_path">path</code></td>
+<td>
+<p>a character vector containing a single path name.</p>
+</td></tr>
+<tr><td><code id="files_:_overwrite">overwrite</code></td>
+<td>
+<p>logical; should the destination files be overwritten?</p>
+</td></tr>
+<tr><td><code id="files_:_showWarnings">showWarnings</code></td>
+<td>
+<p>logical; should the warnings on failure be shown?</p>
+</td></tr>
+<tr><td><code id="files_:_recursive">recursive</code></td>
+<td>
+<p>logical: should elements of the path other than the
+last be created?  If true, like Unix's <code>mkdir -p</code>.</p>
+</td></tr>
+<tr><td><code id="files_:_mode">mode</code></td>
+<td>
+<p>the file mode to be used on Unix-alikes: it will be
+coerced by <code>as.octmode</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>...</code> arguments are concatenated to form one character
+string: you can specify the files separately or as one vector.
+All of these functions expand path names: see <code>path.expand</code>.
+</p>
+<p><code>file.create</code> creates files with the given names if they do not
+already exist and truncates them if they do.  They are created with the
+maximal permissions allowed by the <code>umask</code> setting.
+</p>
+<p><code>file.exists</code> returns a logical vector indicating whether
+the files named by its argument exist.  (Here &lsquo;exists&rsquo; is in the
+sense of the system's <code>stat</code> call: a file will be reported as
+existing only if you have the permissions needed by <code>stat</code>.
+Existence can also be checked by <code>file.access</code>, which
+might use different permissions and so obtain a different result.
+Note that the existence of a file does not imply that it is readable:
+for that use <code>file.access</code>.)
+</p>
+<p><code>file.remove</code> attempts to remove the files named in its
+argument.
+On most platforms &lsquo;file&rsquo; includes <em>empty</em> directories,
+symbolic links, fifos and sockets.
+</p>
+<p><code>file.rename</code> attempts to rename a single file.
+</p>
+<p><code>file.append</code> attempts to append the files named by its
+second argument to those named by its first.  The <span class="rlang"><b>R</b></span> subscript
+recycling rule is used to align names given in vectors
+of different lengths.
+</p>
+<p><code>file.copy</code> works in a similar way to <code>file.append</code> but with
+the arguments in the natural order for copying.  Copying to existing
+destination files is skipped unless <code>overwrite = TRUE</code>.
+The <code>to</code> argument can specify a single existing directory.
+</p>
+<p><code>file.symlink</code> makes symbolic links on those Unix-like platforms
+which support them.  The <code>to</code> argument can specify a single
+existing directory.
+</p>
+<p><code>dir.create</code> creates the last element of the path, unless
+<code>recursive = TRUE</code>.  Trailing path separators are removed.
+The mode will be modified by the <code>umask</code> setting in the same way
+as for the system function <code>mkdir</code>.  What modes can be set is
+OS-dependent, and it is unsafe to assume that more than three octal
+digits will be used.  For more details see your OS's documentation on the
+system call <code>mkdir</code> (and not that on the command-line utility of
+that name). 
+</p>
+<p><code>Sys.chmod</code> sets the file permissions of one or more files.
+It may not be supported (when a warning is issued).
+See the comments for <code>dir.create</code> for how modes are interpreted.
+Changing mode on a symbolic link is unlikely to work (nor be
+necessary).  For more details see your OS's documentation on the
+system call <code>chmod</code> (and not that on the command-line utility of
+that name). 
+</p>
+<p><code>Sys.umask</code> sets the <code>umask</code>.
+It may not be supported (when a warning is issued and <code>"0000"</code>
+returned).  For more details see your OS's documentation on the
+system call <code>umask</code>. 
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>dir.create</code> and <code>file.rename</code> return a logical,
+true for success.
+</p>
+<p><code>Sys.umask</code> returns the previous value of the <code>umask</code>,
+invisibly, as a length-one object of class <code>"octmode"</code>.
+</p>
+<p>The remaining functions return a logical vector indicating which
+operation succeeded for each of the files attempted.
+</p>
+<p><code>dir.create</code> will return failure if the directory already exists.
+</p>
+<p>If <code>showWarnings = TRUE</code>, <code>file.create</code> and
+<code>dir.create</code> will give a warning for an unexpected failure
+(e.g. not for a missing value nor for an already existing component for
+<code>dir.create(recursive = TRUE)</code>).
+</p>
+<p>Using a missing value for a file or path name will always be regarded
+as a failure.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Ross Ihaka, Brian Ripley
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>file.info</code>, <code>file.access</code>, <code>file.path</code>,
+<code>file.show</code>, <code>list.files</code>,
+<code>unlink</code>, <code>basename</code>, <code>path.expand</code>.
+</p>
+<p><code>file_test</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>cat("file A\n", file="A")
+cat("file B\n", file="B")
+file.append("A", "B")
+file.create("A")
+file.append("A", rep("B", 10))
+if(interactive()) file.show("A")
+file.copy("A", "C")
+dir.create("tmp")
+file.copy(c("A", "B"), "tmp")
+list.files("tmp")
+setwd("tmp")
+file.remove("B")
+file.symlink(file.path("..", c("A", "B")), ".")
+setwd("..")
+unlink("tmp", recursive=TRUE)
+file.remove("A", "B", "C")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.7.0 ]</div>
+</div>
+</body></html>

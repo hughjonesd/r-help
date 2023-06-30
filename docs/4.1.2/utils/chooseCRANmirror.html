@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><title>R: Select a CRAN Mirror</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/chooseCRANmirror.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/chooseCRANmirror.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>chooseCRANmirror {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='chooseCRANmirror'>Select a CRAN Mirror</h2>
+
+<h3>Description</h3>
+
+<p>Interact with the user to choose a CRAN mirror.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>chooseCRANmirror(graphics = getOption("menu.graphics"), ind = NULL,
+                 local.only = FALSE)
+
+getCRANmirrors(all = FALSE, local.only = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="chooseCRANmirror_:_graphics">graphics</code></td>
+<td>
+<p>Logical.  If true, use a graphical list: on Windows or
+the macOS GUI use a list box, and on a Unix-alike  use a Tk widget if
+package <span class="pkg">tcltk</span> and an X server are available.  Otherwise use a
+text <code>menu</code>.</p>
+</td></tr>
+<tr><td><code id="chooseCRANmirror_:_ind">ind</code></td>
+<td>
+<p>Optional numeric value giving which entry to select.</p>
+</td></tr>
+<tr><td><code id="chooseCRANmirror_:_all">all</code></td>
+<td>
+<p>Logical, get all known mirrors or only the ones flagged as OK.</p>
+</td></tr>
+<tr><td><code id="chooseCRANmirror_:_local.only">local.only</code></td>
+<td>
+<p>Logical, try to get most recent list from the CRAN
+master or use file on local disk only.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A list of mirrors is stored in file
+&lsquo;<span class="file"><var>R_HOME</var>/doc/CRAN_mirrors.csv</span>&rsquo;, but first an on-line
+list of current mirrors is consulted, and the file copy used only if
+the on-line list is inaccessible.
+</p>
+<p>This function is called by a Windows GUI menu item and by
+<code>contrib.url</code> if it finds the initial dummy value of
+<code>options("repos")</code>.
+</p>
+<p>HTTPS mirrors with mirroring over <code>ssh</code> will be offered in
+preference to other mirrors (which are listed in a sub-menu).
+</p>
+<p><code>ind</code> chooses a row in the list of current mirrors, by number. It
+is best used with <code>local.only = TRUE</code> and row numbers in
+&lsquo;<span class="file"><var>R_HOME</var>/doc/CRAN_mirrors.csv</span>&rsquo;.
+</p>
+
+
+<h3>Value</h3>
+
+<p>None for <code>chooseCRANmirror()</code>, this function is invoked for its
+side effect of updating <code>options("repos")</code>.
+</p>
+<p><code>getCRANmirrors()</code> returns a data frame with mirror information.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>setRepositories</code>, <code>chooseBioCmirror</code>,
+<code>contrib.url</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 4.1.2 ]</div>
+</div>
+</body></html>

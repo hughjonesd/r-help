@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Invoke a Pager on an R Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/page.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/page.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>page {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='page'>Invoke a Pager on an R Object</h2>
+
+<h3>Description</h3>
+
+<p>Displays a representation of the object named by <code>x</code> in a pager
+<em>via</em> <code>file.show</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>page(x, method = c("dput", "print"), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="page_:_x">x</code></td>
+<td>
+<p>An <span class="rlang"><b>R</b></span> object, or a character string naming an object.</p>
+</td></tr>
+<tr><td><code id="page_:_method">method</code></td>
+<td>
+<p>The default method is to dump the object <em>via</em>
+<code>dput</code>.  An alternative is to use <code>print</code> and
+capture the output to be shown in the pager.</p>
+</td></tr>
+<tr><td><code id="page_:_...">...</code></td>
+<td>
+<p>additional arguments for <code>dput</code>,
+<code>print</code> or <code>file.show</code> (such as <code>title</code>).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>x</code> is a length-one character vector, it is used as the name
+of an object to look up in the environment from which <code>page</code> is
+called.   All other objects are displayed directly.
+</p>
+<p>A default value of <code>title</code> is passed to <code>file.show</code> if one
+is not supplied in <code>...</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>file.show</code>, <code>edit</code>, <code>fix</code>.
+</p>
+<p>To go to a new page when graphing, see <code>frame</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: ## four ways to look at the code of 'page'
+page(page)             # as an object
+page("page")           # a character string
+v &lt;- "page"; page(v)   # a length-one character vector
+page(utils::page)      # a call
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.9.0 ]</div>
+</div>
+</body></html>

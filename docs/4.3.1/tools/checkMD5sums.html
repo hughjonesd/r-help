@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><title>R: Check and Create MD5 Checksum Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkMD5sums.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkMD5sums.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>checkMD5sums {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='checkMD5sums'>Check and Create MD5 Checksum Files</h2>
+
+<h3>Description</h3>
+
+<p><code>checkMD5sums</code> checks the files against a file &lsquo;<span class="file">MD5</span>&rsquo;.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>checkMD5sums(package, dir)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="checkMD5sums_:_package">package</code></td>
+<td>
+<p>the name of an installed package</p>
+</td></tr>
+<tr><td><code id="checkMD5sums_:_dir">dir</code></td>
+<td>
+<p>the path to the top-level directory of an installed
+package.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The file &lsquo;<span class="file">MD5</span>&rsquo; which is created is in a format which can be
+checked by <code>md5sum -c MD5</code> if a suitable command-line version
+of <code>md5sum</code> is available.  (For Windows, one is supplied in
+the bundle at <a href="https://cran.r-project.org/bin/windows/Rtools/">https://cran.r-project.org/bin/windows/Rtools/</a>.)
+</p>
+<p>If <code>dir</code> is missing, an installed package of name <code>package</code>
+is searched for.
+</p>
+<p>The private function <code>tools:::.installMD5sums</code> is used to create
+<code>MD5</code> files in the Windows build.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>checkMD5sums</code> returns a logical, <code>NA</code> if there is no
+&lsquo;<span class="file">MD5</span>&rsquo; file to be checked.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>md5sum</code></p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.3.1 ]</div>
+</div>
+</body></html>

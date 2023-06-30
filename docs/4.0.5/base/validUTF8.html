@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>R: Check if a Character Vector is Validly Encoded</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/validUTF8.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/validUTF8.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>validUTF8 {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='validUTF8'>Check if a Character Vector is Validly Encoded</h2>
+
+<h3>Description</h3>
+
+<p>Check if each element of a character vector is valid in its implied
+encoding.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>validUTF8(x)
+validEnc(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="validUTF8_:_x">x</code></td>
+<td>
+<p>a character vector.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These use similar checks to those used by functions such as
+<code>grep</code>.
+</p>
+<p><code>validUTF8</code> ignores any marked encoding (see
+<code>Encoding</code>) and so looks directly if the bytes in each
+string are valid UTF-8.  (For the validity of &lsquo;noncharacters&rsquo;
+see the help for <code>intToUtf8</code>.)
+</p>
+<p><code>validEnc</code> regards character strings as validly encoded unless
+their encodings are marked as UTF-8 or they are unmarked and the <span class="rlang"><b>R</b></span>
+session is in a UTF-8 or other multi-byte locale.  (The checks in
+other multi-byte locales depend on the OS and as with
+<code>iconv</code> not all invalid inputs may be detected.)
+</p>
+
+
+<h3>Value</h3>
+
+<p>A logical vector of the same length as <code>x</code>.   <code>NA</code> elements
+are regarded as validly encoded.
+</p>
+
+
+<h3>Note</h3>
+
+<p>It would be possible to check for the validity of character strings in
+a Latin-1 encoding, but extensions such as CP1252 are widely accepted
+as &lsquo;Latin-1&rsquo; and 8-bit encodings rarely need to be checked for
+validity.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;-
+  ## from example(text)
+c("Jetz", "no", "chli", "z\xc3\xbcrit\xc3\xbc\xc3\xbctsch:",
+  "(noch", "ein", "bi\xc3\x9fchen", "Z\xc3\xbc", "deutsch)",
+   ## from a CRAN check log
+   "\xfa\xb4\xbf\xbf\x9f")
+validUTF8(x)
+validEnc(x) # depends on the locale
+Encoding(x) &lt;-"UTF-8"
+validEnc(x) # typically the last, x[10], is invalid
+
+## Maybe advantageous to declare it "unknown":
+G &lt;- x ; Encoding(G[!validEnc(G)]) &lt;- "unknown"
+try( substr(x, 1,1) ) # gives 'invalid multibyte string' error
+try( substr(G, 1,1) ) # works
+nchar(G) # fine, too
+## but it is not "more valid" typically:
+all.equal(validEnc(x),
+          validEnc(G)) # typically TRUE
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.0.5 ]</div>
+</div>
+</body></html>

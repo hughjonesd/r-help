@@ -1,0 +1,168 @@
+<!DOCTYPE html><html><head><title>R: Citing R and R Packages in Publications</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/citation.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/citation.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>citation {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='citation'>Citing R and R Packages in Publications</h2>
+
+<h3>Description</h3>
+
+<p>How to cite <span class="rlang"><b>R</b></span> and <span class="rlang"><b>R</b></span> packages in publications.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>citation(package = "base", lib.loc = NULL, auto = NULL)
+readCitationFile(file, meta = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="citation_:_package">package</code></td>
+<td>
+<p>a character string with the name of a single package.
+An error occurs if more than one package name is given.</p>
+</td></tr>
+<tr><td><code id="citation_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector with path names of <span class="rlang"><b>R</b></span> libraries, or
+the directory containing the source for <code>package</code>, or
+<code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
+libraries currently known.  If the default is used, the loaded
+packages are searched before the libraries.</p>
+</td></tr>
+<tr><td><code id="citation_:_auto">auto</code></td>
+<td>
+<p>a logical indicating whether the default citation
+auto-generated from the package &lsquo;<span class="file">DESCRIPTION</span>&rsquo; metadata should
+be used or not, or <code>NULL</code> (default), indicating that a
+&lsquo;<span class="file">CITATION</span>&rsquo; file is used if it exists, or an object of class
+<code>"packageDescription"</code> with package metadata (see
+below).</p>
+</td></tr>
+<tr><td><code id="citation_:_file">file</code></td>
+<td>
+<p>a file name.</p>
+</td></tr>
+<tr><td><code id="citation_:_meta">meta</code></td>
+<td>
+<p>a list of package metadata as obtained by
+<code>packageDescription</code>, or <code>NULL</code> (the default).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <span class="rlang"><b>R</b></span> core development team and the very active community of package
+authors have invested a lot of time and effort in creating <span class="rlang"><b>R</b></span> as it is
+today.  Please give credit where credit is due and cite <span class="rlang"><b>R</b></span> and <span class="rlang"><b>R</b></span>
+packages when you use them for data analysis.
+</p>
+<p>Execute function <code>citation()</code> for information on how to cite the
+base R system in publications.  If the name of a non-base package is
+given, the function either returns the information contained in the
+&lsquo;<span class="file">CITATION</span>&rsquo; file of the package (using <code>readCitationFile</code>
+with <code>meta</code> equal to <code>packageDescription(package, lib.loc)</code>)
+or auto-generates citation information from the &lsquo;<span class="file">DESCRIPTION</span>&rsquo;
+file.
+</p>
+<p>In <span class="rlang"><b>R</b></span> &gt;= 2.14.0, one can use a &lsquo;<span class="samp">&#8288;Authors@R&#8288;</span>&rsquo; field in
+&lsquo;<span class="file">DESCRIPTION</span>&rsquo; to provide (<span class="rlang"><b>R</b></span> code giving) a
+<code>person</code> object with a refined, machine-readable
+description of the package &ldquo;authors&rdquo; (in particular specifying
+their precise roles).  Only those with an author role will be
+included in the auto-generated citation.
+</p>
+<p>If only one reference is given, the print method for the object
+returned by <code>citation()</code> shows both a text version and a BibTeX
+entry for it, if a package has more than one reference then only the
+text versions are shown.  The BibTeX versions can be obtained using
+function <code>toBibtex()</code> (see the examples below).
+</p>
+<p>The &lsquo;<span class="file">CITATION</span>&rsquo; file of an R package should be placed in the
+&lsquo;<span class="file">inst</span>&rsquo; subdirectory of the package source.  The file is an R
+source file and may contain arbitrary R commands including
+conditionals and computations.  Function <code>readCitationFile()</code> is
+used by <code>citation()</code> to extract the information in
+&lsquo;<span class="file">CITATION</span>&rsquo; files.  The file is <code>source()</code>ed by the R
+parser in a temporary environment and all resulting bibliographic
+objects (specifically, of class <code>"bibentry"</code>) are
+collected.
+</p>
+<p>Traditionally, the &lsquo;<span class="file">CITATION</span>&rsquo; file contained zero or more calls
+to <code>citHeader</code>, then one or more calls to <code>citEntry</code>,
+and finally zero or more calls to <code>citFooter</code>, where in fact
+<code>citHeader</code> and <code>citFooter</code> are simply wrappers to
+<code>paste</code>, with their <code>...</code> argument passed on to
+<code>paste</code> as is.  The <code>"bibentry"</code> class
+makes for improved representation and manipulation of bibliographic
+information (in fact, the old mechanism is implemented using the new
+one), and one can write &lsquo;<span class="file">CITATION</span>&rsquo; files using the unified
+<code>bibentry</code> interface.
+</p>
+<p>One can include an auto-generated package citation in the
+&lsquo;<span class="file">CITATION</span>&rsquo; file via <code>citation(auto = meta)</code>.
+</p>
+<p><code>readCitationFile</code> makes use of the <code>Encoding</code> element (if
+any) of <code>meta</code> to determine the encoding of the file.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"citation"</code>, inheriting from class
+<code>"bibentry"</code>; see there, notably for the
+<code>print</code> and <code>format</code> methods.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>bibentry</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## the basic R reference
+citation()
+
+## references for a package -- might not have these installed
+if(nchar(system.file(package = "lattice"))) citation("lattice")
+if(nchar(system.file(package = "foreign"))) citation("foreign")
+
+## extract the bibtex entry from the return value
+x &lt;- citation()
+toBibtex(x)
+
+
+## A citation with more than one bibentry:
+cm &lt;- tryCatch(citation("mgcv"),
+               error = function(e) {
+                 warning("Recommended package 'mgcv' is not installed properly")
+                 stop(e$message) })
+cm # short entries (2-3 lines each)
+print(cm, bibtex = TRUE) # each showing its bibtex code
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 3.6.3 ]</div>
+</div>
+</body></html>

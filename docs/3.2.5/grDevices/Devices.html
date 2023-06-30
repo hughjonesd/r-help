@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><title>R: List of Graphical Devices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/Devices.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/Devices.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Devices {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Devices'>List of Graphical Devices</h2>
+
+<h3>Description</h3>
+
+<p>The following graphics devices are currently available:
+</p>
+
+<ul>
+<li> <p><code>pdf</code> Write PDF graphics commands to a file
+</p>
+</li>
+<li> <p><code>postscript</code> Writes PostScript graphics commands to
+a file
+</p>
+</li>
+<li> <p><code>xfig</code> Device for XFIG graphics file format
+</p>
+</li>
+<li> <p><code>bitmap</code> bitmap pseudo-device via
+<code>Ghostscript</code> (if available).
+</p>
+</li>
+<li> <p><code>pictex</code> Writes TeX/PicTeX graphics commands to a
+file (of historical interest only)
+</p>
+</li></ul>
+
+<p>The following devices will be functional if <span class="rlang"><b>R</b></span> was compiled to use
+them (they exist but will return with a warning on other systems):
+</p>
+
+<ul>
+<li> <p><code>X11</code> The graphics device for the X11 windowing system
+</p>
+</li>
+<li> <p><code>cairo_pdf</code>, <code>cairo_ps</code> PDF and PostScript
+devices based on cairo graphics.
+</p>
+</li>
+<li> <p><code>svg</code> SVG device based on cairo graphics.
+</p>
+</li>
+<li> <p><code>png</code> PNG bitmap device
+</p>
+</li>
+<li> <p><code>jpeg</code> JPEG bitmap device
+</p>
+</li>
+<li> <p><code>bmp</code> BMP bitmap device
+</p>
+</li>
+<li> <p><code>tiff</code> TIFF bitmap device
+</p>
+</li>
+<li> <p><code>quartz</code> The graphics device for the OS X
+native Quartz 2d graphics system.  (This is only functional on
+OS X where it can be used from the <code>R.app</code> GUI and from the
+command line: but it will display on the local screen even for a
+remote session.)
+</p>
+</li></ul>
+
+
+
+<h3>Details</h3>
+
+<p>If no device is open, using a high-level graphics function will cause
+a device to be opened.  Which device is given by
+<code>options("device")</code> which is initially set as the most
+appropriate for each platform: a screen device for most interactive use and
+<code>pdf</code> (or the setting of <span class="env">R_DEFAULT_DEVICE</span>)
+otherwise.  The exception is interactive use under Unix if no screen
+device is known to be available, when <code>pdf()</code> is used.
+</p>
+<p>It is possible for an <span class="rlang"><b>R</b></span> package to provide further graphics devices
+and several packages on CRAN do so.  These include other devices outputting
+SVG and PGF/TiKZ (TeX-based graphics, see <a href="http://pgf.sourceforge.net/">http://pgf.sourceforge.net/</a>).
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The individual help files for further information on any of the
+devices listed here;
+<code>X11.options</code>, <code>quartz.options</code>,
+<code>ps.options</code> and <code>pdf.options</code> for how to
+customize devices.
+</p>
+<p><code>dev.interactive</code>,
+<code>dev.cur</code>, <code>dev.print</code>,
+<code>graphics.off</code>, <code>image</code>,
+<code>dev2bitmap</code>.
+</p>
+<p><code>capabilities</code> to see if <code>X11</code>,
+<code>jpeg</code> <code>png</code>, <code>tiff</code>,
+<code>quartz</code> and the cairo-based devices are available.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## open the default screen device on this platform if no device is
+## open
+if(dev.cur() == 1) dev.new()
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 3.2.5 ]</div>
+</div>
+</body></html>

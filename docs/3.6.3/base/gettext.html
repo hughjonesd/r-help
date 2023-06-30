@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><title>R: Translate Text Messages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/gettext.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/gettext.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>gettext {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='gettext'>Translate Text Messages</h2>
+
+<h3>Description</h3>
+
+<p>If Native Language Support was enabled in this build of <span class="rlang"><b>R</b></span>, attempt to
+translate character vectors or set where the translations are to be found.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>gettext(..., domain = NULL)
+
+ngettext(n, msg1, msg2, domain = NULL)
+
+bindtextdomain(domain, dirname = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="gettext_:_...">...</code></td>
+<td>
+<p>One or more character vectors.</p>
+</td></tr>
+<tr><td><code id="gettext_:_domain">domain</code></td>
+<td>
+<p>The &lsquo;domain&rsquo; for the translation.</p>
+</td></tr>
+<tr><td><code id="gettext_:_n">n</code></td>
+<td>
+<p>a non-negative integer.</p>
+</td></tr>
+<tr><td><code id="gettext_:_msg1">msg1</code></td>
+<td>
+<p>the message to be used in English for <code>n = 1</code>.</p>
+</td></tr>
+<tr><td><code id="gettext_:_msg2">msg2</code></td>
+<td>
+<p>the message to be used in English for <code>n = 0, 2, 3, ...</code>.</p>
+</td></tr>
+<tr><td><code id="gettext_:_dirname">dirname</code></td>
+<td>
+<p>The directory in which to find translated message
+catalogs for the domain.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>domain</code> is <code>NULL</code> or <code>""</code>, and <code>gettext</code>
+or <code>ngettext</code>  is called from a function in the namespace of 
+package <span class="pkg">pkg</span> the domain is set to <code>"R-pkg"</code>.  Otherwise 
+there is no default domain.
+</p>
+<p>If a suitable domain is found, each character string is offered for
+translation, and replaced by its translation into the current language
+if one is found.  The value (logical) <code>NA</code> suppresses any
+translation.
+</p>
+<p>Conventionally the domain for <span class="rlang"><b>R</b></span> warning/error messages in package
+<span class="pkg">pkg</span> is <code>"R-pkg"</code>, and that for C-level messages is <code>"pkg"</code>.
+</p>
+<p>For <code>gettext</code>, leading and trailing whitespace is ignored when
+looking for the translation.
+</p>
+<p><code>ngettext</code> is used where the message needs to vary by a single
+integer.  Translating such messages is subject to very specific rules
+for different languages: see the GNU Gettext Manual.  The string
+will often contain a single instance of <code>%d</code> to be used in
+<code>sprintf</code>.  If English is used, <code>msg1</code> is returned if
+<code>n == 1</code> and <code>msg2</code> in all other cases.
+</p>
+<p><code>bindtextdomain</code> is a wrapper for the C function of the same
+name: your system may have a <code>man</code> page for it.  With a
+non-<code>NULL</code> <code>dirname</code> it specifies where to look for message
+catalogues: with <code>domain = NULL</code> it returns the current location.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>gettext</code>, a character vector, one element per string in
+<code>...</code>.  If translation is not enabled or no domain is found or
+no translation is found in that domain, the original strings are
+returned.
+</p>
+<p>For <code>ngettext</code>, a character string.
+</p>
+<p>For <code>bindtextdomain</code>, a character string giving the current base
+directory, or <code>NULL</code> if setting it failed.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>stop</code> and <code>warning</code> make use of <code>gettext</code> to
+translate messages.
+</p>
+<p><code>xgettext</code> for extracting translatable strings from <span class="rlang"><b>R</b></span>
+source files.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>bindtextdomain("R")  # non-null if and only if NLS is enabled
+
+for(n in 0:3)
+    print(sprintf(ngettext(n, "%d variable has missing values",
+                              "%d variables have missing values"),
+                  n))
+
+## Not run: 
+## for translation, those strings should appear in R-pkg.pot as
+msgid        "%d variable has missing values"
+msgid_plural "%d variables have missing values"
+msgstr[0] ""
+msgstr[1] ""
+
+## End(Not run)
+
+miss &lt;- c("one", "or", "another")
+cat(ngettext(length(miss), "variable", "variables"),
+    paste(sQuote(miss), collapse = ", "),
+    ngettext(length(miss), "contains", "contain"), "missing values\n")
+
+## better for translators would be to use
+cat(sprintf(ngettext(length(miss),
+                     "variable %s contains missing values\n",
+                     "variables %s contain missing values\n"),
+            paste(sQuote(miss), collapse = ", ")))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.6.3 ]</div>
+</div>
+</body></html>

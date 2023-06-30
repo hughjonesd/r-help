@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>R: Lower and Upper Triangular Part of a Matrix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/lower.tri.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/lower.tri.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>lower.tri {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='lower.tri'>Lower and Upper Triangular Part of a Matrix</h2>
+
+<h3>Description</h3>
+
+<p>Returns a matrix of logicals the same size of a given matrix with
+entries <code>TRUE</code> in the lower or upper triangle.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>lower.tri(x, diag = FALSE)
+upper.tri(x, diag = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="lower.tri_:_x">x</code></td>
+<td>
+<p>a matrix or other <span class="rlang"><b>R</b></span> object with <code>length(dim(x)) == 2</code>.
+For back compatibility reasons, when the above is not fulfilled,
+<code>as.matrix(x)</code> is called first.</p>
+</td></tr>
+<tr><td><code id="lower.tri_:_diag">diag</code></td>
+<td>
+<p>logical.  Should the diagonal be included?</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>diag</code>, <code>matrix</code>; further <code>row</code>
+and <code>col</code> on which <code>lower.tri()</code> and
+<code>upper.tri()</code> are built.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>(m2 &lt;- matrix(1:20, 4, 5))
+lower.tri(m2)
+m2[lower.tri(m2)] &lt;- NA
+m2
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.1.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><title>R: (De)compress I/O Through Connections</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/gzcon.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/gzcon.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>gzcon {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='gzcon'>
+(De)compress I/O Through Connections
+</h2>
+
+<h3>Description</h3>
+
+<p><code>gzcon</code> provides a modified connection that wraps an existing
+connection, and decompresses reads or compresses writes through that
+connection.  Standard <code>gzip</code> headers are assumed.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>gzcon(con, level = 6, allowNonCompressed = TRUE, text = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="gzcon_:_con">con</code></td>
+<td>
+<p>a connection.</p>
+</td></tr>
+<tr><td><code id="gzcon_:_level">level</code></td>
+<td>
+<p>integer between 0 and 9, the compression level when writing.</p>
+</td></tr>
+<tr><td><code id="gzcon_:_allowNonCompressed">allowNonCompressed</code></td>
+<td>
+<p>logical.  When reading, should
+non-compressed input be allowed?</p>
+</td></tr>
+<tr><td><code id="gzcon_:_text">text</code></td>
+<td>
+<p>logical. Should the connection be text-oriented? This is
+distinct from the mode of the connection (must always be binary).
+If <code>TRUE</code>, <code>pushBack</code> works on the connection,
+otherwise <code>readBin</code> and friends apply.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>con</code> is open then the modified connection is opened.  Closing
+the wrapper connection will also close the underlying connection.
+</p>
+<p>Reading from a connection which does not supply a <code>gzip</code> magic
+header is equivalent to reading from the original connection if
+<code>allowNonCompressed</code> is true, otherwise an error.
+</p>
+<p>Compressed output will contain embedded NUL bytes, and so <code>con</code>
+is not permitted to be a <code>textConnection</code> opened with
+<code>open = "w"</code>.  Use a writable <code>rawConnection</code> to
+compress data into a variable.
+</p>
+<p>The original connection becomes unusable: any object pointing to it will
+now refer to the modified connection.  For this reason, the new
+connection needs to be closed explicitly.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object inheriting from class <code>"connection"</code>.  This is the same
+connection <em>number</em> as supplied, but with a modified internal
+structure.  It has binary mode.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>gzfile</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Uncompress a data file from a URL
+z &lt;- gzcon(url("http://www.stats.ox.ac.uk/pub/datasets/csb/ch12.dat.gz"))
+# read.table can only read from a text-mode connection.
+raw &lt;- textConnection(readLines(z))
+close(z)
+dat &lt;- read.table(raw)
+close(raw)
+dat[1:4, ]
+
+
+## gzfile and gzcon can inter-work.
+## Of course here one would use gzfile, but file() can be replaced by
+## any other connection generator.
+zzfil &lt;- tempfile(fileext = ".gz")
+zz &lt;- gzfile(zzfil, "w")
+cat("TITLE extra line", "2 3 5 7", "", "11 13 17", file = zz, sep = "\n")
+close(zz)
+readLines(zz &lt;- gzcon(file(zzfil, "rb")))
+close(zz)
+unlink(zzfil)
+
+
+zzfil2 &lt;- tempfile(fileext = ".gz")
+zz &lt;- gzcon(file(zzfil2, "wb"))
+cat("TITLE extra line", "2 3 5 7", "", "11 13 17", file = zz, sep = "\n")
+close(zz)
+readLines(zz &lt;- gzfile(zzfil2))
+close(zz)
+unlink(zzfil2)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.6.0 ]</div>
+</div>
+</body></html>

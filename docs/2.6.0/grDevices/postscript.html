@@ -1,0 +1,430 @@
+<!DOCTYPE html><html><head><title>R: PostScript Graphics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/postscript.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/postscript.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>postscript {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='postscript'>PostScript Graphics</h2>
+
+<h3>Description</h3>
+
+<p><code>postscript</code> starts the graphics device driver for producing
+PostScript graphics.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>postscript(file = ifelse(onefile, "Rplots.ps", "Rplot%03d.ps"),
+           onefile = TRUE, family,
+           title = "R Graphics Output", fonts = NULL,
+           encoding, bg, fg,
+           width, height, horizontal, pointsize,
+           paper, pagecentre, print.it, command, colormodel)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="postscript_:_file">file</code></td>
+<td>
+<p>a character string giving the name of the file.  If it is
+<code>""</code>, the output is piped to the command given by the argument
+<code>command</code>.
+If it is of the form <code>"|cmd"</code>, the output is piped to the
+command given by &lsquo;<span class="file">cmd</span>&rsquo;.
+</p>
+<p>For use with <code>onefile = FALSE</code> give a <code>printf</code> format such
+as <code>"Rplot%03d.ps"</code> (the default in that case).
+</p>
+</td></tr>
+<tr><td><code id="postscript_:_onefile">onefile</code></td>
+<td>
+<p>logical: if true (the default) allow multiple figures
+in one file.  If false, generate a file name containing the page
+number and use an EPSF header and no <code>DocumentMedia</code> comment.</p>
+</td></tr>
+<tr><td><code id="postscript_:_family">family</code></td>
+<td>
+<p>the initial font family to be used, normally as a
+character string.  See the section &lsquo;Families&rsquo;.  This defaults
+to <code>"Helvetica"</code>.</p>
+</td></tr>
+<tr><td><code id="postscript_:_title">title</code></td>
+<td>
+<p>title string to embed in the file.</p>
+</td></tr>
+<tr><td><code id="postscript_:_fonts">fonts</code></td>
+<td>
+<p>a character vector specifying additional <span class="rlang"><b>R</b></span> graphics font
+family names for font families whose declarations will be included
+in the PostScript file and are available for use with the device.
+See Details.</p>
+</td></tr>
+<tr><td><code id="postscript_:_encoding">encoding</code></td>
+<td>
+<p>the name of an encoding file.  Defaults to
+&lsquo;<span class="file">&quot;ISOLatin1.enc&quot;</span>&rsquo; unless the locale is recognized as
+corresponding to a language using ISO 8859-5,7,13,15 or KOI8-R,U,
+in the &lsquo;<span class="file">enc</span>&rsquo; directory of package <span class="pkg">grDevices</span>, which is used
+if the path does not contain a path separator.  An extension
+<code>".enc"</code> can be omitted.
+</p>
+</td></tr>
+<tr><td><code id="postscript_:_bg">bg</code></td>
+<td>
+<p>the default background color to be used.
+If <code>"transparent"</code> (or an equivalent specification), no
+background is painted.</p>
+</td></tr>
+<tr><td><code id="postscript_:_fg">fg</code></td>
+<td>
+<p>the default foreground color to be used.</p>
+</td></tr>
+<tr><td><code id="postscript_:_width">width</code>, <code id="postscript_:_height">height</code></td>
+<td>
+<p>the width and height of the graphics region in
+inches.  The default is to use the entire page less a 0.25 inch
+border on each side.</p>
+</td></tr>
+<tr><td><code id="postscript_:_horizontal">horizontal</code></td>
+<td>
+<p>the orientation of the printed image, a
+logical.  Defaults to true, that is landscape orientation on paper
+sizes with width less than height.</p>
+</td></tr>
+<tr><td><code id="postscript_:_pointsize">pointsize</code></td>
+<td>
+<p>the default point size to be used.  Strictly
+speaking, in bp, that is 1/72 of an inch, but approximately in points.</p>
+</td></tr>
+<tr><td><code id="postscript_:_paper">paper</code></td>
+<td>
+<p>the size of paper in the printer.  The choices are
+<code>"a4"</code>, <code>"letter"</code> (or <code>"us"</code>), <code>"legal"</code> and
+<code>"executive"</code> (and these can be capitalized).
+Also, <code>"special"</code> can be used, when the <code>width</code>
+and <code>height</code> specify the paper size.  A further choice is
+<code>"default"</code>, which is the default.  If this is selected, the
+papersize is taken from the option <code>"papersize"</code>
+if that is set and to <code>"a4"</code> if it is unset or empty.</p>
+</td></tr>
+<tr><td><code id="postscript_:_pagecentre">pagecentre</code></td>
+<td>
+<p>logical: should the device region be centred on the
+page? &ndash; defaults to true.</p>
+</td></tr>
+<tr><td><code id="postscript_:_print.it">print.it</code></td>
+<td>
+<p>logical: should the file be printed when the device is
+closed?  (This only applies if <code>file</code> is a real file name.)</p>
+</td></tr>
+<tr><td><code id="postscript_:_command">command</code></td>
+<td>
+<p>the command to be used for &lsquo;printing&rsquo;.  Defaults to
+option <code>"printcmd"</code>; this can also be selected as
+<code>"default"</code>. The length limit is <code>2*PATH_MAX</code>,
+typically 8096 bytes.
+</p>
+</td></tr>
+<tr><td><code id="postscript_:_colormodel">colormodel</code></td>
+<td>
+<p>a character string describing the color model:
+currently allowed values as <code>"rgb"</code> (the default and the only
+model prior to <span class="rlang"><b>R</b></span> 2.5.0), <code>"rgb-nogray"</code>, <code>"gray"</code>
+and <code>"cmyk"</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>postscript</code> opens the file <code>file</code> and the PostScript
+commands needed to plot any graphics requested are written to that
+file.  This file can then be printed on a suitable device to obtain
+hard copy.
+</p>
+<p>A postscript plot can be printed via <code>postscript</code> in two ways.
+</p>
+
+<ol>
+<li><p> Setting <code>print.it = TRUE</code> causes the command given in
+argument <code>command</code> to be called with argument <code>"file"</code>
+when the device is closed.  Note that the plot file is not deleted
+unless <code>command</code> arranges to delete it.
+</p>
+</li>
+<li> <p><code>file=""</code> or <code>file="|cmd"</code> can be used to print
+using a pipe on systems that support &lsquo;<span class="file">popen</span>&rsquo;.  Failure to open the
+command will probably be reported to the terminal but not to
+&lsquo;<span class="file">popen</span>&rsquo;, in which case close the device by <code>dev.off</code>
+immediately.
+</p>
+</li></ol>
+
+<p>The <code>file</code> argument is interpreted as a C integer format as used
+by <code>sprintf</code>, with integer argument the page number.
+The default gives files &lsquo;<span class="file">Rplot001.ps</span>&rsquo;, ..., &lsquo;<span class="file">Rplot999.ps</span>&rsquo;,
+&lsquo;<span class="file">Rplot1000.ps</span>&rsquo;, ....
+</p>
+<p>The postscript produced for a single <span class="rlang"><b>R</b></span> plot is EPS (<em>Encapsulated
+PostScript</em>) compatible, and can be included into other documents,
+e.g., into LaTeX, using <code>\includegraphics{&lt;filename&gt;}</code>.  For use
+in this way you will probably want to set <code>horizontal = FALSE,
+    onefile = FALSE, paper = "special"</code>.  Note that the bounding box is
+for the device region: if you find the white space around the plot
+region excessive, reduce the margins of the figure region via
+<code>par(mar=)</code>.
+</p>
+<p>Most of the PostScript prologue used is taken from the <span class="rlang"><b>R</b></span> character
+vector <code>.ps.prolog</code>.  This is marked in the output, and can be
+changed by changing that vector.  (This is only advisable for
+PostScript experts: the standard version is in
+<code>namespace:grDevices</code>.)
+</p>
+<p>A PostScript device has a default family, which can be set by the user
+via <code>family</code>.  If other font families are to be used when drawing
+to the PostScript device, these must be declared when the device is
+created via <code>fonts</code>;  the font family names for this argument are
+<span class="rlang"><b>R</b></span> graphics font family names (see the documentation for
+<code>postscriptFonts</code>).
+</p>
+<p>Line widths as controlled by <code>par(lwd=)</code> are in multiples of
+1/96 inch: multiples less than 1 are allowed.  <code>pch="."</code> with
+<code>cex = 1</code> corresponds to a square of side 1/72 inch, which is
+also the &lsquo;pixel&rsquo; size assumed for graphics parameters such as
+<code>"cra"</code>.
+</p>
+
+
+<h3>Families</h3>
+
+<p>Font families are collections of fonts covering the five font faces,
+(conventionally plain, bold, italic, bold-italic and symbol) selected
+by the graphics parameter <code>par(font=)</code> or the grid
+parameter <code>gpar(fontface=)</code>.  Font families can be
+specified either as an an initial/default font family for the device
+via the <code>family</code> argument or after the device is opened by
+the graphics parameter <code>par(family=)</code> or the grid
+parameter <code>gpar(fontfamily=)</code>.  Families which will be
+used in addition to the initial family must be specified in the
+<code>fonts</code> argument when the device is opened.
+</p>
+<p>Font families are declared via a call to <code>postscriptFonts</code>.
+</p>
+<p>The argument <code>family</code> specifies the initial/default font family
+to be used.  In normal use it is one of <code>"AvantGarde"</code>,
+<code>"Bookman"</code>, <code>"Courier"</code>, <code>"Helvetica"</code>,
+<code>"Helvetica-Narrow"</code>, <code>"NewCenturySchoolbook"</code>,
+<code>"Palatino"</code> or <code>"Times"</code>, and refers to the standard Adobe
+PostScript fonts families of those names which are included (or
+cloned) in all common PostScript devices.
+</p>
+<p>Many PostScript emulators (including those based on
+<code>ghostscript</code>) use the URW equivalents of these fonts, which are
+<code>"URWGothic"</code>, <code>"URWBookman"</code>, <code>"NimbusMon"</code>,
+<code>"NimbusSan"</code>, <code>"NimbusSanCond"</code>, <code>"CenturySch"</code>,
+<code>"URWPalladio"</code> and <code>"NimbusRom"</code> respectively.  If your
+PostScript device is using URW fonts, you will obtain access to more
+characters and more appropriate metrics by using these names.  To make
+these easier to remember, <code>"URWHelvetica" == "NimbusSan"</code> and
+<code>"URWTimes" == "NimbusRom"</code> are also supported.
+</p>
+<p>Another type of family makes use of CID-keyed fonts for East Asian
+languages &ndash; see <code>postscriptFonts</code>.
+</p>
+<p>The <code>family</code> argument is normally a character string naming a
+font family, but family objects generated by <code>Type1Font</code>
+and <code>CIDFont</code> are also accepted.
+For compatibility with earlier versions of <span class="rlang"><b>R</b></span>, the initial family can
+also be specified as a vector of four or five afm files.
+</p>
+<p>Note that <span class="rlang"><b>R</b></span> does not embed the font(s) used in the PostScript output:
+see <code>embedFonts</code> for a utility to help do so.
+</p>
+
+
+<h3>Encodings</h3>
+
+<p>Encodings describe which glyphs are used to display the character codes
+(in the range 0&ndash;255).  Most commonly <span class="rlang"><b>R</b></span> uses ISOLatin1 encoding, and
+the examples for <code>text</code> are in that encoding.  However,
+the encoding used on machines running <span class="rlang"><b>R</b></span> may well be different, and by
+using the <code>encoding</code> argument the glyphs can be matched to
+encoding in use.  This suffices for European and Cyrillic languages,
+but not for CJK languages.  For the latter, composite CID fonts are
+used.  These fonts are useful for other languages: for example they
+may contain Greek glyphs. (The rest of this section applies only when CID
+fonts are not used.)
+</p>
+<p>None of this will matter if only ASCII characters (codes 32&ndash;126) are
+used as all the encodings (except <code>"TeXtext"</code>) agree over that
+range.  Some encodings are supersets of ISOLatin1, too.  However, if
+accented and special characters do not come out as you expect, you may
+need to change the encoding.  Some other encodings are supplied with
+<span class="rlang"><b>R</b></span>: <code>"WinAnsi.enc"</code> and <code>"MacRoman.enc"</code> correspond to the
+encodings normally used on Windows and Classic MacOS (at least by
+Adobe), and <code>"PDFDoc.enc"</code> is the first 256 characters of the
+Unicode encoding, the standard for PDF.  There are also encodings
+<code>"ISOLatin2.enc"</code>, <code>"CP1250.enc"</code>, <code>"ISOLatin7.enc"</code>
+(ISO 8859-13), <code>"CP1257.enc"</code>, and <code>"ISOLatin9.enc"</code> (ISO
+8859-15), <code>"Cyrillic.enc"</code> (ISO 8859-5), <code>"KOI8-R.enc"</code>,
+<code>"KOI8-U.enc"</code>, <code>"CP1251.enc"</code>, <code>"Greek.enc"</code> (ISO
+8859-7) and <code>"CP1253.enc"</code>.  Note that many glyphs in these
+encodings are not in the fonts corresponding to the standard families.
+(The Adobe ones for all but Courier, Helvetica and Times cover little
+more than Latin-1, whereas the URW ones also cover Latin-2, Latin-7,
+Latin-9 and Cyrillic but no Greek.  The Adobe exceptions cover the
+Latin character sets, but not the Euro.)
+</p>
+<p>If you specify the encoding, it is your responsibility to ensure that
+the PostScript font contains the glyphs used.  One issue here is the Euro
+symbol which is in the WinAnsi and MacRoman encodings but may well not
+be in the PostScript fonts.  (It is in the URW variants; it is not in
+the supplied Adobe Font Metric files.)
+</p>
+<p>There is an exception.  Character 45 (<code>"-"</code>) is always set
+as minus (its value in Adobe ISOLatin1) even though it is hyphen in
+the other encodings.  Hyphen is available as character 173 (octal
+0255) in all the Latin encodings, Cyrillic and Greek.  There are some
+discrepancies in accounts of glyphs 39 and 96: the supplied encodings
+(except CP1250 and CP1251) treat these as &lsquo;quoteright&rsquo; and
+&lsquo;quoteleft&rsquo; (rather than &lsquo;quotesingle&rsquo;/&lsquo;acute&rsquo;
+and &lsquo;grave&rsquo; respectively), as they are in the Adobe
+documentation.
+</p>
+
+
+<h3>TeX fonts</h3>
+
+<p>TeX has traditionally made use of fonts such as Computer Modern which
+are encoded rather differently, in a 7-bit encoding.  This encoding
+can be specified by <code>encoding = "TeXtext.enc"</code>, taking care that
+the ASCII characters <code>&lt; &gt; \ _ { }</code> are not available in those
+fonts.
+</p>
+<p>There are supplied families <code>"ComputerModern"</code> and
+<code>"ComputerModernItalic"</code> which use this encoding, and which are
+only supported for <code>postscript</code> (and not <code>pdf</code>).  They are
+intended to use with the Type 1 versions of the TeX CM fonts.  It will
+normally be possible to include such output in TeX or LaTeX provided
+it is processed with <code>dvips -Ppfb -j0</code> or the equivalent on your
+system. (<code>-j0</code> turns off font subsetting.)  When <code>family =
+    "ComputerModern"</code> is used, the italic/bold-italic fonts used are
+slanted fonts (<code>cmsl10</code> and <code>cmbxsl10</code>).  To use text italic
+fonts instead, set <code>family = "ComputerModernItalic"</code>.
+</p>
+<p>These families use the TeX math italic and  symbol fonts for a
+comprehensive but incomplete coverage of the glyphs covered by the
+Adobe symbol font in other families.  This is achieved by
+special-casing the postscript code generated from the supplied
+&lsquo;<span class="file">CM\_symbol\_10.afm</span>&rsquo;.
+</p>
+
+
+<h3>Color models</h3>
+
+<p>The default color model is RGB, with pure gray colors expressed as
+greyscales.  Color model <code>"rgb-nogray"</code> uses only  RGB, model
+<code>"cmyk"</code> only CMYK, and model <code>"gray"</code> only greyscales (and
+selecting any other colour is an error).  Nothing in <span class="rlang"><b>R</b></span> specifies the
+interpretation of the RGB or CMYK color spaces, and the simplest
+possible conversion to CMYK is used
+(<a href="http://en.wikipedia.org/wiki/CMYK_color_model#Mapping_RGB_to_CMYK">http://en.wikipedia.org/wiki/CMYK_color_model#Mapping_RGB_to_CMYK</a>).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Support for Computer Modern fonts is based on a contribution by
+Brian D'Urso <a href="mailto:durso@hussle.harvard.edu">durso@hussle.harvard.edu</a>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>postscriptFonts</code>,
+<code>Devices</code>,
+<code>check.options</code> which is called from both
+<code>ps.options</code> and <code>postscript</code>.
+</p>
+<p>More details of font families and encodings and especially handling
+text in a non-Latin-1 encoding and embedding fonts can be found in
+</p>
+<p>Paul Murrell and Brian Ripley (2006) Non-standard fonts in PostScript
+and PDF graphics. <em>R News</em>, 6(2):41&ndash;47.
+<a href="http://cran.r-project.org/doc/Rnews/Rnews_2006-2.pdf">http://cran.r-project.org/doc/Rnews/Rnews_2006-2.pdf</a>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+## Not run: 
+# open the file "foo.ps" for graphics output
+postscript("foo.ps")
+# produce the desired graph(s)
+dev.off()              # turn off the postscript device
+postscript("|lp -dlw")
+# produce the desired graph(s)
+dev.off()              # plot will appear on printer
+
+# for URW PostScript devices
+postscript("foo.ps", family = "NimbusSan")
+
+## for inclusion in Computer Modern TeX documents, perhaps
+postscript("cm_test.eps", width = 4.0, height = 3.0,
+           horizontal = FALSE, onefile = FALSE, paper = "special",
+           family = "ComputerModern", encoding = "TeXtext.enc")
+## The resultant postscript file can be used by dvips -Ppfb -j0.
+
+## To test out encodings, you can use
+TestChars &lt;- function(encoding="ISOLatin1", family="URWHelvetica")
+{
+    postscript(encoding=encoding, family=family)
+    par(pty="s")
+    plot(c(-1,16), c(-1,16), type="n", xlab="", ylab="",
+         xaxs="i", yaxs="i")
+    title(paste("Centred chars in encoding", encoding))
+    grid(17, 17, lty=1)
+    for(i in c(32:255)) {
+	x &lt;- i %% 16
+	y &lt;- i %/% 16
+	points(x, y, pch=i)
+    }
+    dev.off()
+}
+## there will be many warnings.  We use URW to get a complete enough
+## set of font metrics.
+TestChars()
+TestChars("ISOLatin2")
+TestChars("WinAnsi")
+
+## End(Not run)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.6.0 ]</div>
+</div>
+</body></html>

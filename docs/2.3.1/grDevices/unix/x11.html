@@ -1,0 +1,183 @@
+<!DOCTYPE html><html><head><title>R: X Window System Graphics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/x11.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/x11.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>x11 {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='x11'>X Window System Graphics</h2>
+
+<h3>Description</h3>
+
+<p><code>X11</code> starts a graphics device driver for the X Window System
+(version 11).  This can only be done on machines that run X.
+<code>x11</code> is recognized as a synonym for <code>X11</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>X11(display = "", width = 7, height = 7, pointsize = 12,
+    gamma = getOption("gamma"), colortype = getOption("X11colortype"),
+    maxcubesize = 256, bg = "transparent", canvas = "white",
+    fonts = getOption("X11fonts"), xpos = NA, ypos = NA)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="x11_:_display">display</code></td>
+<td>
+<p>the display on which the graphics window will appear.
+The default is to use the value in the user's environment variable
+<span class="env">DISPLAY</span>.</p>
+</td></tr>
+<tr><td><code id="x11_:_width">width</code>, <code id="x11_:_height">height</code></td>
+<td>
+<p>the width and height of the plotting window, in
+inches.  See also Resources.</p>
+</td></tr>
+<tr><td><code id="x11_:_pointsize">pointsize</code></td>
+<td>
+<p>the default pointsize to be used.</p>
+</td></tr>
+<tr><td><code id="x11_:_gamma">gamma</code></td>
+<td>
+<p>the gamma correction factor.  This value is used
+to ensure that the colors perceived are linearly related to
+RGB values (see <code>hsv</code>).  By default this is taken from
+<code>options("gamma")</code>, or is 1 (no correction) if that is
+unset (which is the usual case). </p>
+</td></tr>
+<tr><td><code id="x11_:_colortype">colortype</code></td>
+<td>
+<p>the kind of color model to be used.  The
+possibilities are <code>"mono"</code>, <code>"gray"</code>, <code>"pseudo"</code>,
+<code>"pseudo.cube"</code> and <code>"true"</code>.  Ignored if an <code>X11</code>
+device is already open.</p>
+</td></tr>
+<tr><td><code id="x11_:_maxcubesize">maxcubesize</code></td>
+<td>
+<p>can be used to limit the size of color
+cube allocated for pseudocolor devices.</p>
+</td></tr>
+<tr><td><code id="x11_:_bg">bg</code></td>
+<td>
+<p>color.  The default background color.</p>
+</td></tr>
+<tr><td><code id="x11_:_canvas">canvas</code></td>
+<td>
+<p>color.  The color of the canvas, which is visible only
+when the background color is transparent.</p>
+</td></tr>
+<tr><td><code id="x11_:_fonts">fonts</code></td>
+<td>
+<p>X11 font description strings into which weight, slant and
+size will be substituted.  There are two, the first for fonts 1 to 4
+and the second for font 5, the symbol font. See section Fonts.</p>
+</td></tr>
+<tr><td><code id="x11_:_xpos">xpos</code>, <code id="x11_:_ypos">ypos</code></td>
+<td>
+<p>initial position of the top left corner of the
+window, in pixels.  Negative values are from the opposite corner,
+e.g. <code>xpos=-100</code> says the top right corner should be 100 pixels
+from the right edge of the screen.
+If <code>NA</code>, successive devices are cascaded in
+20 pixel steps from the top left.  See also Resources.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>By default, an X11 device will use the best color rendering
+strategy that it can.  The choice can be overriden with the
+<code>colortype</code> parameter.  A value of <code>"mono"</code> results in
+black and white graphics, <code>"gray"</code> in grayscale and
+<code>"true"</code> in truecolor graphics (if this is possible).  The
+values <code>"pseudo"</code> and <code>"pseudo.cube"</code> provide color
+strategies for pseudocolor displays.  The first strategy provides
+on-demand color allocation which produces exact colors until
+the color resources of the display are exhausted.  The second
+causes a standard color cube to be set up, and requested colors
+are approximated by the closest value in the cube.  The default
+strategy for pseudocolor displays is <code>"pseudo"</code>.
+</p>
+<p><b>Note:</b> All <code>X11</code> devices share a <code>colortype</code> which is
+set by the first device to be opened.  To change the <code>colortype</code>
+you need to close <em>all</em> open <code>X11</code> devices then open one
+with the desired <code>colortype</code>.
+</p>
+<p>With <code>colortype</code> equal to <code>"pseudo.cube"</code> or <code>"gray"</code>
+successively smaller palettes are tried until one is completely
+allocated. If allocation of the smallest attempt fails the device will
+revert to <code>"mono"</code>.
+</p>
+<p>Line widths as controlled by <code>par(lwd=)</code> are in multiples of the
+pixel size, and multiples &lt; 1 are silently converted to 1.
+</p>
+<p><code>pch="."</code> with <code>cex = 1</code> corresponds to a rectangle of sides
+the larger of one pixel and 0.01 inch.
+</p>
+<p>The initial size and position are only hints, and may not be acted on
+by the window manager.
+</p>
+
+
+<h3>Fonts</h3>
+
+<p>An initial/default font family for the device can be specified via
+the <code>fonts</code> argument, but if a device-independent R graphics font
+family is specified (e.g., via <code>par(family=)</code> in the graphics
+package), the X11 device makes use of the X11 font database (see
+<code>X11Fonts</code>) to convert the R graphics font family to an
+X11-specific font family description.
+</p>
+<p>X11 chooses fonts by patching to a pattern, and it is quite possible
+that it will choose a font in the wrong encoding or which does not
+contain glyphs for the your language (particularly common in
+<code>iso10646-1</code> fonts.
+</p>
+<p>The <code>fonts</code> argument is a two-element character vector, and the
+first element will be crucial in successfully using
+non-Western-European fonts.  Settings that have proved useful include
+</p>
+<p><code>"-*-mincho-%s-%s-*-*-%d-*-*-*-*-*-*-*"</code> for CJK languages and
+<code>"-cronyx-helvetica-%s-%s-*-*-%d-*-*-*-*-*-*-*"</code> for Russian.
+</p>
+<p>For UTF-8 locales, the <code>XLC_LOCALE</code> databases provide mappings
+between character encodings, and you may need to add an entry for your
+locale (e.g. Fedora Core 3 lacks one for <code>ru_RU.utf8</code>).
+</p>
+
+
+<h3>Resources</h3>
+
+<p>The standard X11 resource <code>geometry</code> can be use to specify the
+window position and/or size, but will be overridden by values
+specified as arguments.  The class looked for is <code>R_x11</code>. Note
+that the resource specifies the width and height in pixels and not in
+inches.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Devices</code>,<code>X11Fonts</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.3.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html><html><head><title>R: Read Fixed Width Format Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/read.fwf.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/read.fwf.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>read.fwf {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='read.fwf'>Read Fixed Width Format Files</h2>
+
+<h3>Description</h3>
+
+<p>Read a table of <b>f</b>ixed <b>w</b>idth <b>f</b>ormatted
+data into a <code>data.frame</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>read.fwf(file, widths, header = FALSE, sep = "\t",
+         skip = 0, row.names, col.names, n = -1,
+         buffersize = 2000, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="read.fwf_:_file">file</code></td>
+<td>
+
+<p>the name of the file which the data are to be read from.
+</p>
+<p>Alternatively, <code>file</code> can be a connection, which
+will be opened if necessary, and if so closed at the end of the
+function call.
+</p>
+</td></tr>
+<tr><td><code id="read.fwf_:_widths">widths</code></td>
+<td>
+<p>integer vector, giving the widths of the fixed-width
+fields (of one line), or list of integer vectors giving widths for
+multiline records.</p>
+</td></tr>
+<tr><td><code id="read.fwf_:_header">header</code></td>
+<td>
+<p>a logical value indicating whether the file contains the
+names of the variables as its first line.  If present, the names
+must be delimited by <code>sep</code>.</p>
+</td></tr>
+<tr><td><code id="read.fwf_:_sep">sep</code></td>
+<td>
+<p>character; the separator used internally; should be a
+character that does not occur in the file (except in the header).</p>
+</td></tr>
+<tr><td><code id="read.fwf_:_skip">skip</code></td>
+<td>
+<p>number of initial lines to skip; see
+<code>read.table</code>.</p>
+</td></tr>
+<tr><td><code id="read.fwf_:_row.names">row.names</code></td>
+<td>
+<p>see <code>read.table</code>.</p>
+</td></tr>
+<tr><td><code id="read.fwf_:_col.names">col.names</code></td>
+<td>
+<p>see <code>read.table</code>.</p>
+</td></tr>
+<tr><td><code id="read.fwf_:_n">n</code></td>
+<td>
+<p>the maximum number of records (lines) to be read, defaulting
+to no limit.</p>
+</td></tr>
+<tr><td><code id="read.fwf_:_buffersize">buffersize</code></td>
+<td>
+<p>Maximum number of lines to read at one time</p>
+</td></tr>
+<tr><td><code id="read.fwf_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to
+<code>read.table</code>.  Useful such arguments include
+<code>as.is</code>, <code>na.strings</code>, <code>colClasses</code> and <code>strip.white</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Multiline records are concatenated to a single line before processing.
+Fields that are of zero-width or are wholly beyond the end of the line
+in <code>file</code> are replaced by <code>NA</code>.
+</p>
+<p>Negative-width fields are used to indicate columns to be skipped, e.g.,
+<code>-5</code> to skip 5 columns.  These fields are not seen by
+<code>read.table</code> and so should not be included in a <code>col.names</code>
+or <code>colClasses</code> argument (nor in the header line, if present).
+</p>
+<p>Reducing the <code>buffersize</code> argument may reduce memory use when
+reading large files with long lines.  Increasing <code>buffersize</code> may
+result in faster processing when enough memory is available.
+</p>
+<p>Note that <code>read.fwf</code> (not <code>read.table</code>) reads the supplied
+file, so the latter's arguments such as <code>encoding</code> and
+<code>fileEncoding</code> will not be useful.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A <code>data.frame</code> as produced by <code>read.table</code>
+which is called internally.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Brian Ripley for <span class="rlang"><b>R</b></span> version: originally in <code>Perl</code> by Kurt Hornik.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>scan</code> and <code>read.table</code>.
+</p>
+<p><code>read.fortran</code> for another style of fixed-format files.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>ff &lt;- tempfile()
+cat(file = ff, "123456", "987654", sep = "\n")
+read.fwf(ff, widths = c(1,2,3))    #&gt; 1 23 456 \ 9 87 654
+read.fwf(ff, widths = c(1,-2,3))   #&gt; 1 456 \ 9 654
+unlink(ff)
+cat(file = ff, "123", "987654", sep = "\n")
+read.fwf(ff, widths = c(1,0, 2,3))    #&gt; 1 NA 23 NA \ 9 NA 87 654
+unlink(ff)
+cat(file = ff, "123456", "987654", sep = "\n")
+read.fwf(ff, widths = list(c(1,0, 2,3), c(2,2,2))) #&gt; 1 NA 23 456 98 76 54
+unlink(ff)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 3.1.2 ]</div>
+</div>
+</body></html>

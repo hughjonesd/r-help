@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>R: Returns the command associated to a user menu item from the...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/get.num.cmd.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/get.num.cmd.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>get.num.cmd {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='get.num.cmd'>Returns the command associated to a user menu item from the User's menu</h2>
+
+<h3>Description</h3>
+
+<p>This command returns the <span class="rlang"><b>R</b></span> command associated to an item from the User's Menu.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>get.num.cmd(menunum)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="get.num.cmd_:_menunum">menunum</code></td>
+<td>
+<p>the menu number characterizing the menu entry in the User's menu.
+If <span class="rlang"><b>R</b></span> finds this entry in the User's menu, then it will return the <span class="rlang"><b>R</b></span>
+command associated to it and the menu item.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>get.menu.cmd,add.menu.cmd</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># we create 3 menus
+add.menu.cmd("Menu1","ls()")
+add.menu.cmd("Menu2","dir()")
+add.menu.cmd("Menu3","library()")
+
+# we get the second one
+get.menu.cmd("Menu2")
+# should have returned
+# [1] "dir()" "Menu2"
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.7.0 ]</div>
+</div>
+</body></html>

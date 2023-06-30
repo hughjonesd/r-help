@@ -1,0 +1,62 @@
+<!DOCTYPE html><html><head><title>R: Trace All Calls to a Function.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/trace.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/trace.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>trace {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='trace'>Trace All Calls to a Function.</h2>
+
+<h3>Description</h3>
+
+<p>These are both in very primitive form.
+If <code>trace</code> is called the function named is marked and each time it
+is entered the call is printed on the console.
+To stop tracing a function use <code>untrace</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>trace(fun)
+untrace(fun)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="trace_:_fun">fun</code></td>
+<td>
+<p>any interpreted <span class="rlang"><b>R</b></span> function (not quoted).</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>debug</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>trace(names)
+data.frame(x=1:2, y=3:4)
+untrace(names)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.90.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><title>R: The Negative Binomial Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/NegBinomial.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/NegBinomial.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>NegBinomial {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='NegBinomial'>The Negative Binomial Distribution</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide information about the negative binomial
+distribution with parameters <code>size</code> and <code>prob</code>.  <code>dnbinom</code>
+gives the density, <code>pnbinom</code> gives the distribution function,
+<code>qnbinom</code> gives the quantile function and <code>rnbinom</code>
+generates random deviates.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dnbinom(x, size, prob)
+pnbinom(q, size, prob)
+qnbinom(p, size, prob)
+rnbinom(n, size, prob)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="NegBinomial_:_x">x</code>, <code id="NegBinomial_:_q">q</code></td>
+<td>
+<p>vector of quantiles representing the number of failures
+which occur in a sequence of Bernoulli trials before a target number of
+successes is reached, or alternately the probability distribution
+of a heterogeneous Poisson process whose intensity is distributed
+as a gamma distribution with scale parameter <code>prob/(1-prob)</code> and
+shape parameter <code>size</code> (this definition allows non-integer
+values of <code>size</code>).</p>
+</td></tr>
+<tr><td><code id="NegBinomial_:_x">x</code></td>
+<td>
+<p>vector of (non-negative integer) quantiles.</p>
+</td></tr>
+<tr><td><code id="NegBinomial_:_q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="NegBinomial_:_p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="NegBinomial_:_n">n</code></td>
+<td>
+<p>number of observations to generate.</p>
+</td></tr>
+<tr><td><code id="NegBinomial_:_size">size</code></td>
+<td>
+<p>target for number of successful trials /<br />
+shape parameter of gamma distribution.</p>
+</td></tr>
+<tr><td><code id="NegBinomial_:_prob">prob</code></td>
+<td>
+<p>probability of success in each trial /<br />
+determines scale of gamma distribution
+(<code>prob</code> = <code>scale/(1+scale)</code>).</p>
+</td></tr> 
+</table>
+
+
+<h3>Details</h3>
+
+<p>The negative binomial distribution with <code>size</code> <code class="reqn">= n</code> and
+<code>prob</code> <code class="reqn">= p</code> has density
+</p>
+<p style="text-align: center;"><code class="reqn">
+    p(x) = \frac{\Gamma(x+n)}{\Gamma(n) x!} p^n (1-p)^x</code>
+</p>
+
+<p>for <code class="reqn">x = 0, 1, 2, \ldots</code>
+</p>
+<p>If an element of <code>x</code> is not integer, the result of <code>dnbinom</code>
+is zero, with a warning.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dbinom</code> for the binomial, <code>dpois</code> for the
+Poisson and <code>dgeom</code> for the geometric distribution, which
+is a special case of the negative binomial.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 0:11
+dnbinom(x, size = 1, prob = 1/2) * 2^(1 + x) # == 1
+126 /  dnbinom(0:8, size  = 2, prob  = 1/2) #- theoretically integer
+
+## Cumulative ('p') = Sum of discrete prob.s ('d');  Relative error :
+summary(1 - cumsum(dnbinom(x, size = 2, prob = 1/2)) /
+	          pnbinom(x, size  = 2, prob = 1/2))
+
+x &lt;- 0:15
+size &lt;- (1:20)/4
+persp(x,size, dnb &lt;- outer(x,size,function(x,s)dnbinom(x,s, pr= 0.4)))
+title(tit &lt;- "negative binomial density(x,s, pr = 0.4)  vs.  x &amp; s")
+## if persp() only could label axes ....
+
+image  (x,size, log10(dnb), main= paste("log [",tit,"]"))
+contour(x,size, log10(dnb),add=TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.1 ]</div>
+</div>
+</body></html>

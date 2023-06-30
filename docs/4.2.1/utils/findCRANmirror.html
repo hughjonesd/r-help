@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>R: Find CRAN Mirror Preference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/findCRANmirror.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/findCRANmirror.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>findCRANmirror {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='findCRANmirror'>Find CRAN Mirror Preference</h2>
+
+<h3>Description</h3>
+
+<p>Find out if a CRAN mirror has been selected for the current session.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>findCRANmirror(type = c("src", "web"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="findCRANmirror_:_type">type</code></td>
+<td>
+<p>Is the mirror to be used for package sources or web information?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Find out if a CRAN mirror has been selected for the current session.
+If so, return its URL else return &lsquo;<span class="samp">&#8288;"https://CRAN.R-Project.org/"&#8288;</span>&rsquo;.
+</p>
+<p>The mirror is looked for in several places.
+</p>
+
+<ul>
+<li><p> The value of the environment variable <span class="env">R_CRAN_SRC</span> or
+<span class="env">R_CRAN_WEB</span> (depending on <code>type</code>), if set.
+</p>
+</li>
+<li><p> An entry in <code>getOption("repos")</code> named &lsquo;<span class="samp">&#8288;CRAN&#8288;</span>&rsquo; which
+is not the default &lsquo;<span class="samp">&#8288;"@CRAN@")&#8288;</span>&rsquo;.
+</p>
+</li>
+<li><p> The &lsquo;<span class="samp">&#8288;CRAN&#8288;</span>&rsquo; URL entry in the &lsquo;<span class="file">repositories</span>&rsquo; file (see
+<code>setRepositories</code>), if it is not the default &lsquo;<span class="samp">&#8288;"@CRAN@"&#8288;</span>&rsquo;.
+</p>
+</li></ul>
+
+<p>The two types allow for partial local CRAN mirrors, for example those
+mirroring only the package sources where <code>getOption("repos")</code>
+might point to the partial mirror and <span class="env">R_CRAN_WEB</span> point to
+a full (remote) mirror.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character string.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>setRepositories</code>, <code>chooseCRANmirror</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+c(findCRANmirror("src"), findCRANmirror("web"))
+
+Sys.setenv(R_CRAN_WEB = "https://cloud.r-project.org")
+c(findCRANmirror("src"), findCRANmirror("web"))
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 4.2.1 ]</div>
+</div>
+</body></html>

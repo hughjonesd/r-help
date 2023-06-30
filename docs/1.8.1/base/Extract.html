@@ -1,0 +1,176 @@
+<!DOCTYPE html><html><head><title>R: Extract or Replace Parts of an Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Extract.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Extract.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Extract {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Extract'>Extract or Replace Parts of an Object</h2>
+
+<h3>Description</h3>
+
+<p>Operators act on vectors, arrays and lists to extract or
+replace subsets.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>x[i]
+x[i, j, ... , drop=TRUE]
+x[[i]]
+x[[i, j, ...]]
+x$name
+
+.subset(x, ...)
+.subset2(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Extract_:_x">x</code></td>
+<td>
+<p>object from which to extract elements or in which to replace
+elements.</p>
+</td></tr>
+<tr><td><code id="Extract_:_i">i</code>, <code id="Extract_:_j">j</code>, <code id="Extract_:_...">...</code>, <code id="Extract_:_name">name</code></td>
+<td>
+<p>elements to extract or replace. <code>i, j</code> are
+<code>numeric</code> or <code>character</code> or empty whereas <code>name</code> must be
+character or an (unquoted) name.  Numeric values are coerced to
+integer as by <code>as.integer</code>.
+</p>
+<p>For <code>[</code>-indexing only: <code>i, j, ...</code> can be
+logical vectors, indicating elements/slices to select. Such vectors
+are recycled if necessary to match the corresponding extent. When
+indexing arrays, <code>i</code> can be a (single) matrix with as many
+columns as there are dimensions of <code>x</code>; the result is then a
+vector with elements corresponding to the sets of indices in each
+row of <code>i</code>.</p>
+</td></tr>
+<tr><td><code id="Extract_:_drop">drop</code></td>
+<td>
+<p>For matrices, and arrays.  If <code>TRUE</code> the
+result is coerced to the lowest possible dimension (see examples
+below). This only works for extracting elements, not for the
+replacement forms.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These operators are generic.  You can write methods to handle subsetting
+of specific classes of objects, see InternalMethods as well as
+<code>[.data.frame</code> and <code>[.factor</code>.  The
+descriptions here apply only to the default methods.
+</p>
+<p>The most important distinction between <code>[</code>, <code>[[</code> and
+<code>$</code> is that the <code>[</code> can select more than one element whereas
+the other two select a single element.  <code>$</code> does not allow
+computed indices, whereas <code>[[</code> does.  <code>x$name</code> is equivalent
+to <code>x[["name"]]</code> if <code>x</code> is recursive
+(see <code>is.recursive</code>) and <code>NULL</code> otherwise.
+</p>
+<p>The <code>[[</code> operator requires all relevant subscripts to be supplied.
+With the <code>[</code> operator an empty index (a comma separated blank)
+indicates that all entries in that dimension are selected.
+</p>
+<p>If one of these expressions appears on the left side of an assignment
+then that part of <code>x</code> is set to the value of the right hand side
+of the assignment.
+</p>
+<p>Indexing by factors is allowed and is equivalent to indexing by the
+numeric codes (see <code>factor</code>) and not by the character
+values which are printed (for which use <code>[as.character(i)]</code>).
+</p>
+<p>When operating on a list, the <code>[[</code> operator gives the specified
+element of the list while the <code>[</code> operator returns a list with
+the specified element(s) in it.
+</p>
+<p>As from <span class="rlang"><b>R</b></span> 1.7.0 <code>[[</code> can be applied recursively to lists, so
+that if the single index <code>i</code> is a vector of length <code>p</code>,
+<code>alist[[i]]</code> is equivalent to <code>alist[[i1]]...[[ip]]</code>
+providing all but the final indexing results in a list.
+</p>
+<p>The operators <code>$</code> and <code>$&lt;-</code> do not evaluate their second
+argument.  It is translated to a string and that string is used to
+locate the correct component of the first argument.
+</p>
+<p>When <code>$&lt;-</code> is applied to a <code>NULL</code> <code>x</code>, it coerces
+<code>x</code> to <code>list()</code>.  This is what happens with <code>[[&lt;-</code> is
+<code>y</code> is of length greater than one: if <code>y</code> has length 1 or 0,
+<code>x</code> is coerced to a zero-length vector of the type of <code>value</code>, 
+</p>
+<p>The functions <code>.subset</code> and <code>.subset2</code> are essentially
+equivalent to the <code>[</code> and <code>[[</code> operators, except that
+methods dispatch does not take place.  This is to avoid expensive
+unclassing when applying the default method to an object.  They
+should not normally be invoked by end users.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>list</code>, <code>array</code>, <code>matrix</code>.
+</p>
+<p><code>[.data.frame</code> and <code>[.factor</code> for the
+behaviour when applied to data.frame and factors.
+</p>
+<p><code>Syntax</code> for operator precedence, and the
+<em>R Language</em> reference manual about indexing details.
+
+
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:12; m &lt;- matrix(1:6,nr=2); li &lt;- list(pi=pi, e = exp(1))
+x[10]                 # the tenth element of x
+m[1,]                 # the first row of matrix m
+m[1, , drop = FALSE]  # is a 1-row matrix
+m[,c(TRUE,FALSE,TRUE)]# logical indexing
+m[cbind(c(1,2,1),3:1)]# matrix index
+li[[1]]               # the first element of list li
+y &lt;- list(1,2,a=4,5)
+y[c(3,4)]             # a list containing elements 3 and 4 of y
+y$a                   # the element of y named a
+
+## non-integer indices are truncated:
+(i &lt;- 3.999999999) # "4" is printed
+(1:5)[i]  # 3
+
+## recursive indexing into lists
+z &lt;- list( a=list( b=9, c='hello'), d=1:5)
+unlist(z)
+z[[c(1, 2)]]
+z[[c(1, 2, 1)]]  # both "hello"
+z[[c("a", "b")]] &lt;- "new"
+unlist(z)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.8.1 ]</div>
+</div>
+</body></html>

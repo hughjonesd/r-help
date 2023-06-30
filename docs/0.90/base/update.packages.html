@@ -1,0 +1,148 @@
+<!DOCTYPE html><html><head><title>R: Download packages from CRAN</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/update.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/update.packages.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>update.packages {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='update.packages'>Download packages from CRAN</h2>
+
+<h3>Description</h3>
+
+<p>These functions can be used to automatically compare the version
+numbers of installed packages with the newest available version on
+CRAN and update outdated packages on the fly.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>update.packages(lib.loc=.lib.loc, CRAN=options("CRAN"),
+                method="auto", instlib=NULL)
+
+installed.packages(lib.loc = .lib.loc)
+CRAN.packages(CRAN=options("CRAN"), method="auto")
+
+download.file(url, destfile, method="auto")
+download.packages(pkgs, destdir, available=NULL,
+                  CRAN=options("CRAN"), method="auto")
+install.packages(pkgs, lib, available=NULL,
+                  CRAN=options("CRAN"), method="auto")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+ 
+<table>
+<tr><td><code id="update.packages_:_lib.loc">lib.loc</code></td>
+<td>
+<p>A character vector describing the location of R
+library trees to search through (and update packages therein).</p>
+</td></tr>
+<tr><td><code id="update.packages_:_CRAN">CRAN</code></td>
+<td>
+<p>Base URL of the CRAN mirror to use, i.e., URL of a CRAN
+root such as <code>"http://www.r-project.org"</code> (the default) or
+<code>"http://lib.stat.cmu.edu/R/CRAN"</code>.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_method">method</code></td>
+<td>
+<p>Tool to be used for downloading files. Currently download
+methods <code>"auto"</code>, <code>"wget"</code>, <code>"lynx"</code> and <code>"cp"</code> are
+available.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_url">url</code></td>
+<td>
+<p>A character string with the URL of a file to be downloaded.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_destfile">destfile</code></td>
+<td>
+<p>A character string with the name where the downloaded
+file is saved.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_pkgs">pkgs</code></td>
+<td>
+<p>A character vector of package names that shall be
+downloaded from CRAN.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_destdir">destdir</code></td>
+<td>
+<p>Directory where downloaded packages are stored.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_available">available</code></td>
+<td>
+<p>List of packages available at CRAN as returned by
+<code>CRAN.packages()</code>.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_lib">lib</code>, <code id="update.packages_:_instlib">instlib</code></td>
+<td>
+<p>A character string giving the library directory where to
+install the packages.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>installed.packages()</code> scans the DESCRIPTION files of each
+package found along <code>lib.loc</code> and returns a list of package
+names, library paths and version numbers.  <code>CRAN.packages()</code>
+returns a similar list, but corresponding to packages currently
+available in the contrib section of CRAN, the comprehensive R archive
+network.  The current list of packages is downloaded over the internet
+(or copied from a local CRAN mirror). Both functions use
+<code>parse.dcf</code> for parsing the description files.
+</p>
+<p>The function <code>download.file()</code> can be used to download a single
+file as described by <code>url</code> from the internet and store it in
+<code>destfile</code>. It makes a system call to the tool given by
+<code>method</code>, the respective program must be installed on your system
+and be in the search path for executables.  If method <code>"cp"</code> is
+used, then the <code>url</code> must start with <code>"file:"</code> and give the
+path to a local file. Method <code>"auto"</code> (the default) searches for
+available tools at runtime.
+</p>
+<p><code>download.packages()</code> takes a list of package names and a
+destination directory, downloads the newest versions of the package
+sources and saves the in <code>destdir</code>.  If the list of available
+packages is not given as argument, it is also directly obtained from
+CRAN.  If CRAN is local, i.e., the URL starts with <code>"file:"</code>,
+then the packages are not downloaded but used directly.
+</p>
+<p>The main function of the bundle is <code>update.packages()</code>.  First a
+list of all packages found in <code>lib.loc</code> is created and compared
+with the packages available on CRAN.  Outdated packages are reported
+and for each outdated package the user can specify if it should be
+automatically updated.  If so, the package sources are downloaded from
+CRAN and installed in the respective library path (or <code>instlib</code>
+if specified) using the <span class="rlang"><b>R</b></span> <code>INSTALL</code> mechanism.
+</p>
+<p><code>install.packages()</code> can be used to install new packages, it
+takes a vector of package names and a destination directory, downloads
+the packages from CRAN and installs them. If the destination directory
+is omitted it defaults to the first directory in <code>.lib.loc</code>, with
+a warning.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>INSTALL</code>, <code>REMOVE</code>,
+<code>library</code>, <code>.packages</code>,
+<code>parse.dcf</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.90 ]</div>
+</div>
+</body></html>

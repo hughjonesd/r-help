@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>R: Summary method for Principal Components Analysis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.princomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.princomp.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>summary.princomp {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='summary.princomp'>Summary method for Principal Components Analysis</h2>
+
+<h3>Description</h3>
+
+<p>The <code>summary</code> method for class <code>"princomp"</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'princomp'
+summary(object, loadings = FALSE, cutoff = 0.1, ...)
+
+## S3 method for class 'summary.princomp'
+print(x, digits = 3, loadings = x$print.loadings,
+      cutoff = x$cutoff, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="summary.princomp_:_object">object</code></td>
+<td>
+<p>an object of class <code>"princomp"</code>, as
+from <code>princomp()</code>.</p>
+</td></tr>
+<tr><td><code id="summary.princomp_:_loadings">loadings</code></td>
+<td>
+<p>logical. Should loadings be included?</p>
+</td></tr>
+<tr><td><code id="summary.princomp_:_cutoff">cutoff</code></td>
+<td>
+<p>numeric. Loadings below this cutoff in absolute value
+are shown as blank in the output.</p>
+</td></tr>
+<tr><td><code id="summary.princomp_:_x">x</code></td>
+<td>
+<p>an object of class &quot;summary.princomp&quot;.</p>
+</td></tr>
+<tr><td><code id="summary.princomp_:_digits">digits</code></td>
+<td>
+<p>the number of significant digits to be used in listing
+loadings.</p>
+</td></tr>
+<tr><td><code id="summary.princomp_:_...">...</code></td>
+<td>
+<p>arguments to be passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>object</code> with additional components <code>cutoff</code> and
+<code>print.loadings</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>princomp</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>summary(pc.cr &lt;- princomp(USArrests, cor = TRUE))
+print(summary(princomp(USArrests, cor = TRUE),
+              loadings = TRUE, cutoff = 0.2), digits = 2)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.0.0 ]</div>
+</div>
+</body></html>

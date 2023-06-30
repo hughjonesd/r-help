@@ -1,0 +1,140 @@
+<!DOCTYPE html><html><head><title>R: Recursively Apply a Function to a List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rapply.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>rapply {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='rapply'>Recursively Apply a Function to a List</h2>
+
+<h3>Description</h3>
+
+<p><code>rapply</code> is a recursive version of <code>lapply</code> with
+flexibility in <em>how</em> the result is structured (<code>how = ".."</code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rapply(object, f, classes = "ANY", deflt = NULL,
+       how = c("unlist", "replace", "list"), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="rapply_:_object">object</code></td>
+<td>
+<p>a <code>list</code> or <code>expression</code>, i.e., &ldquo;list-like&rdquo;.</p>
+</td></tr>
+<tr><td><code id="rapply_:_f">f</code></td>
+<td>
+<p>a <code>function</code> of one &ldquo;principal&rdquo; argument,
+passing further arguments via <code>...</code>.</p>
+</td></tr>
+<tr><td><code id="rapply_:_classes">classes</code></td>
+<td>
+<p>character vector of <code>class</code> names, or
+<code>"ANY"</code> to match any class.</p>
+</td></tr>
+<tr><td><code id="rapply_:_deflt">deflt</code></td>
+<td>
+<p>The default result (not used if <code>how = "replace"</code>).</p>
+</td></tr>
+<tr><td><code id="rapply_:_how">how</code></td>
+<td>
+<p>character string partially matching the three possibilities given:
+see &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="rapply_:_...">...</code></td>
+<td>
+<p>additional arguments passed to the call to <code>f</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function has two basic modes.  If <code>how = "replace"</code>, each
+element of <code>object</code> which is not itself list-like and has a class
+included in <code>classes</code> is replaced by the result of applying
+<code>f</code> to the element.
+</p>
+<p>Otherwise, with mode <code>how = "list"</code> or <code>how = "unlist"</code>,
+conceptually <code>object</code>
+is copied, all non-list elements which have a class included in
+<code>classes</code> are replaced by the result of applying <code>f</code> to the
+element and all others are replaced by <code>deflt</code>.  Finally, if
+<code>how = "unlist"</code>, <code>unlist(recursive = TRUE)</code> is called on
+the result.
+</p>
+<p>The semantics differ in detail from <code>lapply</code>: in
+particular the arguments are evaluated before calling the C code.
+</p>
+<p>In <span class="rlang"><b>R</b></span> 3.5.x and earlier, <code>object</code> was required to be a list,
+which was <em>not</em> the case for its list-like components.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>how = "unlist"</code>, a vector, otherwise &ldquo;list-like&rdquo;
+of similar structure as <code>object</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. A. (1998)
+<em>Programming with Data</em>.
+Springer.<br />
+(<code>rapply</code> is only described briefly there.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>lapply</code>, <code>dendrapply</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>X &lt;- list(list(a = pi, b = list(c = 1L)), d = "a test")
+# the "identity operation":
+rapply(X, function(x) x, how = "replace") -&gt; X.; stopifnot(identical(X, X.))
+rapply(X, sqrt, classes = "numeric", how = "replace")
+rapply(X, deparse, control = "all") # passing extras. argument of deparse()
+rapply(X, nchar, classes = "character", deflt = NA_integer_, how = "list")
+rapply(X, nchar, classes = "character", deflt = NA_integer_, how = "unlist")
+rapply(X, nchar, classes = "character",                      how = "unlist")
+rapply(X, log, classes = "numeric", how = "replace", base = 2)
+
+## with expression() / list():
+E  &lt;- expression(list(a = pi, b = expression(c = C1 * C2)), d = "a test")
+LE &lt;- list(expression(a = pi, b = expression(c = C1 * C2)), d = "a test")
+rapply(E, nchar, how="replace") # "expression(c = C1 * C2)" are 23 chars
+rapply(E, nchar, classes = "character", deflt = NA_integer_, how = "unlist")
+rapply(LE, as.character) # a "pi" | b1 "expression" | b2 "C1 * C2" ..
+rapply(LE, nchar)        # (see above)
+stopifnot(exprs = {
+  identical(E , rapply(E , identity, how = "replace"))
+  identical(LE, rapply(LE, identity, how = "replace"))
+})
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.1.2 ]</div>
+</div>
+</body></html>

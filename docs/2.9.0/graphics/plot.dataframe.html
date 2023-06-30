@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><title>R: Plot Method for Data Frames</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.dataframe.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.dataframe.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.data.frame {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.data.frame'>Plot Method for Data Frames</h2>
+
+<h3>Description</h3>
+
+<p><code>plot.data.frame</code>, a method for the <code>plot</code> generic.
+It is designed for a quick look at numeric data frames.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'data.frame'
+plot(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.data.frame_:_x">x</code></td>
+<td>
+<p>object of class <code>data.frame</code>.</p>
+</td></tr>
+<tr><td><code id="plot.data.frame_:_...">...</code></td>
+<td>
+<p>further arguments to <code>stripchart</code>,
+<code>plot.default</code> or <code>pairs</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is intended for data frames with <em>numeric</em> columns. For more
+than two columns it first calls <code>data.matrix</code> to convert
+the data frame to a numeric matrix and then calls <code>pairs</code>
+to produce a scatterplot matrix).  This can fail and may well be
+inappropriate: for example numerical conversion of dates will lose
+their special meaning and a warning will be given.
+</p>
+<p>For a two-column data frame it plots the second column against the
+first by the most appropriate method for the first column.
+</p>
+<p>For a single numeric column it uses <code>stripchart</code>, and for
+other single-column data frames tries to find a plot method for the
+single column.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>data.frame</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>plot(OrchardSprays[1], method="jitter")
+plot(OrchardSprays[c(4,1)])
+plot(OrchardSprays)
+
+plot(iris)
+plot(iris[5:4])
+plot(women)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 2.9.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html><html><head><title>R: Date-Time Classes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/DateTimeClasses.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/DateTimeClasses.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>DateTimeClasses {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='DateTimeClasses'>Date-Time Classes</h2>
+
+<h3>Description</h3>
+
+<p>Description of the classes <code>"POSIXlt"</code> and <code>"POSIXct"</code>
+representing calendar dates and times (to the nearest second). 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'POSIXct'
+print(x, ...)
+
+## S3 method for class 'POSIXct'
+summary(object, digits = 15, ...)
+
+time + number
+time - number
+time1 lop time2
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="DateTimeClasses_:_x">x</code>, <code id="DateTimeClasses_:_object">object</code></td>
+<td>
+<p>An object to be printed or summarized from one of the
+date-time classes.</p>
+</td></tr>
+<tr><td><code id="DateTimeClasses_:_digits">digits</code></td>
+<td>
+<p>Number of significant digits for the computations:
+should be high enough to represent the least important time unit
+exactly.</p>
+</td></tr>
+<tr><td><code id="DateTimeClasses_:_...">...</code></td>
+<td>
+<p>Further arguments to be passed from or to other methods.</p>
+</td></tr>
+<tr><td><code id="DateTimeClasses_:_time">time</code>, <code id="DateTimeClasses_:_time1">time1</code>, <code id="DateTimeClasses_:_time2">time2</code></td>
+<td>
+<p>date-time objects.</p>
+</td></tr>
+<tr><td><code id="DateTimeClasses_:_number">number</code></td>
+<td>
+<p>a numeric object.</p>
+</td></tr>
+<tr><td><code id="DateTimeClasses_:_lop">lop</code></td>
+<td>
+<p>One of <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>
+or <code>&gt;=</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>There are two basic classes of date/times.  Class <code>"POSIXct"</code>
+represents the (signed) number of seconds since the beginning of 1970
+as a numeric vector.  Class <code>"POSIXlt"</code> is a named list of
+vectors representing
+</p>
+
+<dl>
+<dt><code>sec</code></dt><dd><p>0&ndash;61: seconds</p>
+</dd>
+<dt><code>min</code></dt><dd><p>0&ndash;59: minutes</p>
+</dd>
+<dt><code>hour</code></dt><dd><p>0&ndash;23: hours</p>
+</dd>
+<dt><code>mday</code></dt><dd><p>1&ndash;31: day of the month</p>
+</dd>
+<dt><code>mon</code></dt><dd><p>0&ndash;11: months after the first of the year.</p>
+</dd>
+<dt><code>year</code></dt><dd><p>Years since 1900.</p>
+</dd>
+<dt><code>wday</code></dt><dd><p>0&ndash;6 day of the week, starting on Sunday.</p>
+</dd>
+<dt><code>yday</code></dt><dd><p>0&ndash;365: day of the year.</p>
+</dd>
+<dt><code>isdst</code></dt><dd><p>Daylight savings time flag. Positive if in
+force, zero if not, negative if unknown.</p>
+</dd>
+</dl>
+
+<p>The classes correspond to the ANSI C constructs of &ldquo;calendar
+time&rdquo; (the <code>time\_t</code> data type) and &ldquo;local time&rdquo; (or
+broken-down time, the <code>struct tm</code> data type), from which they
+also inherit their names.
+</p>
+<p><code>"POSIXct"</code> is more convenient for including in data frames, and
+<code>"POSIXlt"</code> is closer to human-readable forms.
+A virtual class <code>"POSIXt"</code> inherits from both of the classes: it
+is used to allow operations such as subtraction to mix the two classes.
+</p>
+<p>Logical comparisons and limited arithmetic are available for both classes.
+One can add or subtract a number of seconds or a
+<code>difftime</code> object from a date-time object,
+but not add two date-time objects.  Subtraction of two date-time objects
+is equivalent to using <code>difftime</code>.  Be aware
+that <code>"POSIXlt"</code> objects will be interpreted as being in the
+current timezone for these operations, unless a timezone has been
+specified.
+</p>
+<p><code>"POSIXlt"</code> objects will often have an attribute <code>"tzone"</code>,
+a character vector of length 3 giving the timezone name from the
+<span class="env">TZ</span> environment variable and the names of the base timezone
+and the alternate (daylight-saving) timezone.  Sometimes this may
+just be of length one, giving the timezone name.
+</p>
+<p><code>"POSIXct"</code> objects may also have an attribute <code>"tzone"</code>, a
+character vector of length one.  If set, it will determine how the
+object is converted to class <code>"POSIXlt"</code> and in particular how it
+is printed.  This is usually desirable, but if you want to specify an
+object in a particular timezone but to be printed in the current
+timezone you may want to remove the <code>"tzone"</code> attribute (e.g. by
+<code>c(x)</code>).
+</p>
+<p>Unfortunately, the conversion is complicated by the operation of time
+zones and leap seconds (22 days have been 86401 seconds long so far:
+the times of the extra seconds are in the object <code>.leap.seconds</code>).
+The details of this are entrusted to the OS services where possible.
+This will usually cover the period 1970&ndash;2037, and on Unix machines
+back to 1902 (when time zones were in their infancy).  Outside those
+ranges we use our own C code.  This uses the offset from GMT in use
+in the timezone in 2000, and uses the alternate (daylight-saving)
+timezone only if <code>isdst</code> is positive.
+</p>
+<p>It seems that some systems use leap seconds but most do not. This is
+detected and corrected for at build time, so all <code>"POSIXct"</code>
+times used by <span class="rlang"><b>R</b></span> do not include leap seconds.  (Conceivably this could
+be wrong if the system has changed since build time, just possibly by
+changing locales.)
+</p>
+<p>Using <code>c</code> on <code>"POSIXlt"</code> objects converts them to the
+current time zone.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>Some Unix-like systems (especially Linux ones) do not have <code>"TZ"</code>
+set, yet have internal code that expects it (as does POSIX).  We have
+tried to work around this, but if you get unexpected results try
+setting <code>"TZ"</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Dates for dates without times.
+</p>
+<p><code>as.POSIXct</code> and <code>as.POSIXlt</code> for conversion
+between the classes.
+</p>
+<p><code>strptime</code> for conversion to and from character
+representations.
+</p>
+<p><code>Sys.time</code> for clock time as a <code>"POSIXct"</code> object.
+</p>
+<p><code>difftime</code> for time intervals.
+</p>
+<p><code>cut.POSIXt</code>, <code>seq.POSIXt</code>,
+<code>round.POSIXt</code> and <code>trunc.POSIXt</code> for methods
+for these classes.
+</p>
+<p><code>weekdays.POSIXt</code> for convenience extraction functions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>(z &lt;- Sys.time())             # the current date, as class "POSIXct"
+
+Sys.time() - 3600             # an hour ago
+
+as.POSIXlt(Sys.time(), "GMT") # the current time in GMT
+format(.leap.seconds)         # all 22 leapseconds in your timezone
+print(.leap.seconds, tz="PST8PDT")  # and in Seattle's
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.1.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>R: Scatter Plot Smoothing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/lowess.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/lowess.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>lowess {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='lowess'>Scatter Plot Smoothing</h2>
+
+<h3>Description</h3>
+
+<p>This function performs the computations for the
+<em>LOWESS</em> smoother (see the reference below).
+<code>lowess</code> returns a list containing components
+<code>x</code> and <code>y</code> which give the coordinates of the smooth.
+The smooth should be added to a plot of the original
+points with the function
+<code>lines</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>lowess(x, y, f=2/3, iter=3, delta=.01*diff(range(x)))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="lowess_:_x">x</code>, <code id="lowess_:_y">y</code></td>
+<td>
+<p>vectors giving the coordinates of the points in the scatter plot.
+Alternatively a single plotting structure can be specified.</p>
+</td></tr>
+<tr><td><code id="lowess_:_f">f</code></td>
+<td>
+<p>the smoother span.
+This gives the proportion of points in the plot which
+influence the smooth at each value.
+Larger values give more smoothness.</p>
+</td></tr>
+<tr><td><code id="lowess_:_iter">iter</code></td>
+<td>
+<p>the number of robustifying iterations which should be
+performed.
+Using smaller values of <code>iter</code> will make <code>lowess</code> run faster.</p>
+</td></tr>
+<tr><td><code id="lowess_:_delta">delta</code></td>
+<td>
+<p>values of <code>x</code> which lie within <code>delta</code>
+of each other replaced by a single value in the output from
+<code>lowess</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Cleveland, W. S. (1979).
+Robust locally weighted regression and smoothing scatterplots.
+<em>J. Amer. Statist. Assoc.</em> <b>74</b>, 829-836.
+</p>
+<p>Cleveland, W. S. (1981).
+LOWESS: A program for smoothing scatterplots by robust locally weighted
+regression.
+<em>The American Statistician</em>, <b>35</b>, 54.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(cars)
+plot(cars, main = "lowess(cars)")
+lines(lowess(cars), col= 2)
+lines(lowess(cars,f=.2), col= 3)
+legend(5,120,c(paste("f = ", c("2/3", ".2"))), lty=1, col=2:3)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62 ]</div>
+</div>
+</body></html>

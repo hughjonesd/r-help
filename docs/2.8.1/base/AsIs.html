@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Inhibit Interpretation/Conversion of Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/AsIs.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/AsIs.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>AsIs {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='AsIs'>Inhibit Interpretation/Conversion of Objects</h2>
+
+<h3>Description</h3>
+
+<p>Change the class of an object to indicate that it should be treated
+&lsquo;as is&rsquo;.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>I(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="AsIs_:_x">x</code></td>
+<td>
+<p>an object</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Function <code>I</code> has two main uses.
+</p>
+
+<ul>
+<li><p> In function <code>data.frame</code>.  Protecting an object by
+enclosing it in <code>I()</code> in a call to <code>data.frame</code> inhibits the
+conversion of character vectors to factors and the dropping of
+names, and ensures that matrices are inserted as single columns.
+<code>I</code> can also be used to protect objects which are to be
+added to a data frame, or converted to a data frame <em>via</em>
+<code>as.data.frame</code>.
+</p>
+<p>It achieves this by prepending the class <code>"AsIs"</code> to the object's
+classes.  Class <code>"AsIs"</code> has a few of its own methods, including
+for <code>[</code>, <code>as.data.frame</code>, <code>print</code> and <code>format</code>.
+</p>
+</li>
+<li><p> In function <code>formula</code>.  There it is used to
+inhibit the interpretation of  operators such as <code>"+"</code>,
+<code>"-"</code>, <code>"*"</code> and <code>"^"</code> as formula operators, so they
+are used as arithmetical operators.  This is interpreted as a symbol
+by <code>terms.formula</code>.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A copy of the object with class <code>"AsIs"</code> prepended to the class(es).
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. (1992)
+<em>Linear models.</em>
+Chapter 4 of <em>Statistical Models in S</em>
+eds J. M. Chambers and T. J. Hastie, Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>data.frame</code>, <code>formula</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.8.1 ]</div>
+</div>
+</body></html>

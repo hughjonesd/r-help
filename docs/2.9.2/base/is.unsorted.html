@@ -1,0 +1,68 @@
+<!DOCTYPE html><html><head><title>R: Test if an Object is Not Sorted</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/is.unsorted.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/is.unsorted.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>is.unsorted {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='is.unsorted'>Test if an Object is Not Sorted</h2>
+
+<h3>Description</h3>
+
+<p>Test if an object is not sorted, without the cost of sorting it.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>is.unsorted(x, na.rm = FALSE, strictly = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="is.unsorted_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object with a class or a numeric, complex, character or
+logical vector.</p>
+</td></tr>
+<tr><td><code id="is.unsorted_:_na.rm">na.rm</code></td>
+<td>
+<p>logical.  Should missing values be removed before checking?</p>
+</td></tr>
+<tr><td><code id="is.unsorted_:_strictly">strictly</code></td>
+<td>
+<p>logical indicating if the check should be for
+<em>strictly</em> increasing values.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A length-one logical value.  All objects of length 0 or 1 are sorted:
+the result will be <code>NA</code> for objects of length 2 or more except for
+atomic vectors and objects with a class (where the <code>&gt;=</code> or <code>&gt;</code>
+method is used).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>sort</code>, <code>order</code>.</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.9.2 ]</div>
+</div>
+</body></html>

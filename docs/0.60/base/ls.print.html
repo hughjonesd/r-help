@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>R: Print 'lsfit' Regression Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ls.print.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ls.print.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ls.print {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ls.print'>Print &lsquo;lsfit&rsquo; Regression Results</h2>
+
+<h3>Description</h3>
+
+<p>Computes basic statistics, including standard errors, t- and p-values
+for the regression coefficients and prints them if <code>print.it</code> is
+<code>TRUE</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>ls.print(ls.out, digits = 4, print.it = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="ls.print_:_ls.out">ls.out</code></td>
+<td>
+<p>Typically the result of <code>lsfit()</code></p>
+</td></tr>
+<tr><td><code id="ls.print_:_digits">digits</code></td>
+<td>
+<p>The number of significant digits used for printing</p>
+</td></tr>
+<tr><td><code id="ls.print_:_print.it">print.it</code></td>
+<td>
+<p>a logical indicating whether the result should also be
+printed</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with the components
+</p>
+<table>
+<tr><td><code>summary</code></td>
+<td>
+<p>The ANOVA table of the regression</p>
+</td></tr>
+<tr><td><code>coef.table</code></td>
+<td>
+<p>matrix with regression coefficients, standard
+errors, t- and p-values</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>Usually, you'd rather use <code>summary(lm(...))</code> and
+<code>anova(lm(...))</code> for obtaining similar output.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ls.diag</code>, <code>lsfit</code>;
+<code>lm</code>, <code>lm.influence</code> which usually are
+preferable.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## See help for \link{lsfit}
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.60 ]</div>
+</div>
+</body></html>

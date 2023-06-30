@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>R: Encode in a Common Format</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/format.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/format.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>format {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='format'>Encode in a Common Format</h2>
+
+<h3>Description</h3>
+
+<p>This function converts its first argument to a vector of character strings,
+which have a common format (as is done by <code>print</code>).
+The trimming with <code>trim = TRUE</code> is useful when the strings are to
+be used for plot axis annotation.
+</p>
+<p>The function <code>formatC</code> provides a rather more flexible
+formatting facility for numbers.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>format(x, ...)
+format.default(x, trim=FALSE, digits = .Options$digits)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="format_:_x">x</code></td>
+<td>
+<p>any <span class="rlang"><b>R</b></span> object (conceptually); typically numeric.</p>
+</td></tr>
+<tr><td><code id="format_:_trim">trim</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, leading blanks are trimmed off the
+strings.</p>
+</td></tr>
+<tr><td><code id="format_:_digits">digits</code></td>
+<td>
+<p>how many significant digits are to be used for
+<code>numeric x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>formatC</code>, <code>paste</code>, <code>as.character</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>format(1:10)
+for(i in c(1:5,10,15:17,20)) cat(i,":\t",format(pi,digits=i),"\n")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61.2 ]</div>
+</div>
+</body></html>

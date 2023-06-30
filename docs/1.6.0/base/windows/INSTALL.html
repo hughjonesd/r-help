@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Install Add-on Packages from Sources</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/INSTALL.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/INSTALL.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>INSTALL {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='INSTALL'>Install Add-on Packages from Sources</h2>
+
+<h3>Description</h3>
+
+<p>To install packages into the default library tree (which is rooted at
+&lsquo;<span class="file">\$R\_HOME/library</span>&rsquo;), do <code>Rcmd INSTALL pkgs</code>.
+</p>
+<p>To install into the library tree <code>lib</code> instead of the default
+one, use <code>Rcmd INSTALL -l lib pkgs</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Rcmd INSTALL [options] [-l lib] pkgs</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="INSTALL_:_pkgs">pkgs</code></td>
+<td>
+<p>A list with the path names of the sources of the
+packages to be installed.</p>
+</td></tr>
+<tr><td><code id="INSTALL_:_lib">lib</code></td>
+<td>
+<p>the path name of the <span class="rlang"><b>R</b></span> library tree to install to.</p>
+</td></tr>
+<tr><td><code id="INSTALL_:_options">options</code></td>
+<td>
+<p>a list of options through which in particular the build
+process for help files can be controlled.  Use <code>Rcmd INSTALL
+      --help</code> for the current list of options.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Both <code>lib</code> and the elements of <code>pkgs</code> may be absolute or
+relative path names. <code>pkgs</code> can also contain name of package
+archive files of the form &lsquo;<span class="file">pkg\_version.tar.gz</span>&rsquo; as obtained from
+CRAN (these are then extracted in a temporary directory
+&lsquo;<span class="file">R.INSTALL</span>&rsquo; of the current directory).
+</p>
+<p>If the option <code>--save</code> is used, the installation procedure
+creates a binary image of the package code, which is then loaded when
+the library is attached, rather than evaluating the package source at
+that time.  Having a file <code>install.R</code> in the package directory
+makes this the default behavior for the package (option
+<code>--no-save</code> overrides).  You may need <code>--save</code> if your
+package requires other packages to evaluate its own source.  If the
+file &lsquo;<span class="file">install.R</span>&rsquo; is non-empty, it should contain R expressions to
+be executed when the package is attached, after loading the saved
+image.  
+</p>
+<p>For checking (via the examples in the help files &lsquo;<span class="file">man/*.Rd</span>&rsquo;,
+use <code>Rcmd check [-l lib] &lt;pkg&gt;</code>: use <code>Rcmd check --help</code>
+for more information.
+</p>
+
+
+<h3>Packages using the methods package</h3>
+
+<p>Packages that require the methods package, and that use functions such as
+<code>setMethod</code> or <code>setClass</code>, should be installed
+by creating a binary image.
+</p>
+<p>The package should require the methods package, both during installation
+and when the user attaches the package.  A good solution for most
+cases is to include the line <code>require("methods")</code> twice, once at
+the beginning of the package's R source, and once in the file
+&lsquo;<span class="file">install.R</span>&rsquo; in the package directory (the top-level directory, <em>not</em>
+in the &lsquo;<span class="file">R</span>&rsquo; directory below that).  The &lsquo;<span class="file">install.R</span>&rsquo; file
+causes an image to be saved, and the contents will ensure that methods
+are available when
+the package is attached.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>REMOVE</code>, and <code>library</code> for information on
+using several library trees and creating packages;
+<code>update.packages</code> for automatic update of packages using
+the internet.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.0 ]</div>
+</div>
+</body></html>

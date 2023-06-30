@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><title>R: Choose a File Interactively</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/file.choose.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/file.choose.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>file.choose {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='file.choose'>Choose a File Interactively</h2>
+
+<h3>Description</h3>
+
+<p>Choose a file interactively.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>file.choose(new = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="file.choose_:_new">new</code></td>
+<td>
+<p>Logical: choose the style of dialog box
+presented to the user: at present only new = FALSE is used.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A character vector of length one giving the file path.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>list.files</code> for non-interactive selection.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.2.4 ]</div>
+</div>
+</body></html>

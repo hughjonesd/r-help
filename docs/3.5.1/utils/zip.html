@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>R: Create Zip Archives</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/zip.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/zip.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>zip {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='zip'>Create Zip Archives</h2>
+
+<h3>Description</h3>
+
+<p>A wrapper for an external <code>zip</code> command to create zip archives.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>zip(zipfile, files, flags = "-r9X", extras = "",
+    zip = Sys.getenv("R_ZIPCMD", "zip"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="zip_:_zipfile">zipfile</code></td>
+<td>
+<p>The pathname of the zip file: tilde expansion (see
+<code>path.expand</code>) will be performed.</p>
+</td></tr>
+<tr><td><code id="zip_:_files">files</code></td>
+<td>
+<p>A character vector of recorded filepaths to be included.</p>
+</td></tr>
+<tr><td><code id="zip_:_flags">flags</code></td>
+<td>
+<p>A character string of flags to be passed to the command:
+see &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="zip_:_extras">extras</code></td>
+<td>
+<p>An optional character vector: see &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="zip_:_zip">zip</code></td>
+<td>
+<p>A character string specifying the external command to be used.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>On a Unix-alike, the default for <code>zip</code> will by default use the
+value of <span class="env">R_ZIPCMD</span>, which is set in &lsquo;<span class="file">etc/Renviron</span>&rsquo; if an
+<code>unzip</code> command was found during configuration.  On Windows, the
+default relies on a <code>zip</code> program (for example that from
+Rtools) being in the path.
+</p>
+<p>The default for <code>flags</code> is that appropriate for zipping up a
+directory tree in a portable way: see the system-specific help for the
+<code>zip</code> command for other possibilities.
+</p>
+<p>Argument <code>extras</code> can be used to specify <code>-x</code> or <code>-i</code>
+followed by a list of filepaths to exclude or include.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The status value returned by the external command, invisibly.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>unzip</code>, <code>unz</code>; further, <code>tar</code> and
+<code>untar</code> for (un)packing tar archives.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 3.5.1 ]</div>
+</div>
+</body></html>

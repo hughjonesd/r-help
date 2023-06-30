@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: Apply a Function to Multiple List or Vector Arguments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/mapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/mapply.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mapply {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mapply'>Apply a Function to Multiple List or Vector Arguments</h2>
+
+<h3>Description</h3>
+
+<p><code>mapply</code> is a multivariate version of <code>sapply</code>.
+<code>mapply</code> applies <code>FUN</code> to the first elements of each ...
+argument, the second elements, the third elements, and so on.
+Arguments are recycled if necessary.
+</p>
+<p><code>.mapply()</code> is a bare-bones version of <code>mapply()</code>, e.g., to be
+used in other functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mapply(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE,
+       USE.NAMES = TRUE)
+.mapply(FUN, dots, MoreArgs)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="mapply_:_FUN">FUN</code></td>
+<td>
+<p>function to apply, found via <code>match.fun</code>.</p>
+</td></tr>
+<tr><td><code id="mapply_:_...">...</code></td>
+<td>
+<p>arguments to vectorize over, will be recycled to common
+length (zero if one of them is).  See also &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="mapply_:_dots">dots</code></td>
+<td>
+<p><code>list</code> or <code>pairlist</code> of arguments to
+vectorize over, see <code>...</code> above.</p>
+</td></tr>
+<tr><td><code id="mapply_:_MoreArgs">MoreArgs</code></td>
+<td>
+<p>a list of other arguments to <code>FUN</code>.</p>
+</td></tr>
+<tr><td><code id="mapply_:_SIMPLIFY">SIMPLIFY</code></td>
+<td>
+<p>logical or character string; attempt to reduce the
+result to a vector, matrix or higher dimensional array; see
+the <code>simplify</code> argument of <code>sapply</code>.</p>
+</td></tr>
+<tr><td><code id="mapply_:_USE.NAMES">USE.NAMES</code></td>
+<td>
+<p>logical; use the names of the first ... argument, or
+if that is an unnamed character vector, use that vector as the names.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>mapply</code> calls <code>FUN</code> for the values of <code>...</code>
+(re-cycled to the length of the longest, unless any have length zero
+where recycling to zero length will return <code>list()</code>),
+followed by the arguments given in <code>MoreArgs</code>.  The arguments in
+the call will be named if <code>...</code> or <code>MoreArgs</code> are named.
+</p>
+<p>For the arguments in <code>...</code> (or components in <code>dots</code>) class specific
+subsetting (such as <code>[</code>) and <code>length</code> methods will be
+used where applicable.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A <code>list</code>, or for <code>SIMPLIFY = TRUE</code>, a vector, array or list.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>sapply</code>, after which <code>mapply()</code> is modelled.
+</p>
+<p><code>outer</code>, which applies a vectorized function to all
+combinations of two arguments.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>mapply(rep, 1:4, 4:1)
+
+mapply(rep, times = 1:4, x = 4:1)
+
+mapply(rep, times = 1:4, MoreArgs = list(x = 42))
+
+mapply(function(x, y) seq_len(x) + y,
+       c(a =  1, b = 2, c = 3),  # names from first
+       c(A = 10, B = 0, C = -10))
+
+word &lt;- function(C, k) paste(rep.int(C, k), collapse = "")
+## names from the first, too:
+utils::str(L &lt;- mapply(word, LETTERS[1:6], 6:1, SIMPLIFY = FALSE))
+
+mapply(word, "A", integer()) # gave Error, now list()
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.2.3 ]</div>
+</div>
+</body></html>

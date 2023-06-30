@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><title>R: Send R Output to a File</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sink.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sink.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>sink {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='sink'>Send R Output to a File</h2>
+
+<h3>Description</h3>
+
+<p><code>sink</code> diverts <span class="rlang"><b>R</b></span> output to a connection.
+</p>
+<p><code>sink.number()</code> reports how many diversions are in use.
+<code>sink.number(type = "message")</code> reports the number of the
+connection currently being used for error messages.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>sink(file = NULL, append = FALSE, type = c("output", "message"))
+sink.number(type = c("output", "message"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="sink_:_file">file</code></td>
+<td>
+<p>a connection or a character string naming the
+file to write to, or <code>NULL</code> to stop sink-ing.</p>
+</td></tr>
+<tr><td><code id="sink_:_append">append</code></td>
+<td>
+<p>logical. If <code>TRUE</code>, output will be appended to
+<code>file</code>; otherwise, it will overwrite the contents of
+<code>file</code>.</p>
+</td></tr>
+<tr><td><code id="sink_:_type">type</code></td>
+<td>
+<p>character. Either the output stream of the messages stream.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>sink</code> diverts <span class="rlang"><b>R</b></span> output to a connection. If <code>file</code> is a
+character string, a file connection with that name will be established
+for the duration of the diversion.
+</p>
+<p>Normal <span class="rlang"><b>R</b></span> output is diverted by the default <code>type = "output"</code>.
+Only prompts and warning/error messages continue to appear on the terminal.
+These too can diverted by <code>type = "message"</code> (see below).
+</p>
+<p><code>sink()</code> or <code>sink(file=NULL)</code> ends the last diversion (of
+the specified type).  As from <span class="rlang"><b>R</b></span> version 1.3.0 there is a stack of
+diversions for normal output, so output reverts to the previous
+diversion (if there was one).  The stack is of up to 21 connections
+(20 diversions).
+</p>
+<p>If <code>file</code> is a connection if will be opened if necessary.
+Switching to another file or connection closes and destroys the
+current sink connection if it is a file connection opened by an
+earlier call to <code>sink</code>.
+</p>
+<p>Sink-ing the messages stream should be done only with great care.
+For that stream <code>file</code> must be an already open connection, and
+there is no stack of connections.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>Don't use a connection that is open for <code>sink</code> for any other
+purpose.  The software will stop you closing one such inadvertently.
+</p>
+<p>Do not sink the messages stream unless you understand the source code
+implementing it and hence the pitfalls.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>sink("sink-examp.txt")
+i &lt;- 1:10
+outer(i,i,"*")
+sink()
+unlink("sink-examp.txt")
+## Not run: 
+## capture all the output to a file.
+zz &lt;- file("all.Rout", open="wt")
+sink(zz)
+sink(zz, type="message")
+try(log("a"))
+## back to the console
+sink(type="message")
+sink()
+try(log("a"))
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3 ]</div>
+</div>
+</body></html>

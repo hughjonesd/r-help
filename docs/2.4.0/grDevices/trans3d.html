@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: 3D to 2D Transformation for Perspective Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/trans3d.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/trans3d.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>trans3d {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='trans3d'>3D to 2D Transformation for Perspective Plots</h2>
+
+<h3>Description</h3>
+
+<p>Projection of 3-dimensional to 2-dimensional points using a 4x4
+viewing transformation matrix.  Mainly for adding to
+perspective plots such as <code>persp</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>trans3d(x,y,z, pmat)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="trans3d_:_x">x</code>, <code id="trans3d_:_y">y</code>, <code id="trans3d_:_z">z</code></td>
+<td>
+<p>numeric vectors of equal length, specifying points in
+3D space.</p>
+</td></tr>
+<tr><td><code id="trans3d_:_pmat">pmat</code></td>
+<td>
+<p>a <code class="reqn">4 \times 4</code> <em>viewing transformation matrix</em>,
+suitable for projecting the 3D coordinates <code class="reqn">(x,y,z)</code> into the 2D
+plane using homogenous 4D coordinates <code class="reqn">(x,y,z,t)</code>;
+such matrices are returned by <code>persp()</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a list with two components
+</p>
+<table>
+<tr><td><code>x</code>, <code>y</code></td>
+<td>
+<p>the projected 2d coordinates of the 3d input <code>(x,y,z)</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+ <p><code>persp</code> </p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+## See  help(persp) {after attaching the 'graphics' package}
+##      -----------
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.4.0 ]</div>
+</div>
+</body></html>

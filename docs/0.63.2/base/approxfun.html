@@ -1,0 +1,125 @@
+<!DOCTYPE html><html><head><title>R: Interpolation Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/approxfun.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/approxfun.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>approx[fun] {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='approx+5Bfun+5D'>Interpolation Functions</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>approx   (x, y, xout, method="linear", n=50,
+          yleft, yright, rule=1, f=0)
+approxfun(x, y,       method="linear",
+          yleft, yright, rule=1, f=0)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="approx+5Bfun+5D_:_x">x</code>, <code id="approx+5Bfun+5D_:_y">y</code></td>
+<td>
+<p>vectors giving the coordinates of the points to be
+interpolated.  Alternatively a single plotting structure can be
+specified.</p>
+</td></tr>
+<tr><td><code id="approx+5Bfun+5D_:_xout">xout</code></td>
+<td>
+<p>an optional set of values specifying where interpolation
+is to take place.</p>
+</td></tr>
+<tr><td><code id="approx+5Bfun+5D_:_method">method</code></td>
+<td>
+<p>specifies the interpolation method to be used.  Choices
+are <code>"linear"</code> or <code>"constant"</code>.</p>
+</td></tr>
+<tr><td><code id="approx+5Bfun+5D_:_n">n</code></td>
+<td>
+<p>If <code>xout</code> is not specified, interpolation takes place at
+<code>n</code> equally spaced points spanning the interval [<code>min(x)</code>,
+<code>max(x)</code>].</p>
+</td></tr>
+<tr><td><code id="approx+5Bfun+5D_:_yleft">yleft</code></td>
+<td>
+<p>the value to be returned when input <code>x</code> values
+less than <code>min(x)</code>. The default is defined by the value
+of <code>rule</code> given below.</p>
+</td></tr>
+<tr><td><code id="approx+5Bfun+5D_:_yright">yright</code></td>
+<td>
+<p>the value to be returned when input <code>x</code> values
+greater than <code>max(x)</code>. The default is defined by the value
+of <code>rule</code> given below.</p>
+</td></tr>
+<tr><td><code id="approx+5Bfun+5D_:_rule">rule</code></td>
+<td>
+<p>an integer describing how interpolation is to take place
+outside the interval [<code>min(x)</code>, <code>max(x)</code>].
+If <code>rule</code> is <code>1</code> then <code>NA</code>s are returned for such
+points and if it is <code>2</code>, the value at the closest data extreme
+is used.</p>
+</td></tr>
+<tr><td><code id="approx+5Bfun+5D_:_f">f</code></td>
+<td>
+<p>For <code>method="constant"</code> a number between 0 and 1
+inclusive, indicating a compromise between left- and
+right-continuous step functions. If <code>y0</code> and <code>y1</code> are the
+values to the left and right of the point then the value is
+<code>y0*f+y1*(1-f)</code> so that <code>f=0</code> is right-continuous and
+<code>f=1</code> is left-continuous.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>approx</code> returns a list with components <code>x</code> and <code>y</code>,
+containing <code>n</code> coordinates which interpolate the given data
+points according to the <code>method</code> (and <code>rule</code>) desired.
+</p>
+<p>The function <code>approxfun</code> returns a function performing (linear or
+constant) interpolation of the given data points.  For a given set of
+<code>x</code> values, this function will return the corresponding
+interpolated values.  This is often more useful than <code>approx</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>spline</code> and <code>splinefun</code> for spline
+interpolation.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:10
+y &lt;- rnorm(10)
+par(mfrow = c(2,1))
+plot(x, y, main = "approx(.) and approxfun(.)")
+points(approx(x, y), col = 2, pch = "*")
+points(approx(x, y, method = "constant"), col = 4, pch = "*")
+
+f &lt;- approxfun(x, y)
+curve(f(x), 0, 10, col = "green")
+points(x, y)
+is.function(fc &lt;- approxfun(x, y, method = "const"))  # T
+curve(fc(x), 0, 10, col = "darkblue", add = TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63.2 ]</div>
+</div>
+</body></html>

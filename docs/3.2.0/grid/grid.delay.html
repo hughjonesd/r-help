@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>R: Encapsulate calculations and generating a grob</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.delay.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.delay.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.delay {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.delay'> Encapsulate calculations and generating a grob </h2>
+
+<h3>Description</h3>
+
+<p>Evaluates an expression that includes both calculations
+and generating a grob that depends on the calculations so that
+both the calculations and the grob generation will be rerun when
+the scene is redrawn (e.g., device resize or editing).
+</p>
+<p>Intended <em>only</em> for expert use.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>delayGrob(expr, list, name=NULL, gp=NULL, vp=NULL)
+grid.delay(expr, list, name=NULL, gp=NULL, vp=NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.delay_:_expr">expr</code></td>
+<td>
+<p>object of mode <code>expression</code> or <code>call</code> or
+an unevaluated expression.</p>
+</td></tr>
+<tr><td><code id="grid.delay_:_list">list</code></td>
+<td>
+<p>a list defining the environment in which <code>expr</code> is to
+be evaluated.</p>
+</td></tr>
+<tr><td><code id="grid.delay_:_name">name</code></td>
+<td>
+<p> A character identifier. </p>
+</td></tr>
+<tr><td><code id="grid.delay_:_gp">gp</code></td>
+<td>
+<p>An object of class <code>gpar</code>, typically the output
+from a call to the function <code>gpar</code>.  This is basically
+a list of graphical parameter settings.</p>
+</td></tr>
+<tr><td><code id="grid.delay_:_vp">vp</code></td>
+<td>
+<p>A Grid viewport object (or NULL).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A grob is created of special class <code>"delayedgrob"</code>
+(and drawn, in the case of <code>grid.delay</code>).
+The <code>makeContent</code> method for this class
+evaluates the expression with the list as the evaluation
+environment (and the grid Namespace as the parent of that
+environment).
+</p>
+<p>The <code>expr</code> argument should return a grob as its result.
+</p>
+<p>These functions are analogues of the <code>grid.record()</code>
+and <code>recordGrob()</code> functions;  the difference is that
+these functions are based on the <code>makeContent()</code> hook,
+while those functions are based on the <code>drawDetails()</code>
+hook.
+</p>
+
+
+<h3>Note</h3>
+
+<p> This function <em>must</em> be used instead of the
+function <code>recordGraphics</code>;  all of the dire warnings
+about using <code>recordGraphics</code> responsibly also apply here.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p> Paul Murrell </p>
+
+
+<h3>See Also</h3>
+
+ <p><code>recordGraphics</code> </p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>grid.delay({
+              w &lt;- convertWidth(unit(1, "inches"), "npc")
+              rectGrob(width=w)
+            },
+            list())
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 3.2.0 ]</div>
+</div>
+</body></html>

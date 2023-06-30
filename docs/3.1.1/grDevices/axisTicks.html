@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><title>R: Compute Pretty Axis Tick Scales</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/axisTicks.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/axisTicks.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>axisTicks {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='axisTicks'>Compute Pretty Axis Tick Scales</h2>
+
+<h3>Description</h3>
+
+<p>Compute pretty axis scales and tick mark locations, the same way as
+traditional <span class="rlang"><b>R</b></span> graphics do it.  This is interesting particularly for
+log scale axes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>axisTicks(usr, log, axp = NULL, nint = 5)
+ .axisPars(usr, log = FALSE, nintLog = 5)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="axisTicks_:_usr">usr</code></td>
+<td>
+<p>numeric vector of length 2, with <code>c(min, max)</code> axis
+extents.</p>
+</td></tr>
+<tr><td><code id="axisTicks_:_log">log</code></td>
+<td>
+<p>logical indicating if a log scale is (thought to be) in
+use.</p>
+</td></tr>
+<tr><td><code id="axisTicks_:_axp">axp</code></td>
+<td>
+<p>numeric vector of length 3, <code>c(mi, ma, n.)</code>, with
+identical meaning to <code>par("?axp")</code> (where <code>?</code> is
+<code>x</code> or <code>y</code>), namely &ldquo;pretty&rdquo; axis extents, and an
+integer <em>code</em> <code>n.</code>.
+
+</p>
+</td></tr>
+<tr><td><code id="axisTicks_:_nint">nint</code>, <code id="axisTicks_:_nintLog">nintLog</code></td>
+<td>
+<p>positive integer value indicating
+(<em>approximately</em>) the desired number of intervals.
+<code>nintLog</code> is used <b>only</b> for the case <code>log = TRUE</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>axisTicks(usr, *)</code> calls <code>.axisPars(usr, ..)</code> when
+<code>axp</code> is missing (or <code>NULL</code>).
+
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>axisTicks()</code> returns a numeric vector of potential axis tick
+locations, of length approximately <code>nint+1</code>.
+</p>
+<p><code>.axisPars()</code> returns a <code>list</code> with components
+</p>
+<table>
+<tr><td><code>axp</code></td>
+<td>
+<p>numeric vector of length 2, <code>c(min., max.)</code>, of pretty
+axis extents.</p>
+</td></tr>
+<tr><td><code>n</code></td>
+<td>
+<p>integer (code), with the same meaning as
+<code>par("?axp")[3]</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>axTicks</code>;
+<code>axis</code>, and <code>par</code> (from
+the <span class="pkg">graphics</span> package).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>##--- Demonstrating correspondence between graphics'
+##--- axis() and the graphics-engine agnostic  axisTicks() :
+
+require("graphics")
+plot(10*(0:10)); (pu &lt;- par("usr"))
+aX &lt;- function(side, at, ...)
+    axis(side, at = at, labels = FALSE, lwd.ticks = 2, col.ticks = 2,
+         tck = 0.05, ...)
+aX(1, print(xa &lt;- axisTicks(pu[1:2], log = FALSE)))  # x axis
+aX(2, print(ya &lt;- axisTicks(pu[3:4], log = FALSE)))  # y axis
+
+axisTicks(pu[3:4], log = FALSE, n = 10)
+
+plot(10*(0:10), log = "y"); (pu &lt;- par("usr"))
+aX(2, print(ya &lt;- axisTicks(pu[3:4], log = TRUE)))  # y axis
+
+plot(2^(0:9), log = "y"); (pu &lt;- par("usr"))
+aX(2, print(ya &lt;- axisTicks(pu[3:4], log = TRUE)))  # y axis
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 3.1.1 ]</div>
+</div>
+</body></html>

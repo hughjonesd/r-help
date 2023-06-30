@@ -1,0 +1,94 @@
+<!DOCTYPE html><html><head><title>R: Draw Rectangles Around Hierarchical Clusters</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/rect.hclust.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/rect.hclust.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>rect.hclust {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='rect.hclust'>Draw Rectangles Around Hierarchical Clusters</h2>
+
+<h3>Description</h3>
+
+<p>Draws rectangles around the branches of a dendrogram highlighting the
+corresponding clusters. First the dendrogram is cut at a certain
+level, then a rectangle is drawn around selected branches.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rect.hclust(tree, k = NULL, which = NULL, x = NULL, h = NULL,
+            border = 2, cluster = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="rect.hclust_:_tree">tree</code></td>
+<td>
+<p>an object of the type produced by <code>hclust</code>.</p>
+</td></tr>
+<tr><td><code id="rect.hclust_:_k">k</code>, <code id="rect.hclust_:_h">h</code></td>
+<td>
+<p>Scalar. Cut the dendrogram such that either exactly
+<code>k</code> clusters are produced or by cutting at height <code>h</code>.</p>
+</td></tr>
+<tr><td><code id="rect.hclust_:_which">which</code>, <code id="rect.hclust_:_x">x</code></td>
+<td>
+<p>A vector selecting the clusters around which a
+rectangle should be drawn. <code>which</code> selects clusters by number
+(from left to right in the tree), <code>x</code> selects clusters
+containing the respective horizontal coordinates. Default is
+<code>which = 1:k</code>.</p>
+</td></tr>
+<tr><td><code id="rect.hclust_:_border">border</code></td>
+<td>
+<p>Vector with border colors for the rectangles.</p>
+</td></tr>
+<tr><td><code id="rect.hclust_:_cluster">cluster</code></td>
+<td>
+<p>Optional vector with cluster memberships as returned by
+<code>cutree(hclust.obj, k = k)</code>, can be specified for efficiency if
+already computed.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>(Invisibly) returns a list where each element contains a vector of
+data points contained in the respective cluster.</p>
+
+
+<h3>See Also</h3>
+
+<p><code>hclust</code>, <code>identify.hclust</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+hca &lt;- hclust(dist(USArrests))
+plot(hca)
+rect.hclust(hca, k = 3, border = "red")
+x &lt;- rect.hclust(hca, h = 50, which = c(2,7), border = 3:4)
+x
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.1.2 ]</div>
+</div>
+</body></html>

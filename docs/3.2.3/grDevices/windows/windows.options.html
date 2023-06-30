@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: Auxiliary Function to Set/View Defaults for Arguments of...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/windows.options.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/windows.options.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>windows.options {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='windows.options'>Auxiliary Function to Set/View Defaults for Arguments of windows()</h2>
+
+<h3>Description</h3>
+
+<p>The auxiliary function <code>windows.options</code> can be used to set or view
+(if called without arguments) the default values for the arguments of
+<code>windows</code>.
+</p>
+<p><code>windows.options</code> needs to be called before calling <code>windows</code>,
+and the default values it sets can be overridden by supplying
+arguments to <code>windows</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>windows.options(..., reset = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="windows.options_:_...">...</code></td>
+<td>
+<p>arguments <code>width</code>, <code>height</code>, <code>pointsize</code>,
+<code>record</code>, <code>rescale</code>, <code>xpinch</code>, <code>ypinch</code>,
+<code>bg</code>, <code>canvas</code>, <code>gamma</code>, <code>xpos</code>, <code>ypos</code>,
+<code>buffered</code>, <code>restoreConsole</code>, <code>clickToConfirm</code>,
+<code>title</code>, <code>fillOddEven</code> and <code>antialias</code> can be supplied.</p>
+</td></tr>
+<tr><td><code id="windows.options_:_reset">reset</code></td>
+<td>
+<p>logical: should the defaults be reset to their
+&lsquo;factory-fresh&rsquo; values?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If both <code>reset = TRUE</code> and <code>...</code> are supplied the defaults
+are first reset to the &lsquo;factory-fresh&rsquo; values and then the new
+values are applied.
+</p>
+<p>Option <code>antialias</code> applies to screen devices (<code>windows</code>,
+<code>win.graph</code>, <code>X11</code> and <code>x11</code>)).  There is a separate option,
+<code>bitmap.aa.win</code>, for bitmap devices with <code>type = "windows"</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A named list of all the defaults.  If any arguments are supplied the
+returned values are the old values and the result has the visibility
+flag turned off.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>windows</code>, <code>ps.options</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## put something like this is your .Rprofile to customize the defaults
+setHook(packageEvent("grDevices", "onLoad"),
+        function(...)
+            grDevices::windows.options(width = 8, height = 6,
+                                       xpos = 0, pointsize = 10,
+                                       bitmap.aa.win = "cleartype"))
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 3.2.3 ]</div>
+</div>
+</body></html>

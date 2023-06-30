@@ -1,0 +1,239 @@
+<!DOCTYPE html><html><head><title>R: Perspective Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/persp.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/persp.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>persp {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='persp'>Perspective Plots</h2>
+
+<h3>Description</h3>
+
+<p>This function draws perspective plots of surfaces over the
+x&ndash;y plane. <code>persp</code> is a generic function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>persp(x, ...)
+persp.default(x = seq(0, 1, len = nrow(z)), y = seq(0, 1, len = ncol(z)), z,
+      xlim = range(x), ylim = range(y), zlim = range(z, na.rm = TRUE), 
+      xlab = NULL, ylab = NULL, zlab = NULL, main = NULL, sub = NULL,
+      theta = 0, phi = 15, r = sqrt(3), d = 1, scale = TRUE, expand = 1, 
+      col = NULL, border = NULL, ltheta = -135, lphi = 0, shade = NA,
+      box = TRUE, axes = TRUE, nticks = 5, ticktype = "simple",
+      ...) 
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="persp_:_x">x</code>, <code id="persp_:_y">y</code></td>
+<td>
+<p>locations of grid lines at which the values in <code>z</code> are
+measured.  These must be in ascending order.  By default, equally
+spaced values from 0 to 1 are used.  If <code>x</code> is a <code>list</code>,
+its components <code>x$x</code> and <code>x$y</code> are used for <code>x</code>
+and <code>y</code>, respectively.</p>
+</td></tr>
+<tr><td><code id="persp_:_z">z</code></td>
+<td>
+<p>a matrix containing the values to be plotted (<code>NA</code>s are
+allowed).  Note that <code>x</code> can be used instead of <code>z</code> for
+convenience.</p>
+</td></tr>
+<tr><td><code id="persp_:_xlim">xlim</code>, <code id="persp_:_ylim">ylim</code>, <code id="persp_:_zlim">zlim</code></td>
+<td>
+<p>x-, y-  and z-limits.  The plot is produced
+so that the rectangular volume defined by these limits is visible.</p>
+</td></tr>
+<tr><td><code id="persp_:_xlab">xlab</code>, <code id="persp_:_ylab">ylab</code>, <code id="persp_:_zlab">zlab</code></td>
+<td>
+<p>titles for the axes. N.B. These must the
+character strings; expressions are not accepted.</p>
+</td></tr>
+<tr><td><code id="persp_:_main">main</code>, <code id="persp_:_sub">sub</code></td>
+<td>
+<p>main and sub title, as for <code>title</code>.</p>
+</td></tr>
+<tr><td><code id="persp_:_theta">theta</code>, <code id="persp_:_phi">phi</code></td>
+<td>
+<p>angles defining the viewing direction.
+<code>theta</code> gives the azimuthal direction and <code>phi</code>
+the colatitude.</p>
+</td></tr>
+<tr><td><code id="persp_:_r">r</code></td>
+<td>
+<p>the distance of the eyepoint from the centre of the plotting box.</p>
+</td></tr>
+<tr><td><code id="persp_:_d">d</code></td>
+<td>
+<p>a value which can be used to vary the strength of
+the perspective transformation.  Values of <code>d</code> greater
+than 1 will lessen the perspective effect and values less
+and 1 will exaggerate it.</p>
+</td></tr>
+<tr><td><code id="persp_:_scale">scale</code></td>
+<td>
+<p>before viewing the x, y and z coordinates of the
+points defining the surface are transformed to the interval
+[0,1].  If <code>scale</code> is <code>TRUE</code> the x, y and z coordinates
+are transformed separately.  If <code>scale</code> is <code>FALSE</code>
+the coordinates are scaled so that aspect ratios are retained.
+This is useful for rendering things like DEM information.</p>
+</td></tr>
+<tr><td><code id="persp_:_expand">expand</code></td>
+<td>
+<p>a expansion factor applied to the <code>z</code>
+coordinates. Often used with <code>0 &lt; expand &lt; 1</code> to shrink the
+plotting box in the <code>z</code> direction.</p>
+</td></tr>
+<tr><td><code id="persp_:_col">col</code></td>
+<td>
+<p>the color of the surface facets.</p>
+</td></tr>
+<tr><td><code id="persp_:_border">border</code></td>
+<td>
+<p>the color of the line drawn around the surface facets.
+A value of <code>NA</code> will disable the drawing of borders.  This is
+sometimes useful when the surface is shaded.</p>
+</td></tr>
+<tr><td><code id="persp_:_ltheta">ltheta</code>, <code id="persp_:_lphi">lphi</code></td>
+<td>
+<p>if finite values are specified for <code>ltheta</code>
+and <code>lphi</code>, the surface is shaded as though it was being
+illuminated from the direction specified by azimuth <code>ltheta</code>
+and colatitude <code>lphi</code>.</p>
+</td></tr>
+<tr><td><code id="persp_:_shade">shade</code></td>
+<td>
+<p>the shade at a surface facet is computed as
+<code>((1+d)/2)^shade</code>, where <code>d</code> is the dot product of
+a unit vector normal to the facet and a unit vector in the
+direction of a light source.  Values of <code>shade</code> close
+to one yield shading similar to a point light source model
+and values close to zero produce no shading.  Values in the
+range 0.5 to 0.75 provide an approximation to daylight
+illumination.</p>
+</td></tr>
+<tr><td><code id="persp_:_box">box</code></td>
+<td>
+<p>should the bounding box for the surface be displayed.
+The default is <code>TRUE</code>.</p>
+</td></tr>
+<tr><td><code id="persp_:_axes">axes</code></td>
+<td>
+<p>should ticks and labels be added to the box.  The 
+default is <code>TRUE</code>.  If <code>box</code> is <code>FALSE</code> then no
+ticks or labels are drawn.</p>
+</td></tr>
+<tr><td><code id="persp_:_ticktype">ticktype</code></td>
+<td>
+<p>character: &quot;simple&quot; draws just an arrow parallel to 
+the axis to indicate direction of increase; &quot;detailed&quot; draws normal
+ticks as per 2D plots.</p>
+</td></tr>
+<tr><td><code id="persp_:_nticks">nticks</code></td>
+<td>
+<p>the (approximate) number of tick marks to draw on the
+axes.  Has no effect if <code>ticktype</code> is &quot;simple&quot;.</p>
+</td></tr>
+<tr><td><code id="persp_:_...">...</code></td>
+<td>
+<p>additional graphical parameters (see <code>par</code>).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The plots are produced by first transforming the
+coordinates to the interval [0,1].  The surface is then viewed
+by looking at the origin from a direction defined by <code>theta</code>
+and <code>phi</code>.  If <code>theta</code> and <code>phi</code> are both zero
+the viewing direction is directly down the negative y axis.
+Changing <code>theta</code> will vary the azimuth and changing <code>phi</code>
+the colatitude.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>contour</code> and <code>image</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># (1) The Obligatory Mathematical surface.
+#     Rotated sinc function.
+
+x &lt;- seq(-10, 10, length=50)
+y &lt;- x
+f &lt;- function(x,y)
+{
+    r &lt;- sqrt(x^2+y^2)
+    10 * sin(r)/r
+}
+z &lt;- outer(x, y, f)
+z[is.na(z)] &lt;- 1
+par(bg = "white")
+persp(x, y, z, theta = 30, phi = 30, expand = 0.5, col = "lightblue",
+      xlab = "X", ylab = "Y", zlab = "Z") 
+persp(x, y, z, theta = 30, phi = 30, expand = 0.5, col = "lightblue",
+      ltheta = 120, shade = 0.75, ticktype = "detailed",
+      xlab = "X", ylab = "Y", zlab = "Z") 
+
+
+# (2) Visualizing a simple DEM model
+
+data(volcano)
+z &lt;- 2 * volcano        # Exaggerate the relief
+x &lt;- 10 * (1:nrow(z))   # 10 meter spacing (S to N)
+y &lt;- 10 * (1:ncol(z))   # 10 meter spacing (E to W)
+persp(x, y, z, theta = 120, phi = 15, scale = FALSE, axes = FALSE)
+
+
+# (3) Now something more complex
+#     We border the surface, to make it more "slice like"
+#     and color the top and sides of the surface differently.
+
+zmin &lt;- min(z) - 20
+z &lt;- rbind(zmin, cbind(zmin, z, zmin), zmin)
+x &lt;- c(min(x) - 1e-10, x, max(x) + 1e-10)
+y &lt;- c(min(y) - 1e-10, y, max(y) + 1e-10)
+
+fill &lt;- matrix("green3", nr = nrow(z)-1, nc = ncol(z)-1)
+fill[,1] &lt;- "gray"
+fill[,ncol(fill)] &lt;- "gray"
+fill[1,] &lt;- "gray"
+fill[nrow(fill),] &lt;- "gray"
+
+par(bg = "lightblue")
+persp(x, y, z, theta = 120, phi = 15, col = fill, scale = FALSE, axes = FALSE)
+title(main = "Maunga Whau\nOne of 50 Volcanoes in the Auckland Region.",
+      font.main = 4)
+
+par(bg = "slategray")
+persp(x, y, z, theta = 135, phi = 30, col = fill, scale = FALSE,
+      ltheta = -120, lphi = 15, shade = 0.65, axes = FALSE)
+persp(x, y, z, theta = 135, phi = 30, col = "green3", scale = FALSE,
+      ltheta = -120, shade = 0.75, border = NA, box = FALSE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3 ]</div>
+</div>
+</body></html>

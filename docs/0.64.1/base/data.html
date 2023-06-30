@@ -1,0 +1,121 @@
+<!DOCTYPE html><html><head><title>R: Data Sets</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/data.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/data.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>data {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='data'>Data Sets</h2>
+
+<h3>Description</h3>
+
+<p><code>data</code> loads or lists via <code>show.data</code> the available data sets.
+The data sets to be loaded can be specified as a sequence of <code>name</code>s
+or character strings, or as the character vector <code>list</code>, or as both.
+</p>
+<p>If no data sets are specified or <code>show.data</code> is called directly,
+the available data sets are displayed.
+</p>
+<p>Currently, four formats of data files are supported:
+</p>
+
+<ol>
+<li><p> files ending <code>".RData"</code> or <code>".rda"</code> are
+<code>load()ed</code>. 
+</p>
+</li>
+<li><p> files ending <code>".R"</code> or <code>".r"</code> are
+<code>source()d</code> in.
+</p>
+</li>
+<li><p> files ending <code>".tab"</code> or <code>".txt"</code> are read using
+<code>read.table(..., header = TRUE)</code>, and hence result in
+a <code>data.frame</code>.
+</p>
+</li>
+<li><p> files ending <code>".csv"</code> are read using
+<code>read.table(..., header = TRUE, sep=";")</code>,
+and also result in a <code>data.frame</code>.
+</p>
+</li></ol>
+
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(..., list = character(0), package = c(.packages(),.Autoloaded),
+     lib.loc = .lib.loc)
+show.data(package = c(.packages(),.Autoloaded), lib.loc = .lib.loc)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="data_:_...">...</code></td>
+<td>
+<p>a sequence of <code>name</code>s or character strings</p>
+</td></tr>
+<tr><td><code id="data_:_list">list</code></td>
+<td>
+<p>a character vector</p>
+</td></tr>
+<tr><td><code id="data_:_package">package</code></td>
+<td>
+<p>a name or character vector giving the packages to look
+into for data sets.
+By default, all packages in the search path are used.</p>
+</td></tr>
+<tr><td><code id="data_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries.
+Defaults to all libraries currently known.</p>
+</td></tr></table>
+
+
+<h3>Details</h3>
+
+<p>If no data sets are specified, <code>data</code> calls <code>show.data</code>.
+<code>show.data</code> looks for a file &lsquo;<span class="file">00Index</span>&rsquo; (failing that the
+deprecated convention of &lsquo;<span class="file">index.doc</span>&rsquo;) in a &lsquo;<span class="file">data</span>&rsquo;
+directory of each specified package, and uses these files to prepare
+a listing. If there is a &lsquo;<span class="file">data</span>&rsquo; area but no index a warning is
+given: such packages are incomplete. 
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of all data sets specified, an empty character
+vector if none were specified.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>help</code> for obtaining documentation on data sets.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data()                       # list all available data sets
+data(package = base)         # list the data sets in the base package
+data(crimes, "deaths")       # load the data sets `crimes' and `deaths'
+help(crimes)                 # give information on data set `crimes'
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.1 ]</div>
+</div>
+</body></html>

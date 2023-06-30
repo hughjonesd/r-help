@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><title>R: Recursively Modify Elements of a List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/modifyList.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/modifyList.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>modifyList {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='modifyList'>Recursively Modify Elements of a List</h2>
+
+<h3>Description</h3>
+
+<p>Modifies a possibly nested list recursively by changing a subset of
+elements at each level to match a second list.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>modifyList(x, val)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="modifyList_:_x">x</code></td>
+<td>
+<p>a named <code>list</code>, possibly empty.</p>
+</td></tr>
+<tr><td><code id="modifyList_:_val">val</code></td>
+<td>
+<p>a named list with components to replace corresponding
+components in <code>x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A modified version of <code>x</code>, with the modifications determined as
+follows (here, list elements are identified by their names).  Elements
+in <code>val</code> which are missing from <code>x</code> are added to <code>x</code>.
+For elements that are common to both but are not both lists
+themselves, the component in <code>x</code> is replaced by the one in
+<code>val</code>.  For common elements that are both lists, <code>x[[name]]</code>
+is replaced by <code>modifyList(x[[name]], val[[name]])</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p> Deepayan Sarkar <a href="mailto:Deepayan.Sarkar@R-project.org">Deepayan.Sarkar@R-project.org</a></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>foo &lt;- list(a = 1, b = list(c = "a", d = FALSE))
+bar &lt;- modifyList(foo, list(e = 2, b = list(d = TRUE)))
+str(foo)
+str(bar)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.6.0 ]</div>
+</div>
+</body></html>

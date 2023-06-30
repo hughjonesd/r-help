@@ -1,0 +1,172 @@
+<!DOCTYPE html><html><head><title>R: Extract File Information</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/file.info.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/file.info.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>file.info {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='file.info'>Extract File Information</h2>
+
+<h3>Description</h3>
+
+<p>Utility function to extract information about files on the user's
+file systems.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>file.info(..., extra_cols = TRUE)
+
+file.mode(...)
+file.mtime(...)
+file.size(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="file.info_:_...">...</code></td>
+<td>
+<p>character vectors containing file paths.  Tilde-expansion
+is done: see <code>path.expand</code>.</p>
+</td></tr>
+<tr><td><code id="file.info_:_extra_cols">extra_cols</code></td>
+<td>
+<p>Logical: return all cols rather than just the
+first six.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>What constitutes a &lsquo;file&rsquo; is OS-dependent but includes
+directories.  (However, directory names must not include a trailing
+backslash or slash on Windows.)  See also the section in the help for
+<code>file.exists</code> on case-insensitive file systems.
+</p>
+<p>The file &lsquo;mode&rsquo; follows POSIX conventions, giving three octal
+digits summarizing the permissions for the file owner, the owner's
+group and for anyone respectively.  Each digit is the logical
+<em>or</em> of read (4), write (2) and execute/search (1) permissions.
+</p>
+<p>On most systems symbolic links are followed, so information is given
+about the file to which the link points rather than about the link.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>file.info</code>, data frame with row names the file names and columns
+</p>
+<table>
+<tr><td><code>size</code></td>
+<td>
+<p>double: File size in bytes.</p>
+</td></tr>
+<tr><td><code>isdir</code></td>
+<td>
+<p>logical: Is the file a directory?</p>
+</td></tr>
+<tr><td><code>mode</code></td>
+<td>
+<p>integer of class <code>"octmode"</code>.  The file permissions,
+printed in octal, for example <code>644</code>.</p>
+</td></tr>
+<tr><td><code>mtime</code>, <code>ctime</code>, <code>atime</code></td>
+<td>
+<p>integer of class <code>"POSIXct"</code>:
+file modification, &lsquo;last status change&rsquo; and last access times.</p>
+</td></tr>
+<tr><td><code>uid</code></td>
+<td>
+<p>integer: the user ID of the file's owner.</p>
+</td></tr>
+<tr><td><code>gid</code></td>
+<td>
+<p>integer: the group ID of the file's group.</p>
+</td></tr>
+<tr><td><code>uname</code></td>
+<td>
+<p>character: <code>uid</code> interpreted as a user name.</p>
+</td></tr>
+<tr><td><code>grname</code></td>
+<td>
+<p>character: <code>gid</code> interpreted as a group name.</p>
+</td></tr>
+</table>
+<p>Unknown user and group names will be <code>NA</code>.
+</p>
+<p>If <code>extra_cols</code> is false, only the first six columns are
+returned: as these can all be found from a single C system call this
+can be faster.  (However, properly configured systems will use a
+&lsquo;name service cache daemon&rsquo; to speed up the name lookups.)
+</p>
+<p>Entries for non-existent or non-readable files will be <code>NA</code>.
+The <code>uid</code>, <code>gid</code>, <code>uname</code> and <code>grname</code> columns
+may not be supplied on a non-POSIX Unix-alike system, and will not be
+on Windows.
+</p>
+<p>What is meant by the three file times depends on the OS and file
+system.  On Windows native file systems <code>ctime</code> is the file
+creation time (something which is not recorded on most Unix-alike file
+systems).  What is meant by &lsquo;file access&rsquo; and hence the
+&lsquo;last access time&rsquo; is system-dependent.
+</p>
+<p>The times are reported to an accuracy of seconds, and perhaps more on
+some systems.  However, many file systems only record times in
+seconds, and some (e.g., modification time on FAT systems) are recorded
+in increments of 2 or more seconds.
+</p>
+<p><code>file.mode</code>, <code>file.mtime</code> and <code>file.size</code> are
+convenience wrappers returning just one of the columns.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Some systems allow files of more than 2Gb to be created but
+not accessed by the <code>stat</code> system call.  Such files will show up
+as non-readable (and very likely not be readable by any of <span class="rlang"><b>R</b></span>'s input
+functions) &ndash; fortunately such file systems are becoming rare.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Sys.readlink</code> to find out about symbolic links,
+<code>files</code>, <code>file.access</code>,
+<code>list.files</code>,
+and <code>DateTimeClasses</code> for the date formats.
+</p>
+<p><code>Sys.chmod</code> to change permissions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>ncol(finf &lt;- file.info(dir()))  # at least six
+finf # the whole list
+## Those that are more than 100 days old :
+finf &lt;- file.info(dir(), extra_cols = FALSE)
+finf[difftime(Sys.time(), finf[,"mtime"], units = "days") &gt; 100 , 1:4]
+
+file.info("no-such-file-exists")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.6.0 ]</div>
+</div>
+</body></html>

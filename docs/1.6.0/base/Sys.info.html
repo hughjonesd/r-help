@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><title>R: Extract System and User Information</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.info.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.info.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Sys.info {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Sys.info'>Extract System and User Information</h2>
+
+<h3>Description</h3>
+
+<p>Reports system and user information.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Sys.info()
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>This function is not implemented on all <span class="rlang"><b>R</b></span> platforms, and returns
+<code>NULL</code> when not available.  Where possible it is based on POSIX
+system calls.
+</p>
+<p><code>Sys.info()</code> returns details of the platform <span class="rlang"><b>R</b></span> is running on,
+whereas <code>R.version</code> gives details of the platform <span class="rlang"><b>R</b></span> was
+built on: they may well be different.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector with fields
+</p>
+<table>
+<tr><td><code>sysname</code></td>
+<td>
+<p>The operating system.</p>
+</td></tr>
+<tr><td><code>release</code></td>
+<td>
+<p>The OS release.</p>
+</td></tr>
+<tr><td><code>version</code></td>
+<td>
+<p>The OS version.</p>
+</td></tr>
+<tr><td><code>nodename</code></td>
+<td>
+<p>A name by which the machine is known on the network (if
+any).</p>
+</td></tr>
+<tr><td><code>machine</code></td>
+<td>
+<p>A concise description of the hardware.</p>
+</td></tr>
+<tr><td><code>login</code></td>
+<td>
+<p>The user's login name, or <code>"unknown"</code> if it cannot be
+ascertained.</p>
+</td></tr>
+<tr><td><code>user</code></td>
+<td>
+<p>The name of the real user ID, or <code>"unknown"</code> if it
+cannot be ascertained.</p>
+</td></tr>
+</table>
+<p>The first five fields come from the <code>uname(2)</code> system call.  The
+login name comes from <code>getlogin(2)</code>, and the user name from
+<code>getpwuid(getuid())</code>
+</p>
+
+
+<h3>Note</h3>
+
+<p>The meaning of OS &ldquo;release&rdquo; and &ldquo;version&rdquo; is highly
+system-dependent and there is no guarantee that the node or
+login or user names will be what you might reasonably expect.
+(In particular on some Linux distributions the login name is unknown
+from sessions with re-directed inputs.)
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>B. D. Ripley</p>
+
+
+<h3>See Also</h3>
+
+<p><code>.Platform</code>, and <code>R.version</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>Sys.info()
+## An alternative (and probably better) way to get the login name on Unix
+Sys.getenv("LOGNAME")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.0 ]</div>
+</div>
+</body></html>

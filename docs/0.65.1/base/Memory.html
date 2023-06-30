@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><title>R: Memory Available for Data Storage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Memory.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Memory.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Memory {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Memory'>Memory Available for Data Storage</h2>
+
+<h3>Description</h3>
+
+<p>Use command line options to set the memory available for <span class="rlang"><b>R</b></span>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R --vsize v --nsize n
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Memory_:_v">v</code></td>
+<td>
+<p>Use <code>v</code> bytes of heap memory</p>
+</td></tr>
+<tr><td><code id="Memory_:_n">n</code></td>
+<td>
+<p>Use <code>n</code> cons cells.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><span class="rlang"><b>R</b></span> (currently) uses a static memory model.  This means that when it
+starts up, it asks the operating system to reserve a fixed amount of
+memory for it.  The size of this chunk cannot be changed
+subsequently.  Hence, it can happen that not enough memory was
+allocated, e.g., when trying to read large data sets into <span class="rlang"><b>R</b></span>.
+</p>
+<p>In these cases, you should restart <span class="rlang"><b>R</b></span> (after saving your current
+workspace) with more memory available, using the command line
+options <code>--nsize</code> and <code>--vsize</code>.  To understand these
+options, one needs to know that <span class="rlang"><b>R</b></span> maintains separate areas for fixed
+and variable sized objects.  The first of these is allocated as an
+array of &ldquo;<b>cons cells</b>&rdquo; (Lisp programmers will know what they are,
+others may think of them as the building blocks of the language
+itself, parse trees, etc.), and the second are thrown on a
+&ldquo;<b>heap</b>&rdquo; of &ldquo;Vcells&rdquo; (see
+<code>gc()["Vcells","total"]</code>) of 8 bytes each.  Effectively,
+the input <code>v</code> is therefore truncated to the nearest multiple of 8.
+</p>
+<p>The <code>--nsize</code> option can be used to specify the
+number of cons cells (each occupying 16 bytes) which <span class="rlang"><b>R</b></span> is to use
+(the default is 250000), and the <code>--vsize</code> option to  specify
+the size of the vector heap in bytes (the default is 6 MB).
+Both options must be integers or integers ending with
+<code>M</code>, <code>K</code>, or <code>k</code> meaning <em>Mega</em>
+(= <code class="reqn">2^{20}</code> = 1048576), (computer) <em>Kilo</em> (= <code class="reqn">2^{10}</code> = 1024),
+or regular <em>kilo</em> (= 1000). (The minimum allowed values are
+200000 and 2M.)
+<br />
+E.g., to read in a table of 10000 observations on 40 numeric
+variables, <code>R --vsize 10M</code> should do;  For
+<code>source()</code>ing a large file, you'd use <code>R --nsize 500k</code>.
+</p>
+<p>Note that the information on where to find vectors and strings on
+the heap is stored using cons cells.  Thus, it may also be necessary
+to allocate more space for cons cells in order to perform
+computations with very &ldquo;large&rdquo; variable-size objects.
+</p>
+<p>You can find out the current memory consumption (the proportion of
+heap and cons cells used) by typing <code>gc()</code> at the <span class="rlang"><b>R</b></span>
+prompt.  This may help you in finding out whether to increase
+<code>--vsize</code> or <code>--nsize</code>.  Note that following
+<code>gcinfo(TRUE)</code>, automatic garbage collection always
+prints memory use statistics.
+<br />
+<span class="rlang"><b>R</b></span> will tell you whether you ran out of cons or heap memory.
+</p>
+<p>The defaults for <code>--nsize</code> and <code>--vsize</code> can be changed by
+setting the environment variables <code>R_NSIZE</code> and <code>R_VSIZE</code>
+respectively, perhaps most conveniently on Unix in the file
+&lsquo;<span class="file">~/.Renviron</span>&rsquo;.
+</p>
+<p>When using <code>read.table</code>, the memory requirements are in
+fact higher than anticipated, because the file is first read in as
+one long string which is then split again. Use <code>scan</code> if
+possible in case you run out of memory when reading in a large table.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>gc</code> for information on the garbage collector.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># Start R with 15MB of heap memory and 1 million cons cells
+## Not run: 
+R --vsize 15M --nsize 1000k
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Class '&quot;mle&quot;' for Results of Maximum Likelihood Estimation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle-class.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle-class.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mle-class {stats4}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mle-class'>Class <code>"mle"</code> for Results of Maximum Likelihood Estimation</h2>
+
+<h3>Description</h3>
+
+<p>This class encapsulates results of a generic maximum
+likelihood procedure.</p>
+
+
+<h3>Objects from the Class</h3>
+
+<p>Objects can be created by calls of the form <code>new("mle", ...)</code>, but
+most often as the result of a call to <code>mle</code>.
+</p>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt><code>call</code>:</dt><dd><p>Object of class <code>"language"</code>.
+The call to <code>mle</code>.</p>
+</dd>
+<dt><code>coef</code>:</dt><dd><p>Object of class <code>"numeric"</code>.  Estimated
+parameters.</p>
+</dd>
+<dt><code>fullcoef</code>:</dt><dd><p>Object of class <code>"numeric"</code>.
+Fixed and estimated parameters.</p>
+</dd>
+<dt><code>vcov</code>:</dt><dd><p>Object of class <code>"matrix"</code>.  Approximate
+variance-covariance matrix.</p>
+</dd>
+<dt><code>min</code>:</dt><dd><p>Object of class <code>"numeric"</code>.  Minimum value
+of objective function.</p>
+</dd>
+<dt><code>details</code>:</dt><dd><p>a <code>"list"</code>, as returned from
+<code>optim</code>.</p>
+</dd>
+<dt><code>minuslogl</code>:</dt><dd><p>Object of class <code>"function"</code>.  The
+negative loglikelihood function.</p>
+</dd>
+<dt><code>nobs</code>:</dt><dd><p><code>"integer"</code> of length one.  The
+number of observations (often <code>NA</code>, when not set in call
+explicitly).</p>
+</dd>
+<dt><code>method</code>:</dt><dd><p>Object of class <code>"character"</code>.  The
+optimization method used.</p>
+</dd>
+</dl>
+
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt>confint</dt><dd><p><code>signature(object = "mle")</code>: Confidence
+intervals from likelihood profiles.</p>
+</dd>
+<dt>logLik</dt><dd><p><code>signature(object = "mle")</code>: Extract maximized
+log-likelihood.</p>
+</dd>
+<dt>profile</dt><dd><p><code>signature(fitted = "mle")</code>: Likelihood profile
+generation.</p>
+</dd>
+<dt>nobs</dt><dd><p><code>signature(object = "mle")</code>: Number of
+observations, here simply accessing the <code>nobs</code> slot mentioned above.</p>
+</dd>
+<dt>show</dt><dd><p><code>signature(object = "mle")</code>: Display object briefly.</p>
+</dd>
+<dt>summary</dt><dd><p><code>signature(object = "mle")</code>: Generate object summary.</p>
+</dd>
+<dt>update</dt><dd><p><code>signature(object = "mle")</code>:  Update fit.</p>
+</dd>
+<dt>vcov</dt><dd><p><code>signature(object = "mle")</code>: Extract
+variance-covariance matrix.</p>
+</dd>
+</dl>
+
+
+<hr /><div style="text-align: center;">[Package <em>stats4</em> version 3.4.1 ]</div>
+</div>
+</body></html>

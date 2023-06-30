@@ -1,0 +1,68 @@
+<!DOCTYPE html><html><head><title>R: Include an Offset in a Model Formula</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/offset.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/offset.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>offset {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='offset'>Include an Offset in a Model Formula</h2>
+
+<h3>Description</h3>
+
+<p>An offset is a term to be added to a linear predictor, such as in a
+generalised linear model, with known coefficient 1 rather than an
+estimated coefficient.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>offset(object)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="offset_:_object">object</code></td>
+<td>
+<p>An offset to be included in a model frame</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>There can be more than one offset in a model formula, but <code>-</code> is
+not supported for <code>offset</code> terms (and is equivalent to <code>+</code>). 
+</p>
+
+
+<h3>Value</h3>
+
+<p>The input value.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>model.offset</code>, <code>model.frame</code>.
+</p>
+<p>For examples see <code>glm</code> and
+<code>Insurance</code> in package <span class="pkg">MASS</span>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.1.1 ]</div>
+</div>
+</body></html>

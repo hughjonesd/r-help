@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head><title>R: Time Windows</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/window.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/window.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>window {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='window'>Time Windows</h2>
+
+<h3>Description</h3>
+
+<p><code>window</code> is a generic function which
+extracts the subset of the object <code>x</code>
+observed between the times <code>start</code> and <code>end</code>. If a
+frequency is specified, the series is then re-sampled at the new
+frequency.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>window(x, ...)
+## S3 method for class 'ts'
+window(x, ...)
+## Default S3 method:
+window(x, start = NULL, end = NULL,
+      frequency = NULL, deltat = NULL, extend = FALSE, ...)
+
+window(x, ...) &lt;- value
+## S3 replacement method for class 'ts'
+window(x, start, end, frequency, deltat, ...) &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="window_:_x">x</code></td>
+<td>
+<p>a time-series (or other object if not replacing values).</p>
+</td></tr>
+<tr><td><code id="window_:_start">start</code></td>
+<td>
+<p>the start time of the period of interest.</p>
+</td></tr>
+<tr><td><code id="window_:_end">end</code></td>
+<td>
+<p>the end time of the period of interest.</p>
+</td></tr>
+<tr><td><code id="window_:_frequency">frequency</code>, <code id="window_:_deltat">deltat</code></td>
+<td>
+<p>the new frequency can be specified by either
+(or both if they are consistent).</p>
+</td></tr>
+<tr><td><code id="window_:_extend">extend</code></td>
+<td>
+<p>logical.  If true, the <code>start</code> and <code>end</code> values
+are allowed to extend the series.  If false, attempts to extend the
+series give a warning and are ignored.</p>
+</td></tr>
+<tr><td><code id="window_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+<tr><td><code id="window_:_value">value</code></td>
+<td>
+<p>replacement values.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The start and end times can be specified as for <code>ts</code>. If
+there is no observation at the new <code>start</code> or <code>end</code>,
+the immediately following (<code>start</code>) or preceding (<code>end</code>)
+observation time is used.
+</p>
+<p>The replacement function has a method for <code>ts</code> objects, and
+is allowed to extend the series (with a warning).  There is no default
+method.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The value depends on the method. <code>window.default</code> will return a
+vector or matrix with an appropriate <code>tsp</code> attribute.
+</p>
+<p><code>window.ts</code> differs from <code>window.default</code> only in
+ensuring the result is a <code>ts</code> object.
+</p>
+<p>If <code>extend = TRUE</code> the series will be padded with <code>NA</code>s if
+needed.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>time</code>, <code>ts</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>window(presidents, 1960, c(1969,4)) # values in the 1960's
+window(presidents, deltat = 1)  # All Qtr1s
+window(presidents, start = c(1945,3), deltat = 1)  # All Qtr3s
+window(presidents, 1944, c(1979,2), extend = TRUE)
+
+pres &lt;- window(presidents, 1945, c(1949,4)) # values in the 1940's
+window(pres, 1945.25, 1945.50) &lt;- c(60, 70)
+window(pres, 1944, 1944.75) &lt;- 0 # will generate a warning
+window(pres, c(1945,4), c(1949,4), frequency = 1) &lt;- 85:89
+pres
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.6.1 ]</div>
+</div>
+</body></html>

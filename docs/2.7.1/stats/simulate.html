@@ -1,0 +1,121 @@
+<!DOCTYPE html><html><head><title>R: Simulate Responses</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/simulate.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/simulate.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>simulate {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='simulate'>Simulate Responses</h2>
+
+<h3>Description</h3>
+
+<p>Simulate one or more response vectors from the theoretical distribution
+corresponding to a fitted model object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>simulate(object, nsim, seed, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="simulate_:_object">object</code></td>
+<td>
+<p>an object representing a fitted model.</p>
+</td></tr>
+<tr><td><code id="simulate_:_nsim">nsim</code></td>
+<td>
+<p>number of response vectors to simulate.  Defaults to 1.</p>
+</td></tr>
+<tr><td><code id="simulate_:_seed">seed</code></td>
+<td>
+<p>an object specifying if and how the random number
+generator should be initialized (&lsquo;seeded&rsquo;).<br />
+For the &quot;lm&quot; method, either <code>NULL</code> or an integer that will be
+used in a call to <code>set.seed</code> before simulating the response
+vectors.  If set, the value is saved as the <code>"seed"</code> attribute
+of the returned value.  The default, <code>NULL</code> will not change the
+random generator state, and return <code>.Random.seed</code> as
+<code>"seed"</code> attribute, see below.
+</p>
+</td></tr>
+<tr><td><code id="simulate_:_...">...</code></td>
+<td>
+<p>additional optional arguments.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is a generic function with a method for <code>lm</code> objects.
+Consult the individual modeling functions
+for details on how to use this function.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Typically, a list of length <code>nsim</code> of simulated response vectors.
+When appropriate the result can be a data frame (which is a special
+type of list).
+
+
+</p>
+<p>For the <code>"lm"</code> method, the result is a data frame with an
+attribute <code>"seed"</code> containing the <code>seed</code> argument and
+<code>as.list(RNGkind())</code> if <code>seed</code> was not <code>NULL</code>,
+or the value of <code>.Random.seed</code> before the simulation was
+started when <code>seed</code> was NULL as by default.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>fitted.values</code> and <code>residuals</code> for related methods;
+<code>glm</code>, <code>lm</code> for model fitting.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:5
+mod1 &lt;- lm(c(1:3,7,6) ~ x)
+S1 &lt;- simulate(mod1, nsim = 4)
+## repeat the simulation:
+.Random.seed &lt;- attr(S1, "seed")
+identical(S1, simulate(mod1, nsim = 4))
+
+S2 &lt;- simulate(mod1, nsim = 200, seed = 101)
+rowMeans(S2) # should be about
+fitted(mod1)
+
+## repeat identically:
+(sseed &lt;- attr(S2, "seed")) # seed; RNGkind as attribute
+stopifnot(identical(S2, simulate(mod1, nsim = 200, seed = sseed)))
+
+## To be sure about the proper RNGkind, e.g., after
+RNGversion("2.7.0")
+## first set the RNG kind, then simulate
+do.call(RNGkind, attr(sseed, "kind"))
+identical(S2, simulate(mod1, nsim = 200, seed = sseed))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.7.1 ]</div>
+</div>
+</body></html>

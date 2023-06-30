@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><title>R: Class for 'no quote' Printing of Character Strings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/noquote.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/noquote.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>noquote {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='noquote'>Class for &lsquo;no quote&rsquo; Printing of Character Strings</h2>
+
+<h3>Description</h3>
+
+<p>Print character strings without quotes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>noquote(obj)
+
+## S3 method for class 'noquote'
+print(x, ...)
+
+## S3 method for class 'noquote'
+c(..., recursive = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="noquote_:_obj">obj</code></td>
+<td>
+<p>any <span class="rlang"><b>R</b></span> object, typically a vector of
+<code>character</code> strings.</p>
+</td></tr>
+<tr><td><code id="noquote_:_x">x</code></td>
+<td>
+<p>an object of class <code>"noquote"</code>.</p>
+</td></tr>
+<tr><td><code id="noquote_:_...">...</code></td>
+<td>
+<p>further options passed to next methods, such as <code>print</code>.</p>
+</td></tr>
+<tr><td><code id="noquote_:_recursive">recursive</code></td>
+<td>
+<p>for compatibility with the generic <code>c</code> function.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>noquote</code> returns its argument as an object of class
+<code>"noquote"</code>.  There is a method for <code>c()</code> and subscript
+method (<code>"[.noquote"</code>) which ensures that the class is not lost
+by subsetting.  The print method (<code>print.noquote</code>) prints
+character strings <em>without</em> quotes (<code>"\dots"</code>).
+</p>
+<p>These functions exist both as utilities and as an example of using (S3)
+<code>class</code> and object orientation.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Martin Maechler <a href="mailto:maechler@stat.math.ethz.ch">maechler@stat.math.ethz.ch</a></p>
+
+
+<h3>See Also</h3>
+
+<p><code>methods</code>, <code>class</code>, <code>print</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>letters
+nql &lt;- noquote(letters)
+nql
+nql[1:4] &lt;- "oh"
+nql[1:12]
+
+cmp.logical &lt;- function(log.v)
+{
+  ## Purpose: compact printing of logicals
+  log.v &lt;- as.logical(log.v)
+  noquote(if(length(log.v)==0)"()" else c(".","|")[1+log.v])
+}
+cmp.logical(stats::runif(20) &gt; 0.8)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.14.2 ]</div>
+</div>
+</body></html>

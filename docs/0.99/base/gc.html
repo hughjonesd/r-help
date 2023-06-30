@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><title>R: Garbage Collection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.99. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/gc.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/gc.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>gc {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='gc'>Garbage Collection</h2>
+
+<h3>Description</h3>
+
+<p>A call of <code>gc</code> causes a garbage collection to take place.
+<code>gcinfo</code> sets a flag so that
+automatic collection is either silent (<code>verbose=FALSE</code>) or
+prints memory use statistics (<code>verbose=TRUE</code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>gc(verbose = getOption("verbose"))
+gcinfo(verbose)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="gc_:_verbose">verbose</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the garbage collection prints
+statistics about cons cells [in Bytes] and the vector heap [in KBytes].</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A call of <code>gc</code> causes a garbage collection to take place.
+This takes place automagically without user intervention, and the
+primary purpose of calling <code>gc</code> is for the report on memory usage.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>gc</code> returns a 2*3 matrix with rows <code>"Ncells"</code> (<em>cons
+cells</em>, usually 20 bytes each on 32-bit systems, 36 bytes each on
+64-bit systems) and <code>"Vcells"</code> (<em>vector cells</em>, 8 bytes each),
+and columns <code>"free"</code>, <code>"total"</code> and <code>"(Mb)"</code> (rounded up
+to the next 0.1Mb).
+</p>
+<p><code>gcinfo</code> returns the previous value of the flag.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Memory</code> on <span class="rlang"><b>R</b></span>'s memory management  and
+<code>gctorture</code> if you are an <span class="rlang"><b>R</b></span> hacker.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>gc() #- do it now
+gcinfo(TRUE) #-- in the future, show when R does it
+x &lt;- integer(0); for(i in 1:18) x &lt;- c(x,i,x)
+gcinfo(verbose = FALSE)#-- don't show it anymore
+
+( rgc &lt;- gc(TRUE) )
+(100*rgc[,"free"])%/% rgc[,"total"] # the percentages
+rgc[2,"free"]/ (1024 / 8) # free vector heap in K bytes
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.99 ]</div>
+</div>
+</body></html>

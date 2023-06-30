@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>R: A non-structure S4 Class for basic types</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/nonStructure-class.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/nonStructure-class.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>nonStructure-class {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='nonStructure-class'>A non-structure S4 Class for basic types </h2>
+
+<h3>Description</h3>
+
+<p> S4 classes that are defined to extend one of the basic
+vector classes should contain the class
+<code>structure</code> if they behave like structures; that
+is, if they should retain their class behavior under math functions
+or operators, so long as their length is unchanged.
+On the other hand, if their class depends on the values in the
+object, not just its structure, then they should lose that class
+under any such transformations.  In the latter case, they should be
+defined to contain <code>nonStructure</code>.
+</p>
+<p>If neither of these strategies applies, the class likely needs some
+methods of its own for <code>Ops</code>, <code>Math</code>, and/or
+other generic functions. What is not usually a good idea is to allow
+such computations to drop down to the default, base code.  This is
+inconsistent with most definitions of such classes.</p>
+
+
+<h3>Methods</h3>
+
+<p>Methods are defined for operators and math functions (groups
+<code>Ops</code>, <code>Math</code> and  <code>Math2</code>.  In
+all cases the result is an ordinary vector of the appropriate type.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, John M. (2008)
+<em>Software for Data Analysis: Programming with R</em>
+Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>structure</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>setClass("NumericNotStructure", contains = c("numeric","nonStructure"))
+xx &lt;- new("NumericNotStructure", 1:10)
+xx + 1 # vector
+log(xx) # vector
+sample(xx) # vector
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 3.4.1 ]</div>
+</div>
+</body></html>

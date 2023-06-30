@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><title>R: Create a Skeleton for a New Source Package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/package.skeleton.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/package.skeleton.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>package.skeleton {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='package.skeleton'>Create a Skeleton for a New Source Package</h2>
+
+<h3>Description</h3>
+
+<p><code>package.skeleton</code> automates some of the setup for a new source
+package.  It creates directories, saves functions, data, and R code files to
+appropriate places, and creates skeleton help files and a
+&lsquo;<span class="file">Read-and-delete-me</span>&rsquo; file describing further steps in packaging. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>package.skeleton(name = "anRpackage", list,
+                 environment = .GlobalEnv,
+                 path = ".", force = FALSE, namespace = FALSE,
+                 code_files = character())
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="package.skeleton_:_name">name</code></td>
+<td>
+<p>character string: the package name and directory name for
+your package.</p>
+</td></tr>
+<tr><td><code id="package.skeleton_:_list">list</code></td>
+<td>
+<p>character vector naming the <span class="rlang"><b>R</b></span> objects to put in the
+package.  Usually, at most one of <code>list</code>, <code>environment</code>,
+or <code>code_files</code> will be supplied.  See &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="package.skeleton_:_environment">environment</code></td>
+<td>
+<p>an environment where objects are looked for.  See
+&lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="package.skeleton_:_path">path</code></td>
+<td>
+<p>path to put the package directory in.</p>
+</td></tr>
+<tr><td><code id="package.skeleton_:_force">force</code></td>
+<td>
+<p>If <code>FALSE</code> will not overwrite an existing directory.</p>
+</td></tr>
+<tr><td><code id="package.skeleton_:_namespace">namespace</code></td>
+<td>
+<p>a logical indicating whether to add a name space for
+the package.  If <code>TRUE</code>, a <code>NAMESPACE</code> file is created
+to export all objects whose names begin with a letter, plus all S4
+methods and classes.</p>
+</td></tr>
+<tr><td><code id="package.skeleton_:_code_files">code_files</code></td>
+<td>
+<p>a character vector with the paths to R code files to
+build the package around.  See &lsquo;Details&rsquo;.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The arguments <code>list</code>, <code>environment</code>, and <code>code_files</code>
+provide alternative ways to initialize the package.  If
+<code>code_files</code> is supplied, the files so named will be sourced to
+form the environment, then used to generate the package skeleton.
+Otherwise <code>list</code> defaults to the non-hidden files in
+<code>environment</code> (those whose name does not start with <code>.</code>),
+but can be supplied to select a subset of the objects in that
+environment.
+</p>
+<p>Stubs of help files are generated for functions, data objects, and
+S4 classes and methods, using the <code>prompt</code>,
+<code>promptClass</code>,  and <code>promptMethods</code> functions.
+</p>
+<p>The package sources are placed in subdirectory <code>name</code> of
+<code>path</code>.  If <code>code_files</code> is supplied, these files are
+copied; otherwise, objects will be dumped into individual source
+files.
+The file names in <code>code_files</code> should  have suffix <code>".R"</code> and
+be in the current working directory.
+</p>
+<p>The filenames created for source and documentation try to be valid for
+all OSes known to run R.  Invalid characters are replaced by &lsquo;<span class="samp">&#8288;_&#8288;</span>&rsquo;,
+invalid names are preceded by &lsquo;<span class="samp">&#8288;zz&#8288;</span>&rsquo;, names are converted to lower
+case (to avoid case collisions on case-insensitive file systems) and
+finally the converted names are made unique by
+<code>make.unique(sep = "_")</code>.  This can be done for code and
+help files but not data files (which are looked for by name). Also,
+the code and help files should have names starting with an ASCII
+letter or digit, and this is checked and if necessary <code>z</code>
+prepended.
+</p>
+<p>When you are done, delete the &lsquo;<span class="file">Read-and-delete-me</span>&rsquo; file, as it
+should not be distributed.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Used for its side-effects.
+</p>
+
+
+<h3>References</h3>
+
+<p>Read the <em>Writing R Extensions</em> manual for more details.
+</p>
+<p>Once you have created a <em>source</em> package you need to install it:
+see the <em>R Installation and Administration</em> manual,
+<code>INSTALL</code> and <code>install.packages</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>prompt</code>, <code>promptClass</code>, and
+<code>promptMethods</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(stats)
+## two functions and two "data sets" :
+f &lt;- function(x,y) x+y
+g &lt;- function(x,y) x-y
+d &lt;- data.frame(a=1, b=2)
+e &lt;- rnorm(1000)
+
+package.skeleton(list=c("f","g","d","e"), name="mypkg")
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.13.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>R: Capture String Tokens into a data.frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/strcapture.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/strcapture.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>strcapture {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='strcapture'>Capture String Tokens into a data.frame</h2>
+
+<h3>Description</h3>
+
+<p>Given a character vector and a regular expression containing capture
+expressions, <code>strcapture</code> will extract the captured tokens into a
+tabular data structure, such as a data.frame, the type and structure of
+which is specified by a prototype object. The assumption is that the
+same number of tokens are captured from every input string. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>strcapture(pattern, x, proto, perl = FALSE, useBytes = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="strcapture_:_pattern">pattern</code></td>
+<td>
+
+<p>The regular expression with the capture expressions.
+</p>
+</td></tr>
+<tr><td><code id="strcapture_:_x">x</code></td>
+<td>
+
+<p>A character vector in which to capture the tokens.
+</p>
+</td></tr>
+<tr><td><code id="strcapture_:_proto">proto</code></td>
+<td>
+
+<p>A <code>data.frame</code> or S4 object that behaves like one. See details.
+</p>
+</td></tr>
+<tr><td><code id="strcapture_:_perl">perl</code>, <code id="strcapture_:_useBytes">useBytes</code></td>
+<td>
+
+<p>Arguments passed to <code>regexec</code>.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>proto</code> argument is typically a <code>data.frame</code>, with a
+column corresponding to each capture expression, in order. The
+captured character vector is coerced to the type of the column, and
+the column names are carried over to the return value. Any data in the
+prototype are ignored. See the examples. 
+</p>
+
+
+<h3>Value</h3>
+
+<p>A tabular data structure of the same type as <code>proto</code>, so
+typically a <code>data.frame</code>, containing a column for each capture
+expression. The column types and names are inherited from
+<code>proto</code>. Cases in <code>x</code> that do not match <code>pattern</code> have
+<code>NA</code> in every column.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>regexec</code> and <code>regmatches</code> for related
+low-level utilities.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- "chr1:1-1000"
+pattern &lt;- "(.*?):([[:digit:]]+)-([[:digit:]]+)"
+proto &lt;- data.frame(chr=character(), start=integer(), end=integer())
+strcapture(pattern, x, proto)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 4.1.3 ]</div>
+</div>
+</body></html>

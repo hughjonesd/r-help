@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: The Studentized Range Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Tukey.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Tukey.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Tukey {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Tukey'>The Studentized Range Distribution</h2>
+
+<h3>Description</h3>
+
+<p>Functions of the distribution of the studentized range, <code class="reqn">R/s</code>,
+where <code class="reqn">R</code> is the range of a standard normal sample and
+<code class="reqn">df \times s^2</code> is independently distributed as
+chi-squared with <code class="reqn">df</code> degrees of freedom, see <code>pchisq</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>ptukey(q, nmeans, df, nranges = 1, lower.tail = TRUE, log.p = FALSE)
+qtukey(p, nmeans, df, nranges = 1, lower.tail = TRUE, log.p = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Tukey_:_q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="Tukey_:_p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="Tukey_:_nmeans">nmeans</code></td>
+<td>
+<p>sample size for range (same for each group).</p>
+</td></tr>
+<tr><td><code id="Tukey_:_df">df</code></td>
+<td>
+<p>degrees of freedom for <code class="reqn">s</code> (see below).</p>
+</td></tr>
+<tr><td><code id="Tukey_:_nranges">nranges</code></td>
+<td>
+<p>number of <em>groups</em> whose <b>maximum</b> range is
+considered.</p>
+</td></tr>
+<tr><td><code id="Tukey_:_log.p">log.p</code></td>
+<td>
+<p>logical; if TRUE, probabilities p are given as log(p).</p>
+</td></tr>
+<tr><td><code id="Tukey_:_lower.tail">lower.tail</code></td>
+<td>
+<p>logical; if TRUE (default), probabilities are
+<code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code class="reqn">n_g =</code><code>nranges</code> is greater than one, <code class="reqn">R</code> is
+the <em>maximum</em> of <code class="reqn">n_g</code> groups of <code>nmeans</code>
+observations each.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>ptukey</code> gives the distribution function and <code>qtukey</code> its
+inverse, the quantile function.
+</p>
+
+
+<h3>Note</h3>
+
+<p>A Legendre 16-point formula is used for the integral of <code>ptukey</code>.
+The computations are relatively expensive, especially for
+<code>qtukey</code> which uses a simple secant method for finding the
+inverse of <code>ptukey</code>.
+<code>qtukey</code> will be accurate to the 4th decimal place.
+</p>
+
+
+<h3>References</h3>
+
+<p>Copenhaver, Margaret Diponzio and Holland, Burt S. (1988)
+Multiple comparisons of simple effects in
+the two-way analysis of variance with fixed effects.
+<em>Journal of Statistical Computation and Simulation</em>, <b>30</b>, 1&ndash;15.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>pnorm</code> and <code>qnorm</code> for the corresponding
+functions for the normal distribution.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>if(interactive())
+  curve(ptukey(x, nm=6, df=5), from=-1, to=8, n=101)
+(ptt &lt;- ptukey(0:10, 2, df= 5))
+(qtt &lt;- qtukey(.95, 2, df= 2:11))
+## The precision may be not much more than about 8 digits:
+summary(abs(.95 - ptukey(qtt,2, df = 2:11)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.5.0 ]</div>
+</div>
+</body></html>

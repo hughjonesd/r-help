@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><title>R: Classical (Metric) Multidimensional Scaling</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cmdscale.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cmdscale.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>cmdscale {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='cmdscale'>Classical (Metric) Multidimensional Scaling</h2>
+
+<h3>Description</h3>
+
+<p>Multidimensional scaling takes a set of dissimilarities
+and returns a set of points such that the distances between the points
+are approximately equal to the dissimilarities.
+</p>
+<p>The functions <code>isomds</code> and <code>sammon</code> provide
+alternative ordination techniques.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>cmdscale(d, k=2, eig=FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="cmdscale_:_d">d</code></td>
+<td>
+<p>a distance structure such as that returned by <code>dist</code>
+or a full symmetric matrix containing the dissimilarities.</p>
+</td></tr>
+<tr><td><code id="cmdscale_:_k">k</code></td>
+<td>
+<p>the dimension of the space which the data are to be represented in.</p>
+</td></tr>
+<tr><td><code id="cmdscale_:_eig">eig</code></td>
+<td>
+<p>indicates whether eigenvalues should be returned.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list containing the following components.
+</p>
+<table>
+<tr><td><code>points</code></td>
+<td>
+<p>a matrix with <code>k</code> columns whose rows give the
+coordinates of the points chosen to represent the dissimilarities.</p>
+</td></tr>
+<tr><td><code>eig</code></td>
+<td>
+<p>if requested,pthe eigenvalues computed during the scaling process.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>The S version of this function provides for computing an additional
+&ldquo;fiddle&rdquo; factor suggested by Togerson.  <span class="rlang"><b>R</b></span> does not provide this option.
+</p>
+
+
+<h3>References</h3>
+
+<p>Seber, G. A. F. (1984).
+<em>Multivariate Analysis</em>. New York: Wiley.
+</p>
+<p>Torgerson, W. S. (1958).
+<em>Theory and Methods of Scaling</em>.
+New York: Wiley.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dist</code>,
+<code>isomds</code>,
+<code>sammon</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(eurodist)
+loc &lt;- cmdscale(eurodist)
+x &lt;- loc[,1]
+y &lt;- -loc[,2]
+plot(x, y, type="n",
+	xlab="", ylab="")
+text(x, y, names(eurodist), cex=0.5)
+</code></pre>
+
+
+</div>
+</body></html>

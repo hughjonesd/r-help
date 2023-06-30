@@ -1,0 +1,312 @@
+<!DOCTYPE html><html><head><title>R: Pattern Matching and Replacement</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/grep.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/grep.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grep {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grep'>Pattern Matching and Replacement</h2>
+
+<h3>Description</h3>
+
+<p><code>grep</code>, <code>grepl</code>, <code>regexpr</code> and <code>gregexpr</code> search
+for matches to argument <code>pattern</code> within a character vector: they
+differ in the format of and amount of detail in the results.
+</p>
+<p><code>sub</code> and <code>gsub</code> perform replacement of the first and all
+matches respectively.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grep(pattern, x, ignore.case = FALSE, extended = TRUE,
+     perl = FALSE, value = FALSE, fixed = FALSE, useBytes = FALSE,
+     invert = FALSE)
+
+grepl(pattern, x, ignore.case = FALSE, extended = TRUE,
+     perl = FALSE, fixed = FALSE, useBytes = FALSE)
+
+sub(pattern, replacement, x,
+    ignore.case = FALSE, extended = TRUE, perl = FALSE,
+    fixed = FALSE, useBytes = FALSE)
+
+gsub(pattern, replacement, x,
+     ignore.case = FALSE, extended = TRUE, perl = FALSE,
+     fixed = FALSE, useBytes = FALSE)
+
+regexpr(pattern, text, ignore.case = FALSE, extended = TRUE,
+        perl = FALSE, fixed = FALSE, useBytes = FALSE)
+
+gregexpr(pattern, text, ignore.case = FALSE, extended = TRUE,
+         perl = FALSE, fixed = FALSE, useBytes = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grep_:_pattern">pattern</code></td>
+<td>
+<p>character string containing a regular expression
+(or character string for <code>fixed = TRUE</code>) to be matched
+in the given character vector.  Coerced by
+<code>as.character</code> to a character string if possible.  If a
+character vector of length 2 or more is supplied, the first element
+is used with a warning.  Missing values are allowed except for
+<code>regexpr</code> and <code>gregexpr</code>.</p>
+</td></tr>
+<tr><td><code id="grep_:_x">x</code>, <code id="grep_:_text">text</code></td>
+<td>
+<p>a character vector where matches are sought, or an
+object which can be coerced by <code>as.character</code> to a character vector.</p>
+</td></tr>
+<tr><td><code id="grep_:_ignore.case">ignore.case</code></td>
+<td>
+<p>if <code>FALSE</code>, the pattern matching is <em>case
+sensitive</em> and if <code>TRUE</code>, case is ignored during matching.</p>
+</td></tr>
+<tr><td><code id="grep_:_extended">extended</code></td>
+<td>
+<p>if <code>TRUE</code>, extended regular expression matching
+is used, and if <code>FALSE</code> basic regular expressions are used: the
+latter are deprecated.</p>
+</td></tr>
+<tr><td><code id="grep_:_perl">perl</code></td>
+<td>
+<p>logical. Should perl-compatible regexps be used?
+Has priority over <code>extended</code>.</p>
+</td></tr>
+<tr><td><code id="grep_:_value">value</code></td>
+<td>
+<p>if <code>FALSE</code>, a vector containing the (<code>integer</code>)
+indices of the matches determined by <code>grep</code> is returned, and if
+<code>TRUE</code>, a vector containing the matching elements themselves is
+returned.</p>
+</td></tr>
+<tr><td><code id="grep_:_fixed">fixed</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, <code>pattern</code> is a string to be
+matched as is.  Overrides all conflicting arguments.</p>
+</td></tr>
+<tr><td><code id="grep_:_useBytes">useBytes</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> the matching is done
+byte-by-byte rather than character-by-character.  See
+&lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="grep_:_invert">invert</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> return indices or values for
+elements that do <em>not</em> match.</p>
+</td></tr>
+<tr><td><code id="grep_:_replacement">replacement</code></td>
+<td>
+<p>a replacement for matched pattern in <code>sub</code> and
+<code>gsub</code>.  Coerced to character if possible.  For <code>fixed =
+      FALSE</code> this can include backreferences <code>"\1"</code> to
+<code>"\9"</code> to parenthesized subexpressions of <code>pattern</code>.  For
+<code>perl = TRUE</code> only, it can also contain <code>"\U"</code> or
+<code>"\L"</code> to convert the rest of the replacement to upper or
+lower case and <code>"\E"</code> to end case conversion.  If a
+character vector of length 2 or more is supplied, the first element
+is used with a warning.  If <code>NA</code>, all elements in the result
+corresponding to matches will be set to <code>NA</code>.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Arguments which should be character strings or character vectors are
+coerced to character if possible.
+</p>
+<p>Each of these functions operates in one of four modes:
+</p>
+
+<ol>
+<li> <p><code>fixed = TRUE</code>: use exact matching.
+</p>
+</li>
+<li> <p><code>perl = TRUE</code>: use Perl-style regular expressions.
+</p>
+</li>
+<li> <p><code>extended = FALSE</code>: use POSIX 1003.2 basic regular
+expressions (this mode is deprecated).
+</p>
+</li>
+<li><p> Defaults for the above three arguments: use POSIX 1003.2
+extended regular expressions.
+</p>
+</li></ol>
+
+<p>See the help pages on regular expression for details of the
+different types of regular expressions.
+</p>
+<p>The two <code>*sub</code> functions differ only in that <code>sub</code> replaces
+only the first occurrence of a <code>pattern</code> whereas <code>gsub</code>
+replaces all occurrences.
+</p>
+<p>For <code>regexpr</code> and <code>regexpr</code> it is an error for
+<code>pattern</code> to be <code>NA</code>, otherwise <code>NA</code> is permitted and
+gives an <code>NA</code> match.
+</p>
+<p>The main effect of <code>useBytes</code> is to avoid errors/warnings about
+invalid inputs and spurious matches in multibyte locales, but for
+<code>regexpr</code> it changes the interpretation of the output.  As from
+<span class="rlang"><b>R</b></span> 2.10.0 it inhibits the conversion of inputs with marked encodings.
+</p>
+<p>Caseless matching does not make much sense for bytes in a multibyte
+locale, and you should expect it only to work for ASCII characters if
+<code>useBytes = TRUE</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>grep(value = FALSE)</code> returns an integer vector of the indices
+of the elements of <code>x</code> that yielded a match (or not, for
+<code>invert = TRUE</code>.
+</p>
+<p><code>grep(value = TRUE)</code> returns a character vector containing the
+selected elements of <code>x</code> (after coercion, preserving names but no
+other attributes).
+</p>
+<p><code>grepl</code> returns a logical vector (match or not for each element of
+<code>x</code>).
+</p>
+<p>For <code>sub</code> and <code>gsub</code> return a character vector of the same
+length and with the same attributes as <code>x</code> (after possible
+coercion).  Elements of character vectors <code>x</code> which are not
+substituted will be return unchanged (including any declared
+encoding).  If <code>useBytes = FALSE</code> the result will be in UTF-8 in
+a multibyte locale.
+</p>
+<p>For <code>regexpr</code> an integer vector of the same length as <code>text</code>
+giving the starting position of the first match or <code class="reqn">-1</code> if there
+is none, with attribute <code>"match.length"</code> giving the length of the
+matched text (or <code class="reqn">-1</code> for no match).  In a multi-byte locale the
+match lengths are in characters rather than bytes unless
+<code>useBytes = TRUE</code> is used.
+</p>
+<p>For <code>gregexpr</code> a list of the same length as <code>text</code> each
+element of which is an integer vector as in <code>regexpr</code>, except
+that the starting positions of every (disjoint) match are given.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>The basic and extended modes of <code>gsub</code> and <code>gregexpr</code> do not
+work correctly with repeated word-boundaries (e.g. <code>pattern =
+  "\b"</code>).  Use <code>perl = TRUE</code> for such matches (but that may not
+works as expected with non-ASCII inputs, as the meaning of
+&lsquo;word&rsquo; is system-dependent).
+</p>
+
+
+<h3>Source</h3>
+
+<p>The C code for POSIX-style regular expression matching has changed
+over the years. As from <span class="rlang"><b>R</b></span> 2.10.0 the TRE library of Ville Laurikari
+(<a href="http://laurikari.net/tre/">http://laurikari.net/tre/</a>) is used.  Frox 2005 to <span class="rlang"><b>R</b></span> 2.9.2,
+code based on <code>glibc</code> was used (and earlier code from GNU
+<code>grep</code>).  The POSIX standard does give some room for
+interpretation, especially in the handling of invalid regular
+expressions, so the results will have changed slightly.
+</p>
+<p>For Perl-style matching PCRE (<a href="http://www.pcre.org">http://www.pcre.org</a>) is used.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole (<code>grep</code>)
+</p>
+
+
+<h3>See Also</h3>
+
+<p>regular expression (aka <code>regexp</code>) for the details
+of the pattern specification.
+</p>
+<p><code>glob2rx</code> to turn wildcard matches into regular expressions.
+</p>
+<p><code>agrep</code> for approximate matching.
+</p>
+<p><code>tolower</code>, <code>toupper</code> and <code>chartr</code>
+for character translations.
+<code>charmatch</code>, <code>pmatch</code>, <code>match</code>.
+<code>apropos</code> uses regexps and has more examples.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>grep("[a-z]", letters)
+
+txt &lt;- c("arm","foot","lefroo", "bafoobar")
+if(length(i &lt;- grep("foo",txt)))
+   cat("'foo' appears at least once in\n\t",txt,"\n")
+i # 2 and 4
+txt[i]
+
+## Double all 'a' or 'b's;  "\" must be escaped, i.e., 'doubled'
+gsub("([ab])", "\\1_\\1_", "abc and ABC")
+
+txt &lt;- c("The", "licenses", "for", "most", "software", "are",
+  "designed", "to", "take", "away", "your", "freedom",
+  "to", "share", "and", "change", "it.",
+   "", "By", "contrast,", "the", "GNU", "General", "Public", "License",
+   "is", "intended", "to", "guarantee", "your", "freedom", "to",
+   "share", "and", "change", "free", "software", "--",
+   "to", "make", "sure", "the", "software", "is",
+   "free", "for", "all", "its", "users")
+( i &lt;- grep("[gu]", txt) ) # indices
+stopifnot( txt[i] == grep("[gu]", txt, value = TRUE) )
+
+## Note that in locales such as en_US this includes B as the
+## collation order is aAbBcCdEe ...
+(ot &lt;- sub("[b-e]",".", txt))
+txt[ot != gsub("[b-e]",".", txt)]#- gsub does "global" substitution
+
+txt[gsub("g","#", txt) !=
+    gsub("g","#", txt, ignore.case = TRUE)] # the "G" words
+
+regexpr("en", txt)
+
+gregexpr("e", txt)
+
+## trim trailing white space
+str &lt;- 'Now is the time      '
+sub(' +$', '', str)  ## spaces only
+sub('[[:space:]]+$', '', str) ## white space, POSIX-style
+sub('\\s+$', '', str, perl = TRUE) ## Perl-style white space
+
+## capitalizing
+txt &lt;- "a test of capitalizing"
+gsub("(\\w)(\\w*)", "\\U\\1\\L\\2", txt, perl=TRUE)
+gsub("\\b(\\w)",    "\\U\\1",       txt, perl=TRUE)
+
+txt2 &lt;- "useRs may fly into JFK or laGuardia"
+gsub("(\\w)(\\w*)(\\w)", "\\U\\1\\E\\2\\U\\3", txt2, perl=TRUE)
+ sub("(\\w)(\\w*)(\\w)", "\\U\\1\\E\\2\\U\\3", txt2, perl=TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.10.0 ]</div>
+</div>
+</body></html>

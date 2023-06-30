@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>R: Add a 'datalist' File to a Package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/add_datalist.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/add_datalist.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>add_datalist {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='add_datalist'>
+Add a &lsquo;<span class="file">datalist</span>&rsquo; File to a Package
+</h2>
+
+<h3>Description</h3>
+
+<p>The <code>data()</code> command with no arguments lists all the
+datasets available via <code>data</code> in attached packages, and to do so a
+per-package list is installed.  Creating that list at install time can
+be slow for packages with huge datasets, and can be expedited by a
+supplying &lsquo;<span class="file">data/datalist</span>&rsquo; file.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>add_datalist(pkgpath, force = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="add_datalist_:_pkgpath">pkgpath</code></td>
+<td>
+<p>The path to a (source) package.</p>
+</td></tr>
+<tr><td><code id="add_datalist_:_force">force</code></td>
+<td>
+<p>logical: can an existing &lsquo;<span class="file">data/datalist</span>&rsquo; file be
+over-written?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>R CMD build</code> will call this function to add a data list to
+packages with 1MB or more of data.
+</p>
+<p>It is also helpful to give a &lsquo;<span class="file">data/datalist</span>&rsquo; file in packages
+whose datasets have many dependencies, including loading the packages
+itself (and maybe others).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>data</code>.
+</p>
+<p>The &lsquo;Writing R Extensions&rsquo; manual.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 3.1.0 ]</div>
+</div>
+</body></html>

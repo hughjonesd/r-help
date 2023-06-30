@@ -1,0 +1,153 @@
+<!DOCTYPE html><html><head><title>R: Seasonal Decomposition of Time Series by Loess</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/stl.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/stl.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>stl {ts}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='stl'>Seasonal Decomposition of Time Series by Loess</h2>
+
+<h3>Description</h3>
+
+<p>Decompose a time series into seasonal, trend and irregular
+components.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>stl(x, s.window = NULL, s.degree = 0, t.window = NULL, t.degree = 1,
+    robust = FALSE, na.action = na.fail)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="stl_:_x">x</code></td>
+<td>
+<p>A univariate time series to be decomposed.
+This should be an object of class <code>"ts"</code> with a frequency
+greater than one.</p>
+</td></tr>
+<tr><td><code id="stl_:_s.window">s.window</code></td>
+<td>
+<p>Either the string <code>"periodic"</code> or the span (in
+lags) of the loess window for seasonal extraction, which should
+be odd.  This has no default.</p>
+</td></tr>
+<tr><td><code id="stl_:_s.degree">s.degree</code></td>
+<td>
+<p>Degree of locally-fitted polynomial in seasonal
+extraction.  Should be zero or one.</p>
+</td></tr> 
+<tr><td><code id="stl_:_t.window">t.window</code></td>
+<td>
+<p>The span (in lags) of the loess window for trend
+extraction, which should be odd.  There is a reasonable
+default.</p>
+</td></tr>
+<tr><td><code id="stl_:_t.degree">t.degree</code></td>
+<td>
+<p>Degree of locally-fitted polynomial in trend
+extraction.  Should be zero or one.</p>
+</td></tr>
+<tr><td><code id="stl_:_robust">robust</code></td>
+<td>
+<p>Should robust fitting be used in the <code>loess</code>
+procedure?</p>
+</td></tr>
+<tr><td><code id="stl_:_na.action">na.action</code></td>
+<td>
+<p>Action on missing values.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The seasonal component is found by <em>loess</em> smoothing the
+seasonal sub-series (the series of all January values, ...); if
+<code>s.window = "periodic"</code> smoothing is effectively replaced by
+taking the mean. The seasonal values are removed, and the remainder
+smoothed to find the trend. The overall level is removed from the
+seasonal component and added to the trend component. This process is
+iterated a few times.  The <code>remainder</code> component is the
+residuals from the seasonal plus trend fit.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"stl"</code> with components
+</p>
+<table>
+<tr><td><code>time.series</code></td>
+<td>
+<p>a multiple time series with columns
+<code>seasonal</code>, <code>trend</code> and <code>remainder</code>,</p>
+</td></tr>
+<tr><td><code>weights</code></td>
+<td>
+<p>the final robust weights (all one if fitting is not
+done robustly,</p>
+</td></tr>
+<tr><td><code>call</code></td>
+<td>
+<p>the matched call.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>This is similar to but not identical to the <code>stl</code> function in
+S-PLUS. The <code>remainder</code> componet given by S-PLUS is the sum of
+the <code>trend</code> and <code>remainder</code> series from this function.</p>
+
+
+<h3>Author(s)</h3>
+
+<p>B.D. Ripley; Fortran code by Cleveland <em>et al.</em> (1990) from
+&lsquo;<span class="file">netlib</span>&rsquo;.</p>
+
+
+<h3>References</h3>
+
+<p>R. B. Cleveland, W. S. Cleveland, J.E.  McRae, and I.  Terpenning
+(1990).
+STL:  A  Seasonal-Trend  Decomposition  Procedure Based on Loess.
+<em>Journal of Official Statistics</em>, <b>6</b>, 3-73.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>loess</code> in package <code>modreg</code> (which is not
+actually used in <code>stl</code>).</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(nottem)
+plot(stl(nottem, "per"))
+data(co2)
+plot(stl(log(co2), s.window=21))
+## linear trend, strict period.
+plot(stl(log(co2), s.window="per", t.window=1000))
+</code></pre>
+
+
+</div>
+</body></html>

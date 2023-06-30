@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>R: Japanese characters in R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/Japanese.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/Japanese.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Japanese {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Japanese'>Japanese characters in R</h2>
+
+<h3>Description</h3>
+
+<p>The implementation of Hershey vector fonts provides a large number of
+Japanese characters (Hiragana, Katakana, and Kanji).
+</p>
+
+
+<h3>Details</h3>
+
+<p>Without keyboard support for typing Japanese characters, the only way
+to produce these characters is to use special escape sequences: see
+<code>Hershey</code>.
+</p>
+<p>For example, the Hiragana character for the sound &quot;ka&quot; is produced
+by &lsquo;<span class="samp">&#8288;\\#J242b&#8288;</span>&rsquo; and the Katakana character for this sound is
+produced by &lsquo;<span class="samp">&#8288;\\#J252b&#8288;</span>&rsquo;.  The Kanji ideograph for &quot;one&quot; is
+produced by &lsquo;<span class="samp">&#8288;\\#J306c&#8288;</span>&rsquo; or &lsquo;<span class="samp">&#8288;\\#N0001&#8288;</span>&rsquo;.
+</p>
+<p>The output from <code>demo(Japanese)</code> shows tables of the escape
+sequences for the available Japanese characters.
+</p>
+
+
+<h3>References</h3>
+
+<p><a href="https://www.gnu.org/software/plotutils/plotutils.html">https://www.gnu.org/software/plotutils/plotutils.html</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>demo(Japanese)</code>, <code>Hershey</code>, <code>text</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+plot(1:9, type = "n", axes = FALSE, frame = TRUE, ylab = "",
+     main = "example(Japanese)", xlab = "using Hershey fonts")
+par(cex = 3)
+Vf &lt;- c("serif", "plain")
+
+text(4, 2, "\\#J244b\\#J245b\\#J2473", vfont = Vf)
+text(4, 4, "\\#J2538\\#J2563\\#J2551\\#J2573", vfont = Vf)
+text(4, 6, "\\#J467c\\#J4b5c", vfont = Vf)
+text(4, 8, "Japan", vfont = Vf)
+par(cex = 1)
+text(8, 2, "Hiragana")
+text(8, 4, "Katakana")
+text(8, 6, "Kanji")
+text(8, 8, "English")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 3.3.3 ]</div>
+</div>
+</body></html>

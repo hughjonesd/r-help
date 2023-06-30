@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><title>R: Encode or Decode a (partial) URL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/URLencode.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/URLencode.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>URLencode {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='URLencode'>Encode or Decode a (partial) URL</h2>
+
+<h3>Description</h3>
+
+<p>Functions to encode or decode characters in URLs.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>URLencode(URL, reserved = FALSE)
+URLdecode(URL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="URLencode_:_URL">URL</code></td>
+<td>
+<p>A character string.</p>
+</td></tr>
+<tr><td><code id="URLencode_:_reserved">reserved</code></td>
+<td>
+<p>should reserved characters be encoded?  See
+&lsquo;Details&rsquo;.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Characters in a URL other than the English alphanumeric characters and
+&lsquo;<span class="samp">&#8288;$ - _ . + ! * ' ( ) ,&#8288;</span>&rsquo; should be encoded as <code>%</code>
+plus a two-digit hexadecimal representation, and any single-byte
+character can be so encoded. (Multi-byte characters are encoded as
+byte-by-byte.)
+</p>
+<p>In addition, &lsquo;<span class="samp">&#8288;; / ? : @ = &amp;&#8288;</span>&rsquo; are reserved characters, and should
+be encoded unless used in their reserved sense, which is scheme
+specific.  The default in <code>URLencode</code> is to leave them alone, which
+is appropriate for &lsquo;<span class="samp">&#8288;file://&#8288;</span>&rsquo; URLs, but probably not for
+&lsquo;<span class="samp">&#8288;http://&#8288;</span>&rsquo; ones.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character string.
+</p>
+
+
+<h3>References</h3>
+
+<p>RFC1738, <a href="http://www.rfc-editor.org/rfc/rfc1738.txt">http://www.rfc-editor.org/rfc/rfc1738.txt</a>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>(y &lt;- URLencode("a url with spaces and / and @"))
+URLdecode(y)
+(y &lt;- URLencode("a url with spaces and / and @", reserved=TRUE))
+URLdecode(y)
+URLdecode("ab%20cd")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.9.1 ]</div>
+</div>
+</body></html>

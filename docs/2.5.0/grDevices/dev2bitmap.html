@@ -1,0 +1,135 @@
+<!DOCTYPE html><html><head><title>R: Graphics Device for Bitmap Files via GhostScript</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/dev2bitmap.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/dev2bitmap.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dev2bitmap {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dev2bitmap'>Graphics Device for Bitmap Files via GhostScript</h2>
+
+<h3>Description</h3>
+
+<p><code>bitmap</code> generates a graphics file.
+<code>dev2bitmap</code> copies the current graphics device to a file in a
+graphics format.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>bitmap(file, type = "png256", height = 6, width = 6, res = 72,
+       pointsize, ...)
+
+dev2bitmap(file, type = "png256", height = 6, width = 6, res = 72,
+           pointsize, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dev2bitmap_:_file">file</code></td>
+<td>
+<p>The output file name, with an appropriate extension.</p>
+</td></tr>
+<tr><td><code id="dev2bitmap_:_type">type</code></td>
+<td>
+<p>The type of bitmap. the default is <code>"png256"</code>.</p>
+</td></tr>
+<tr><td><code id="dev2bitmap_:_height">height</code></td>
+<td>
+<p>The plot height, in inches.</p>
+</td></tr>
+<tr><td><code id="dev2bitmap_:_width">width</code></td>
+<td>
+<p>The plot width, in inches.</p>
+</td></tr>
+<tr><td><code id="dev2bitmap_:_res">res</code></td>
+<td>
+<p>Resolution, in dots per inch.</p>
+</td></tr>
+<tr><td><code id="dev2bitmap_:_pointsize">pointsize</code></td>
+<td>
+<p>The pointsize to be used for text: defaults to
+something reasonable given the width and height</p>
+</td></tr>
+<tr><td><code id="dev2bitmap_:_...">...</code></td>
+<td>
+<p>Other parameters passed to <code>postscript</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>dev2bitmap</code> works by copying the current device to a
+<code>postscript</code> device, and post-processing the output file
+using <code>ghostscript</code>.  <code>bitmap</code> works in the same way using a
+<code>postscript</code> device and post-processing the output as
+&ldquo;printing&rdquo;.
+</p>
+<p>You will need a version of <code>ghostscript</code> (5.10 and
+later have been tested): the full path to the executable can be set by
+the environment variable <span class="env">R\_GSCMD</span>.
+(If this is unset the command <code>"gs"</code> is used, which will work if
+it is in your path.)
+</p>
+<p>The types available will depend on the version of <code>ghostscript</code>,
+but are likely to include
+<code>"pcxmono"</code>, <code>"pcxgray"</code>, <code>"pcx16"</code>, <code>"pcx256"</code>,
+<code>"pcx24b"</code>, <code>"pcxcmyk"</code>, <code>"pbm"</code>, <code>"pbmraw"</code>,
+<code>"pgm"</code>, <code>"pgmraw"</code>, <code>"pgnm"</code>, <code>"pgnmraw"</code>,
+<code>"pnm"</code>, <code>"pnmraw"</code>, <code>"ppm"</code>, <code>"ppmraw"</code>,
+<code>"pkm"</code>, <code>"pkmraw"</code>, <code>"tiffcrle"</code>, <code>"tiffg3"</code>,
+<code>"tiffg32d"</code>, <code>"tiffg4"</code>, <code>"tifflzw"</code>,
+<code>"tiffpack"</code>, <code>"tiff12nc"</code>, <code>"tiff24nc"</code>,
+<code>"psmono"</code>, <code>"psgray"</code>, <code>"psrgb"</code>, <code>"bit"</code>,
+<code>"bitrgb"</code>, <code>"bitcmyk"</code>, <code>"pngmono"</code>, <code>"pnggray"</code>,
+<code>"png16"</code>, <code>"png256"</code>, <code>"png16m"</code>, <code>"jpeg"</code>,
+<code>"jpeggray"</code>, <code>"pdfwrite"</code>.
+</p>
+<p>Note: despite the name of the functions they can produce PDF <em>via</em>
+<code>type = "pdfwrite"</code>, and the PDF produced is not bitmapped.
+</p>
+<p>For formats which contain a single image, a file specification like
+<code>Rplots%03d.png</code> can be used: this is interpreted by GhostScript.
+</p>
+<p>For <code>dev2bitmap</code> if just one of <code>width</code> and <code>height</code> is
+specified, the other is chosen to preserve aspect ratio of the
+device being copied.
+</p>
+<p>For graphics parameters such as <code>"cra"</code> that need to work in
+pixels, the default resolution of 72dpi is always used.
+</p>
+
+
+<h3>Value</h3>
+
+<p>None.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>postscript</code>, <code>png</code> and
+<code>jpeg</code> and on Windows <code>bmp</code>.
+</p>
+<p><code>pdf</code> generate PDF directly.
+</p>
+<p>To display an array of data, see <code>image</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.5.0 ]</div>
+</div>
+</body></html>

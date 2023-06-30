@@ -1,0 +1,180 @@
+<!DOCTYPE html><html><head><title>R: Create an nlsModel Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/nlsModel.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/nlsModel.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>nlsModel {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='nlsModel'>Create an nlsModel Object</h2>
+
+<h3>Description</h3>
+
+<p>This is the constructor for <code>nlsModel</code> objects, which are
+function closures for several functions in a list.  The closure
+includes a nonlinear model formula, data values for the formula, as
+well as parameters and their values.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>nlsModel(form, data, start)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="nlsModel_:_form">form</code></td>
+<td>
+<p>a nonlinear model formula</p>
+</td></tr>
+<tr><td><code id="nlsModel_:_data">data</code></td>
+<td>
+<p>a data frame or a list in which to evaluate the variables
+from the model formula</p>
+</td></tr>
+<tr><td><code id="nlsModel_:_start">start</code></td>
+<td>
+<p>a named list or named numeric vector of starting
+estimates for the parameters in the model</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>An <code>nlsModel</code> object is primarily used within the <code>nls</code>
+function.  It encapsulates the model, the data, and the parameters in
+an environment and provides several methods to access characteristics
+of the model.  It forms an important component of the object returned
+by the <code>nls</code> function.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The value is a list of functions that share a common environment.
+</p>
+<table>
+<tr><td><code>resid</code></td>
+<td>
+<p>returns the residual vector evaluated at the current
+parameter values</p>
+</td></tr>
+<tr><td><code>fitted</code></td>
+<td>
+<p>returns the fitted responses and their gradient at the
+current parameter values</p>
+</td></tr>
+<tr><td><code>formula</code></td>
+<td>
+<p>returns the model formula</p>
+</td></tr>
+<tr><td><code>deviance</code></td>
+<td>
+<p>returns the residual sum-of-squares at the current
+parameter values</p>
+</td></tr>
+<tr><td><code>gradient</code></td>
+<td>
+<p>returns the gradient of the model function at the
+current parameter values</p>
+</td></tr>
+<tr><td><code>conv</code></td>
+<td>
+<p>returns the relative-offset convergence criterion
+evaluated at the current parmeter values</p>
+</td></tr>
+<tr><td><code>incr</code></td>
+<td>
+<p>returns the parameter increment calculated according to
+the Gauss-Newton formula</p>
+</td></tr>
+<tr><td><code>setPars</code></td>
+<td>
+<p>a function with one argument, <code>pars</code>.  It sets the
+parameter values for the <code>nlsModel</code> object and returns a
+logical value denoting a singular gradient array.</p>
+</td></tr>
+<tr><td><code>getPars</code></td>
+<td>
+<p>returns the current value of the model parameters as a
+numeric vector</p>
+</td></tr>
+<tr><td><code>getAllPars</code></td>
+<td>
+<p>returns the current value of the model parameters as a
+numeric vector</p>
+</td></tr>
+<tr><td><code>getEnv</code></td>
+<td>
+<p>returns the environment shared by these functions</p>
+</td></tr>
+<tr><td><code>trace</code></td>
+<td>
+<p>the function that is called at each iteration if
+tracing is enabled</p>
+</td></tr>
+<tr><td><code>Rmat</code></td>
+<td>
+<p>the upper triangular factor of the gradient array at the
+current parameter values</p>
+</td></tr>
+<tr><td><code>predict</code></td>
+<td>
+<p>takes as argument <code>newdata</code>,a <code>data.frame</code> and
+returns the predicted response for <code>newdata</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>Douglas M. Bates and Saikat DebRoy</p>
+
+
+<h3>References</h3>
+
+<p>Bates, D.M. and Watts, D.G. (1988), <em>Nonlinear Regression Analysis
+and Its Applications</em>, Wiley</p>
+
+
+<h3>See Also</h3>
+
+<p><code>nls</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>library( nls )
+data( DNase )
+DNase1 &lt;- DNase[ DNase$Run == 1, ]
+mod &lt;-
+ nlsModel(density ~ SSlogis( log(conc), Asym, xmid, scal ),
+          DNase1, list( Asym = 3, xmid = 0, scal = 1 ))
+mod$getPars()     # returns the parameters as a list
+mod$deviance()    # returns the residual sum-of-squares
+mod$resid()       # returns the residual vector and the gradient
+mod$incr()        # returns the suggested increment
+mod$setPars( unlist(mod$getPars()) + mod$incr() )  # set new parameter values
+mod$getPars()     # check the parameters have changed
+mod$deviance()    # see if the parameter increment was successful
+mod$trace()       # check the tracing
+mod$Rmat()        # R matrix from the QR decomposition of the gradient
+</code></pre>
+
+
+</div>
+</body></html>

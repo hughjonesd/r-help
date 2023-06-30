@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>R: Finalization of objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/reg.finalizer.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/reg.finalizer.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>reg.finalizer {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='reg.finalizer'>Finalization of objects</h2>
+
+<h3>Description</h3>
+
+<p>Registers an <span class="rlang"><b>R</b></span> function to be called upon garbage collection of object. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>  reg.finalizer(e, f)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="reg.finalizer_:_e">e</code></td>
+<td>
+<p>Object to finalize. Must be environment or external pointer.</p>
+</td></tr>
+<tr><td><code id="reg.finalizer_:_f">f</code></td>
+<td>
+<p>Function to call on finalization. Must accept a single argument, 
+which will be the object to finalize.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>NULL</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The purpose of this function is mainly to allow objects that 
+refer to external items (a temporary file, say) 
+to perform cleanup actions when they are no 
+longer referenced from within <span class="rlang"><b>R</b></span>. This only makes sense for objects 
+that are never copied on assignment, hence the restriction to environments 
+and external pointers.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>f &lt;- function(e) print("cleaning....")
+g &lt;- function(x){e&lt;-environment(); reg.finalizer(e,f)}
+g() 
+gc() # trigger cleanup
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.0 ]</div>
+</div>
+</body></html>

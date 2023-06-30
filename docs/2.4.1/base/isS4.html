@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><title>R: Test for an S4 object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/isS4.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/isS4.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>isS4 {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='isS4'> Test for an S4 object </h2>
+
+<h3>Description</h3>
+
+<p>Tests whether the object was created from a formally defined class.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>isS4(object)
+
+asS4(object, value = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="isS4_:_object">object</code></td>
+<td>
+<p> Any R object. </p>
+</td></tr>
+<tr><td><code id="isS4_:_value">value</code></td>
+<td>
+<p>A single logical value; not <code>NA</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p> Note that this function does not rely on the <code>methods</code> package, so in particular it can be used to detect the need to <code>require()</code> that package.
+</p>
+<p>You should not set the flag directly unless you really know why.  In the future, S4 methods may be restricted S4 objects, for primitive functions; then <code>asS4</code> would allow method dispatch of S4 methods for S3 classes.
+For all other purposes, an object will satisfy <code>isS4(x)</code> if and only if it should.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>isS4</code> always returns <code>TRUE</code> or <code>FALSE</code> according to whether the internal flag marking an S4 object has been turned on for this object.
+</p>
+<p><code>asS4</code> will turn this flag on or off. But see the details.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+isS4(pi) # FALSE
+isS4(getClass("MethodDefinition")) # TRUE
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.4.1 ]</div>
+</div>
+</body></html>

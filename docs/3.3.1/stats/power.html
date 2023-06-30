@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><title>R: Create a Power Link Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/power.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/power.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>power {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='power'>Create a Power Link Object</h2>
+
+<h3>Description</h3>
+
+<p>Creates a link object based on the link function
+<code class="reqn">\eta = \mu ^ \lambda</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>power(lambda = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="power_:_lambda">lambda</code></td>
+<td>
+<p>a real number.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>lambda</code> is non-positive, it is taken as zero, and the log
+link is obtained.  The default <code>lambda = 1</code> gives the identity
+link.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with components <code>linkfun</code>, <code>linkinv</code>,
+<code>mu.eta</code>, and <code>valideta</code>.
+See <code>make.link</code> for information on their meaning.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. and Hastie, T. J. (1992)
+<em>Statistical Models in S.</em>
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>make.link</code>,
+<code>family</code>
+</p>
+<p>To raise a number to a power, see <code>Arithmetic</code>.
+</p>
+<p>To calculate the power of a test, see various functions in the
+<span class="pkg">stats</span> package, e.g., <code>power.t.test</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>power()
+quasi(link = power(1/3))[c("linkfun", "linkinv")]
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.3.1 ]</div>
+</div>
+</body></html>

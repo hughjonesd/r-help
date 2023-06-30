@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: The Beta Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Beta.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Beta.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Beta {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Beta'>The Beta Distribution</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dbeta(x, shape1, shape2, ncp=0)
+pbeta(q, shape1, shape2, ncp=0)
+qbeta(p, shape1, shape2)
+rbeta(n, shape1, shape2)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Beta_:_x">x</code>, <code id="Beta_:_q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="Beta_:_p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="Beta_:_n">n</code></td>
+<td>
+<p>number of observations to generate.</p>
+</td></tr>
+<tr><td><code id="Beta_:_shape1">shape1</code>, <code id="Beta_:_shape2">shape2</code></td>
+<td>
+<p>positive parameters of the beta distribution.</p>
+</td></tr>
+<tr><td><code id="Beta_:_ncp">ncp</code></td>
+<td>
+<p>non-centrality parameter.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>These functions provide information about the Beta distribution
+with parameters <code>shape1</code> and <code>shape2</code> (and optional non-centrality
+parameter <code>ncp</code>).  <code>dbeta</code> gives the density,
+<code>pbeta</code> the distribution function, <code>qbeta</code> the
+quantile function and <code>rbeta</code> generates random deviates.
+</p>
+<p>The Beta distribution with parameters <code>shape1</code> <code class="reqn">= a</code> and <code>shape2</code>
+<code class="reqn">= b</code> has density
+</p>
+<p style="text-align: center;"><code class="reqn">f(x)=\frac{\Gamma (a + b )}{\Gamma (a) \Gamma (b)}{x}^{a} {(1-x)}^{b}%
+</code>
+</p>
+
+<p>for <code class="reqn">a &gt; 0</code>, <code class="reqn">b &gt; 0</code> and <code class="reqn">0 &lt; x &lt; 1</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>beta</code> for the beta function, and <code>dgamma</code> for the
+Gamma distribution.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- seq(0,1, length=21)
+dbeta(x, 1, 1)
+pbeta(x, 1, 1)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html><html><head><title>R: Median Absolute Deviation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4-revised. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/mad.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/mad.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mad {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mad'>Median Absolute Deviation</h2>
+
+<h3>Description</h3>
+
+<p>Compute the median absolute deviation, i.e., the (lo-/hi-) median of
+the absolute deviations from the median, and (by default) adjust by a
+factor for asymptotically normal consistency.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mad(x, center = median(x), constant = 1.4826, na.rm = FALSE,
+    low = FALSE, high = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="mad_:_x">x</code></td>
+<td>
+<p>a numeric vector.</p>
+</td></tr>
+<tr><td><code id="mad_:_center">center</code></td>
+<td>
+<p>Optionally, the centre: defaults to the median.</p>
+</td></tr>
+<tr><td><code id="mad_:_constant">constant</code></td>
+<td>
+<p>scale factor.</p>
+</td></tr>
+<tr><td><code id="mad_:_na.rm">na.rm</code></td>
+<td>
+<p>if <code>TRUE</code> then <code>NA</code> values are stripped
+from <code>x</code> before computation takes place.</p>
+</td></tr>
+<tr><td><code id="mad_:_low">low</code></td>
+<td>
+<p>if <code>TRUE</code>, compute the &lsquo;lo-median&rsquo;, i.e., for even
+sample size, do not average the two middle values, but take the
+smaller one.</p>
+</td></tr>
+<tr><td><code id="mad_:_high">high</code></td>
+<td>
+<p>if <code>TRUE</code>, compute the &lsquo;hi-median&rsquo;, i.e., take the
+larger of the two middle values for even sample size.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The actual value calculated is <code>constant * cMedian(abs(x - center))</code>
+with the default value of <code>center</code> being <code>median(x)</code>, and
+<code>cMedian</code> being the usual, the &lsquo;low&rsquo; or &lsquo;high&rsquo; median, see
+the arguments description for <code>low</code> and <code>high</code> above.
+</p>
+<p>The default <code>constant = 1.4826</code> (approximately
+<code class="reqn">1/\Phi^{-1}(\frac 3 4)</code> = <code>1/qnorm(3/4)</code>)
+ensures consistency, i.e.,
+</p>
+<p style="text-align: center;"><code class="reqn">E[mad(X_1,\dots,X_n)] = \sigma</code>
+</p>
+
+<p>for <code class="reqn">X_i</code> distributed as <code class="reqn">N(\mu, \sigma^2)</code>
+and large <code class="reqn">n</code>.
+</p>
+<p>If <code>na.rm</code> is <code>TRUE</code> then <code>NA</code>
+values are stripped from <code>x</code> before computation takes place.
+If this is not done then an <code>NA</code> value in
+<code>x</code> will cause <code>mad</code> to return <code>NA</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>IQR</code> which is simpler but less robust,
+<code>median</code>, <code>var</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>mad(c(1:9))
+print(mad(c(1:9),     constant = 1)) ==
+      mad(c(1:8, 100), constant = 1)       # = 2 ; TRUE
+x &lt;- c(1,2,3,5,7,8)
+sort(abs(x - median(x)))
+c(mad(x, constant = 1),
+  mad(x, constant = 1, low = TRUE),
+  mad(x, constant = 1, high = TRUE))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.2.4-revised ]</div>
+</div>
+</body></html>

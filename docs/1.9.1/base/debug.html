@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>R: Debug a function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/debug.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/debug.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>debug {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='debug'>Debug a function</h2>
+
+<h3>Description</h3>
+
+<p>Set or unset the debugging flag on a function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>debug(fun)
+undebug(fun)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="debug_:_fun">fun</code></td>
+<td>
+<p>any interpreted <span class="rlang"><b>R</b></span> function.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>When a function flagged for debugging is entered, normal execution
+is suspended and the body of function is executed one statement at a time.
+A new browser context is initiated for each step (and the previous one
+destroyed).
+Currently you can only debug functions that have bodies enclosed in braces.
+This is a bug and will be fixed soon.
+
+You take the next step by typing carriage return, <code>n</code> or <code>next</code>.
+You can see the values of variables by typing their names.
+Typing <code>c</code> or <code>cont</code> causes the debugger to continue to the
+end of the function.
+You can <code>debug</code> new functions before you step in to them from inside
+the debugger.
+Typing <code>Q</code> quits the current execution and returns you to the
+top&ndash;level prompt.
+Typing <code>where</code> causes the debugger to print out the current
+stack trace (all functions that are active).
+If you have variables with names that are identical to the controls
+(eg. <code>c</code> or <code>n</code> ) then you need to use <code>print(c)</code> and
+<code>print(n)</code> to evaluate them.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>browser</code>, <code>traceback</code> to see the stack after
+an <code>Error: ...</code> message; <code>recover</code> for another
+debugging approach.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.1 ]</div>
+</div>
+</body></html>

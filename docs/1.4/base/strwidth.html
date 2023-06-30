@@ -1,0 +1,112 @@
+<!DOCTYPE html><html><head><title>R: Plotting Dimensions of Character Strings and Math Expressions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/strwidth.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/strwidth.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>strwidth {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='strwidth'>Plotting Dimensions of Character Strings and Math Expressions</h2>
+
+<h3>Description</h3>
+
+<p>These functions compute the width or height, respectively, of the
+given strings or mathematical expressions <code>s[i]</code> on
+the current plotting device in <em>user</em> coordinates, <em>inches</em>
+or as fraction of the figure width <code>par("fin")</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>strwidth(s, units = "user", cex = NULL)
+strheight(s, units = "user", cex = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="strwidth_:_s">s</code></td>
+<td>
+<p>character vector or <code>expression</code>s whose string
+widths in plotting units are to be determined.</p>
+</td></tr>
+<tr><td><code id="strwidth_:_units">units</code></td>
+<td>
+<p>character indicating in which units <code>s</code> is measured;
+must be one of <code>"user"</code>, <code>"inches"</code>, <code>"figure"</code> .</p>
+</td></tr>
+<tr><td><code id="strwidth_:_cex">cex</code></td>
+<td>
+<p>character expansion to which is applies. Per default, the
+current <code>par("cex")</code> is used.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>integer vector with the same length as <code>s</code>, giving the
+width for each <code>s[i]</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>text</code>, <code>nchar</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>str.ex &lt;- c("W","w","I",".","WwI.")
+op &lt;- par(pty='s'); plot(1:100,1:100); par('usr')
+sw &lt;- strwidth(str.ex); sw
+sum(sw[1:4] == sw[5])#- since the last string contains the others
+sw / strwidth(str.ex, cex = .5)
+# between 1.5 and 4.2 (!),  font dependent
+
+sw.i &lt;- strwidth(str.ex, "inches"); 25.4 * sw.i # width in [mm]
+unique(sw / sw.i)
+# constant factor: 1 value
+mean(sw.i / strwidth(str.ex, "fig")) / par('fin')[1] # = 1: are the same
+
+## See how letters fall in classes -- depending on graphics device and font!
+all.lett &lt;- c(letters, LETTERS)
+shL &lt;- strheight(all.lett, units = "inches")
+table(shL)# all have same heights ...
+mean(shL) / par("cin")[2] # should be 1 (exactly?)
+
+swL &lt;- strwidth(all.lett)
+swL &lt;- 3 * swL / min(swL)
+all(swL == round(swL))#- TRUE !
+swL &lt;- as.integer(swL)
+n.classes &lt;- length(tL &lt;- table(swL)); tL
+iL &lt;- order(swL)
+structure(swL[iL], names = all.lett[iL])
+lett.classes &lt;- structure(vector("list", n.classes), names= names(tL))
+for(i in 1:n.classes)
+  lett.classes[[i]] &lt;- all.lett[swL == as.numeric(names(tL)[i])]
+lett.classes
+
+sumex &lt;- expression(sum(x[i], i=1,n), e^{i * pi} == -1)
+strwidth(sumex)
+strheight(sumex)
+
+rm(sumex); par(op)#- reset to previous setting
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4 ]</div>
+</div>
+</body></html>

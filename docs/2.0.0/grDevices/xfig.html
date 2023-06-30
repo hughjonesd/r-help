@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: XFig Graphics Device</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xfig.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xfig.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>xfig {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='xfig'>XFig Graphics Device</h2>
+
+<h3>Description</h3>
+
+<p><code>xfig</code> starts the graphics device driver for producing XFig
+(version 3.2) graphics.
+</p>
+<p>The auxiliary function <code>ps.options</code> can be used to set and view
+(if called without arguments) default values for the arguments to
+<code>xfig</code> and <code>postscript</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>xfig(file = ifelse(onefile, "Rplots.fig", "Rplot%03d.fig"),
+     onefile = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="xfig_:_file">file</code></td>
+<td>
+<p>a character string giving the name of the file.  If it is
+<code>""</code>, the output is piped to the command given by the argument
+<code>command</code>.  For use with <code>onefile = FALSE</code> give a
+<code>printf</code> format such as <code>"Rplot%d.fig"</code> (the default in
+that case).</p>
+</td></tr>
+<tr><td><code id="xfig_:_onefile">onefile</code></td>
+<td>
+<p>logical: if true allow multiple figures
+in one file. If false, assume only one page per file and generate a
+file number containing the page number.</p>
+</td></tr>
+<tr><td><code id="xfig_:_...">...</code></td>
+<td>
+<p>further arguments to <code>ps.options</code> accepted by
+<code>xfig()</code>:
+</p>
+
+<dl>
+<dt><code>paper</code></dt><dd><p>the size of paper in the printer.  The choices
+are <code>"A4"</code>, <code>"Letter"</code> and <code>"Legal"</code> (and these
+can be lowercase).  A further choice is <code>"default"</code>, which
+is the default.  If this is selected, the papersize is taken
+from the option <code>"papersize"</code> if that is set and to
+<code>"A4"</code> if it is unset or empty.</p>
+</dd>
+<dt><code>horizontal</code></dt><dd><p>the orientation of the printed image, a
+logical.  Defaults to true, that is landscape orientation.</p>
+</dd>
+<dt><code>width</code>, <code>height</code></dt><dd><p>the width and height of the
+graphics region in inches.  The default is to use the entire
+page less a 0.25 inch border.</p>
+</dd>
+<dt><code>family</code></dt><dd><p>the font family to be used.  This must be one
+of <code>"AvantGarde"</code>, <code>"Bookman"</code>, <code>"Courier"</code>,
+<code>"Helvetica"</code>, <code>"Helvetica-Narrow"</code>,
+<code>"NewCenturySchoolbook"</code>, <code>"Palatino"</code> or
+<code>"Times"</code>.</p>
+</dd>
+<dt><code>pointsize</code></dt><dd><p>the default point size to be used.</p>
+</dd>
+<dt><code>bg</code></dt><dd><p>the default background color to be used.</p>
+</dd>
+<dt><code>fg</code></dt><dd><p>the default foreground color to be used.</p>
+</dd>
+<dt><code>pagecentre</code></dt><dd><p>logical: should the device region be
+centred on the page: defaults to <code>TRUE</code>.</p>
+</dd>
+</dl>
+
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Although <code>xfig</code> can produce multiple plots in one file, the XFig
+format does not say how to separate or view them.  So
+<code>onefile = FALSE</code> is the default.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Only some line textures (<code>0 &lt;= lty &lt; 4</code>) are used.  Eventually this
+will be partially remedied, but the XFig file format does not allow as
+general line textures as the <span class="rlang"><b>R</b></span> model.  Unimplemented line textures
+are displayed as <em>dash-double-dotted</em>.
+</p>
+<p>There is a limit of 512 colours (plus white and black) per file.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Devices</code>,
+<code>postscript</code>,
+<code>ps.options</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.0.0 ]</div>
+</div>
+</body></html>

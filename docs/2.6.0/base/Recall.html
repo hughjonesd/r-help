@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><title>R: Recursive Calling</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Recall.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Recall.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Recall {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Recall'>Recursive Calling</h2>
+
+<h3>Description</h3>
+
+<p><code>Recall</code> is used as a placeholder for the name of the function
+in which it is called.  It allows the definition of recursive
+functions which still work after being renamed, see example below.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Recall(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Recall_:_...">...</code></td>
+<td>
+<p>all the arguments to be passed.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p><code>Recall</code> will not work correctly when passed as a function
+argument, e.g. to the <code>apply</code> family of functions.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>do.call</code> and <code>call</code>.
+</p>
+<p><code>local</code> for another way to write anonymous recursive functions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## A trivial (but inefficient!) example:
+fib &lt;- function(n) if(n&lt;=2) {if(n&gt;=0) 1 else 0} else Recall(n-1) + Recall(n-2)
+fibonacci &lt;- fib; rm(fib)
+## renaming wouldn't work without Recall
+fibonacci(10) # 55
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.6.0 ]</div>
+</div>
+</body></html>

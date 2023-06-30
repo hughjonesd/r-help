@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Give row sums of a matrix, based on a grouping variable.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rowsum.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rowsum.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>rowsum {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='rowsum'>
+Give row sums of a matrix, based on a grouping variable.
+</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rowsum(x, group, reorder=T)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="rowsum_:_x">x</code></td>
+<td>
+
+<p>a matrix or vector of numeric data.  Missing values are allowed.
+</p>
+</td></tr>
+<tr><td><code id="rowsum_:_group">group</code></td>
+<td>
+
+<p>a vector giving the grouping, with one element per row of <code>x</code>.
+Missing values are not allowed.
+</p>
+</td></tr>
+<tr><td><code id="rowsum_:_reorder">reorder</code></td>
+<td>
+
+<p>if True, then the result will be in order of sort(unique(group)),
+if False, it will be in the order that rows were encountered (and
+may run faster for large matrices).
+The default is to reorder the data, so as to agree with tapply (see
+example below).
+</p>
+</td></tr></table>
+
+
+<h3>Value</h3>
+
+<p>a matrix containing the sums.  There will be one row per unique value
+of <code>group</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Terry Therneau</p>
+
+
+<h3>See Also</h3>
+
+<p><code>tapply</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- matrix(runif(100), ncol=5)
+group &lt;- sample(1:8, 20, T)
+xsum &lt;- rowsum(x, group)
+
+
+#same result another way, slower, and temp may be much larger than x
+temp &lt;- model.matrix( ~a -1, data.frame(a=as.factor(group)))
+xsum2&lt;- t(temp) %*% x
+
+
+#same as last one, but really slow
+xsum3 &lt;- tapply(x, list(group[row(x)], col(x)), sum)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.2 ]</div>
+</div>
+</body></html>

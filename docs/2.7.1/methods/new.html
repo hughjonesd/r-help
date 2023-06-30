@@ -1,0 +1,160 @@
+<!DOCTYPE html><html><head><title>R: Generate an Object from a Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/new.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/new.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>new {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='new'> Generate an Object from a Class </h2>
+
+<h3>Description</h3>
+
+<p>Given the name or the definition of a class, plus optionally data
+to be included in the object, <code>new</code> returns an object from that
+class.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>new(Class, ...)
+
+initialize(.Object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="new_:_Class">Class</code></td>
+<td>
+<p> Either the name of a class (the usual case) or the
+object describing the class (e.g., the value returned by
+<code>getClass</code>).</p>
+</td></tr>
+<tr><td><code id="new_:_...">...</code></td>
+<td>
+<p> Data to include in the new object.  Named arguments
+correspond to slots in the class definition. Unnamed arguments must
+be objects from classes that this class extends.</p>
+</td></tr>
+<tr><td><code id="new_:_.Object">.Object</code></td>
+<td>
+<p> An object:  see the Details section.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function <code>new</code> begins by copying the prototype object from
+the class definition.  Then information is inserted according to the
+<code>...</code> arguments, if any.  As of version 2.4 of R, the type of
+the prototype object, and therefore of all objects returned by
+<code>new()</code>, is <code>"S4"</code> except for classes that extend
+one of the basic types, where the prototype has that basic type.  User
+functions that depend on <code>typeof(object)</code> should be
+careful to handle <code>"S4"</code> as a possible type.
+</p>
+<p>The interpretation of the <code>...</code> arguments can be specialized to
+particular classes, if an appropriate method has been defined for the
+generic function <code>"initialize"</code>.  The <code>new</code> function calls
+<code>initialize</code> with the object generated from the prototype as the
+<code>.Object</code> argument to <code>initialize</code>.
+</p>
+<p>By default, unnamed arguments in the <code>...</code> are interpreted as
+objects from a superclass, and named arguments are interpreted as
+objects to be assigned into the correspondingly named slots.  Thus,
+explicit slots override inherited information for the same slot,
+regardless of the order in which the arguments appear.
+</p>
+<p>The <code>initialize</code> methods do not have to have <code>...</code> as
+their second argument (see the examples), and generally it is better
+design <em>not</em> to have <code>...</code> as a formal argument, if only a
+fixed set of arguments make sense.
+</p>
+<p>For examples of <code>initialize</code> methods, see
+<code>initialize-methods</code> for existing methods for
+classes <code>"traceable"</code> and <code>"environment"</code>, among others.
+</p>
+<p>Note that the basic vector classes, <code>"numeric"</code>, etc. are
+implicitly defined, so one can use <code>new</code> for these classes.
+</p>
+
+
+<h3>References</h3>
+
+<p>The functions in this package emulate the facility for classes and
+methods described in <em>Programming with Data</em> (John M. Chambers,
+Springer, 1998).  See this book for further details and examples.
+</p>
+
+
+<h3>See Also</h3>
+
+ <p>Classes </p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## using the definition of class "track" from \link{Classes}
+
+
+
+## a new object with two slots specified
+t1 &lt;- new("track", x = seq_along(ydata), y = ydata)
+
+# a new object including an object from a superclass, plus a slot
+t2 &lt;- new("trackCurve", t1, smooth = ysmooth)
+
+### define a method for initialize, to ensure that new objects have
+### equal-length x and y slots.
+
+setMethod("initialize",
+          "track",
+          function(.Object, x = numeric(0), y = numeric(0)) {
+            if(nargs() &gt; 1) {
+              if(length(x) != length(y))
+                stop("specified x and y of different lengths")
+              .Object@x &lt;- x
+              .Object@y &lt;- y
+            }
+            .Object
+          })
+
+### the next example will cause an error (x will be numeric(0)),
+### because we didn't build in defaults for x,
+### although we could with a more elaborate method for initialize
+
+try(new("track", y = sort(stats::rnorm(10))))
+
+## a better way to implement the previous initialize method.
+## Why?  By using callNextMethod to call the default initialize method
+## we don't inhibit classes that extend "track" from using the general
+## form of the new() function.  In the previous version, they could only
+## use x and y as arguments to new, unless they wrote their own
+## initialize method.
+
+setMethod("initialize", "track", function(.Object, ...) {
+    .Object &lt;- callNextMethod()
+    if(length(.Object@x) != length(.Object@y))
+     stop("specified x and y of different lengths")
+    .Object
+  })
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.7.1 ]</div>
+</div>
+</body></html>

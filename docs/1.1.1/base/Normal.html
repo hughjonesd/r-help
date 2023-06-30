@@ -1,0 +1,136 @@
+<!DOCTYPE html><html><head><title>R: The Normal Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Normal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Normal.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Normal {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Normal'>The Normal Distribution</h2>
+
+<h3>Description</h3>
+
+<p>Density, distribution function, quantile function and random
+generation for the normal distribution with mean equal to <code>mean</code>
+and standard deviation equal to <code>sd</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dnorm(x, mean=0, sd=1, log = FALSE)
+pnorm(q, mean=0, sd=1, lower.tail = TRUE, log.p = FALSE)
+qnorm(p, mean=0, sd=1, lower.tail = TRUE, log.p = FALSE)
+rnorm(n, mean=0, sd=1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Normal_:_x">x</code>, <code id="Normal_:_q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="Normal_:_p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="Normal_:_n">n</code></td>
+<td>
+<p>number of observations.</p>
+</td></tr>
+<tr><td><code id="Normal_:_mean">mean</code></td>
+<td>
+<p>vector of means.</p>
+</td></tr>
+<tr><td><code id="Normal_:_sd">sd</code></td>
+<td>
+<p>vector of standard deviations.</p>
+</td></tr>
+<tr><td><code id="Normal_:_log">log</code>, <code id="Normal_:_log.p">log.p</code></td>
+<td>
+<p>logical; if TRUE, probabilities p are given as log(p).</p>
+</td></tr>
+<tr><td><code id="Normal_:_lower.tail">lower.tail</code></td>
+<td>
+<p>logical; if TRUE (default), probabilities are
+<code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>mean</code> or <code>sd</code> are not specified they assume the default
+values of <code>0</code> and <code>1</code>, respectively.
+</p>
+<p>The normal distribution has density
+</p>
+<p style="text-align: center;"><code class="reqn">
+    f(x) =
+    \frac{1}{\sqrt{2\pi}\sigma} e^{-(x-\mu)^2/2\sigma^2}</code>
+</p>
+
+<p>where <code class="reqn">\mu</code> is the mean of the distribution and
+<code class="reqn">\sigma</code> the standard deviation.
+</p>
+<p><code>qnorm</code> is based on Wichura's algorithm AS 241 which provides
+precise results up to about 16 digits.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>dnorm</code> gives the density,
+<code>pnorm</code> gives the distribution function,
+<code>qnorm</code> gives the quantile function, and
+<code>rnorm</code> generates random deviates.
+</p>
+
+
+<h3>References</h3>
+
+<p>Wichura, M. J. (1988)
+Algorithm AS 241: The Percentage Points of the Normal Distribution.
+<em>Applied Statistics</em>, <b>37</b>, 477&ndash;484.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>runif</code> and <code>.Random.seed</code> about random number
+generation, and <code>dlnorm</code> for the <em>Log</em>normal distribution.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>dnorm(0) == 1/ sqrt(2*pi)
+dnorm(1) == exp(-1/2)/ sqrt(2*pi)
+dnorm(1) == 1/ sqrt(2*pi*exp(1))
+
+## Using "log = TRUE" for an extended range :
+par(mfrow=c(2,1))
+plot(function(x)dnorm(x, log=TRUE), -60, 50, main = "log { Normal density }")
+curve(log(dnorm(x)), add=TRUE, col="red",lwd=2)
+mtext("dnorm(x, log=TRUE)", adj=0); mtext("log(dnorm(x))", col="red", adj=1)
+
+plot(function(x)pnorm(x, log=TRUE), -50, 10, main = "log { Normal Cumulative }")
+curve(log(pnorm(x)), add=TRUE, col="red",lwd=2)
+mtext("pnorm(x, log=TRUE)", adj=0); mtext("log(pnorm(x))", col="red", adj=1)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1.1 ]</div>
+</div>
+</body></html>

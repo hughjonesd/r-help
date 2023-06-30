@@ -1,0 +1,136 @@
+<!DOCTYPE html><html><head><title>R: List Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ls.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ls.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ls {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ls'>List Objects</h2>
+
+<h3>Description</h3>
+
+<p><code>ls</code> and <code>objects</code> return a vector of character strings
+giving the names of the objects in the specified environment.
+When invoked with no argument at the top level prompt,
+<code>ls</code> shows what data sets and functions a user has defined.
+When invoked with no argument inside a function,
+<code>ls</code> returns the names of the functions local variables.
+This is useful in conjunction with <code>browser</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>ls(name, pos = -1, envir = as.environment(pos),
+   all.names = FALSE, pattern)
+objects(name, pos= -1, envir = as.environment(pos),
+        all.names = FALSE, pattern)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="ls_:_name">name</code></td>
+<td>
+<p>which environment to use in listing the available objects.
+Defaults to the <em>current</em>
+environment.  Although called <code>name</code> for back compatibility, in
+fact this argument can specify the environment in any form; see the
+details section.</p>
+</td></tr>
+<tr><td><code id="ls_:_pos">pos</code></td>
+<td>
+<p>an alternative argument to <code>name</code> for specifying the
+environment as a position in the search list.  Mostly there for
+back compatibility.</p>
+</td></tr>
+<tr><td><code id="ls_:_envir">envir</code></td>
+<td>
+<p>an alternative argument to <code>name</code> for specifying the
+environment evaluation environment. Mostly there for back compatibility.</p>
+</td></tr>
+<tr><td><code id="ls_:_all.names">all.names</code></td>
+<td>
+<p>a logical value.  If <code>TRUE</code>, all
+object names are returned.  If <code>FALSE</code>, names which begin with a
+&lsquo;<span class="samp">&#8288;.&#8288;</span>&rsquo; are omitted.</p>
+</td></tr>
+<tr><td><code id="ls_:_pattern">pattern</code></td>
+<td>
+<p>an optional regular expression.  Only names
+matching <code>pattern</code> are returned.  <code>glob2rx</code> can be
+used to convert wildcard patterns to regular expressions.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>name</code> argument can specify the  environment from which
+object names are taken in one of several forms:
+as an integer (the position in the <code>search</code> list); as
+the character string name of an element in the search list; or as an
+explicit <code>environment</code> (including using
+<code>sys.frame</code> to access the currently active function calls).
+By default, the environment of the call to <code>ls</code> or <code>objects</code>
+is used. The <code>pos</code> and <code>envir</code> arguments are an alternative
+way to specify an environment, but are primarily there for back
+compatibility.
+</p>
+<p>Note that the <em>order</em> of the resulting strings is locale
+dependent, see <code>Sys.getlocale</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>glob2rx</code> for converting wildcard patterns to regular
+expressions.
+</p>
+<p><code>ls.str</code> for a long listing based on <code>str</code>.
+<code>apropos</code> (or <code>find</code>)
+for finding objects in the whole search path;
+<code>grep</code> for more details on &lsquo;regular expressions&rsquo;;
+<code>class</code>, <code>methods</code>, etc., for
+object-oriented programming.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>.Ob &lt;- 1
+ls(pattern = "O")
+ls(pattern= " O", all.names = TRUE)    # also shows ".[foo]"
+
+# shows an empty list because inside myfunc no variables are defined
+myfunc &lt;- function() {ls()}
+myfunc()
+
+# define a local variable inside myfunc
+myfunc &lt;- function() {y &lt;- 1; ls()}
+myfunc()                # shows "y"
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.11.1 ]</div>
+</div>
+</body></html>

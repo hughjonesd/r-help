@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: Biplot for Principal Components</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/biplot.princomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/biplot.princomp.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>biplot.princomp {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='biplot.princomp'>
+Biplot for Principal Components
+</h2>
+
+<h3>Description</h3>
+
+<p>Produces a biplot (in the strict sense) from the output of
+<code>princomp</code> or <code>prcomp</code>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'prcomp'
+biplot(x, choices = 1:2, scale = 1, pc.biplot = FALSE, ...)
+
+## S3 method for class 'princomp'
+biplot(x, choices = 1:2, scale = 1, pc.biplot = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="biplot.princomp_:_x">x</code></td>
+<td>
+<p>an object of class <code>"princomp"</code>.</p>
+</td></tr>
+<tr><td><code id="biplot.princomp_:_choices">choices</code></td>
+<td>
+
+<p>length 2 vector specifying the components to plot. Only the default
+is a biplot in the strict sense.
+</p>
+</td></tr>
+<tr><td><code id="biplot.princomp_:_scale">scale</code></td>
+<td>
+
+<p>The variables are scaled by <code>lambda ^ scale</code> and the
+observations are scaled by <code>lambda ^ (1-scale)</code> where
+<code>lambda</code> are the singular values as computed by
+<code>princomp</code>. Normally <code>0 &lt;= scale &lt;= 1</code>, and a warning 
+will be issued if the specified <code>scale</code> is outside this range.
+</p>
+</td></tr>
+<tr><td><code id="biplot.princomp_:_pc.biplot">pc.biplot</code></td>
+<td>
+
+<p>If true, use what Gabriel (1971) refers to as a &quot;principal component
+biplot&quot;, with <code>lambda = 1</code> and observations scaled up by sqrt(n) and
+variables scaled down by sqrt(n).  Then inner products between
+variables approximate covariances and distances between observations
+approximate Mahalanobis distance.
+</p>
+</td></tr>
+<tr><td><code id="biplot.princomp_:_...">...</code></td>
+<td>
+<p>optional arguments to be passed to
+<code>biplot.default</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is a method for the generic function <code>biplot</code>.  There is
+considerable confusion over the precise definitions: those of the
+original paper, Gabriel (1971), are followed here.  Gabriel and
+Odoroff (1990) use the same definitions, but their plots actually
+correspond to <code>pc.biplot = TRUE</code>.
+</p>
+
+
+<h3>Side Effects</h3>
+
+<p>a plot is produced on the current graphics device.
+</p>
+
+
+<h3>References</h3>
+
+<p>Gabriel, K. R. (1971).
+The biplot graphical display of matrices with applications to
+principal component analysis.
+<em>Biometrika</em>, <b>58</b>, 453&ndash;467.
+</p>
+<p>Gabriel, K. R. and Odoroff, C. L. (1990).
+Biplots in biomedical research.
+<em>Statistics in Medicine</em>, <b>9</b>, 469&ndash;485.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>biplot</code>,
+<code>princomp</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+biplot(princomp(USArrests))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.14.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html><html><head><title>R: Draw Function Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/curve.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/curve.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>curve {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='curve'>Draw Function Plots</h2>
+
+<h3>Description</h3>
+
+<p>Draws a curve corresponding to the given function or, for
+<code>curve()</code> also an expression (in <code>x</code>) over the interval
+<code>[from,to]</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>curve(expr, from = NULL, to = NULL, n = 101, add = FALSE,
+      type = "l", ylab = NULL, log = NULL, xlim = NULL, ...)
+
+## S3 method for class 'function'
+plot(x, y = 0, to = 1, from = y, xlim = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="curve_:_expr">expr</code></td>
+<td>
+<p>an expression written as a function of <code>x</code>, or
+alternatively the name of a function which will be plotted.</p>
+</td></tr>
+<tr><td><code id="curve_:_x">x</code></td>
+<td>
+<p>a &lsquo;vectorizing&rsquo; numeric <span class="rlang"><b>R</b></span> function.</p>
+</td></tr>
+<tr><td><code id="curve_:_from">from</code>, <code id="curve_:_to">to</code></td>
+<td>
+<p>the range over which the function will be plotted.</p>
+</td></tr>
+<tr><td><code id="curve_:_n">n</code></td>
+<td>
+<p>integer; the number of x values at which to evaluate.</p>
+</td></tr>
+<tr><td><code id="curve_:_add">add</code></td>
+<td>
+<p>logical; if <code>TRUE</code> add to already existing plot.</p>
+</td></tr>
+<tr><td><code id="curve_:_xlim">xlim</code></td>
+<td>
+<p>numeric of length 2; if specified, it serves as default
+for <code>c(from, to)</code>.</p>
+</td></tr>
+<tr><td><code id="curve_:_type">type</code></td>
+<td>
+<p>plot type: see <code>plot.default</code>.</p>
+</td></tr>
+<tr><td><code id="curve_:_y">y</code></td>
+<td>
+<p>alias for <code>from</code> for compatibility with <code>plot()</code></p>
+</td></tr>
+<tr><td><code id="curve_:_ylab">ylab</code>, <code id="curve_:_log">log</code>, <code id="curve_:_...">...</code></td>
+<td>
+<p>labels and graphical parameters can also be
+specified as arguments.
+<code>plot.function</code> passes all these to <code>curve</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The evaluation of <code>expr</code> is at <code>n</code> points equally spaced
+over the range <code>[from, to]</code>, possibly adapted to log scale.  The
+points determined in this way are then joined with straight lines.
+<code>x(t)</code> or <code>expr</code> (with <code>x</code> inside) must return a
+numeric of the same length as the argument <code>t</code> or <code>x</code>.
+</p>
+<p>For <code>curve()</code>, if either of <code>from</code> or <code>to</code> is
+<code>NULL</code>, it defaults to the corresponding element of <code>xlim</code>,
+and <code>xlim</code> defaults to the x-limits of the current plot.
+For <code>plot(&lt;function&gt;, ..)</code>, the defaults for <code class="reqn">(from,to)</code> are
+<code class="reqn">(0,1)</code>.
+</p>
+<p><code>log</code> is taken from
+the current plot only when <code>add</code> is true, and otherwise
+defaults to <code>""</code> indicating linear scales on both axes.
+</p>
+<p>This used to be a quick hack which now seems to serve a useful purpose,
+but can give bad results for functions which are not smooth.
+</p>
+<p>For expensive-to-compute <code>expr</code>essions, you should use smarter tools.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with components <code>x</code> and <code>y</code> of the points that were 
+drawn is returned invisibly.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>splinefun</code> for spline interpolation, <code>lines</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>plot(qnorm)
+plot(qlogis, main = "The Inverse Logit : qlogis()")
+abline(h=0, v=0:2/2, lty=3, col="gray")
+
+curve(sin, -2*pi, 2*pi)
+curve(tan, main = "curve(tan)  --&gt; same x-scale as previous plot")
+
+op &lt;- par(mfrow=c(2,2))
+curve(x^3-3*x, -2, 2)
+curve(x^2-2, add = TRUE, col = "violet")
+
+## simple and sophisticated, quite similar:
+plot(cos, -pi,  3*pi)
+plot(cos, xlim = c(-pi,3*pi), n = 1001, col = "blue", add=TRUE)
+
+chippy &lt;- function(x) sin(cos(x)*exp(-x/2))
+curve(chippy, -8, 7, n=2001)
+plot (chippy, -8, -5)
+
+for(ll in c("","x","y","xy"))
+   curve(log(1+x), 1,100, log=ll, sub=paste("log= '",ll,"'",sep=""))
+par(op)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 2.10.0 ]</div>
+</div>
+</body></html>

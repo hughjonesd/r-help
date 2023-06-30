@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>R: Are All / Any Values True?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/all.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/all.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>All {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='All'>Are All / Any Values True?</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>all(..., na.rm=FALSE)
+any(..., na.rm=FALSE)
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>Given a sequence of logical arguments, <code>all</code> returns a
+logical value indicating whether or not all of the elements of
+<code>x</code> are <code>TRUE</code>.
+The value returned is <code>TRUE</code> if all the values in <code>x</code> are
+<code>TRUE</code>, and <code>FALSE</code> if any the values in <code>x</code> are
+<code>FALSE</code>.  If <code>x</code> consists of a mix of <code>TRUE</code> and
+<code>NA</code> values, then <code>all</code> returns <code>NA</code>.
+</p>
+<p>Given a sequence of logical arguments, <code>any</code> returns a
+logical value indicating whether or not any of the elements of
+<code>x</code> are <code>TRUE</code>.
+The value returned is <code>TRUE</code> if any the values in <code>x</code> are
+<code>TRUE</code>, and <code>FALSE</code> if all the values in <code>x</code> are
+<code>FALSE</code>.  If <code>x</code> consists of a mix of <code>FALSE</code> and
+<code>NA</code> values, then <code>any</code> returns <code>NA</code>.
+</p>
+<p>For both functions the argument <code>na.rm</code> indicates whether
+<code>NA</code> values should be removed before the result is computed.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>range(x &lt;- sort(round(rnorm(10) - 1.2,1)))
+if(any(x &lt; 0)) cat("x contains negative values\n")
+if(all(x &lt; 0)) cat("all x values are negative\n")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63.2 ]</div>
+</div>
+</body></html>

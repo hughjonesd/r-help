@@ -1,0 +1,174 @@
+<!DOCTYPE html><html><head><title>R: Star Plots and Segment Diagrams of Multivariate Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/stars.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/stars.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>stars {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='stars'>Star Plots and Segment Diagrams of Multivariate Data</h2>
+
+<h3>Description</h3>
+
+<p>Star plots or segment diagrams are created on the current graphics
+device.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>stars(x, full = TRUE, scale = TRUE, radius = TRUE, 
+      labels = dimnames(x)[[1]],
+      locations = NULL, xlim = NULL, ylim = NULL, len = 1,
+      colors = NULL, key.loc = NULL, key.labels = NULL, key.xpd = TRUE,
+      draw.segments = FALSE,
+      axes = FALSE, cex = 0.8, lwd = 0.25, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="stars_:_x">x</code></td>
+<td>
+<p>matrix of data.  One segment plot will be produced for each
+row of the matrix.  Missing values (<code>NA</code>) are allowed, but they
+are treated as if they were 0.</p>
+</td></tr>
+<tr><td><code id="stars_:_full">full</code></td>
+<td>
+<p>logical flag: if <code>TRUE</code>, the segment plots will
+occupy a full circle.  Otherwise, they occupy the (upper) semicircle
+only.</p>
+</td></tr>
+<tr><td><code id="stars_:_scale">scale</code></td>
+<td>
+<p>logical flag: if <code>TRUE</code>, the columns of the data
+matrix are scaled independently so that the maximum value in each
+column is 1 and the minimum is 0.  If <code>FALSE</code>, the presumption
+is that the data have been scaled by some other algorithm to the
+range <code class="reqn">[0,1]</code>.</p>
+</td></tr>
+<tr><td><code id="stars_:_radius">radius</code></td>
+<td>
+<p>logical flag: in <code>TRUE</code>, the radii corresponding to
+each variable in the data will be drawn.</p>
+</td></tr>
+<tr><td><code id="stars_:_labels">labels</code></td>
+<td>
+<p>vector of character strings for labeling the plots.
+Unlike the S function <code>stars</code>, no attempt is made to construct
+labels if <code>labels = NULL</code>.</p>
+</td></tr>
+<tr><td><code id="stars_:_locations">locations</code></td>
+<td>
+<p>two column matrix with the x and y coordinates used
+to place each of the segment plots.  If <code>locations</code> is
+<code>NULL</code> the segment plots will be placed in a rectangular grid.</p>
+</td></tr>
+<tr><td><code id="stars_:_xlim">xlim</code></td>
+<td>
+<p>vector with the range of x coordinates to plot. </p>
+</td></tr>
+<tr><td><code id="stars_:_ylim">ylim</code></td>
+<td>
+<p>vector with the range of y coordinates to plot.</p>
+</td></tr>
+<tr><td><code id="stars_:_len">len</code></td>
+<td>
+<p>scale factor for the length of radii or segments.</p>
+</td></tr>
+<tr><td><code id="stars_:_colors">colors</code></td>
+<td>
+<p>vector of integers, each of which specifies  a color
+for one of the segments.  Ignored if <code>draw.segments = FALSE</code></p>
+</td></tr>
+<tr><td><code id="stars_:_key.loc">key.loc</code></td>
+<td>
+<p>vector with x and y coordinates of the unit key.</p>
+</td></tr>
+<tr><td><code id="stars_:_key.labels">key.labels</code></td>
+<td>
+<p>vector of character strings for labeling the
+segments of the unit key.  If omitted, the second component of
+<code>dimnames(x)</code> is used, if available.</p>
+</td></tr>
+<tr><td><code id="stars_:_key.xpd">key.xpd</code></td>
+<td>
+<p>clipping switch for the unit key (drawing and
+labeling), see <code>par("xpd")</code>.</p>
+</td></tr>
+<tr><td><code id="stars_:_axes">axes</code></td>
+<td>
+<p>logical flag: if <code>TRUE</code> axes are added to the
+plot.</p>
+</td></tr>
+<tr><td><code id="stars_:_cex">cex</code></td>
+<td>
+<p>character expansion factor for the labels.</p>
+</td></tr>
+<tr><td><code id="stars_:_lwd">lwd</code></td>
+<td>
+<p>line width used for drawing.</p>
+</td></tr>
+<tr><td><code id="stars_:_...">...</code></td>
+<td>
+<p>further arguments, passed to the first call of
+<code>plot()</code>, see <code>plot.default</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Missing values are treated as 0.
+</p>
+<p>Each star plot or segment diagram represents one row of the input
+<code>x</code>.  Variables (columns) start on the right and wind
+counterclockwise around the circle.  The size of the (scaled) column
+is shown by the distance from the center to the point on the star or
+the radius of the segment representing the variable.
+</p>
+<p>Only one page of output is produced.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This code started life as spatial star plots by David A. Andrews.
+See <a href="http://www.udallas.edu:8080/~andrews/software/software.html">http://www.udallas.edu:8080/~andrews/software/software.html</a>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Thomas S. Dye</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(mtcars)
+stars(mtcars[, 1:7], key.loc = c(12, 2),
+      main = "Motor Trend Cars", full = FALSE) 
+
+stars(mtcars[, 1:7], len = 0.8, key.loc = c(12, 1.5),
+      main = "Motor Trend Cars", draw.segments = TRUE)
+
+data(USJudgeRatings)
+stars(USJudgeRatings, labels = abbreviate(case.names(USJudgeRatings)),
+      key.loc = c(13, 1.5), main = "Judge not ...", len = 0.8)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.1 ]</div>
+</div>
+</body></html>

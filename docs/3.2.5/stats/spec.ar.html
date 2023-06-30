@@ -1,0 +1,123 @@
+<!DOCTYPE html><html><head><title>R: Estimate Spectral Density of a Time Series from AR Fit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/spec.ar.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/spec.ar.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>spec.ar {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='spec.ar'>Estimate Spectral Density of a Time Series from AR Fit</h2>
+
+<h3>Description</h3>
+
+<p>Fits an AR model to <code>x</code> (or uses the existing fit) and computes
+(and by default plots) the spectral density of the fitted model.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>spec.ar(x, n.freq, order = NULL, plot = TRUE, na.action = na.fail,
+        method = "yule-walker", ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="spec.ar_:_x">x</code></td>
+<td>
+<p>A univariate (not yet:or multivariate) time series or the
+result of a fit by <code>ar</code>.</p>
+</td></tr>
+<tr><td><code id="spec.ar_:_n.freq">n.freq</code></td>
+<td>
+<p>The number of points at which to plot.</p>
+</td></tr>
+<tr><td><code id="spec.ar_:_order">order</code></td>
+<td>
+<p>The order of the AR model to be fitted.  If omitted,
+the order is chosen by AIC.</p>
+</td></tr>
+<tr><td><code id="spec.ar_:_plot">plot</code></td>
+<td>
+<p>Plot the periodogram?</p>
+</td></tr>
+<tr><td><code id="spec.ar_:_na.action">na.action</code></td>
+<td>
+<p><code>NA</code> action function.</p>
+</td></tr>
+<tr><td><code id="spec.ar_:_method">method</code></td>
+<td>
+<p><code>method</code> for <code>ar</code> fit.</p>
+</td></tr>
+<tr><td><code id="spec.ar_:_...">...</code></td>
+<td>
+<p>Graphical arguments passed to <code>plot.spec</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"spec"</code>.
+The result is returned invisibly if <code>plot</code> is true.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>Some authors, for example Thomson (1990), warn strongly
+that AR spectra can be misleading.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The multivariate case is not yet implemented.</p>
+
+
+<h3>References</h3>
+
+<p>Thompson, D.J. (1990) Time series analysis of Holocene climate data.
+<em>Phil. Trans. Roy. Soc. A</em> <b>330</b>, 601&ndash;616.
+</p>
+<p>Venables, W.N. and Ripley, B.D. (2002) <em>Modern Applied
+Statistics with S.</em> Fourth edition. Springer. (Especially
+page 402.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ar</code>, <code>spectrum</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+spec.ar(lh)
+
+spec.ar(ldeaths)
+spec.ar(ldeaths, method = "burg")
+
+spec.ar(log(lynx))
+spec.ar(log(lynx), method = "burg", add = TRUE, col = "purple")
+spec.ar(log(lynx), method = "mle", add = TRUE, col = "forest green")
+spec.ar(log(lynx), method = "ols", add = TRUE, col = "blue")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.2.5 ]</div>
+</div>
+</body></html>

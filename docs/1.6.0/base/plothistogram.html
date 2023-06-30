@@ -1,0 +1,139 @@
+<!DOCTYPE html><html><head><title>R: Plot Histograms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/plothistogram.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/plothistogram.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.histogram {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.histogram'>Plot Histograms</h2>
+
+<h3>Description</h3>
+
+<p>These are methods for objects of class <code>"histogram"</code>, typically
+produced by <code>hist</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'histogram'
+plot(x, freq = equidist, density = NULL, angle = 45,
+               col = NULL, border = par("fg"),
+               lty = NULL, main = paste("Histogram of", x$xname),
+               xlim = range(x$breaks), ylim = range(y, 0),
+               xlab = x$xname, ylab, axes = TRUE, labels = FALSE,
+               add = FALSE, ...)
+
+## S3 method for class 'histogram'
+lines(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.histogram_:_x">x</code></td>
+<td>
+<p>a <code>histogram</code> object, or a list with components
+<code>intensities</code>, <code>mid</code>, etc, see <code>hist</code> for
+information about the components of <code>x</code>.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_freq">freq</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the
+histogram graphic is to present a representation of frequencies, i.e,
+<code>x$counts</code>; if <code>FALSE</code>, <em>relative</em> frequencies
+(&ldquo;probabilities&rdquo;), i.e., <code>x$intensities</code>, are plotted.  The
+default is true for equidistant <code>breaks</code> and false otherwise.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_col">col</code></td>
+<td>
+<p>a colour to be used to fill the bars.  The default of
+<code>NULL</code> yields unfilled bars.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_border">border</code></td>
+<td>
+<p>the color of the border around the bars.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_angle">angle</code>, <code id="plot.histogram_:_density">density</code></td>
+<td>
+<p>select shading of bars by lines:
+see <code>rect</code>.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_lty">lty</code></td>
+<td>
+<p>the line type used for the bars, see also <code>lines</code>.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_xlim">xlim</code>, <code id="plot.histogram_:_ylim">ylim</code></td>
+<td>
+<p>the range of x and y values with sensible defaults.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_main">main</code>, <code id="plot.histogram_:_xlab">xlab</code>, <code id="plot.histogram_:_ylab">ylab</code></td>
+<td>
+<p>these arguments to <code>title</code> have useful
+defaults here.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_axes">axes</code></td>
+<td>
+<p>logical, indicating if axes should be drawn.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_labels">labels</code></td>
+<td>
+<p>logical or character.  Additionally draw labels on top of bars,
+if not <code>FALSE</code>; if <code>TRUE</code>, draw the counts or rounded
+intensities; if <code>labels</code> is a <code>character</code>, draw itself.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_add">add</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, only the bars are added to the
+current plot.  This is what <code>lines.histogram(*)</code> does.</p>
+</td></tr>
+<tr><td><code id="plot.histogram_:_...">...</code></td>
+<td>
+<p>further graphical parameters to <code>title</code> and <code>axis</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>lines.histogram(*)</code> is the same as
+<code>plot.histogram(*, add = TRUE)</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>hist</code>,
+<code>stem</code>,
+<code>density</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(women)
+str(wwt &lt;- hist(women$weight, nc= 7, plot = FALSE))
+plot(wwt, labels = TRUE) # default main &amp; xlab using wwt$xname
+plot(wwt, border = "dark blue", col = "light blue",
+     main = "Histogram of 15 women's weights", xlab = "weight [pounds]")
+
+## Fake "lines" example, using non-default labels:
+w2 &lt;- wwt; w2$counts &lt;- w2$counts - 1
+lines(w2, col = "Midnight Blue", labels = ifelse(w2$counts, "&gt; 1", "1"))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.0 ]</div>
+</div>
+</body></html>

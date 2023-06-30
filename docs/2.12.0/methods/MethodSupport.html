@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><title>R: Additional (Support) Functions for Methods</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/MethodSupport.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/MethodSupport.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>MethodSupport {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='MethodSupport'>Additional (Support) Functions for Methods</h2>
+
+<h3>Description</h3>
+
+<p>These are support routines for computations on formal methods.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>listFromMethods(generic, where, table)
+
+getMethodsForDispatch(fdef, inherited = FALSE)
+
+cacheMethod(f, sig, def, args, fdef, inherited = FALSE)
+
+resetGeneric(f, fdef, mlist, where, deflt)
+</code></pre>
+
+
+<h3>Summary of Functions</h3>
+
+
+<dl>
+<dt><code>listFromMethods</code>:</dt><dd>
+<p>A list object describing the methods for the function <code>generic</code>, supplied either as the function or the name of the function.   For user code, the function <code>findMethods</code> or <code>findMethodSignatures</code> is recommended instead,  returning a simple list of methods or a character matrix of the signatures.
+</p>
+<p>If <code>where</code> is supplied, this should be an environment or search list position from which a table of methods for the generic will be taken.  If <code>table</code> is supplied, this is itself assumed to be such a table.  If neither argument is supplied, the table is taken directly from the generic function (that is, the current set of methods defined for this generic).
+</p>
+<p>Returns an object of class <code>"LinearMethodsList"</code> (see
+LinearMethodsList) describing all the methods in the
+relevant table.
+</p>
+</dd>
+<dt><code>resetGeneric</code>:</dt><dd>
+<p>reset the currently defined methods for the generic function named
+<code>f</code>, found in environment <code>where</code> or explicitly supplied
+as an argument.  Other arguments are obsolete and ignored.
+</p>
+<p>Called for its side effect of resetting all inherited methods in
+the generic function's internal table.
+Normally not called directly, since changes to methods and the
+loading and detaching  of packages all generate a call automatically.
+</p>
+</dd>
+<dt><code>cacheMethod</code>:</dt><dd>
+<p>Store the definition for this function and signature in the method
+metadata for the function.  Used to store extensions of coerce
+methods found through inheritance, and to cache methods with
+<code>callNextMethod</code> information.
+</p>
+<p>No persistent effect, since the method metadata is session-scope
+only.
+</p>
+</dd>
+<dt><code>getMethodsForDispatch</code>:</dt><dd>
+<p>Get the table of methods (an <code>environment</code> since R
+version 2.6.0) representing the methods for function <code>f</code>.
+</p>
+<p>For user code, the function <code>findMethods</code> or
+<code>findMethodSignatures</code> is recommended instead, returning
+a simple list of methods or a character matrix of the signatures.
+</p>
+</dd>
+</dl>
+
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.12.0 ]</div>
+</div>
+</body></html>

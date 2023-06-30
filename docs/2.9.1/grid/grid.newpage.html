@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>R: Move to a New Page on a Grid Device</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.newpage.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.newpage.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.newpage {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.newpage'>Move to a New Page on a Grid Device</h2>
+
+<h3>Description</h3>
+
+<p>This function erases the current device or moves to a new page.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.newpage(recording = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.newpage_:_recording">recording</code></td>
+<td>
+<p>A logical value to indicate whether the new-page
+operation should be saved onto the Grid display list.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The new page is painted with the fill colour
+(<code>gpar("fill")</code>), which is often transparent.  For devices
+with a <em>canvas</em> colour (the on-screen devices <code>X11</code>,
+<code>windows</code> and <code>quartz</code>), the page is first painted with the
+canvas colour and then the background colour.
+</p>
+<p>There is a hook called <code>"grid.newpage"</code> (see <code>setHook</code>)
+which is used in the testing code to annotate the new page.  The hook
+function(s) are called with no argument.  (If the value is a character
+string, <code>get</code> is called on it from within the <span class="pkg">grid</span>
+name space.)
+</p>
+
+
+<h3>Value</h3>
+
+<p>None.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p>Grid
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 2.9.1 ]</div>
+</div>
+</body></html>

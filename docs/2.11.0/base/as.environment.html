@@ -1,0 +1,80 @@
+<!DOCTYPE html><html><head><title>R: Coerce to an Environment Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/as.environment.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/as.environment.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>as.environment {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='as.environment'> Coerce to an Environment Object </h2>
+
+<h3>Description</h3>
+
+<p>Converts a number or a character string to the corresponding
+environment on the search path.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>as.environment(object)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="as.environment_:_object">object</code></td>
+<td>
+<p>the object to convert.  If it is already an
+environment, just return it.  If it is a number, return the
+environment corresponding to that position on the search list.  If
+it is a character string, match the string to the names on the
+search list.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The corresponding environment object.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This is a primitive function.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p> John Chambers </p>
+
+
+<h3>See Also</h3>
+
+<p><code>environment</code> for creation and manipulation,
+<code>search</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>as.environment(1) ## the global environment
+identical(globalenv(), as.environment(1)) ## is TRUE
+try(as.environment("package:stats"))      ## stats need not be loaded
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.11.0 ]</div>
+</div>
+</body></html>

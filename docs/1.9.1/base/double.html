@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head><title>R: Double Precision Vectors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/double.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/double.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>double {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='double'>Double Precision Vectors</h2>
+
+<h3>Description</h3>
+
+<p>Create, coerce to or test for a double-precision vector.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>double(length = 0)
+as.double(x, ...)
+is.double(x)
+single(length = 0)
+as.single(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="double_:_length">length</code></td>
+<td>
+<p>desired length.</p>
+</td></tr>
+<tr><td><code id="double_:_x">x</code></td>
+<td>
+<p>object to be coerced or tested.</p>
+</td></tr>
+<tr><td><code id="double_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>double</code> creates a double precision vector of the specified
+length.  The elements of the vector are all equal to <code>0</code>.
+</p>
+<p><code>as.double</code> attempts to coerce its argument to be of double
+type: like <code>as.vector</code> it strips attributes including names.
+</p>
+<p><code>is.double</code> returns <code>TRUE</code> or <code>FALSE</code> depending on
+whether its argument is of double type or not.  It is generic:
+you can write methods to handle specific classes of objects,
+see InternalMethods.
+</p>
+
+
+<h3>Note</h3>
+
+<p><em><span class="rlang"><b>R</b></span> has no single precision data type.  All real numbers are
+stored in double precision format</em>.  The functions <code>as.single</code>
+and <code>single</code> are identical to <code>as.double</code> and <code>double</code>
+except they set the attribute <code>Csingle</code> that is used in the
+<code>.C</code> and <code>.Fortran</code> interface, and they are
+intended only to be used in that context.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>integer</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>is.double(1)
+all(double(3) == 0)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.1 ]</div>
+</div>
+</body></html>

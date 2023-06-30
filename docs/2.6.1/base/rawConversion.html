@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>R: Convert to or from Raw Vectors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rawConversion.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rawConversion.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>rawConversion {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='rawConversion'>Convert to or from Raw Vectors</h2>
+
+<h3>Description</h3>
+
+<p>Conversion and manipulation of  objects of type <code>"raw"</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>charToRaw(x)
+rawToChar(x, multiple = FALSE)
+
+rawShift(x, n)
+
+rawToBits(x)
+intToBits(x)
+packBits(x, type = c("raw", "integer"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="rawConversion_:_x">x</code></td>
+<td>
+<p>object to be converted or shifted.</p>
+</td></tr>
+<tr><td><code id="rawConversion_:_multiple">multiple</code></td>
+<td>
+<p>logical: should the conversion be to a single
+character string or multiple individual characters?</p>
+</td></tr>
+<tr><td><code id="rawConversion_:_n">n</code></td>
+<td>
+<p>the number of bits to shift.  Positive numbers shift right
+and negative numbers shift left: allowed values are <code>-8 ... 8</code>.</p>
+</td></tr>
+<tr><td><code id="rawConversion_:_type">type</code></td>
+<td>
+<p>the result type.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>packBits</code> accepts raw, integer or logical inputs, the last two
+without any NAs.
+</p>
+<p>Note that &lsquo;bytes&rsquo; are not necessarily the same as characters,
+e.g. in UTF-8 domains.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>charToRaw</code> converts a length-one character string to raw bytes.
+It does so without taking into account any declared encoding (see
+<code>Encoding</code>).
+</p>
+<p><code>rawToChar</code> converts raw bytes either to a single character
+string or a character vector of single bytes.  (Note that a single
+character string could contain embedded nuls.)
+</p>
+<p><code>rawToBits</code> returns a raw vector of 8 times the length of a raw
+vector with entries 0 or 1.  <code>intToBits</code> returns a raw vector
+of 32 times the length of an integer vector with entries 0 or 1. In
+both cases the unpacking is least-significant bit first.
+</p>
+<p><code>packbits</code> packs its input (using only the lowest bit for raw or
+integer vectors) least-significant bit first to a raw or integer vector.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- "A test string"
+(y &lt;- charToRaw(x))
+is.vector(y) # TRUE
+
+rawToChar(y)
+rawToChar(y, multiple = TRUE)
+(xx &lt;- c(y, as.raw(0), charToRaw("more")))
+rawToChar(xx)
+xxx &lt;- xx
+xxx[length(y)+1] &lt;- charToRaw("&amp;")
+xxx
+rawToChar(xxx)
+
+rawShift(y, 1)
+rawShift(y, -2)
+
+rawToBits(y)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.6.1 ]</div>
+</div>
+</body></html>

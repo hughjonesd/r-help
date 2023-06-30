@@ -1,0 +1,209 @@
+<!DOCTYPE html><html><head><title>R: Download Packages from CRAN</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/update.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/update.packages.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>update.packages {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='update.packages'>Download Packages from CRAN</h2>
+
+<h3>Description</h3>
+
+<p>These functions can be used to automatically compare the version
+numbers of installed packages with the newest available version on
+CRAN and update outdated packages on the fly.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>update.packages(lib.loc = NULL, CRAN = getOption("CRAN"),
+                contriburl = contrib.url(CRAN),
+                method, instlib = NULL,
+                ask = TRUE, available = NULL, destdir = NULL,
+		installWithVers = FALSE)
+
+CRAN.packages(CRAN = getOption("CRAN"), method,
+              contriburl = contrib.url(CRAN))
+
+old.packages(lib.loc = NULL, CRAN = getOption("CRAN"),
+             contriburl = contrib.url(CRAN),
+             method, available = NULL)
+
+download.packages(pkgs, destdir, available = NULL,
+                  CRAN = getOption("CRAN"),
+                  contriburl = contrib.url(CRAN), method)
+
+install.packages(pkgs, lib, CRAN = getOption("CRAN"),
+                 contriburl = contrib.url(CRAN),
+                 method, available = NULL, destdir = NULL,
+		 installWithVers = FALSE, dependencies = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="update.packages_:_lib.loc">lib.loc</code></td>
+<td>
+<p>character vector describing the location of R
+library trees to search through (and update packages therein).</p>
+</td></tr>
+<tr><td><code id="update.packages_:_CRAN">CRAN</code></td>
+<td>
+<p>character, the base URL of the CRAN mirror to use, i.e.,
+the URL of a CRAN root such as <code>"http://cran.r-project.org"</code>
+(the default) or its Statlib mirror,
+<code>"http://lib.stat.cmu.edu/R/CRAN"</code>.
+</p>
+</td></tr>
+<tr><td><code id="update.packages_:_contriburl">contriburl</code></td>
+<td>
+<p>URL of the contrib section of CRAN. Use this argument
+only if your CRAN mirror is incomplete, e.g., because you burned
+only the contrib section on a CD.  Overrides argument <code>CRAN</code>.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_method">method</code></td>
+<td>
+<p>Download method, see <code>download.file</code>.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_pkgs">pkgs</code></td>
+<td>
+<p>character vector of the short names of
+packages whose current versions should be downloaded from
+<code>CRAN</code>.
+</p>
+</td></tr>
+<tr><td><code id="update.packages_:_destdir">destdir</code></td>
+<td>
+<p>directory where downloaded packages are stored.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_available">available</code></td>
+<td>
+<p>list of packages available at CRAN as returned by
+<code>CRAN.packages</code>.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_lib">lib</code></td>
+<td>
+<p>character vector giving the library directories where to
+install the packages.  Recycled as needed.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_ask">ask</code></td>
+<td>
+<p>logical indicating to ask before packages are actually
+downloaded and installed.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_installWithVers">installWithVers</code></td>
+<td>
+<p>If <code>TRUE</code>, will invoke the install of the
+package such that it can be referenced by package version.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_instlib">instlib</code></td>
+<td>
+<p>character string giving the library directory where to
+install the packages.</p>
+</td></tr>
+<tr><td><code id="update.packages_:_dependencies">dependencies</code></td>
+<td>
+<p>logical indicating to also install uninstalled
+packages on which these packages depend/suggest/import
+(and so on recursively).
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>CRAN.packages</code> returns a matrix of package details corresponding
+to packages/bundles currently available in the contrib section of
+CRAN, the comprehensive R archive network.  The current list of
+packages is downloaded over the internet (or copied from a local CRAN
+mirror).
+</p>
+<p><code>old.packages</code> compares the information from <code>CRAN.packages</code>
+with that from <code>installed.packages</code> and reports installed
+packages/bundles that have newer versions on CRAN.
+</p>
+<p><code>download.packages</code> takes a list of package/bundle names and a
+destination directory, downloads the newest versions of the package
+sources and saves them in <code>destdir</code>.  If the list of available
+packages is not given as argument, it is also directly obtained from
+CRAN.  If CRAN is local, i.e., the URL starts with <code>"file:"</code>,
+then the packages are not downloaded but used directly.
+</p>
+<p>The main function of the bundle is <code>update.packages</code>.  First a
+list of all packages found in <code>lib.loc</code> is created and compared
+with the packages available on CRAN.  Packages with a newer version
+are reported and for each one the user can specify if it should be
+updated.
+If so, the package sources are downloaded from
+CRAN and installed in the respective library path (or <code>instlib</code>
+if specified) using the <span class="rlang"><b>R</b></span> <code>INSTALL</code> mechanism.
+</p>
+<p><code>install.packages</code> can be used to install new packages.  It
+takes a vector of package names and a destination library, downloads
+the packages from CRAN and installs them. If the library
+is omitted it defaults to the first directory in <code>.libPaths()</code>, with
+a warning if there is more than one.
+
+
+An attempt is made to install the packages in an order that respects
+their dependencies.  This does assume that all the entries in
+<code>lib</code> are on the default library path for installs (set by
+<code>R_LIBS</code>). 
+</p>
+<p>For <code>install.packages</code> and <code>update.packages</code>, <code>destdir</code>
+is the directory to which packages will be downloaded. If it is
+<code>NULL</code> (the default) a temporary directory is used, and the user
+will be given the option of deleting the temporary files once the
+packages are installed.  (They will always be deleted at the end of
+the <span class="rlang"><b>R</b></span> session.)
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>CRAN.packages</code>, a matrix with one row per package/bundle,
+row names the package names and column names <code>"Package"</code>, 
+<code>"Version"</code>, <code>"Priority"</code>, <code>"Bundle"</code>,
+<code>"Depends"</code>, <code>"Imports"</code>, <code>"Suggests"</code>
+and <code>"Contains"</code>.
+</p>
+<p>For <code>old.packages</code>, <code>NULL</code> or a matrix with one row per
+package/bundle and column names <code>"Package"</code>, <code>"LibPath"</code>,
+<code>"Installed"</code> and <code>"CRAN"</code>.  (The last two columns are
+version numbers.)
+</p>
+<p>For <code>download.packages</code>, a two-column matrix of names and
+destination file names, for those packages/bundles successfully downloaded.
+</p>
+<p><code>install.packages</code> and <code>update.packages</code> have no return value.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>installed.packages</code>.
+</p>
+<p>See <code>download.file</code> for how to handle proxies and
+other options to monitor file transfers.
+</p>
+<p><code>INSTALL</code>, <code>REMOVE</code>,
+<code>library</code>, <code>.packages</code>, <code>read.dcf</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.0.1 ]</div>
+</div>
+</body></html>

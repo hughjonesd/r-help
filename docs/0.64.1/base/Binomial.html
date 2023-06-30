@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>R: The Binomial Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Binomial.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Binomial.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Binomial {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Binomial'>The Binomial Distribution</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide information about the binomial distribution
+with parameters <code>size</code> and <code>prob</code>.  <code>dbinom</code> gives the density,
+<code>pbinom</code> gives the distribution function <code>qbinom</code> gives
+the quantile function and <code>rbinom</code> generates random deviates.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dbinom(x, size, prob)
+pbinom(q, size, prob)
+qbinom(p, size, prob)
+rbinom(n, size, prob)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Binomial_:_x">x</code>, <code id="Binomial_:_q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="Binomial_:_p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="Binomial_:_n">n</code></td>
+<td>
+<p>number of observations to generate.</p>
+</td></tr>
+<tr><td><code id="Binomial_:_size">size</code></td>
+<td>
+<p>number of trials.</p>
+</td></tr>
+<tr><td><code id="Binomial_:_prob">prob</code></td>
+<td>
+<p>probability of success on each trial.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The binomial distribution with <code>size</code> <code class="reqn">= n</code> and
+<code>prob</code> <code class="reqn">= p</code> has density
+</p>
+<p style="text-align: center;"><code class="reqn">p(x) = {n \choose x} {p}^{x} {(1-p)}^{n-x}%
+    </code>
+</p>
+
+<p>for <code class="reqn">x = 0, \ldots, n</code>.
+</p>
+<p>If an element of <code>x</code> is not integer, the result of <code>dbinom</code> is zero,
+with a warning.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dnbinom</code> for the negative binomial, and <code>dpois</code>
+for the Poisson distribution.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># Compute P(45 &lt; X &lt; 55) for X Binomial(100,0.5)
+sum(dbinom(46:54, 100, 0.5))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>R: File manipulation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/file.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/file.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>file {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='file'>File manipulation</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide a very basic interface to the computer's
+filestore.  
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>file.create(...)
+file.exists(...)
+file.remove(...)
+file.append(file1, file2)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="file_:_...">...</code>, <code id="file_:_file1">file1</code>, <code id="file_:_file2">file2</code></td>
+<td>
+<p>character vectors, containing file names.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>...</code> arguments are concatenated to form one character
+string: you can specify the files separately or as one vector.
+</p>
+<p><code>file.create</code> creates files with the given names if they
+do not already exist and truncates them if they do.
+It returns a logical vector indicating the success or failure
+of the operation for each file.
+</p>
+<p><code>file.exists</code> returns a logical vector indicating whether
+the files named by its argument exist.
+</p>
+<p><code>file.remove</code> attempts to remove the files named in its
+argument.  It returns a logical vector indicating whether or
+not it succeeded in removing each file.
+</p>
+<p><code>file.append</code> attempts to append the files named by its
+second argument to those named by its first.  The R subscript
+recycling rule is used to align names given in vectors
+of different lengths.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Ross Ihaka.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>file.show</code>, <code>list.files</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>cat("file A\n", file="A")
+cat("file B\n", file="B")
+file.append("A", "B")
+file.create("A")
+file.append("A", rep("B", 10))
+if(interactive()) file.show("A")
+
+file.remove("A","B")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.2 ]</div>
+</div>
+</body></html>

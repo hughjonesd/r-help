@@ -1,0 +1,210 @@
+<!DOCTYPE html><html><head><title>R: Sample Quantiles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/quantile.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/quantile.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>quantile {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='quantile'>Sample Quantiles</h2>
+
+<h3>Description</h3>
+
+<p>The generic function <code>quantile</code> produces sample quantiles
+corresponding to the given probabilities.
+The smallest observation corresponds to a probability of 0 and the
+largest to a probability of 1.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>quantile(x, ...)
+
+## Default S3 method:
+quantile(x, probs = seq(0, 1, 0.25), na.rm = FALSE,
+         names = TRUE, type = 7, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="quantile_:_x">x</code></td>
+<td>
+<p>numeric vectors whose sample quantiles are wanted.  Missing
+values are ignored.</p>
+</td></tr>
+<tr><td><code id="quantile_:_probs">probs</code></td>
+<td>
+<p>numeric vector of probabilities with values in <code class="reqn">[0,1]</code>.</p>
+</td></tr>
+<tr><td><code id="quantile_:_na.rm">na.rm</code></td>
+<td>
+<p>logical; if true, any <code>NA</code> and <code>NaN</code>'s
+are removed from <code>x</code> before the quantiles are computed.</p>
+</td></tr>
+<tr><td><code id="quantile_:_names">names</code></td>
+<td>
+<p>logical; if true, the result has a <code>names</code>
+attribute.  Set to <code>FALSE</code> for speedup with many <code>probs</code>.</p>
+</td></tr>
+<tr><td><code id="quantile_:_type">type</code></td>
+<td>
+<p>an integer between 1 and 9 selecting one of the
+nine quantile algorithms detailed below to be used.</p>
+</td></tr>
+<tr><td><code id="quantile_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A vector of length <code>length(probs)</code> is returned;
+if <code>names = TRUE</code>, it has a <code>names</code> attribute.
+</p>
+<p><code>NA</code> and <code>NaN</code> values in <code>probs</code> are
+propagated to the result.
+</p>
+
+
+<h3>Types</h3>
+
+<p><code>quantile</code> returns estimates of underlying distribution quantiles
+based on one or two order statistics from the supplied elements in
+<code>x</code> at probabilities in <code>probs</code>.  One of the nine quantile
+algorithms discussed in Hyndman and Fan (1996), selected by
+<code>type</code>, is employed.
+</p>
+<p>Sample quantiles of type <code class="reqn">i</code> are defined by
+</p>
+<p style="text-align: center;"><code class="reqn">Q_{i}(p) = (1 - \gamma)x_{j} + \gamma x_{j+1}</code>
+</p>
+
+<p>where <code class="reqn">1 \le i \le 9</code>,
+<code class="reqn">\frac{j - m}{n} \le p &lt; \frac{j - m + 1}{n}</code>,
+<code class="reqn">x_{j}</code> is the <code class="reqn">j</code>th order statistic, <code class="reqn">n</code> is the
+sample size, and <code class="reqn">m</code> is a constant determined by the sample
+quantile type. Here <code class="reqn">\gamma</code> depends on the fractional part
+of <code class="reqn">g = np+m-j</code>.
+</p>
+<p>For the continuous sample quantile types (4 through 9), the sample
+quantiles can be obtained by linear interpolation between the <code class="reqn">k</code>th
+order statistic and <code class="reqn">p(k)</code>:
+</p>
+<p style="text-align: center;"><code class="reqn">p(k) = \frac{k - \alpha} {n - \alpha - \beta + 1}</code>
+</p>
+<p> where
+<code class="reqn">\alpha</code> and <code class="reqn">\beta</code> are constants determined by
+the type.  Further, <code class="reqn">m = \alpha + p \left( 1 - \alpha - \beta
+    \right)</code>, and <code class="reqn">\gamma = g</code>.
+</p>
+<p><strong>Discontinuous sample quantile types 1, 2, and 3</strong>
+</p>
+
+<dl>
+<dt>Type 1</dt><dd><p>Inverse of empirical distribution function.</p>
+</dd>
+<dt>Type 2</dt><dd><p>Similar to type 1 but with averaging at discontinuities.</p>
+</dd>
+<dt>Type 3</dt><dd><p>SAS definition: nearest even order statistic.</p>
+</dd>
+</dl>
+
+<p><strong>Continuous sample quantile types 4 through 9</strong>
+</p>
+
+<dl>
+<dt>Type 4</dt><dd><p><code class="reqn">p(k) = \frac{k}{n}</code>.
+That is, linear interpolation of the empirical cdf.
+</p>
+</dd>
+<dt>Type 5</dt><dd><p><code class="reqn">p(k) = \frac{k - 0.5}{n}</code>.
+That is a piecewise linear function where the knots are the values
+midway through the steps of the empirical cdf. This is popular
+amongst hydrologists.
+</p>
+</dd>
+<dt>Type 6</dt><dd><p><code class="reqn">p(k) = \frac{k}{n + 1}</code>.
+Thus <code class="reqn">p(k) = \mbox{E}[F(x_{k})]</code>.
+This is used by Minitab and by SPSS.
+</p>
+</dd>
+<dt>Type 7</dt><dd><p><code class="reqn">p(k) = \frac{k - 1}{n - 1}</code>.
+In this case, <code class="reqn">p(k) = \mbox{mode}[F(x_{k})]</code>.
+This is used by S.
+</p>
+</dd>
+<dt>Type 8</dt><dd><p><code class="reqn">p(k) = \frac{k - \frac{1}{3}}{n + \frac{1}{3}}</code>.
+Then <code class="reqn">p(k) \approx \mbox{median}[F(x_{k})]</code>.
+The resulting quantile estimates are approximately median-unbiased
+regardless of the distribution of <code>x</code>.
+</p>
+</dd>
+<dt>Type 9</dt><dd><p><code class="reqn">p(k) = \frac{k - \frac{3}{8}}{n + \frac{1}{4}}</code>.
+The resulting quantile estimates are approximately unbiased if
+<code>x</code> is normally distributed.
+</p>
+</dd>
+</dl>
+
+<p>Hyndman and Fan (1996) recommend type 8.
+The default method is type 7, as used by S and by <span class="rlang"><b>R</b></span> &lt; 2.0.0.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>of the version used in <span class="rlang"><b>R</b></span> &gt;= 2.0.0, Ivan Frohne and Rob J Hyndman.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+<p>Hyndman, R. J. and Fan, Y. (1996) Sample quantiles in statistical
+packages, <em>American Statistician</em>, <b>50</b>, 361&ndash;365.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ecdf</code> for empirical distributions of which
+<code>quantile</code> is the &ldquo;inverse&rdquo;;
+<code>boxplot.stats</code> and <code>fivenum</code> for computing
+&ldquo;versions&rdquo; of quartiles, etc.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>quantile(x &lt;- rnorm(1001))# Extremes &amp; Quartiles by default
+quantile(x,  probs=c(.1,.5,1,2,5,10,50, NA)/100)
+
+### Compare different types
+p &lt;- c(0.1,0.5,1,2,5,10,50)/100
+res &lt;- matrix(as.numeric(NA), 9, 7)
+for(type in 1:9) res[type, ] &lt;- y &lt;- quantile(x,  p, type=type)
+dimnames(res) &lt;- list(1:9, names(y))
+round(res, 3)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.1.1 ]</div>
+</div>
+</body></html>

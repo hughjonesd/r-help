@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><title>R: Sample Quantiles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/quantile.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/quantile.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>quantile {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='quantile'>Sample Quantiles</h2>
+
+<h3>Description</h3>
+
+<p>The generic function <code>quantile</code> produces sample quantiles
+corresponding to the given probabilities.
+The smallest observation corresponds to a probability of 0 and the
+largest to a probability of 1.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>quantile(x, probs=seq(0, 1, 0.25), na.rm=FALSE, names = TRUE)
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>A vector of length <code>length(probs)</code> is returned;
+if <code>names = TRUE</code>, it has a <code>names</code> attribute.
+</p>
+<p><code>quantile(x,p)</code> as a function of <code>p</code> linearly interpolates
+the points ( (i-1)/(n-1), ox[i] ), where
+<code>ox &lt;- order(x)</code> (the &ldquo;order statistics&rdquo;) and <code>n &lt;- length(x)</code>.
+</p>
+<p>This gives <code>quantile(x, p) == (1-f)*ox[i] + f*ox[i+1]</code>, where
+<code>r &lt;- 1 + (n-1)*p</code>, <code>i &lt;- floor(r)</code>, <code>f &lt;- r - i</code>
+<em>and</em> <code>ox[n+1] :=  ox[n]</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>quantile(x &lt;- rnorm(1001))# Extremes &amp; Quartiles by default
+quantile(x,  probs=c(.1,.5,1,2,5,10,50)/100)
+
+n &lt;- length(x) ## the following is exact, because 1/(1001-1) is exact:
+all(abs(sort(x) == quantile(x, probs = ((1:n)-1)/(n-1), names=F)))# TRUE
+
+n &lt;- 777
+ox &lt;- sort(x &lt;- round(rnorm(n),1))# round() produces ties
+ox &lt;- c(ox, ox[n]) #- such that ox[n+1] := ox[n]
+p &lt;- c(0,1,runif(100))
+i &lt;- floor(r &lt;- 1 + (n-1)*p)
+f &lt;- r - i
+all(abs(quantile(x,p) - ((1-f)*ox[i] + f*ox[i+1])) &lt; 20*.Machine$double.eps)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63.3 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html><html><head><title>R: Report on Details of Saved Images or Re-saves them</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkRdaFiles.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkRdaFiles.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>checkRdaFiles {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='checkRdaFiles'>
+Report on Details of Saved Images or Re-saves them
+</h2>
+
+<h3>Description</h3>
+
+<p>This reports for each of the files produced by <code>save</code> the size,
+if it was saved in ASCII or XDR binary format, and if it was
+compressed (and if so in what format).
+</p>
+<p>Usually such files have extension &lsquo;<span class="file">.rda</span>&rsquo; or &lsquo;<span class="file">.RData</span>&rsquo;, hence
+the name of the function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>checkRdaFiles(paths)
+resaveRdaFiles(paths, compress = c("auto", "gzip", "bzip2", "xz"),
+               compression_level, version = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="checkRdaFiles_:_paths">paths</code></td>
+<td>
+<p>A character vector of paths to <code>save</code> files.  If
+this specifies a single directory, it is taken to refer to all
+&lsquo;<span class="file">.rda</span>&rsquo; and &lsquo;<span class="file">.RData</span>&rsquo; files in that directory.</p>
+</td></tr>
+<tr><td><code id="checkRdaFiles_:_compress">compress</code>, <code id="checkRdaFiles_:_compression_level">compression_level</code></td>
+<td>
+<p>Type and level of compression: see
+<code>save</code>.  Values of <code>compress</code> can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="checkRdaFiles_:_version">version</code></td>
+<td>
+<p>The format to be used when re-saving: see
+<code>save</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>compress = "auto"</code> asks <span class="rlang"><b>R</b></span> to choose the compression and ignores
+<code>compression_level</code>.  It will try <code>"gzip"</code>, <code>"bzip2"</code>
+and if the <code>"gzip"</code> compressed size is over 10Kb, <code>"xz"</code> and
+choose the smallest compressed file (but with a 10% bias towards
+<code>"gzip"</code>).  This can be slow.
+</p>
+<p>For back-compatibility, <code>version = NULL</code> is interpreted to mean
+version 2: however version-3 files will only be saved as version 3.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>checkRdaFiles</code>, a data frame with rows names <code>paths</code>
+and columns
+</p>
+<table>
+<tr><td><code>size</code></td>
+<td>
+<p>numeric: file size in bytes, <code>NA</code> if the file does
+not exist.</p>
+</td></tr>
+<tr><td><code>ASCII</code></td>
+<td>
+<p>logical: true for save(ASCII = TRUE), <code>NA</code> if the
+format is not that of an <span class="rlang"><b>R</b></span> save file.</p>
+</td></tr>
+<tr><td><code>compress</code></td>
+<td>
+<p>character: type of compression.  One of <code>"gzip"</code>,
+<code>"bzip2"</code>, <code>"xz"</code>, <code>"none"</code> or <code>"unknown"</code> (which
+means that if this is an <span class="rlang"><b>R</b></span> save file it is from a later version of
+<span class="rlang"><b>R</b></span>).</p>
+</td></tr>
+<tr><td><code>version</code></td>
+<td>
+<p>integer: the version of the save &ndash; usually <code>2</code>
+but <code>1</code> for very old files, and <code>NA</code> for other files.
+Unfortunately <code>2</code> means &lsquo;version 2 or later&rsquo;.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## from a package top-level source directory
+paths &lt;- sort(Sys.glob(c("data/*.rda", "data/*.RData")))
+(res &lt;- checkRdaFiles(paths))
+## pick out some that may need attention
+bad &lt;- is.na(res$ASCII) | res$ASCII | (res$size &gt; 1e4 &amp; res$compress == "none")
+res[bad, ]
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.0.0 ]</div>
+</div>
+</body></html>

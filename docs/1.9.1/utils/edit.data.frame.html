@@ -1,0 +1,123 @@
+<!DOCTYPE html><html><head><title>R: Edit Data Frames and Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/edit.data.frame.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/edit.data.frame.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>edit.data.frame {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='edit.data.frame'>Edit Data Frames and Matrices</h2>
+
+<h3>Description</h3>
+
+<p>Use data editor on data frame or matrix contents.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'data.frame'
+edit(name, factor.mode = c("character", "numeric"),
+     edit.row.names = any(row.names(name) != 1:nrow(name)), ...)
+
+## S3 method for class 'matrix'
+edit(name, edit.row.names = any(rownames(name) != 1:nrow(name)), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="edit.data.frame_:_name">name</code></td>
+<td>
+<p>A data frame or matrix.</p>
+</td></tr>
+<tr><td><code id="edit.data.frame_:_factor.mode">factor.mode</code></td>
+<td>
+<p>How to handle factors (as integers or using
+character levels) in a data frame.</p>
+</td></tr>
+<tr><td><code id="edit.data.frame_:_edit.row.names">edit.row.names</code></td>
+<td>
+<p>logical. Show the row names be displayed as
+a separate editable column?</p>
+</td></tr>
+<tr><td><code id="edit.data.frame_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>At present, this only works on simple data frames containing numeric, 
+logical or character vectors and factors. Factors are represented in the
+spreadsheet as either numeric vectors (which is more suitable for data
+entry) or character vectors (better for browsing). After editing,
+vectors are padded with <code>NA</code> to have the same length and
+factor attributes are restored.  The set of factor levels can not be
+changed by editing in numeric mode; invalid levels are changed to
+<code>NA</code> and a warning is issued.  If new factor levels are
+introduced in character mode, they are added at the end of the list of
+levels in the order in which they encountered.
+</p>
+<p>It is possible to use the data-editor's facilities to select the mode
+of columns to swap between numerical and factor columns in a data
+frame.  Changing any column in a numerical matrix to character will
+cause the result to be coerced to a character matrix.  Changing 
+the mode of logical columns is not supported.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The edited data frame.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>fix(dataframe)</code> works for in-place editing by calling this
+function.
+</p>
+<p>If the data editor is not available, a dump of the object is presented
+for editing using the default method of <code>edit</code>.
+</p>
+<p>At present the data editor is limited to 65535 rows.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p> Peter Dalgaard </p>
+
+
+<h3>See Also</h3>
+
+<p><code>data.entry</code>, <code>edit</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+data(InsectSprays)
+edit(InsectSprays)
+edit(InsectSprays, factor.mode="numeric")
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 1.9.1 ]</div>
+</div>
+</body></html>

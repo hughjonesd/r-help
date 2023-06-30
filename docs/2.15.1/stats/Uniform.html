@@ -1,0 +1,132 @@
+<!DOCTYPE html><html><head><title>R: The Uniform Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Uniform.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Uniform.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Uniform {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Uniform'>The Uniform Distribution</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide information about the uniform distribution
+on the interval from <code>min</code> to <code>max</code>.  <code>dunif</code> gives the
+density, <code>punif</code> gives the distribution function <code>qunif</code>
+gives the quantile function and <code>runif</code> generates random
+deviates.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dunif(x, min=0, max=1, log = FALSE)
+punif(q, min=0, max=1, lower.tail = TRUE, log.p = FALSE)
+qunif(p, min=0, max=1, lower.tail = TRUE, log.p = FALSE)
+runif(n, min=0, max=1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Uniform_:_x">x</code>, <code id="Uniform_:_q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="Uniform_:_p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="Uniform_:_n">n</code></td>
+<td>
+<p>number of observations. If <code>length(n) &gt; 1</code>, the length
+is taken to be the number required.</p>
+</td></tr>
+<tr><td><code id="Uniform_:_min">min</code>, <code id="Uniform_:_max">max</code></td>
+<td>
+<p>lower and upper limits of the distribution.  Must be finite.</p>
+</td></tr>
+<tr><td><code id="Uniform_:_log">log</code>, <code id="Uniform_:_log.p">log.p</code></td>
+<td>
+<p>logical; if TRUE, probabilities p are given as log(p).</p>
+</td></tr>
+<tr><td><code id="Uniform_:_lower.tail">lower.tail</code></td>
+<td>
+<p>logical; if TRUE (default), probabilities are
+<code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>min</code> or <code>max</code> are not specified they assume the default
+values of <code>0</code> and <code>1</code> respectively.
+</p>
+<p>The uniform distribution has density
+</p>
+<p style="text-align: center;"><code class="reqn">f(x) = \frac{1}{max-min}</code>
+</p>
+
+<p>for <code class="reqn">min \le x \le max</code>.
+</p>
+<p>For the case of <code class="reqn">u := min == max</code>, the limit case of
+<code class="reqn">X \equiv u</code> is assumed, although there is no density in
+that case and <code>dunif</code> will return <code>NaN</code> (the error condition).
+</p>
+<p><code>runif</code> will not generate either of the extreme values unless
+<code>max = min</code> or <code>max-min</code> is small compared to <code>min</code>,
+and in particular not for the default arguments.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The characteristics of output from pseudo-random number generators
+(such as precision and periodicity) vary widely.  See
+<code>.Random.seed</code> for more information on <span class="rlang"><b>R</b></span>'s random number
+generation algorithms.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>RNG</code> about random number generation in <span class="rlang"><b>R</b></span>.
+</p>
+<p>Distributions for other standard distributions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>u &lt;- runif(20)
+
+## The following relations always hold :
+punif(u) == u
+dunif(u) == 1
+
+var(runif(10000))#- ~ = 1/12 = .08333
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.15.1 ]</div>
+</div>
+</body></html>

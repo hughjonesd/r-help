@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><title>R: Internal Generic Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/InternalMethods.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/InternalMethods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>InternalMethods {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='InternalMethods'>Internal Generic Functions</h2>
+
+<h3>Description</h3>
+
+<p>Many <span class="rlang"><b>R</b></span>-internal functions are <em>generic</em> and allow
+methods to be written for.
+</p>
+
+
+<h3>Details</h3>
+
+<p>The following primitive and internal functions are <em>generic</em>,
+i.e., you can write <code>methods</code> for them:
+</p>
+<p><code>[</code>,
+<code>[[</code>,
+<code>$</code>,
+<code>[&lt;-</code>,
+<code>[[&lt;-</code>,
+<code>$&lt;-</code>,
+</p>
+<p><code>length</code>,
+<code>length&lt;-</code>,
+<code>dimnames</code>,
+<code>dimnames&lt;-</code>,
+<code>dim</code>,
+<code>dim&lt;-</code>,
+<code>names</code>,
+<code>names&lt;-</code>,
+<code>levels&lt;-</code>,
+</p>
+<p><code>c</code>,
+<code>unlist</code>,
+<code>cbind</code>,
+<code>rbind</code>,
+</p>
+<p><code>as.character</code>,
+<code>as.complex</code>,
+<code>as.double</code>,
+<code>as.integer</code>,
+<code>as.logical</code>,
+<code>as.raw</code>,
+<code>as.vector</code>,
+<code>is.array</code>,
+<code>is.matrix</code>,
+<code>is.na</code>,
+<code>is.nan</code>,
+<code>is.numeric</code>,
+<code>rep</code>,
+<code>seq.int</code>
+(which dispatches methods for <code>"seq"</code>)
+and <code>xtfrm</code>
+</p>
+<p>In addition, <code>is.name</code> is a synonym for <code>is.symbol</code> and
+dispatches methods for the latter.  Similarly, <code>as.numeric</code>
+is a synonym for <code>as.double</code> and dispatches methods for the
+latter, i.e., S3 methods are for <code>as.double</code>, whereas S4 methods
+are to be written for <code>as.numeric</code>.
+</p>
+<p>Note that all of the group generic functions are also
+internal/primitive and allow methods to be written for them.
+</p>
+<p><code>.S3PrimitiveGenerics</code> is a character vector listing the
+primitives which are internal generic and not group generic.
+Currently <code>as.vector</code>, <code>cbind</code>,
+<code>rbind</code> and <code>unlist</code> are the internal
+non-primitive functions which are internally generic.
+</p>
+<p>For efficiency, internal dispatch only occurs on <em>objects</em>, that
+is those for which <code>is.object</code> returns true.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>methods</code> for the methods which are available.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.4.2 ]</div>
+</div>
+</body></html>

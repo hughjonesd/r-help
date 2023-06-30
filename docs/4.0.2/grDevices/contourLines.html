@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: Calculate Contour Lines</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/contourLines.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/contourLines.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>contourLines {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='contourLines'>Calculate Contour Lines</h2>
+
+<h3>Description</h3>
+
+<p>Calculate contour lines for a given set of data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>contourLines(x = seq(0, 1, length.out = nrow(z)),
+             y = seq(0, 1, length.out = ncol(z)),
+             z, nlevels = 10,
+             levels = pretty(range(z, na.rm = TRUE), nlevels))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="contourLines_:_x">x</code>, <code id="contourLines_:_y">y</code></td>
+<td>
+<p>locations of grid lines at which the values in <code>z</code> are
+measured.  These must be in ascending order.  By default, equally
+spaced values from 0 to 1 are used.  If <code>x</code> is a <code>list</code>,
+its components <code>x$x</code> and <code>x$y</code> are used for <code>x</code>
+and <code>y</code>, respectively. If the list has component <code>z</code> this
+is used for <code>z</code>.</p>
+</td></tr>
+<tr><td><code id="contourLines_:_z">z</code></td>
+<td>
+<p>a matrix containing the values to be plotted (<code>NA</code>s are
+allowed).  Note that <code>x</code> can be used instead of <code>z</code> for
+convenience.</p>
+</td></tr>
+<tr><td><code id="contourLines_:_nlevels">nlevels</code></td>
+<td>
+<p>number of contour levels desired <b>iff</b>
+<code>levels</code> is not supplied.</p>
+</td></tr>
+<tr><td><code id="contourLines_:_levels">levels</code></td>
+<td>
+<p>numeric vector of levels at which to draw contour
+lines.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>contourLines</code> draws nothing, but returns a set of contour lines.
+</p>
+<p>There is currently no documentation about the algorithm.
+The source code is in &lsquo;<span class="file"><var>R_HOME</var>/src/main/plot3d.c</span>&rsquo;.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A <code>list</code> of contours, each itself a <code>list</code> with elements:
+</p>
+<table>
+<tr><td><code>level</code></td>
+<td>
+<p>The contour level.</p>
+</td></tr>
+<tr><td><code>x</code></td>
+<td>
+<p>The x-coordinates of the contour.</p>
+</td></tr>
+<tr><td><code>y</code></td>
+<td>
+<p>The y-coordinates of the contour.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>options("max.contour.segments")</code> for the maximal
+complexity of a single contour line.
+</p>
+<p><code>contour</code>: Its &lsquo;Examples&rsquo; demonstrate how
+<code>contourLines()</code> can be drawn and are the same (as those from
+<code>contour()</code>).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 10*1:nrow(volcano)
+y &lt;- 10*1:ncol(volcano)
+cl &lt;- contourLines(x, y, volcano)
+## summarize the sizes of each the contour lines :
+cbind(lev = vapply(cl, `[[`, .5, "level"),
+       n  = vapply(cl, function(l) length(l$x), 1))
+
+z &lt;- outer(-9:25, -9:25)
+pretty(range(z), 10) # -300 -200 ... 600 700
+utils::str(c2 &lt;- contourLines(z))
+   # no segments for {-300, 700};
+   #  2 segments for {-200, -100, 0}
+   #  1 segment  for  100:600
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 4.0.2 ]</div>
+</div>
+</body></html>

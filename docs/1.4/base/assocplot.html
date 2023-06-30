@@ -1,0 +1,125 @@
+<!DOCTYPE html><html><head><title>R: Association Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/assocplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/assocplot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>assocplot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='assocplot'>Association Plots</h2>
+
+<h3>Description</h3>
+
+<p>Produce a Cohen-Friendly association plot indicating deviations from
+independence of rows and columns in a 2-dimensional contingency
+table.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>assocplot(x, col = c("black", "red"), space = 0.3,
+          main = NULL, xlab = NULL, ylab = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="assocplot_:_x">x</code></td>
+<td>
+<p>a two-dimensional contingency table in matrix form.</p>
+</td></tr>
+<tr><td><code id="assocplot_:_col">col</code></td>
+<td>
+<p>a character vector of length two giving the colors used for
+drawing positive and negative Pearson residuals, respectively.</p>
+</td></tr>
+<tr><td><code id="assocplot_:_space">space</code></td>
+<td>
+<p>the amount of space (as a fraction of the average
+rectangle width and height) left between each rectange.</p>
+</td></tr>
+<tr><td><code id="assocplot_:_main">main</code></td>
+<td>
+<p>overall title for the plot.</p>
+</td></tr>
+<tr><td><code id="assocplot_:_xlab">xlab</code></td>
+<td>
+<p>a label for the x axis.  Defaults to the name of the row
+variable in <code>x</code> if non-<code>NULL</code>.</p>
+</td></tr>
+<tr><td><code id="assocplot_:_ylab">ylab</code></td>
+<td>
+<p>a label for the y axis.  Defaults to the column names of
+the column variable in <code>x</code> if non-<code>NULL</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For a two-way contingency table, the signed contribution to Pearson's
+<code class="reqn">\chi^2</code> for cell <code class="reqn">i, j</code> is <code class="reqn">d_{ij} = (f_{ij} -
+    e_{ij}) / \sqrt{e_{ij}}</code>,
+where <code class="reqn">f_{ij}</code> and <code class="reqn">e_{ij}</code> are the observed and expected
+counts corresponding to the cell.  In the Cohen-Friendly association
+plot, each cell is represented by a rectangle that has (signed) height
+proportional to <code class="reqn">d_{ij}</code> and width proportional to
+<code class="reqn">\sqrt{e_{ij}}</code>, so that the area of the box is
+proportional to the difference in observed and expected frequencies.
+The rectangles in each row are positioned relative to a baseline
+indicating independence (<code class="reqn">d_{ij} = 0</code>).  If the observed frequency
+of a cell is greater than the expected one, the box rises above the
+baseline and is shaded in the color specified by the first element of
+<code>col</code>, which defaults to black; otherwise, the box falls below
+the baseline and is shaded in the color specified by the second
+element of <code>col</code>, which defaults to red.
+</p>
+
+
+<h3>References</h3>
+
+<p>Cohen, A. (1980),
+On the graphical display of the significant components in a two-way
+contingency table.
+<em>Communications in Statistics&mdash;Theory and Methods</em>, <b>A9</b>,
+1025&ndash;1041.
+</p>
+<p>Friendly, M. (1992),
+Graphical methods for categorical data.
+<em>SAS User Group International Conference Proceedings</em>, <b>17</b>,
+190&ndash;200.
+<a href="http://hotspur.psych.yorku.ca/SCS/sugi/sugi17-paper.html">http://hotspur.psych.yorku.ca/SCS/sugi/sugi17-paper.html</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>mosaicplot</code>;
+<code>chisq.test</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(HairEyeColor)
+## Aggregate over sex:
+x &lt;- margin.table(HairEyeColor, c(1, 2))
+x
+assocplot(x, main = "Relation between hair and eye color")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html><html><head><title>R: Prepare Translations for a Package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/update_pkg_po.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/update_pkg_po.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>update_pkg_po {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='update_pkg_po'>
+Prepare Translations for a Package
+</h2>
+
+<h3>Description</h3>
+
+<p>Prepare the &lsquo;<span class="file">po</span>&rsquo; directory of a package and compile and install
+the translations.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>update_pkg_po(pkgdir, pkg = NULL, version = NULL, mergeOpts = "", copyright, bugs)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="update_pkg_po_:_pkgdir">pkgdir</code></td>
+<td>
+<p>The path to the package directory.</p>
+</td></tr>
+<tr><td><code id="update_pkg_po_:_pkg">pkg</code></td>
+<td>
+<p>The package name: if <code>NULL</code> it is read from the package's
+&lsquo;<span class="file">DESCRIPTION</span>&rsquo; file.</p>
+</td></tr>
+<tr><td><code id="update_pkg_po_:_version">version</code></td>
+<td>
+<p>The package version: if <code>NULL</code> it is read from the
+package's &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file.</p>
+</td></tr>
+<tr><td><code id="update_pkg_po_:_mergeOpts">mergeOpts</code></td>
+<td>
+<p>a string, by default empty, of options to
+<code>msgmerge</code> in addition to <code>"--update"</code>.  Since <span class="rlang"><b>R</b></span> 4.2.0,
+<code>"--no-wrap"</code> is used when called from
+<code>file.path(R.home("po"), "Makefile")</code>.</p>
+</td></tr>
+<tr><td><code id="update_pkg_po_:_copyright">copyright</code>, <code id="update_pkg_po_:_bugs">bugs</code></td>
+<td>
+<p>optional character strings for the
+&lsquo;<span class="samp">&#8288;Copyright&#8288;</span>&rsquo; and &lsquo;<span class="samp">&#8288;Report-Msgid-Bugs-To&#8288;</span>&rsquo; details in the
+template files.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This performs a series of steps to prepare or update messages in
+the package.
+</p>
+
+<ul>
+<li><p> If the package sources do not already have a &lsquo;<span class="file">po</span>&rsquo;
+directory, one is created.
+</p>
+</li>
+<li> <p><code>xgettext2pot</code> is called to create/update a file
+&lsquo;<span class="file">po/R-<var>pkgname</var>.pot</span>&rsquo; containing the translatable messages
+in the package.
+</p>
+</li>
+<li><p> All existing files in directory <code>po</code> with names
+&lsquo;<span class="file">R-<var>lang</var>.po</span>&rsquo; are updated from &lsquo;<span class="file">R-<var>pkgname</var>.pot</span>&rsquo;,
+<code>checkPoFile</code> is called on the updated file, and if
+there are no problems the file is  compiled and installed under
+&lsquo;<span class="file">inst/po</span>&rsquo;.
+</p>
+</li>
+<li><p> In a UTF-8 locale, a &lsquo;translation&rsquo; &lsquo;<span class="file">R-en@quot.po</span>&rsquo;
+is created with UTF-8 directional quotes, compiled and installed
+under &lsquo;<span class="file">inst/po</span>&rsquo;.
+</p>
+</li>
+<li><p> The remaining steps are done only if file
+&lsquo;<span class="file">po/<var>pkgname</var>.pot</span>&rsquo; already exists.  The
+&lsquo;<span class="file">src/*.{c,cc,cpp,m,mm}</span>&rsquo; files in the package are examined to
+create a file &lsquo;<span class="file">po/<var>pkgname</var>.pot</span>&rsquo; containing the translatable
+messages in the C/C++ files.  If there is a <code>src/windows</code>
+directory, files within it are also examined.
+</p>
+</li>
+<li><p> All existing files in directory <code>po</code> with names
+&lsquo;<span class="file"><var>lang</var>.po</span>&rsquo; are updated from &lsquo;<span class="file"><var>pkgname</var>.pot</span>&rsquo;,
+<code>checkPoFile</code> is called on the updated file, and if
+there are no problems the file is  compiled and
+installed under &lsquo;<span class="file">inst/po</span>&rsquo;.
+</p>
+</li>
+<li><p> In a UTF-8 locale, a &lsquo;translation&rsquo; &lsquo;<span class="file">en@quot.po</span>&rsquo; is
+created with UTF-8 directional quotes, compiled and installed under
+&lsquo;<span class="file">inst/po</span>&rsquo;.
+</p>
+</li></ul>
+
+<p>Note that C/C++ messages are not automatically prepared for
+translation as they need to be explicitly marked for translation in
+the source files.  Once that has been done, create an empty file
+&lsquo;<span class="file">po/<var>pkgname</var>.pot</span>&rsquo; in the package sources and run this
+function again.
+</p>
+<p><code>pkg = "base"</code> is special (and for use by <span class="rlang"><b>R</b></span> developers only):
+the C files are not in the package directory but in the main sources.
+</p>
+
+
+<h3>System requirements</h3>
+
+<p>This function requires the following tools from the GNU
+<code>gettext-tools</code>: <code>xgettext</code>, <code>msgmerge</code>,
+<code>msgfmt</code>, <code>msginit</code> and <code>msgconv</code>.  These are
+part of most Linux distributions and easily compiled from the sources
+on Unix-alikes (including macOS).  Pre-compiled versions for
+Windows are available in
+<a href="https://www.stats.ox.ac.uk/pub/Rtools/goodies/gettext-tools.zip">https://www.stats.ox.ac.uk/pub/Rtools/goodies/gettext-tools.zip</a>.
+</p>
+<p>It will probably not work correctly for <code>en@quot</code> translations
+except in a UTF-8 locale, so these are skipped elsewhere.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>xgettext2pot</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.2.1 ]</div>
+</div>
+</body></html>

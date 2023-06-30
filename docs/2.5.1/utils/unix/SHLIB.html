@@ -1,0 +1,108 @@
+<!DOCTYPE html><html><head><title>R: Build Shared Library for Dynamic Loading</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/SHLIB.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/SHLIB.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>SHLIB {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='SHLIB'>Build Shared Library for Dynamic Loading</h2>
+
+<h3>Description</h3>
+
+<p>Compile the given source files and then link all specified object
+files into a shared library which can be loaded into <span class="rlang"><b>R</b></span> using
+<code>dyn.load</code> or <code>library.dynam</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R CMD SHLIB [options] [-o libname] files
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="SHLIB_:_files">files</code></td>
+<td>
+<p>a list specifying the object files to be included in the
+shared library.  You can also include the name of source files (for
+which the object files are automagically made from their sources)
+and library linking commands.
+</p>
+</td></tr>
+<tr><td><code id="SHLIB_:_libname">libname</code></td>
+<td>
+<p>the full name of the shared library to be built,
+including the extension (typically &lsquo;<span class="file">.so</span>&rsquo; on Unix systems).  If
+not given, the name of the library is taken from the first file.</p>
+</td></tr>
+<tr><td><code id="SHLIB_:_options">options</code></td>
+<td>
+<p>Further options to control the processing.  Use
+<code>R CMD SHLIB --help</code> for a current list.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>R CMD SHLIB</code> is the mechanism used by <code>INSTALL</code> to
+compile source code in packages. Please consult section
+&lsquo;Creating shared objects&rsquo; in the manual
+&lsquo;Writing R Extensions&rsquo; for how to customize it (for example to
+add <code>cpp</code> flags and to add libraries to the link step) and for
+details of some of its quirks.
+</p>
+<p>Items in <code>files</code> with extensions <code>.c</code>, <code>.cpp</code>,
+<code>.cc</code>, <code>.C</code>, <code>.f</code>, <code>.f90</code>, <code>f95</code>, <code>.m</code>,
+<code>.M</code> and <code>.mm</code> are regarded as source files, and those with
+extension <code>.o</code> as object files.  All other items are passed to
+the linker.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Some binary distributions of <span class="rlang"><b>R</b></span> have <code>SHLIB</code> in a separate
+bundle, e.g. an <code>R-devel</code> RPM.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>COMPILE</code>,
+<code>dyn.load</code>,
+<code>library.dynam</code>.
+</p>
+<p>The section on &ldquo;Customizing compilation under Unix&rdquo; in
+&ldquo;R Administration and Installation&rdquo;
+(see the &lsquo;<span class="file">doc/manual</span>&rsquo; subdirectory of the <span class="rlang"><b>R</b></span> source tree).  
+</p>
+<p>The &lsquo;R Installation and Administration&rsquo; and &lsquo;Writing R 
+Extensions&rsquo; manuals.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+R CMD SHLIB -o mylib.so a.f b.f -L/opt/acml3.5.0/gnu64/lib -lacml
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.5.1 ]</div>
+</div>
+</body></html>

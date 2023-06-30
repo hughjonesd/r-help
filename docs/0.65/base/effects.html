@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><title>R: Effects from Fitted Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/effects.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/effects.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>effects {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='effects'>Effects from Fitted Model</h2>
+
+<h3>Description</h3>
+
+<p>Returns (orthogonal) effects from a fitted (generalized) regression
+model.  In case of a full rank <code class="reqn">n \times p</code>
+<code>model.matrix</code>, the first <code class="reqn">p</code> effects correspond to
+coefficients and the remaining <code class="reqn">n-p</code> ones to residuals.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>effects(object, ...)
+effects.lm(object, set.sign=FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="effects_:_object">object</code></td>
+<td>
+<p>list; typically, the result of a model fitting function
+such as <code>lm</code></p>
+</td></tr>
+<tr><td><code id="effects_:_set.sign">set.sign</code></td>
+<td>
+<p>logical ~~Describe <code>set.sign</code> here~~ </p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>...... FIXME ......
+</p>
+<p>This page is not complete yet!
+</p>
+
+
+<h3>Value</h3>
+
+<p>A (named) numeric vector of the same length as
+<code>residuals</code>.  The first <code class="reqn">p</code> values are labeled
+according to the corresponding coefficients, the remaining ones are
+unlabeled.
+</p>
+<p>The result currently has <code>class</code> <code>"coef"</code>.
+</p>
+<p>...... FIXME ......
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>coef</code>, <code>fitted</code>, etc.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>y &lt;- c(1:3,7,5)
+x &lt;- c(1:3,6:7)
+( ee &lt;- effects(lm(y ~ x)) )
+c(round(ee - effects(lm(y+10 ~ I(x-3.8))),3))# just the first is different
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65 ]</div>
+</div>
+</body></html>

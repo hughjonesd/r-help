@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Arithmetic Operators</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Arithmetic.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Arithmetic.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Arithmetic {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Arithmetic'>Arithmetic Operators</h2>
+
+<h3>Description</h3>
+
+<p>These binary operators perform arithmetic on vector objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>x + y
+x - y
+x * y
+x / y
+x ^ y
+x %% y
+x %/% y
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p><code>1 ^ y</code> and <code>y ^ 0</code> are <code>1</code>, <em>always</em>.
+<code>x ^ y</code> should also give the proper &ldquo;limit&rdquo; result when
+either argument is infinite (i.e., <code>+- Inf</code>).
+</p>
+<p>Objects such as arrays or time-series can be operated on this
+way provided they are conformable.
+</p>
+
+
+<h3>Value</h3>
+
+<p>They return numeric vectors containing the result of the element
+by element operations.  The elements of shorter vectors are recycled
+as necessary (with a <code>warning</code> when they are recycled only
+<em>fractionally</em>).  The operators are <code>+</code> for addition,
+<code>-</code> for subtraction <code>*</code> for multiplication, <code>/</code> for
+division and <code>^</code> for exponentiation.
+</p>
+<p><code>%%</code> indicates <code>x mod y</code> and <code>%/%</code> indicates integer
+division.  It is guaranteed that <code>x  ==  (x %% y)  +  y * ( x %/% y )</code>
+unless <code>y == 0</code> where the result is <code>NA</code> or
+<code>NaN</code> (depending on the <code>typeof</code> of the arguments).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>sqrt</code> for miscellaneous and <code>Special</code> for special
+mathematical functions.
+</p>
+<p><code>Syntax</code> for operator precedence.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- -1:12
+x + 1
+2 * x + 3
+x %% 2 #-- is periodic
+x %/% 5
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.7.0 ]</div>
+</div>
+</body></html>

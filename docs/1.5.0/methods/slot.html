@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><title>R: The Slots in an Object from a Formal Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/slot.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/slot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>slot {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='slot'> The Slots in an Object from a Formal Class </h2>
+
+<h3>Description</h3>
+
+<p>These functions return or set information about the individual slots
+in an object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>
+object@name
+object@name &lt;- value
+
+slot(object, name)
+slot(object, name) &lt;- value
+
+slotNames(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="slot_:_object">object</code></td>
+<td>
+<p> An object from a formally defined class.</p>
+</td></tr>
+<tr><td><code id="slot_:_name">name</code></td>
+<td>
+<p> The character-string name of the slot. The name must be a
+valid slot name:  see Details below.</p>
+</td></tr>
+<tr><td><code id="slot_:_value">value</code></td>
+<td>
+</td></tr></table>
+<p> A new value for the named slot.  The value must be
+valid for this slot in this object's class.
+</p>
+<table>
+<tr><td><code id="slot_:_x">x</code></td>
+<td>
+<p>Either the name of a class or an object from that class.
+Print <code>getClass(class)</code> to see the full description of
+the slots.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>"@"</code> operator and the <code>slot</code> function extract or
+replace the formally defined slots for the object.  The operator
+takes a fixed name, which can be unquoted if it is syntactically a
+name in the language.  A slot name can be any non-empty string, but
+if the name is not made up of letters, numbers, and <code>"."</code>, it
+needs to be quoted.
+</p>
+<p>In the case of the <code>slot</code> function, the slot name can be any
+expression that evaluates to a valid slot in the class definition.
+Generally, the only reason to use the functional form rather than
+the simpler operator is <em>because</em> the slot name has to be computed.
+</p>
+<p>The definition of the class contains the names of all slots diretly
+and indirectly defined.  Each slot has a name and an associated
+class.  Extracting a slot returns an object from that class.  Setting
+a slot first coerces the value to the specified slot and then stores
+it.
+</p>
+<p>Unlike attributes, slots are not partially matched, and asking for (or
+trying to set) a slot with an invalid name for that class generates an
+error.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>John Chambers
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. (1998)
+<em>Programming with Data</em>, Springer.
+</p>
+<p>The web page <a href="http://www.omegahat.org/RSMethods/index.html">http://www.omegahat.org/RSMethods/index.html</a>
+is the primary documentation.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>@</code>, <code>Classes</code>, <code>Methods</code>,
+<code>getClass</code> </p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+slot(myTrack, "x")
+slot(myTrack, "y") &lt;- log(slot(myTrack, "x"))
+
+slotNames("track")
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.5.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html><html><head><title>R: Default Printing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/print.default.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/print.default.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>print.default {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='print.default'>Default Printing</h2>
+
+<h3>Description</h3>
+
+<p><code>print.default</code> is the <em>default</em> method of the generic
+<code>print</code> function which prints its argument.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## Default S3 method:
+print(x, digits = NULL, quote = TRUE, na.print = NULL,
+      print.gap = NULL, right = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="print.default_:_x">x</code></td>
+<td>
+<p>the object to be printed.</p>
+</td></tr>
+<tr><td><code id="print.default_:_digits">digits</code></td>
+<td>
+<p>a non-null value for <code>digits</code> specifies the minimum
+number of significant digits to be printed in values.   The default,
+<code>NULL</code>, uses <code>getOption(digits)</code>.  (For the
+intepretation for complex numbers see <code>signif</code>.)</p>
+</td></tr>
+<tr><td><code id="print.default_:_quote">quote</code></td>
+<td>
+<p>logical, indicating whether or not strings
+(<code>character</code>s) should be printed with surrounding quotes.</p>
+</td></tr>
+<tr><td><code id="print.default_:_na.print">na.print</code></td>
+<td>
+<p>a character string which is used to indicate
+<code>NA</code> values in printed output, or <code>NULL</code> (see Details)</p>
+</td></tr>
+<tr><td><code id="print.default_:_print.gap">print.gap</code></td>
+<td>
+<p>a non-negative integer <code class="reqn">\le 1024</code>,
+giving the spacing between adjacent &ldquo;columns&rdquo; in printed
+vectors, matrices and arrays, or <code>NULL</code> meaning 1.</p>
+</td></tr>
+<tr><td><code id="print.default_:_right">right</code></td>
+<td>
+<p>logical, indicating whether or not strings should be
+right-aligned. The default is left-alignment.</p>
+</td></tr>
+<tr><td><code id="print.default_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to or from other
+methods. They are ignored in this function.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The default for printing <code>NA</code>s is to print <code>NA</code> (without
+quotes) unless this is a character <code>NA</code> <em>and</em> <code>quote =
+    FALSE</code>, when <code>&lt;NA&gt;</code> is printed.
+</p>
+<p>The same number of decimal places is used throughout a vector,  This
+means that <code>digits</code> specifies the minimum number of significant
+digits to be used, and that at least one entry will be encoded with
+that minimum number.  However, if all the encoded elements then have
+trailing zeroes, the number of decimal places is reduced until at
+least one element has a non-zero final digit.
+</p>
+<p>Attributes are printed respecting their class(es), using the values of
+<code>digits</code> to <code>print.default</code>, but using the default values
+(for the methods called) of the other arguments.
+</p>
+<p>When the <span class="pkg">methods</span> package is attached, <code>print</code> will call
+<code>show</code> for <span class="rlang"><b>R</b></span> objects with formal classes if called
+with no optional arguments.
+</p>
+<p>If a non-printable character is encountered during output, it is
+represented as one of the ANSI escape sequences (<code>\a</code>, <code>\b</code>,
+<code>\f</code>, <code>\n</code>, <code>\r</code>, <code>\t</code>, <code>\v</code> and <code>\0</code>),
+or failing that as a 3-digit octal code: for example the UK currency
+pound in the C locale (if implemented correctly) is printed as
+<code>\243</code>.  Which characters are non-printable depends on the locale.
+</p>
+
+
+<h3>Unicode  and other multi-byte locales</h3>
+
+<p>In a Unicode (UTF-8) locale, characters <code>0x00</code> to <code>0x1F</code> and
+<code>0x7f</code> (the ASCII non-printing characters) are printed in the
+same way, via ANSI escape sequences or 3-digit octal escapes.
+Multi-byte non-printing characters are printed with as an escape
+sequence of the form <code>\uxxxx</code> or <code>\Uxxxxxxxx</code> (in hexadecimal).
+</p>
+<p>It is possible to have a character string in an object that is not
+valid UTF-8.  If a byte is encountered that is not part of an
+encoded Unicode character it is printed in hex in the form <code>&lt;xx&gt;</code>
+and the next character is tried.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The generic <code>print</code>, <code>options</code>.
+The <code>"noquote"</code> class and print method.
+</p>
+<p><code>encodeString</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>pi
+print(pi, digits = 16)
+LETTERS[1:16]
+print(LETTERS, quote = FALSE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.2.1 ]</div>
+</div>
+</body></html>

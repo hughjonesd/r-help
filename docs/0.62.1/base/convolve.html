@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: Fast Convolution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/convolve.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/convolve.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>convolve {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='convolve'>Fast Convolution</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>convolve(x, y, conj = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="convolve_:_x">x</code>, <code id="convolve_:_y">y</code></td>
+<td>
+<p>numeric sequences <em>of the same length</em> to be convolved.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>This function uses the Fast Fourier Transform to compute the
+(circular) convolution of the sequences given as its arguments.
+If <code>r &lt;- convolve(x,y)</code> and <code>n &lt;- length(x)</code>, then
+</p>
+<p style="text-align: center;"><code class="reqn">r_k = \sum_{i=1}^n x_i y_{k-i}</code>
+</p>
+
+<p>for <code class="reqn">k = 1,\dots,n</code>, where <code class="reqn">y_{j} = y_{n+j}</code> for
+<code class="reqn">j &lt; 0</code>.
+</p>
+<p>The Fast Fourier Transform, <code>fft</code>, is used for efficiency.
+</p>
+
+
+<h3>References</h3>
+
+<p>Brillinger, D. R. (1981).
+<em>Time Series: Data Analysis and Theory</em>, Second Edition.
+San Francisco: Holden-Day.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>fft</code>, <code>nextn</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- c(0,0,0,100,0,0,0)
+y &lt;- c(0,0,1, 2 ,1,0,0)/4
+round(convolve(x,y), 7)# this is *NOT* what you first thought..
+x &lt;- rnorm(50);y &lt;- rnorm(50)
+all(convolve(x,y), convolve(y,x))
+all(convolve(x,y, conj = FALSE), rev(convolve(y,x)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.1 ]</div>
+</div>
+</body></html>

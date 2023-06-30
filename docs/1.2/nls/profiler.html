@@ -1,0 +1,120 @@
+<!DOCTYPE html><html><head><title>R: Constructor for Profiler Objects for Nonlinear Models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/profiler.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/profiler.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>profiler {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='profiler'> Constructor for Profiler Objects for Nonlinear Models</h2>
+
+<h3>Description</h3>
+
+<p>Create a profiler object for the model object <code>fitted</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>profiler(fitted, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="profiler_:_fitted">fitted</code></td>
+<td>
+<p> the original fitted model object.</p>
+</td></tr>
+<tr><td><code id="profiler_:_...">...</code></td>
+<td>
+<p>  Additional parameters. See documentation on individual
+methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"profiler"</code> which is a list with function
+elements
+</p>
+<table>
+<tr><td><code>getFittedPars()</code></td>
+<td>
+
+<p>the parameters in <code>fitted</code>
+</p>
+</td></tr>
+<tr><td><code>setDefault(varying</code>, <code>params)</code></td>
+<td>
+
+<p>this is used for changing the default settings for
+profiling. In absence of both parameters, the default is set
+to the original fitted parameters with all parameters
+varying. The arguments are
+</p>
+<p><code>varying</code>: a logical, integer or character vector
+giving parameters to be varied.
+<code>params</code>: the default value at which profiling is to
+take place.
+</p>
+</td></tr>
+<tr><td><code>getProfile(varying</code>, <code>params)</code></td>
+<td>
+
+<p>this can be used in conjunction with <code>setDefault</code>
+without any arguments. Alternatively, the parameters to be
+varied and the values for fixed parameters can be specified
+using the arguments. The arguments are
+</p>
+<p><code>varying</code>: a logical vector giving parameters to be
+varied. This can be omitted if params is a named list or
+numeric vector.
+</p>
+<p><code>params</code>: values for parameters to be held fixed.
+</p>
+<p>It returns a list with elements
+</p>
+<p><code>parameters</code>: the parameter values for the profiled
+optimum.
+</p>
+<p><code>fstat</code>: a profile statistics. See individual methods
+for details.
+</p>
+<p><code>varying</code>: a logical vector indicating parameters
+which were varied.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>Douglas M. Bates and Saikat DebRoy</p>
+
+
+<h3>See Also</h3>
+
+<p><code>profiler.nls</code>, <code>profile</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># see documentation on individual methods
+</code></pre>
+
+
+</div>
+</body></html>

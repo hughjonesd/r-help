@@ -1,0 +1,133 @@
+<!DOCTYPE html><html><head><title>R: Finite, Infinite and NaN Numbers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/is.finite.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/is.finite.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>is.finite {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='is.finite'>Finite, Infinite and NaN Numbers</h2>
+
+<h3>Description</h3>
+
+<p><code>is.finite</code> and <code>is.infinite</code> return a vector of the same
+length as <code>x</code>, indicating which elements are finite (not infinite
+and not missing).
+</p>
+<p><code>Inf</code> and <code>-Inf</code> are positive and negative &ldquo;infinity&rdquo;
+whereas <code>NaN</code> means &ldquo;Not a Number&rdquo;.  (These apply to numeric
+values and real and imaginary parts of complex values but not to
+values of integer vectors.)
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>is.finite(x)
+is.infinite(x)
+Inf
+NaN
+is.nan(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="is.finite_:_x">x</code></td>
+<td>
+<p>(numerical) object to be tested.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>is.finite</code> returns a vector of the same length as <code>x</code>
+the jth element of which is <code>TRUE</code> if <code>x[j]</code> is
+finite (i.e., it is not one of the values <code>NA</code>, <code>NaN</code>,
+<code>Inf</code> or <code>-Inf</code>).  All elements of character and
+generic (list) vectors are false, so <code>is.finite</code> is only useful for
+logical, integer, numeric and complex vectors.  Complex numbers are
+finite if both the real and imaginary parts are.
+</p>
+<p><code>is.infinite</code> returns a vector of the same length as <code>x</code>
+the jth element of which is <code>TRUE</code> if <code>x[j]</code> is
+infinite (i.e., equal to one of <code>Inf</code> or <code>-Inf</code>). This will
+be false unless <code>x</code> is numeric or complex.  Complex numbers are
+infinite if either the real and imaginary part is.
+</p>
+<p><code>is.nan</code> tests if a numeric value is <code>NaN</code>.  Do not test
+equality to <code>NaN</code>, or even use <code>identical</code>,
+since systems typically have many different NaN values.
+In most ports of <span class="rlang"><b>R</b></span> one of these is used for the numeric missing
+value <code>NA</code>.  It is generic: you can write methods to handle
+specific classes of objects, see InternalMethods.
+</p>
+
+
+<h3>Note</h3>
+
+<p>In <span class="rlang"><b>R</b></span>, basically all mathematical functions (including basic
+<code>Arithmetic</code>), are supposed to work properly with
+<code>+/- Inf</code> and <code>NaN</code> as input or output.
+</p>
+<p>The basic rule should be that calls and relations with <code>Inf</code>s
+really are statements with a proper mathematical <em>limit</em>.
+</p>
+
+
+<h3>References</h3>
+
+<p>The IEC 60559 standard, also know as the
+ANSI/IEEE 754 Floating-Point Standard.
+</p>
+<p>D. Goldberg (1991) <em>What Every Computer Scientist Should Know
+about Floating-Point Arithmetic</em>  ACM Computing Surveys, <b>23(1)</b>.<br />
+Postscript version available at
+<a href="http://www.validlab.com/goldberg/paper.ps">http://www.validlab.com/goldberg/paper.ps</a>
+</p>
+<p><a href="http://grouper.ieee.org/groups/754/">http://grouper.ieee.org/groups/754/</a> for accessible information.
+</p>
+<p>The C99 function <code>isfinite</code> is used for <code>is.finite</code> if available.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>NA</code>, &lsquo;<em>Not Available</em>&rsquo; which is not a number
+as well, however usually used for missing values and applies to many
+modes, not just numeric.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>pi / 0 ## = Inf a non-zero number divided by zero creates infinity
+0 / 0  ## =  NaN
+
+1/0 + 1/0# Inf
+1/0 - 1/0# NaN
+
+stopifnot(
+    1/0 == Inf,
+    1/Inf == 0
+)
+sin(Inf)
+cos(Inf)
+tan(Inf)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.2.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html><html><head><title>R: Extract or List Tar Archives</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/untar.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/untar.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>untar {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='untar'>
+Extract or List Tar Archives
+</h2>
+
+<h3>Description</h3>
+
+<p>Extract files from or list a tar archive.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>untar(tarfile, files = NULL, list = FALSE, exdir = ".",
+      compressed = NA, extras = NULL, verbose = FALSE,
+      tar = Sys.getenv("TAR"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="untar_:_tarfile">tarfile</code></td>
+<td>
+<p>The pathname of the tar file: tilde expansion (see
+<code>path.expand</code>) will be performed.  Alternatively, a
+connection that can be used for binary reads.</p>
+</td></tr>
+<tr><td><code id="untar_:_files">files</code></td>
+<td>
+<p>A character vector of recorded filepaths to be extracted:
+the default is to extract all files.</p>
+</td></tr>
+<tr><td><code id="untar_:_list">list</code></td>
+<td>
+<p>If <code>TRUE</code>, just list the files.  The equivalent of
+<code>tar -tf</code>.  Otherwise extract the files (the equivalent of
+<code>tar -xf</code>).</p>
+</td></tr>
+<tr><td><code id="untar_:_exdir">exdir</code></td>
+<td>
+<p>The directory to extract files to (the equivalent of
+<code>tar -C</code>).  It will be created if necessary.</p>
+</td></tr>
+<tr><td><code id="untar_:_compressed">compressed</code></td>
+<td>
+<p>logical or character.  Values <code>"gzip"</code>,
+<code>"bzip2"</code> and <code>"xz"</code> select that form of compression (and
+may be abbreviated to the first letter).  <code>TRUE</code> indicates gzip
+compression, <code>FALSE</code> no known compression (but the
+<code>tar</code> command may detect compression automagically), and
+<code>NA</code> (the default) that the type is inferred from the file
+header.</p>
+</td></tr>
+<tr><td><code id="untar_:_extras">extras</code></td>
+<td>
+<p><code>NULL</code> or a character string: further command-line
+flags such as <span class="option">-p</span> to be passed to the <code>tar</code> program.</p>
+</td></tr>
+<tr><td><code id="untar_:_verbose">verbose</code></td>
+<td>
+<p>logical: if true echo the command used.</p>
+</td></tr>
+<tr><td><code id="untar_:_tar">tar</code></td>
+<td>
+<p>character string: the path to the command to be used.  If
+the command itself contains spaces it needs to be quoted &ndash; but
+<code>tar</code> can also contain flags separated from the command by spaces.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is either a wrapper for a <code>tar</code> command or for an
+internal implementation written in <span class="rlang"><b>R</b></span>.  The latter is used if
+<code>tarfile</code> is a connection or if the argument <code>tar</code> is
+<code>"internal"</code> or <code>""</code> (except on Windows, when
+<code>tar.exe</code> is tried first).
+</p>
+<p>What options are supported will depend on the <code>tar</code> used.
+Modern GNU flavours of <code>tar</code> will support compressed archives,
+and since 1.15 are able to detect the type of compression
+automatically: version 1.20 added support for <code>lzma</code> and
+version 1.22 for <code>xz</code> compression using LZMA2.  For other
+flavours of <code>tar</code>, environment variable <span class="env">R_GZIPCMD</span> gives
+the command to decompress <code>gzip</code> and <code>compress</code> files,
+and <code>R_BZIPCMD</code> for its files.  (There is a <code>bsdtar</code>
+command from the &lsquo;<span class="samp">&#8288;libarchive&#8288;</span>&rsquo; project used by Mac OS 10.6
+(&lsquo;Snow Leopard&rsquo;) which can also detect <code>gzip</code> and
+<code>bzip2</code> compression automatically, as can the <code>tar</code>
+from the &lsquo;Heirloom Toolchest&rsquo; project.)
+</p>
+<p>Arguments <code>compressed</code>, <code>extras</code> and <code>verbose</code> are only
+used when an external <code>tar</code> is used.
+</p>
+<p>The internal implementation restores symbolic links as links on a
+Unix-alike, and as file copies on Windows (which works only for
+existing files, not for directories), and hard links as links.  If the
+linking operation fails (as it may on a FAT file system), a file copy
+is tried.  Since it uses <code>gzfile</code> to read a file it can
+handle files compressed by any of the methods that function can
+handle: at least <code>compress</code>, <code>gzip</code>, <code>bzip2</code>
+and <code>xz</code> compression, and some types of <code>lzma</code>
+compression.  It does not guard against restoring absolute file paths,
+as some <code>tar</code> implementations do.  It will create the parent
+directories for directories or files in the archive if necessary.  It
+handles both the standard (USTAR/POSIX) and GNU ways of handling file
+paths of more than 100 bytes.
+</p>
+<p>You may see warnings from the internal implementation such as
+</p>
+<pre>unsupported entry type 'x'</pre>
+<p>This often indicates an invalid archive: entry types <code>"A-Z"</code> are
+allowed as extensions, but other types are reserved (this example is
+from Mac OS 10.6.3).  The only thing you can do with such an archive
+is to find a <code>tar</code> program that handles it, and look carefully at
+the resulting files.
+</p>
+<p>The standards only support ASCII filenames (indeed, only alphanumeric
+plus period, underscore and hyphen).  <code>untar</code> makes no attempt to map
+filenames to those acceptable on the current system, and treats the
+filenames in the archive as applicable without any re-encoding in the
+current locale.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>list = TRUE</code>, a character vector of (relative or absolute)
+paths of files contained in the tar archive.
+</p>
+<p>Otherwise the return code from <code>system</code>, invisibly.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>tar</code>, <code>unzip</code>.  
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.14.1 ]</div>
+</div>
+</body></html>

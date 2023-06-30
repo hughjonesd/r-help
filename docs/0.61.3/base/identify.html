@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><title>R: Identify Points in a Scatter Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/identify.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/identify.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>identify {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='identify'>Identify Points in a Scatter Plot</h2>
+
+<h3>Description</h3>
+
+<p>This function reads the position of the graphics pointer when the
+(first) mouse button is pressed.  It then searches the coordinates
+given in <code>x</code> and <code>y</code> for the point closest to the pointer.
+If this point is close to the pointer, its index will be returned as
+part of the value of the call.
+</p>
+<p><em>The following, and the <code>n</code>, <code>ploy</code> and <code>offset</code>
+arguments are <b>not yet</b> implented</em>:
+If in addition, <code>plot</code> is <code>TRUE</code> the point is labelled with
+the corresponding element of <code>text</code>.
+</p>
+<p>The labels are placed either below, to the left, above or to the right
+of the identified point, depending on where the cursor was.
+</p>
+<p>The identification process is terminated by pressing any mouse button
+other than the first, or by clicking outside the graphics window.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>identify(x, y = NULL, labels = seq(along = x), pos = FALSE,
+         n = length(x), plot = TRUE, offset = 0.5, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="identify_:_x">x</code>, <code id="identify_:_y">y</code></td>
+<td>
+<p>coodinates of points in a scatter plot.  Alternatively, any
+object which can defines coordinates (a plotting structure, time
+series etc.) can be given as <code>x</code> and <code>y</code> left undefined.</p>
+</td></tr>
+<tr><td><code id="identify_:_labels">labels</code></td>
+<td>
+<p>an optional vector, the same length as <code>x</code> and
+<code>y</code>, giving labels for the points.</p>
+</td></tr>
+<tr><td><code id="identify_:_pos">pos</code></td>
+<td>
+<p>if <code>pos</code> is <code>TRUE</code>, a component is added to the
+return value which indicates where text was plotted relative to each
+identified point (1=below, 2=left, 3=above and 4=right).</p>
+</td></tr>
+<tr><td><code id="identify_:_n">n</code></td>
+<td>
+<p>the maximum number of points to be identified.
+(Not yet implemented.)</p>
+</td></tr>
+<tr><td><code id="identify_:_plot">plot</code></td>
+<td>
+<p>if <code>plot</code> is <code>TRUE</code>, the labels are printed at
+the points and if <code>FALSE</code> they are omitted.
+(Not yet implemented.)</p>
+</td></tr>
+<tr><td><code id="identify_:_offset">offset</code></td>
+<td>
+<p>the distance (in character widths) which separates the
+label from identified points.
+(Not yet implemented.)</p>
+</td></tr>
+<tr><td><code id="identify_:_...">...</code></td>
+<td>
+<p>further arguments to <code>par(.)</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>If <code>pos</code> is <code>FALSE</code>, <code>identify</code> returns an integer
+vector containing the indexes of the identified points.
+If <code>pos</code> is <code>TRUE</code>, <code>identify</code> returns a list
+containing a component <code>ind</code>, indicating which points were an
+identified and a component <code>pos</code>, indicating where the labels
+were placed relative to the identified points.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61.3 ]</div>
+</div>
+</body></html>

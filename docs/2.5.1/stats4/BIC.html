@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><title>R: Bayesian Information Criterion</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/BIC.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/BIC.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>BIC {stats4}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='BIC'>Bayesian Information Criterion</h2>
+
+<h3>Description</h3>
+
+<p>This generic function calculates the Bayesian information criterion,
+also known as Schwarz's Bayesian criterion (SBC), for one or several
+fitted model objects for which a log-likelihood value can be obtained,
+according to the formula <code class="reqn">-2 \mbox{log-likelihood} + n_{par}
+    \log(n_{obs})</code>, where
+<code class="reqn">n_{par}</code>  represents the
+number of parameters and <code class="reqn">n_{obs}</code> the number of
+observations in the fitted model. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>BIC(object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="BIC_:_object">object</code></td>
+<td>
+<p>An object of a suitable class for the BIC to be
+calculated - usually a <code>"logLik"</code> object or an object for which
+a <code>logLik</code> method exists.
+</p>
+</td></tr>
+<tr><td><code id="BIC_:_...">...</code></td>
+<td>
+<p>Some methods for this generic function may take
+additional, optional arguments.  At present none do.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Returns a numeric value with the corresponding BIC.
+</p>
+
+
+<h3>References</h3>
+
+<p>Schwarz, G. (1978) &quot;Estimating the Dimension of a Model&quot;,
+<em>Annals of Statistics</em>, <b>6</b>, 461-464.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>logLik-methods</code>, <code>AIC-methods</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>lm1 &lt;- lm(Fertility ~ . , data = swiss)
+AIC(lm1)
+BIC(lm1)
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats4</em> version 2.5.1 ]</div>
+</div>
+</body></html>

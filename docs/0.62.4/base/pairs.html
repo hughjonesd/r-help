@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>R: Scatterplot Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/pairs.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/pairs.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>pairs {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='pairs'>Scatterplot Matrices</h2>
+
+<h3>Description</h3>
+
+<p>A matrix of scatterplots is produced.
+The <code class="reqn">ij</code>th scatterplot contains <code>x[,i]</code> plotted against
+<code>x[,j]</code>.
+The graphical parameters <code>pch</code> and <code>col</code> can be used to specify
+a vector of plotting symbols and colors to be used in the plots.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>pairs(x, ...)
+pairs.default(x, labels=dimnames(x)[[2]], panel=points, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="pairs_:_x">x</code></td>
+<td>
+<p>the coordinates of points given as columns of a matrix.</p>
+</td></tr>
+<tr><td><code id="pairs_:_labels">labels</code></td>
+<td>
+<p>the names of the variables.</p>
+</td></tr>
+<tr><td><code id="pairs_:_panel">panel</code></td>
+<td>
+<p>the function which is used to plot the contents of
+each panel of the display.</p>
+</td></tr>
+<tr><td><code id="pairs_:_...">...</code></td>
+<td>
+<p>graphical parameters can be given as arguments to <code>plot</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(judges)
+pairs(judges)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.4 ]</div>
+</div>
+</body></html>

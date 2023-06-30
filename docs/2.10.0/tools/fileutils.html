@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><title>R: File Utilities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/fileutils.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/fileutils.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>fileutils {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='fileutils'>File Utilities</h2>
+
+<h3>Description</h3>
+
+<p>Utilities for listing files, and manipulating file paths.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>file_path_as_absolute(x)
+file_path_sans_ext(x)
+
+list_files_with_exts(dir, exts, all.files = FALSE,
+                     full.names = TRUE)
+list_files_with_type(dir, type, all.files = FALSE,
+                     full.names = TRUE, OS_subdirs = .OStype())
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="fileutils_:_x">x</code></td>
+<td>
+<p>character vector giving file paths.</p>
+</td></tr>
+<tr><td><code id="fileutils_:_dir">dir</code></td>
+<td>
+<p>a character string with the path name to a directory.</p>
+</td></tr>
+<tr><td><code id="fileutils_:_exts">exts</code></td>
+<td>
+<p>a character vector of possible file extensions.</p>
+</td></tr>
+<tr><td><code id="fileutils_:_all.files">all.files</code></td>
+<td>
+<p>a logical.  If <code>FALSE</code> (default), only visible
+files are considered; if <code>TRUE</code>, all files are used.</p>
+</td></tr>
+<tr><td><code id="fileutils_:_full.names">full.names</code></td>
+<td>
+<p>a logical indicating whether the full paths of the
+files found are returned (default), or just the file names.</p>
+</td></tr>
+<tr><td><code id="fileutils_:_type">type</code></td>
+<td>
+<p>a character string giving the &lsquo;type&rsquo; of the files
+to be listed, as characterized by their extensions.  Currently,
+possible values are <code>"code"</code> (R code), <code>"data"</code> (data
+sets), <code>"demo"</code> (demos), <code>"docs"</code> (R documentation), and
+<code>"vignette"</code> (vignettes).</p>
+</td></tr>
+<tr><td><code id="fileutils_:_OS_subdirs">OS_subdirs</code></td>
+<td>
+<p>a character vector with the names of OS-specific
+subdirectories to possibly include in the listing of R code and
+documentation files.  By default, the value of the environment
+variable <span class="env">R_OSTYPE</span>, or if this is empty, the value of
+<code>.Platform$OS.type</code>, is used.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>file_path_as_absolute</code> turns a possibly relative file path
+absolute, performing tilde expansion if necessary.  Currently, only a
+single existing path can be given.
+</p>
+<p><code>file_path_sans_ext</code> returns the file paths without extensions.
+(Only purely alphanumeric extensions are recognized.)
+</p>
+<p><code>list_files_with_exts</code> returns the paths or names of the files in
+directory <code>dir</code> with extension matching one of the elements of
+<code>exts</code>.  Note that by default, full paths are returned, and that
+only visible files are used.
+</p>
+<p><code>list_files_with_type</code> returns the paths of the files in <code>dir</code>
+of the given &lsquo;type&rsquo;, as determined by the extensions recognized
+by <span class="rlang"><b>R</b></span>.  When listing R code and documentation files, files in
+OS-specific subdirectories are included if present according to the
+value of <code>OS_subdirs</code>.  Note that by default, full paths are
+returned, and that only visible files are used.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>file.path</code>,
+<code>file.info</code>,
+<code>list.files</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>dir &lt;- file.path(R.home(), "library", "stats")
+list_files_with_exts(file.path(dir, "demo"), "R")
+list_files_with_type(file.path(dir, "demo"), "demo") # the same
+file_path_sans_ext(list.files(file.path(R.home(), "modules")))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.10.0 ]</div>
+</div>
+</body></html>

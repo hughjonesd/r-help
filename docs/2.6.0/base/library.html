@@ -1,0 +1,356 @@
+<!DOCTYPE html><html><head><title>R: Loading and Listing of Packages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>library {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='library'>Loading and Listing of Packages</h2>
+
+<h3>Description</h3>
+
+<p><code>library</code> and <code>require</code> load add-on packages.
+</p>
+<p><code>.First.lib</code> is called when a package is loaded;
+<code>.Last.lib</code> is called when a package is detached.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>library(package, help, pos = 2, lib.loc = NULL,
+        character.only = FALSE, logical.return = FALSE,
+        warn.conflicts = TRUE,
+        keep.source = getOption("keep.source.pkgs"),
+        verbose = getOption("verbose"),
+        version)
+
+require(package, lib.loc = NULL, quietly = FALSE, warn.conflicts = TRUE,
+        keep.source = getOption("keep.source.pkgs"),
+        character.only = FALSE, version, save = TRUE)
+
+.First.lib(libname, pkgname)
+.Last.lib(libpath)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="library_:_package">package</code>, <code id="library_:_help">help</code></td>
+<td>
+<p>the name of a package, given as a name or
+literal character string, or a character string, depending on
+whether <code>character.only</code> is <code>FALSE</code> (default) or
+<code>TRUE</code>).</p>
+</td></tr>
+<tr><td><code id="library_:_pos">pos</code></td>
+<td>
+<p>the position on the search list at which to attach the
+loaded package.  Note that <code>.First.lib</code> may attach other
+packages, and <code>pos</code> is computed <em>after</em> <code>.First.lib</code>
+has been run.  Can also be the name of a position on the current
+search list as given by <code>search()</code>.</p>
+</td></tr>
+<tr><td><code id="library_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector describing the location of <span class="rlang"><b>R</b></span>
+library trees to search through, or <code>NULL</code>.  The default value
+of <code>NULL</code> corresponds to all libraries currently known.
+Non-existent library trees are silently ignored.</p>
+</td></tr>
+<tr><td><code id="library_:_character.only">character.only</code></td>
+<td>
+<p>a logical indicating whether <code>package</code> or
+<code>help</code> can be assumed to be character strings.</p>
+</td></tr>
+<tr><td><code id="library_:_version">version</code></td>
+<td>
+<p>A character string denoting a version number of the
+package to be loaded, for use with <em>versioned installs</em>: see
+the section later in this document.</p>
+</td></tr>
+<tr><td><code id="library_:_logical.return">logical.return</code></td>
+<td>
+<p>logical.  If it is <code>TRUE</code>,  <code>FALSE</code> or
+<code>TRUE</code> is returned to indicate success.</p>
+</td></tr>
+<tr><td><code id="library_:_warn.conflicts">warn.conflicts</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, warnings are
+printed about <code>conflicts</code> from attaching the new
+package, unless that package contains an object
+<code>.conflicts.OK</code>.  A conflict is a function masking a function,
+or a non-function masking a non-function.
+</p>
+</td></tr>
+<tr><td><code id="library_:_keep.source">keep.source</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, functions
+&lsquo;keep their source&rsquo; including comments, see argument
+<code>keep.source</code> to <code>options</code>.  This applies only to
+the named package, and not to any packages or name spaces which might be
+loaded to satisfy dependencies or imports.
+</p>
+<p>This argument does not apply to packages using lazy-loading or saved
+images.  Whether they have kept source is determined when they are
+installed (and is most likely false).
+</p>
+</td></tr>
+<tr><td><code id="library_:_verbose">verbose</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, additional diagnostics are
+printed.</p>
+</td></tr>
+<tr><td><code id="library_:_quietly">quietly</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, no message confirming
+package loading is printed.</p>
+</td></tr>
+<tr><td><code id="library_:_save">save</code></td>
+<td>
+<p>logical or environment.  If <code>TRUE</code>, a call to
+<code>require</code> from the source for a package will save the name of
+the required package in the variable <code>".required"</code>, allowing
+function <code>detach</code> to warn if a required package is
+detached. See section &lsquo;Packages that require other packages&rsquo; below.</p>
+</td></tr>
+<tr><td><code id="library_:_libname">libname</code></td>
+<td>
+<p>a character string giving the library directory where
+the package was found.</p>
+</td></tr>
+<tr><td><code id="library_:_pkgname">pkgname</code></td>
+<td>
+<p>a character string giving the name of the package,
+including the version number if the package was installed with
+<code>--with-package-versions</code>.</p>
+</td></tr>
+<tr><td><code id="library_:_libpath">libpath</code></td>
+<td>
+<p>a character string giving the complete path to the
+package.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>library(package)</code> and <code>require(package)</code> both load the
+package with name <code>package</code>.  <code>require</code> is designed for use
+inside other functions; it returns <code>FALSE</code> and gives a warning
+(rather than an error as <code>library()</code> does by default) if the
+package does not exist.  Both functions check and update the list of
+currently loaded packages and do not reload a package which is already
+loaded.  (Furthermore, if the package has a name space and a name
+space of that name is already loaded, they work from the existing
+name space rather than reloading from the file system.  If you want to
+reload a package, call <code>detach</code> or
+<code>unloadNamespace</code> first.)
+</p>
+<p>To suppress messages during the loading of packages use
+<code>suppressPackageStartupMessages</code>: this will suppress all
+messages from <span class="rlang"><b>R</b></span> itself but not necessarily all those from package
+authors.
+</p>
+<p>If <code>library</code> is called with no <code>package</code> or <code>help</code>
+argument, it lists all available packages in the libraries specified
+by <code>lib.loc</code>, and returns the corresponding information in an
+object of class <code>"libraryIQR"</code>.  The structure of this class may
+change in future versions.  In earlier versions of <span class="rlang"><b>R</b></span>, only the names
+of all available packages were returned; use <code>.packages(all =
+    TRUE)</code> for obtaining these.  Note that
+<code>installed.packages()</code>
+returns even more information.
+</p>
+<p><code>library(help = somename)</code> computes basic information about the
+package <code>somename</code>, and returns this in an object of class
+<code>"packageInfo"</code>.  The structure of this class may change in
+future versions.  When used with the default value (<code>NULL</code>) for
+<code>lib.loc</code>, the loaded packages are searched before the libraries.
+</p>
+<p><code>.First.lib</code> is called when a package without a name space is
+loaded by <code>library</code>.  (For packages with name spaces see
+<code>.onLoad</code>.)  It is called with two arguments, the name of
+the library directory where the package was found (i.e., the
+corresponding element of <code>lib.loc</code>), and the name of the package
+(in that order, and with the package name including the version for a
+versioned install, e.g. <code>tree_1.0-16</code>).  It is a good place to
+put calls to <code>library.dynam</code> which are needed when loading
+a package into this function (don't call <code>library.dynam</code>
+directly, as this will not work if the package is not installed in a
+standard location).  <code>.First.lib</code> is invoked after the
+search path interrogated by <code>search()</code> has been updated, so
+<code>as.environment(match("package:name", search()))</code> will return the
+environment in which the package is stored.  If calling
+<code>.First.lib</code> gives an error the loading of the package is
+abandoned, and the package will be unavailable.  Similarly, if the
+option <code>".First.lib"</code> has a list element with the package's name,
+this element is called in the same manner as <code>.First.lib</code> when
+the package is loaded.  This mechanism allows the user to set package
+&lsquo;load hooks&rsquo; in addition to startup code as provided by the
+package maintainers, but <code>setHook</code> is preferred.
+</p>
+<p><code>.Last.lib</code> is called when a package is detached.  Beware
+that it might be called if <code>.First.lib</code> has failed, so it
+should be written defensively. (It is called within <code>try</code>,
+so errors will not stop the package being detached.)
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>library</code> returns the list of loaded (or available) packages
+(or <code>TRUE</code> if <code>logical.return</code> is <code>TRUE</code>).
+<code>require</code> returns a logical indicating whether the required
+package is available, invisibly
+</p>
+
+
+<h3>Packages that require other packages</h3>
+
+<p><b>NB:</b> This mechanism has been almost entirely superseded by
+using the <code>Depends:</code> field in the &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file of a package.
+</p>
+<p>The source code for a
+package that requires one or more other packages should have a call
+to <code>require</code>, preferably near the beginning of the source, and
+of course before any code that uses functions, classes or methods
+from the other package.  The default for argument <code>save</code> will
+save the names of all required packages in the environment of the
+new package.  The saved package names are used by
+<code>detach</code> when a package is detached to warn if other
+packages still require the to-be-detached package.  Also, if a package is
+installed with saved image (see INSTALL), the saved package
+names are used to require these packages when the new package is
+attached.
+</p>
+
+
+<h3>Formal methods</h3>
+
+<p><code>library</code> takes some further actions when package <span class="pkg">methods</span>
+is attached (as it is by default).  Packages may define formal generic
+functions as well as re-defining functions in other packages (notably
+<span class="pkg">base</span>) to be generic, and this information is cached whenever
+such a package is loaded after <span class="pkg">methods</span> and re-defined functions
+are excluded from the list of conflicts.  The check requires looking
+for a pattern of objects; the pattern search may be avoided by
+defining an object <code>.noGenerics</code>
+(with any value) in the package.  Naturally, if the package
+<em>does</em> have any such methods, this will prevent them from being used.
+</p>
+
+
+<h3>Versioned installs</h3>
+
+<p>Packages can be installed with version information by <code>R CMD
+    INSTALL --with-package-versions</code> or
+<code>install.packages(installWithVers = TRUE)</code>.  This allows
+more than one version of a package to be installed in a library
+directory, using package directory names like <code>foo_1.5-1</code>.  When
+such packages are loaded, it is this <em>versioned</em>  name
+that <code>search()</code> returns.  Some utility functions require
+the versioned name and some the unversioned name (here <code>foo</code>).
+</p>
+<p>If <code>version</code> <em>is not</em> specified, <code>library</code> looks first
+for a packages of that name, and then for versioned installs of the
+package, selecting the one with the latest version number.  If
+<code>version</code> <em>is</em> specified, a versioned install with an
+exactly matching version is looked for.
+</p>
+<p>If <code>version</code> is not specified, <code>require</code> will accept any
+version that is already loaded, whereas <code>library</code> will look for
+an unversioned install even if a versioned install is already loaded.
+</p>
+<p>Loading more than one version of a package into an <span class="rlang"><b>R</b></span> session is not
+currently supported.  Support for versioned installs is patchy.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>library</code> and <code>require</code> can only load an <em>installed</em>
+package, and this is detected by having a &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file
+containing a <code>Built:</code> field.
+</p>
+<p>Under Unix-alikes, the code checks that the package was installed
+under a similar operating system as given by <code>R.version$platform</code>
+(the canonical name of the platform under which R was compiled),
+provided it contains compiled code.  Packages which do not contain
+compiled code can be shared between Unix-alikes, but not to other OSes
+because of potential problems with line endings and OS-specific help
+files.
+</p>
+<p>The package name given to <code>library</code> and <code>require</code> must match
+the name given in the package's &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file exactly, even
+on case-insensitive file systems such as MS Windows.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>.libPaths</code>, <code>.packages</code>.
+</p>
+<p><code>attach</code>, <code>detach</code>, <code>search</code>,
+<code>objects</code>, <code>autoload</code>,
+<code>library.dynam</code>, <code>data</code>,
+<code>install.packages</code> and
+<code>installed.packages</code>;
+<code>INSTALL</code>, <code>REMOVE</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>library()                   # list all available packages
+library(lib.loc = .Library) # list all packages in the default library
+library(help = splines)     # documentation on package 'splines'
+library(splines)            # load package 'splines'
+require(splines)            # the same
+search()                    # "splines", too
+detach("package:splines")
+
+# if the package name is in a character vector, use
+pkg &lt;- "splines"
+library(pkg, character.only = TRUE)
+detach(pos = match(paste("package", pkg, sep=":"), search()))
+
+require(pkg, character.only = TRUE)
+detach(pos = match(paste("package", pkg, sep=":"), search()))
+
+require(nonexistent)        # FALSE
+## Not run: 
+## Suppose a package needs to call a shared library named 'fooEXT',
+## where 'EXT' is the system-specific extension.  Then you should use
+.First.lib &lt;- function(lib, pkg) {
+  library.dynam("foo", pkg, lib)
+}
+
+## if you want to mask as little as possible, use
+library(mypkg, pos = "package:base")
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.6.0 ]</div>
+</div>
+</body></html>

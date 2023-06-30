@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><title>R: Dimnames of an Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dimnames.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dimnames.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dimnames {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dimnames'>Dimnames of an Object</h2>
+
+<h3>Description</h3>
+
+<p>Retrieve or set the dimnames of an object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dimnames(x)
+dimnames(x) &lt;- nlist
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>The functions <code>dimnames</code> and <code>dimnames&lt;-</code> are generic.
+</p>
+<p>For an <code>array</code> (and hence in particular, for a
+<code>matrix</code>), they retrieve or
+set the <code>dimnames</code> attribute (see attributes) of the object.
+</p>
+<p>Both have methods for data frames.  The dimnames of a data frame are
+its <code>row.names</code> attribute and its <code>names</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>rownames</code>, <code>colnames</code>;
+<code>array</code>, <code>matrix</code>, <code>data.frame</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## simple versions of rownames and colnames
+## could be defined as follows
+rownames0 &lt;- function(x) dimnames(x)[[1]]
+colnames0 &lt;- function(x) dimnames(x)[[2]]
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.0.1 ]</div>
+</div>
+</body></html>

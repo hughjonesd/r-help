@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head><title>R: Report Versions of Third-Party Software</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/extSoftVersion.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/extSoftVersion.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>extSoftVersion {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='extSoftVersion'>
+Report Versions of Third-Party Software
+</h2>
+
+<h3>Description</h3>
+
+<p>Report versions of (external) third-party software used.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>extSoftVersion()
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>The reports the versions of third-party software libraries in use.
+These are often external but might have been compiled into <span class="rlang"><b>R</b></span> when it
+was installed.
+</p>
+<p>With dynamic linking, these are the versions of the libraries linked
+to in this session: with static linking, of those compiled in.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A named character vector, currently with components
+</p>
+<table>
+<tr><td><code>zlib</code></td>
+<td>
+<p>The version of <code>zlib</code> in use.</p>
+</td></tr>
+<tr><td><code>bzlib</code></td>
+<td>
+<p>The version of <code>bzlib</code> (from <code>bzip2</code>) in use.</p>
+</td></tr>
+<tr><td><code>xz</code></td>
+<td>
+<p>The version of <code>liblzma</code> (from <code>xz</code>) in use.</p>
+</td></tr>
+<tr><td><code>PCRE</code></td>
+<td>
+<p>The version of <code>PCRE</code> in use. PCRE1 has versions &lt; 10.00,
+PCRE2 has versions &gt;= 10.00.</p>
+</td></tr>
+<tr><td><code>ICU</code></td>
+<td>
+<p>The version of <code>ICU</code> in use (if any, otherwise <code>""</code>).</p>
+</td></tr>
+<tr><td><code>TRE</code></td>
+<td>
+<p>The version of <code>libtre</code> in use.</p>
+</td></tr>
+<tr><td><code>iconv</code></td>
+<td>
+<p>The implementation and version of the <code>iconv</code>
+library in use (if known).</p>
+</td></tr>
+<tr><td><code>readline</code></td>
+<td>
+<p>The version of <code>readline</code> in use (if any,
+otherwise <code>""</code>).</p>
+</td></tr>
+<tr><td><code>BLAS</code></td>
+<td>
+<p>Name of the binary/executable file with the implementation of
+<code>BLAS</code> in use (if known, otherwise <code>""</code>).</p>
+</td></tr>
+</table>
+<p>Note that the values for <code>bzlib</code> and <code>pcre</code> normally contain
+a date as well as the version number, and that for <code>tre</code> includes
+several items separated by spaces, the version number being the
+second.
+</p>
+<p>For <code>iconv</code> this will give the implementation as well as the
+version, for example <code>"GNU libiconv 1.14"</code>, <code>"glibc
+  2.18"</code> or <code>"win_iconv"</code> (which has no version number).
+</p>
+<p>The name of the binary/executable file for <code>BLAS</code> can be used as an
+indication of which implementation is in use.  Typically, the R version of
+BLAS will appear as <code>libR.so</code> (<code>libR.dylib</code>), <code>R</code> or
+<code>libRblas.so</code> (<code>libRblas.dylib</code>), depending on how R was built.
+Note that <code>libRblas.so</code> (<code>libRblas.dylib</code>) may also be shown for
+an external BLAS implementation that had been copied, hard-linked or
+renamed by the system administrator.  For an external BLAS, a shared
+object file will be given and its path/name may indicate the
+vendor/version. The detection does not work on Windows.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>libcurlVersion</code> for the version of <code>libCurl</code>.
+</p>
+<p><code>La_version</code> for the version of LAPACK in use.
+</p>
+<p><code>La_library</code> for binary/executable file with LAPACK in use.
+</p>
+<p><code>grSoftVersion</code> for third-party graphics software.
+</p>
+<p><code>tclVersion</code> for the version of Tcl/Tk.
+</p>
+<p><code>pcre_config</code> for PCRE configuration options.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>extSoftVersion()
+## the PCRE version
+sub(" .*", "", extSoftVersion()["PCRE"])
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.0.1 ]</div>
+</div>
+</body></html>

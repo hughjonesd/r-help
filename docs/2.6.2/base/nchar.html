@@ -1,0 +1,153 @@
+<!DOCTYPE html><html><head><title>R: Count the Number of Characters (or Bytes or Width)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/nchar.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/nchar.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>nchar {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='nchar'>Count the Number of Characters (or Bytes or Width)</h2>
+
+<h3>Description</h3>
+
+<p><code>nchar</code> takes a character vector as an argument and
+returns a vector whose elements contain the sizes of
+the corresponding elements of <code>x</code>.
+</p>
+<p><code>nzchar</code> is a fast way to find out if elements of a character
+vector are non-empty strings.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>nchar(x, type = "chars", allowNA = FALSE)
+
+nzchar(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="nchar_:_x">x</code></td>
+<td>
+<p>character vector, or a vector to be coerced to a character
+vector.</p>
+</td></tr>
+<tr><td><code id="nchar_:_type">type</code></td>
+<td>
+<p>character string: partial matching to one of
+<code>c("bytes", "chars", "width")</code>.  See &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="nchar_:_allowNA">allowNA</code></td>
+<td>
+<p>logical: show <code>NA</code> be returned for invalid
+multibyte strings (rather than throwing an error)?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The &lsquo;size&rsquo; of a character string can be measured in one of
+three ways
+</p>
+
+<dl>
+<dt><code>bytes</code></dt><dd><p>The number of bytes needed to store the string
+(plus in C a final terminator which is not counted).</p>
+</dd>
+<dt><code>chars</code></dt><dd><p>The number of human-readable characters.</p>
+</dd>
+<dt><code>width</code></dt><dd><p>The number of columns <code>cat</code> will use to
+print the string in a monospaced font.  The same as <code>chars</code>
+if this cannot be calculated.</p>
+</dd>
+</dl>
+
+<p>These will often be the same, and almost always will be in single-byte
+locales.  There will be differences between the first two with
+multibyte character sequences, e.g. in UTF-8 locales.
+If the byte stream contains embedded <code>nul</code> bytes,
+<code>type = "bytes"</code> looks at all the bytes whereas the other two
+types look only at the string as printed by <code>cat</code>, up to the
+first <code>nul</code> byte.
+</p>
+<p>The internal equivalent of the default method of
+<code>as.character</code> is performed on <code>x</code> (so there is no
+method dispatch).  If you want to operate on non-vector objects
+passing them through <code>deparse</code> first will be required.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>nchar</code>, an integer vector giving the sizes of each element,
+currently always <code>2</code> for missing values (for <code>NA</code>).
+</p>
+<p>If <code>allowNA = TRUE</code> and an element is invalid in a multi-byte
+character set such as UTF-8, its number of characters and the width
+will be <code>NA</code>.  Otherwise the number of characters will be
+non-negative, so <code>!is.na(nchar(x, "chars", TRUE))</code> is a test of
+validity.
+</p>
+<p>Names, dims and dimnames are copied from the input.
+</p>
+<p>For <code>nzchar</code>, a logical vector of the same length as <code>x</code>,
+true if and only if the element has non-zero length.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This does <strong>not</strong> by default give the number of characters that
+will be used to <code>print()</code> the string.  Use
+<code>encodeString</code> to find the characters used to print the
+string.
+</p>
+<p>Embedded <code>nul</code> bytes are included in the byte count (but not the
+final <code>nul</code>).  In contrast, characters are counted up to the
+string terminator (the first <code>nul</code> that is not part of a
+character representation).
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>strwidth</code> giving width of strings for plotting;
+<code>paste</code>, <code>substr</code>, <code>strsplit</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- c("asfef", "qwerty", "yuiop[", "b", "stuff.blah.yech")
+nchar(x)
+# 5  6  6  1 15
+
+nchar(deparse(mean))
+# 18 17
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.6.2 ]</div>
+</div>
+</body></html>

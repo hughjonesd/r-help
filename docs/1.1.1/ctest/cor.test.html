@@ -1,0 +1,168 @@
+<!DOCTYPE html><html><head><title>R: Test for Zero Correlation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/cor.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/cor.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>cor.test {ctest}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='cor.test'>Test for Zero Correlation</h2>
+
+<h3>Description</h3>
+
+<p>Tests whether two samples come from uncorrelated (independent)
+populations, using Pearson's product moment correlation coefficient,
+Kendall's tau, or Spearman's rho.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>cor.test(x, y,
+         alternative = c("two.sided", "less", "greater"),
+         method = c("pearson", "kendall", "spearman"), exact = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="cor.test_:_x">x</code>, <code id="cor.test_:_y">y</code></td>
+<td>
+<p>numeric vectors of data values.  <code>x</code> and <code>y</code>
+must have the same length.</p>
+</td></tr>
+<tr><td><code id="cor.test_:_alternative">alternative</code></td>
+<td>
+<p>indicates the alternative hypothesis and must be
+one of <code>"two.sided"</code>, <code>"greater"</code> or <code>"less"</code>.  You
+can specify just the initial letter.</p>
+</td></tr>
+<tr><td><code id="cor.test_:_method">method</code></td>
+<td>
+<p>a string indicating which correlation coefficient is
+used for the test.  One of <code>"pearson"</code>,
+<code>"kendall"</code>, or <code>"spearman"</code>, can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="cor.test_:_exact">exact</code></td>
+<td>
+<p>a logical indicating whether an exact p-value should be
+computed.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>method</code> is <code>"pearson"</code>, the test statistic is based on
+Pearson's product moment correlation coefficient <code>cor(x, y)</code> and
+follows a t distribution with <code>length(x)-2</code> degrees of freedom.
+</p>
+<p>If <code>method</code> is <code>"kendall"</code> or <code>"spearman"</code>, Kendall's
+tau or Spearman's rho, respectively, are used to estimate the
+correlation.  These tests should be used if the data do not
+necessarily come from a bivariate normal distribution.
+</p>
+<p>For Kendall's test, by default (if <code>exact</code> is not specified), an
+exact p-value is computed if both samples contain less than 50 finite
+values and there are no ties.  Otherwise, the standardized estimate is
+used as the test statistic, and is approximately normally distributed.
+</p>
+<p>For Spearman's test, p-values are computed using algorithm AS 89.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with class <code>"htest"</code> containing the following components:
+</p>
+<table>
+<tr><td><code>statistic</code></td>
+<td>
+<p>the value of the test statistic.</p>
+</td></tr>
+<tr><td><code>parameter</code></td>
+<td>
+<p>the degrees of freedom of the test statistic in the
+case that it follows a t distribution.</p>
+</td></tr>
+<tr><td><code>p.value</code></td>
+<td>
+<p>the p-value of the test.</p>
+</td></tr>
+<tr><td><code>estimate</code></td>
+<td>
+<p>the estimated correlation coefficient, with names
+attribute <code>"cor"</code>, <code>"tau"</code>, or <code>"rho"</code>, correspoding
+to the method employed.</p>
+</td></tr>
+<tr><td><code>null.value</code></td>
+<td>
+<p>the value of the correlation coefficient under the
+null hypothesis, hence <code>0</code>.</p>
+</td></tr>
+<tr><td><code>alternative</code></td>
+<td>
+<p>a character string describing the alternative
+hypothesis.</p>
+</td></tr>
+<tr><td><code>method</code></td>
+<td>
+<p>a string indicating how the correlation was estimated</p>
+</td></tr>
+<tr><td><code>data.name</code></td>
+<td>
+<p>a character string giving the names of the data.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>D. J. Best &amp; D. E. Roberts (1975),
+Algorithm AS 89: The Upper Tail Probabilities of Spearman's
+<code class="reqn">\rho</code>.
+<em>Applied Statistics</em>, <b>24</b>, 377&ndash;379.
+</p>
+<p>Myles Hollander &amp; Douglas A. Wolfe (1973),
+<em>Nonparametric statistical inference</em>.
+New York: John Wiley &amp; Sons.
+Pages 185&ndash;194 (Kendall and Spearman tests).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Hollander &amp; Wolfe (1973), p. 187f.
+## Assessment of tuna quality.  We compare the Hunter L measure of
+##  lightness to the averages of consumer panel scores (recoded as
+##  integer values from 1 to 6 and averaged over 80 such values) in
+#   9 lots of canned tuna.
+##  The null is that the Hunter L value is positively associated
+##  with the panel score.
+x &lt;- c(44.4, 45.9, 41.9, 53.3, 44.7, 44.1, 50.7, 45.2, 60.1)
+y &lt;- c( 2.6,  3.1,  2.5,  5.0,  3.6,  4.0,  5.2,  2.8,  3.8)
+cor.test(x, y, method = "kendall", alternative = "greater")
+## =&gt; p=0.05972
+##
+cor.test(x, y, method = "kendall", alternative = "greater",
+         exact = FALSE) # using large sample approximation
+## =&gt; p=0.04765
+## Compare this to
+cor.test(x, y, method = "spearm", alternative = "g")
+cor.test(x, y,                    alternative = "g")
+</code></pre>
+
+
+</div>
+</body></html>

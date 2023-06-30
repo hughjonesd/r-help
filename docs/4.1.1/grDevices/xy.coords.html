@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head><title>R: Extracting Plotting Structures</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xy.coords.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xy.coords.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>xy.coords {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='xy.coords'>Extracting Plotting Structures</h2>
+
+<h3>Description</h3>
+
+<p><code>xy.coords</code> is used by many functions to obtain
+x and y coordinates for plotting.  The use of this common mechanism
+across all relevant <span class="rlang"><b>R</b></span> functions produces a measure of consistency.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>xy.coords(x, y = NULL, xlab = NULL, ylab = NULL, log = NULL,
+          recycle = FALSE, setLab = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="xy.coords_:_x">x</code>, <code id="xy.coords_:_y">y</code></td>
+<td>
+<p>the x and y coordinates of a set of points.
+Alternatively, a single argument <code>x</code> can be provided.</p>
+</td></tr>
+<tr><td><code id="xy.coords_:_xlab">xlab</code>, <code id="xy.coords_:_ylab">ylab</code></td>
+<td>
+<p>names for the x and y variables to be extracted.</p>
+</td></tr>
+<tr><td><code id="xy.coords_:_log">log</code></td>
+<td>
+<p>character, <code>"x"</code>, <code>"y"</code> or both, as for
+<code>plot</code>.  Sets negative values to <code>NA</code> and
+gives a warning.</p>
+</td></tr>
+<tr><td><code id="xy.coords_:_recycle">recycle</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, recycle (<code>rep</code>)
+the shorter of <code>x</code> or <code>y</code> if their lengths differ.</p>
+</td></tr>
+<tr><td><code id="xy.coords_:_setLab">setLab</code></td>
+<td>
+<p>logical indicating if the resulting <code>xlab</code> and
+<code>ylab</code> should be constructed from the &ldquo;kind&rdquo; of <code>(x,y)</code>;
+otherwise, the arguments <code>xlab</code> and <code>ylab</code> are used.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>An attempt is made to interpret the arguments <code>x</code> and <code>y</code> in
+a way suitable for bivariate plotting (or other bivariate procedures).
+</p>
+<p>If <code>y</code> is <code>NULL</code> and <code>x</code> is a
+</p>
+
+<dl>
+<dt>formula:</dt><dd><p>of the form <code>yvar ~ xvar</code>. <code>xvar</code> and
+<code>yvar</code> are used as x and y variables.</p>
+</dd>
+<dt>list:</dt><dd><p>containing components <code>x</code> and <code>y</code>, these are
+used to define plotting coordinates.</p>
+</dd>
+<dt>time series:</dt><dd><p>the x values are taken to be
+<code>time(x)</code> and the y values to be the time series.</p>
+</dd>
+<dt>matrix or <code>data.frame</code> with two or more
+columns:</dt><dd><p>the first is assumed to contain the x values and the
+second the y values.  <em>Note</em> that is also true if <code>x</code>
+has columns named <code>"x"</code> and <code>"y"</code>; these names will be
+irrelevant here.</p>
+</dd>
+</dl>
+
+<p>In any other case, the <code>x</code> argument is coerced to a vector and
+returned as <b>y</b> component where the resulting <code>x</code> is just
+the index vector <code>1:n</code>.  In this case, the resulting <code>xlab</code>
+component is set to <code>"Index"</code> (if <code>setLab</code> is true as by default).
+</p>
+<p>If <code>x</code> (after transformation as above) inherits from class
+<code>"POSIXt"</code> it is coerced to class <code>"POSIXct"</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with the components
+</p>
+<table>
+<tr><td><code>x</code></td>
+<td>
+<p>numeric (i.e., <code>"double"</code>) vector of abscissa values.</p>
+</td></tr>
+<tr><td><code>y</code></td>
+<td>
+<p>numeric vector of the same length as <code>x</code>.</p>
+</td></tr>
+<tr><td><code>xlab</code></td>
+<td>
+<p><code>character(1)</code> or <code>NULL</code>, the &lsquo;label&rsquo; of
+<code>x</code>.</p>
+</td></tr>
+<tr><td><code>ylab</code></td>
+<td>
+<p><code>character(1)</code> or <code>NULL</code>, the &lsquo;label&rsquo; of
+<code>y</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>plot.default</code>, <code>lines</code>, <code>points</code>
+and <code>lowess</code> are examples of functions which use this mechanism.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>ff &lt;- stats::fft(1:9)
+xy.coords(ff)
+xy.coords(ff, xlab = "fft") # labels "Re(fft)",  "Im(fft)"
+
+with(cars, xy.coords(dist ~ speed, NULL)$xlab ) # = "speed"
+
+xy.coords(1:3, 1:2, recycle = TRUE) # otherwise error "lengths differ"
+xy.coords(-2:10, log = "y")
+##&gt; xlab: "Index"  \\  warning: 3 y values &lt;= 0 omitted ..
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 4.1.1 ]</div>
+</div>
+</body></html>

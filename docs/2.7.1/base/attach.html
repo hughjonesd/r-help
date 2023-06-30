@@ -1,0 +1,158 @@
+<!DOCTYPE html><html><head><title>R: Attach Set of R Objects to Search Path</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/attach.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/attach.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>attach {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='attach'>Attach Set of R Objects to Search Path</h2>
+
+<h3>Description</h3>
+
+<p>The database is attached to the <span class="rlang"><b>R</b></span> search path.  This means that the
+database is searched by <span class="rlang"><b>R</b></span> when evaluating a variable, so objects in
+the database can be accessed by simply giving their names.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>attach(what, pos = 2, name = deparse(substitute(what)),
+       warn.conflicts = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="attach_:_what">what</code></td>
+<td>
+<p>&lsquo;database&rsquo;.  This can be a
+<code>data.frame</code> or a <code>list</code> or a <span class="rlang"><b>R</b></span> data file created with
+<code>save</code> or <code>NULL</code> or an environment.  See also
+&lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="attach_:_pos">pos</code></td>
+<td>
+<p>integer specifying position in <code>search()</code> where
+to attach.</p>
+</td></tr>
+<tr><td><code id="attach_:_name">name</code></td>
+<td>
+<p>name to use for the attached database.</p>
+</td></tr>
+<tr><td><code id="attach_:_warn.conflicts">warn.conflicts</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, warnings are
+printed about <code>conflicts</code> from attaching the database,
+unless that database contains an object <code>.conflicts.OK</code>.  A
+conflict is a function masking a function, or a non-function masking
+a non-function.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>When evaluating a variable or function name <span class="rlang"><b>R</b></span> searches for
+that name in the databases listed by <code>search</code>.  The first
+name of the appropriate type is used.
+</p>
+<p>By attaching a data frame (or list) to the search path it is possible
+to refer to the variables in the data frame by their names alone,
+rather than as components of the data frame (e.g. in the example below,
+<code>height</code> rather than <code>women$height</code>).
+</p>
+<p>By default the database is attached in position 2 in the search path,
+immediately after the user's workspace and before all previously
+loaded packages and previously attached databases.  This can be altered
+to attach later in the search path with the <code>pos</code> option, but you
+cannot attach at <code>pos=1</code>.
+</p>
+<p>The database is not actually attached.  Rather, a new environment is
+created on the search path and the elements of a list (including
+columns of a data frame) or objects in a save file or an environment
+are <em>copied</em> into the new environment.  If you use
+<code>&lt;&lt;-</code> or <code>assign</code> to assign to an attached
+database, you only alter the attached copy, not the original object.
+(Normal assignment will place a modified version in the user's
+workspace: see the examples.)
+For this reason <code>attach</code> can lead to confusion.
+</p>
+<p>One useful &lsquo;trick&rsquo; is to use <code>what = NULL</code> (or equivalently a
+length-zero list) to create a new environment on the search path into
+which objects can be assigned by <code>assign</code> or
+<code>load</code> or <code>sys.source</code>.
+</p>
+<p>Names starting <code>"package:"</code> are reserved for
+<code>library</code> and should not be used by end users.  The name
+given for the attached environment will be used by <code>search</code>
+and can be used as the argument to <code>as.environment</code>.
+</p>
+<p>There are hooks to attach user-defined table objects of class
+<code>"UserDefinedDatabase"</code>, supported by the Omegahat package
+<span class="pkg">RObjectTables</span>.  See <a href="http://www.omegahat.org/RObjectTables/">http://www.omegahat.org/RObjectTables/</a>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The <code>environment</code> is returned invisibly with a
+<code>"name"</code> attribute.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>library</code>, <code>detach</code>, <code>search</code>,
+<code>objects</code>, <code>environment</code>, <code>with</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(utils)
+
+summary(women$height)   # refers to variable 'height' in the data frame
+attach(women)
+summary(height)         # The same variable now available by name
+height &lt;- height*2.54   # Don't do this. It creates a new variable
+                        # in the user's workspace
+find("height")
+summary(height)         # The new variable in the workspace
+rm(height)
+summary(height)         # The original variable.
+height &lt;&lt;- height*25.4  # Change the copy in the attached environment
+find("height")
+summary(height)         # The changed copy
+detach("women")
+summary(women$height)   # unchanged
+
+## Not run: ## create an environment on the search path and populate it
+sys.source("myfuns.R", envir=attach(NULL, name="myfuns"))
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.7.1 ]</div>
+</div>
+</body></html>

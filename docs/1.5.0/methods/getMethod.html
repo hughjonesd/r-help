@@ -1,0 +1,194 @@
+<!DOCTYPE html><html><head><title>R: Get the Definition of a Method</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getMethod.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getMethod.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>getMethod {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='getMethod'> Get the Definition of a Method </h2>
+
+<h3>Description</h3>
+
+<p>A call to <code>getMethod</code> returns the method corresponding a
+particular generic function and signature; a call to <code>findMethod</code>
+returns the vector of package names in which a matching method is found.
+</p>
+<p>The functions <code>MethodsListSelect</code> and <code>selectMethod</code> select
+methods using an environment in which arguments to the function have
+been assigned (they differ in the treatment of inheritance).  Neither
+is intended to be called directly, except perhaps in debugging.  The
+function <code>getMethods</code> returns <em>all</em> the methods for the
+generic function.
+</p>
+<p>The function <code>findMethod</code> returns the package(s) in the search
+list (or in the packages specified by the <code>where</code> argument) that
+contain a method for this function and signature.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getMethod(f, signature=character(), where, optional=FALSE)
+
+findMethod(f, signature, where)
+
+getMethods(f, where=-1)
+
+MethodsListSelect(f, env, mlist, fEnv, finalDefault, evalArgs, useInherited)
+selectMethod(f, signature, optional=FALSE, useInherited, mlist=getMethods(f))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="getMethod_:_f">f</code></td>
+<td>
+<p> The character-string name of the generic function.
+</p>
+<p>In <code>getMethods</code> only, this argument may be a function
+definition, in which case the special methods list object, if any,
+stored in the environment of the function is returned.  (This usage
+is largely for internal purposes; you aren't likely to have such a
+function definition for direct use.)</p>
+</td></tr>
+<tr><td><code id="getMethod_:_signature">signature</code></td>
+<td>
+<p> The signature of classes to match to the arguments
+of <code>f</code>.  The vector of strings for the classes should be named,
+and the names must match formal argument names of <code>f</code>.  If not
+named, the signature is assumed to apply to the arguments of
+<code>f</code> in order, but note below for <code>selectMethod</code>.
+</p>
+<p>For <code>selectMethod</code>, the signature can optionally be an
+environment with classes assigned to the names of the corresponding
+arguments.  If the signature is not an environment, it must
+currently be named.</p>
+</td></tr>
+<tr><td><code id="getMethod_:_where">where</code></td>
+<td>
+<p> The position or environment in which to look for the method:  by default,
+anywhere in
+the current search list.</p>
+</td></tr>
+<tr><td><code id="getMethod_:_optional">optional</code></td>
+<td>
+<p> If the selection does not produce a unique result,
+an error is generated, unless this argument is <code>TRUE</code>.  In that
+case, the value returned is either a <code>MethodsList</code> object, if
+more than one method matches this signature, or <code>NULL</code> if no
+method matches.</p>
+</td></tr>
+<tr><td><code id="getMethod_:_mlist">mlist</code></td>
+<td>
+<p>In <code>selectMethod</code>, the <code>MethodsList</code> object
+can be explicitly supplied.  (Unlikely to be used, except in the
+recursive call that finds matches to more than one argument.)</p>
+</td></tr>
+<tr><td><code id="getMethod_:_env">env</code></td>
+<td>
+<p>The environment in which argument evaluations are done in
+<code>MethodsListSelect</code>.  Currently must be supplied, but should
+usually be <code>sys.frame(sys.parent())</code> when calling the function
+explicitly for debugging purposes.</p>
+</td></tr>
+<tr><td><code id="getMethod_:_fEnv">fEnv</code>, <code id="getMethod_:_finalDefault">finalDefault</code>, <code id="getMethod_:_evalArgs">evalArgs</code>, <code id="getMethod_:_useInherited">useInherited</code></td>
+<td>
+<p> Internal-use
+arguments for the function's environment, the method to use as
+the overall default, whether to evaluate arguments, and which
+arguments should use inheritance.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A call to <code>getMethod</code> returns the method for a particular
+function and signature.  As with other <code>get</code> functions,
+argument <code>where</code> controls where the function looks (by default
+anywhere in the search list) and argument <code>optional</code> controls
+whether the function returns <code>NULL</code> or generates an error if
+the method is not found.  The search for the method makes no use of
+inheritance.
+</p>
+<p>The function <code>getMethods</code> returns all the methods for a
+particular generic (in the form of a generic function with the
+methods information in its environment).  The function is called
+from the evaluator to merge method information, and is not intended
+to be called directly.
+</p>
+<p>The function <code>MethodsListSelect</code> performs a full search
+(including all inheritance and group generic information: see the
+Methods documentation page for details on how this works).
+The call returns a possibly revised methods list object,
+incorporating any method found as part of the <code>allMethods</code>
+slot.
+</p>
+<p>Normally you won't call <code>MethodsListSelect</code> directly, but it is
+possible to use it for debugging purposes (only for distinctly
+advanced users!).
+</p>
+<p>Note that the statement that <code>MethodsListSelect</code> corresponds to the
+selection done by the evaluator is a fact, not an assertion, in the
+sense that the evaluator code constructs and executes a call to
+<code>MethodsListSelect</code> when it does not already have a cached method
+for this generic function and signature.  (The value returned is
+stored by the evaluator so that the search is not required next
+time.)
+</p>
+<p>The <code>selectMethod</code> function is similar to
+<code>MethodsListSelect</code> (and calls it) but differs in that it
+is intended to be used with control over which arguments are allowed
+to use inheritance.  The restriction is needed to make sensible
+method selection for coerce methods (the <code>as</code> function).
+</p>
+
+
+<h3>Value</h3>
+
+<p>The call to <code>selectMethod</code> or <code>getMethod</code> returns a
+function object, the selected method, if a unique selection exists.
+Otherwise an error is thrown if <code>optional</code> is <code>FALSE</code>.  If
+<code>optional</code> is <code>TRUE</code>, the value returned is <code>NULL</code> if
+no method matched, or a <code>MethodsList</code> object if multiple
+methods matched.
+</p>
+<p>The call to <code>getMethods</code> returns the <code>MethodsList</code> object
+containing all the methods requested.  If there are none,
+<code>NULL</code> is returned: <code>getMethods</code> does not generate an
+error in this case.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>John Chambers
+</p>
+
+
+<h3>References</h3>
+
+<p>The web page <a href="http://www.omegahat.org/RSMethods/index.html">http://www.omegahat.org/RSMethods/index.html</a> is the
+primary documentation.
+</p>
+<p>The functions in this package implement a facility for classes and
+methods as described in <em>Programming with Data</em> (John
+M. Chambers, Springer, 1998).  See this book for further details and
+examples.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.5.0 ]</div>
+</div>
+</body></html>

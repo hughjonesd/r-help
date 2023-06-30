@@ -1,0 +1,183 @@
+<!DOCTYPE html><html><head><title>R: Manage Implicit Versions of Generic Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/implicitGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/implicitGeneric.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>implicitGeneric {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='implicitGeneric'>Manage Implicit Versions of Generic Functions</h2>
+
+<h3>Description</h3>
+
+<p>The implicit generic mechanism stores generic versions of
+functions
+in a table in a package. The package does not want the current
+version of the function to be a generic, however, and retains the
+non-generic version.
+</p>
+<p>When a call to <code>setMethod</code> or
+<code>setGeneric</code> creates a generic version for one of these
+functions, the object in the table is used.
+This mechanism is only needed if special arguments were used to
+create the generic; e.g., the <code>signature</code> or the <code>valueClass</code>
+options.
+</p>
+<p>Function <code>implicitGeneric()</code> returns the implicit
+generic version, <code>setGenericImplicit()</code> turns a generic implicit,
+<code>prohibitGeneric()</code> prevents your function from being made
+generic, and <code>registerImplicitGenerics()</code> saves a set of implicit
+generic definitions in the cached table of the current session.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>implicitGeneric(name, where, generic)
+setGenericImplicit(name, where, restore = TRUE)
+prohibitGeneric(name, where)
+registerImplicitGenerics(what, where)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="implicitGeneric_:_name">name</code></td>
+<td>
+<p> Character string name of the function.</p>
+</td></tr>
+<tr><td><code id="implicitGeneric_:_where">where</code></td>
+<td>
+<p> Package or environment in which to register the implicit
+generics.  When using the functions from the top level of your own
+package source, this argument should be omitted.</p>
+</td></tr>
+<tr><td><code id="implicitGeneric_:_generic">generic</code></td>
+<td>
+<p> Obsolete, and likely to be deprecated.</p>
+</td></tr>
+<tr><td><code id="implicitGeneric_:_restore">restore</code></td>
+<td>
+<p>Should the non-generic version of the function be
+restored?.</p>
+</td></tr>
+<tr><td><code id="implicitGeneric_:_what">what</code></td>
+<td>
+<p>Optional table of
+the implicit generics to register, but nearly always omitted, when
+it defaults to a standard metadata name.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Multiple packages may define methods for the same function, to apply
+to classes defined in that package.  Arithmetic and other operators,
+<code>plot()</code> and many other basic computations are typical
+examples. It's essential that all such packages write methods for
+the <em>same</em> definition of the generic function.  So long as that
+generic uses the default choice for signature and other parameters,
+nothing needs to be done.
+</p>
+<p>If the generic has special properties, these need to be ensured for
+all packages creating methods for it.  The simplest solution is just
+to make the function generic in the package that originally owned
+it.  If for some reason the owner(s) of that package are unwilling
+to do this, the alternative is to define the correct generic,
+save it in a special table and restore the non-generic version by
+calling <code>setGenericImplicit</code>.
+</p>
+<p>Note that the package containing the function can define methods for the implicit generic as
+well; when the implicit generic is made a real generic, those methods
+will be included.
+</p>
+<p>The usual reason for having a
+non-default implicit generic is to provide a non-default signature,
+and the usual reason for <em>that</em> is to allow lazy evaluation of
+some arguments.  All arguments in the signature of a
+generic function must be evaluated at the time the function needs to
+select a method.
+In the base function <code>with()</code> in the example below, evaluation of the argument
+<code>expr</code> must be delayed; therefore, it is excluded from the signature.
+</p>
+<p>If you want to completely prohibit anyone from turning your function
+into a generic, call <code>prohibitGeneric()</code>.
+</p>
+<p>Function <code>implicitGeneric()</code> returns the implicit generic
+version of the named function.  If there is no table of these or if
+this function is not in the table, the result of a simple call
+<code>setGeneric(name)</code> is returned.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Function <code>implicitGeneric()</code> returns the implicit generic
+definition (and caches that definition the first time if it has to
+construct it).
+</p>
+<p>The other functions exist for their side effect and return nothing
+useful.
+</p>
+
+
+<h3>Implicit Generics for Base Functions</h3>
+
+<p>Implicit generic versions exist for some functions in the packages
+supplied in the distribution of <span class="rlang"><b>R</b></span> itself.  These are stored in the
+&lsquo;methods&rsquo; package itself and will always be available.
+</p>
+<p>As emphasized repeatedly in the documentation,
+<code>setGeneric()</code> calls for a function in  another package
+should never have non-default settings for arguments such as
+<code>signature</code>.
+The reasoning applies specially to functions in supplied packages,
+since methods for these are likely to exist in multiple packages.
+A call to <code>implicitGeneric()</code> will show the generic version.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>setGeneric</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+### How we would make the function with() into a generic:
+
+## Since the second argument, 'expr' is used literally, we want
+## with() to only have "data" in the signature.
+
+## Not run: 
+setGeneric("with", signature = "data")
+## Now we could predefine methods for "with" if we wanted to.
+
+## When ready, we store the generic as implicit, and restore the
+original
+
+setGenericImplicit("with")
+
+## End(Not run)
+
+implicitGeneric("with")
+
+# (This implicit generic is stored in the 'methods' package.)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 4.3.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html><html><head><title>R: Compute Diagnostics for 'lsfit' Regression Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ls.diag.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ls.diag.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ls.diag {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ls.diag'>Compute Diagnostics for <code>lsfit</code> Regression Results</h2>
+
+<h3>Description</h3>
+
+<p>Computes basic statistics, including standard errors, t- and p-values
+for the regression coefficients.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>ls.diag(ls.out)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="ls.diag_:_ls.out">ls.out</code></td>
+<td>
+<p>Typically the result of <code>lsfit()</code></p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A <code>list</code> with the following numeric components.
+</p>
+<table>
+<tr><td><code>std.dev</code></td>
+<td>
+<p>The standard deviation of the errors, an estimate of
+<code class="reqn">\sigma</code>.</p>
+</td></tr>
+<tr><td><code>hat</code></td>
+<td>
+<p>diagonal entries <code class="reqn">h_{ii}</code> of the hat matrix <code class="reqn">H</code></p>
+</td></tr>
+<tr><td><code>std.res</code></td>
+<td>
+<p>standardized residuals</p>
+</td></tr>
+<tr><td><code>stud.res</code></td>
+<td>
+<p>studentized residuals</p>
+</td></tr>
+<tr><td><code>cooks</code></td>
+<td>
+<p>Cook's distances</p>
+</td></tr>
+<tr><td><code>dfits</code></td>
+<td>
+<p>DFITS statistics</p>
+</td></tr>
+<tr><td><code>correlation</code></td>
+<td>
+<p>correlation matrix</p>
+</td></tr>
+<tr><td><code>std.err</code></td>
+<td>
+<p>standard errors of the regression coefficients</p>
+</td></tr>
+<tr><td><code>cov.scaled</code></td>
+<td>
+<p>Scaled covariance matrix of the coefficients</p>
+</td></tr>
+<tr><td><code>cov.unscaled</code></td>
+<td>
+<p>Unscaled covariance matrix of the coefficients</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Belsley, D. A., Kuh, E. and Welsch, R. E. (1980)
+<em>Regression Diagnostics.</em>
+New York: Wiley.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>hat</code> for the hat matrix diagonals,
+<code>ls.print</code>,
+<code>lm.influence</code>, <code>summary.lm</code>,
+<code>anova</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+
+##-- Using the same data as the lm(.) example:
+lsD9 &lt;- lsfit(x = as.numeric(gl(2, 10, 20)), y = weight)
+dlsD9 &lt;- ls.diag(lsD9)
+utils::str(dlsD9, give.attr = FALSE)
+abs(1 - sum(dlsD9$hat) / 2) &lt; 10*.Machine$double.eps # sum(h.ii) = p
+plot(dlsD9$hat, dlsD9$stud.res, xlim = c(0, 0.11))
+abline(h = 0, lty = 2, col = "lightgray")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.3.1 ]</div>
+</div>
+</body></html>

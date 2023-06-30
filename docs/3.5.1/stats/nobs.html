@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><title>R: Extract the Number of Observations from a Fit.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nobs.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nobs.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>nobs {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='nobs'>
+Extract the Number of Observations from a Fit.
+</h2>
+
+<h3>Description</h3>
+
+<p>Extract the number of &lsquo;observations&rsquo; from a model fit.  This is
+principally intended to be used in computing BIC (see <code>AIC</code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>nobs(object, ...)
+
+## Default S3 method:
+nobs(object, use.fallback = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="nobs_:_object">object</code></td>
+<td>
+<p>A fitted model object.</p>
+</td></tr>
+<tr><td><code id="nobs_:_use.fallback">use.fallback</code></td>
+<td>
+<p>logical: should fallback methods be used to try to
+guess the value?</p>
+</td></tr>
+<tr><td><code id="nobs_:_...">...</code></td>
+<td>
+<p>Further arguments to be passed to methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is a generic function, with an S4 generic in package <span class="pkg">stats4</span>.
+There are methods in this package for objects of classes
+<code>"lm"</code>, <code>"glm"</code>, <code>"nls"</code> and
+<code>"logLik"</code>, as well as a default method (which throws an
+error, unless <code>use.fallback = TRUE</code> when it looks for
+<code>weights</code> and <code>residuals</code> components &ndash; use with care!).
+</p>
+<p>The main usage is in determining the appropriate penalty for BIC, but
+<code>nobs</code> is also used by the stepwise fitting methods
+<code>step</code>, <code>add1</code> and <code>drop1</code> as a
+quick check that different fits have been fitted to the same set of
+data (and not, say, that further rows have been dropped because of NAs
+in the new predictors).
+</p>
+<p>For <code>lm</code>, <code>glm</code> and <code>nls</code> fits, observations with zero
+weight are not included.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A single number, normally an integer.  Could be <code>NA</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>AIC</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.5.1 ]</div>
+</div>
+</body></html>

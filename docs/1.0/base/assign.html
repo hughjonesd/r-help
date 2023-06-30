@@ -1,0 +1,130 @@
+<!DOCTYPE html><html><head><title>R: Assign a Value to a Name</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/assign.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/assign.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>assign {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='assign'>Assign a Value to a Name</h2>
+
+<h3>Description</h3>
+
+<p>Assign a value to a name in an environment.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>assign(x, value, pos = -1, envir = pos.to.env(pos),
+       inherits = FALSE, immediate = TRUE)
+x &lt;- value
+x &lt;&lt;- value
+value -&gt; x
+value -&gt;&gt; x
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="assign_:_x">x</code></td>
+<td>
+<p>a variable name (given as a quoted string).</p>
+</td></tr>
+<tr><td><code id="assign_:_value">value</code></td>
+<td>
+<p>a value to be assigned to <code>x</code>.</p>
+</td></tr>
+<tr><td><code id="assign_:_pos">pos</code></td>
+<td>
+<p>an index into the search list which determines which
+environment the assignment is to take place in.  A character string
+may also be used.  The environment can also be specified directly
+with <code>envir</code>.</p>
+</td></tr>
+<tr><td><code id="assign_:_envir">envir</code></td>
+<td>
+<p>the <code>environment</code> in which to assign.  The
+default is the environment where the call to <code>assign</code> takes
+place.</p>
+</td></tr>
+<tr><td><code id="assign_:_inherits">inherits</code></td>
+<td>
+<p>should the enclosing frames of the environment be
+inspected?</p>
+</td></tr>
+<tr><td><code id="assign_:_immediate">immediate</code></td>
+<td>
+<p>an ignored compatibility feature.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>This function is invoked for its side effect, which is assigning
+<code>value</code> to the variable <code>x</code>.  If no <code>envir</code> is
+specified, then the assignment takes place in the currently active
+environment.
+</p>
+<p>If <code>inherits</code> is <code>TRUE</code>, enclosing environments of the supplied
+environment are searched until the variable <code>x</code> is encountered.
+The value is then assigned in the environment in which the variable is
+encountered.  If the symbol is not encountered then assignment takes
+place in the global environment.
+</p>
+<p>If <code>inherits</code> is <code>FALSE</code>, assignment takes place in the
+initial frame of <code>envir</code>.
+</p>
+<p>The arrow forms of assignment provide shortcut ways to carry out
+assignment.  The <code>&lt;-</code> and <code>-&gt;</code> forms carry out assignment
+in the local environment frame, while the <code>&lt;&lt;-</code> and <code>-&gt;&gt;</code>
+forms cause a search to made through the environment for an existing
+definition of the variable being assigned.  If such a variable is
+found then its value is redefined, otherwise assignment takes place
+globally.
+</p>
+<p>Note that the action of <code>&lt;&lt;-</code> and <code>-&gt;&gt;</code> differs from that in
+the S language, but is useful in conjunction with the scoping rules of
+R.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>get</code>,
+<code>exists</code>,
+<code>environment</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>for(i in 1:6) { #-- Create objects  'r1', 'r2', ... 'r6' --
+ nam &lt;- paste("r",i, sep=".")
+ assign(nam, 1:i)
+}
+ls(pat="^r..$")
+
+##-- Global assignment within a function:
+myf &lt;- function(x) {
+ innerf &lt;- function(x) assign("Global.res", x^2, env = .GlobalEnv)
+ innerf(x+1)
+}
+myf(3)
+Global.res # 16
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.0 ]</div>
+</div>
+</body></html>

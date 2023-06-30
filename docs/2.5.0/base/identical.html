@@ -1,0 +1,134 @@
+<!DOCTYPE html><html><head><title>R: Test Objects for Exact Equality</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/identical.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/identical.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>identical {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='identical'>Test Objects for Exact Equality</h2>
+
+<h3>Description</h3>
+
+<p>The safe and reliable way to test two objects for being
+<em>exactly</em> equal.  It returns <code>TRUE</code> in this case,
+<code>FALSE</code> in every other case.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>identical(x, y)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="identical_:_x">x</code>, <code id="identical_:_y">y</code></td>
+<td>
+<p>any <span class="rlang"><b>R</b></span> objects.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A call to <code>identical</code> is the way to test exact equality in
+<code>if</code> and <code>while</code> statements, as well as in logical
+expressions that use <code>&amp;&amp;</code> or <code>||</code>.  In all these
+applications you need to be assured of getting a single logical
+value.
+</p>
+<p>Users often use the comparison operators, such as <code>==</code> or
+<code>!=</code>, in these situations.  It looks natural, but it is not what
+these operators are designed to do in R.  They return an object like
+the arguments.  If you expected <code>x</code> and <code>y</code> to be of length
+1, but it happened that one of them wasn't, you will <em>not</em> get a
+single <code>FALSE</code>.  Similarly, if one of the arguments is <code>NA</code>,
+the result is also <code>NA</code>.  In either case, the expression
+<code>if(x == y)....</code> won't work as expected.
+</p>
+<p>The function <code>all.equal</code> is also
+sometimes used to test equality this way, but was intended for
+something different:  It allows for &ldquo;reasonable&rdquo;
+differences in numeric results.
+</p>
+<p>The computations in <code>identical</code> are also reliable and usually
+fast.  There should never be an error.  The only known way to kill
+<code>identical</code> is by having an invalid pointer at the C level,
+generating a memory fault.  It will usually find inequality quickly.
+Checking equality for two large, complicated objects can take longer
+if the objects are identical or nearly so, but represent completely
+independent copies.  For most applications, however, the computational cost
+should be negligible.
+</p>
+<p><code>identical</code> sees <code>NaN</code> as different from
+<code>as.double(NA)</code>, but all <code>NaN</code>s are equal (and all <code>NA</code>
+of the same type are equal).
+</p>
+<p>Comparison of character strings allows for embedded <code>nul</code>
+characters.  Comparison of attributes view them as a set (and not a
+vector, so order is not tested).
+</p>
+
+
+<h3>Value</h3>
+
+<p>A single logical value, <code>TRUE</code> or <code>FALSE</code>, never <code>NA</code>
+and never anything other than a single value.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>John Chambers</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. (1998)
+<em>Programming with Data. A Guide to the S Language</em>.
+Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>all.equal</code> for descriptions of how two objects differ;
+Comparison for operators that generate elementwise comparisons.
+<code>isTRUE</code> is a simple wrapper based on <code>identical</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>identical(1, NULL) ## FALSE -- don't try this with ==
+identical(1, 1.)   ## TRUE in R (both are stored as doubles)
+identical(1, as.integer(1)) ## FALSE, stored as different types
+
+x &lt;- 1.0; y &lt;- 0.99999999999
+## how to test for object equality allowing for numeric fuzz :
+(E &lt;- all.equal(x,y))
+isTRUE(E) # which is simply defined to just use
+identical(TRUE, E)
+## If all.equal thinks the objects are different, it returns a
+## character string, and the above expression evaluates to FALSE
+
+# even for unusual R objects :
+identical(.GlobalEnv, environment())
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.5.0 ]</div>
+</div>
+</body></html>

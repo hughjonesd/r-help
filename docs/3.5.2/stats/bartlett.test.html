@@ -1,0 +1,162 @@
+<!DOCTYPE html><html><head><title>R: Bartlett Test of Homogeneity of Variances</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/bartlett.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/bartlett.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>bartlett.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='bartlett.test'>Bartlett Test of Homogeneity of Variances</h2>
+
+<h3>Description</h3>
+
+<p>Performs Bartlett's test of the null that the variances in each of the
+groups (samples) are the same.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>bartlett.test(x, ...)
+
+## Default S3 method:
+bartlett.test(x, g, ...)
+
+## S3 method for class 'formula'
+bartlett.test(formula, data, subset, na.action, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="bartlett.test_:_x">x</code></td>
+<td>
+<p>a numeric vector of data values, or a list of numeric data
+vectors representing the respective samples, or fitted linear model
+objects (inheriting from class <code>"lm"</code>).</p>
+</td></tr>
+<tr><td><code id="bartlett.test_:_g">g</code></td>
+<td>
+<p>a vector or factor object giving the group for the
+corresponding elements of <code>x</code>.
+Ignored if <code>x</code> is a list.</p>
+</td></tr>
+<tr><td><code id="bartlett.test_:_formula">formula</code></td>
+<td>
+<p>a formula of the form <code>lhs ~ rhs</code> where <code>lhs</code>
+gives the data values and <code>rhs</code> the corresponding groups.</p>
+</td></tr>
+<tr><td><code id="bartlett.test_:_data">data</code></td>
+<td>
+<p>an optional matrix or data frame (or similar: see
+<code>model.frame</code>) containing the variables in the
+formula <code>formula</code>.  By default the variables are taken from
+<code>environment(formula)</code>.</p>
+</td></tr>
+<tr><td><code id="bartlett.test_:_subset">subset</code></td>
+<td>
+<p>an optional vector specifying a subset of observations
+to be used.</p>
+</td></tr>
+<tr><td><code id="bartlett.test_:_na.action">na.action</code></td>
+<td>
+<p>a function which indicates what should happen when
+the data contain <code>NA</code>s.  Defaults to
+<code>getOption("na.action")</code>.</p>
+</td></tr>
+<tr><td><code id="bartlett.test_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to or from methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>x</code> is a list, its elements are taken as the samples or fitted
+linear models to be compared for homogeneity of variances.  In this
+case, the elements must either all be numeric data vectors or fitted
+linear model objects, <code>g</code> is ignored, and one can simply use
+<code>bartlett.test(x)</code> to perform the test.  If the samples are not
+yet contained in a list, use <code>bartlett.test(list(x, ...))</code>.
+</p>
+<p>Otherwise, <code>x</code> must be a numeric data vector, and <code>g</code> must
+be a vector or factor object of the same length as <code>x</code> giving the
+group for the corresponding elements of <code>x</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of class <code>"htest"</code> containing the following components:
+</p>
+<table>
+<tr><td><code>statistic</code></td>
+<td>
+<p>Bartlett's K-squared test statistic.</p>
+</td></tr>
+<tr><td><code>parameter</code></td>
+<td>
+<p>the degrees of freedom of the approximate chi-squared
+distribution of the test statistic.</p>
+</td></tr>
+<tr><td><code>p.value</code></td>
+<td>
+<p>the p-value of the test.</p>
+</td></tr>
+<tr><td><code>method</code></td>
+<td>
+<p>the character string
+<code>"Bartlett test of homogeneity of variances"</code>.</p>
+</td></tr>
+<tr><td><code>data.name</code></td>
+<td>
+<p>a character string giving the names of the data.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Bartlett, M. S. (1937).
+Properties of sufficiency and statistical tests.
+<em>Proceedings of the Royal Society of London Series A</em>
+<b>160</b>, 268&ndash;282.
+\Sexpr[results=rd]{tools:::Rd_expr_doi("10.1098/rspa.1937.0109")}.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>var.test</code> for the special case of comparing variances in
+two samples from normal distributions;
+<code>fligner.test</code> for a rank-based (nonparametric)
+<code class="reqn">k</code>-sample test for homogeneity of variances;
+<code>ansari.test</code> and <code>mood.test</code> for two rank
+based two-sample tests for difference in scale.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+plot(count ~ spray, data = InsectSprays)
+bartlett.test(InsectSprays$count, InsectSprays$spray)
+bartlett.test(count ~ spray, data = InsectSprays)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.5.2 ]</div>
+</div>
+</body></html>

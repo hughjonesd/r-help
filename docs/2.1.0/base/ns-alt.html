@@ -1,0 +1,135 @@
+<!DOCTYPE html><html><head><title>R: Experimental Alternative Name Specification Support</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-alt.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-alt.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ns-alt {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ns-alt'>Experimental Alternative Name Specification Support</h2>
+
+<h3>Description</h3>
+
+<p>Alternative interface for specifying a name space within the code of a
+package.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.Export(...)
+.Import(...)
+.ImportFrom(name, ...)
+.S3method(generic, class, method)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="ns-alt_:_...">...</code></td>
+<td>
+<p>name or literal character string arguments.</p>
+</td></tr>
+<tr><td><code id="ns-alt_:_name">name</code></td>
+<td>
+<p>name or literal character string.</p>
+</td></tr>
+<tr><td><code id="ns-alt_:_generic">generic</code></td>
+<td>
+<p>name or literal character string.</p>
+</td></tr>
+<tr><td><code id="ns-alt_:_class">class</code></td>
+<td>
+<p>name or literal character string.</p>
+</td></tr>
+<tr><td><code id="ns-alt_:_method">method</code></td>
+<td>
+<p>optional character or function argument.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>As an experimental alternative to using a &lsquo;<span class="file">NAMESPACE</span>&rsquo; file it is
+possible to add a name space to a package by adding a
+<code>Namespace: &lt;package_name&gt;</code> entry to the &lsquo;<span class="file">DESCRIPTION</span>&rsquo;
+file and placing directives to specify imports and exports directly in
+package code.  These directives should be viewed as declarations, not
+as function calls.   Except to the optional method argument to
+<code>.S3method</code> arguments are not evaluated.  These directives should
+only be used at top level of package code except as noted below.
+</p>
+<p><code>.Export</code> is used to declare exports.  Its arguments should be
+literal names or character strings.  <code>.Export</code> should only be
+used at package top level.
+</p>
+<p><code>.Import</code> is used to declare the import of entire name spaces.
+Its arguments should be literal names or character strings.
+<code>.ImportFrom</code> is used to declare the import of selected
+variables from a single name space.  The first argument is a literal
+name or character string identifying the source name space; the
+remaining arguments are literal names or character strings identifying
+the variables to import.  As an experimental feature both
+<code>.Import</code> and <code>.ImportFrom</code> can be used to import
+variables into a local environment.  The drawback of allowing this
+is that dependencies cannot be determined easily at package load
+time, and as a result this feature may need to be dropped.
+</p>
+<p><code>.S3method</code> is used to declare a method for S3-style
+<code>UseMethod</code> dispatch.  This is needed since methods in packages
+that are imported but not on the search path might not be visible to
+the standard dispatch mechanism at a call site.  The first argument
+is the name of the generic, the second specifies the class.  The third
+argument is optional and defaults to the usual concatenation of
+generic and class separated by a period.  If supplied, the third
+argument should evaluate to a character string or a function.  If the
+third argument is omitted or a character string is supplied, then a
+function by that name must be defined.  If a function is supplied,
+it is used as the method.  When the method is specified as a name,
+explicitly or implicitly, the function lookup is handled lazily;
+this allows the definition to occur after the <code>.S3method</code>
+declaration and also integrates with possible data base storage of
+package code.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Luke Tierney</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## code for package/name space 'foo'
+x &lt;- 1
+f &lt;- function(y) c(x,y)
+print.foo &lt;- function(x, ...) cat("&lt;a foo&gt;\n")
+.Export(f)
+S3method(print,foo)
+
+## code for package/name space 'bar'
+.Import(foo)
+c &lt;- function(...) sum(...)
+g &lt;- function(y) f(c(y, 7))
+h &lt;- function(y) y+9
+.Export(g, h)
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.1.0 ]</div>
+</div>
+</body></html>

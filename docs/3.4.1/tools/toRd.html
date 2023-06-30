@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: Generic function to convert object to a fragment of Rd code.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/toRd.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/toRd.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>toRd {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='toRd'>
+Generic function to convert object to a fragment of Rd code.
+</h2>
+
+<h3>Description</h3>
+
+<p>Methods for this function render their associated classes as a fragment of Rd
+code, which can then be rendered into text, HTML, or LaTeX.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>toRd(obj, ...)
+## S3 method for class 'bibentry'
+toRd(obj, style = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="toRd_:_obj">obj</code></td>
+<td>
+
+<p>The object to be rendered.
+</p>
+</td></tr>
+<tr><td><code id="toRd_:_style">style</code></td>
+<td>
+
+<p>The style to be used in converting a <code>bibentry</code> object.
+</p>
+</td></tr>
+<tr><td><code id="toRd_:_...">...</code></td>
+<td>
+
+<p>Additional arguments used by methods.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>See <code>bibstyle</code> for a discussion of styles.  The default <code>style = NULL</code> value
+gives the default style.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Returns a character vector containing a fragment of Rd code that could
+be parsed and rendered.  The default method converts <code>obj</code> to mode <code>character</code>,
+then escapes any Rd markup within it.  The <code>bibentry</code> method converts an
+object of that class to markup appropriate for use in a bibliography.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 3.4.1 ]</div>
+</div>
+</body></html>

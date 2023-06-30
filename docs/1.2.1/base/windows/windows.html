@@ -1,0 +1,148 @@
+<!DOCTYPE html><html><head><title>R: Windows graphics devices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/windows.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/windows.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>windows {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='windows'>Windows graphics devices</h2>
+
+<h3>Description</h3>
+
+<p>A graphics device is opened. For <code>win.graph</code>, <code>windows</code>,
+<code>x11</code> and <code>X11</code> this is a graphics window on the current
+Windows display: the multiple names are for compatibility with other
+systems. <code>win.metafile</code> prints to a file and <code>win.print</code> to
+the Windows print system.
+</p>
+<p><code>bringToTop</code> brings the specified screen device's window to the
+front of the window stack (and gives it focus).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>windows(width = 7, height = 7, pointsize = 12,
+        record = getOption("graphics.record"),
+        rescale = c("R", "fit", "fixed"))
+win.graph(width = 7, height = 7, pointsize = 12)
+x11(width = 7, height = 7, pointsize = 12)
+X11(width = 7, height = 7, pointsize = 12)
+win.metafile(filename = "", width = 7, height = 7, pointsize = 12)
+win.print(width = 7, height = 7, pointsize = 12)
+
+bringToTop(which = dev.cur())
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="windows_:_display">display</code></td>
+<td>
+<p>indicates the purpose of the device.</p>
+</td></tr>
+<tr><td><code id="windows_:_filename">filename</code></td>
+<td>
+<p>the name of the output file: it will be an enhanced
+Windows metafile, usually given extension <code>.emf</code> or <code>.wmf</code>.</p>
+</td></tr>
+<tr><td><code id="windows_:_width">width</code></td>
+<td>
+<p>the (nominal) width of the plotting window in inches.</p>
+</td></tr>
+<tr><td><code id="windows_:_height">height</code></td>
+<td>
+<p>the (nominal) height of the plotting window in inches.</p>
+</td></tr>
+<tr><td><code id="windows_:_pointsize">pointsize</code></td>
+<td>
+<p>the default pointsize of plotted text.</p>
+</td></tr>
+<tr><td><code id="windows_:_record">record</code></td>
+<td>
+<p>logical: sets the initial state of the flag for
+recording plots.</p>
+</td></tr>
+<tr><td><code id="windows_:_resize">resize</code></td>
+<td>
+<p>controls the action for resizing plots.</p>
+</td></tr>
+<tr><td><code id="windows_:_which">which</code></td>
+<td>
+<p>a device number.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>All these devices are implemented as <code>windows</code> devices, the
+<code>display</code> parameter selects which is actually used.
+</p>
+<p>The size of a window is computed from information provided about the
+display: it depends on the system being configured accurately.
+</p>
+<p>A graphics window is not allowed to be specified at more that 85% of
+the screen width or height: the width and height are rescaled
+proportionally. The window can be resized to a larger size.
+</p>
+<p>If the <code>filename</code> is omitted for a <code>win.metafile</code> device, the
+output is copied to the clipboard when the device is closed. A
+<code>win.metafile</code> device can only be used for a single page.
+</p>
+<p>If a screen device is re-sized, the default behaviour is to redraw the
+plot(s) as if the new size had been specified originally.  Using
+<code>"fit"</code> will rescale the existing plot(s) to fit the new device
+region, preserving the aspect ratio.  Using <code>"fixed"</code> will leave
+the plot size unchanged, adding scrollbars if part of the
+plot is obscured.
+</p>
+<p>A graphics window will never be created at more that 85% of
+the screen width or height, but can be resized to a larger size.
+For the first two <code>rescale</code> options the width and height are
+rescaled proportionally if necessary, and if <code>rescale = "fit"</code>
+the plot(s) are rescaled accordingly.  If <code>rescale = "fixed"</code>
+the initially displayed portion is selected within these constraints,
+separately for width and height.
+</p>
+<p>Using <code>strwidth</code> or <code>strheight</code> after a window
+has been rescaled (when using <code>"fit"</code>) gives dimensions in the
+original units, but only approximately as they are derived from the
+metrics of the rescaled fonts (which are in integer sizes)
+</p>
+<p>The displayed region may be bigger than the &lsquo;paper&rsquo; size, and areas
+outside the &lsquo;paper&rsquo; are coloured light grey.  Graphics parameters such
+as <code>"din"</code> refer to the scaled plot if rescaling is in effect.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A plot device is opened: nothing is returned to the <span class="rlang"><b>R</b></span> interpreter.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Guido Masarotto</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Devices</code>, <code>postscript</code></p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.1 ]</div>
+</div>
+</body></html>

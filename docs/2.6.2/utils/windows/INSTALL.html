@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><title>R: Install Add-on Packages from Sources</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/INSTALL.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/INSTALL.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>INSTALL {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='INSTALL'>Install Add-on Packages from Sources</h2>
+
+<h3>Description</h3>
+
+<p>Utility for installing add-on source packages.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R CMD INSTALL [options] [-l lib] pkgs
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="INSTALL_:_pkgs">pkgs</code></td>
+<td>
+<p>A space-separated list with the path names of the sources of the
+packages to be installed.</p>
+</td></tr>
+<tr><td><code id="INSTALL_:_lib">lib</code></td>
+<td>
+<p>the path name of the <span class="rlang"><b>R</b></span> library tree to install to.</p>
+</td></tr>
+<tr><td><code id="INSTALL_:_options">options</code></td>
+<td>
+<p>a space-separated list of options through which in
+particular the process for building the help files can be controlled.
+Options should only be given once, and paths including spaces should
+be quoted.
+Use <code>R CMD INSTALL --help</code> for the current list of options.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If used as <code>R CMD INSTALL pkgs</code> without explicitly specifying
+<code>lib</code>, packages are installed into the library tree rooted at the
+first directory in the library path which would be used by <span class="rlang"><b>R</b></span> run in
+the current environment.
+</p>
+<p>To install into the library tree <code>lib</code>, use
+<code>R CMD INSTALL -l lib pkgs</code>.  This prepends <code>lib</code> to
+<span class="env">R\_LIBS</span> for duration of the install, so required packages in the
+installation directory will be found (and used in preference to those
+in other libraries).
+</p>
+<p>Windows Perl and the files for installing from source packages need to
+be installed.
+</p>
+<p>Both <code>lib</code> and the elements of <code>pkgs</code> may be absolute or
+relative path names of directories.  <code>pkgs</code> may also contain
+names of package archive files of the form &lsquo;<span class="file">pkg\_version.tar.gz</span>&rsquo;
+as obtained from CRAN&mdash;these are then extracted to a temporary
+directory &lsquo;<span class="file">R.INSTALL.????</span>&rsquo; of the current directory.
+</p>
+<p>Which forms of help are produced is controlled by the <span class="option">--docs</span>
+option which takes values <code>none</code> or <code>normal</code> (text and HTML)
+or <code>chm</code> (the default, text, HTML and CHTML).
+</p>
+<p>If the attempt to install the package fails, leftovers are removed.
+If the package was already installed, the old version is restored.
+This happens either if a command encounters an error or if the
+install is interrupted from the keyboard.
+</p>
+<p>Use <code>R CMD INSTALL --help</code> for more usage information.
+</p>
+
+
+<h3>Packages using the methods package</h3>
+
+<p>Packages that require the methods package and make use functions such
+as <code>setMethod</code> or <code>setClass</code>, should be
+installed using lazy-loading (or, deprecated, by creating a binary
+image): use the field <code>LazyLoad</code> in the &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file
+to ensure this.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>REMOVE</code> and <code>library</code> for information on
+using several library trees;
+<code>update.packages</code> for automatic update of packages using
+the internet (or other <span class="rlang"><b>R</b></span> level installation of packages, such as by
+<code>install.packages</code>).
+</p>
+<p>The section on &ldquo;Add-on packages&rdquo; in &ldquo;R Installation and
+Administration&rdquo; and the chapter on &ldquo;Creating R packages&rdquo; in
+&ldquo;Writing <span class="rlang"><b>R</b></span> Extensions&rdquo; (see the Help menu in <code>RGui</code>,
+<code>RShowDoc</code> and the &lsquo;<span class="file">doc/manual</span>&rsquo; subdirectory of the
+<span class="rlang"><b>R</b></span> source tree).
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.6.2 ]</div>
+</div>
+</body></html>

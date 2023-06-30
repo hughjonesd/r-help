@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><title>R: Bitwise Logical Operations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/bitwise.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/bitwise.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>bitwise {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='bitwise'>Bitwise Logical Operations</h2>
+
+<h3>Description</h3>
+
+<p>Logical operations on integer vectors with elements viewed as sets of bits.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>bitwNot(a)
+bitwAnd(a, b)
+bitwOr(a, b)
+bitwXor(a, b)
+
+bitwShiftL(a, n)
+bitwShiftR(a, n)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="bitwise_:_a">a</code>, <code id="bitwise_:_b">b</code></td>
+<td>
+<p>integer vectors; numeric vectors are coerced to integer vectors.</p>
+</td></tr>
+<tr><td><code id="bitwise_:_n">n</code></td>
+<td>
+<p>non-negative integer vector of values up to 31.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Each element of an integer vector has 32 bits.
+</p>
+<p>Pairwise operations can result in integer <code>NA</code>.
+</p>
+<p>Shifting is done assuming the values represent unsigned integers.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An integer vector of length the longer of the arguments, or zero
+length if one is zero-length.
+</p>
+<p>The output element is <code>NA</code> if an input is <code>NA</code> (after
+coercion) or an invalid shift.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The logical operators, <code>!</code>,  <code>&amp;</code>,
+<code>|</code>, <code>xor</code>.
+</p>
+<p>The classes <code>"octmode"</code> and <code>"hexmnode"</code> whose
+implementation of the standard logical operators is based on these
+functions.
+</p>
+<p>Package <span class="pkg">bitOps</span> has similar functions for numeric vectors which
+differ in the way they treat integers <code class="reqn">2^{31}</code> or larger.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>bitwAnd(15L, 7L)
+bitwOr(15L, 7L)
+bitwXor(15L, 7L)
+bitwXor(-1L, 1L)
+
+bitwShiftR(-1, 1:31) # shifts of 2^32-1 = 4294967295
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.0.2 ]</div>
+</div>
+</body></html>

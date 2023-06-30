@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head><title>R: Search Paths for Packages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/libPaths.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/libPaths.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>libPaths {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='libPaths'>Search Paths for Packages</h2>
+
+<h3>Description</h3>
+
+<p><code>.libPaths</code> gets/sets the library trees within which packages are
+looked for.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.libPaths(new)
+
+.Library
+.Library.site
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="libPaths_:_new">new</code></td>
+<td>
+<p>a character vector with the locations of <span class="rlang"><b>R</b></span> library
+trees.  Tilde expansion (<code>path.expand</code>) is done, and if
+any element contains one of <code>*?[</code>, globbing is done where
+supported by the platform: see <code>Sys.glob</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>.Library</code> is a character string giving the location of the
+default library, the &lsquo;<span class="file">library</span>&rsquo; subdirectory of <span class="env">R_HOME</span>.
+</p>
+<p><code>.Library.site</code> is a (possibly empty) character vector giving the
+locations of the site libraries, by default the &lsquo;<span class="file">site-library</span>&rsquo;
+subdirectory of <span class="env">R_HOME</span> (which may not exist).
+</p>
+<p><code>.libPaths</code> is used for getting or setting the library trees that
+<span class="rlang"><b>R</b></span> knows about (and hence uses when looking for packages).  If called
+with argument <code>new</code>, the library search path is set to
+the existing directories in <code>unique(c(new, .Library.site, .Library))</code>
+and this is returned.  If given no argument, a character vector with
+the currently active library trees is returned.
+</p>
+<p>How paths <code>new</code> with a trailing slash are treated is
+OS-dependent.  On a POSIX filesystem existing directories can usually
+be specified with a trailing slash: on Windows filepaths with a
+trailing slash (or backslash) are invalid and so will never be added
+to the library search path.
+</p>
+<p>The library search path is initialized at startup from the environment
+variable <span class="env">R_LIBS</span> (which should be a colon-separated list of
+directories at which <span class="rlang"><b>R</b></span> library trees are rooted) followed by those in
+environment variable <span class="env">R_LIBS_USER</span>.  Only directories which exist
+at the time will be included.
+</p>
+<p>By default <span class="env">R_LIBS</span> is unset, and <span class="env">R_LIBS_USER</span> is set to
+directory &lsquo;<span class="file">R/<var>R.version$platform</var>-library/<var>x.y</var></span>&rsquo;
+of the home directory (or &lsquo;<span class="file">Library/R/<var>x.y</var>/library</span>&rsquo; for
+CRAN macOS builds), for <span class="rlang"><b>R</b></span> <var>x.y.z</var>.
+</p>
+<p><code>.Library.site</code> can be set via the environment variable
+<span class="env">R_LIBS_SITE</span> (as a non-empty colon-separated list of library trees).
+</p>
+<p>Both <span class="env">R_LIBS_USER</span> and <span class="env">R_LIBS_SITE</span> feature possible
+expansion of specifiers for <span class="rlang"><b>R</b></span> version specific information as part of
+the startup process.  The possible conversion specifiers all start
+with a &lsquo;<span class="samp">&#8288;%&#8288;</span>&rsquo; and are followed by a single letter (use &lsquo;<span class="samp">&#8288;%%&#8288;</span>&rsquo;
+to obtain &lsquo;<span class="samp">&#8288;%&#8288;</span>&rsquo;), with currently available conversion
+specifications as follows:
+</p>
+
+<dl>
+<dt>&lsquo;<span class="samp">&#8288;%V&#8288;</span>&rsquo;</dt><dd><p><span class="rlang"><b>R</b></span> version number including the patchlevel (e.g.,
+&lsquo;<span class="samp">&#8288;2.5.0&#8288;</span>&rsquo;).</p>
+</dd>
+<dt>&lsquo;<span class="samp">&#8288;%v&#8288;</span>&rsquo;</dt><dd><p><span class="rlang"><b>R</b></span> version number excluding the patchlevel (e.g.,
+&lsquo;<span class="samp">&#8288;2.5&#8288;</span>&rsquo;).</p>
+</dd>
+<dt>&lsquo;<span class="samp">&#8288;%p&#8288;</span>&rsquo;</dt><dd><p>the platform for which <span class="rlang"><b>R</b></span> was built, the value of
+<code>R.version$platform</code>.</p>
+</dd>
+<dt>&lsquo;<span class="samp">&#8288;%o&#8288;</span>&rsquo;</dt><dd><p>the underlying operating system, the value of
+<code>R.version$os</code>.</p>
+</dd>
+<dt>&lsquo;<span class="samp">&#8288;%a&#8288;</span>&rsquo;</dt><dd><p>the architecture (CPU) <span class="rlang"><b>R</b></span> was built on/for, the
+value of <code>R.version$arch</code>.</p>
+</dd>
+</dl>
+
+<p>(See <code>version</code> for details on R version information.)
+</p>
+<p>Function <code>.libPaths</code> always uses the values of <code>.Library</code>
+and <code>.Library.site</code> in the base namespace.  <code>.Library.site</code>
+can be set by the site in &lsquo;<span class="file">Rprofile.site</span>&rsquo;, which should be
+followed by a call to <code>.libPaths(.libPaths())</code> to make use of the
+updated value.
+</p>
+<p>For consistency, the paths are always normalized by
+<code>normalizePath(winslash = "/")</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of file paths.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>library</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>.libPaths()                 # all library trees R knows about
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.6.1 ]</div>
+</div>
+</body></html>

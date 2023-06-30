@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><title>R: Scaling and Centering of Matrix-like Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/scale.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/scale.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>scale {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='scale'>Scaling and Centering of Matrix-like Objects</h2>
+
+<h3>Description</h3>
+
+<p><code>scale</code> is generic function whose default method centers and/or
+scales the columns of a numeric matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>scale(x, center = TRUE, scale = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="scale_:_x">x</code></td>
+<td>
+<p>a numeric matrix(like object).</p>
+</td></tr>
+<tr><td><code id="scale_:_center">center</code></td>
+<td>
+<p>either a logical value or a numeric vector of length
+equal to the number of columns of <code>x</code>.</p>
+</td></tr>
+<tr><td><code id="scale_:_scale">scale</code></td>
+<td>
+<p>either a logical value or a numeric vector of length
+equal to the number of columns of <code>x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The value of <code>center</code> determines how column centering is
+performed.
+If <code>center</code> is a numeric vector with length equal to the number
+of columns of <code>x</code>, then each column of <code>x</code> has the
+corresponding value from <code>center</code> subtracted from it.
+If <code>center</code> is <code>TRUE</code> then centering is done by subtracting
+the column means (omitting <code>NA</code>s) of <code>x</code> from their
+corresponding columns, and if <code>center</code> is <code>FALSE</code>,
+no centering is done.
+</p>
+<p>The value of <code>scale</code> determines how column scaling is performed
+(after centering).
+If <code>scale</code> is a numeric vector with length equal to the number of
+columns of <code>x</code>, then each column of <code>x</code> is divided by the
+corresponding value from <code>scale</code>.
+If <code>scale</code> is <code>TRUE</code> then scaling is done by dividing the
+(centered) columns of <code>x</code> by their root-mean-square, and if
+<code>scale</code> is <code>FALSE</code>, no scaling is done.
+</p>
+<p>The root-mean-square for a column is obtained by computing the
+square-root of the sum-of-squares of the non-missing values in the
+column divided by the number of non-missing values minus one.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>scale.default</code>, the centered, scaled matrix. The numeric
+centering and scalings used (if any) are returned as attributes
+<code>"scaled:center"</code> and <code>"scaled:scale"</code>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>sweep</code> which allows centering (and scaling) with
+arbitrary statistics.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- matrix(1:10, nc=2)
+(centered.x &lt;- scale(x, scale=FALSE))
+cov(centered.scaled.x &lt;- scale(x))# all 1
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.2 ]</div>
+</div>
+</body></html>

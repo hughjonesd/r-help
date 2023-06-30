@@ -1,0 +1,154 @@
+<!DOCTYPE html><html><head><title>R: File and Directory Manipulation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/files.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/files.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>files {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='files'>File and Directory Manipulation</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide a low-level interface to the computer's
+file system.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>file.create(...)
+file.exists(...)
+file.remove(...)
+file.rename(from, to)
+file.append(file1, file2)
+file.copy(from, to, overwrite = FALSE)
+file.symlink(from, to)
+dir.create(path, showWarnings = TRUE, recursive = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="files_:_...">...</code>, <code id="files_:_file1">file1</code>, <code id="files_:_file2">file2</code>, <code id="files_:_from">from</code>, <code id="files_:_to">to</code></td>
+<td>
+<p>character vectors,
+containing file names.</p>
+</td></tr>
+<tr><td><code id="files_:_path">path</code></td>
+<td>
+<p>a character vector containing a single path name.</p>
+</td></tr>
+<tr><td><code id="files_:_overwrite">overwrite</code></td>
+<td>
+<p>logical; should the destination files be overwritten?</p>
+</td></tr>
+<tr><td><code id="files_:_showWarnings">showWarnings</code></td>
+<td>
+<p>logical; should the warnings on failure be shown?</p>
+</td></tr>
+<tr><td><code id="files_:_recursive">recursive</code></td>
+<td>
+<p>logical: should elements of the path other than the
+last be created?  If true, like Unix's <code>mkdir -p</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>...</code> arguments are concatenated to form one character
+string: you can specify the files separately or as one vector.
+All of these functions expand path names: see <code>path.expand</code>.
+</p>
+<p><code>file.create</code> creates files with the given names if they
+do not already exist and truncates them if they do.
+</p>
+<p><code>file.exists</code> returns a logical vector indicating whether
+the files named by its argument exist.
+</p>
+<p><code>file.remove</code> attempts to remove the files named in its
+argument.
+</p>
+<p><code>file.rename</code> attempts to rename a single file.
+</p>
+<p><code>file.append</code> attempts to append the files named by its
+second argument to those named by its first.  The <span class="rlang"><b>R</b></span> subscript
+recycling rule is used to align names given in vectors
+of different lengths.
+</p>
+<p><code>file.copy</code> works in a similar way to <code>file.append</code> but with
+the arguments in the natural order for copying. Copying to existing
+destination files is skipped unless <code>overwrite = TRUE</code>.
+The <code>to</code> argument can specify a single existing directory.
+</p>
+<p><code>file.symlink</code> makes symbolic links on those Unix-like platforms
+which support them.  The <code>to</code> argument can specify a single
+existing directory.
+</p>
+<p><code>dir.create</code> creates the last element of the path, unless
+<code>recursive = TRUE</code>.  As from <span class="rlang"><b>R</b></span> 2.2.1 trailing path separators
+are ignored.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>dir.create</code> and <code>file.rename</code> return a logical,
+true for success.
+</p>
+<p>The remaining functions return a logical vector indicating which
+operation succeeded for each of the files attempted.
+</p>
+<p><code>dir.create</code> will return failure if the directory already exists. 
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Ross Ihaka, Brian Ripley
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>file.info</code>, <code>file.access</code>, <code>file.path</code>,
+<code>file.show</code>, <code>list.files</code>,
+<code>unlink</code>, <code>basename</code>, <code>path.expand</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>cat("file A\n", file="A")
+cat("file B\n", file="B")
+file.append("A", "B")
+file.create("A")
+file.append("A", rep("B", 10))
+if(interactive()) file.show("A")
+file.copy("A", "C")
+dir.create("tmp")
+file.copy(c("A", "B"), "tmp")
+list.files("tmp")
+setwd("tmp")
+file.remove("B")
+file.symlink(file.path("..", c("A", "B")), ".")
+setwd("..")
+unlink("tmp", recursive=TRUE)
+file.remove("A", "B", "C")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.3.0 ]</div>
+</div>
+</body></html>

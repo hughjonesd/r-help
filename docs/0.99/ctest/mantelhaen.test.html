@@ -1,0 +1,120 @@
+<!DOCTYPE html><html><head><title>R: Mantel-Haenszel Chi-Square Test for Count Data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.99. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/mantelhaen.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/mantelhaen.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mantelhaen.test {ctest}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mantelhaen.test'>Mantel-Haenszel Chi-Square Test for Count Data</h2>
+
+<h3>Description</h3>
+
+<p><code>mantelhaen.test</code> performs a Mantel-Haenszel chi-square test of
+the null that <code>x</code> and <code>y</code> are conditionally independent in
+each stratum.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mantelhaen.test(x, y = NULL, z = NULL, correct = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="mantelhaen.test_:_x">x</code></td>
+<td>
+<p>either an array of dimension 2 by 2 by s, where s is the
+number of strata, or a dichotomous factor object.</p>
+</td></tr>
+<tr><td><code id="mantelhaen.test_:_y">y</code></td>
+<td>
+<p>a dichotomous factor object;  ignored if x is an array.</p>
+</td></tr>
+<tr><td><code id="mantelhaen.test_:_z">z</code></td>
+<td>
+<p>a factor object idenitifying to which stratum the
+corresponding elements in <code>x</code> and <code>y</code> belong;
+ignored if <code>x</code> is an array.</p>
+</td></tr>
+<tr><td><code id="mantelhaen.test_:_correct">correct</code></td>
+<td>
+<p>a logical indicating whether to apply continuity
+correction when computing the test statistic.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>x</code> is an array, it must be of dimension 2 by 2 by s, and
+the entries should be nonnegative integers.  <code>NA</code>'s are not
+allowed.  Otherwise, <code>x</code>, <code>y</code> and <code>z</code> must have the
+same length.  Triples containing <code>NA</code>'s are removed.  Both
+<code>x</code> and <code>y</code> must be dichotomous (take exactly 2 values).
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with class <code>"htest"</code> containing the following components:
+</p>
+<table>
+<tr><td><code>statistic</code></td>
+<td>
+<p>the Mantel-Haenszel chi-square statistic.</p>
+</td></tr>
+<tr><td><code>parameter</code></td>
+<td>
+<p>always 1, the degrees of freedom of the approximate
+chi-square distribution of the test statistic.</p>
+</td></tr>
+<tr><td><code>p.value</code></td>
+<td>
+<p>the p-value of the test.</p>
+</td></tr>
+<tr><td><code>method</code></td>
+<td>
+<p>a string indicating the method employed, and whether
+or not continuity correction was used.</p>
+</td></tr>
+<tr><td><code>data.name</code></td>
+<td>
+<p>a character string giving the names of the data.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Alan Agresti (1990).
+<em>Categorical data analysis</em>.
+New York: Wiley.
+Pages 230&ndash;234.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(UCBAdmissions)
+mantelhaen.test(UCBAdmissions)
+## No evidence for association between admission and gender
+## when adjusted for department
+</code></pre>
+
+
+</div>
+</body></html>

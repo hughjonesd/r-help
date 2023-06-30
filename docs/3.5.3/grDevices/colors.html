@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: Color Names</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/colors.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/colors.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>colors {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='colors'>Color Names</h2>
+
+<h3>Description</h3>
+
+<p>Returns the built-in color names which <span class="rlang"><b>R</b></span> knows about.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>colors (distinct = FALSE)
+colours(distinct = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="colors_:_distinct">distinct</code></td>
+<td>
+<p>logical indicating if the colors returned should all be
+distinct; e.g., <code>"snow"</code> and <code>"snow1"</code> are effectively the
+same point in the <code class="reqn">(0:255)^3</code> RGB space.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These color names can be used with a <code>col=</code> specification in
+graphics functions.
+</p>
+<p>An even wider variety of colors can be created with primitives
+<code>rgb</code>, <code>hsv</code> and <code>hcl</code>, or the derived <code>rainbow</code>,
+<code>heat.colors</code>, etc.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector containing all the built-in color names.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>palette</code> for setting the &lsquo;palette&rsquo; of colors for
+<code>par(col=</code><em>&lt;num&gt;</em><code>)</code>;
+<code>rgb</code>, <code>hsv</code>, <code>hcl</code>, <code>gray</code>;
+<code>rainbow</code> for a nice example;
+and <code>heat.colors</code>, <code>topo.colors</code> for images.
+</p>
+<p><code>col2rgb</code> for translating to RGB numbers and extended
+examples.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>cl &lt;- colors()
+length(cl); cl[1:20]
+
+length(cl. &lt;- colors(TRUE))
+## only 502 of the 657 named ones
+
+## ----------- Show all named colors and more:
+demo("colors")
+## -----------
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 3.5.3 ]</div>
+</div>
+</body></html>

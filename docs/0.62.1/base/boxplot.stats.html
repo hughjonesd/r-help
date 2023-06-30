@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Box Plot Statistics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.stats.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.stats.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>boxplot.stats {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='boxplot.stats'>Box Plot Statistics</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>boxplot.stats(x, coef = 1.5)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="boxplot.stats_:_x">x</code></td>
+<td>
+<p>a numeric vector for which the boxplot will
+be constructed (<code>NA</code>s and <code>NaN</code>s are allowed
+and omitted).</p>
+</td></tr>
+<tr><td><code id="boxplot.stats_:_coef">coef</code></td>
+<td>
+<p>this determines how far the plot &ldquo;whiskers&rdquo; extend out
+from the box.  If <code>coef</code> is positive, the whiskers extend to the
+most extreme data point which is no more than <code>coef</code> times the
+interquartile coef from the box.  A value of zero causes the whiskers
+to extend to the data extremes.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>This function is typically is called by <code>boxplot</code> to
+gather the statistics necessary for producing box plots,
+but may be invoked separately.
+The value it returns is
+a list with named components as follows:
+</p>
+<table>
+<tr><td><code>stats</code></td>
+<td>
+<p>a vector of length 5, containing the extreme of the
+lower whisker, the lower &ldquo;hinge&rdquo;, the median, the upper &ldquo;hinge&rdquo;
+and the extreme of the upper whisker.</p>
+</td></tr>
+<tr><td><code>n</code></td>
+<td>
+<p>the number of of non-<code>NA</code> observations in the sample.</p>
+</td></tr>
+<tr><td><code>conf</code></td>
+<td>
+<p>the lower and upper extremes of the &ldquo;notch&rdquo;.</p>
+</td></tr>
+<tr><td><code>out</code></td>
+<td>
+<p>the values of any data points which lie beyond the
+extremes of the whiskers.</p>
+</td></tr>
+</table>
+<p>Note that <code>$stats</code> and <code>$conf</code> are sorted <em>in</em>creasingly,
+contrary to S, and that <code>$n</code> and <code>$out</code> include any
+<code>+- Inf</code> values.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>fivenum</code>, <code>boxplot</code>, <code>bxp</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>str(boxplot.stats(1:100))
+str(boxplot.stats(1:100, coef = 3))
+str(boxplot.stats(1:100, coef = 0))
+
+str(boxplot.stats(c(1:100,NA)))
+str(boxplot.stats(c(1:100,-1:1/0)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html><html><head><title>R: Add Legends to Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/legend.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/legend.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>legend {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='legend'>Add Legends to Plots</h2>
+
+<h3>Description</h3>
+
+<p>This function can be used to add legends to plots.  Note that a call
+to the function <code>locator</code> can be used in place of the <code>x</code>
+and <code>y</code> arguments.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>legend(x, y, legend, fill, col = "black", lty, lwd, pch,
+       bty = "o", bg = par("bg"), pt.bg = NA, cex = 1, xjust = 0, yjust = 1,
+       x.intersp = 1, y.intersp = 1, adj = 0,
+       text.width = NULL, merge = do.lines &amp;&amp; has.pch, trace = FALSE,
+       ncol = 1, horiz = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="legend_:_x">x</code>, <code id="legend_:_y">y</code></td>
+<td>
+<p>the x and y location of the legend.
+<code>x</code> can be a list with <code>x</code> and <code>y</code> components.</p>
+</td></tr>
+
+
+
+
+
+<tr><td><code id="legend_:_legend">legend</code></td>
+<td>
+<p>a vector of text values or an <code>expression</code>
+of length <code class="reqn">\ge 1</code> to appear in the legend.</p>
+</td></tr>
+<tr><td><code id="legend_:_fill">fill</code></td>
+<td>
+<p>if specified, this argument will cause boxes filled
+with the specified colors to appear beside the legend text.</p>
+</td></tr>
+<tr><td><code id="legend_:_col">col</code></td>
+<td>
+<p>the color of points or lines appearing in the legend.</p>
+</td></tr>
+<tr><td><code id="legend_:_lty">lty</code>, <code id="legend_:_lwd">lwd</code></td>
+<td>
+<p>the line types and widths for lines appearing in the
+legend.  One of these two <em>must</em> be specified for line drawing.</p>
+</td></tr>
+<tr><td><code id="legend_:_pch">pch</code></td>
+<td>
+<p>the plotting symbols appearing in the legend, either as
+vector of 1-character strings, or one (multi character)
+string. <em>Must</em> be specified for symbol drawing.</p>
+</td></tr>
+<tr><td><code id="legend_:_bty">bty</code></td>
+<td>
+<p>the type of box to be drawn around the legend.</p>
+</td></tr>
+<tr><td><code id="legend_:_bg">bg</code></td>
+<td>
+<p>the background color for the legend box.</p>
+</td></tr>
+<tr><td><code id="legend_:_pt.bg">pt.bg</code></td>
+<td>
+<p>the background color for the <code>points</code>.</p>
+</td></tr>
+<tr><td><code id="legend_:_cex">cex</code></td>
+<td>
+<p>character expansion factor <b>relative</b> to current
+<code>par("cex")</code>.</p>
+</td></tr>
+<tr><td><code id="legend_:_xjust">xjust</code></td>
+<td>
+<p>how the legend is to be justified relative to the legend
+x location.  A value of 0 means left justified, 0.5 means centered
+and 1 means right justified.</p>
+</td></tr>
+<tr><td><code id="legend_:_yjust">yjust</code></td>
+<td>
+<p>the same as <code>xjust</code> for the legend y location.</p>
+</td></tr>
+<tr><td><code id="legend_:_x.intersp">x.intersp</code></td>
+<td>
+<p>character interspacing factor for horizontal (x) spacing.</p>
+</td></tr>
+<tr><td><code id="legend_:_y.intersp">y.intersp</code></td>
+<td>
+<p>the same for vertical (y) line distances.</p>
+</td></tr>
+<tr><td><code id="legend_:_adj">adj</code></td>
+<td>
+<p>numeric of length 1 or 2; the string adjustment for legend
+text.  Useful for y-adjustment when <code>labels</code> are
+plotmath expressions.</p>
+</td></tr>
+<tr><td><code id="legend_:_text.width">text.width</code></td>
+<td>
+<p>the width of the legend text in x (<code>"user"</code>)
+coordinates.
+Defaults to the proper value computed by <code>strwidth(legend)</code>.</p>
+</td></tr>
+<tr><td><code id="legend_:_merge">merge</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, &ldquo;merge&rdquo; points and lines but
+not filled boxes.  Defaults to <code>TRUE</code> if there are points and lines.</p>
+</td></tr>
+<tr><td><code id="legend_:_trace">trace</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, shows how <code>legend</code> does all
+its magical computations.</p>
+</td></tr>
+<tr><td><code id="legend_:_ncol">ncol</code></td>
+<td>
+<p>the number of columns in which to set the legend items
+(default is 1, a vertical legend).</p>
+</td></tr>
+<tr><td><code id="legend_:_horiz">horiz</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, set the legend horizontally rather than
+vertically (specifying <code>horiz</code> overrides the <code>ncol</code>
+specification).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>&ldquo;Attribute&rdquo; arguments such as <code>col</code>, <code>pch</code>, <code>lty</code>,
+etc, are recycled if necessary.  <code>merge</code> is not.
+</p>
+<p>Points are drawn <em>after</em> lines in order that they can cover the
+line with their background color <code>pt.bg</code>, if applicable.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A (<code>invisible</code>) list with list components
+</p>
+<table>
+<tr><td><code>rect</code></td>
+<td>
+<p>a list with components
+</p>
+
+<dl>
+<dt><code>w,h</code></dt><dd><p>positive numbers giving <b>w</b>idth and
+<b>h</b>eight of the legend's box.</p>
+</dd>
+<dt><code>left,top</code></dt><dd><p>x and y coordinates of upper left corner
+of the box.</p>
+</dd>
+</dl>
+
+</td></tr>
+<tr><td><code>text</code></td>
+<td>
+<p>a list with components
+</p>
+
+<dl>
+<dt><code>x,y</code></dt><dd><p>numeric vectors of length <code>length(legend)</code>,
+giving the x and y coordinates of the legend's text(s).</p>
+</dd>
+</dl>
+
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>plot</code>, <code>barplot</code> which uses <code>legend()</code>, and
+<code>text</code> for more examples of math expressions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Run the example in `?matplot' or the following:
+leg.txt &lt;- c("Setosa     Petals", "Setosa     Sepals",
+             "Versicolor Petals", "Versicolor Sepals")
+y.leg &lt;- c(4.5, 3, 2.1, 1.4, .7)
+cexv  &lt;- c(1.2, 1, 4/5, 2/3, 1/2)
+matplot(c(1,8), c(0,4.5), type = "n", xlab = "Length", ylab = "Width",
+        main = "Petal and Sepal Dimensions in Iris Blossoms")
+for (i in seq(cexv)) {
+  text  (1, y.leg[i]-.1, paste("cex=",formatC(cexv[i])), cex=.8, adj = 0)
+  legend(3, y.leg[i], leg.txt, pch = "sSvV", col = c(1, 3), cex = cexv[i])
+}
+## `merge = TRUE' for merging lines &amp; points:
+x &lt;- seq(-pi, pi, len = 65)
+plot(x, sin(x), type = "l", ylim = c(-1.2, 1.8), col = 3, lty = 2)
+points(x, cos(x), pch = 3, col = 4)
+lines(x, tan(x), type = "b", lty = 1, pch = 4, col = 6)
+title("legend(..... lty = c(2, -1, 1), pch = c(-1,3,4), merge = TRUE)",
+      cex.main = 1.1)
+legend(-1, 1.9, c("sin", "cos", "tan"), col = c(3,4,6),
+       lty = c(2, -1, 1), pch = c(-1, 3, 4), merge = TRUE, bg='gray90')
+
+##--- log scaled Examples ------------------------------
+leg.txt &lt;- c("a one", "a two")
+
+par(mfrow = c(2,2))
+for(ll in c("","x","y","xy")) {
+  plot(2:10, log=ll, main=paste("log = '",ll,"'", sep=""))
+  abline(1,1)
+  lines(2:3,3:4, col=2) #
+  points(2,2, col=3)    #
+  rect(2,3,3,2, col=4)
+  text(c(3,3),2:3, c("rect(2,3,3,2, col=4)",
+                     "text(c(3,3),2:3,\"c(rect(...)\")"), adj = c(0,.3))
+  legend(list(x=2,y=8), legend = leg.txt, col=2:3, pch=1:2,
+         lty=1, merge=TRUE)#, trace=TRUE)
+}
+par(mfrow=c(1,1))
+
+##-- Math expressions:  ------------------------------
+plot(x, sin(x), type="l", col = 2,xlab=expression(phi),ylab=expression(f(phi)))
+abline(h=-1:1, v=pi/2*(-6:6), col="gray90")
+lines(x, cos(x), col = 3, lty = 2)
+ex.cs1 &lt;- expression(plain(sin) * phi,  paste("cos", phi))# 2 ways
+str(legend(-3, .9, ex.cs1, lty=1:2, col=2:3, adj = c(0, .6)))# adj y !
+
+x &lt;- rexp(100, rate = .5)
+hist(x, main = "Mean and Median of a Skewed Distribution")
+abline(v = mean(x),   col=2, lty=2, lwd=2)
+abline(v = median(x), col=3, lty=3, lwd=2)
+ex12 &lt;- expression(bar(x) == sum(over(x[i], n), i==1, n),
+                   hat(x) == median(x[i], i==1,n))
+str(legend(4.1, 30, ex12, col = 2:3, lty=2:3, lwd=2))
+
+## Using `ncol' :
+x &lt;- 0:64/64
+matplot(x, outer(x, 1:7, function(x, k) sin(k * pi * x)),
+        type = "o", col = 1:7, ylim = c(-1, 1.5), pch = "*")
+legend(0, 1.5, paste("sin(",1:7,"pi * x)"), col=1:7, lty=1:7, pch = "*",
+       ncol = 4, cex=.8)
+legend(.8,1.2, paste("sin(",1:7,"pi * x)"), col=1:7, lty=1:7, pch = "*",cex=.8)
+legend(0, -.1, paste("sin(",1:4,"pi * x)"), col=1:4, lty=1:4, ncol=2, cex=.8)
+legend(0, -.4, paste("sin(",5:7,"pi * x)"), col=5:7,  pch=24, ncol=2, cex=1.5,
+       pt.bg="pink")
+
+## point covering line :
+y &lt;- sin(3*pi*x)
+plot(x,y,type="l",col="blue", main = "points with bg &amp; legend(*, pt.bg)")
+points(x,y,pch=21,bg="white")
+legend(.4,1,"sin(c x)",pch=21,pt.bg="white",lty=1, col = "blue")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.3 ]</div>
+</div>
+</body></html>

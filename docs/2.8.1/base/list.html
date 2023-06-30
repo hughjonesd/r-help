@@ -1,0 +1,159 @@
+<!DOCTYPE html><html><head><title>R: Lists - Generic and Dotted Pairs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/list.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/list.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>list {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='list'>Lists &ndash; Generic and Dotted Pairs</h2>
+
+<h3>Description</h3>
+
+<p>Functions to construct, coerce and check for both kinds of <span class="rlang"><b>R</b></span> lists.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>list(...)
+pairlist(...)
+
+as.list(x, ...)
+## S3 method for class 'environment'
+as.list(x, all.names = FALSE, ...)
+as.pairlist(x)
+
+is.list(x)
+is.pairlist(x)
+
+alist(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="list_:_...">...</code></td>
+<td>
+<p>objects, possibly named.</p>
+</td></tr>
+<tr><td><code id="list_:_x">x</code></td>
+<td>
+<p>object to be coerced or tested.</p>
+</td></tr>
+<tr><td><code id="list_:_all.names">all.names</code></td>
+<td>
+<p>a logical indicating whether to copy all values or
+(default) only those whose names do not begin with a dot.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Most lists in <span class="rlang"><b>R</b></span> internally are <em>Generic Vectors</em>, whereas
+traditional <em>dotted pair</em> lists (as in LISP) are available
+but rarely seen by users (except as <code>formals</code> of functions).
+</p>
+<p>The arguments to <code>list</code> or <code>pairlist</code> are of the form
+<code>value</code> or <code>tag=value</code>.  The functions return a list or
+dotted pair list composed of its arguments with each value either
+tagged or untagged, depending on how the argument was specified.
+</p>
+<p><code>alist</code> handles its arguments as if they described function
+arguments.  So the values are not evaluated, and tagged arguments with
+no value are allowed whereas <code>list</code> simply ignores them.
+<code>alist</code> is most often used in conjunction with <code>formals</code>.
+</p>
+<p><code>as.list</code> attempts to coerce its argument to a list.  For
+functions, this returns the concatenation of the list of formal
+arguments and the function body.  For expressions, the list of
+constituent elements is returned.  <code>as.list</code> is generic, and as the
+default method calls <code>as.vector(mode="list")</code> methods for
+<code>as.vector</code> may be invoked.  <code>as.list</code>
+turns a factor into a list of one-element factors.  All attributes
+will be dropped unless the argument already is a list.  (This is
+inconsistent with functions such as <code>as.character</code>, and is
+for efficiency since lists can be expensive to copy.)
+</p>
+<p><code>is.list</code> returns <code>TRUE</code> if and only if its argument
+is a <code>list</code> <em>or</em> a <code>pairlist</code> of <code>length</code> <code class="reqn">&gt; 0</code>.
+<code>is.pairlist</code> returns <code>TRUE</code> if and only if the argument
+is a pairlist or <code>NULL</code> (see below).
+</p>
+<p>The <code>"environment"</code> method for <code>as.list</code> copies the
+name-value pairs (for names not beginning with a dot) from an
+environment to a named list.  The user can request that all named
+objects are copied.  The list is in no particular order (the order
+depends on the order of creation of objects and whether the
+environment is hashed).  No parent environments are searched.  (Objects
+copied are duplicated so this can be an expensive operation.)
+</p>
+<p>An empty pairlist, <code>pairlist()</code> is the same as <code>NULL</code>.  This
+is different from <code>list()</code>.
+</p>
+<p><code>as.pairlist</code> is implemented as <code>as.vector(x, "pairlist")</code>,
+and hence will dispatch methods for the generic function <code>as.vector</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>vector("list", length)</code> for creation of a list with empty
+components; <code>c</code>, for concatenation; <code>formals</code>.
+<code>unlist</code> is an approximate inverse to <code>as.list()</code>.
+</p>
+<p>&lsquo;plotmath&rsquo; for the use of <code>list</code> in plot annotation.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+# create a plotting structure
+pts &lt;- list(x=cars[,1], y=cars[,2])
+plot(pts)
+
+is.pairlist(.Options)  # a user-level pairlist
+
+## "pre-allocate" an empty list of length 5
+vector("list", 5)
+
+# Argument lists
+f &lt;- function() x
+# Note the specification of a "..." argument:
+formals(f) &lt;- al &lt;- alist(x=, y=2+3, ...=)
+f
+al
+
+## environment-&gt;list coercion
+
+e1 &lt;- new.env()
+e1$a &lt;- 10
+e1$b &lt;- 20
+as.list(e1)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.8.1 ]</div>
+</div>
+</body></html>

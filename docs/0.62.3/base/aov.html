@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>R: Fit an Analysis of Variance Model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/aov.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/aov.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>aov {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='aov'>Fit an Analysis of Variance Model</h2>
+
+<h3>Description</h3>
+
+<p>This provides a wrapper to <code>lm</code> for fitting linear models to
+balanced or unbalanced experimental designs. The call to <code>lm</code> sets
+<code>singular.ok</code> to <code>TRUE</code> to allow for aliased effects.
+</p>
+<p>The main difference from <code>lm</code> is in the way <code>print</code>,
+<code>summary</code> and so on handle the fit:  this is expressed in the
+traditional language of the analysis of variance rather than of linear
+models.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>aov(formula, data=sys.parent(), projections=FALSE, contrasts=NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="aov_:_formula">formula</code></td>
+<td>
+<p>A formula specifying the model.</p>
+</td></tr>
+<tr><td><code id="aov_:_data">data</code></td>
+<td>
+<p>A data frame in which the variables specified in the
+formula will be found. If missing, the variables are searched for in
+the standard way.</p>
+</td></tr>
+<tr><td><code id="aov_:_projections">projections</code></td>
+<td>
+<p>Not implemented: for compatibility with S.</p>
+</td></tr>
+<tr><td><code id="aov_:_contrasts">contrasts</code></td>
+<td>
+<p>A list of contrasts to be used for some of the factors
+in the formula. This is not supported by the current version of
+<code>model.matrix.default</code> and so has no effect.</p>
+</td></tr>
+<tr><td><code id="aov_:_...">...</code></td>
+<td>
+<p>Arguments to be passed to <code>lm</code>, such as <code>subset</code>
+or <code>na.action</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"lm"</code> with the additional class <code>"aov"</code>.
+</p>
+
+
+<h3>WARNING</h3>
+
+<p>This implementation is much more basic than that in S; in particular
+<code>Error</code> is not allowed in the formula and there is no support for
+multistratum models such as split-plot designs.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>B.D. Ripley</p>
+
+
+<h3>See Also</h3>
+
+<p><code>lm</code>,<code>alias</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## From Venables and Ripley (1997) p.210.
+N &lt;- c(0,1,0,1,1,1,0,0,0,1,1,0,1,1,0,0,1,0,1,0,1,1,0,0)
+P &lt;- c(1,1,0,0,0,1,0,1,1,1,0,0,0,1,0,1,1,0,0,1,0,1,1,0)
+K &lt;- c(1,0,0,1,0,1,1,0,0,1,0,1,0,1,1,0,0,0,1,1,1,0,1,0)
+yield &lt;- c(49.5,62.8,46.8,57.0,59.8,58.5,55.5,56.0,62.8,55.8,69.5,
+55.0, 62.0,48.8,45.5,44.2,52.0,51.5,49.8,48.8,57.2,59.0,53.2,56.0)
+
+npk &lt;- data.frame(block=gl(6,4), N=factor(N), P=factor(P),
+                  K=factor(K), yield=yield)
+npk.aov &lt;- aov(yield ~ block + N*P*K, npk)
+npk.aov
+summary(npk.aov)
+coefficients(npk.aov)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.3 ]</div>
+</div>
+</body></html>

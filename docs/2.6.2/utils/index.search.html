@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><title>R: Search Indices for Help Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/index.search.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/index.search.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>index.search {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='index.search'>Search Indices for Help Files</h2>
+
+<h3>Description</h3>
+
+<p>Used to search the indices for help files, possibly under aliases.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>index.search(topic, path, file="AnIndex", type = "help")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="index.search_:_topic">topic</code></td>
+<td>
+<p>The keyword to be searched for in the indices.</p>
+</td></tr>
+<tr><td><code id="index.search_:_path">path</code></td>
+<td>
+<p>The path(s) to the packages to be searched.</p>
+</td></tr>
+<tr><td><code id="index.search_:_file">file</code></td>
+<td>
+<p>The index file to be searched.  Normally
+&lsquo;<span class="file">&quot;AnIndex&quot;</span>&rsquo;.</p>
+</td></tr>
+<tr><td><code id="index.search_:_type">type</code></td>
+<td>
+<p>The type of file required.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For each package in <code>path</code>, examine the file <code>file</code> in
+directory &lsquo;<span class="file">type</span>&rsquo;, and look up the matching file stem for topic
+<code>topic</code>, if any.  
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of matching files, as if they are in directory
+<code>type</code> of the corresponding package. In the special cases of
+<code>type = "html"</code>, <code>"R-ex"</code> and <code>"latex"</code> the file
+extensions <code>".html"</code>, <code>".R"</code> and <code>".tex"</code> are added.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>help</code>,
+<code>example</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.6.2 ]</div>
+</div>
+</body></html>

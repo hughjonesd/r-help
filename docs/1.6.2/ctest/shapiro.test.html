@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Shapiro-Wilk Normality Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/shapiro.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/shapiro.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>shapiro.test {ctest}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='shapiro.test'>Shapiro-Wilk Normality Test</h2>
+
+<h3>Description</h3>
+
+<p>Performs the Shapiro-Wilk test for normality.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>shapiro.test(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="shapiro.test_:_x">x</code></td>
+<td>
+<p>a numeric vector of data values, the number of which must be
+between 3 and 5000.  Missing values are allowed.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with class <code>"htest"</code> containing the following components:
+</p>
+<table>
+<tr><td><code>statistic</code></td>
+<td>
+<p>the value of the Shapiro-Wilk statistic.</p>
+</td></tr>
+<tr><td><code>p.value</code></td>
+<td>
+<p>the p-value for the test.</p>
+</td></tr>
+<tr><td><code>method</code></td>
+<td>
+<p>the character string <code>"Shapiro-Wilk normality test"</code>.</p>
+</td></tr>
+<tr><td><code>data.name</code></td>
+<td>
+<p>a character string giving the name(s) of the data.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Patrick Royston (1982)
+An Extension of Shapiro and Wilk's <code class="reqn">W</code> Test for Normality to Large
+Samples.
+<em>Applied Statistics</em>, <b>31</b>, 115&ndash;124.
+</p>
+<p>Patrick Royston (1982)
+Algorithm AS 181: The <code class="reqn">W</code> Test for Normality.
+<em>Applied Statistics</em>, <b>31</b>, 176&ndash;180.
+</p>
+<p>Patrick Royston (1995)
+A Remark on Algorithm AS 181: The <code class="reqn">W</code> Test for Normality.
+<em>Applied Statistics</em>, <b>44</b>, 547&ndash;551.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>qqnorm</code> for producing a normal quantile-quantile plot.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+shapiro.test(rnorm(100, mean = 5, sd = 3))
+shapiro.test(runif(100, min = 2, max = 4))
+</code></pre>
+
+
+</div>
+</body></html>

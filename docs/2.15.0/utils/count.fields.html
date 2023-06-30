@@ -1,0 +1,102 @@
+<!DOCTYPE html><html><head><title>R: Count the Number of Fields per Line</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/count.fields.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/count.fields.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>count.fields {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='count.fields'>Count the Number of Fields per Line</h2>
+
+<h3>Description</h3>
+
+<p><code>count.fields</code> counts the number of fields, as separated by
+<code>sep</code>, in each of the lines of <code>file</code> read.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>count.fields(file, sep = "", quote = "\"'", skip = 0,
+             blank.lines.skip = TRUE, comment.char = "#")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="count.fields_:_file">file</code></td>
+<td>
+<p>a character string naming an ASCII data file, or a
+<code>connection</code>, which will be opened if necessary,
+and if so closed at the end of the function call.</p>
+</td></tr>
+<tr><td><code id="count.fields_:_sep">sep</code></td>
+<td>
+<p>the field separator character.  Values on each line of the
+file are separated by this character.  By default, arbitrary amounts
+of whitespace can separate fields.</p>
+</td></tr>
+<tr><td><code id="count.fields_:_quote">quote</code></td>
+<td>
+<p>the set of quoting characters</p>
+</td></tr>
+<tr><td><code id="count.fields_:_skip">skip</code></td>
+<td>
+<p>the number of lines of the data file to skip before
+beginning to read data.</p>
+</td></tr>
+<tr><td><code id="count.fields_:_blank.lines.skip">blank.lines.skip</code></td>
+<td>
+<p>logical: if <code>TRUE</code> blank lines in the
+input are ignored.</p>
+</td></tr>
+<tr><td><code id="count.fields_:_comment.char">comment.char</code></td>
+<td>
+<p>character: a character vector of length one
+containing a single character or an empty string.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This used to be used by <code>read.table</code> and can still be
+useful in discovering problems in reading a file by that function.
+</p>
+<p>For the handling of comments, see <code>scan</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector with the numbers of fields found.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>read.table</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>cat("NAME", "1:John", "2:Paul", file = "foo", sep = "\n")
+count.fields("foo", sep = ":")
+unlink("foo")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.15.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html><html><head><title>R: Color Palettes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/palettes.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/palettes.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Palettes {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Palettes'>Color Palettes</h2>
+
+<h3>Description</h3>
+
+<p>Create a vector of <code>n</code> contiguous colors.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rainbow(n, s = 1, v = 1, start = 0, end = max(1,n - 1)/n,
+        gamma = 1, alpha = 1)
+heat.colors(n, alpha = 1)
+terrain.colors(n, alpha = 1)
+topo.colors(n, alpha = 1)
+cm.colors(n, alpha = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Palettes_:_n">n</code></td>
+<td>
+<p>the number of colors (<code class="reqn">\ge 1</code>) to be in the
+palette.</p>
+</td></tr>
+<tr><td><code id="Palettes_:_s">s</code>, <code id="Palettes_:_v">v</code></td>
+<td>
+<p>the &lsquo;saturation&rsquo; and &lsquo;value&rsquo; to be used
+to complete the HSV color descriptions.</p>
+</td></tr>
+<tr><td><code id="Palettes_:_start">start</code></td>
+<td>
+<p>the (corrected) hue in [0,1] at which the rainbow
+begins.</p>
+</td></tr>
+<tr><td><code id="Palettes_:_end">end</code></td>
+<td>
+<p>the (corrected) hue in [0,1] at which the rainbow ends.</p>
+</td></tr>
+<tr><td><code id="Palettes_:_gamma">gamma</code></td>
+<td>
+<p>the gamma correction, see argument <code>gamma</code> in
+<code>hsv</code>.</p>
+</td></tr>
+<tr><td><code id="Palettes_:_alpha">alpha</code></td>
+<td>
+<p>the alpha transparency, a number in [0,1], see argument
+<code>alpha</code> in <code>hsv</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Conceptually, all of these functions actually use (parts of) a line
+cut out of the 3-dimensional color space, parametrized by
+<code>hsv(h,s,v, gamma)</code>, where <code>gamma</code><code class="reqn">=1</code> for the
+<em>foo</em><code>.colors</code> function, and hence,
+equispaced hues in RGB space tend to cluster at
+the red, green and blue primaries.
+</p>
+<p>Some applications such as contouring require a palette
+of colors which do not wrap around to give a final
+color close to the starting one.
+</p>
+<p>With <code>rainbow</code>, the parameters <code>start</code> and <code>end</code> can be used
+to specify particular subranges of hues.
+The following values can be used when generating such a subrange:
+red=0, yellow=<code class="reqn">\frac 1 6</code>, green=<code class="reqn">\frac 2 6</code>,
+cyan=<code class="reqn">\frac 3 6</code>, blue=<code class="reqn">\frac 4 6</code>
+and magenta=<code class="reqn">\frac 5 6</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector, <code>cv</code>, of color names.  This can be used
+either to create a user&ndash;defined color palette for subsequent
+graphics by <code>palette(cv)</code>, a <code>col=</code> specification
+in graphics functions or in <code>par</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>colors</code>, <code>palette</code>, <code>hsv</code>,
+<code>hcl</code>, <code>rgb</code>, <code>gray</code> and
+<code>col2rgb</code> for translating to RGB numbers.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+# A Color Wheel
+pie(rep(1,12), col=rainbow(12))
+
+##------ Some palettes ------------
+demo.pal &lt;-
+  function(n, border = if (n&lt;32) "light gray" else NA,
+           main = paste("color palettes;  n=",n),
+           ch.col = c("rainbow(n, start=.7, end=.1)", "heat.colors(n)",
+                      "terrain.colors(n)", "topo.colors(n)",
+                      "cm.colors(n)"))
+{
+    nt &lt;- length(ch.col)
+    i &lt;- 1:n; j &lt;- n / nt; d &lt;- j/6; dy &lt;- 2*d
+    plot(i,i+d, type="n", yaxt="n", ylab="", main=main)
+    for (k in 1:nt) {
+        rect(i-.5, (k-1)*j+ dy, i+.4, k*j,
+             col = eval(parse(text=ch.col[k])), border = border)
+        text(2*j,  k * j +dy/4, ch.col[k])
+    }
+}
+n &lt;- if(.Device == "postscript") 64 else 16
+     # Since for screen, larger n may give color allocation problem
+demo.pal(n)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.6.2 ]</div>
+</div>
+</body></html>

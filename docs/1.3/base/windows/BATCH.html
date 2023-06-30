@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>R: Batch Execution of R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/BATCH.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/BATCH.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>BATCH {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='BATCH'>Batch Execution of R</h2>
+
+<h3>Description</h3>
+
+<p>Run <span class="rlang"><b>R</b></span> non-interactively with input from <code>infile</code> and
+optionally send output (stdout/stderr) to another file.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Rcmd BATCH [options] infile [outfile]</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="BATCH_:_infile">infile</code></td>
+<td>
+<p>the name of a file with <span class="rlang"><b>R</b></span> code to be executed.</p>
+</td></tr>
+<tr><td><code id="BATCH_:_options">options</code></td>
+<td>
+<p>a list of <span class="rlang"><b>R</b></span> command line options, e.g., for setting the
+amount of memory available and controlling the load/save process.
+If <code>infile</code> starts with a &lsquo;-&rsquo;, use <code>--</code> as the final 
+option.  The default options are <code>--restore --save</code>.</p>
+</td></tr>
+<tr><td><code id="BATCH_:_outfile">outfile</code></td>
+<td>
+<p>the name of a file to which to write output.  If not given,
+the name used is the one of <code>infile</code>, with a possible &lsquo;<span class="file">.R</span>&rsquo;
+extension stripped, and &lsquo;<span class="file">.Rout</span>&rsquo; appended.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>By default, the input commands are printed along with the
+output.  To suppress this behavior, add <code>options(echo = FALSE)</code>
+at the beginning of <code>infile</code>.
+</p>
+<p>Files with an incomplete last line (no end of line mark) are now accepted.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Factors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/factor.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/factor.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>factor {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='factor'>Factors</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>factor(x, levels = sort(unique(x), na.last = TRUE), labels,
+       exclude = NA, ordered = FALSE)
+ordered(x, levels = sort(unique(x), na.last = TRUE), labels,
+       exclude = NA, ordered = TRUE)
+
+is.factor(x)
+is.ordered(x)
+
+as.factor(x)
+as.ordered(x)
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>The function <code>factor</code> is used to encode a vector as a factor (the
+names category and enumerated type are also used for factors).  If
+<code>ordered</code> is <code>TRUE</code>, the factor levels are assumed ordered.
+By default the levels are unordered.  For compatibility purposes,
+there is also a function called <code>ordered</code> which provides an
+alternative way of creating ordered factors.
+</p>
+<p>The encoding of the vector happens as follows: if <code>x[i]</code> equals
+<code>levels[j]</code>, then the <code>i</code>-th element of the result is
+<code>j</code>.  If no match is found for <code>x[i]</code> in <code>levels</code>, then
+the <code>i</code>-th element of the result is set to <code>NA</code>.  Any
+values listed in <code>exclude</code> result in <code>NA</code>s appearing in the
+factor returned.  If <code>exclude</code> is set to a zero length vector,
+then any <code>NA</code> values in <code>x</code> are used for form a new
+level for the factor.  <em>This means that there will be no
+<code>NA</code> values in the result</em>.
+</p>
+<p><code>factor</code> applied to a factor is a no-op, except if there are
+empty levels. In that case, a factor with the reduced level set
+set is returned.
+</p>
+<p><code>labels</code> is a vector of character strings used to label the
+levels of the factor.  The default is to use the encoded factor levels.
+</p>
+<p><code>is.factor</code> returns <code>TRUE</code> or <code>FALSE</code> depending on
+whether its argument is of type factor or not.  Correspondingly,
+<code>is.ordered</code> returns <code>TRUE</code> when its
+argument is ordered and <code>FALSE</code> otherwise.
+</p>
+<p><code>as.factor</code> coerces its argument to a factor.
+It is an abbreviated form of <code>factor</code>.
+</p>
+<p><code>as.ordered(x)</code> returns <code>x</code> if this is ordered, and
+<code>ordered(x)</code> otherwise.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>gl</code> for construction of &ldquo;balanced&rdquo; factors and
+<code>C</code> for factors with specified contrasts.
+<code>levels</code> and <code>nlevels</code> for accessing the
+levels,  and <code>codes</code> to get integer codes.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>ff &lt;- factor(substring("statistics",1:10,1:10), levels=letters)
+ff
+codes(ff)
+factor(ff)# drops levels that don't occur !
+factor(factor(letters[7:10])[2:3]) # excercise indexing and reduction
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65 ]</div>
+</div>
+</body></html>

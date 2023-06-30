@@ -1,0 +1,107 @@
+<!DOCTYPE html><html><head><title>R: Extract Components from a Model Frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/model.extract.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/model.extract.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>model.extract {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='model.extract'>Extract Components from a Model Frame</h2>
+
+<h3>Description</h3>
+
+<p>Returns the response, offset, subset, weights or other
+special components of a model frame passed as optional arguments to
+<code>model.frame</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>model.extract(frame, component)
+model.offset(x)
+model.response(data, type = "any")
+model.weights(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="model.extract_:_frame">frame</code>, <code id="model.extract_:_x">x</code>, <code id="model.extract_:_data">data</code></td>
+<td>
+<p>A model frame.</p>
+</td></tr>
+<tr><td><code id="model.extract_:_component">component</code></td>
+<td>
+<p>literal character string or name. The name of a
+component to extract, such as <code>"weights"</code>, <code>"subset"</code>.</p>
+</td></tr>
+<tr><td><code id="model.extract_:_type">type</code></td>
+<td>
+<p>One of <code>"any"</code>, <code>"numeric"</code>, <code>"double"</code>.
+Using either of latter two coerces the result to have storage mode
+<code>"double"</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>model.extract</code> is provided for compatibility with S, which does
+not have the more specific functions.  It is also useful to extract
+e.g. the <code>etastart</code> and <code>mustart</code> components of a
+<code>glm</code> fit.
+</p>
+<p><code>model.offset</code> and <code>model.response</code> are equivalent to
+<code>model.extract(, "offset")</code> and <code>model.extract(, "response")</code>
+respectively.  <code>model.offset</code> sums any terms specified by
+<code>offset</code> terms in the formula or by <code>offset</code> arguments
+in the call producing the model frame: it does check that the offset
+is numeric.
+</p>
+<p><code>model.weights</code> is slightly different from
+<code>model.frame(, "weights")</code> in not naming the vector it returns.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The specified component of the model frame, usually a vector.</p>
+
+
+<h3>See Also</h3>
+
+<p><code>model.frame</code>, <code>offset</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>a &lt;- model.frame(cbind(ncases,ncontrols) ~ agegp+tobgp+alcgp, data=esoph)
+model.extract(a, "response")
+stopifnot(model.extract(a, "response") == model.response(a))
+
+a &lt;- model.frame(ncases/(ncases+ncontrols) ~ agegp+tobgp+alcgp,
+                 data = esoph, weights = ncases+ncontrols)
+model.response(a)
+model.extract(a, "weights")
+
+a &lt;- model.frame(cbind(ncases,ncontrols) ~ agegp,
+                 something = tobgp, data = esoph)
+names(a)
+stopifnot(model.extract(a, "something") == esoph$tobgp)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.6.2 ]</div>
+</div>
+</body></html>

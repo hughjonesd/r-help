@@ -1,0 +1,149 @@
+<!DOCTYPE html><html><head><title>R: Set the Clipping Region</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.clip.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.clip.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.clip {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.clip'>Set the Clipping Region</h2>
+
+<h3>Description</h3>
+
+<p>These functions set the clipping region within the current viewport
+<em>without</em> altering the current coordinate system.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.clip(...)
+clipGrob(x = unit(0.5, "npc"), y = unit(0.5, "npc"),
+         width = unit(1, "npc"), height = unit(1, "npc"),
+         just = "centre", hjust = NULL, vjust = NULL,
+         default.units = "npc", name = NULL, vp = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.clip_:_x">x</code></td>
+<td>
+<p>A numeric vector or unit object specifying x-location.</p>
+</td></tr>
+<tr><td><code id="grid.clip_:_y">y</code></td>
+<td>
+<p>A numeric vector or unit object specifying y-location.</p>
+</td></tr>
+<tr><td><code id="grid.clip_:_width">width</code></td>
+<td>
+<p>A numeric vector or unit object specifying width.</p>
+</td></tr>
+<tr><td><code id="grid.clip_:_height">height</code></td>
+<td>
+<p>A numeric vector or unit object specifying height.</p>
+</td></tr>
+<tr><td><code id="grid.clip_:_just">just</code></td>
+<td>
+<p>The justification of the clip rectangle
+relative to its (x, y) location.  If there are two values, the first
+value specifies horizontal justification and the second value specifies
+vertical justification.  Possible string values are: <code>"left"</code>,
+<code>"right"</code>, <code>"centre"</code>, <code>"center"</code>, <code>"bottom"</code>,
+and <code>"top"</code>.  For numeric values, 0 means left alignment
+and 1 means right alignment.
+</p>
+</td></tr>
+<tr><td><code id="grid.clip_:_hjust">hjust</code></td>
+<td>
+<p>A numeric vector specifying horizontal justification.
+If specified, overrides the <code>just</code> setting.</p>
+</td></tr>
+<tr><td><code id="grid.clip_:_vjust">vjust</code></td>
+<td>
+<p>A numeric vector specifying vertical justification.
+If specified, overrides the <code>just</code> setting.</p>
+</td></tr>
+<tr><td><code id="grid.clip_:_default.units">default.units</code></td>
+<td>
+<p>A string indicating the default units to use
+if <code>x</code>, <code>y</code>, <code>width</code>, or <code>height</code>
+are only given as numeric vectors.</p>
+</td></tr>
+<tr><td><code id="grid.clip_:_name">name</code></td>
+<td>
+<p> A character identifier. </p>
+</td></tr>
+<tr><td><code id="grid.clip_:_vp">vp</code></td>
+<td>
+<p>A Grid viewport object (or NULL).</p>
+</td></tr>
+<tr><td><code id="grid.clip_:_...">...</code></td>
+<td>
+<p>Arguments passed to <code>clipGrob</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Both functions create a clip rectangle (a graphical object describing
+a clip rectangle), but only <code>grid.clip</code>
+enforces the clipping.
+</p>
+<p>Pushing or popping a viewport <em>always</em> overrides the clip
+region set by a clip grob, regardless of whether that viewport
+explicitly enforces a clipping region.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>clipGrob</code> returns a clip grob.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p>Grid,
+<code>viewport</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># draw across entire viewport, but clipped
+grid.clip(x = 0.3, width = 0.1)
+grid.lines(gp=gpar(col="green", lwd=5))
+# draw across entire viewport, but clipped (in different place)
+grid.clip(x = 0.7, width = 0.1)
+grid.lines(gp=gpar(col="red", lwd=5))
+# Viewport sets new clip region
+pushViewport(viewport(width=0.5, height=0.5, clip=TRUE))
+grid.lines(gp=gpar(col="grey", lwd=3))
+# Return to original viewport;  get
+# clip region from previous grid.clip()
+# (NOT from previous viewport clip region)
+popViewport()
+grid.lines(gp=gpar(col="black"))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 3.6.1 ]</div>
+</div>
+</body></html>

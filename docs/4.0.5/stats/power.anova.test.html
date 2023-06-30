@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><title>R: Power Calculations for Balanced One-Way Analysis of Variance...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/power.anova.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/power.anova.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>power.anova.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='power.anova.test'>Power Calculations for Balanced One-Way Analysis of Variance Tests</h2>
+
+<h3>Description</h3>
+
+<p>Compute power of test or determine parameters to obtain target power.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>power.anova.test(groups = NULL, n = NULL,
+                 between.var = NULL, within.var = NULL,
+                 sig.level = 0.05, power = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="power.anova.test_:_groups">groups</code></td>
+<td>
+<p>Number of groups</p>
+</td></tr>
+<tr><td><code id="power.anova.test_:_n">n</code></td>
+<td>
+<p>Number of observations (per group)</p>
+</td></tr>
+<tr><td><code id="power.anova.test_:_between.var">between.var</code></td>
+<td>
+<p>Between group variance</p>
+</td></tr>
+<tr><td><code id="power.anova.test_:_within.var">within.var</code></td>
+<td>
+<p>Within group variance</p>
+</td></tr>
+<tr><td><code id="power.anova.test_:_sig.level">sig.level</code></td>
+<td>
+<p>Significance level (Type I error probability)</p>
+</td></tr>
+<tr><td><code id="power.anova.test_:_power">power</code></td>
+<td>
+<p>Power of test (1 minus Type II error probability)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Exactly one of the parameters <code>groups</code>, <code>n</code>, <code>between.var</code>,
+<code>power</code>, <code>within.var</code>, and <code>sig.level</code> must be passed as NULL,
+and that parameter is determined from the others. Notice that
+<code>sig.level</code> has non-NULL default so NULL must be explicitly
+passed if you want it computed.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Object of class <code>"power.htest"</code>, a list of the arguments
+(including the computed one) augmented with <code>method</code> and
+<code>note</code> elements.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>uniroot</code> is used to solve power equation for unknowns, so
+you may see errors from it, notably about inability to bracket the
+root when invalid arguments are given.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Claus Ekstrøm</p>
+
+
+<h3>See Also</h3>
+
+<p><code>anova</code>, <code>lm</code>, <code>uniroot</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>power.anova.test(groups = 4, n = 5, between.var = 1, within.var = 3)
+# Power = 0.3535594
+
+power.anova.test(groups = 4, between.var = 1, within.var = 3,
+                 power = .80)
+# n = 11.92613
+
+## Assume we have prior knowledge of the group means:
+groupmeans &lt;- c(120, 130, 140, 150)
+power.anova.test(groups = length(groupmeans),
+                 between.var = var(groupmeans),
+                 within.var = 500, power = .90) # n = 15.18834
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 4.0.5 ]</div>
+</div>
+</body></html>

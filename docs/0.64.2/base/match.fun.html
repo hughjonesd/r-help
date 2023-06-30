@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head><title>R: Function Verification for &quot;Function Variables&quot;</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/match.fun.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/match.fun.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>match.fun {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='match.fun'>Function Verification for &ldquo;Function Variables&rdquo;</h2>
+
+<h3>Description</h3>
+
+<p>Matches <code>FUN</code> to a function, where <code>FUN</code> can be a
+character (string), e.g., <code>"*"</code> or <code>"fred"</code>,
+or a function such as <code>pmax</code>.
+</p>
+<p>Returns an error if no matching function is found.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>match.fun(FUN, descend=TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="match.fun_:_FUN">FUN</code></td>
+<td>
+<p>function, e.g. as passed to <code>outer</code>.</p>
+</td></tr>
+<tr><td><code id="match.fun_:_descend">descend</code></td>
+<td>
+<p>logical; control whether to search under non-function
+objects.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>descend=TRUE</code>, <code>match.fun</code> will look underneath
+non-function objects with the given name; otherwise if <code>FUN</code>
+points to a non-function object then an error is generated.
+</p>
+<p>This is now used in base functions such as
+<code>apply</code>, <code>lapply</code>, <code>outer</code>,
+<code>sweep</code>, and the like.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A function matching <code>FUN</code> or an error is generated.
+</p>
+
+
+<h3>Bug/Feature</h3>
+
+<p>A character argument to <code>FUN</code> is always matched to a
+function, even if there is a non-function object higher up the
+search list with the same name.</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jonathan Rougier</p>
+
+
+<h3>See Also</h3>
+
+<p><code>match.arg</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># Same as get("*"):
+match.fun("*")
+# Overwrite outer with a vector
+outer &lt;- 1:5
+## Not run: 
+match.fun(outer, descend = FALSE) #-&gt; Error:  not a function
+
+## End(Not run)
+match.fun(outer) # finds it anyway
+is.function(match.fun("outer")) # as well
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.2 ]</div>
+</div>
+</body></html>

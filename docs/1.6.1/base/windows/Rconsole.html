@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: R for Windows Configuration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Rconsole.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Rconsole.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Rwin configuration {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Rwin+20configuration'>R for Windows Configuration</h2>
+
+<h3>Description</h3>
+
+<p>The file &lsquo;<span class="file">Rconsole</span>&rsquo; configures the R GUI console in this
+Windows port. The file &lsquo;<span class="file">Rdevga</span>&rsquo; configures the graphics devices
+<code>windows</code>, <code>win.graph</code>, <code>win.metafile</code> and <code>win.print</code>.
+</p>
+
+
+<h3>Details</h3>
+
+<p>There are system copies of these files in &lsquo;<span class="file">R\_HOME\etc</span>&rsquo;. Users
+can have personal copies of the files: these are looked for in the
+location given by the environment variable <code>R_USER</code>. The system
+files are read only if a corresponding personal file is not found.
+</p>
+<p>If the environment variable <code>R_USER</code> is not set, the <span class="rlang"><b>R</b></span> system
+sets it to <code>HOME</code> if that is set (stripping any trailing
+slash), otherwise to <code>{HOMEDRIVE}{HOMEPATH}</code> if <code>HOMEDRIVE</code> is set
+otherwise to the working directory.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Each of the files contains details in its comments of how to set the
+values.
+</p>
+<p>At the time of writing &lsquo;<span class="file">Rdevga</span>&rsquo; configured the mapping of font
+numbers to fonts, and &lsquo;<span class="file">Rconsole</span>&rsquo; configured the appearance
+(single or multiple document interface, toolbar, statusbar on MDI),
+size, font and colours of the GUI console, and whether resizing the
+console sets <code>options("width")</code>.
+</p>
+<p>The file &lsquo;<span class="file">Rconsole</span>&rsquo; also configures the internal pager.  This
+shares the font and colours of the console, but can be sized
+separately.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The <code>GUI preferences</code> item on the <code>Edit</code> menu brings up an
+form which can be used to edit the console settings, and to save them
+to a file.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Guido Masarotto</p>
+
+
+<h3>See Also</h3>
+
+<p><code>windows</code></p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.1 ]</div>
+</div>
+</body></html>

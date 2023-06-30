@@ -1,0 +1,158 @@
+<!DOCTYPE html><html><head><title>R: Bessel Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Bessel.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Bessel.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Bessel {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Bessel'>Bessel Functions</h2>
+
+<h3>Description</h3>
+
+<p>Bessel Functions of integer and fractional order, of first
+and second kind, <code class="reqn">J_{\nu}</code> and <code class="reqn">Y_{\nu}</code>, and
+Modified Bessel functions (of first and third kind),
+<code class="reqn">I_{\nu}</code> and <code class="reqn">K_{\nu}</code>. 
+</p>
+<p><code>gammaCody</code> is the <code class="reqn">(\Gamma)</code> Function as from the Specfun
+package and originally used in the Bessel code.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>besselI(x, nu, expon.scaled = FALSE)
+besselK(x, nu, expon.scaled = FALSE)
+besselJ(x, nu)
+besselY(x, nu)
+gammaCody(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Bessel_:_x">x</code></td>
+<td>
+<p>numeric, <code class="reqn">\ge 0</code>.</p>
+</td></tr>
+<tr><td><code id="Bessel_:_nu">nu</code></td>
+<td>
+<p>numeric; <code class="reqn">\ge 0</code> unless in <code>besselK</code> which
+is symmetric in <code>nu</code>.  The <em>order</em> of the
+corresponding Bessel function.</p>
+</td></tr>
+<tr><td><code id="Bessel_:_expon.scaled">expon.scaled</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the results are
+exponentially scaled in order to avoid overflow
+(<code class="reqn">I_{\nu}</code>) or underflow (<code class="reqn">K_{\nu}</code>),
+respectively.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The underlying code for these functions stem from <em>Netlib</em>,
+&lsquo;<span class="file">http://www.netlib.org/specfun/r[ijky]besl</span>&rsquo;.
+</p>
+<p>If <code>expon.scaled = TRUE</code>, <code class="reqn">e^{-x} I_{\nu}(x)</code>,
+or <code class="reqn">e^{x} K_{\nu}(x)</code> are returned.
+</p>
+<p><code>gammaCody</code> may be somewhat faster but less
+precise and/or robust than <span class="rlang"><b>R</b></span>'s standard <code>gamma</code>.
+It is here for experimental purpose mainly, and <em>may be defunct
+very soon</em>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>numeric of the same length of <code>x</code> with the (scaled, if
+<code>expon.scale=T</code>) values of the corresponding Bessel function.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Original Fortran code:
+W. J. Cody, Argonne National Laboratory <br />
+Translation to C and adaption to <span class="rlang"><b>R</b></span>:
+Martin Maechler <a href="mailto:maechler@stat.math.ethz.ch.">maechler@stat.math.ethz.ch.</a>
+
+nus &lt;- c(0:5,10,20)
+</p>
+<p>x &lt;- seq(0,4, len= 501)
+plot(x,x, ylim = c(0,6), ylab=&quot;&quot;,type='n', main = &quot;Bessel Functions  I_nu(x)&quot;)
+for(nu in nus) lines(x,besselI(x,nu=nu), col = nu+2)
+legend(0,6, leg=paste(&quot;nu=&quot;,nus), col = nus+2, lwd=1)
+</p>
+<p>x &lt;- seq(0,40,len=801); yl &lt;- c(-.8,.8)
+plot(x,x, ylim = yl, ylab=&quot;&quot;,type='n', main = &quot;Bessel Functions  J_nu(x)&quot;)
+for(nu in nus) lines(x,besselJ(x,nu=nu), col = nu+2)
+legend(32,-.18, leg=paste(&quot;nu=&quot;,nus), col = nus+2, lwd=1)
+</p>
+<p>x0 &lt;- 2^(-20:10)
+plot(x0,x0^-8, log='xy', ylab=&quot;&quot;,type='n',
+main = &quot;Bessel Functions  J_nu(x)  near 0\n log - log  scale&quot;)
+for(nu in sort(c(nus,nus+.5))) lines(x0,besselJ(x0,nu=nu), col = nu+2)
+legend(3,1e50, leg=paste(&quot;nu=&quot;, paste(nus,nus+.5, sep=&quot;,&quot;)), col=nus+2, lwd=1)
+</p>
+<p>plot(x0,x0^-8, log='xy', ylab=&quot;&quot;,type='n',
+main = &quot;Bessel Functions  K_nu(x)  near 0\n log - log  scale&quot;)
+for(nu in sort(c(nus,nus+.5))) lines(x0,besselK(x0,nu=nu), col = nu+2)
+legend(3,1e50, leg=paste(&quot;nu=&quot;, paste(nus,nus+.5, sep=&quot;,&quot;)), col=nus+2, lwd=1)
+</p>
+<p>x &lt;- x[x &gt; 0]
+plot(x,x, ylim=c(1e-18,1e11),log=&quot;y&quot;, ylab=&quot;&quot;,type='n',
+main = &quot;Bessel Functions  K_nu(x)&quot;)
+for(nu in nus) lines(x,besselK(x,nu=nu), col = nu+2)
+legend(0,1e-5, leg=paste(&quot;nu=&quot;,nus), col = nus+2, lwd=1)
+</p>
+<p>## Check the Scaling :
+for(nu in nus)
+print(all(abs(1- besselK(x,nu)*exp( x) / besselK(x,nu,expo=TRUE)) &lt; 2e-15))
+for(nu in nus)
+print(all(abs(1- besselI(x,nu)*exp(-x) / besselI(x,nu,expo=TRUE)) &lt; 1e-15))
+</p>
+<p>yl &lt;- c(-1.6, .6)
+plot(x,x, ylim = yl, ylab=&quot;&quot;,type='n', main = &quot;Bessel Functions  Y_nu(x)&quot;)
+for(nu in nus)xx &lt;- x[x &gt; .6*nu]; lines(xx,besselY(xx,nu=nu), col = nu+2)
+legend(25,-.5, leg=paste(&quot;nu=&quot;,nus), col = nus+2, lwd=1)
+</p>
+
+
+<p>math
+</p>
+
+
+<h3>References</h3>
+
+<p>Abramowitz, M. and Stegun, I. A. (1972).<br />
+<em>Handbook of Mathematical Functions</em>, Dover, New York;<br />
+Chapter 9: Bessel Functions of Integer Order.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Other special mathematical functions, as the
+<code>gamma</code>, <code class="reqn">\Gamma(x)</code>, and <code>beta</code>,
+<code class="reqn">B(x)</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html><html><head><title>R: Get Class Definition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getClass.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>getClass {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='getClass'>Get Class Definition </h2>
+
+<h3>Description</h3>
+
+<p>Get the definition of a class.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getClass   (Class, .Force = FALSE, where)
+getClassDef(Class, where, package, inherits = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="getClass_:_Class">Class</code></td>
+<td>
+<p> the character-string name of the class, often with a
+<code>"package"</code> attribute as noted below under <code>package</code>.</p>
+</td></tr>
+<tr><td><code id="getClass_:_.Force">.Force</code></td>
+<td>
+<p> if <code>TRUE</code>, return <code>NULL</code> if the class is
+undefined; otherwise, an undefined class results in an error.</p>
+</td></tr>
+<tr><td><code id="getClass_:_where">where</code></td>
+<td>
+<p> environment from which to begin the search for the definition; by default,
+start at the top-level (global) environment and proceed through
+the search list.</p>
+</td></tr>
+<tr><td><code id="getClass_:_package">package</code></td>
+<td>
+<p> the name or environment of the package asserted to hold the
+definition.  If it is a non-empty string it is used instead of
+<code>where</code>, as the first place to look for the class.
+Note that the package must be loaded but need not be attached.  By
+default, the package attribute of the <code>Class</code> argument is
+used, if any.  There will usually be a package attribute if
+<code>Class</code> comes from <code>class(x)</code> for some object.
+</p>
+</td></tr>
+<tr><td><code id="getClass_:_inherits">inherits</code></td>
+<td>
+<p>logical; should the class definition be retrieved from
+any enclosing environment and also from the cache?  If <code>FALSE</code>
+only a definition in the environment <code>where</code> will be returned.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Class definitions are stored in metadata objects in a package
+namespace or other environment where they are defined.  When
+packages are loaded, the class definitions in the package are cached in an internal
+table.  Therefore, most calls to <code>getClassDef</code> will find the
+class in the cache or fail to find it at all, unless <code>inherits</code>
+is <code>FALSE</code>, in which case only the environment(s) defined by
+<code>package</code> or <code>where</code> are searched.
+</p>
+<p>The class cache allows for multiple definitions of the
+same class name in separate environments, with of course the
+limitation that the package attribute or package name must be
+provided in the call to
+</p>
+
+
+<h3>Value</h3>
+
+<p>The object defining the class. If the class definition is not found,
+<code>getClassDef</code> returns <code>NULL</code>, while <code>getClass</code>, which
+calls <code>getClassDef</code>, either generates an error or, if
+<code>.Force</code> is <code>TRUE</code>, returns a simple definition for the
+class.  The latter case is used internally, but is not typically
+sensible in user code.
+</p>
+<p>The non-null returned value is an object of class
+<code>classRepresentation</code>.
+</p>
+<p>Use functions such as <code>setClass</code> and
+<code>setClassUnion</code> to create class definitions.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, John M. (2016)
+<em>Extending R</em>,
+Chapman &amp; Hall.
+(Chapters 9 and 10.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p>classRepresentation,
+<code>setClass</code>,
+<code>isClass</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>getClass("numeric") ## a built in class
+
+cld &lt;- getClass("thisIsAnUndefinedClass", .Force = TRUE)
+cld ## a NULL prototype
+## If you are really curious:
+utils::str(cld)
+## Whereas these generate errors:
+try(getClass("thisIsAnUndefinedClass"))
+try(getClassDef("thisIsAnUndefinedClass"))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 4.1.1 ]</div>
+</div>
+</body></html>

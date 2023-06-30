@@ -1,0 +1,107 @@
+<!DOCTYPE html><html><head><title>R: Parse and Evaluate Expressions from a File</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sys.source.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sys.source.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>sys.source {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='sys.source'>Parse and Evaluate Expressions from a File</h2>
+
+<h3>Description</h3>
+
+<p>Parses expressions in the given file, and then successively evaluates
+them in the specified environment.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>sys.source(file, envir = baseenv(), chdir = FALSE,
+           keep.source = getOption("keep.source.pkgs"),
+           toplevel.env = as.environment(envir))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="sys.source_:_file">file</code></td>
+<td>
+<p>a character string naming the file to be read from</p>
+</td></tr>
+<tr><td><code id="sys.source_:_envir">envir</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object specifying the environment in which the
+expressions are to be evaluated.  May also be a list or an integer.
+The default value <code>NULL</code> corresponds to evaluation in the base
+environment.  This is probably not what you want; you should
+typically supply an explicit <code>envir</code> argument.</p>
+</td></tr>
+<tr><td><code id="sys.source_:_chdir">chdir</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the <span class="rlang"><b>R</b></span> working directory is
+changed to the directory containing <code>file</code> for evaluating.</p>
+</td></tr>
+<tr><td><code id="sys.source_:_keep.source">keep.source</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, functions keep
+their source including comments, see
+<code>options(keep.source = *)</code> for more details.</p>
+</td></tr>
+<tr><td><code id="sys.source_:_toplevel.env">toplevel.env</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> environment to be used as top level while
+evaluating the expressions.  This argument is useful for frameworks
+running package tests; the default should be used in other cases</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For large files, <code>keep.source = FALSE</code> may save quite a bit of
+memory.
+
+In order for the code being evaluated to use the correct environment
+(for example, in global assignments), source code in packages should
+call <code>topenv()</code>, which will return the namespace, if any,
+the environment set up by <code>sys.source</code>, or the global environment
+if a saved image is being used.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>source</code>, and <code>library</code> which uses
+<code>sys.source</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## a simple way to put some objects in an environment
+## high on the search path
+tmp &lt;- tempfile()
+writeLines("aaa &lt;- pi", tmp)
+env &lt;- attach(NULL, name = "myenv")
+sys.source(tmp, env)
+unlink(tmp)
+search()
+aaa
+detach("myenv")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.5.2 ]</div>
+</div>
+</body></html>

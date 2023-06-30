@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><title>R: Access to and Manipulation of the Formal Arguments</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/formals.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/formals.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>formals {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='formals'>Access to and Manipulation of the Formal Arguments</h2>
+
+<h3>Description</h3>
+
+<p>Get or set the formal arguments of a <code>function</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>formals(fun = sys.function(sys.parent()))
+formals(fun, envir = environment(fun)) &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="formals_:_fun">fun</code></td>
+<td>
+<p>a <code>function</code>, or see &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="formals_:_envir">envir</code></td>
+<td>
+<p><code>environment</code> in which the function should be defined.</p>
+</td></tr>
+<tr><td><code id="formals_:_value">value</code></td>
+<td>
+<p>a <code>list</code> (or <code>pairlist</code>) of <span class="rlang"><b>R</b></span> expressions.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For the first form, <code>fun</code> can also be a character string naming
+the function to be manipulated, which is searched for from the parent
+frame.  If it is not specified, the function calling <code>formals</code> is
+used.
+</p>
+<p>Only <em>closures</em> have formals, not primitive functions.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>formals</code> returns the formal argument list of the function
+specified, as a <code>pairlist</code>, or <code>NULL</code> for a
+non-function or primitive.
+</p>
+<p>The replacement form sets the formals of a function to the
+list/pairlist on the right hand side, and (potentially) resets the
+environment of the function.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>formalArgs</code> (from <span class="pkg">methods</span>), a shortcut for <code>names(formals(.))</code>.
+<code>args</code> for a human-readable version,
+<code>alist</code>,
+<code>body</code>,
+<code>function</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(stats)
+formals(lm)
+
+## If you just want the names of the arguments, use formalArgs instead.
+names(formals(lm))
+methods:: formalArgs(lm)     # same
+
+## formals returns a pairlist. Arguments with no default have type symbol (aka name).
+str(formals(lm))
+
+## formals returns NULL for primitive functions.  Use it in combination with
+## args for this case.
+is.primitive(`+`)
+formals(`+`)
+formals(args(`+`))
+
+## You can overwrite the formal arguments of a function (though this is
+## advanced, dangerous coding).
+f &lt;- function(x) a + b
+formals(f) &lt;- alist(a = , b = 3)
+f    # function(a, b = 3) a + b
+f(2) # result = 5
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.4.0 ]</div>
+</div>
+</body></html>

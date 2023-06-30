@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><title>R: Call With Current Continuation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/callCC.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/callCC.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>callCC {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='callCC'>Call With Current Continuation</h2>
+
+<h3>Description</h3>
+
+<p>A downward-only version of Scheme's call with current continuation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>callCC(fun)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="callCC_:_fun">fun</code></td>
+<td>
+<p>function of one argument, the exit procedure.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>callCC</code> provides a non-local exit mechanism that can be useful
+for early termination of a computation.  <code>callCC</code> calls
+<code>fun</code> with one argument, an <em>exit function</em>.  The exit
+function takes a single argument, the intended return value.  If the
+body of <code>fun</code> calls the exit function then the call to
+<code>callCC</code> immediately returns, with the value supplied to the exit
+function as the value returned by <code>callCC</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Luke Tierney</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># The following all return the value 1
+callCC(function(k) 1)
+callCC(function(k) k(1))
+callCC(function(k) {k(1); 2})
+callCC(function(k) repeat k(1))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.11.0 ]</div>
+</div>
+</body></html>

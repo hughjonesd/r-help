@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><title>R: Set a Grid Graphical Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.set.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.set.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.set {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.set'>Set a Grid Graphical Object</h2>
+
+<h3>Description</h3>
+
+<p>Replace a grob or a descendant of a grob.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.set(gPath, newGrob, strict = FALSE, grep = FALSE,
+         redraw = TRUE)
+
+setGrob(gTree, gPath, newGrob, strict = FALSE, grep = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.set_:_gTree">gTree</code></td>
+<td>
+<p>A gTree object.</p>
+</td></tr>
+<tr><td><code id="grid.set_:_gPath">gPath</code></td>
+<td>
+<p> A gPath object. For <code>grid.set</code> this
+specifies a grob on the display list.  For <code>setGrob</code> this
+specifies a descendant of the specified gTree. </p>
+</td></tr>
+<tr><td><code id="grid.set_:_newGrob">newGrob</code></td>
+<td>
+<p> A grob object. </p>
+</td></tr>
+<tr><td><code id="grid.set_:_strict">strict</code></td>
+<td>
+<p> A boolean indicating whether the gPath must be
+matched exactly. </p>
+</td></tr>
+<tr><td><code id="grid.set_:_grep">grep</code></td>
+<td>
+<p>A boolean indicating whether the <code>gPath</code> should
+be treated as a regular expression.  Values are recycled across
+elements of the <code>gPath</code> (e.g., <code>c(TRUE, FALSE)</code> means
+that every odd element of the <code>gPath</code> will be treated as
+a regular expression).
+</p>
+</td></tr>
+<tr><td><code id="grid.set_:_redraw">redraw</code></td>
+<td>
+<p>A logical value to indicate whether to redraw the grob. </p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>setGrob</code> copies the specified grob and returns a modified
+grob.
+</p>
+<p><code>grid.set</code> destructively replaces a grob on the display list.
+If <code>redraw</code>
+is <code>TRUE</code> it then redraws everything to reflect the change.
+</p>
+<p>These functions should not normally be called by the user.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>setGrob</code> returns a grob object;  <code>grid.set</code> returns <code>NULL</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p><code>grid.grob</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 3.2.0 ]</div>
+</div>
+</body></html>

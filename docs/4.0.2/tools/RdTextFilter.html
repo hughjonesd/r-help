@@ -1,0 +1,130 @@
+<!DOCTYPE html><html><head><title>R: Select Text in an Rd File</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/RdTextFilter.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/RdTextFilter.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>RdTextFilter {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='RdTextFilter'>Select Text in an Rd File</h2>
+
+<h3>Description</h3>
+
+<p>This function blanks out all non-text in an Rd file,
+for spell checking or other uses.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>RdTextFilter(ifile, encoding = "unknown", keepSpacing = TRUE,
+             drop = character(), keep = character(),
+             macros = file.path(R.home("share"), "Rd", "macros", "system.Rd"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="RdTextFilter_:_ifile">ifile</code></td>
+<td>
+
+<p>An input file specified as a filename or connection, or an <code>"Rd"</code> object
+from <code>parse_Rd</code>.
+</p>
+</td></tr>
+<tr><td><code id="RdTextFilter_:_encoding">encoding</code></td>
+<td>
+
+<p>An encoding name to pass to <code>parse_Rd</code>.
+</p>
+</td></tr>
+<tr><td><code id="RdTextFilter_:_keepSpacing">keepSpacing</code></td>
+<td>
+
+<p>Whether to try to leave the text in the same lines and columns
+as in the original file.
+</p>
+</td></tr>
+<tr><td><code id="RdTextFilter_:_drop">drop</code></td>
+<td>
+
+<p>Additional sections of the Rd to drop.
+</p>
+</td></tr>
+<tr><td><code id="RdTextFilter_:_keep">keep</code></td>
+<td>
+
+<p>Sections of the Rd file to keep.
+</p>
+</td></tr>
+<tr><td><code id="RdTextFilter_:_macros">macros</code></td>
+<td>
+
+<p>Macro definitions to assume when parsing.  See <code>parse_Rd</code>.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function parses the Rd file, then walks through it, element by
+element.  Items with tag <code>"TEXT"</code> are kept in the same position as
+they appeared in the original file, while other parts of the file are
+replaced with blanks, so a spell checker such as <code>aspell</code>
+can check only the text and report the position in the original file.
+(If <code>keepSpacing</code> is <code>FALSE</code>, blank filling will not occur,
+and text will not be output in its original location.)
+</p>
+<p>By default, the tags <code style="white-space: pre;">&#8288;\S3method&#8288;</code>, <code style="white-space: pre;">&#8288;\S4method&#8288;</code>,
+<code style="white-space: pre;">&#8288;\command&#8288;</code>, <code style="white-space: pre;">&#8288;\docType&#8288;</code>, <code style="white-space: pre;">&#8288;\email&#8288;</code>, <code style="white-space: pre;">&#8288;\encoding&#8288;</code>,
+<code style="white-space: pre;">&#8288;\file&#8288;</code>, <code style="white-space: pre;">&#8288;\keyword&#8288;</code>, <code style="white-space: pre;">&#8288;\link&#8288;</code>, <code style="white-space: pre;">&#8288;\linkS4class&#8288;</code>,
+<code style="white-space: pre;">&#8288;\method&#8288;</code>, <code style="white-space: pre;">&#8288;\pkg&#8288;</code>, and <code style="white-space: pre;">&#8288;\var&#8288;</code> are skipped.  Additional
+tags can be skipped by listing them in the <code>drop</code> argument;
+listing tags in the <code>keep</code> argument will stop them from being
+skipped.  It is also possible to <code>keep</code> any of the
+<code>c("RCODE", "COMMENT", "VERB")</code> tags, which correspond to R-like
+code, comments, and verbatim text respectively, or to drop
+<code>"TEXT"</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector which if written to a file, one element per line, would
+duplicate the text elements of the original Rd file.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The filter attempts to merge text elements into single words when markup in
+the Rd file is used to highlight just the start of a word.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Murdoch
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>aspell</code>, for which this is an acceptable <code>filter</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.0.2 ]</div>
+</div>
+</body></html>

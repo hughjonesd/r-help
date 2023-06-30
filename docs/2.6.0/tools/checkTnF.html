@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><title>R: Check R Packages or Code for T/F</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkTnF.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkTnF.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>checkTnF {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='checkTnF'>Check R Packages or Code for T/F</h2>
+
+<h3>Description</h3>
+
+<p>Checks the specified R package or code file for occurrences of
+<code>T</code> or <code>F</code>, and gathers the expression containing these.
+This is useful as in R <code>T</code> and <code>F</code> are just variables which
+are set to the logicals <code>TRUE</code> and <code>FALSE</code> by default, but
+are not reserved words and hence can be overwritten by the user.
+Hence, one should always use <code>TRUE</code> and <code>FALSE</code> for the
+logicals.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>checkTnF(package, dir, file, lib.loc = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="checkTnF_:_package">package</code></td>
+<td>
+<p>a character string naming an installed package.  If
+given, the installed R code and the examples in the documentation
+files of the package are checked.  R code installed as an image file
+cannot be checked.</p>
+</td></tr>
+<tr><td><code id="checkTnF_:_dir">dir</code></td>
+<td>
+<p>a character string specifying the path to a package's root
+source directory.  This must contain the subdirectory &lsquo;<span class="file">R</span>&rsquo; (for
+R code), and should also contain &lsquo;<span class="file">man</span>&rsquo; (for documentation).
+Only used if <code>package</code> is not given.  If used, the R code files
+and the examples in the documentation files are checked.</p>
+</td></tr>
+<tr><td><code id="checkTnF_:_file">file</code></td>
+<td>
+<p>the name of a file containing R code to be checked.  Used
+if neither <code>package</code> nor <code>dir</code> are given.</p>
+</td></tr>
+<tr><td><code id="checkTnF_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
+or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
+libraries currently known.  The specified library trees are used to
+to search for <code>package</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"checkTnF"</code> which is a list containing, for
+each file where occurrences of <code>T</code> or <code>F</code> were found, a list
+with the expressions containing these occurrences.  The names of the
+list are the corresponding file names.
+</p>
+<p>There is a <code>print</code> method for nicely displaying the information
+contained in such objects.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>This function is still experimental.  Both name and interface might
+change in future versions.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.6.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><title>R: Return the R Home Directory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Rhome.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Rhome.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Rhome {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Rhome'>Return the R Home Directory</h2>
+
+<h3>Description</h3>
+
+<p>Return the <span class="rlang"><b>R</b></span> home directory.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R.home(component="home")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Rhome_:_component">component</code></td>
+<td>
+<p>As well as <code>"home"</code> which gives the <span class="rlang"><b>R</b></span> home
+directory, other known values are <code>"bin"</code>, <code>"doc"</code>,
+<code>"etc"</code>, <code>"modules"</code> and <code>"share"</code> giving the paths to the
+corresponding parts of an <span class="rlang"><b>R</b></span> installation.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <span class="rlang"><b>R</b></span> home directory is the top-level directory of the <span class="rlang"><b>R</b></span>
+installation being run.
+</p>
+<p>The <span class="rlang"><b>R</b></span> home directory is often referred to as <var>R_HOME</var>,
+and is the value of an environment variable of that name in an <span class="rlang"><b>R</b></span>
+session.
+It can be found outside an <span class="rlang"><b>R</b></span> session by <code>R RHOME</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character string giving the <span class="rlang"><b>R</b></span> home directory or path to a
+particular component.  Normally the components are all subdirectories
+of the <span class="rlang"><b>R</b></span> home directory, but this may not be the case in a Unix-like
+installation.
+</p>
+<p>The return value for <code>"modules"</code> and on Windows <code>"bin"</code> is
+to a sub-architecture-specific location.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.12.2 ]</div>
+</div>
+</body></html>

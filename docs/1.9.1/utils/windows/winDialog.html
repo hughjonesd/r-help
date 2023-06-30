@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>R: Dialog Boxes under Windows</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/winDialog.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/winDialog.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>winDialog {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='winDialog'>Dialog Boxes under Windows</h2>
+
+<h3>Description</h3>
+
+<p>Put up a Windows dialog box to communicate with the user. There are
+various types, either for the user to select from a set of buttons or
+to edit a string.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>winDialog(type = c("ok", "okcancel", "yesno", "yesnocancel"), message)
+winDialogString(message, default)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="winDialog_:_type">type</code></td>
+<td>
+<p>character. The type of dialog box. It will have the
+buttons implied by its name.</p>
+</td></tr>
+<tr><td><code id="winDialog_:_message">message</code></td>
+<td>
+<p>character. The information field of the dialog box.</p>
+</td></tr>
+<tr><td><code id="winDialog_:_default">default</code></td>
+<td>
+<p>character. The default string.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>For <code>winDialog</code> a character string giving the name of the button
+pressed (in capitals) or <code>NULL</code> (invisibly) if the user had no
+choice.
+</p>
+<p>For <code>winDialogString</code> a string giving the contents of the text
+box when <code>Ok</code> was pressed, or <code>NULL</code> if <code>Cancel</code> was pressed.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The standard keyboard accelerators work with these dialog boxes:
+where appropriate <code>Return</code> accepts the default action,
+<code>Esc</code> cancels and the underlined initial letter (<code>Y</code> or
+<code>N</code>) can be used.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>winMenuAdd</code><br />
+<code>file.choose</code> to select a file<br />
+package <code>windlgs</code> in the package source distribution for ways to
+program dialogs in C in the <code>GraphApp</code> toolkit.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: winDialog("yesno", "Is it OK to delete file blah")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 1.9.1 ]</div>
+</div>
+</body></html>

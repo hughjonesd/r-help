@@ -1,0 +1,68 @@
+<!DOCTYPE html><html><head><title>R: Row and Columnn Names</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/colnames.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/colnames.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>row/colnames {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='row+2Fcolnames'>Row and Columnn Names</h2>
+
+<h3>Description</h3>
+
+<p>Retrieve or set the row or column names of an object (the first or
+second component of its <code>dimnames</code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rownames(x, do.NULL = TRUE, prefix = "row")
+rownames(x) &lt;- namevector
+
+colnames(x, do.NULL = TRUE, prefix = "col")
+colnames(x) &lt;- namevector
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>If <code>do.NULL</code> is <code>FALSE</code>, a character vector (of length
+<code>NROW(x)</code> or <code>NCOL(x)</code> is returned in any
+case, prepending <code>prefix</code> to simple numbers, if
+<code>dimnames(x)[[i]]</code> (<code>i =</code> 1 or 2) is <code>NULL</code>. 
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dimnames</code>, <code>case.names</code>,
+<code>variable.names</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>m0 &lt;- matrix(NA, 4, 0)
+m2 &lt;- cbind(1,1:4)
+rownames(m0)
+
+colnames(m2, do.NULL = FALSE)
+colnames(m2) &lt;- c("x","Y")
+rownames(m2) &lt;- rownames(m2, do.NULL = FALSE, prefix = "Obs.")
+m2
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.0.1 ]</div>
+</div>
+</body></html>

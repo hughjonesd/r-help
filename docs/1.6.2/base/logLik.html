@@ -1,0 +1,102 @@
+<!DOCTYPE html><html><head><title>R: Extract Log-Likelihood</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/logLik.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/logLik.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>logLik {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='logLik'>Extract Log-Likelihood</h2>
+
+<h3>Description</h3>
+
+<p>This function is generic; method functions can be written to handle
+specific classes of objects.  Classes which already have methods for
+this function include: <code>lm</code>, <code>nls</code> in package <b>nls</b>,
+and <code>gls</code>, <code>lme</code> and others in package <b>nlme</b>.
+
+
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>logLik(object, ...)
+
+## S3 method for class 'logLik'
+as.data.frame(x, row.names = NULL, optional = FALSE)
+
+
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="logLik_:_object">object</code></td>
+<td>
+<p>any object from which a log-likelihood value, or a
+contribution to a log-likelihood value, can be extracted.</p>
+</td></tr>
+<tr><td><code id="logLik_:_...">...</code></td>
+<td>
+<p>some methods for this generic function require additional
+arguments.</p>
+</td></tr>
+<tr><td><code id="logLik_:_x">x</code></td>
+<td>
+<p>an object of class <code>logLik</code>.</p>
+</td></tr>
+<tr><td><code id="logLik_:_row.names">row.names</code>, <code id="logLik_:_optional">optional</code></td>
+<td>
+<p>arguments to the <code>as.data.frame</code>
+method; see its documentation.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Returns an object, say <code>r</code>, of class <code>logLik</code> which is a
+number with attributes, <code>attr(r, "df")</code> (<b>d</b>egrees of
+<b>f</b>reedom) giving the number of parameters in the model.
+There's a simple <code>print</code> method for <code>logLik</code> objects.
+</p>
+<p>The details depend on the method function used; see the appropriate
+documentation.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jose Pinheiro and Douglas Bates</p>
+
+
+<h3>See Also</h3>
+
+<p><code>logLik.lm</code>, <code>logLik.nls</code>,
+<code>logLik.gls</code>, <code>logLik.lme</code>, etc.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## see the method function documentation
+x &lt;- 1:5
+lmx &lt;- lm(x ~ 1)
+logLik(lmx) # using print.logLik() method
+str(logLik(lmx))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.2 ]</div>
+</div>
+</body></html>

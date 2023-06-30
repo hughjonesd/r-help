@@ -1,0 +1,158 @@
+<!DOCTYPE html><html><head><title>R: Version Information</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Version.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Version.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>R.Version {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='R.Version'>Version Information</h2>
+
+<h3>Description</h3>
+
+<p><code>R.Version()</code> provides detailed information about the version of
+<span class="rlang"><b>R</b></span> running.
+</p>
+<p><code>R.version</code> is a variable (a <code>list</code>) holding this
+information (and <code>version</code> is a copy of it for S compatibility).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R.Version()
+R.version
+R.version.string
+version
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>This gives details of the OS under which <span class="rlang"><b>R</b></span> was built, not the one
+under which it is currently running (for which see
+<code>Sys.info</code>).
+</p>
+<p>Note that OS names might not be what you expect: for example OS X
+Mavericks 10.9.4 identifies itself as &lsquo;<span class="samp">&#8288;darwin13.3.0&#8288;</span>&rsquo;, Linux
+usually as &lsquo;<span class="samp">&#8288;linux-gnu&#8288;</span>&rsquo; and Solaris 10 as &lsquo;<span class="samp">&#8288;solaris2.10&#8288;</span>&rsquo;.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>R.Version</code> returns a list with character-string components
+</p>
+<table>
+<tr><td><code>platform</code></td>
+<td>
+<p>the platform for which <span class="rlang"><b>R</b></span> was built.  A triplet of the
+form CPU-VENDOR-OS, as determined by the configure script.  E.g,
+<code>"i686-unknown-linux-gnu"</code> or <code>"i386-pc-mingw32"</code>.
+</p>
+</td></tr>
+<tr><td><code>arch</code></td>
+<td>
+<p>the architecture (CPU) <span class="rlang"><b>R</b></span> was built on/for.</p>
+</td></tr>
+<tr><td><code>os</code></td>
+<td>
+<p>the underlying operating system.</p>
+</td></tr>
+<tr><td><code>system</code></td>
+<td>
+<p>CPU and OS, separated by a comma.</p>
+</td></tr>
+<tr><td><code>status</code></td>
+<td>
+<p>the status of the version (e.g., <code>"Alpha"</code>)</p>
+</td></tr>
+<tr><td><code>major</code></td>
+<td>
+<p>the major version number</p>
+</td></tr>
+<tr><td><code>minor</code></td>
+<td>
+<p>the minor version number, including the patchlevel</p>
+</td></tr>
+<tr><td><code>year</code></td>
+<td>
+<p>the year the version was released</p>
+</td></tr>
+<tr><td><code>month</code></td>
+<td>
+<p>the month the version was released</p>
+</td></tr>
+<tr><td><code>day</code></td>
+<td>
+<p>the day the version was released</p>
+</td></tr>
+<tr><td><code>svn rev</code></td>
+<td>
+<p>the Subversion revision number, which should be either
+<code>"unknown"</code> or a single number. (A range of numbers or a number
+with &lsquo;<span class="samp">&#8288;M&#8288;</span>&rsquo; or &lsquo;<span class="samp">&#8288;S&#8288;</span>&rsquo; appended indicates inconsistencies in the
+sources used to build this version of <span class="rlang"><b>R</b></span>.)
+</p>
+</td></tr>
+<tr><td><code>language</code></td>
+<td>
+<p>always <code>"R"</code>.</p>
+</td></tr>
+<tr><td><code>version.string</code></td>
+<td>
+<p>a
+<code>character</code> string concatenating some of the info above,
+useful for plotting, etc.</p>
+</td></tr>
+</table>
+<p><code>R.version</code> and <code>version</code> are lists of class
+<code>"simple.list"</code> which has a <code>print</code> method.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Do <em>not</em> use <code>R.version$os</code> to test the platform the
+code is running on: use <code>.Platform$OS.type</code> instead.  Slightly
+different versions of the OS may report different values of
+<code>R.version$os</code>, as may different versions of <span class="rlang"><b>R</b></span>.
+</p>
+<p><code>R.version.string</code> is a copy of <code>R.version$version.string</code>
+for simplicity and backwards compatibility.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>sessionInfo</code> which provides additional information;
+<code>getRversion</code> typically used inside R code,
+<code>.Platform</code>, <code>Sys.info</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+R.version$os # to check how lucky you are ...
+plot(0) # any plot
+mtext(R.version.string, side = 1, line = 4, adj = 1) # a useful bottom-right note
+
+## a good way to detect OS X:
+if(grepl("^darwin", R.version$os)) message("running on OS X")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.1.3 ]</div>
+</div>
+</body></html>

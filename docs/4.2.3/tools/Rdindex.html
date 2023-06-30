@@ -1,0 +1,82 @@
+<!DOCTYPE html><html><head><title>R: Generate Index from Rd Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/Rdindex.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/Rdindex.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Rdindex {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Rdindex'>Generate Index from Rd Files</h2>
+
+<h3>Description</h3>
+
+<p>Print a 2-column index table with names and titles from given
+R documentation files to a given output file or connection.  The
+titles are nicely formatted between two column positions (typically 25
+and 72, respectively).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Rdindex(RdFiles, outFile = "", type = NULL,
+        width = 0.9 * getOption("width"), indent = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Rdindex_:_RdFiles">RdFiles</code></td>
+<td>
+<p>a character vector specifying the Rd files to be used
+for creating the index, either by giving the paths to the files, or
+the path to a single directory with the sources of a package.</p>
+</td></tr>
+<tr><td><code id="Rdindex_:_outFile">outFile</code></td>
+<td>
+<p>a connection, or a character string naming the output
+file to print to.  <code>""</code> (the default) indicates output to the
+console.</p>
+</td></tr>
+<tr><td><code id="Rdindex_:_type">type</code></td>
+<td>
+<p>a character string giving the documentation type of the Rd
+files to be included in the index, or <code>NULL</code> (the default).
+The type of an Rd file is typically specified via the
+<code style="white-space: pre;">&#8288;\docType&#8288;</code> tag; if <code>type</code> is <code>"data"</code>, Rd files
+whose <em>only</em> keyword is <code>datasets</code> are included as well.</p>
+</td></tr>
+<tr><td><code id="Rdindex_:_width">width</code></td>
+<td>
+<p>a positive integer giving the target column for wrapping
+lines in the output.</p>
+</td></tr>
+<tr><td><code id="Rdindex_:_indent">indent</code></td>
+<td>
+<p>a positive integer specifying the indentation of the
+second column.  Must not be greater than <code>width/2</code>, and
+defaults to <code>width/3</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If a name is not a valid alias, the first alias (or the empty string
+if there is none) is used instead.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.2.3 ]</div>
+</div>
+</body></html>

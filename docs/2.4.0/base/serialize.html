@@ -1,0 +1,139 @@
+<!DOCTYPE html><html><head><title>R: Simple Serialization Interface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/serialize.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/serialize.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>serialize {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='serialize'>Simple Serialization Interface</h2>
+
+<h3>Description</h3>
+
+<p>A simple low level interface for serializing to connections.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>serialize(object, connection, ascii = FALSE, refhook = NULL)
+
+unserialize(connection, refhook = NULL)
+
+.saveRDS(object, file = "", ascii = FALSE, version = NULL,
+         compress = TRUE, refhook = NULL)
+
+.readRDS(file, refhook = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="serialize_:_object">object</code></td>
+<td>
+<p><span class="rlang"><b>R</b></span> object to serialize.</p>
+</td></tr>
+<tr><td><code id="serialize_:_file">file</code></td>
+<td>
+<p>a connection or the name of the file where the R object
+is saved to or read from, or <code>NULL</code> for <code>serialize</code> or for
+<code>unserialize</code> an object returned by <code>serialize</code> (see Details).</p>
+</td></tr>
+<tr><td><code id="serialize_:_ascii">ascii</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, an ASCII representation is
+written; otherwise (default), a more compact binary one is used.</p>
+</td></tr>
+<tr><td><code id="serialize_:_version">version</code></td>
+<td>
+<p>the workspace format version to use.  <code>NULL</code>
+specifies the current default format.  The version used from <span class="rlang"><b>R</b></span>
+0.99.0 to <span class="rlang"><b>R</b></span> 1.3.1 was version 1.  The default format as from <span class="rlang"><b>R</b></span>
+1.4.0 is version 2.</p>
+</td></tr>
+<tr><td><code id="serialize_:_compress">compress</code></td>
+<td>
+<p>a logical specifying whether saving to a named file is
+to use compression.  Ignored when <code>file</code> is a connection and for
+workspace format version 1.</p>
+</td></tr>
+<tr><td><code id="serialize_:_connection">connection</code></td>
+<td>
+<p>an open connection, a raw vector or a length-one
+character vector.</p>
+</td></tr>
+<tr><td><code id="serialize_:_refhook">refhook</code></td>
+<td>
+<p>a hook function for handling reference objects.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function <code>serialize</code> writes <code>object</code> to the specified
+connection.  Sharing of reference objects is preserved within the
+object but not across separate calls to serialize.  If
+<code>connection</code> is <code>NULL</code> then <code>object</code> is serialized to a
+raw vector, which is returned as the result of <code>serialize</code>.
+For a text mode connection, the default value of <code>ascii</code> is set
+to <code>TRUE</code>.
+</p>
+<p><code>unserialize</code> reads an object (as written by <code>serialize</code>)
+from <code>connection</code> or a raw vector or (for compatibility with
+earlier versions of <code>serialize</code>) a length-one character vector.
+</p>
+<p>The <code>refhook</code> functions can be used to customize handling of
+non-system reference objects (all external pointers and weak
+references, and all environments other than name space and package
+environments and <code>.GlobalEnv</code>).  The hook function for
+<code>serialize</code> should return a raw vector for references it
+wants to handle; otherwise it should return <code>NULL</code>.  The hook for
+<code>unserialize</code> will be called with raw vectors supplied to
+<code>serialize</code> and should return an appropriate object.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>serialize</code>, <code>NULL</code> unless <code>connection = NULL</code>, when
+the result is stored in a raw vector.
+</p>
+<p>For <code>unserialize</code> and <code>.readRDS</code>, an <span class="rlang"><b>R</b></span> object.
+</p>
+<p>For <code>.saveRDS</code>, <code>NULL</code> invisibly.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>These functions are still experimental.  Names, interfaces and
+values might change in future versions (and the value of
+<code>serialize</code> was changed for <span class="rlang"><b>R</b></span> 2.4.0).  <code>.saveRDS</code> and
+<code>.readRDS</code> are intended for internal use.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- serialize(list(1,2,3), NULL)
+unserialize(x)
+## test earlier interface as a length-one character vector
+y &lt;- rawToChar(x)
+unserialize(y)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.4.0 ]</div>
+</div>
+</body></html>

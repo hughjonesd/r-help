@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>R: Plotting Spectral Densities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.spec.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.spec.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.spec {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.spec'>Plotting Spectral Densities</h2>
+
+<h3>Description</h3>
+
+<p>Plotting method for objects of class <code>"spec"</code>.  For multivariate
+time series it plots the marginal spectra of the series or pairs plots
+of the coherency and phase of the cross-spectra.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'spec'
+plot(x, add = FALSE, ci = 0.95, log = c("yes", "dB", "no"),
+     xlab = "frequency", ylab, type = "l", ci.col = "blue",
+     main = NULL, sub = NULL,
+     plot.type = c("marginal", "coherency", "phase"),
+     ci.lty = 3, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.spec_:_x">x</code></td>
+<td>
+<p>an object of class <code>"spec"</code>.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_add">add</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, add to already existing plot.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_ci">ci</code></td>
+<td>
+<p>Coverage probability for confidence interval.  Plotting of
+the confidence bar is omitted unless <code>ci</code> is strictly
+positive.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_log">log</code></td>
+<td>
+<p>If <code>"dB"</code>, plot on log10 (decibel) scale (as S-PLUS),
+otherwise use conventional log scale or linear scale.  Logical
+values are also accepted.  The default is <code>"yes"</code> unless
+<code>options(ts.S.compat = TRUE)</code> has been set, when it is
+<code>"dB"</code>.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_xlab">xlab</code></td>
+<td>
+<p>the x label of the plot.</p>
+</td></tr>  
+<tr><td><code id="plot.spec_:_ylab">ylab</code></td>
+<td>
+<p>the y label of the plot.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_type">type</code></td>
+<td>
+<p>the type of plot to be drawn, defaults to lines.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_ci.col">ci.col</code></td>
+<td>
+<p>Colour for plotting confidence bar or confidence
+intervals for coherency and phase.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_main">main</code></td>
+<td>
+<p>overall title for the plot.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_sub">sub</code></td>
+<td>
+<p>a sub title for the plot.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_plot.type">plot.type</code></td>
+<td>
+<p>For multivariate time series, the type of plot
+required.  Only the first character is needed.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_ci.lty">ci.lty</code></td>
+<td>
+<p>line type for confidence intervals for coherency and
+phase.</p>
+</td></tr>
+<tr><td><code id="plot.spec_:_...">...</code></td>
+<td>
+<p>Further graphical parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>spectrum</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 1.9.1 ]</div>
+</div>
+</body></html>

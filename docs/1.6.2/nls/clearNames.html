@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>R: Remove the Names from an Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/clearNames.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/clearNames.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>clearNames {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='clearNames'>Remove the Names from an Object</h2>
+
+<h3>Description</h3>
+
+<p>This function sets the <code>names</code> attribute of <code>object</code> to
+<code>NULL</code> and returns the object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>clearNames(object)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="clearNames_:_object">object</code></td>
+<td>
+<p> an object that may have a <code>names</code> attribute </p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object similar to <code>object</code> but without names.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p> Douglas Bates and Saikat DebRoy</p>
+
+
+<h3>See Also</h3>
+
+<p><code>setNames</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data( women )
+lapply( women, mean )               # has a names attribute
+clearNames( lapply( women, mean ) ) # removes the names
+</code></pre>
+
+
+</div>
+</body></html>

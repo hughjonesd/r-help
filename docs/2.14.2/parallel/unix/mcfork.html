@@ -1,0 +1,150 @@
+<!DOCTYPE html><html><head><title>R: Fork a Copy of the Current R Process</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcfork.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcfork.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mcfork {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mcfork'>Fork a Copy of the Current R Process</h2>
+
+<h3>Description</h3>
+
+<p>These are low-level functions, not available on Windows, and not
+exported from the namespace.
+</p>
+<p><code>mcfork</code> creates a new child process as a copy of the current <span class="rlang"><b>R</b></span> process.
+</p>
+<p><code>mcexit</code> closes the current child process, informing the master
+process as necessary.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mcfork()
+
+mcexit(exit.code = 0L, send = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="mcfork_:_exit.code">exit.code</code></td>
+<td>
+<p>process exit code.  By convention <code>0L</code> signifies
+a clean exit, <code>1L</code> an error.</p>
+</td></tr>
+<tr><td><code id="mcfork_:_send">send</code></td>
+<td>
+<p>if not <code>NULL</code> send this data before exiting
+(equivalent to using <code>sendMaster</code>).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>mcfork</code> function provides an interface to the <code>fork</code>
+system call.  In addition it sets up a pipe between the master and
+child process that can be used to send data from the child process
+to the master (see <code>sendMaster</code>) and child's &lsquo;<span class="file">stdin</span>&rsquo; is
+re-mapped to another pipe held by the master process (see
+<code>sendChildStdin</code>).
+</p>
+<p>If you are not familiar with the <code>fork</code> system call, do not use
+this function directly as it leads to very complex inter-process
+interactions amongst the <span class="rlang"><b>R</b></span> processes involved.
+</p>
+<p>In a nutshell <code>fork</code> spawns a copy (child) of the current
+process, that can work in parallel to the master (parent)
+process.  At the point of forking both processes share exactly the
+same state including the workspace, global options, loaded packages
+etc.  Forking is relatively cheap in modern operating systems and no
+real copy of the used memory is created, instead both processes
+share the same memory and only modified parts are copied. This makes
+<code>mcfork</code> an ideal tool for parallel processing since there is no
+need to setup the parallel working environment, data and code is
+shared automatically from the start.
+</p>
+<p><code>mcexit</code> is to be run in the child process.  It sends <code>send</code>
+to the master (unless <code>NULL</code>) and then shuts down the child
+process.  The child can also be shut down by sending it the signal
+<code>SIGUSR1</code>, as is done by the unexported function
+<code>parallel:::rmChild</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>mcfork</code> returns an object of the class <code>"childProcess"</code> to
+the master and of class <code>"masterProcess"</code> to the child: both the
+classes inherit from class <code>"process"</code>.  These are lists with
+components <code>pid</code> (the process id of the <em>other</em> process) and
+a vector <code>fd</code> of the two file descriptor numbers for ends in the
+current process of the inter-process pipes.
+</p>
+<p><code>mcexit</code> never returns.
+</p>
+
+
+<h3>GUI/embedded environments</h3>
+
+<p>It is <em>strongly discouraged</em> to use <code>mcfork</code> and the
+higher-level functions which rely on it (e.g., <code>mcparallel</code>,
+<code>mclapply</code> and <code>pvec</code>) in GUI or embedded environments,
+because it leads to several processes sharing the same GUI which will
+likely cause chaos (and possibly crashes).  Child processes should
+never use on-screen graphics devices.  Some precautions have been
+taken to make this usable in <code>R.app</code> on Mac OS X, but users of
+third-party front-ends should consult their documentation.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>This is a very low-level API for expert use only. 
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Simon Urbanek and R Core.
+</p>
+<p>Derived from the <a href="http://CRAN.R-project.org/package=multicore"><span class="pkg">multicore</span></a> package.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>mcparallel</code>, <code>sendMaster</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+## This will work when run as an example, but not when pasted in.
+p &lt;- mcfork()
+if (inherits(p, "masterProcess")) {
+    cat("I'm a child! ", Sys.getpid(), "\n")
+    mcexit(,"I was a child")
+}
+cat("I'm the master\n")
+unserialize(readChildren(1.5))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>parallel</em> version 2.14.2 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>R: Model Updating</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/update.formula.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/update.formula.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>update.formula {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='update.formula'>Model Updating</h2>
+
+<h3>Description</h3>
+
+<p><code>update.formula</code> is used to update model formulae.
+This typically involves adding or dropping terms,
+but updates can be more general.
+</p>
+<p>The function works by first identifying the <em>left-hand side</em>
+and <em>right-hand side</em> of the <code>old</code> formula.
+It then examines the <code>new</code> formula and substitutes
+the <em>lhs</em> of the <code>old</code> formula for any occurence
+of &quot;<code>.</code>&quot; on the left of <code>new</code>, and substitutes
+the <em>rhs</em> of the <code>old</code> formula for any occurence
+of &quot;<code>.</code>&quot; on the right of <code>new</code>.
+</p>
+<p>The updated formula is returned.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>update.formula(old, new)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="update.formula_:_old">old</code></td>
+<td>
+<p>a model formula to be updated.</p>
+</td></tr>
+<tr><td><code id="update.formula_:_new">new</code></td>
+<td>
+<p>a formula giving a template which specifies how to update.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>terms</code>, <code>model.matrix</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.2 ]</div>
+</div>
+</body></html>

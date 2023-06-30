@@ -1,0 +1,188 @@
+<!DOCTYPE html><html><head><title>R: Writing Package CITATION Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/citEntry.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/citEntry.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>citEntry {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='citEntry'>Writing Package CITATION Files</h2>
+
+<h3>Description</h3>
+
+<p>The &lsquo;<span class="file">CITATION</span>&rsquo; file of R packages contains an annotated list of
+references that should be used for citing the packages.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>citEntry(entry, textVersion, header = NULL, footer = NULL, ...)
+citHeader(...)
+citFooter(...)
+readCitationFile(file)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="citEntry_:_entry">entry</code></td>
+<td>
+<p>a character string with a BibTeX entry type</p>
+</td></tr>
+<tr><td><code id="citEntry_:_textVersion">textVersion</code></td>
+<td>
+<p>a character string with a text representation of
+the reference</p>
+</td></tr>
+<tr><td><code id="citEntry_:_header">header</code></td>
+<td>
+<p>a character string with optional header text</p>
+</td></tr>
+<tr><td><code id="citEntry_:_footer">footer</code></td>
+<td>
+<p>a character string with optional footer text</p>
+</td></tr>
+<tr><td><code id="citEntry_:_file">file</code></td>
+<td>
+<p>a file name</p>
+</td></tr>
+<tr><td><code id="citEntry_:_...">...</code></td>
+<td>
+<p>see details below</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The &lsquo;<span class="file">CITATION</span>&rsquo; file of an R package should be placed in the
+&lsquo;<span class="file">inst</span>&rsquo; subdirectory of the package source. The file is an R
+source file and may contain arbitrary R commands including
+conditionals and computations. The file is <code>source()</code>ed by the R
+parser in a temporary environment and all resulting objects of class
+<code>"citation"</code> (the return value of <code>citEntry</code>) are collected.
+</p>
+<p>Typically the file will contain zero or more calls to <code>citHeader</code>,
+then one or more calls to <code>citEntry</code>, and  finally zero or more
+calls to  <code>citFooter</code>. <code>citHeader</code> and <code>citFooter</code> are
+simply wrappers to <code>paste</code>, and their <code>...</code> argument
+is passed on to <code>paste</code> as is.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>citEntry</code> returns an object of class <code>"citation"</code>,
+<code>readCitationFile</code> returns an object of class <code>"citationList"</code>.
+</p>
+
+
+<h3>Entry Types</h3>
+
+<p><code>citEntry</code> creates <code>"citation"</code> objects, which are modeled
+after BibTeX entries. The entry should be a valid BibTeX entry type,
+e.g.,
+</p>
+
+<dl>
+<dt>article:</dt><dd><p>An article from a journal or magazine.</p>
+</dd>
+<dt>book:</dt><dd><p>A book with an explicit publisher.</p>
+</dd>
+<dt>inbook:</dt><dd><p>A part of a book, which may be a chapter (or section
+or whatever) and/or a range of pages.</p>
+</dd>  
+<dt>incollection:</dt><dd><p>A part of a book having its own title.</p>
+</dd>
+<dt>inproceedings:</dt><dd><p>An article in a conference proceedings.</p>
+</dd>
+<dt>manual:</dt><dd><p>Technical documentation like a software manual.</p>
+</dd>
+<dt>mastersthesis:</dt><dd><p>A Master's thesis.</p>
+</dd>
+<dt>misc:</dt><dd><p>Use this type when nothing else fits.</p>
+</dd>
+<dt>phdthesis:</dt><dd><p>A PhD thesis.</p>
+</dd>
+<dt>proceedings:</dt><dd><p>The proceedings of a conference.</p>
+</dd>
+<dt>techreport:</dt><dd><p>A report published by a school or other
+institution, usually numbered within a series.</p>
+</dd>
+<dt>unpublished:</dt><dd><p>A document having an author and title, but not
+formally published.</p>
+</dd>
+</dl>
+
+
+
+<h3>Entry Fields</h3>
+
+<p>The <code>...</code> argument of <code>citEntry</code> can be any number of
+BibTeX fields, including
+</p>
+
+<dl>
+<dt>address:</dt><dd><p>The address of the publisher or other type of
+institution.</p>
+</dd>
+<dt>author:</dt><dd><p>The name(s) of the author(s), either 
+as a character string in the format described in the LaTeX book,
+or a <code>personList</code> object.</p>
+</dd>
+<dt>booktitle:</dt><dd><p>Title of a book, part of which is being cited.</p>
+</dd>
+<dt>chapter:</dt><dd><p>A chapter (or section or whatever) number.</p>
+</dd>
+<dt>editor:</dt><dd><p>Name(s) of editor(s), same format as <code>author</code>.</p>
+</dd>
+<dt>institution:</dt><dd><p>The publishing institution of a technical report.</p>
+</dd>
+<dt>journal:</dt><dd><p>A journal name.</p>
+</dd>
+<dt>note:</dt><dd><p>Any additional information that can help the reader.
+The first word should be capitalized.</p>
+</dd>
+<dt>number:</dt><dd><p>The number of a journal, magazine, technical report,
+or of a work in a series.</p>
+</dd>
+<dt>pages:</dt><dd><p>One or more page numbers or range of numbers.</p>
+</dd>
+<dt>publisher:</dt><dd><p>The publisher's name.</p>
+</dd>
+<dt>school:</dt><dd><p>The name of the school where a thesis was written.</p>
+</dd>
+<dt>series:</dt><dd><p>The name of a series or set of books.</p>
+</dd>
+<dt>title:</dt><dd><p>The work's title.</p>
+</dd>
+<dt>volume:</dt><dd><p>The volume of a journal or multi-volume book.</p>
+</dd>
+<dt>year:</dt><dd><p>The year of publication.</p>
+</dd>
+</dl>
+
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>basecit &lt;- system.file("CITATION", package="base")
+source(basecit, echo=TRUE)
+readCitationFile(basecit)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.6.1 ]</div>
+</div>
+</body></html>

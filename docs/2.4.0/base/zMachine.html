@@ -1,0 +1,189 @@
+<!DOCTYPE html><html><head><title>R: Numerical Characteristics of the Machine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/zMachine.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/zMachine.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>.Machine {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='.Machine'>Numerical Characteristics of the Machine</h2>
+
+<h3>Description</h3>
+
+<p><code>.Machine</code> is a variable holding information on the numerical
+characteristics of the machine <span class="rlang"><b>R</b></span> is running on, such as the largest
+double or integer and the machine's precision.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.Machine
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>The algorithm is based on Cody's (1988) subroutine MACHAR.
+</p>
+<p>Note that on most platforms smaller positive values than
+<code>.Machine$double.xmin</code> can occur.  On a typical <span class="rlang"><b>R</b></span> platform the
+smallest positive double is about <code>5e-324</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with components (for simplicity, the prefix &ldquo;double&rdquo; is
+omitted in the explanations)
+</p>
+<table>
+<tr><td><code>double.eps</code></td>
+<td>
+<p>the smallest positive floating-point number
+<code>x</code> such that <code>1 + x != 1</code>.  It equals
+<code>base^ulp.digits</code> if either <code>base</code> is 2 or <code>rounding</code>
+is 0;  otherwise, it is <code>(base^ulp.digits) / 2</code>.</p>
+</td></tr>
+<tr><td><code>double.neg.eps</code></td>
+<td>
+<p>a small positive floating-point number <code>x</code>
+such that <code>1 - x != 1</code>.  It equals <code>base^neg.ulp.digits</code>
+if <code>base</code> is 2 or <code>round</code> is 0;  otherwise, it is
+<code>(base^neg.ulp.digits) / 2</code>.
+As <code>neg.ulp.digits</code> is bounded below by <code>-(digits + 3)</code>,
+<code>neg.eps</code> may not be the smallest number that can alter 1 by
+subtraction.</p>
+</td></tr>
+<tr><td><code>double.xmin</code></td>
+<td>
+<p>the smallest non-vanishing normalized
+floating-point power of the radix, i.e., <code>base^min.exp</code>.</p>
+</td></tr>
+<tr><td><code>double.xmax</code></td>
+<td>
+<p>the largest finite floating-point number.
+Typically, it is equal to <code>(1 - neg.eps) * base^max.exp</code>, but
+on some machines it is only the second, or perhaps third, largest
+number, being too small by 1 or 2 units in the last digit of the
+significand.</p>
+</td></tr>
+<tr><td><code>double.base</code></td>
+<td>
+<p>the radix for the floating-point representation</p>
+</td></tr>
+<tr><td><code>double.digits</code></td>
+<td>
+<p>the number of base digits in the floating-point
+significand</p>
+</td></tr>
+<tr><td><code>double.rounding</code></td>
+<td>
+<p>the rounding action. <br />
+0 if floating-point addition chops; <br />
+1 if floating-point addition rounds, but not in the IEEE style; <br />
+2 if floating-point addition rounds in the IEEE style; <br />
+3 if floating-point addition chops, and there is partial underflow; <br />
+4 if floating-point addition rounds, but not in the IEEE style, and
+there is partial underflow; <br />
+5 if floating-point addition rounds in the IEEE style, and there is
+partial underflow</p>
+</td></tr>
+<tr><td><code>double.guard</code></td>
+<td>
+<p>the number of guard digits for multiplication
+with truncating arithmetic.  It is 1 if floating-point arithmetic
+truncates and more than <code>digits</code> base <code>base</code> digits
+participate in the post-normalization shift of the floating-point
+significand in multiplication, and 0 otherwise.</p>
+</td></tr>
+<tr><td><code>double.ulp.digits</code></td>
+<td>
+<p>the largest negative integer <code>i</code> such
+that <code>1 + base^i != 1</code>, except that it is bounded below by
+<code>-(digits + 3)</code>.</p>
+</td></tr>
+<tr><td><code>double.neg.ulp.digits</code></td>
+<td>
+<p>the largest negative integer <code>i</code>
+such that <code>1 - base^i != 1</code>, except that it is bounded below by
+<code>-(digits + 3)</code>.</p>
+</td></tr>
+<tr><td><code>double.exponent</code></td>
+<td>
+
+<p>the number of bits (decimal places if <code>base</code> is 10) reserved
+for the representation of the exponent (including the bias or sign)
+of a floating-point number</p>
+</td></tr>
+<tr><td><code>double.min.exp</code></td>
+<td>
+
+<p>the largest in magnitude negative integer <code>i</code> such that
+<code>base ^ i</code> is positive and normalized.</p>
+</td></tr>
+<tr><td><code>double.max.exp</code></td>
+<td>
+
+<p>the smallest positive power of <code>base</code> that overflows.</p>
+</td></tr>
+<tr><td><code>integer.max</code></td>
+<td>
+<p>the largest integer which can be represented.</p>
+</td></tr>
+<tr><td><code>sizeof.long</code></td>
+<td>
+<p>the number of bytes in a C <code>long</code> type.</p>
+</td></tr>
+<tr><td><code>sizeof.longlong</code></td>
+<td>
+<p>the number of bytes in a C <code>long long</code>
+type. Will be zero if there is no such type.</p>
+</td></tr>
+<tr><td><code>sizeof.longdouble</code></td>
+<td>
+<p>the number of bytes in a C <code>long double</code>
+type. Will be zero if there is no such type.</p>
+</td></tr>
+<tr><td><code>sizeof.pointer</code></td>
+<td>
+<p>the number of bytes in a C <code>SEXP</code>
+type.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Cody, W. J. (1988)
+MACHAR: A subroutine to dynamically determine machine parameters.
+<em>Transactions on Mathematical Software</em>, <b>14</b>, 4, 303&ndash;311.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>.Platform</code> for details of the platform.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>.Machine
+## or for a neat printout
+noquote(unlist(format(.Machine)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.4.0 ]</div>
+</div>
+</body></html>

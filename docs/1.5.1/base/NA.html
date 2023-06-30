@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>R: Not Available / &quot;Missing&quot; Values</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/NA.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/NA.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>NA {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='NA'>Not Available / &ldquo;Missing&rdquo; Values</h2>
+
+<h3>Description</h3>
+
+<p><code>NA</code> is a logical constant of length 1 which contains
+a missing value indicator.  <code>NA</code> can be freely coerced to any
+other vector type.
+</p>
+<p>The generic function <code>is.na</code> returns a logical vector
+of the same &ldquo;form&rdquo; as its argument <code>x</code>, containing <code>TRUE</code>
+for those elements marked <code>NA</code> or <code>NaN</code> (!)
+and <code>FALSE</code> otherwise.
+<code>dim</code>, <code>dimnames</code> and <code>names</code> attributes are preserved.
+</p>
+<p>The generic function <code>is.na&lt;-</code> sets elements to <code>NA</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>NA
+is.na(x)
+is.na.data.frame(x)
+
+is.na(x) &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="NA_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object to be tested.</p>
+</td></tr>
+<tr><td><code id="NA_:_value">value</code></td>
+<td>
+<p>a suitable index vector for use with <code>x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For character vectors the value <code>"NA"</code> represents missingness.
+</p>
+<p><code>is.na(x)</code> works elementwise when <code>x</code> is a <code>list</code>.
+The method dispatching is C-internal, rather than via
+<code>UseMethod</code>.
+</p>
+<p>Function <code>is.na&lt;-</code> may provide a safer way to set missingness.
+It behaves differently for factors, for example.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>NaN</code>, <code>is.nan</code>, etc.
+and the utility function <code>complete.cases</code>.
+</p>
+<p><code>na.action</code>, <code>na.omit</code>, <code>na.fail</code>
+on how methods can be tuned to deal with missing values.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>is.na(c(1,NA))       #&gt; F TRUE
+is.na(paste(c(1,NA)))#&gt; F FALSE
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.1 ]</div>
+</div>
+</body></html>

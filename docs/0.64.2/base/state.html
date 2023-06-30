@@ -1,0 +1,115 @@
+<!DOCTYPE html><html><head><title>R: States of the U.S.A.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/state.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/state.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>state {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='state'>States of the U.S.A.</h2>
+
+<h3>Description</h3>
+
+<p>Data sets related to the 50 states of the United States of
+America.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(state)</code></pre>
+
+
+<h3>Details</h3>
+
+<p><span class="rlang"><b>R</b></span> currently contains the following &lsquo;state&rsquo; data sets.  Note
+that all data are arranged according to alphabetical order of the
+state names.
+</p>
+
+<ul>
+<li> <p><code>state.abb</code>: character vector of 2-letter abbreviations
+for the state names.
+</p>
+</li>
+<li> <p><code>state.area</code>: numeric vector of state areas (in square
+miles).
+</p>
+</li>
+<li> <p><code>state.center</code>: list with components named <code>x</code> and
+<code>y</code> giving the approximate geographic center of each state in
+negative longitude and latitude.  Alaska and Hawaii are placed just
+off the West Coast.
+</p>
+</li>
+<li> <p><code>state.division</code>: factor giving state divisions (New
+England, Middle Atlantic, South Atlantic, East South Central, West
+South Central, East North Central, West North Central, Mountain, and
+Pacific).
+</p>
+</li>
+<li> <p><code>state.name</code>: character vector giving the full state
+names
+</p>
+</li>
+<li> <p><code>state.region</code>: factor giving the region (Northeast,
+South, North Central, West) that each state belongs to.
+</p>
+</li>
+<li> <p><code>state.x77</code>:  matrix with 50 rows and 8 columns giving
+the following statistics in the respective columns.
+</p>
+
+<ul>
+<li> <p><code>Population</code>:  population estimate as of July 1, 1975
+</p>
+</li>
+<li> <p><code>Income</code>:  per capita income (1974)
+</p>
+</li>
+<li> <p><code>Illiteracy</code>:  illiteracy (1970, percent of population)
+</p>
+</li>
+<li> <p><code>Life Exp</code>:  life expectancy in years (1969&ndash;71)
+</p>
+</li>
+<li> <p><code>Murder</code>:  murder and non-negligent manslaughter rate
+per 100,000 population (1976)
+</p>
+</li>
+<li> <p><code>HS Grad</code>:  percent high-school graduates (1970)
+</p>
+</li>
+<li> <p><code>Frost</code>:  mean number of days with minimum temperature
+below freezing (1931&ndash;1960) in capital or large city
+</p>
+</li>
+<li> <p><code>Area</code>:  land area in square miles
+</p>
+</li></ul>
+
+</li></ul>
+
+
+
+<h3>Source</h3>
+
+<p>U.S. Department of Commerce, Bureau of the Census (1977).
+Statistical Abstract of the United States.
+</p>
+<p>U.S. Department of Commerce, Bureau of the Census (1977).
+County and City Data Book.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.2 ]</div>
+</div>
+</body></html>

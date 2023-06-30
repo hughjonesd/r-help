@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>R: Bind Two or More Time Series</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/zcbind.ts.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/zcbind.ts.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>zcbind {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='zcbind'>Bind Two or More Time Series</h2>
+
+<h3>Description</h3>
+
+<p>Bind Two or More Time Series which have common frequency.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.cbind.ts(sers, nmsers, dframe = FALSE, union = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="zcbind_:_sers">sers</code></td>
+<td>
+<p>a list of two or more univariate or multivariate time
+series, or objects which can coerced to time series.</p>
+</td></tr>
+<tr><td><code id="zcbind_:_nmsers">nmsers</code></td>
+<td>
+<p>a character vector of the same length as <code>sers</code>
+with the names for the time series.</p>
+</td></tr>
+<tr><td><code id="zcbind_:_dframe">dframe</code></td>
+<td>
+<p>logical; if <code>TRUE</code> return the result as a data
+frame.</p>
+</td></tr>
+<tr><td><code id="zcbind_:_union">union</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, act as <code>ts.union</code> or
+<code>ts.intersect</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is an internal function which is not to be called by the user.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.7.0 ]</div>
+</div>
+</body></html>

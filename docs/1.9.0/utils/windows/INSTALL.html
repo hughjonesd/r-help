@@ -1,0 +1,125 @@
+<!DOCTYPE html><html><head><title>R: Install Add-on Packages from Sources</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/INSTALL.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/INSTALL.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>INSTALL {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='INSTALL'>Install Add-on Packages from Sources</h2>
+
+<h3>Description</h3>
+
+<p>To install packages into the default library tree (which is rooted at
+&lsquo;<span class="file">\$R\_HOME/library</span>&rsquo;), do <code>R CMD INSTALL pkgs</code>.
+</p>
+<p>To install into the library tree <code>lib</code> instead of the default
+one, use <code>R CMD INSTALL -l lib pkgs</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R CMD INSTALL [options] [-l lib] pkgs</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="INSTALL_:_pkgs">pkgs</code></td>
+<td>
+<p>A list with the path names of the sources of the
+packages to be installed.</p>
+</td></tr>
+<tr><td><code id="INSTALL_:_lib">lib</code></td>
+<td>
+<p>the path name of the <span class="rlang"><b>R</b></span> library tree to install to.</p>
+</td></tr>
+<tr><td><code id="INSTALL_:_options">options</code></td>
+<td>
+<p>a space-separated list of options through which in
+particular the process for building the help files can be
+Options should only be given once, and paths including spaces should
+be quoted.
+Use <code>R CMD INSTALL --help</code> for the current list of options.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Windows Perl and the files for installing from source packages need to
+be installed.
+</p>
+<p>Both <code>lib</code> and the elements of <code>pkgs</code> may be absolute or
+relative path names. <code>pkgs</code> can also contain name of package
+archive files of the form &lsquo;<span class="file">pkg\_version.tar.gz</span>&rsquo; as obtained from
+CRAN (these are then extracted in a temporary directory
+&lsquo;<span class="file">R.INSTALL</span>&rsquo; of the current directory).
+</p>
+<p>If the option <span class="option">--save</span> is used, the installation procedure
+creates a binary image of the package code, which is then loaded when
+the package is attached, rather than evaluating the package source at
+that time.  Having a file &lsquo;<span class="file">install.R</span>&rsquo; in the package directory
+makes this the default behavior for the package (option
+<span class="option">--no-save</span> overrides).  You may need  <span class="option">--save</span> if your
+package requires other packages to evaluate its own source.  If the
+file &lsquo;<span class="file">install.R</span>&rsquo; is non-empty, it should contain R expressions to
+be executed when the package is attached, after loading the saved
+image.  Options to be passed to R when creating the save image can be
+specified via <span class="option">--save=ARGS</span>.
+</p>
+<p>Which forms of help are produced is controlled by the <span class="option">--docs</span>
+option which takes values <code>none</code> or <code>normal</code> (text and HTML)
+or <code>chm</code> (the default, text, HTML and CHTML) or <code>winhlp</code> or
+<code>all</code> (adding old-style Windows <code>.hlp</code> files, no longer tested).
+</p>
+<p>Use <code>R CMD INSTALL --help</code> for more usage information.
+</p>
+
+
+<h3>Packages using the methods package</h3>
+
+<p>Packages that require the methods package, and that use functions such
+as <code>setMethod</code> or <code>setClass</code>,
+should be installed by creating a binary image.
+</p>
+<p>The presence of a file named
+&lsquo;<span class="file">install.R</span>&rsquo; in the package's main directory causes an image to
+be saved.  Note that the file is not in the &lsquo;<span class="file">R</span>&rsquo; subdirectory: all
+the code in that subdirectory is used to construct the binary image.
+</p>
+<p>Normally, the file &lsquo;<span class="file">install.R</span>&rsquo; will be empty; if it does contain
+R expressions
+these will be evaluated when the package is attached, e.g. by a call to
+the function <code>library</code>.  (Specifically, the source code
+evaluated for a package with a saved image consists of a suitable
+definition of <code>.First.lib</code> to ensure loading of the saved
+image, followed by the R code in file &lsquo;<span class="file">install.R</span>&rsquo;, if any.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>REMOVE</code> and <code>library</code> for information on
+using several library trees;
+<code>update.packages</code> for automatic update of packages using
+the internet;
+the chapter on &ldquo;Creating R packages&rdquo; in &ldquo;Writing <span class="rlang"><b>R</b></span>
+Extensions&rdquo; (see the &lsquo;<span class="file">doc/manual</span>&rsquo; subdirectory of the <span class="rlang"><b>R</b></span> source
+tree).
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 1.9.0 ]</div>
+</div>
+</body></html>

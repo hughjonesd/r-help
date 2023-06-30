@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><title>R: Function Definition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/function.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/function.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>function {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='function'>Function Definition</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide the base mechanisms for defining
+new functions in the <span class="rlang"><b>R</b></span> language.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>function( arglist ) expr
+return(value)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="function_:_arglist">arglist</code></td>
+<td>
+<p>Empty or one or more name or name=expression terms.</p>
+</td></tr>
+<tr><td><code id="function_:_value">value</code></td>
+<td>
+<p>An expression.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The names in an argument list can be back-quoted non-standard names
+(see &lsquo;backquote&rsquo;).
+</p>
+<p>If <code>value</code> is missing, <code>NULL</code> is returned.  If it is a
+single expression, the value of the evaluated expression is returned.
+</p>
+<p>If the end of a function is reached without calling <code>return</code>, the
+value of the last evaluated expression is returned.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>Prior to <span class="rlang"><b>R</b></span> 1.8.0, <code>value</code> could be a series of non-empty
+expressions separated by commas.  In that case the value
+returned is a list of the evaluated expressions, with names set to
+the expressions where these are the names of <span class="rlang"><b>R</b></span> objects.  That is,
+<code>a=foo()</code> names the list component <code>a</code> and gives it the value
+which results from evaluating <code>foo()</code>.
+</p>
+<p>This has been deprecated (and a warning is given), as it was never
+documented in S, and whether or not the list is named differs by S
+versions.  Supply a (named) list <code>value</code> instead.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>args</code> and <code>body</code> for accessing the arguments
+and body of a function.
+</p>
+<p><code>debug</code> for debugging; using <code>invisible</code> inside
+<code>return(.)</code> for returning <em>invisibly</em>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>norm &lt;- function(x) sqrt(x%*%x)
+norm(1:4)
+
+## An anonymous function:
+(function(x,y){ z &lt;- x^2 + y^2; x+y+z })(0:7, 1)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.6.1 ]</div>
+</div>
+</body></html>

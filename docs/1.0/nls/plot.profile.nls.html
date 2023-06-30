@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><title>R: Plot a profile.nls Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/plot.profile.nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/plot.profile.nls.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.profile.nls {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.profile.nls'>Plot a profile.nls Object</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>plot.profile.nls(x, levels, conf, nseg, absVal, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.profile.nls_:_x">x</code></td>
+<td>
+<p>an object of class <code>profile.nls</code> </p>
+</td></tr>
+<tr><td><code id="plot.profile.nls_:_levels">levels</code></td>
+<td>
+<p>levels, on the scale of the absolute value of a t
+statistic, at which to interpolate intervals.  Usually <code>conf</code>
+is used instead of giving <code>levels</code> explicitly.</p>
+</td></tr>
+<tr><td><code id="plot.profile.nls_:_conf">conf</code></td>
+<td>
+<p>a numeric vector of confidence levels for profile-based
+confidence intervals on the parameters.  Defaults to <code>c(0.99,
+	 0.95, 0.90, 0.80, 0.50).</code>
+\itemnsegan integer value giving the number of segments to use in
+the spline interpolation of the profile t curves. Defaults to 50.
+\itemabsVala logical value indicating whether or not the plots
+should be on the scale of the absolute value of the profile t.
+Defaults to <code>TRUE</code>. 
+\item...other arguments to the <code>plot</code> function can be passed here.
+</p>
+</td></tr>
+</table>
+
+<p>Displays a series of plots of the profile t function and
+interpolated confidence intervals for the parameters in a nonlinear
+regression model that has been fit with <code>nls</code> and profiled with
+<code>profile.nls</code>.
+
+Bates, D.M. and Watts, D.G. (1988), <em>Nonlinear Regression Analysis
+and Its Applications</em>, Wiley (chapter 6)
+Douglas M. Bates and Saikat DebRoy
+<code>nls</code>, <code>profile</code>, <code>profile.nls</code>
+
+library( nls )
+data( BOD )
+# obtain the fitted object
+fm1 &lt;- nls(demand ~ SSasympOrig( Time, A, lrc ), data = BOD)
+# get the profile for the fitted model
+pr1 &lt;- profile( fm1 )
+opar &lt;- par(mfrow = c(2,2), oma = c(1.1, 0, 1.1, 0), las = 1)
+plot(pr1, conf = c(95, 90, 80, 50)/100)
+plot(pr1, conf = c(95, 90, 80, 50)/100, absVal = FALSE)
+mtext(&quot;Confidence intervals based on the profile sum of squares&quot;,
+side = 3, outer = TRUE)
+mtext(&quot;BOD data - confidence levels of 50%, 80%, 90% and 95%&quot;,
+side = 1, outer = TRUE)
+par(opar)
+
+nonlinear
+regression
+models
+</p>
+
+
+</div>
+</body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Adjust p values for multiple comparisons</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/p.adjust.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/p.adjust.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>p.adjust {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='p.adjust'>Adjust p values for multiple comparisons</h2>
+
+<h3>Description</h3>
+
+<p>Given a set of p values, returns p values adjusted using one of
+several methods.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>p.adjust(p, method=p.adjust.methods, n=length(p))
+p.adjust.methods # c("holm", "hochberg", "bonferroni","none")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="p.adjust_:_p">p</code></td>
+<td>
+<p>vector of p values</p>
+</td></tr>
+<tr><td><code id="p.adjust_:_method">method</code></td>
+<td>
+<p>correction method</p>
+</td></tr>
+<tr><td><code id="p.adjust_:_n">n</code></td>
+<td>
+<p>number of comparisons</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The adjustment methods include the Bonferroni correction in
+which the p values are multiplied by the number of comparisons. Two
+less conservative corrections by Holm, respectively Hochberg,
+are also included. A pass-through option <code>"none"</code> is also
+included. The set of methods are contained in the
+<code>p.adjust.methods</code> vector for the benefit of methods that need to
+have the method as an option and pass it on to <code>p.adjust</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector of corrected p values.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The Hochberg method is only proved to work if the p values are
+independent, although simulations have indicated that it works in
+correlated cases as well. Hence the Holm method is the default.</p>
+
+
+<h3>References</h3>
+
+<p> S Paul Wright: Adjusted P-values for simultaneous
+inference,  Biometrics <b>48</b>, 1005&ndash;1013
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>pairwise.*</code> functions in the <code>ctest</code> package, such
+as <code>pairwise.t.test</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>  p &lt;- runif(50)
+  p.adjust(p)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Principal Components Analysis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/prcomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/prcomp.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>prcomp {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='prcomp'>Principal Components Analysis</h2>
+
+<h3>Description</h3>
+
+<p>This function performs a principal components analysis on
+the given data matrix and returns the results as a
+<code>prcomp</code> object.  The print method for the these
+objects prints the results in a nice format and the
+plot method produces a scree plot.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>prcomp(x=, scale=FALSE, use="all.obs")
+
+print.prcomp(prcomp.obj)
+plot.prcomp(prcomp.obj)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="prcomp_:_x">x</code></td>
+<td>
+<p>a matrix (or data frame) which provides the data
+for the principal components analysis.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_scale">scale</code></td>
+<td>
+<p>a logical value indicating whether the variables should
+be scaled to have unit variance before the analysis takes place.</p>
+</td></tr>
+<tr><td><code id="prcomp_:_use">use</code></td>
+<td>
+<p>the strategy to use for dealing with missing observations.
+The possible values are <code>"all.obs"</code>, <code>"complete.obs"</code>,
+or <code>"pairwise.complete.obs"</code>.
+An unambiguous substring can be used.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>prcomp</code> returns an list with class <code>"prcomp"</code>
+containing the following components:
+</p>
+<table>
+<tr><td><code>var</code></td>
+<td>
+<p>the variances of the principal components
+(i.e. the eigenvalues)</p>
+</td></tr>
+<tr><td><code>load</code></td>
+<td>
+<p>the matrix of variable loadings (i.e. a matrix
+whose columns contain the eigenvectors).</p>
+</td></tr>
+<tr><td><code>scale</code></td>
+<td>
+<p>the value of the <code>scale</code> argument.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Mardia, K. V., J. T. Kent and J. M. Bibby (1979).
+<em>Multivariate Analysis</em>, London: Academic Press.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>cor</code>, <code>cov</code>, <code>eigen</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># the variances of the variables in the
+# crimes data vary by orders of magnitude
+data(crimes)
+prcomp(crimes)
+prcomp(crimes,scale=TRUE)
+</code></pre>
+
+
+</div>
+</body></html>

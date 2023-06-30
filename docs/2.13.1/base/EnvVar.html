@@ -1,0 +1,190 @@
+<!DOCTYPE html><html><head><title>R: Environment Variables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/EnvVar.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/EnvVar.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>EnvVar {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='EnvVar'>Environment Variables</h2>
+
+<h3>Description</h3>
+
+<p>Details of some of the environment variables which affect an <span class="rlang"><b>R</b></span> session.
+</p>
+
+
+<h3>Details</h3>
+
+<p>It is impossible to list all the environment variables which can
+affect an <span class="rlang"><b>R</b></span> session: some affect the OS system functions which <span class="rlang"><b>R</b></span>
+uses, and others will affect add-on packages.  But here are notes on
+some of the more important ones.  Those that set the defaults for
+options are consulted only at startup (as are some of the others).
+</p>
+
+<dl>
+<dt><span class="env">DVIPS</span>:</dt><dd><p>The path to <code>dvips</code>.  Used at startup to
+set the default for <code>options("dvipscmd")</code> which used
+by <code>help(help_type="ps")</code>.
+</p>
+</dd>
+<dt><span class="env">HOME</span>:</dt><dd><p>The user's &lsquo;home&rsquo; directory.</p>
+</dd>
+<dt><span class="env">LANGUAGE</span>:</dt><dd><p>Optional.  The language(s) to be used for
+message translations.  This is consulted when needed.</p>
+</dd>
+<dt><span class="env">LC_ALL</span>:</dt><dd><p>(etc) Optional.  Use to set various aspects of
+the locale &ndash; see <code>Sys.getlocale</code>.  Consulted at startup.</p>
+</dd>
+<dt><span class="env">MAKEINDEX</span>:</dt><dd><p>The path to <code>makeindex</code>.
+If unset to a value determined when <span class="rlang"><b>R</b></span> was built.
+Used by the emulation mode of <code>texi2dvi</code>.</p>
+</dd>
+<dt><span class="env">R_BATCH</span>:</dt><dd><p>Optional &ndash; set in a batch session.</p>
+</dd>
+<dt><span class="env">R_BROWSER</span>:</dt><dd><p>The path to the default browser.  Used to
+set the default value of <code>options("browser")</code>.</p>
+</dd>
+<dt><span class="env">R_COMPLETION</span>:</dt><dd><p>Optional.  If set to <code>FALSE</code>,
+command-line completion is not used.  (Not used by Mac OS GUI.)</p>
+</dd>
+<dt><span class="env">R_DEFAULT_PACKAGES</span>:</dt><dd><p>A comma-separated list of packages
+which are to be attached in every session.  See <code>options</code>.</p>
+</dd>
+<dt><span class="env">R_DOC_DIR</span>:</dt><dd><p>The location of the <span class="rlang"><b>R</b></span> &lsquo;<span class="file">doc</span>&rsquo;
+directory.  Set by <span class="rlang"><b>R</b></span>.</p>
+</dd>
+<dt><span class="env">R_ENVIRON</span>:</dt><dd><p>Optional.  The path to the site environment
+file: see Startup.  Consulted at startup.</p>
+</dd>
+<dt><span class="env">R_GSCMD</span>:</dt><dd><p>Optional.  The path to Ghostscript, used by
+<code>dev2bitmap</code>, <code>bitmap</code> and
+<code>embedFonts</code>.  Consulted when those functions are invoked.</p>
+</dd>
+<dt><span class="env">R_HISTFILE</span>:</dt><dd><p>Optional.  The path of the history file:
+see Startup.  Consulted at startup and when the history is
+saved.</p>
+</dd>
+<dt><span class="env">R_HISTSIZE</span>:</dt><dd><p>Optional.  The maximum size of the history
+file, in lines.  Exactly how this is used depends on the
+interface.
+For the <code>readline</code> command-line interface it takes effect
+when the history is saved (by <code>savehistory</code> or at the
+end of a session).
+</p>
+</dd>
+<dt><span class="env">R_HOME</span>:</dt><dd><p>The top-level directory of the <span class="rlang"><b>R</b></span>
+installation: see <code>R.home</code>.  Set by <span class="rlang"><b>R</b></span>.</p>
+</dd>
+<dt><span class="env">R_INCLUDE_DIR</span>:</dt><dd><p>The location of the <span class="rlang"><b>R</b></span> &lsquo;<span class="file">include</span>&rsquo;
+directory.  Set by <span class="rlang"><b>R</b></span>.</p>
+</dd>
+<dt><span class="env">R_LIBS</span>:</dt><dd><p>Optional.  Used for initial setting of
+<code>.libPaths</code>.</p>
+</dd>
+<dt><span class="env">R_LIBS_SITE</span>:</dt><dd><p>Optional.  Used for initial setting of
+<code>.libPaths</code>.</p>
+</dd>
+<dt><span class="env">R_LIBS_USER</span>:</dt><dd><p>Optional.  Used for initial setting of
+<code>.libPaths</code>.</p>
+</dd>
+<dt><span class="env">R_PAPERSIZE</span>:</dt><dd><p>Optional.  Used to set the default for
+<code>options("papersize")</code>, e.g. used by
+<code>pdf</code> and <code>postscript</code>.</p>
+</dd>
+<dt><span class="env">R_PDFVIEWER</span>:</dt><dd><p>The path to the default PDF viewer.  Used
+by <code>R CMD Rd2dvi --pdf</code>.</p>
+</dd>
+<dt><span class="env">R_PLATFORM</span>:</dt><dd><p>The platform &ndash; a string of the form
+<code><var>cpu</var>-<var>vendor</var>-<var>os</var></code>, see <code>R.Version</code>.</p>
+</dd>
+<dt><span class="env">R_PROFILE</span>:</dt><dd><p>Optional.  The path to the site profile
+file: see Startup.  Consulted at startup.</p>
+</dd>
+<dt><span class="env">R_RD4DVI</span>:</dt><dd><p>Options for <code>latex</code> processing of
+<code>Rd</code> files. Used by <code>R CMD Rd2dvi</code>.</p>
+</dd>
+<dt><span class="env">R_RD4PDF</span>:</dt><dd><p>Options for <code>pdflatex</code> processing of
+<code>Rd</code> files.
+Used by <code>R CMD Rd2dvi</code>.</p>
+</dd>
+<dt><span class="env">R_SHARE_DIR</span>:</dt><dd><p>The location of the <span class="rlang"><b>R</b></span> &lsquo;<span class="file">share</span>&rsquo;
+directory.  Set by <span class="rlang"><b>R</b></span>.</p>
+</dd> 
+<dt><span class="env">R_TEXI2DVICMD</span>:</dt><dd><p>The path to <code>texi2dvi</code>.
+Defaults to the value of <span class="env">TEXI2DVI</span>, and if that is unset to a
+value determined when <span class="rlang"><b>R</b></span> was built.
+Consulted at startup to set the default for
+<code>options("texi2dvi")</code>, used by
+<code>texi2dvi</code> in package <span class="pkg">tools</span>.
+</p>
+</dd>
+<dt><span class="env">R_UNZIPCMD</span>:</dt><dd><p>The path to <code>unzip</code>.  Sets the
+initial value for <code>options("unzip")</code> on a Unix-alike
+when name space <span class="pkg">utils</span> is loaded.</p>
+</dd>
+<dt><span class="env">R_ZIPCMD</span>:</dt><dd><p>The path to <code>zip</code>. Used by
+<code>zip</code> and by <code>R CMD INSTALL --build</code> on Windows.</p>
+</dd>
+<dt><span class="env">TMPDIR</span>, <span class="env">TMP</span>, <span class="env">TEMP</span>:</dt><dd><p>Consulted (in that
+order) when setting the temporary directory for the session: see
+<code>tempdir</code>.  <span class="env">TMPDIR</span> is also used by some of the
+utilities see the help for <code>build</code>.</p>
+</dd>
+<dt><span class="env">TZ</span>:</dt><dd><p>Optional.  The current timezone.  See
+<code>Sys.timezone</code> for the system-specific
+formats.  Consulted as needed.</p>
+</dd>
+<dt><span class="env">no_proxy</span>, <span class="env">http_proxy</span>, <span class="env">ftp_proxy</span>:</dt><dd>
+<p>(and more).  Optional.  Settings for <code>download.file</code>:
+see its help for further details.</p>
+</dd>
+</dl>
+
+
+
+<h3>Unix-specific</h3>
+
+<p>Some variables set on Unix-alikes, and not (in general) on Windows.
+</p>
+
+<dl>
+<dt><span class="env">DISPLAY</span>:</dt><dd><p>Optional: used by <code>X11</code>, Tk (in
+package <span class="pkg">tcltk</span>), the data editor and various packages.</p>
+</dd>
+<dt><span class="env">EDITOR</span>:</dt><dd><p>The path to the default editor: sets the
+default for <code>options("editor")</code> when name space
+<span class="pkg">utils</span> is loaded.</p>
+</dd>
+<dt><span class="env">PAGER</span>:</dt><dd><p>The path to the pager with the default setting of
+<code>options("pager")</code>. The default value is chosen at
+configuration, usually as the path to <code>less</code>.</p>
+</dd>
+<dt><span class="env">R_PRINTCMD</span>:</dt><dd><p>Sets the default for
+<code>options("printcmd")</code>, which sets the default print
+command to be used by <code>postscript</code>.</p>
+</dd>
+</dl>
+
+
+
+<h3>See Also</h3>
+
+<p><code>Sys.getenv</code> and <code>Sys.setenv</code> to read and set
+environmental variables in an <span class="rlang"><b>R</b></span> session.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.13.1 ]</div>
+</div>
+</body></html>

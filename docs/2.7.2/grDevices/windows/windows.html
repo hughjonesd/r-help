@@ -1,0 +1,307 @@
+<!DOCTYPE html><html><head><title>R: Windows graphics devices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/windows.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/windows.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>windows {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='windows'>Windows graphics devices</h2>
+
+<h3>Description</h3>
+
+<p>A graphics device is opened.  For <code>windows</code>, <code>win.graph</code>,
+<code>x11</code> and <code>X11</code> this is a graphics window on the current
+Windows display: the multiple names are for compatibility with other
+systems.  <code>win.metafile</code> prints to a file and <code>win.print</code> to
+the Windows print system.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>windows(width, height, pointsize, record, rescale, xpinch, ypinch,
+        bg, canvas, gamma, xpos, ypos, buffered, title,
+        restoreConsole)
+
+win.graph(width, height, pointsize)
+x11(width, height, pointsize)
+X11(width, height, pointsize)
+
+win.metafile(filename = "", width = 7, height = 7, pointsize = 12,
+             restoreConsole = TRUE)
+
+win.print(width = 7, height = 7, pointsize = 12, printer = "",
+          restoreConsole = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="windows_:_width">width</code>, <code id="windows_:_height">height</code></td>
+<td>
+<p>the (nominal) width and height of the canvas of
+the plotting window in inches.  Default <code>7</code>.</p>
+</td></tr>
+<tr><td><code id="windows_:_pointsize">pointsize</code></td>
+<td>
+<p>the default pointsize of plotted text, interpreted as
+big points (1/72 inch).  Values are rounded to the nearest integer:
+values less than or equal to zero are reset to <code>12</code>, the
+default.</p>
+</td></tr>
+<tr><td><code id="windows_:_record">record</code></td>
+<td>
+<p>logical: sets the initial state of the flag for
+recording plots.  Default <code>FALSE</code>.</p>
+</td></tr>
+<tr><td><code id="windows_:_rescale">rescale</code></td>
+<td>
+<p>character, one of <code>c("R", "fit", "fixed")</code>.
+Controls the action for resizing of the device.  Default
+<code>"R"</code>.  See &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="windows_:_xpinch">xpinch</code>, <code id="windows_:_ypinch">ypinch</code></td>
+<td>
+<p>double.  Pixels per inch, horizontally and
+vertically.  Default <code>NA_real_</code>, which means to take the
+value from Windows.</p>
+</td></tr>
+<tr><td><code id="windows_:_bg">bg</code></td>
+<td>
+<p>color.  The initial background color.  Default
+<code>"transparent"</code>.</p>
+</td></tr>
+<tr><td><code id="windows_:_canvas">canvas</code></td>
+<td>
+<p>color.  The color of the canvas which is visible
+when the background color is transparent.  Should be a solid color
+(and any alpha value will be ignored).  Default <code>"white"</code>.</p>
+</td></tr>
+<tr><td><code id="windows_:_gamma">gamma</code></td>
+<td>
+<p>the gamma correction factor to assume for the display.
+This value is used to ensure that the colors perceived are linearly
+related to RGB values (see <code>hsv</code>).  Default <code>1</code>.</p>
+</td></tr>
+<tr><td><code id="windows_:_xpos">xpos</code>, <code id="windows_:_ypos">ypos</code></td>
+<td>
+<p>integer.  Position of the top left of the window, in
+pixels.  Negative values are taken from the opposite edge of the
+monitor.  Missing values (the default) mean take the default from the
+&lsquo;<span class="file">Rconsole</span>&rsquo; file, which in turn defaults to
+<code>xpos=-25, ypos=0</code>: this puts the right edge of the window 25
+pixels from the right edge of the monitor.</p>
+</td></tr>
+<tr><td><code id="windows_:_buffered">buffered</code></td>
+<td>
+<p>logical.  Should the screen output be double-buffered?
+Default <code>TRUE</code>.</p>
+</td></tr>
+<tr><td><code id="windows_:_title">title</code></td>
+<td>
+<p>character string, up to 100 bytes.  With the default
+<code>""</code>, a suitable title is created internally.  A C-style format
+for an integer will be substituted by the device number.</p>
+</td></tr>
+<tr><td><code id="windows_:_filename">filename</code></td>
+<td>
+<p>the name of the output file: it will be an enhanced
+Windows metafile, usually given extension &lsquo;<span class="file">.emf</span>&rsquo; or
+&lsquo;<span class="file">.wmf</span>&rsquo;.  Up to 511 characters are allowed. The page number is
+substituted if an integer format is included in the character
+string: see <code>postscript</code> for further details. (The
+result must be less than 600 characters long.)  The default,
+<code>""</code>, means the clipboard.</p>
+</td></tr>
+<tr><td><code id="windows_:_printer">printer</code></td>
+<td>
+<p>The name of a printer as known to Windows. The default
+causes a dialog box to come for the user to choose a printer.</p>
+</td></tr>
+<tr><td><code id="windows_:_restoreConsole">restoreConsole</code></td>
+<td>
+<p>logical:  see the &lsquo;Details&rsquo; below.  Defaults to
+<code>FALSE</code> for screen devices.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>All these devices are implemented as variants of the same device.
+</p>
+<p>All arguments of <code>windows</code> have defaults set by
+<code>windows.options</code>: the defaults given in the arguments section
+are the defaults for the defaults.  These defaults also apply to the
+internal values of <code>gamma</code>, <code>xpinch</code>, <code>ypinch</code>,
+<code>buffered</code> and <code>restoreConsole</code> for <code>win.graph</code>,
+<code>x11</code> and <code>X11</code>.
+</p>
+<p>The size of a window is computed from information provided about the
+display: it depends on the system being configured accurately.
+By default a screen device asks Windows for the number of pixels per
+inch.  This can be overridden (it is often wrong) by specifying
+<code>xpinch</code> and <code>ypinch</code>, most conveniently <em>via</em>
+<code>windows.options</code>.  For example, a 13.3 inch 1280x800
+screen (a typical laptop display) was reported as 96 dpi even though
+it is phyiscally about 114 dpi.
+</p>
+<p>If the <code>filename</code> is omitted (or specified as <code>""</code> for a
+<code>win.metafile</code> device), the output is copied to the clipboard
+when the device is closed.
+</p>
+<p>If a screen device is re-sized, the default behaviour (<code>"R"</code>) is
+to redraw the plot(s) as if the new size had been specified
+originally.  Using <code>"fit"</code> will rescale the existing plot(s) to
+fit the new device region, preserving the aspect ratio.  Using
+<code>"fixed"</code> will leave the plot size unchanged, adding scrollbars
+if part of the plot is obscured.
+</p>
+<p>A graphics window will never be created at more that 85% of
+the screen width or height, but can be resized to a larger size.
+For the first two <code>rescale</code> options the width and height are
+rescaled proportionally if necessary, and if <code>rescale = "fit"</code>
+the plot(s) are rescaled accordingly.  If <code>rescale = "fixed"</code>
+the initially displayed portion is selected within these constraints,
+separately for width and height.  In MDI mode,
+the limit is 85% of the MDI client region.
+</p>
+<p>Using <code>strwidth</code> or <code>strheight</code> after a window
+has been rescaled (when using <code>"fit"</code>) gives dimensions in the
+original units, but only approximately as they are derived from the
+metrics of the rescaled fonts (which are in integer sizes)
+</p>
+<p>The displayed region may be bigger than the &lsquo;paper&rsquo; size, and
+area(s) outside the &lsquo;paper&rsquo; are coloured in the Windows
+application background colour.  Graphics parameters such as
+<code>"din"</code> refer to the scaled plot if rescaling is in effect.
+</p>
+<p>The different colours need to be distinguished carefully.  Area(s)
+outside the device region is coloured in the Windows application background
+colour.  The device region is coloured in the canvas colour.  This is
+over-painted by the background colour of a plot when a new page is
+called for, but that background colour can be transparent (and is by
+default).  One difference between setting the canvas colour and the
+background colour is that when a plot is saved the background
+colour is copied but the canvas colour is not.  The argument <code>bg</code>
+sets the initial value of <code>par("bg")</code> in base graphics and
+<code>gpar("fill")</code> in grid graphics
+</p>
+<p>Recorded plot histories are of class <code>"SavedPlots"</code>.  They have a
+<code>print</code> method, and a subset method.  As the individual plots are
+of class <code>"recordedplot"</code> they can be replayed by printing them:
+see <code>recordPlot</code>.  The active plot history is stored in
+variable <code>.SavedPlots</code> in the workspace.
+</p>
+<p>When a screen device is double-buffered (the default) the
+screen is updated 100ms after last plotting call or every 500ms during
+continuous plotting.  These times can be altered by setting
+<code>options("windowsTimeout")</code> to a vector of two integers before
+opening the device.
+</p>
+<p>The fonts used for text drawn in a Windows device may be controlled in
+two ways.  The file <code>RHOME\etc\Rdevga</code> can be used to specify
+mappings for <code>par(font=)</code> (in the graphics package).  Alternatively,
+a device-independent <span class="rlang"><b>R</b></span> graphics font family can be specified (e.g.,
+via <code>par(family=)</code> in the graphics package) and this will be
+mapped via the Windows font database (see <code>windowsFonts</code>).
+</p>
+<p>Line widths as controlled by <code>par(lwd=)</code> are in multiples of
+1/96inch.  Multiples less than 1 are allowed, down to one pixel width.
+</p>
+<p><code>pch="."</code> with <code>cex = 1</code> corresponds to a rectangle of sides
+the larger of one pixel and 0.01 inch.
+</p>
+<p>For <code>win.metafile</code> only one plot is allowed per file, and Windows
+seems to disallow reusing the file.  So the <em>only</em> way to allow
+multiple plots is to use a parametrized <code>filename</code> as in the example.
+</p>
+<p>The <code>restoreConsole</code> argument is a temporary fix for a problem
+in the current implementation of several Windows graphics devices,
+and is likely to be removed in an upcoming release.  If set to
+<code>FALSE</code>, the console will not receive the focus after the new
+device is opened.  
+</p>
+<p>There is support for semi-transparent colours of lines, fills and text
+on the <code>windows()</code> device.  These work for saving (from the
+&lsquo;File&rsquo; menu) to PDF, PNG, BMP and JPEG, but will be ignored if
+saving to Metafile and PostScript.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A plot device is opened: nothing is returned to the <span class="rlang"><b>R</b></span> interpreter.
+</p>
+
+
+<h3>Conventions</h3>
+
+<p>This section describes the implementation of the conventions for
+graphics devices set out in the &ldquo;R Internals Manual&rdquo;.
+</p>
+
+<ul>
+<li><p> The default device size is 7 inches square, although this is
+often incorrectly implemented by Windows.
+</p>
+</li>
+<li><p> Font sizes are in big points.
+</p>
+</li>
+<li><p> The default font family is Arial.
+</p>
+</li>
+<li><p> Line widths are as a multiple of 1/96 inch, with a minimum of
+one pixel. 
+</p>
+</li>
+<li><p> The minimum radius of a circle is 1 pixel.
+</p>
+</li>
+<li><p> Colours are interpreted via the unprofiled colour mapping of
+the graphics card &ndash; this is likely to be close to sRGB.
+</p>
+</li></ul>
+
+
+
+<h3>Gamma</h3>
+
+<p>PC displays map RGB numbers non-linearly to luminosities (and the
+eye/brain system also perceives non-linearly).  For a typical PC
+display, a value of <code>gamma</code> of around <code>2.2</code> will result in
+the unit steps in the RGB values are being perceived as roughly equal.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>windowsFonts</code>,
+<code>savePlot</code>, <code>bringToTop</code>,
+<code>Devices</code>, <code>postscript</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: ## A series of plots written to a sequence of metafiles
+win.metafile("Rplot%02d.wmf", pointsize = 10)
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.7.2 ]</div>
+</div>
+</body></html>

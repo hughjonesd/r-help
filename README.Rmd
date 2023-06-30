@@ -1,0 +1,32 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# r-help
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This repository provides R help files for previous version of R, using the
+[git copy of the R source](https://github.com/wch/r-source).
+
+Help for old versions of R is not guaranteed to show correctly, because the .Rd 
+specification may have changed.
+
+A **very** simple index file is available for every R version.
+
+# R versions
+
+```{r results='asis', echo = FALSE}
+rv <- list.files("docs", include.dirs = TRUE)
+cat(paste0("* ", "[", rv, "](/", rv, "/00index.html)\n"))
+```

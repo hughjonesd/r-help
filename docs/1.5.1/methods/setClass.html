@@ -1,0 +1,264 @@
+<!DOCTYPE html><html><head><title>R: Create a Class Definition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>setClass {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='setClass'>Create a Class Definition</h2>
+
+<h3>Description</h3>
+
+<p>Create a formally defined class with specified slots and/or
+relationships to other classes.  Also functions to remove a class
+definition, to test whether a class has been defined, to test whether
+an object is a class definition, and to reset the internal definition
+of a class.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>setClass(Class, representation, prototype,
+         contains=character(), validity, access, where=1, version=FALSE)
+
+removeClass(Class, where=-1)
+
+isClass(Class, formal=TRUE)
+isClassDef(object)
+
+getClasses(where)
+
+resetClass(Class)
+
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="setClass_:_Class">Class</code></td>
+<td>
+<p> character string name for the class </p>
+</td></tr>
+<tr><td><code id="setClass_:_representation">representation</code></td>
+<td>
+<p> the slots that the new class should have
+and/or other classes that this class extends.  Usually a call to
+the <code>representation</code> function. </p>
+</td></tr>
+<tr><td><code id="setClass_:_prototype">prototype</code></td>
+<td>
+<p> an object (usually a list) providing the default
+data for the slots specified in the representation. </p>
+</td></tr>
+<tr><td><code id="setClass_:_contains">contains</code></td>
+<td>
+<p> what classes does this class extend?  (These are
+called <em>superclasses</em> in some languages.)  When these classes
+have slots, all their slots will be contained in the new class as
+well. </p>
+</td></tr>
+<tr><td><code id="setClass_:_where">where</code></td>
+<td>
+<p> What environment to use to store or remove the
+definition (as metadata).
+By default, uses the global environment for <code>setClass</code> and
+searches for a definition to remove, for <code>removeClass</code>. </p>
+</td></tr>
+<tr><td><code id="setClass_:_validity">validity</code>, <code id="setClass_:_access">access</code>, <code id="setClass_:_version">version</code></td>
+<td>
+<p> Control arguments included for
+compatibility with the S-Plus API, but not currently used.  </p>
+</td></tr>
+<tr><td><code id="setClass_:_x">x</code></td>
+<td>
+<p>an arbitrary object.</p>
+</td></tr>
+<tr><td><code id="setClass_:_formal">formal</code></td>
+<td>
+<p> Should a formal definition be required? </p>
+</td></tr>
+<tr><td><code id="setClass_:_object">object</code></td>
+<td>
+<p> any R object. </p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These are the functions that create and manipulate formal class
+definitions.  Brief documentation is provided below.  See the
+references for an introduction and for more details.
+</p>
+ 
+<dl>
+<dt><code>setClass</code>:</dt><dd> 
+<p>Define <code>Class</code> to be an S-style class.  The effect is to
+create an object, of class <code>"classRepEnvironment"</code>, and store
+this (hidden) in the specified environment or database.  Objects
+can be created from the class (e.g., by calling
+<code>new</code>), manipulated (e.g., by accessing the object's
+slots), and methods may be defined including the class name in the
+signature (see <code>setMethod</code>).
+</p>
+</dd>
+<dt><code>removeClass</code>:</dt><dd> 
+<p>Remove the definition of this class.  Calling this <em>always</em>
+resets the version of the class cached for the session.  If
+<code>where=0</code>, that's all it does.  Otherwise, it removes the
+version from the specified environment or database (from the global
+environment by default).
+</p>
+</dd>
+<dt><code>isClass</code>:</dt><dd> 
+<p>Is this a the name of a formally defined class? (Argument
+<code>formal</code> is for compatibility and is ignored.)
+</p>
+</dd>
+<dt><code>isClassDef</code>:</dt><dd> 
+<p>Is this object a class definition (it will be, for example, if it
+is the value of a call to <code>getClass</code>, the complete
+definition of a class with its extensions, or to
+<code>getClassDef</code>, the local definition of the class).
+</p>
+</dd>
+<dt><code>getClasses</code>:</dt><dd>
+<p>The names of all the classes formally defined on <code>where</code>.  If
+called with no argument, all the classes currently known in the
+session (which does not include classes that may be defined on one
+of the attached packages, but have not yet been used in the
+session).
+</p>
+</dd>
+<dt><code>unclass</code>:</dt><dd>
+<p>Returns the object containing the values of all the slots in this
+object's class definition (specifically, if the returned object
+has attributes corresponding to each slot), in the case that the
+object's class is formally defined with slots.  For classes that
+extend a single other class (e.g., a basic class such as
+<code>"numeric"</code>) the result is an object of that class.
+</p>
+</dd>
+<dt><code>resetClass</code>:</dt><dd>
+<p>Reset the internal definition of a class.  The effect is that
+the next time the definition of this class is needed, it will be
+recomputed from the information in the currently attached packages.
+</p>
+<p>This function is called when aspects of the class definition are
+changed.  You would need to call it explicitly if you changed the
+definition of a class that this class extends (but doing that in
+the  middle of a session is living dangerously, since it may
+invalidate existing objects).
+</p>
+</dd>
+</dl>
+
+
+
+<h3>Inheritance and Prototypes</h3>
+
+<p>Defining new classes that inherit from (&ldquo;extend&rdquo;) other classes is a
+powerful technique, but has to be used carefully and not over-used.
+Otherwise, you will often get unintended results when you start to
+compute with objects from the new class.
+</p>
+<p>As shown in the examples below, the simplest and safest form of
+inheritance is to start with an explicit class, with some slots, that
+does not extend anything else.  It only does what we say it does.
+</p>
+<p>Then extensions will add some new slots and new behavior.
+</p>
+<p>Another variety of extension starts with one of the basic classes,
+perhaps with the intension of modifying R's standard behavior for that
+class.  Perfectly legal and sometimes quite helpful, but you may need
+to be more careful in this case:  your new class will inherit much of
+the behavior of the basic (informally defined) class, and the results
+can be surprising.  Just proceed with caution and plenty of testing.
+</p>
+<p>As an example, the class <code>"matrix"</code> is included in the
+pre-defined classes, to behave essentially as matrices do without
+formal class definitions.  Suppose we don't like all of this; in
+particular, we want the default matrix to have 0 rows and columns (not
+1 by 1 as it is now).
+</p>
+<p><code>setClass("myMatrix", "matrix", prototype = matrix(0,0,0))</code>
+</p>
+<p>The arguments above illustrate two short-cuts relevant to such
+examples.  We abbreviated the <code>representation</code> argument to the
+single superclass, because the new class doesn't add anything to the
+representation of class <code>"matrix"</code>.  Also, we provided an object
+from the superclass as the prototype, not a list of slots.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>John Chambers
+</p>
+
+
+<h3>References</h3>
+
+<p>The web page <a href="http://www.omegahat.org/RSMethods/index.html">http://www.omegahat.org/RSMethods/index.html</a>
+is the primary documentation.
+</p>
+<p>The functions in this package emulate the facility for classes
+and methods described in <em>Programming with Data</em> (John
+M. Chambers, Springer, 1998).  See this book for further details and
+examples.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Methods</code>, <code>setSClass</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+## A simple class with two slots
+setClass("track",
+            representation(x="numeric", y="numeric"))
+## A class extending the previous, adding one more slot
+setClass("trackCurve",
+            representation("track", smooth = "numeric"))
+## A class similar to "trackCurve", but with different structure
+## allowing matrices for the "y" and "smooth" slots
+setClass("trackMultiCurve", representation(x="numeric", y="matrix", smooth="matrix"),
+          prototype = list(x=numeric(), y=matrix(0,0,0), smooth= matrix(0,0,0)))
+##
+## Suppose we want  trackMultiCurve to be like trackCurve when there's only
+## one column
+## First, the wrong way. 
+try(setIs("trackMultiCurve", "trackCurve",
+  test = function(obj) {ncol(slot(obj, "y")) == 1}))
+
+## why didn't that work?  You can only override the slots "x", "y", and "smooth"
+## if you provide an explicit coerce function to correct any inconsistencies:
+
+setIs("trackMultiCurve", "trackCurve",
+  test = function(obj) {ncol(slot(obj, "y")) == 1},
+  coerce = function(obj) { new("trackCurve", x = slot(obj, "x"),
+        y = as.numeric(slot(obj,"y")), smooth = as.numeric(slot(obj, "smooth")))})
+
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.5.1 ]</div>
+</div>
+</body></html>

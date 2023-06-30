@@ -1,0 +1,146 @@
+<!DOCTYPE html><html><head><title>R: Compactly Display the Structure of an Arbitrary R Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/str.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/str.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>str {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='str'>Compactly Display the Structure of an Arbitrary R Object</h2>
+
+<h3>Description</h3>
+
+<p>This is a &ldquo;diagnostic&rdquo; function, and an alternative to
+<code>summary</code> (and to some extent, <code>dput</code>).  Ideally,
+only one line for each &ldquo;basic&rdquo; structure is displayed.  It is especially
+well suited to compactly display the (abbreviated) contents of
+(possibly nested) lists.  The idea is to give reasonable output for
+<b>any</b> <span class="rlang"><b>R</b></span> object.  It calls <code>args</code> for (non-primitive)
+function objects.
+</p>
+<p><code>ls.str</code> and <code>lsf.str</code> are useful &ldquo;versions&rdquo;
+of <code>ls</code>, calling <code>str</code> on each object.  They are not
+foolproof and should rather not be used for programming, but are
+provided for their usefulness.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>str(object, ...)
+str.data.frame(object, ...)
+str.default(object, max.level = 0, vec.len = 4, digits.d = 3,
+    give.attr = TRUE, give.length = TRUE,
+    wid = getOption("width"),
+    nest.lev = 0,
+    indent.str = paste(rep(" ", max(0, nest.lev + 1)), collapse = ".."))
+
+ls.str(name, pattern, mode = "any", max.level = 1, give.attr = FALSE)
+lsf.str(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="str_:_object">object</code></td>
+<td>
+<p>any <span class="rlang"><b>R</b></span> object about which you want to have some
+information.</p>
+</td></tr>
+<tr><td><code id="str_:_max.level">max.level</code></td>
+<td>
+<p>maximal level of nesting which is applied for
+displaying nested structures, e.g., a list containing sub lists.
+Default 0: Display all nesting levels.</p>
+</td></tr>
+<tr><td><code id="str_:_vec.len">vec.len</code></td>
+<td>
+<p>numeric indicating how many &ldquo;first few&rdquo; elements are
+displayed of each vector. The number is multiplied by different
+factors (from .5 to 3) depending on the kind of vector.  Default 4.</p>
+</td></tr>
+<tr><td><code id="str_:_digits.d">digits.d</code></td>
+<td>
+<p>number of digits for numerical components (as for
+<code>print</code>).</p>
+</td></tr>
+<tr><td><code id="str_:_give.attr">give.attr</code></td>
+<td>
+<p>logical; if <code>TRUE</code> (default), show attributes
+as sub structures.</p>
+</td></tr>
+<tr><td><code id="str_:_give.length">give.length</code></td>
+<td>
+<p>logical; if <code>TRUE</code> (default), indicate
+length (as <code>[1:...]</code>).</p>
+</td></tr>
+<tr><td><code id="str_:_wid">wid</code></td>
+<td>
+<p>the page width to be used.  The default is the currently
+active <code>options("width")</code>.</p>
+</td></tr>
+<tr><td><code id="str_:_nest.lev">nest.lev</code></td>
+<td>
+<p>current nesting level in the recursive calls to
+<code>str</code>.</p>
+</td></tr>
+<tr><td><code id="str_:_indent.str">indent.str</code></td>
+<td>
+<p>the indentation string to use.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Nothing, for efficiency reasons.
+The obvious side effect is output to the terminal.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Martin Maechler <a href="mailto:maechler@stat.math.ethz.ch">maechler@stat.math.ethz.ch</a> since 1990.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>summary</code>, <code>args</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## The following examples show some of `str' capabilities
+str(1:12)
+str(ls)
+str(args)#- more useful than  args(args) !
+data(freeny); str(freeny)
+str(str)
+str(.Machine, digits = 20)
+str( lsfit(1:9,1:9))
+str( lsfit(1:9,1:9),  max =1)
+op &lt;- options(); str(op)#- save first; otherwise internal options() is used.
+need.dev &lt;- !exists(".Device") || is.null(.Device)
+if(need.dev) postscript(); str(par()); if(need.dev) graphics.off()
+
+lsf.str()#- how do the functions look like which I am using?
+ls.str(mode = "list")#- what are the structured objects I have defined?
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.0.1 ]</div>
+</div>
+</body></html>

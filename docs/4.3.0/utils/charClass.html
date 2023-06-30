@@ -1,0 +1,156 @@
+<!DOCTYPE html><html><head><title>R: Character Classification</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/charClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/charClass.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>charClass {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='charClass'>Character Classification</h2>
+
+<h3>Description</h3>
+
+<p>An interface to the (C99) wide character classification functions in use.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>charClass(x, class)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="charClass_:_x">x</code></td>
+<td>
+<p><strong>Either</strong> a UTF-8-encoded length-1 character vector
+<strong>or</strong> an integer vector of Unicode points (or a vector
+coercible to integer).</p>
+</td></tr>
+<tr><td><code id="charClass_:_class">class</code></td>
+<td>
+<p>A character string, one of those given in the
+&lsquo;Details&rsquo; section.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The classification into character classes is platform-dependent.  The
+classes are determined by internal tables on Windows and (optionally
+but by default) on macOS and AIX.
+</p>
+<p>The character classes are interpreted as follows:
+</p>
+
+<dl>
+<dt><code>"alnum"</code></dt><dd><p>Alphabetic or numeric.</p>
+</dd>
+<dt><code>"alpha"</code></dt><dd><p>Alphabetic.</p>
+</dd>
+<dt><code>"blank"</code></dt><dd><p>Space or tab.</p>
+</dd>
+<dt><code>"cntrl"</code></dt><dd><p>Control characters.</p>
+</dd>
+<dt><code>"digit"</code></dt><dd><p>Digits <code>0-9</code>.</p>
+</dd>
+<dt><code>"graph"</code></dt><dd><p>Graphical characters (printable characters
+except whitespace).</p>
+</dd>
+<dt><code>"lower"</code></dt><dd><p>Lower-case alphabetic.</p>
+</dd>
+<dt><code>"print"</code></dt><dd><p>Printable characters.</p>
+</dd>
+<dt><code>"punct"</code></dt><dd><p>Punctuation characters.  Some platforms treat all
+non-alphanumeric graphical characters as punctuation.</p>
+</dd>
+<dt><code>"space"</code></dt><dd><p>Whitespace, including tabs, form and line
+feeds and carriage returns.  Some OSes include non-breaking
+spaces, some exclude them.</p>
+</dd>
+<dt><code>"upper"</code></dt><dd><p>Upper-case alphabetic.</p>
+</dd>
+<dt><code>"xdigit"</code></dt><dd><p>Hexadecimal character, one of <code>0-9A-fa-f</code>.</p>
+</dd>
+</dl>
+
+<p>Alphabetic characters contain all lower- and upper-case ones and some
+others (for example, those in &lsquo;title case&rsquo;).
+</p>
+<p>Whether a character is printable is used to decide whether to escape
+it when printing &ndash; see the help for <code>print.default</code>.
+</p>
+<p>If <code>x</code> is a character string it should either be ASCII or declared
+as UTF-8 &ndash; see <code>Encoding</code>.
+</p>
+<p><code>charClass</code> was added in <span class="rlang"><b>R</b></span> 4.1.0.  A less direct way to examine
+character classes which also worked in earlier versions is to use
+something like <code>grepl("[[:print:]]", intToUtf8(x))</code> &ndash; however,
+the regular-expression code might not use the same classification
+functions as printing and on macOS used not to.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A logical vector of the length the number of characters or integers in
+<code>x</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Non-ASCII digits are excluded by the C99 standard from the class
+<code>"digit"</code>: most platforms will have them as alphabetic.
+</p>
+<p>It is an assumption that the system's wide character classification
+functions are coded in Unicode points, but this is known to be true
+for all recent platforms.
+</p>
+<p>The classification may depend on the locale even on one platform.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Character classes are used in regular expressions.
+</p>
+<p>The OS's <code>man</code> pages for <code>iswctype</code> and <code>wctype</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- c(48:70, 32, 0xa0) # Last is non-breaking space
+cl &lt;- c("alnum", "alpha", "blank", "digit", "graph", "punct", "upper", "xdigit")
+X &lt;- lapply(cl, function(y) charClass(x,y)); names(X) &lt;- cl
+X &lt;- as.data.frame(X); row.names(X) &lt;- sQuote(intToUtf8(x, multiple = TRUE))
+X
+
+charClass("ABC123", "alpha")
+## Some accented capital Greek characters
+(x &lt;- "\u0386\u0388\u0389")
+charClass(x, "upper")
+
+## How many printable characters are there? (Around 280,000 in Unicode 13.)
+## There are 2^21-1 possible Unicode points (most not yet assigned).
+pr &lt;- charClass(1:0x1fffff, "print") 
+table(pr)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 4.3.0 ]</div>
+</div>
+</body></html>

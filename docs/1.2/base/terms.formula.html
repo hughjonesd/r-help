@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: A function to construct a terms object from a formula.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/terms.formula.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/terms.formula.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>terms.formula {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='terms.formula'>A function to construct a terms object from a formula. </h2>
+
+<h3>Description</h3>
+
+<p>This function takes a formula and some optional arguments and
+constructs a terms object. The terms object can then be used to
+construct a <code>model.matrix</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>terms.formula(x, specials=NULL, abb=NULL, data=NULL, neg.out=TRUE,
+              keep.order=FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="terms.formula_:_x">x</code></td>
+<td>
+<p>A formula.</p>
+</td></tr>
+<tr><td><code id="terms.formula_:_specials">specials</code></td>
+<td>
+<p>What functions in the formula should be marked as
+special in the terms object.</p>
+</td></tr>
+<tr><td><code id="terms.formula_:_abb">abb</code></td>
+<td>
+<p>Unused in R.</p>
+</td></tr>
+<tr><td><code id="terms.formula_:_data">data</code></td>
+<td>
+<p>A data frame from which the meaning of the special symbol
+<code>.</code> can be inferred. It is unused if there is no <code>.</code> in
+the formula.</p>
+</td></tr>
+<tr><td><code id="terms.formula_:_neg.out">neg.out</code></td>
+<td>
+<p><code>TRUE</code> if terms with a minus, <code>-</code> should be removed.
+If FALSE these are kept in an indicate a negative order (for fractionate?).</p>
+</td></tr>
+<tr><td><code id="terms.formula_:_keep.order">keep.order</code></td>
+<td>
+<p>A logical value indicating whether the terms should
+keep their positions. If FALSE the terms are reordered so that main
+effects come first.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Not all of the options work in the same way that they do in S and not
+all are implemented.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A <code>terms</code> object is returned.
+</p>
+
+
+<h3>See Also</h3>
+
+ <p><code>terms.object</code>,  <code>terms.default</code> </p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2 ]</div>
+</div>
+</body></html>

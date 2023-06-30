@@ -1,0 +1,261 @@
+<!DOCTYPE html><html><head><title>R: Fitting Linear Models</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/lm.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>lm {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='lm'>Fitting Linear Models</h2>
+
+<h3>Description</h3>
+
+<p><code>lm</code> is used to fit linear models.
+It can be used to carry out regression,
+single stratum analysis of variance and
+analysis of covariance (although <code>aov</code> may provide a more
+convenient interface for these).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>lm(formula, data, subset, weights, na.action,
+   method = "qr", model = TRUE, x = FALSE, y = FALSE, qr = TRUE,
+   singular.ok = TRUE, contrasts = NULL, offset = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="lm_:_formula">formula</code></td>
+<td>
+<p>a symbolic description of the model to be fit.
+The details of model specification are given below.</p>
+</td></tr>
+<tr><td><code id="lm_:_data">data</code></td>
+<td>
+<p>an optional data frame containing the variables
+in the model.  By default the variables are taken from
+<code>environment(formula)</code>, typically the environment from which
+<code>lm</code> is called.</p>
+</td></tr>
+<tr><td><code id="lm_:_subset">subset</code></td>
+<td>
+<p>an optional vector specifying a subset of observations
+to be used in the fitting process.</p>
+</td></tr>
+<tr><td><code id="lm_:_weights">weights</code></td>
+<td>
+<p>an optional vector of weights to be used
+in the fitting process. If specified, weighted least squares is used
+with weights <code>weights</code> (that is, minimizing <code>sum(w*e^2)</code>);
+otherwise ordinary least squares is used.</p>
+</td></tr>
+<tr><td><code id="lm_:_na.action">na.action</code></td>
+<td>
+<p>a function which indicates what should happen
+when the data contain <code>NA</code>s.  The default is set by
+the <code>na.action</code> setting of <code>options</code>, and is
+<code>na.fail</code> if that is unset. The &ldquo;factory-fresh&rdquo;
+default is <code>na.omit</code>.</p>
+</td></tr>
+<tr><td><code id="lm_:_method">method</code></td>
+<td>
+<p>the method to be used; for fitting, currently only
+<code>method="qr"</code> is supported; <code>method="model.frame"</code> returns
+the model frame (the same as with <code>model = TRUE</code>, see below).</p>
+</td></tr>
+<tr><td><code id="lm_:_model">model</code>, <code id="lm_:_x">x</code>, <code id="lm_:_y">y</code>, <code id="lm_:_qr">qr</code></td>
+<td>
+<p>logicals.  If <code>TRUE</code> the corresponding
+components of the fit (the model frame, the model matrix, the
+response, the QR decomposition) are returned.</p>
+</td></tr>
+<tr><td><code id="lm_:_singular.ok">singular.ok</code></td>
+<td>
+<p>logical, defaulting to
+<code>TRUE</code>. <em><code>FALSE</code> is not yet implemented</em>.</p>
+</td></tr>
+<tr><td><code id="lm_:_contrasts">contrasts</code></td>
+<td>
+<p>an optional list. See the <code>contrasts.arg</code>
+of <code>model.matrix.default</code>.</p>
+</td></tr>
+<tr><td><code id="lm_:_offset">offset</code></td>
+<td>
+<p>this can be used to specify an <em>a priori</em>
+known component to be included in the linear predictor
+during fitting.  An <code>offset</code> term can be included in the
+formula instead or as well, and if both are specified their sum is used.</p>
+</td></tr>
+<tr><td><code id="lm_:_...">...</code></td>
+<td>
+<p>additional arguments to be passed to the low level
+regression fitting functions (see below).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Models for <code>lm</code> are specified symbolically.  A typical model has
+the form <code>response ~ terms</code> where <code>response</code> is the (numeric)
+response vector and <code>terms</code> is a series of terms which specifies a
+linear predictor for <code>response</code>.  A terms specification of the form
+<code>first + second</code> indicates all the terms in <code>first</code> together
+with all the terms in <code>second</code> with duplicates removed.  A
+specification of the form <code>first:second</code> indicates the set of
+terms obtained by taking the interactions of all terms in <code>first</code>
+with all terms in <code>second</code>.  The specification <code>first*second</code>
+indicates the <em>cross</em> of <code>first</code> and <code>second</code>.  This is
+the same as <code>first + second + first:second</code>.  If <code>response</code> 
+is a matrix a linear model is fitted to each column of the matrix.
+</p>
+<p><code>lm</code> calls the lower level functions <code>lm.fit</code>, etc,
+see below, for the actual numerical computations.  For programming
+only, you may consider doing likewise.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>lm</code> returns an object of <code>class</code> <code>"lm"</code> or for
+multiple responses of class <code>c("mlm", "lm")</code>.
+
+
+</p>
+<p>The functions <code>summary</code> and <code>anova</code> are used to
+obtain and print a summary and analysis of variance table of the
+results.  The generic accessor functions <code>coefficients</code>,
+<code>effects</code>, <code>fitted.values</code> and <code>residuals</code> extract
+various useful features of the value returned by <code>lm</code>.
+</p>
+<p>An object of class <code>"lm"</code> is a list containing at least the
+following components:
+</p>
+<table>
+<tr><td><code>coefficients</code></td>
+<td>
+<p>a named vector of coefficients</p>
+</td></tr>
+<tr><td><code>residuals</code></td>
+<td>
+<p>the residuals, that is response minus fitted values.</p>
+</td></tr>
+<tr><td><code>fitted.values</code></td>
+<td>
+<p>the fitted mean values.</p>
+</td></tr>
+<tr><td><code>rank</code></td>
+<td>
+<p>the numeric rank of the fitted linear model.</p>
+</td></tr>
+<tr><td><code>weights</code></td>
+<td>
+<p>(only for weighted fits) the specified weights.</p>
+</td></tr>
+<tr><td><code>df.residual</code></td>
+<td>
+<p>the residual degrees of freedom.</p>
+</td></tr>
+<tr><td><code>call</code></td>
+<td>
+<p>the matched call.</p>
+</td></tr>
+<tr><td><code>terms</code></td>
+<td>
+<p>the <code>terms</code> object used.</p>
+</td></tr>
+<tr><td><code>contrasts</code></td>
+<td>
+<p>(only where relevant) the contrasts used.</p>
+</td></tr>
+<tr><td><code>xlevels</code></td>
+<td>
+<p>(only where relevant) a record of the levels of the
+factors used in fitting.</p>
+</td></tr>
+<tr><td><code>y</code></td>
+<td>
+<p>if requested, the response used.</p>
+</td></tr>
+<tr><td><code>x</code></td>
+<td>
+<p>if requested, the model matrix used.</p>
+</td></tr>
+<tr><td><code>model</code></td>
+<td>
+<p>if requested (the default), the model frame used.</p>
+</td></tr>
+</table>
+<p>In addition, non-null fits will have components <code>assign</code>,
+<code>effects</code> and (unless not requested) <code>qr</code> relating to the linear
+fit, for use by extractor functions such as <code>summary</code> and
+<code>effects</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Offsets specified by <code>offset</code> will not be included in predictions
+by <code>predict.lm</code>, whereas those specified by an offset term
+in the formula will be.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>summary.lm</code> for summaries and <code>anova.lm</code> for
+the ANOVA table; <code>aov</code> for a different interface.
+</p>
+<p>The generic functions <code>coefficients</code>, <code>effects</code>,
+<code>residuals</code>, <code>fitted.values</code>.
+</p>
+<p><code>predict.lm</code> (via <code>predict</code>) for prediction,
+including confidence and prediction intervals.
+</p>
+<p><code>lm.influence</code> for regression diagnostics, and
+<code>glm</code> for <b>generalized</b> linear models.
+</p>
+<p>The underlying low level functions,
+<code>lm.fit</code> for plain, and <code>lm.wfit</code> for weighted
+regression fitting.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Annette Dobson (1990) "An Introduction to Generalized Linear Models".
+## Page 9: Plant Weight Data.
+ctl &lt;- c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14)
+trt &lt;- c(4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69)
+group &lt;- gl(2,10,20, labels=c("Ctl","Trt"))
+weight &lt;- c(ctl, trt)
+anova(lm.D9 &lt;- lm(weight ~ group))
+summary(lm.D90 &lt;- lm(weight ~ group - 1))# omitting intercept
+summary(resid(lm.D9) - resid(lm.D90)) #- residuals almost identical
+
+opar &lt;- par(mfrow = c(2,2), oma = c(0, 0, 1.1, 0))
+plot(lm.D9, las = 1)      # Residuals, Fitted, ...
+par(opar)
+
+## model frame :
+stopifnot(identical(lm(weight ~ group, method = "model.frame"),
+                    model.frame(lm.D9)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.7.0 ]</div>
+</div>
+</body></html>

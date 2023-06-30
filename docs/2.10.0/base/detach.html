@@ -1,0 +1,149 @@
+<!DOCTYPE html><html><head><title>R: Detach Objects from the Search Path</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/detach.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/detach.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>detach {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='detach'>Detach Objects from the Search Path</h2>
+
+<h3>Description</h3>
+
+<p>Detach a database, i.e., remove it from the <code>search()</code> path
+of available <span class="rlang"><b>R</b></span> objects.  Usually, this is either a <code>data.frame</code>
+which has been <code>attach</code>ed or a package which was required
+previously.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>detach(name, pos = 2, unload = FALSE, character.only = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="detach_:_name">name</code></td>
+<td>
+
+<p>The object to detach.  Defaults to <code>search()[pos]</code>.
+This can be an unquoted name or a character string but <em>not</em> a
+character vector.  If a number is supplied this is taken as <code>pos</code>.
+</p>
+</td></tr>
+<tr><td><code id="detach_:_pos">pos</code></td>
+<td>
+
+<p>Index position in <code>search()</code> of database to
+detach.  When <code>name</code> is a number, <code>pos = name</code>
+is used.
+</p>
+</td></tr>
+<tr><td><code id="detach_:_unload">unload</code></td>
+<td>
+<p>A logical value indicating whether or not to attempt to
+unload the namespace and S4 methods when a package is being
+detached.  If the package has a namespace and <code>unload</code> is
+<code>TRUE</code>, then <code>detach</code> will attempt to unload the
+namespace and remove any S4 methods defined by the package.  If
+the namespace is in use or <code>unload</code> is <code>FALSE</code>, no
+unloading will occur.
+</p>
+</td></tr>
+<tr><td><code id="detach_:_character.only">character.only</code></td>
+<td>
+<p>a logical indicating whether <code>name</code>
+can be assumed to be character strings.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This most commonly used with a single number argument referring to a
+position on the search list, and can also be used with a unquoted or
+quoted name of an item on the search list such as <code>package:tools</code>.
+</p>
+<p>If a package has a namespace, detaching it does not by default unload
+the namespace (and may not even with <code>unload=TRUE</code>), and
+detaching will not in general unload any dynamically loaded compiled
+code (DLLs).  Further, registered S3 methods from the namespace will not be
+removed.  If you use <code>library</code> on a package whose name
+space is loaded, it attaches the exports of the loaded name space.
+So detaching and re-attaching a package may not refresh some
+or all components of the package, and is inadvisable.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The attached database is returned invisibly, either as
+<code>data.frame</code> or as <code>list</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>You cannot detach either the workspace (position 1) or the <span class="pkg">base</span>
+package (the last item in the search list).
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>attach</code>, <code>library</code>, <code>search</code>,
+<code>objects</code>, <code>unloadNamespace</code>,
+<code>library.dynam.unload</code> .
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(splines) # package
+detach(package:splines)
+## or also
+library(splines)
+pkg &lt;- "package:splines"
+
+detach(pkg, character.only = TRUE)
+
+## careful: do not do this unless 'splines' is not already loaded.
+library(splines)
+detach(2) # 'pos' used for 'name'
+
+## an example of the name argument to attach
+## and of detaching a database named by a character vector
+attach_and_detach &lt;- function(db, pos=2)
+{
+   name &lt;- deparse(substitute(db))
+   attach(db, pos=pos, name=name)
+   print(search()[pos])
+   eval(substitute(detach(n), list(n=name)))
+}
+attach_and_detach(women, pos=3)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.10.0 ]</div>
+</div>
+</body></html>

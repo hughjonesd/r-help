@@ -1,0 +1,159 @@
+<!DOCTYPE html><html><head><title>R: Draw Lines in a Grid Viewport</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.lines.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.lines.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.lines {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.lines'>Draw Lines in a Grid Viewport</h2>
+
+<h3>Description</h3>
+
+<p>These functions create and draw a series of lines.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.lines(x = unit(c(0, 1), "npc"),
+          y = unit(c(0, 1), "npc"), 
+          default.units = "npc", 
+          arrow = NULL, name = NULL,
+          gp=gpar(), draw = TRUE, vp = NULL)
+linesGrob(x = unit(c(0, 1), "npc"),
+          y = unit(c(0, 1), "npc"), 
+          default.units = "npc", 
+          arrow = NULL, name = NULL,
+          gp=gpar(), vp = NULL)
+grid.polyline(...)
+polylineGrob(x = unit(c(0, 1), "npc"),
+             y = unit(c(0, 1), "npc"), 
+             id=NULL, id.lengths=NULL,
+             default.units = "npc", 
+             arrow = NULL, name = NULL,
+             gp=gpar(), vp = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.lines_:_x">x</code></td>
+<td>
+<p>A numeric vector or unit object specifying x-values.</p>
+</td></tr>
+<tr><td><code id="grid.lines_:_y">y</code></td>
+<td>
+<p>A numeric vector or unit object specifying y-values.</p>
+</td></tr>
+<tr><td><code id="grid.lines_:_default.units">default.units</code></td>
+<td>
+<p>A string indicating the default units to use
+if <code>x</code> or <code>y</code> are only given as numeric vectors.</p>
+</td></tr>  
+<tr><td><code id="grid.lines_:_arrow">arrow</code></td>
+<td>
+<p>A list describing arrow heads to place at either end
+of the line, as produced by the <code>arrow</code> function.</p>
+</td></tr>
+<tr><td><code id="grid.lines_:_name">name</code></td>
+<td>
+<p> A character identifier. </p>
+</td></tr>
+<tr><td><code id="grid.lines_:_gp">gp</code></td>
+<td>
+<p>An object of class <code>gpar</code>, typically the output
+from a call to the function <code>gpar</code>.  This is basically
+a list of graphical parameter settings.</p>
+</td></tr>
+<tr><td><code id="grid.lines_:_draw">draw</code></td>
+<td>
+<p>A logical value indicating whether graphics output
+should be produced.</p>
+</td></tr>
+<tr><td><code id="grid.lines_:_vp">vp</code></td>
+<td>
+<p>A Grid viewport object (or NULL).</p>
+</td></tr>
+<tr><td><code id="grid.lines_:_id">id</code></td>
+<td>
+<p>A numeric vector used to separate locations in <code>x</code> and
+<code>y</code> into multiple lines.  All locations with the same
+<code>id</code> belong to the same line.</p>
+</td></tr>
+<tr><td><code id="grid.lines_:_id.lengths">id.lengths</code></td>
+<td>
+<p>A numeric vector used to separate locations in <code>x</code> and
+<code>y</code> into multiple lines.  Specifies consecutive blocks of
+locations which make up separate lines.</p>
+</td></tr>
+<tr><td><code id="grid.lines_:_...">...</code></td>
+<td>
+<p>Arguments passed to <code>polylineGrob</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The first two functions create a lines grob (a graphical object describing
+lines), and <code>grid.lines</code>
+draws the lines (if <code>draw</code> is <code>TRUE</code>).
+</p>
+<p>The second two functions create or draw a polyline grob,
+which is just like a lines grob, except that there can be
+multiple distinct lines drawn.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A lines grob or a polyline grob.
+<code>grid.lines</code> returns a lines grob invisibly.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p>Grid,
+<code>viewport</code>,
+<code>arrow</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>grid.lines()
+# Using id (NOTE: locations are not in consecutive blocks)
+grid.newpage()
+grid.polyline(x=c((0:4)/10, rep(.5, 5), (10:6)/10, rep(.5, 5)),
+             y=c(rep(.5, 5), (10:6/10), rep(.5, 5), (0:4)/10),
+             id=rep(1:5, 4),
+             gp=gpar(col=1:5, lwd=3))
+# Using id.lengths
+grid.newpage()
+grid.polyline(x=outer(c(0, .5, 1, .5), 5:1/5),
+             y=outer(c(.5, 1, .5, 0), 5:1/5),
+             id.lengths=rep(4, 5),
+             gp=gpar(col=1:5, lwd=3))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 2.6.2 ]</div>
+</div>
+</body></html>

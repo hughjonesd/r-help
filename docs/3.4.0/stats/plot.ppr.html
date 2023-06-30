@@ -1,0 +1,112 @@
+<!DOCTYPE html><html><head><title>R: Plot Ridge Functions for Projection Pursuit Regression Fit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.ppr.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.ppr.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.ppr {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.ppr'>Plot Ridge Functions for Projection Pursuit Regression Fit</h2>
+
+<h3>Description</h3>
+
+<p>Plot the ridge functions for a projection pursuit regression
+(<code>ppr</code>) fit.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'ppr'
+plot(x, ask, type = "o", cex = 1/2,
+     main = quote(bquote(
+         "term"[.(i)]*":" ~~ hat(beta[.(i)]) == .(bet.i))),
+     xlab = quote(bquote(bold(alpha)[.(i)]^T * bold(x))),
+     ylab = "", ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.ppr_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object of class <code>"ppr"</code> as produced by a call to
+<code>ppr</code>.</p>
+</td></tr>
+<tr><td><code id="plot.ppr_:_ask">ask</code></td>
+<td>
+
+<p>the graphics parameter <code>ask</code>: see <code>par</code> for details.
+If set to <code>TRUE</code> will ask between the plot of each cross-section.
+</p>
+</td></tr>
+<tr><td><code id="plot.ppr_:_type">type</code></td>
+<td>
+<p>the type of line (see <code>plot.default</code>) to draw.</p>
+</td></tr>
+<tr><td><code id="plot.ppr_:_cex">cex</code></td>
+<td>
+<p>plot symbol expansion factor (<em>relative</em> to
+<code>par("cex")</code>).</p>
+</td></tr>
+<tr><td><code id="plot.ppr_:_main">main</code>, <code id="plot.ppr_:_xlab">xlab</code>, <code id="plot.ppr_:_ylab">ylab</code></td>
+<td>
+<p>axis annotations, see also
+<code>title</code>.  Can be an expression (depending on <code>i</code> and
+<code>bet.i</code>), as by default which will be <code>eval()</code>uated.</p>
+</td></tr>
+<tr><td><code id="plot.ppr_:_...">...</code></td>
+<td>
+<p>further graphical parameters, passed to
+<code>plot()</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>None
+</p>
+
+
+<h3>Side Effects</h3>
+
+<p>A series of plots are drawn on the current graphical device, one for
+each term in the fit.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ppr</code>, <code>par</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+rock1 &lt;- within(rock, { area1 &lt;- area/10000; peri1 &lt;- peri/10000 })
+par(mfrow = c(3,2)) # maybe: , pty = "s")
+rock.ppr &lt;- ppr(log(perm) ~ area1 + peri1 + shape,
+                data = rock1, nterms = 2, max.terms = 5)
+plot(rock.ppr, main = "ppr(log(perm)~ ., nterms=2, max.terms=5)")
+plot(update(rock.ppr, bass = 5), main = "update(..., bass = 5)")
+plot(update(rock.ppr, sm.method = "gcv", gcvpen = 2),
+     main = "update(..., sm.method=\"gcv\", gcvpen=2)")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.4.0 ]</div>
+</div>
+</body></html>

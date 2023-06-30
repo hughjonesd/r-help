@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>R: Return a Variable's Value</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.99. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/get.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/get.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>get {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='get'>Return a Variable's Value</h2>
+
+<h3>Description</h3>
+
+<p>Search for an <span class="rlang"><b>R</b></span> object with a given name and return it if found.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>get(x, pos=-1, envir=pos.to.env(pos), mode="any", inherits=TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="get_:_x">x</code></td>
+<td>
+<p>a variable name (given as a quoted string).</p>
+</td></tr>
+<tr><td><code id="get_:_pos">pos</code></td>
+<td>
+<p>position in search list, can be numerical or a quoted
+string.</p>
+</td></tr>
+<tr><td><code id="get_:_envir">envir</code></td>
+<td>
+<p>the environment to be used.</p>
+</td></tr>
+<tr><td><code id="get_:_mode">mode</code></td>
+<td>
+<p>the type of object sought.</p>
+</td></tr>
+<tr><td><code id="get_:_inherits">inherits</code></td>
+<td>
+<p>should the enclosing frames of the environment be
+inspected?</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>This function searches the specified environment for a bound variable
+whose name is given by the string <code>x</code>.  If the variable's value
+is not of the correct <code>mode</code>, it is ignored.
+</p>
+<p>If <code>inherits</code> is <code>FALSE</code>, only the first frame of the
+specified environment is inspected.  If <code>inherits</code> is
+<code>TRUE</code>, the search is continued up through the parent frames
+until a bound value of the right mode is found.
+</p>
+<p>Using a <code>NULL</code> environment is equivalent to using the current
+environment.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>exists</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>get("%o%")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.99 ]</div>
+</div>
+</body></html>

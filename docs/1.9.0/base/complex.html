@@ -1,0 +1,139 @@
+<!DOCTYPE html><html><head><title>R: Complex Vectors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/complex.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/complex.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>complex {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='complex'>Complex Vectors</h2>
+
+<h3>Description</h3>
+
+<p>Basic functions which support complex arithmetic in R.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>complex(length.out = 0, real = numeric(), imaginary = numeric(),
+        modulus = 1, argument = 0)
+as.complex(x, ...)
+is.complex(x)
+
+Re(x)
+Im(x)
+Mod(x)
+Arg(x)
+Conj(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="complex_:_length.out">length.out</code></td>
+<td>
+<p>numeric.  Desired length of the output vector,
+inputs being recycled as needed.</p>
+</td></tr>
+<tr><td><code id="complex_:_real">real</code></td>
+<td>
+<p>numeric vector.</p>
+</td></tr>
+<tr><td><code id="complex_:_imaginary">imaginary</code></td>
+<td>
+<p>numeric vector.</p>
+</td></tr>
+<tr><td><code id="complex_:_modulus">modulus</code></td>
+<td>
+<p>numeric vector.</p>
+</td></tr>
+<tr><td><code id="complex_:_argument">argument</code></td>
+<td>
+<p>numeric vector.</p>
+</td></tr>
+<tr><td><code id="complex_:_x">x</code></td>
+<td>
+<p>an object, probably of mode <code>complex</code>.</p>
+</td></tr>
+<tr><td><code id="complex_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Complex vectors can be created with <code>complex</code>.  The vector can be
+specified either by giving its length, its real and imaginary parts, or
+modulus and argument. (Giving just the length generates a vector of
+complex zeroes.)
+</p>
+<p><code>as.complex</code> attempts to coerce its argument to be of complex
+type: like <code>as.vector</code> it strips attributes including names.
+</p>
+<p>Note that <code>is.complex</code> and <code>is.numeric</code> are never both
+<code>TRUE</code>.
+</p>
+<p>The functions <code>Re</code>, <code>Im</code>, <code>Mod</code>, <code>Arg</code> and
+<code>Conj</code> have their usual interpretation as returning the real
+part, imaginary part, modulus, argument and complex conjugate for
+complex values. Modulus and argument are also called the <em>polar
+coordinates</em>. If <code class="reqn">z = x + i y</code> with real <code class="reqn">x</code> and <code class="reqn">y</code>,
+<code>Mod</code><code class="reqn">(z) = \sqrt{x^2 + y^2}</code>, and for
+<code class="reqn">\phi= Arg(z)</code>, <code class="reqn">x = \cos(\phi)</code> and <code class="reqn">y = \sin(\phi)</code>.
+They are all generic functions: methods can be defined
+for them individually or via the <code>Complex</code> group generic.
+</p>
+<p>In addition, the elementary trigonometric, logarithmic and exponential
+functions are available for complex values.
+</p>
+<p><code>is.complex</code> is generic: you can write methods to handle
+specific classes of objects, see InternalMethods.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>0i ^ (-3:3)
+
+matrix(1i^ (-6:5), nr=4)#- all columns are the same
+0 ^ 1i # a complex NaN
+
+## create a complex normal vector
+z &lt;- complex(real = rnorm(100), imag = rnorm(100))
+## or also (less efficiently):
+z2 &lt;- 1:2 + 1i*(8:9)
+
+## The Arg(.) is an angle:
+zz &lt;- (rep(1:4,len=9) + 1i*(9:1))/10
+zz.shift &lt;- complex(modulus = Mod(zz), argument= Arg(zz) + pi)
+plot(zz, xlim=c(-1,1), ylim=c(-1,1), col="red", asp = 1,
+     main = expression(paste("Rotation by "," ", pi == 180^o)))
+abline(h=0,v=0, col="blue", lty=3)
+points(zz.shift, col="orange")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.0 ]</div>
+</div>
+</body></html>

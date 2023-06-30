@@ -1,0 +1,175 @@
+<!DOCTYPE html><html><head><title>R: JPEG and PNG graphics devices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/png.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/png.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>png {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='png'>JPEG and PNG graphics devices</h2>
+
+<h3>Description</h3>
+
+<p>A graphics device for JPEG or PNG format bitmap files.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>jpeg(filename = "Rplot%03d.jpeg", width = 480, height = 480,
+     pointsize = 12, quality = 75, bg = "white", res = NA, ...)
+
+png(filename = "Rplot%03d.png", width = 480, height = 480,
+    pointsize = 12, bg = "white",  res = NA,...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="png_:_filename">filename</code></td>
+<td>
+<p>the name of the output file.
+The page number is substituted if a C integer format is included in
+the character string, as in the default.  (The result must be less
+than <code>PATH_MAX</code> characters long, and may be truncated if not.
+See <code>postscript</code> for further details.)  Tilde expansion
+is performed where supported by the platform.</p>
+</td></tr>
+<tr><td><code id="png_:_width">width</code></td>
+<td>
+<p>the width of the device in pixels.</p>
+</td></tr>
+<tr><td><code id="png_:_height">height</code></td>
+<td>
+<p>the height of the device in pixels.</p>
+</td></tr>
+<tr><td><code id="png_:_pointsize">pointsize</code></td>
+<td>
+<p>the default pointsize of plotted text.</p>
+</td></tr>
+<tr><td><code id="png_:_quality">quality</code></td>
+<td>
+<p>the &lsquo;quality&rsquo; of the JPEG image, as a
+percentage.  Smaller values will give more compression but also more
+degradation of the image.</p>
+</td></tr>
+<tr><td><code id="png_:_bg">bg</code></td>
+<td>
+<p>default background colour.</p>
+</td></tr>
+<tr><td><code id="png_:_res">res</code></td>
+<td>
+<p>The nominal resolution in dpi which will be recorded in the
+bitmap file, if a positive integer.</p>
+</td></tr>
+<tr><td><code id="png_:_...">...</code></td>
+<td>
+<p>additional arguments to the <code>X11</code> device.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Plots in PNG and JPEG format can easily be converted to many other
+bitmap formats, and both can be displayed in modern web
+browsers.  The PNG format is lossless and is best for line
+diagrams and blocks of solid colour.  The JPEG format is lossy,
+but may be useful for image plots, for example.
+</p>
+<p><code>png</code> supports transparent backgrounds: use <code>bg = "transparent"</code>.
+Not all PNG viewers render files with transparency correctly.
+When transparency is in use a very light grey is used as the
+background and so will appear as transparent if used in the plot.
+This allows opaque white to be used, as on the example.
+</p>
+<p><span class="rlang"><b>R</b></span> can be compiled without support for either or both of these
+devices: this will be reported if you attempt to use them on a system
+where they are not supported.  They may not be usable unless the X11
+display is available to the owner of the <span class="rlang"><b>R</b></span> process.
+</p>
+<p>By default no resolution is recorded in the file.  Readers will often
+assume nominal resolution of 72dpi when none is recorded.  As
+resolutions in PNG files are recorded in pixels/metre, the dpi value
+will be changed slightly.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A plot device is opened: nothing is returned to the <span class="rlang"><b>R</b></span> interpreter.
+</p>
+
+
+<h3>Warnings</h3>
+
+<p>Note that the <code>width</code> and <code>height</code> are in pixels not inches.
+A warning will be issued if both are less than 20.
+</p>
+<p>If you plot more than one page on one of these devices and do not
+include something like <code>%d</code> for the sequence number in
+<code>file</code>, the file will contain the last page plotted.
+</p>
+
+
+<h3>Note</h3>
+
+<p>These are based on the <code>X11</code> device, so the additional
+arguments to that device work, but are rarely appropriate.  The
+colour handling will be that of the <code>X11</code> device in use.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Guido Masarotto and Brian Ripley</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Devices</code>, <code>dev.print</code>
+</p>
+<p><code>capabilities</code> to see if these devices are
+supported by this build of <span class="rlang"><b>R</b></span>.
+</p>
+<p><code>bitmap</code> provides an alternative way to generate PNG and
+JPEG plots that does not depend on accessing the X11 display but does
+depend on having GhostScript installed.  (Device <code>GDD</code> in
+<span class="pkg">GDD</span> is another alternative using several other additional pieces
+of software.)
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## these examples will work only if the devices are available
+## and the X11 display is available.
+
+## copy current plot to a PNG file
+## Not run: dev.print(png, file="myplot.png", width=480, height=480)
+
+png(file="myplot.png", bg="transparent")
+plot(1:10)
+rect(1, 5, 3, 7, col="white")
+dev.off()
+
+jpeg(file="myplot.jpeg")
+example(rect)
+dev.off()
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 2.3.1 ]</div>
+</div>
+</body></html>

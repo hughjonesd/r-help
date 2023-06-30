@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><title>R: BMP, JPEG and PNG graphics devices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/png.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/png.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>png {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='png'>BMP, JPEG and PNG graphics devices</h2>
+
+<h3>Description</h3>
+
+<p>A graphics device for BMP, JPEG or PNG format bitmap files.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>bmp(filename="Rplot.bmp", width=480, height=480, pointsize=12,
+    bg="white")
+jpeg(filename="Rplot.jpg", width=480, height=480, pointsize=12,
+     quality=75, bg="white")
+png(filename="Rplot.png", width=480, height=480, pointsize=12,
+    bg="white")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="png_:_filename">filename</code></td>
+<td>
+<p>the name of the output file.</p>
+</td></tr>
+<tr><td><code id="png_:_width">width</code></td>
+<td>
+<p>the width of the device in pixels.</p>
+</td></tr>
+<tr><td><code id="png_:_height">height</code></td>
+<td>
+<p>the height of the device in pixels.</p>
+</td></tr>
+<tr><td><code id="png_:_pointsize">pointsize</code></td>
+<td>
+<p>the default pointsize of plotted text, intepreted at
+72 dpi, so one point is approximately one pixel.</p>
+</td></tr>
+<tr><td><code id="png_:_bg">bg</code></td>
+<td>
+<p>the initial background colour: can be overridden by setting
+par(&quot;bg&quot;).</p>
+</td></tr> 
+<tr><td><code id="png_:_quality">quality</code></td>
+<td>
+<p>the &lsquo;quality&rsquo; of the JPEG image, as a
+percentage. Smaller values will give more compression but also more
+degradation of the image.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Plots in PNG and JPEG format can easily be converted to many other
+bitmap formats, and both can be displayed in most modern web
+browsers. The PNG format is lossless and is best for line
+diagrams and blocks of solid colour. The JPEG format is lossy,
+but may be useful for image plots, for example. The BMP format is
+standard on Windows, and supported elsewhere.
+</p>
+<p><code>png</code> supports transparent backgrounds on 16-bit (&lsquo;High Color&rsquo;) or
+better screens: use <code>bg="transparent"</code>.
+Not all PNG viewers render files with transparency correctly.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A plot device is opened: nothing is returned to the <span class="rlang"><b>R</b></span> interpreter.
+</p>
+
+
+<h3>Note</h3>
+
+<p>These devices effectively plot on a hidden screen and then copy the
+image to the required format.  This means that they have the same
+colour handling as the actual screen device, and work best if that is
+set to a 24-bit or 32-bit colour mode.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Guido Masarotto and Brian Ripley</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Devices</code>, <code>dev.print</code>,
+<code>bitmap</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## copy current plot to a (large) PNG file
+## Not run: dev.print(png, file="myplot.png", width=1024, height=768)
+
+png(file="myplot.png", bg="transparent")
+plot(1:10)
+rect(1, 5, 3, 7, col="white")
+dev.off()
+
+jpeg(file="myplot.jpeg")
+example(rect)
+dev.off()
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.1 ]</div>
+</div>
+</body></html>

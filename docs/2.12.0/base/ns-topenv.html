@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>R: Top Level Environment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-topenv.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-topenv.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ns-topenv {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ns-topenv'>Top Level Environment</h2>
+
+<h3>Description</h3>
+
+<p>Finding the top level environment.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>topenv(envir = parent.frame(),
+       matchThisEnv = getOption("topLevelEnvironment"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="ns-topenv_:_envir">envir</code></td>
+<td>
+<p>environment.</p>
+</td></tr>
+<tr><td><code id="ns-topenv_:_matchThisEnv">matchThisEnv</code></td>
+<td>
+<p>return this environment, if it matches before
+any other criterion is satisfied.  The default, the option
+&lsquo;<span class="samp">&#8288;topLevelEnvironment&#8288;</span>&rsquo;, is set by <code>sys.source</code>,
+which treats a specific environment as the top level environment.
+Supplying the argument as <code>NULL</code> means it will never match.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>topenv</code> returns the first top level environment found when
+searching <code>envir</code> and its parent environments.  An environment is
+considered top level if it is the internal environment of a name space,
+a package environment in the search path, or <code>.GlobalEnv</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>topenv(.GlobalEnv)
+topenv(new.env())
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.12.0 ]</div>
+</div>
+</body></html>

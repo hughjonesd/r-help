@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><title>R: Adjust for Missing Values</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nafns.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nafns.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>naresid {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='naresid'>
+Adjust for Missing Values
+</h2>
+
+<h3>Description</h3>
+
+<p>Use missing value information to adjust residuals and predictions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>naresid(omit, x, ...)
+napredict(omit, x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="naresid_:_omit">omit</code></td>
+<td>
+<p>an object produced by an <code>na.action</code> function,
+typically the <code>"na.action"</code> attribute of the result of
+<code>na.omit</code> or <code>na.exclude</code>.</p>
+</td></tr>
+<tr><td><code id="naresid_:_x">x</code></td>
+<td>
+<p>a vector, data frame, or matrix to be adjusted based upon the
+missing value information.</p>
+</td></tr>
+<tr><td><code id="naresid_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These are utility functions used to allow <code>predict</code>,
+<code>fitted</code> and <code>residuals</code> methods for modelling
+functions to compensate for the removal of <code>NA</code>s in the fitting
+process.  They are used by the default, <code>"lm"</code>, <code>"glm"</code> and
+<code>"nls"</code> methods, and by further methods in packages <a href="https://CRAN.R-project.org/package=MASS"><span class="pkg">MASS</span></a>,
+<a href="https://CRAN.R-project.org/package=rpart"><span class="pkg">rpart</span></a> and <a href="https://CRAN.R-project.org/package=survival"><span class="pkg">survival</span></a>.  Also used for the scores returned by
+<code>factanal</code>, <code>prcomp</code> and <code>princomp</code>.
+</p>
+<p>The default methods do nothing.  The default method for the <code>na.exclude</code>
+action is to pad the object with <code>NA</code>s in the correct positions to
+have the same number of rows as the original data frame.
+</p>
+<p>Currently <code>naresid</code> and <code>napredict</code> are identical, but
+future methods need not be.  <code>naresid</code> is used for residuals, and
+<code>napredict</code> for fitted values, predictions and <code>weights</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>These return a similar object to <code>x</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>In the early 2000s, packages <a href="https://CRAN.R-project.org/package=rpart"><span class="pkg">rpart</span></a> and <span class="pkg">survival5</span> contained
+versions of these functions that had an <code>na.omit</code> action
+equivalent to that now used for <code>na.exclude</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 4.2.3 ]</div>
+</div>
+</body></html>

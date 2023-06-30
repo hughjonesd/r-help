@@ -1,0 +1,221 @@
+<!DOCTYPE html><html><head><title>R: Apply a Function over a List or Vector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/lapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/lapply.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>lapply {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='lapply'>Apply a Function over a List or Vector</h2>
+
+<h3>Description</h3>
+
+<p><code>lapply</code> returns a list of the same length as <code>X</code>, each
+element of which is the result of applying <code>FUN</code> to the
+corresponding element of <code>X</code>.
+</p>
+<p><code>sapply</code> is a user-friendly version of <code>lapply</code>
+by default returning a vector or matrix if appropriate.
+</p>
+<p><code>vapply</code> is similar to <code>sapply</code>, but has a pre-specified
+type of return value, so it can be safer (and sometimes faster) to
+use.
+</p>
+<p><code>replicate</code> is a wrapper for the common use of <code>sapply</code> for
+repeated evaluation of an expression (which will usually involve
+random number generation).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>lapply(X, FUN, ...)
+
+sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)
+
+vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)
+
+replicate(n, expr, simplify = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="lapply_:_X">X</code></td>
+<td>
+<p>a vector (atomic or list) or an expressions vector.  Other
+objects (including classed objects) will be coerced by
+<code>as.list</code>.</p>
+</td></tr>
+<tr><td><code id="lapply_:_FUN">FUN</code></td>
+<td>
+<p>the function to be applied to each element of <code>X</code>:
+see &lsquo;Details&rsquo;.  In the case of functions like
+<code>+</code>, <code>%*%</code>, etc.,
+the function name must be backquoted or quoted.</p>
+</td></tr>
+<tr><td><code id="lapply_:_...">...</code></td>
+<td>
+<p>optional arguments to <code>FUN</code>.</p>
+</td></tr>
+<tr><td><code id="lapply_:_simplify">simplify</code></td>
+<td>
+<p>logical; should the result be simplified to a vector
+or matrix if possible?</p>
+</td></tr>
+<tr><td><code id="lapply_:_USE.NAMES">USE.NAMES</code></td>
+<td>
+<p>logical; if <code>TRUE</code> and if <code>X</code> is character,
+use <code>X</code> as <code>names</code> for the result unless it had names
+already.</p>
+</td></tr>
+<tr><td><code id="lapply_:_FUN.VALUE">FUN.VALUE</code></td>
+<td>
+<p>a vector; a template for the return value from FUN.</p>
+</td></tr>
+<tr><td><code id="lapply_:_n">n</code></td>
+<td>
+<p>number of replications.</p>
+</td></tr>
+<tr><td><code id="lapply_:_expr">expr</code></td>
+<td>
+<p>expression (language object, usually a call)
+to evaluate repeatedly.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>FUN</code> is found by a call to <code>match.fun</code> and typically
+is specified as a function or a symbol (e.g. a backquoted name) or a
+character string specifying a function to be searched for from the
+environment of the call to <code>lapply</code>.
+</p>
+<p>Function <code>FUN</code> must be able to accept as input any of the
+elements of <code>X</code>.  If the latter is an atomic vector, <code>FUN</code>
+will always be passed a length-one vector of the same type as <code>X</code>.
+</p>
+<p>Simplification in <code>sapply</code> is only attempted if <code>X</code> has
+length greater than zero and if the return values from all elements
+of <code>X</code> are all of the same (positive) length.  If the common
+length is one the result is a vector, and if greater than one is a
+matrix with a column corresponding to each element of <code>X</code>.
+</p>
+<p>Simplification is always done in <code>vapply</code>.  This function
+checks that all values of <code>FUN</code> are compatible with the
+<code>FUN.VALUE</code>, in that they must have the same length and type.
+(Types may be promoted to a higher type within the ordering logical
+&lt; integer &lt; real &lt; complex, but not demoted.)
+</p>
+<p>Users of S4 classes should pass a list to <code>lapply</code>: the internal
+coercion is done by the system <code>as.list</code> in the base namespace
+and not one defined by a user (e.g. by setting S4 methods on the
+system function).
+</p>
+<p><code>lapply</code> and <code>vapply</code> are primitive functions.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>lapply</code> and <code>sapply(simplify=FALSE)</code>, a list.
+</p>
+<p>For <code>sapply(simplify=TRUE)</code> and <code>replicate</code>: if <code>X</code> has
+length zero or <code>n = 0</code>, an empty list.  Otherwise an atomic
+vector or matrix or list of the same length as <code>X</code> (of length
+<code>n</code> for <code>replicate</code>).  If simplification occurs, the output
+type is determined from the highest type of the return values in the
+hierarchy NULL &lt; raw &lt; logical &lt; integer &lt; real &lt; complex &lt; character
+&lt; list &lt; expression, after coercion of pairlists to lists.
+</p>
+<p><code>vapply</code> returns a vector or matrix of type matching the
+<code>FUN.VALUE</code>. If <code>length(FUN.VALUE) != 1</code> a matrix will be returned
+with <code>length(FUN.VALUE)</code> rows and <code>length(X)</code> columns, otherwise
+a vector of the same length as <code>X</code>. 
+Names of rows in the matrix value are taken from the <code>FUN.VALUE</code>
+if it is named, otherwise from the result of the first function call.
+Column names of the matrix value or names of the vector value are set from
+<code>X</code> as in <code>sapply</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>sapply(*, simplify = FALSE, USE.NAMES = FALSE)</code> is
+equivalent to <code>lapply(*)</code>.
+</p>
+<p>For historical reasons, the calls created by <code>lapply</code> are
+unevaluated, and code has been written (e.g. <code>bquote</code>) that
+relies on this.  This means that the recorded call is always of the
+form <code>FUN(X[[0L]], ...)</code>, with <code>0L</code> replaced by the current
+integer index.  This is not normally a problem, but it can be if
+<code>FUN</code> uses <code>sys.call</code> or <code>match.call</code> or
+if it is a primitive function that makes use of the call.  This means
+that it is often safer to call primitive functions with a wrapper, so
+that e.g. <code>lapply(ll, function(x) is.numeric(x))</code> is required in
+<span class="rlang"><b>R</b></span> 2.7.1 to ensure that method dispatch for <code>is.numeric</code> occurs
+correctly.
+</p>
+<p>If <code>expr</code> is a function call, be aware of assumptions about where
+it is evaluated, and in particular what <code>...</code> might refer to.
+You can pass additional named arguments to a function call as
+additional named arguments to <code>replicate</code>: see &lsquo;Examples&rsquo;.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>apply</code>, <code>tapply</code>,
+<code>mapply</code> for applying a function to <b>m</b>ultiple
+arguments, and <code>rapply</code> for a <b>r</b>ecursive version of
+<code>lapply()</code>, <code>eapply</code> for applying a function to each
+entry in an <code>environment</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(stats); require(graphics)
+
+x &lt;- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+# compute the list mean for each list element
+lapply(x,mean)
+# median and quartiles for each list element
+lapply(x, quantile, probs = 1:3/4)
+sapply(x, quantile)
+i39 &lt;- sapply(3:9, seq) # list of vectors
+sapply(i39, fivenum)
+vapply(i39, fivenum, c(Min.=0, "1st Qu."=0, Median=0, "3rd Qu."=0, Max.=0))
+
+hist(replicate(100, mean(rexp(10))))
+
+## use of replicate() with parameters:
+foo &lt;- function(x=1, y=2) c(x,y)
+# does not work: bar &lt;- function(n, ...) replicate(n, foo(...))
+bar &lt;- function(n, x) replicate(n, foo(x=x))
+bar(5, x=3)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.11.1 ]</div>
+</div>
+</body></html>

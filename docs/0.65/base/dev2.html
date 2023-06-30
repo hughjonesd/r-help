@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><title>R: Copy Graphics Between Multiple Devices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dev2.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dev2.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dev2 {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dev2'>Copy Graphics Between Multiple Devices</h2>
+
+<h3>Description</h3>
+
+<p><code>dev.copy</code> copies the graphics contents of the current device
+to the device specified by <code>which</code> or to a new device which has
+been created by the function specified by <code>device</code> (it is an
+error to specify both <code>which</code> and <code>device</code>).
+</p>
+<p><code>dev.print</code> copies the graphics contents of the current device
+to a new device which has been created by the function specified by
+<code>device</code> and then shuts the new device.  This is most useful
+for producing a postscript copy from an on-screen device.
+</p>
+<p><code>dev.control</code> allows the user to control the recording of
+graphics operations in a device.  If <code>displaylist</code> is &quot;inhibit&quot;
+then recording is turned off.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dev.copy(device, ..., which=dev.next())
+dev.print(device=postscript, ...)
+dev.control(displaylist)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dev2_:_device">device</code></td>
+<td>
+<p>A device function (e.g., <code>x11</code>,
+<code>postscript</code>, ...)</p>
+</td></tr>
+<tr><td><code id="dev2_:_...">...</code></td>
+<td>
+<p>Arguments to the <code>device</code> function above.
+For <code>dev.print</code>, this includes <code>which</code> and by default any
+<code>postscript</code> arguments.</p>
+</td></tr>
+<tr><td><code id="dev2_:_which">which</code></td>
+<td>
+<p>A device number specifying the device to copy to</p>
+</td></tr>
+<tr><td><code id="dev2_:_displaylist">displaylist</code></td>
+<td>
+<p>A character string</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>dev.copy</code> returns the name and number of the device which has
+been copied to.
+</p>
+<p><code>dev.print</code> returns the name and number of the device which has
+been copied from.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Every device has a display list which records all of the graphics
+operations that occur in the device.  <code>dev.copy</code> and
+<code>dev.print</code> copy graphics contents by copying the display list
+from one device to another device.  Also, automatic redrawing of
+graphics contents following the resizing of a device depends on the
+contents of the display list.
+</p>
+<p>After the command <code>dev.control("inhibit")</code>, graphics operations
+are not recorded in the display list so that <code>dev.copy</code> and
+<code>dev.print</code> will not copy anything and the contents of a device
+will not be redrawn automatically if the device is resized.
+</p>
+<p>The recording of graphics operations is relatively expensive in
+terms of memory so the command <code>dev.control("inhibit")</code> can be
+useful if memory usage is an issue.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dev.cur</code> and other <code>dev.xxx</code> functions
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+x11()
+plot(rnorm(10), main="Plot 1")
+dev.copy(device=x11)
+mtext("Copy 1", 3)
+dev.print(width=6, height=6, horizontal=FALSE)
+dev.off(dev.prev())
+dev.off()
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65 ]</div>
+</div>
+</body></html>

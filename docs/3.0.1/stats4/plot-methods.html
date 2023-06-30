@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Methods for Function 'plot' in Package 'stats4'</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/plot-methods.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/plot-methods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot-methods {stats4}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot-methods'>Methods for Function <code>plot</code> in Package <span class="pkg">stats4</span></h2>
+
+<h3>Description</h3>
+
+<p>Plot profile likelihoods for <code>"mle"</code> objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S4 method for signature 'profile.mle,missing'
+plot(x, levels, conf = c(99, 95, 90, 80, 50)/100, nseg = 50,
+     absVal = TRUE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot-methods_:_x">x</code></td>
+<td>
+<p>an object of class <code>"profile.mle"</code> </p>
+</td></tr>
+<tr><td><code id="plot-methods_:_levels">levels</code></td>
+<td>
+<p>levels, on the scale of the absolute value of a t
+statistic, at which to interpolate intervals.  Usually <code>conf</code>
+is used instead of giving <code>levels</code> explicitly.</p>
+</td></tr>
+<tr><td><code id="plot-methods_:_conf">conf</code></td>
+<td>
+<p>a numeric vector of confidence levels for profile-based
+confidence intervals on the parameters.</p>
+</td></tr>
+<tr><td><code id="plot-methods_:_nseg">nseg</code></td>
+<td>
+<p>an integer value giving the number of segments to use in
+the spline interpolation of the profile t curves.</p>
+</td></tr>
+<tr><td><code id="plot-methods_:_absVal">absVal</code></td>
+<td>
+<p>a logical value indicating whether or not the plots
+should be on the scale of the absolute value of the profile t.
+Defaults to <code>TRUE</code>.</p>
+</td></tr>
+<tr><td><code id="plot-methods_:_...">...</code></td>
+<td>
+<p>other arguments to the <code>plot</code> function can be passed here.</p>
+</td></tr>
+</table>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt><code>signature(x = "ANY", y = "ANY")</code></dt><dd><p>Generic function: see
+<code>plot</code>.</p>
+</dd>
+<dt><code>signature(x = "profile.mle", y = "missing")</code></dt><dd><p>Plot
+likelihood profiles for <code>x</code>.</p>
+</dd>
+</dl>
+
+
+<hr /><div style="text-align: center;">[Package <em>stats4</em> version 3.0.1 ]</div>
+</div>
+</body></html>

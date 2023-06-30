@@ -1,0 +1,258 @@
+<!DOCTYPE html><html><head><title>R: Create and Save a Method</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setMethod.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setMethod.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>setMethod {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='setMethod'> Create and Save a Method </h2>
+
+<h3>Description</h3>
+
+<p>Create and save a formal method for a given function and list of classes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>setMethod(f, signature=character(), definition,
+          where = topenv(parent.frame()),
+          valueClass = NULL, sealed = FALSE)
+
+removeMethod(f, signature, where)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="setMethod_:_f">f</code></td>
+<td>
+<p> A generic function or the character-string name of the function. </p>
+</td></tr>
+<tr><td><code id="setMethod_:_signature">signature</code></td>
+<td>
+<p> A match of formal argument names for <code>f</code> with
+the character-string names of corresponding classes.  This
+argument can also just be the vector of class names, in which case
+the first name corresponds to the first formal argument, the
+next to the second formal argument, etc.</p>
+</td></tr>
+<tr><td><code id="setMethod_:_definition">definition</code></td>
+<td>
+<p> A function definition, which will become the method
+called when the arguments in a call to <code>f</code> match the
+classes in <code>signature</code>, directly or through inheritance. </p>
+</td></tr>
+<tr><td><code id="setMethod_:_where">where</code></td>
+<td>
+<p>the database in which to store the definition of the
+method; 
+</p>
+<p>For <code>removeMethod</code>, the default is the location of the (first)
+instance of the method for this signature.</p>
+</td></tr>
+<tr><td><code id="setMethod_:_valueClass">valueClass</code></td>
+<td>
+<p> If supplied, this argument asserts that the
+method will return a value of this class.  (At present this
+argument is stored but not explicitly used.) </p>
+</td></tr>
+<tr><td><code id="setMethod_:_sealed">sealed</code></td>
+<td>
+<p> If <code>TRUE</code>, the method so defined cannot be
+redefined by another call to <code>setMethod</code> (although it can
+be removed and then re-assigned).  Note that this argument is an
+extension to the definition of <code>setMethod</code> in the reference.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>R methods for a particular generic function are stored in an object
+of class <code>MethodsList</code>.  The effect of calling
+<code>setMethod</code> is to store <code>definition</code>  in a <code>MethodsList</code>
+object on database <code>where</code>.   If <code>f</code> doesn't
+exist as a generic function, but there is an ordinary function of
+the same name and the same formal arguments, a new generic function
+is created, and the previous non-generic version of <code>f</code> becomes
+the default method.  This is equivalent to the programmer calling
+<code>setGeneric</code> for the same function; it's better practice
+to do the call explicitly, since it shows that you intend to turn
+<code>f</code> into a generic function.
+</p>
+<p>Methods are stored in a hierarchical structure:  see
+Methods for how the objects are used to select a method, and
+<code>MethodsList</code> for functions that manipulate the objects.
+</p>
+<p>The class
+names in the signature can be any formal class, plus predefined basic
+classes such as <code>"numeric"</code>, <code>"character"</code>, and
+<code>"matrix"</code>.  Two additional special class names can appear:
+<code>"ANY"</code>, meaning that this argument can have any class at all;
+and <code>"missing"</code>, meaning that this argument <em>must not</em>
+appear in the call in order to match this signature.  Don't confuse
+these two:  if an argument isn't mentioned in a signature, it
+corresponds implicitly to class <code>"ANY"</code>, not to
+<code>"missing"</code>.  See the example below.  Old-style (&ldquo;S3&rdquo;)
+classes can also be used, if you need compatibility with these, but
+you should definitely declare these classes by calling
+<code>setOldClass</code> if you want S3-style inheritance to work.
+</p>
+<p>While <code>f</code> can correspond to methods defined on several packages
+or environments, the underlying model is that these together make up
+the definition for a single generic function.  When R proceeds to
+select and evaluate methods for <code>f</code>, the methods on the current
+search list are merged to form a single generic function and
+associated methods list.  When <code>f</code>
+is called and a method is &ldquo;dispatched&rdquo;, the evaluator matches the
+classes of the actual arguments to the signatures of the available
+methods.  When a match is found, the body of the corresponding
+method is evaluated, but without rematching the arguments to
+<code>f</code>.   Aside from not rematching the arguments, the computation
+proceeds as if the call had been to the method.  In particular, the
+lexical scope of the method is used.
+</p>
+<p>Method definitions can
+have default expressions for arguments.  If those arguments are then
+missing in the call to the generic function, the default expression
+in the method is used.  If the method definition has no default for
+the argument, then the expression (if any) supplied in the definition of the
+generic function itself is used.  But note that this expression will
+be evaluated in the environment defined by the method.
+</p>
+<p>It is possible to have some differences between the
+formal arguments to a method supplied to <code>setMethod</code> and those
+of the generic. Roughly, if the generic has ... as one of its
+arguments, then the method may have extra formal arguments, which
+will be matched from the arguments matching ... in the call to
+<code>f</code>.  (What actually happens is that a local function is
+created inside the method, with its formal arguments, and the method
+is re-defined to call that local function.)
+</p>
+<p>Method dispatch tries to match the class of the actual arguments in a
+call to the available methods collected for <code>f</code>.  Roughly, for
+each formal argument in turn, we look for the best match (the exact
+same class or the nearest element in the value of
+<code>extends</code> for that class) for which there is any
+possible method matching the remaining arguments.  See
+Methods for more details.
+</p>
+
+
+<h3>Value</h3>
+
+<p>These functions exist for their side-effect, in setting or removing a
+method in the object defining methods for the specified generic.
+</p>
+<p>The value returned by <code>removeMethod</code> is <code>TRUE</code> if a method
+was found to be removed.
+</p>
+
+
+<h3>References</h3>
+
+<p>The R package <span class="pkg">methods</span> implements, with a few exceptions, the
+programming interface for classes and methods in the book
+<em>Programming with Data</em> (John M. Chambers, Springer, 1998), in
+particular sections 1.6, 2.7, 2.8, and chapters 7 and 8.
+</p>
+<p>While the programming interface for the <span class="pkg">methods</span> package follows
+the reference, the R software is an original implementation, so
+details in the reference that reflect the S4 implementation may appear
+differently in R.  Also, there are extensions to the programming
+interface developed more recently than the reference.  For a
+discussion of details and ongoing development, see <code>?Methods</code> and the
+pointers from that documentation..
+</p>
+
+
+<h3>See Also</h3>
+
+ <p>method.skeleton, which is the recommended way to generate a skeleton of the call to <code>setMethod</code>, with the correct formal arguments and other details.
+</p>
+<p>Methods, <code>MethodsList</code> for details of the
+implementation</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+
+## methods for plotting track objects (see the example for \link{setClass})
+##
+## First, with only one object as argument:
+setMethod("plot", signature(x="track", y="missing"),
+  function(x,  y, ...) plot(slot(x, "x"), slot(x, "y"), ...)
+)
+## Second, plot the data from the track on the y-axis against anything
+## as the x data.
+setMethod("plot", signature(y = "track"),
+ function(x, y, ...) plot(x, slot(y, "y"), ...)
+)
+## and similarly with the track on the x-axis (using the short form of
+## specification for signatures)
+setMethod("plot", "track",
+ function(x, y, ...) plot(slot(x, "y"), y,  ...)
+)
+t1 &lt;- new("track", x=1:20, y=(1:20)^2)
+tc1 &lt;- new("trackCurve", t1)
+slot(tc1, "smooth") &lt;- smooth.spline(slot(tc1, "x"), slot(tc1, "y"))$y #$
+plot(t1)
+plot(qnorm(ppoints(20)), t1)
+## An example of inherited methods, and of conforming method arguments
+## (note the dotCurve argument in the method, which will be pulled out
+## of ... in the generic.
+setMethod("plot", c("trackCurve", "missing"),
+function(x, y, dotCurve = FALSE, ...) {
+  plot(as(x, "track"))
+  if(length(slot(x, "smooth") &gt; 0))
+    lines(slot(x, "x"), slot(x, "smooth"),
+         lty = if(dotCurve) 2 else 1)
+  }
+)
+## the plot of tc1 alone has an added curve; other uses of tc1
+## are treated as if it were a "track" object.
+plot(tc1, dotCurve = TRUE)
+plot(qnorm(ppoints(20)), tc1)
+
+## defining methods for a special function.
+## Although "[" and "length" are not ordinary functions
+## methods can be defined for them.
+setMethod("[", "track",
+  function(x, i, j, ..., drop) {
+    x@x &lt;- x@x[i]; x@y &lt;- x@y[i]
+    x
+  })
+plot(t1[1:15])
+
+setMethod("length", "track", function(x)length(x@y))
+length(t1)
+
+## methods can be defined for missing arguments as well
+setGeneric("summary") ## make the function into a generic
+
+## A method for summary()
+## The method definition can include the arguments, but
+## if they're omitted, class "missing" is assumed.
+
+setMethod("summary", "missing", function() "&lt;No Object&gt;")
+
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.5.0 ]</div>
+</div>
+</body></html>

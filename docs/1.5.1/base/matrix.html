@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/matrix.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/matrix.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>matrix {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='matrix'>Matrices</h2>
+
+<h3>Description</h3>
+
+<p><code>matrix</code> creates a matrix from the given set of values.
+</p>
+<p><code>as.matrix</code> attempts to turn its argument into a matrix.
+</p>
+<p><code>is.matrix</code> tests if its argument is a (strict) matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
+as.matrix(x)
+is.matrix(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="matrix_:_data">data</code></td>
+<td>
+<p>an optional data vector.</p>
+</td></tr>
+<tr><td><code id="matrix_:_nrow">nrow</code></td>
+<td>
+<p>the desired number of rows</p>
+</td></tr>
+<tr><td><code id="matrix_:_ncol">ncol</code></td>
+<td>
+<p>the desired number of columns</p>
+</td></tr>
+<tr><td><code id="matrix_:_byrow">byrow</code></td>
+<td>
+<p>logical. If <code>FALSE</code>
+(the default) the matrix is filled by columns, otherwise the matrix is
+filled by rows.</p>
+</td></tr>
+<tr><td><code id="matrix_:_dimnames">dimnames</code></td>
+<td>
+<p>A <code>dimnames</code> attribute for the matrix: a
+<code>list</code> of length 2.</p>
+</td></tr>
+<tr><td><code id="matrix_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If either of <code>nrow</code> or <code>ncol</code> is not given, an attempt is
+made to infer it from the length of <code>data</code> and the other
+parameter.
+</p>
+<p><code>is.matrix</code> returns <code>TRUE</code> if <code>x</code> is a matrix (i.e., it
+is <em>not</em> a <code>data.frame</code> and has a <code>dim</code>
+attribute of length 2) and <code>FALSE</code> otherwise.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>data.matrix</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>is.matrix(as.matrix(1:10))
+data(warpbreaks)
+!is.matrix(warpbreaks)# data.frame, NOT matrix!
+str(warpbreaks)
+str(as.matrix(warpbreaks))#using as.matrix.data.frame(.) method
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.1 ]</div>
+</div>
+</body></html>

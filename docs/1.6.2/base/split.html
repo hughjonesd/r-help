@@ -1,0 +1,121 @@
+<!DOCTYPE html><html><head><title>R: Divide into Groups</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/split.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/split.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>split {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='split'>Divide into Groups</h2>
+
+<h3>Description</h3>
+
+<p><code>split</code> divides the data in the vector <code>x</code> into the groups
+defined by <code>f</code>.  The assignment forms replace values
+corresponding to such a division.  Unsplit reverses the effect of
+<code>split</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>split(x, f)
+split.default(x, f)
+split.data.frame(x, f)
+split(x, f) &lt;- value
+split.default(x, f) &lt;- value
+split.data.frame(x, f) &lt;- value
+unsplit(value, f)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="split_:_x">x</code></td>
+<td>
+<p>vector or data frame containing values to be divided into groups.</p>
+</td></tr>
+<tr><td><code id="split_:_f">f</code></td>
+<td>
+<p>a &ldquo;factor&rdquo; such that <code>factor(f)</code> defines the grouping,
+or a list of such factors in which case their interaction is used
+for the grouping.</p>
+</td></tr>
+<tr><td><code id="split_:_value">value</code></td>
+<td>
+<p>a list of vectors or data frames compatible with a
+splitting of <code>x</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>f</code> is recycled as necessary and if the length of <code>x</code> is not
+a multiple of the length of <code>f</code> a warning is printed.
+<code>unsplit</code> works only with  lists of vectors. The data frame
+method can also be used to split a matrix into a list of matrices,
+and the assignment form likewise, provided they are invoked
+explicitly.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The value returned from <code>split</code> is a list of vectors containing
+the values for the
+groups.  The components of the list are named by the factor levels
+given be <code>f</code>.  If <code>f</code> is longer than <code>x</code> some of these
+will be of zero length. The assignment forms return their right hand side.
+<code>unsplit</code> returns a vector for which <code>split(x, f)</code> equals
+<code>value</code>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>cut</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>n &lt;- 10; nn &lt;- 100
+g &lt;- factor(round(n * runif(n * nn)))
+x &lt;- rnorm(n * nn) + sqrt(as.numeric(g))
+xg &lt;- split(x, g)
+boxplot(xg, col = "lavender", notch = TRUE, varwidth = TRUE)
+sapply(xg, length)
+sapply(xg, mean)
+
+## Calculate z-scores by group
+
+z &lt;- unsplit(lapply(split(x, g), scale), g)
+tapply(z, g, mean)
+
+# or
+
+z &lt;- x
+split(z, g) &lt;- lapply(split(x, g), scale)
+tapply(z, g, sd)
+
+## Split a matrix into a list by columns
+ma &lt;- cbind(x = 1:10, y = (-4:5)^2)
+split(ma, col(ma))
+
+split(1:10, 1:2)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.2 ]</div>
+</div>
+</body></html>

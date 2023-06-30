@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>R: Class of an Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/class.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/class.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>class {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='class'>Class of an Object</h2>
+
+<h3>Description</h3>
+
+<p>Returns the name of the object's class as a character string.
+</p>
+<p>In contrast to the version of this function in the base package, this
+version of <code>class</code> never
+returns <code>NULL</code>.  For objects that do not have a formal class
+definition, and do not have the <code>"class"</code> attribute set, the
+value returned is effectively the same as <code>data.class</code>.
+</p>
+<p>The replacement version of the function sets the class to the value
+provided.  For classes that have a formal definition, directly
+replacing the class this way is strongly deprecated.  The expression
+<code>as(object, value)</code> is the way to coerce an object to a
+particular class.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>class(object)
+
+class(object) &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="class_:_object">object</code></td>
+<td>
+
+<p>Any R object (including basic objects for which no class is currently
+defined).  When assigning the class, however, it must be possible to
+coerce the object to the specified class:  the semantics of assigning
+a class to <code>object</code> are equivalent to <code>object &lt;- as(object, value)</code>.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>John Chambers
+</p>
+
+
+<h3>References</h3>
+
+<p>The web page <a href="http://www.omegahat.org/RSMethods/index.html">http://www.omegahat.org/RSMethods/index.html</a> is the primary documentation.
+</p>
+<p>The functions in this package emulate the facility for classes and methods described in
+<em>Programming with Data</em>, (John M. Chambers, Springer, 1998).  See this book
+for further details and examples.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>as</code></p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.4 ]</div>
+</div>
+</body></html>

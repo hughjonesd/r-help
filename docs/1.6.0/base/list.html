@@ -1,0 +1,123 @@
+<!DOCTYPE html><html><head><title>R: Lists - Generic and Dotted Pairs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/list.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/list.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>list {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='list'>Lists &ndash; Generic and Dotted Pairs</h2>
+
+<h3>Description</h3>
+
+<p>Functions to construct, coerce and check for all kinds of <span class="rlang"><b>R</b></span> lists.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>list(...)
+pairlist(...)
+
+as.list(x, ...)
+as.list.default(x, ...)
+as.pairlist(x)
+
+is.list(x)
+is.pairlist(x)
+
+alist(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="list_:_...">...</code></td>
+<td>
+<p>objects.</p>
+</td></tr>
+<tr><td><code id="list_:_x">x</code></td>
+<td>
+<p>object to be coerced or tested.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Most lists in <span class="rlang"><b>R</b></span> internally are <em>Generic
+Vectors</em>, whereas traditional <em>dotted pair</em> lists (as in LISP)
+are still available.
+</p>
+<p>The arguments to <code>list</code> or <code>pairlist</code> are of the form
+<code>value</code> or <code>tag=value</code>.
+The functions return a list composed of its arguments
+with each value either tagged or untagged,
+depending on how the argument was specified.
+</p>
+<p><code>alist</code> is like <code>list</code>, except in the handling of tagged
+arguments with no value. These are handled as if they described
+function arguments with no default (cf. <code>formals</code>), whereas
+<code>list</code> simply ignores them.
+</p>
+<p><code>as.list</code> attempts to coerce its argument to list type.
+For functions, this returns the concatenation of the list of formals
+arguments and the function body. For expressions, the list of
+constituent calls is returned.
+</p>
+<p><code>is.list</code> returns <code>TRUE</code> iff its argument
+is a <code>list</code> <em>or</em> a <code>pairlist</code> of <code>length</code><code class="reqn">&gt; 0</code>,
+whereas <code>is.pairlist</code> only returns <code>TRUE</code> in the latter case.
+</p>
+<p>An empty pairlist, <code>pairlist()</code> is the same as <code>NULL</code>.  This
+is different from <code>list()</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>vector(., mode="list")</code>, <code>c</code>, for concatenation;
+<code>formals</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(cars)
+# create a plotting structure
+pts &lt;- list(x=cars[,1], y=cars[,2])
+plot(pts)
+
+# Argument lists
+f &lt;- function()x
+# Note the specification of a "..." argument:
+formals(f) &lt;- al &lt;- alist(x=, y=2, ...=)
+f
+str(al)
+
+str(pl &lt;- as.pairlist(ps.options()))
+
+## These are all TRUE:
+is.list(pl) &amp;&amp; is.pairlist(pl)
+!is.null(list())
+is.null(pairlist())
+!is.list(NULL)
+is.pairlist(pairlist())
+is.null(as.pairlist(list()))
+is.null(as.pairlist(NULL))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><title>R: Invoke a System Command</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>system {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='system'>Invoke a System Command</h2>
+
+<h3>Description</h3>
+
+<p><code>system</code> invokes the system command specified by <code>command</code>.
+</p>
+<p><code>.Platform</code> is a list with functions and variables as
+components.  This provides a possibility to write OS portable <span class="rlang"><b>R</b></span>
+code.  However, this interface is still experimental.
+Currently, <code>.Platform &lt;- Platform()</code> when R starts up.  This is
+even more experimental.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>system(command, intern = FALSE, ignore.stderr = FALSE)
+.Platform
+Platform()
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="system_:_command">command</code></td>
+<td>
+<p>the system command to be invoked, as a string.</p>
+</td></tr>
+<tr><td><code id="system_:_intern">intern</code></td>
+<td>
+<p>a logical, indicates whether to make the output of the
+command an <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+<tr><td><code id="system_:_ignore.stderr">ignore.stderr</code></td>
+<td>
+<p>a logical indicating whether error messages (written
+to &lsquo;<span class="file">stderr</span>&rsquo;) should be ignored.  This probably only affects
+Unix-like systems and is ignored otherwise.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>intern</code> is <code>TRUE</code> then <code>popen</code> is used to invoke the
+command and the output collected, line by line, into an <span class="rlang"><b>R</b></span>
+<code>character</code> vector which is returned as the value of
+<code>system</code>.  If <code>intern</code>
+is <code>FALSE</code> then the C function <code>system</code> is used to invoke
+the command and the value returned by <code>system</code> is the exit
+status of this function.  This function provides users with
+the ability to invoke system commands on whatever platform they
+are using.
+</p>
+<p><code>unix</code> is a <em>deprecated</em> alternative, available for some
+backwards compatibility reasons.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># list all files in the current directory using the -F flag
+## Not run: system("ls -F")
+
+# t1 contains a vector of strings, each one
+# representing a separate line of output from who
+t1 &lt;- system("who", TRUE)
+
+system("ls fizzlipuzzli",TRUE,TRUE)# empty since file doesn't exist
+
+if(.Platform$ OS.type == "Unix") {
+   system.test &lt;- function(...) { system(paste("test", ...)) == 0 }
+   dir.exists &lt;- function(dir) sapply(dir, function(d)system.test("-d", d))
+   dir.exists(c(R.home(), "/tmp", "~", "/NO"))# &gt; T T T F
+}
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65.1 ]</div>
+</div>
+</body></html>

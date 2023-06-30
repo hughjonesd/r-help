@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>R: Foreign Function Interface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dynload.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dynload.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dynload {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dynload'>Foreign Function Interface</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dyn.load(libname)
+dyn.unload(libname)
+
+is.loaded(symbol)
+symbol.C(name)
+symbol.For(name)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dynload_:_libname">libname</code></td>
+<td>
+<p>a character string giving the pathname to a DLL.</p>
+</td></tr>
+<tr><td><code id="dynload_:_symbol">symbol</code></td>
+<td>
+<p>a character string giving a symbol name.</p>
+</td></tr>
+<tr><td><code id="dynload_:_name">name</code></td>
+<td>
+<p>a character string giving either the name of a C
+function or Fortran subroutine. Fortran names probably need to be given
+entirely in lower case (but this may be system-dependent).</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The function <code>dyn.load</code> is used for its side effect which
+links the specified shared library to the executing <span class="rlang"><b>R</b></span> image.
+Calls to <code>.C</code>, <code>.Fortran</code> and <code>.External</code> can
+then be used to execute compiled C functions or Fortran subroutines
+contained in the library.
+</p>
+<p>The function <code>dyn.unload</code> unlinks the shared library.
+</p>
+<p>Functions <code>symbol.C</code> and <code>symbol.For</code> map function /
+subroutine names to
+the symbol name in the compiled code: <code>is.loaded</code> checks if the
+symbol name is loaded and so available for use in <code>.C</code> ....
+</p>
+
+
+<h3>Note</h3>
+
+<p>The creation of shared libraries and the runtime linking of them
+into executing programs is very platform dependent.
+In recent years there has been some simplification in the process
+because the C subroutine call <code>dlopen</code> has become the standard
+for doing this under UNIX.
+Under UNIX <code>dyn.load</code> uses the <code>dlopen</code> mechanism and
+should work on all platforms which support it. On Windows it uses
+the standard mechanisms for loading 32-bit DLLs.
+</p>
+<p>The original code for loading DLLs in UNIX
+was provided by Heiner Schwarte.
+The compatibility code for HP-UX was provided by Luke Tierney.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>.C</code>, <code>.Fortran</code>, <code>.External</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>is.loaded(symbol.For("hcass2")) #-&gt; probably  FALSE
+library(mva)
+is.loaded(symbol.For("hcass2")) #-&gt; TRUE
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html><html><head><title>R: One Dimensional Root Finding</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/uniroot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/uniroot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>uniroot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='uniroot'>One Dimensional Root Finding</h2>
+
+<h3>Description</h3>
+
+<p>The function <code>optimize</code> searches the interval from <code>lower</code>
+to <code>upper</code> for a zero of the function <code>f</code> with respect to
+its first argument.
+</p>
+<p>The function uses Fortran code (from Netlib) based on algorithms given
+in the reference below.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>uniroot(f, interval, lower = min(interval), upper = max(interval),
+        tol = .Machine$double.eps^0.25, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="uniroot_:_f">f</code></td>
+<td>
+<p>the function for which the root is sought.</p>
+</td></tr>
+<tr><td><code id="uniroot_:_interval">interval</code></td>
+<td>
+<p>a vector containing the end-points of the interval
+to be searched for the root.</p>
+</td></tr>
+<tr><td><code id="uniroot_:_lower">lower</code></td>
+<td>
+<p>the lower end point of the interval to be searched.</p>
+</td></tr>
+<tr><td><code id="uniroot_:_upper">upper</code></td>
+<td>
+<p>the upper end point of the interval to be searched.</p>
+</td></tr>
+<tr><td><code id="uniroot_:_tol">tol</code></td>
+<td>
+<p>the desired accuracy.</p>
+</td></tr>
+<tr><td><code id="uniroot_:_...">...</code></td>
+<td>
+<p>additional arguments to <code>f</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with components <code>root</code> and <code>f.root</code> which give the
+location of the root and the value of the function evaluated at that
+point.
+</p>
+
+
+<h3>References</h3>
+
+<p>Brent, R. (1973).
+<em>Algorithms for Minimization without Derivatives</em>.
+Englewood Cliffs, NJ: Prentice-Hall.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>polyroot</code> for all complex roots of a polynomial;
+<code>optimize</code>, <code>nlm</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>f &lt;- function (x,a) x - a
+xmin &lt;- uniroot(f, c(0, 1), tol = 0.0001, a = 1/3)
+xmin
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61.2 ]</div>
+</div>
+</body></html>

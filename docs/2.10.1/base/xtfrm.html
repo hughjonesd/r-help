@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><title>R: Auxiliary Function for Sorting and Ranking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/xtfrm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/xtfrm.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>xtfrm {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='xtfrm'>Auxiliary Function for Sorting and Ranking</h2>
+
+<h3>Description</h3>
+
+<p>A generic auxiliary function that produces a numeric vector which
+will sort in the same order as <code>x</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>xtfrm(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="xtfrm_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is a special case of ranking, but as a less general function than
+<code>rank</code> is more suitable to be made generic.  The default
+method is equivalent to <code>rank(x, ties.method="min",
+    na.last="keep")</code>, so <code>NA</code> values are given rank <code>NA</code> and
+all tied values are given equal integer rank.
+</p>
+<p>The <code>factor</code> method extracts the codes.  The
+<code>Surv</code> method sorts first on times and then on
+status code(s).
+</p>
+<p>The default method will make use of <code>==</code> and <code>&gt;</code> methods
+for the class of <code>x[i]</code> (for integers <code>i</code>), and the
+<code>is.na</code> method for the class of <code>x</code>, but might be rather
+slow when doing so.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A numeric (usually integer) vector of the same length as <code>x</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>rank</code>, <code>sort</code>, <code>order</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.10.1 ]</div>
+</div>
+</body></html>

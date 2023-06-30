@@ -1,0 +1,169 @@
+<!DOCTYPE html><html><head><title>R: Histograms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/hist.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/hist.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>hist {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='hist'>Histograms</h2>
+
+<h3>Description</h3>
+
+<p>The generic function <code>hist</code> computes and plots a histogram of the
+given data values.
+The histogram cells are intervals of the form
+<code>(a,b]</code>, i.e. they include their right-hand endpoint,
+but not their left one, with the exception of the first cell when
+<code>include.lowest</code> is <code>TRUE</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>hist(x, ...)
+hist.default(x, breaks, freq = NULL, probability = !freq,
+     include.lowest = TRUE, col = NULL, border = par("fg"),
+     main = paste("Histogram of" , deparse(substitute(x))),
+     xlim = range(breaks),  ylim = range(counts, 0),
+     xlab = deparse(substitute(x)),  ylab,
+     axes = TRUE, plot = TRUE, labels = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="hist_:_x">x</code></td>
+<td>
+<p>a vector of values for which the histogram is desired.</p>
+</td></tr>
+<tr><td><code id="hist_:_breaks">breaks</code></td>
+<td>
+<p>either a single number giving the
+approximate number of cells for the histogram
+or a vector giving the breakpoints between histogram cells.</p>
+</td></tr>
+<tr><td><code id="hist_:_freq">freq</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the
+histogram graphic is to present a representation of frequencies, i.e,
+the <code>counts</code> component of the result; if <code>FALSE</code>,
+<em>relative</em> frequencies (&ldquo;probabilities&rdquo;), the <code>rel.freqs</code>,
+are plotted.   Defaults to <code>TRUE</code> <em>iff</em> <code>breaks</code> are
+equidistant.</p>
+</td></tr>
+<tr><td><code id="hist_:_probability">probability</code></td>
+<td>
+<p>an <em>alias</em> for <code>!freq</code>, for S compatibility.</p>
+</td></tr>
+<tr><td><code id="hist_:_include.lowest">include.lowest</code></td>
+<td>
+<p>logical; if <code>TRUE</code>,
+an &lsquo;x[i]&rsquo; equal to the &lsquo;breaks&rsquo; value will be included in the first bar.</p>
+</td></tr>
+<tr><td><code id="hist_:_col">col</code></td>
+<td>
+<p>a colour to be used to fill the bars.
+The default of <code>NULL</code> yields unfilled bars.</p>
+</td></tr>
+<tr><td><code id="hist_:_border">border</code></td>
+<td>
+<p>the color of the border around the bars.</p>
+</td></tr>
+<tr><td><code id="hist_:_main">main</code>, <code id="hist_:_xlab">xlab</code>, <code id="hist_:_ylab">ylab</code></td>
+<td>
+<p>these arguments to <code>title</code> have useful
+defaults here.</p>
+</td></tr>
+<tr><td><code id="hist_:_xlim">xlim</code>, <code id="hist_:_ylim">ylim</code></td>
+<td>
+<p>the range of x and y values with sensible defaults.</p>
+</td></tr>
+<tr><td><code id="hist_:_plot">plot</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> (default), a histogram is
+plotted, otherwise a list of breaks and counts is returned.</p>
+</td></tr>
+<tr><td><code id="hist_:_labels">labels</code></td>
+<td>
+<p>logical.  Additionaly draw labels on top of bars, if <code>TRUE</code>.</p>
+</td></tr>
+<tr><td><code id="hist_:_...">...</code></td>
+<td>
+<p>further graphical parameters to <code>title</code> and <code>axis</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a list with components
+</p>
+<table>
+<tr><td><code>breaks</code></td>
+<td>
+<p>the <code class="reqn">n+1</code> cell boundaries (= <code>breaks</code> if that
+was a vector).</p>
+</td></tr>
+<tr><td><code>counts</code></td>
+<td>
+<p><code class="reqn">n</code> integers; for each cell, the number of
+<code>x[]</code> inside.</p>
+</td></tr>
+<tr><td><code>intensities</code></td>
+<td>
+<p>values <code class="reqn">\hat f(x_i)</code>, as estimated
+density values. If <code>all(diff(breaks) == 1)</code>, they are the
+relative frequencies <code>counts/n</code> and in general satisfy
+<code class="reqn">\sum_i \hat f(x_i) (b_{i+1}-b_i) = 1</code>, where <code class="reqn">b_i</code>=<code>breaks[i]</code>.</p>
+</td></tr>
+<tr><td><code>mids</code></td>
+<td>
+<p>the <code class="reqn">n</code> cell midpoints; useful for plotting.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>The resulting value does <em>not</em>
+depend on the values of the arguments <code>freq</code> (or <code>probability</code>)
+or <code>plot</code>.  This is intentionally different from S.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(islands)
+op &lt;- par(mfrow=c(2,2))
+hist(islands)
+str(hist(islands, col="gray", labels = TRUE))
+
+hist(sqrt(islands), br = 12, col="lightblue", border="pink")
+##-- For non-equidistant breaks, counts should NOT be graphed unscaled:
+r &lt;- hist(sqrt(islands), br = c(4* 0:5,10* 3:5,70,100,140), col='blue1')
+text(r$mids, r$intensities, r$counts, adj=c(.5,-.5), col='blue3')
+sapply(r[2:3],sum)
+sum(r$intensities * diff(r$breaks)) # == 1
+par(op)
+
+str(hist(islands, plot= F))
+str(hist(islands, br=12, plot= F))
+str(hist(islands, br=c(12,20,36,80,200,1000,17000), plot = F))
+str(hist(islands, br=c(12,20,36,80,200,1000,17000), freq = TRUE))#warning
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62 ]</div>
+</div>
+</body></html>

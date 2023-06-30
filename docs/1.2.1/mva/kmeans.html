@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><title>R: K-Means Clustering</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/kmeans.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/kmeans.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>kmeans {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='kmeans'>
+K-Means Clustering
+</h2>
+
+<h3>Description</h3>
+
+<p>Perform k-means clustering on a data matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>kmeans(x, centers, iter.max = 10)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="kmeans_:_x">x</code></td>
+<td>
+
+<p>A numeric matrix of data, or an object that can be coerced to such a
+matrix (such as a numeric vector or a data frame with all numeric columns).
+</p>
+</td></tr>
+<tr><td><code id="kmeans_:_centers">centers</code></td>
+<td>
+
+<p>Either the number of clusters or a set of initial cluster centers.
+If the first, a random set of rows in <code>x</code> are chosen as the initial
+centers.
+</p>
+</td></tr>
+<tr><td><code id="kmeans_:_iter.max">iter.max</code></td>
+<td>
+
+<p>The maximum number of iterations allowed.
+</p>
+</td></tr></table>
+
+
+<h3>Details</h3>
+
+<p>The data given by <code>x</code> is clustered by the k-means algorithm.
+When this terminates, all cluster centres are at the mean of
+their Voronoi sets (the set of data points which are nearest to
+the cluster centre).
+</p>
+<p>The algorithm of Hartigan and Wong (1979) is used.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with components:
+</p>
+<table>
+<tr><td><code>cluster</code></td>
+<td>
+
+<p>A vector of integers indicating the cluster to which each point is
+allocated.
+</p>
+</td></tr>
+<tr><td><code>centers</code></td>
+<td>
+<p>A matrix of cluster centres.</p>
+</td></tr>
+<tr><td><code>withinss</code></td>
+<td>
+<p>The within-cluster sum of squares for each cluster.</p>
+</td></tr>
+<tr><td><code>size</code></td>
+<td>
+<p>The number of points in each cluster.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Hartigan, J.A. and Wong, M.A. (1979).
+A K-means clustering algorithm.
+<em>Applied Statistics</em> <b>28</b>, 100&ndash;108.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># a 2-dimensional example
+x &lt;- rbind(matrix(rnorm(100, sd = 0.3), ncol = 2),
+           matrix(rnorm(100, mean = 1, sd = 0.3), ncol = 2))
+cl &lt;- kmeans(x, 2, 20)
+plot(x, col = cl$cluster)
+points(cl$centers, col = 1:2, pch = 8)
+</code></pre>
+
+
+</div>
+</body></html>

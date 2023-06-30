@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head><title>R: Plot Method for isoreg Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.isoreg.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.isoreg.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.isoreg {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.isoreg'>Plot Method for isoreg Objects</h2>
+
+<h3>Description</h3>
+
+<p>The <code>plot</code> and <code>lines</code> method for
+<span class="rlang"><b>R</b></span> objects of class <code>isoreg</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'isoreg'
+plot(x, plot.type = c("single", "row.wise", "col.wise"),
+      main = paste("Isotonic regression", deparse(x$call)),
+      main2 = "Cumulative Data and Convex Minorant",
+      xlab = "x0", ylab = "x$y",
+      par.fit = list(col = "red", cex = 1.5, pch = 13, lwd = 1.5),
+      mar = if (both) 0.1 + c(3.5, 2.5, 1, 1) else par("mar"),
+      mgp = if (both) c(1.6, 0.7, 0) else par("mgp"),
+      grid = length(x$x) &lt; 12, ...)
+
+## S3 method for class 'isoreg'
+lines(x, col = "red", lwd = 1.5,
+       do.points = FALSE, cex = 1.5, pch = 13, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.isoreg_:_x">x</code></td>
+<td>
+<p>an <code>isoreg</code> object.</p>
+</td></tr>
+<tr><td><code id="plot.isoreg_:_plot.type">plot.type</code></td>
+<td>
+<p>character indicating which type of plot is desired.
+The first (default) only draws the data and the fit, where the
+others add a plot of the cumulative data and fit.  Can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="plot.isoreg_:_main">main</code></td>
+<td>
+<p>main title of plot, see <code>title</code>.</p>
+</td></tr>
+<tr><td><code id="plot.isoreg_:_main2">main2</code></td>
+<td>
+<p>title for second (cumulative) plot.</p>
+</td></tr>
+<tr><td><code id="plot.isoreg_:_xlab">xlab</code>, <code id="plot.isoreg_:_ylab">ylab</code></td>
+<td>
+<p>x- and y- axis annotation.</p>
+</td></tr>
+<tr><td><code id="plot.isoreg_:_par.fit">par.fit</code></td>
+<td>
+<p>a <code>list</code> of arguments (for
+<code>points</code> and <code>lines</code>) for drawing the fit.</p>
+</td></tr>
+<tr><td><code id="plot.isoreg_:_mar">mar</code>, <code id="plot.isoreg_:_mgp">mgp</code></td>
+<td>
+<p>graphical parameters, see <code>par</code>, mainly
+for the case of two plots.</p>
+</td></tr>
+<tr><td><code id="plot.isoreg_:_grid">grid</code></td>
+<td>
+<p>logical indicating if grid lines should be drawn.  If
+true, <code>grid()</code> is used for the first plot, where as
+vertical lines are drawn at &lsquo;touching&rsquo; points for the
+cumulative plot.</p>
+</td></tr>
+<tr><td><code id="plot.isoreg_:_do.points">do.points</code></td>
+<td>
+<p>for <code>lines()</code>: logical indicating if the step
+points should be drawn as well (and as they are drawn in <code>plot()</code>).</p>
+</td></tr>
+<tr><td><code id="plot.isoreg_:_col">col</code>, <code id="plot.isoreg_:_lwd">lwd</code>, <code id="plot.isoreg_:_cex">cex</code>, <code id="plot.isoreg_:_pch">pch</code></td>
+<td>
+<p>graphical arguments for <code>lines()</code>,
+where <code>cex</code> and <code>pch</code> are only used when <code>do.points</code>
+is <code>TRUE</code>.</p>
+</td></tr>
+<tr><td><code id="plot.isoreg_:_...">...</code></td>
+<td>
+<p>further arguments passed to and from methods.</p>
+</td></tr>
+
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>isoreg</code> for computation of <code>isoreg</code> objects.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+utils::example(isoreg) # for the examples there
+
+plot(y3, main = "simple plot(.)  +  lines(&lt;isoreg&gt;)")
+lines(ir3)
+
+## 'same' plot as above, "proving" that only ranks of 'x' are important
+plot(isoreg(2^(1:9), c(1,0,4,3,3,5,4,2,0)), plot.type = "row", log = "x")
+
+plot(ir3, plot.type = "row", ylab = "y3")
+plot(isoreg(y3 - 4), plot.type = "r", ylab = "y3 - 4")
+plot(ir4, plot.type = "ro",  ylab = "y4", xlab = "x = 1:n")
+
+## experiment a bit with these (C-c C-j):
+plot(isoreg(sample(9),  y3), plot.type = "row")
+plot(isoreg(sample(9),  y3), plot.type = "col.wise")
+
+plot(ir &lt;- isoreg(sample(10), sample(10, replace = TRUE)),
+                  plot.type = "r")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 4.3.1 ]</div>
+</div>
+</body></html>

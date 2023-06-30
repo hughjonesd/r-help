@@ -1,0 +1,130 @@
+<!DOCTYPE html><html><head><title>R: Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/matrix.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/matrix.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>matrix {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='matrix'>Matrices</h2>
+
+<h3>Description</h3>
+
+<p><code>matrix</code> creates a matrix from the given set of values.
+</p>
+<p><code>as.matrix</code> attempts to turn its argument into a matrix.
+</p>
+<p><code>is.matrix</code> tests if its argument is a (strict) matrix.
+It is generic: you can write methods to handle
+specific classes of objects, see InternalMethods.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
+       dimnames = NULL)
+
+as.matrix(x)
+
+is.matrix(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="matrix_:_data">data</code></td>
+<td>
+<p>an optional data vector.</p>
+</td></tr>
+<tr><td><code id="matrix_:_nrow">nrow</code></td>
+<td>
+<p>the desired number of rows</p>
+</td></tr>
+<tr><td><code id="matrix_:_ncol">ncol</code></td>
+<td>
+<p>the desired number of columns</p>
+</td></tr>
+<tr><td><code id="matrix_:_byrow">byrow</code></td>
+<td>
+<p>logical. If <code>FALSE</code>
+(the default) the matrix is filled by columns, otherwise the matrix is
+filled by rows.</p>
+</td></tr>
+<tr><td><code id="matrix_:_dimnames">dimnames</code></td>
+<td>
+<p>A <code>dimnames</code> attribute for the matrix: a
+<code>list</code> of length 2 giving the row and column names respectively.</p>
+</td></tr>
+<tr><td><code id="matrix_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If either of <code>nrow</code> or <code>ncol</code> is not given, an attempt is
+made to infer it from the length of <code>data</code> and the other
+parameter.
+</p>
+<p>If there are too few elements in <code>data</code> to fill the array,
+then the elements in <code>data</code> are recycled.  If <code>data</code> has
+length zero, <code>NA</code> of an appropriate type is used for atomic
+vectors (<code>0</code> for raw vectors) and <code>NULL</code> for lists.
+</p>
+<p><code>is.matrix</code> returns <code>TRUE</code> if <code>x</code> is a matrix (i.e., it
+is <em>not</em> a <code>data.frame</code> and has a <code>dim</code>
+attribute of length 2) and <code>FALSE</code> otherwise.
+</p>
+<p><code>as.matrix</code> is a generic function. The method for data frames
+will convert any non-numeric/complex column into a character
+vector using <code>format</code> and so return a character matrix,
+except that all-logical data frames will be coerced to a logical
+matrix.  When coercing a vector, it produces a one-column matrix, and
+promotes the names (if any) of the vector to the rownames of the matrix.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>data.matrix</code>, which attempts to convert to a numeric matrix.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>is.matrix(as.matrix(1:10))
+!is.matrix(warpbreaks)# data.frame, NOT matrix!
+warpbreaks[1:10,]
+as.matrix(warpbreaks[1:10,]) #using as.matrix.data.frame(.) method
+
+# Example of setting row and column names
+mdat &lt;- matrix(c(1,2,3, 11,12,13), nrow = 2, ncol=3, byrow=TRUE,
+               dimnames = list(c("row1", "row2"), c("C.1", "C.2", "C.3")))
+mdat
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.4.0 ]</div>
+</div>
+</body></html>

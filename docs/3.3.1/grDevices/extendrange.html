@@ -1,0 +1,80 @@
+<!DOCTYPE html><html><head><title>R: Extend a Numerical Range by a Small Percentage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/extendrange.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/extendrange.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>extendrange {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='extendrange'>Extend a Numerical Range by a Small Percentage</h2>
+
+<h3>Description</h3>
+
+<p>Extends a numerical range by a small percentage, i.e., fraction,
+<em>on both sides</em>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>extendrange(x, r = range(x, na.rm = TRUE), f = 0.05)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="extendrange_:_x">x</code></td>
+<td>
+<p>numeric vector; not used if <code>r</code> is specified.</p>
+</td></tr>
+<tr><td><code id="extendrange_:_r">r</code></td>
+<td>
+<p>numeric vector of length 2; defaults to the
+<code>range</code> of <code>x</code>.</p>
+</td></tr>
+<tr><td><code id="extendrange_:_f">f</code></td>
+<td>
+<p>number specifying the fraction by which the range should be
+extended.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A numeric vector of length 2, <code>r + c(-f,f) * diff(r)</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>range</code>; <code>pretty</code> which can be
+considered a sophisticated extension of <code>extendrange</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:5
+(r &lt;- range(x))         # 1    5
+extendrange(x)          # 0.8  5.2
+extendrange(x, f= 0.01) # 0.96 5.04
+## Use 'r' if you have it already:
+stopifnot(identical(extendrange(r = r),
+                    extendrange(x)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 3.3.1 ]</div>
+</div>
+</body></html>

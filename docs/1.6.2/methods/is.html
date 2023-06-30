@@ -1,0 +1,179 @@
+<!DOCTYPE html><html><head><title>R: Is an Object from a Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/is.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/is.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>is {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='is'>Is an Object from a Class</h2>
+
+<h3>Description</h3>
+
+<p><code>is</code>: 
+With two arguments, tests whether <code>object</code> can be treated as from
+<code>class2</code>.
+</p>
+<p>With one argument, returns all the super-classes of this object's class.
+</p>
+<p><code>extends</code>: 
+Does the first class extend the second class?
+Returns <code>maybe</code> if the extension includes a test.
+</p>
+<p><code>setIs</code>: 
+Defines <code>class1</code> to be an extension of <code>class2</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>is(object, class2)
+
+extends(class1, class2, maybe=TRUE)
+
+setIs(class1, class2, test=NULL, coerce=NULL, replace=NULL,
+      by = NULL, where = 1, complete = TRUE)
+
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="is_:_object">object</code></td>
+<td>
+<p>Any R object.</p>
+</td></tr>
+<tr><td><code id="is_:_class1">class1</code>, <code id="is_:_class2">class2</code></td>
+<td>
+
+<p>The names of the classes between which <code>is</code> relations are to be
+defined.</p>
+</td></tr>
+<tr><td><code id="is_:_maybe">maybe</code></td>
+<td>
+<p>What value to return if the relationship is conditional.</p>
+</td></tr>
+<tr><td><code id="is_:_test">test</code>, <code id="is_:_coerce">coerce</code>, <code id="is_:_replace">replace</code></td>
+<td>
+
+<p>Functions optionally supplied to test whether the relation is
+defined, to coerce the object to <code>class2</code>, and to alter the
+object so that <code>is(object, class2)</code> is identical to
+<code>value</code>.</p>
+</td></tr>
+<tr><td><code id="is_:_by">by</code></td>
+<td>
+
+<p>The name of an intermediary class.  Coercion will proceed by first
+coercing to this class and from there to the target class.  (The
+intermediate coercions have to be valid.)</p>
+</td></tr>
+<tr><td><code id="is_:_where">where</code></td>
+<td>
+
+<p>Where to store the metadata defining the relationship. Default is
+the global environment.</p>
+</td></tr>
+<tr><td><code id="is_:_complete">complete</code></td>
+<td>
+
+<p>Should the class definitions be completed when checking for valid
+relations. <em>Don't</em> set this to anything other than
+<code>TRUE</code>, unless you really know why you're doing it (used by
+<code>setClass</code>).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>setIs</code>: 
+</p>
+<p>The relationship can be conditional, if a function is supplied as the <code>test</code>
+argument.  If a function is supplied as the <code>coerce</code> argument, this function will
+be applied to any <code>class1</code> object in order to turn it into a
+<code>class2</code> object.
+If the relationship is to be defined indirectly through a third class,
+this class can be named in the <code>by</code> argument.
+</p>
+<p>Extension may imply that a <code>class1</code> object contains a <code>class2</code> object.  The default
+sense of containing is that all the slots of the simpler class are found in the
+more elaborate one.  If the <code>replace</code> argument is supplied as an S replacement
+function, this function will be used to implement <code>as(obj, class2)
+  &lt;- value</code>.
+</p>
+<p>The <code>coerce</code>, <code>replace</code>, and <code>by</code> arguments behave
+as described for the <code>setAs</code> function. It's  unlikely you
+would use the <code>by</code> argument directly, but it is used in defining
+cached information about classes. The value returned (invisibly) by
+<code>setIs</code> is the extension information, as a list.
+</p>
+<p>Information about <code>setIs</code> relations can be stored in the metadata
+for either <code>class1</code> (in the <code>extends</code> information) or in the
+metadata for <code>class2</code> (in the <code>subclasses</code> information).  For
+the information to be retained for a future session, one of these
+classes must be defined in the global
+environment, since only objects assigned there are saved by
+<code>save.image</code>.  If neither class is defined in environment
+<code>where</code>, <code>setIs</code> generates an error.
+</p>
+<p>Because only global environment information is saved, it rarely makes
+sense to give a value other than the default for argument <code>where</code>.
+One exception is <code>where=0</code>, which modifies the cached (i.e.,
+session-scope) information about the class.  Class completion
+computations use this version, but don't use it yourself unless you are
+quite sure you know what you're doing.
+</p>
+
+
+<h3>References</h3>
+
+<p>The R package <code>methods</code> implements, with a few exceptions, the
+programming interface for classes
+and methods in the book <em>Programming with Data</em> (John
+M. Chambers, Springer, 1998), in particular sections 1.6, 2.7, 2.8,
+and chapters 7 and 8.
+</p>
+<p>While the programming interface for the methods package follows the reference,
+the R software is an original implementation, so details in
+the reference that reflect the S4 implementation may appear
+differently in R.  Also, there are extensions to the programming
+interface developed more recently than the reference.  For a
+discussion of details and ongoing development, see the web page 
+<a href="http://developer.r-project.org/methodsPackage.html">http://developer.r-project.org/methodsPackage.html</a> and the
+pointers from that page.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+## a class definition (see \link{setClass} for the example)
+setClass("trackCurve",
+            representation("track", smooth = "numeric"))
+## A class similar to "trackCurve", but with different structure
+## allowing matrices for the "y" and "smooth" slots
+setClass("trackMultiCurve", representation(x="numeric", y="matrix", smooth="matrix"),
+          prototype = structure(list(), x=numeric(), y=matrix(0,0,0), smooth= matrix(0,0,0)))
+## Define a multi-curve to extend a single curve ONLY
+## if the y data is one variable.
+setIs("trackMultiCurve", "trackCurve", test = function(obj) {ncol(slot(obj, "y")) == 1},
+      coerce = function(obj) { new("trackCurve", x = slot(obj, "x"),
+        y = as.numeric(slot(obj,"y")), curve = as.numeric(slot(obj, "curve")))})
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.6.2 ]</div>
+</div>
+</body></html>

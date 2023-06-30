@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><title>R: Scripting Language Interface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/zScript.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/zScript.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>.Script {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='.Script'>Scripting Language Interface</h2>
+
+<h3>Description</h3>
+
+<p>Run a script through its interpreter with given arguments.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.Script(interpreter, script, args, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id=".Script_:_interpreter">interpreter</code></td>
+<td>
+<p>a character string naming the interpreter for the
+script.</p>
+</td></tr>
+<tr><td><code id=".Script_:_script">script</code></td>
+<td>
+<p>a character string with the base file name of the
+script, which must be located in the &lsquo;<span class="file"><code>interpreter</code></span>&rsquo;
+subdirectory of &lsquo;<span class="file">R\_HOME/share</span>&rsquo;.</p>
+</td></tr>
+<tr><td><code id=".Script_:_args">args</code></td>
+<td>
+<p>a character string giving the arguments to pass to the
+script.</p>
+</td></tr>
+<tr><td><code id=".Script_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to <code>system</code>
+when invoking the interpreter on the script.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>This function is for R internal use only.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>.Script("perl", "massage-Examples.pl",
+        paste("tools", system.file("R-ex", package = "tools")))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.9.1 ]</div>
+</div>
+</body></html>

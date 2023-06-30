@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>R: Access to and Manipulation of the Body of a Function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/body.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/body.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>body {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='body'>Access to and Manipulation of the Body of a Function</h2>
+
+<h3>Description</h3>
+
+<p>Get or set the body of a function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>body(fun = sys.function(sys.parent()))
+body(fun) &lt;- list
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="body_:_fun">fun</code></td>
+<td>
+<p>a function object or a character string naming the function
+to be manipulated.
+If not specified, the function calling <code>body</code> is used.</p>
+</td></tr>
+<tr><td><code id="body_:_list">list</code></td>
+<td>
+<p>a list of <span class="rlang"><b>R</b></span> expressions.</p>
+</td></tr>  
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>body</code> returns the body of the function specified.
+</p>
+<p>The assignment form sets the body of a function to the list on the
+right hand side.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>alist</code>,
+<code>args</code>,
+<code>function</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>body(body)
+f &lt;- function(x) x^5
+body(f) &lt;- expression(5^x)
+f(3) # = 125
+str(body(f))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><title>R: Abbreviate Strings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/abbreviate.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/abbreviate.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>abbreviate {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='abbreviate'>Abbreviate Strings</h2>
+
+<h3>Description</h3>
+
+<p>Abbreviate strings to at least <code>minlength</code> characters,
+such that they remain <em>unique</em> (if they were).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>abbreviate(names.arg, minlength = 4, use.classes = TRUE,
+           dot = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="abbreviate_:_names.arg">names.arg</code></td>
+<td>
+<p>a vector of names to be abbreviated.</p>
+</td></tr>
+<tr><td><code id="abbreviate_:_minlength">minlength</code></td>
+<td>
+<p>the minimum length of the abbreviations.</p>
+</td></tr>
+<tr><td><code id="abbreviate_:_use.classes">use.classes</code></td>
+<td>
+<p>logical (currently ignored by <span class="rlang"><b>R</b></span>).</p>
+</td></tr>
+<tr><td><code id="abbreviate_:_dot">dot</code></td>
+<td>
+<p>logical; should a dot (<code>"."</code>) be appended?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The algorithm used is similar to that of S.
+First spaces at the beginning of the word are stripped.
+Then any other spaces are stripped.
+Next lower case vowels are removed followed by lower case consonants.
+Finally if the abbreviation is still longer than <code>minlength</code>
+upper case letters are stripped.
+</p>
+<p>Letters are always stripped from the end of the word first.
+If an element of <code>names.arg</code> contains more than one word (words
+are separated by space) then at least one letter from each word will be
+retained.
+If a single string is passed it is abbreviated in the same manner as a
+vector of strings.
+</p>
+<p>Missing (<code>NA</code>) values are not abbreviated.
+</p>
+<p>If <code>use.classes</code> is <code>FALSE</code> then the only distinction is to
+be between letters and space.  This has NOT been implemented.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector containing abbreviations for the strings in its
+first argument.  Duplicates in the original <code>names.arg</code> will be
+given identical abbreviations.  If any non-duplicated elements have
+the same <code>minlength</code> abbreviations then <code>minlength</code> is
+incremented by one and new abbreviations are found for those elements
+only.  This process is repeated until all unique elements of
+<code>names.arg</code> have unique abbreviations.
+</p>
+<p>The character version of <code>names.arg</code> is attached to the returned
+value as a names argument.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>substr</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- c("abcd", "efgh", "abce")
+abbreviate(x, 2)
+
+data(state)
+(st.abb &lt;- abbreviate(state.name, 2))
+table(nchar(st.abb))# out of 50, 3 need 4 letters
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.8.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: Predict Loess Curve or Surface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.loess.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.loess.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>predict.loess {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='predict.loess'>Predict Loess Curve or Surface</h2>
+
+<h3>Description</h3>
+
+<p>Predictions from a <code>loess</code> fit, optionally with standard errors.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'loess'
+predict(object, newdata = NULL, se = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="predict.loess_:_object">object</code></td>
+<td>
+<p>an object fitted by <code>loess</code>.</p>
+</td></tr>
+<tr><td><code id="predict.loess_:_newdata">newdata</code></td>
+<td>
+<p>an optional data frame specifying points at which to do
+the predictions. If missing, the original data points are used.</p>
+</td></tr>
+<tr><td><code id="predict.loess_:_se">se</code></td>
+<td>
+<p>should standard errors be computed?</p>
+</td></tr>
+<tr><td><code id="predict.loess_:_...">...</code></td>
+<td>
+<p>arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The standard errors calculation is slower than prediction.
+</p>
+<p>When the fit was made using <code>surface="interpolate"</code> (the
+default), <code>predict.loess</code> will not extrapolate &ndash; so points outside
+an axis-aligned hypercube enclosing the original data will have
+missing (<code>NA</code>) predictions and standard errors.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>se = FALSE</code>, a vector giving the prediction for each row of
+<code>newdata</code> (or the original data). If <code>se = TRUE</code>, a list
+containing components
+</p>
+<table>
+<tr><td><code>fit</code></td>
+<td>
+<p>the predicted values.</p>
+</td></tr>
+<tr><td><code>se</code></td>
+<td>
+<p>an estimated standard error for each predicted value.</p>
+</td></tr>
+<tr><td><code>residual.scale</code></td>
+<td>
+<p>the estimated scale of the residuals used in
+computing the standard errors.</p>
+</td></tr>
+<tr><td><code>df</code></td>
+<td>
+<p>an estimate of the effective degrees of freedom used in
+estimating the residual scale, intended for use with t-based
+confidence intervals. </p>
+</td></tr>
+</table>
+<p>If <code>newdata</code> was the result of a call to
+<code>expand.grid</code>, the predictions (and s.e.'s if requested)
+will be an array of the appropriate dimensions.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>B.D. Ripley, based on the <code>cloess</code> package of Cleveland,
+Grosse and Shyu.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>loess</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(cars)
+cars.lo &lt;- loess(dist ~ speed, cars)
+predict(cars.lo, data.frame(speed=seq(5, 30, 1)), se=TRUE)
+# to get extrapolation
+cars.lo2 &lt;- loess(dist ~ speed, cars,
+  control=loess.control(surface="direct"))
+predict(cars.lo2, data.frame(speed=seq(5, 30, 1)), se=TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 1.9.0 ]</div>
+</div>
+</body></html>

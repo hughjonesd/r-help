@@ -1,0 +1,133 @@
+<!DOCTYPE html><html><head><title>R: Compute Tables of Results from an Aov Model Fit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/model.tables.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/model.tables.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>model.tables {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='model.tables'>Compute Tables of Results from an Aov Model Fit</h2>
+
+<h3>Description</h3>
+
+<p>Computes summary tables for model fits, especially complex <code>aov</code>
+fits.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>model.tables(x, ...)
+
+## S3 method for class 'aov'
+model.tables(x, type = "effects", se = FALSE, cterms, ...)
+
+## S3 method for class 'aovlist'
+model.tables(x, type = "effects", se = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="model.tables_:_x">x</code></td>
+<td>
+<p>a model object, usually produced by <code>aov</code></p>
+</td></tr>
+<tr><td><code id="model.tables_:_type">type</code></td>
+<td>
+<p>type of table: currently only <code>"effects"</code> and
+<code>"means"</code> are implemented.  Can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="model.tables_:_se">se</code></td>
+<td>
+<p>should standard errors be computed?</p>
+</td></tr>
+<tr><td><code id="model.tables_:_cterms">cterms</code></td>
+<td>
+<p>A character vector giving the names of the terms for
+which tables should be computed. The default is all tables.</p>
+</td></tr>
+<tr><td><code id="model.tables_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For <code>type = "effects"</code> give tables of the coefficients for each
+term, optionally with standard errors.
+</p>
+<p>For <code>type = "means"</code> give tables of the mean response for each
+combinations of levels of the factors in a term.
+</p>
+<p>The <code>"aov"</code> method cannot be applied to components of a
+<code>"aovlist"</code> fit.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"tables.aov"</code>, as list which may contain components
+</p>
+<table>
+<tr><td><code>tables</code></td>
+<td>
+<p>A list of tables for each requested term.</p>
+</td></tr>
+<tr><td><code>n</code></td>
+<td>
+<p>The replication information for each term.</p>
+</td></tr>
+<tr><td><code>se</code></td>
+<td>
+<p>Standard error information.</p>
+</td></tr>
+</table>
+
+
+<h3>Warning</h3>
+
+<p>The implementation is incomplete, and only the simpler cases have been
+tested thoroughly.
+</p>
+<p>Weighted <code>aov</code> fits are not supported.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>aov</code>, <code>proj</code>,
+<code>replications</code>, <code>TukeyHSD</code>,
+<code>se.contrast</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+options(contrasts = c("contr.helmert", "contr.treatment"))
+npk.aov &lt;- aov(yield ~ block + N*P*K, npk)
+model.tables(npk.aov, "means", se = TRUE)
+
+## as a test, not particularly sensible statistically
+npk.aovE &lt;- aov(yield ~  N*P*K + Error(block), npk)
+model.tables(npk.aovE, se = TRUE)
+model.tables(npk.aovE, "means")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 4.1.2 ]</div>
+</div>
+</body></html>

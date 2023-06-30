@@ -1,0 +1,192 @@
+<!DOCTYPE html><html><head><title>R: MethodsList Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/MethodsList.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/MethodsList.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>MethodsList {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='MethodsList'>MethodsList Objects</h2>
+
+<h3>Description</h3>
+
+<p>These functions create and manipulate <code>MethodsList</code> objects, the
+objects used in R to store methods for dispatch.  You should not call
+any of these functions from code that you want to port to S-Plus.
+Instead, use the functions described in the references.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>MethodsList(.ArgName, ...)
+
+makeMethodsList(object, level=1)
+
+SignatureMethod(names, signature, definition)
+
+insertMethod(mlist, signature, args, def, cacheOnly)
+
+inheritedSubMethodLists(object, thisClass, mlist, ev)
+
+showMlist(mlist, includeDefs = TRUE, inherited = TRUE,
+   classes, useArgNames, printTo = stdout() )
+
+## S3 method for class 'MethodsList'
+print(x, ...)
+
+listFromMlist(mlist, prefix = list())
+
+linearizeMlist(mlist, inherited = TRUE)
+
+finalDefaultMethod(mlist, fname = "NULL")
+
+mergeMethods(m1, m2, genericLabel)
+
+loadMethod(method, fname, envir)
+
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>Note that <code>MethodsList</code> objects represent methods only in the <span class="rlang"><b>R</b></span>
+implementation.  You can use them to find or manipulate information about
+methods, but avoid doing so if you want your code to port to S-Plus.
+</p>
+
+
+<h3>Details</h3>
+
+
+<dl>
+<dt><code>MethodsList</code>:</dt><dd>
+<p>Create a MethodsList object out of the arguments.
+</p>
+<p>Conceptually, this object is a named collection of methods to be
+dispatched when the (first) argument in a function call matches
+the class corresponding to one of the names.  A final, unnamed
+element (i.e., with name <code>""</code>) corresponds to the default
+method.
+</p>
+<p>The elements can be either a function, or another MethodsList.  In
+the second case, this list implies dispatching on the second
+argument to the function using that list, given a selection of
+this element on the first argument.  Thus, method dispatching on
+an arbitrary number of arguments is defined.
+</p>
+<p>MethodsList objects are used primarily to dispatch OOP-style
+methods and, in R, to emulate S4-style methods.
+</p>
+</dd>
+<dt><code>SignatureMethod</code>:</dt><dd>
+<p>construct a MethodsList object containing (only) this method,
+corresponding to the signature; i.e., such that
+<code>signature[[1]]</code> is the match for the first argument,
+<code>signature[[2]]</code> for the second argument, and so on.  The
+string <code>"missing"</code> means a match for a missing argument, and
+<code>"ANY"</code> means use this as the default setting at this level.
+</p>
+<p>The first argument is the argument names to be used for dispatch
+corresponding to the signatures.
+</p>
+</dd>
+<dt><code>insertMethod</code>:</dt><dd>
+<p>insert the definition <code>def</code> into the MethodsList object,
+<code>mlist</code>, corresponding to the signature.  By default, insert
+it in the slot <code>"methods"</code>, but <code>cacheOnly=TRUE</code> inserts
+it into the <code>"allMethods"</code> slot (used for dispatch but not saved).
+</p>
+</dd>
+<dt><code>inheritedSubMethodLists</code>:</dt><dd>
+<p>Utility function to match the object  or the class (if the object
+is <code>NULL</code>) to the elements of a methods list.
+Used in finding inherited methods, and not meant to be called
+directly.
+</p>
+</dd>
+<dt><code>showMlist</code>:</dt><dd>
+<p>Prints the contents of the MethodsList.  If <code>includeDefs</code> the
+signatures and the corresonding definitions will be printed;
+otherwise, only the signatures.
+</p>
+<p>The function calls itself recursively: <code>prev</code> is the
+previously selected classes.
+</p>
+</dd>
+<dt><code>listFromMlistForPrint</code>:</dt><dd>
+<p>Undo the recursive nature of the methods list, making a list of
+function defintions, with the names of the list being the
+corresponding signatures (designed for printing; for looping over
+the methods, use <code>listFromMlist</code> instead).
+</p>
+<p>The function calls itself recursively: <code>prev</code> is the
+previously selected classes.
+</p>
+</dd>
+<dt><code>finalDefaultMethod</code>:</dt><dd>
+<p>The true default method for the methods list object <code>mlist</code>
+(the method that matches class <code>"ANY"</code> for as many arguments
+as are used in methods matching for this generic function).  If
+<code>mlist</code> is null, returns the function called <code>fname</code>, or
+<code>NULL</code> if there is no such function.
+</p>
+</dd>
+<dt><code>mergeMethods</code>:</dt><dd>
+<p>Merges the methods in the second MethodsList object into the
+first, and returns the merged result.  Called from
+<code>getAllMethods</code>.  For a primitive function,
+<code>genericLabel</code> is supplied as the name of the generic.
+</p>
+</dd>
+<dt><code>loadMethod</code>:</dt><dd>
+<p>Called, if necessary, just before a call to <code>method</code> is
+dispatched in the frame <code>envir</code>.  The function exists so that
+methods can be defined for special classes of objects.  Usually
+the point is to assign or modify information in the frame
+environment to be used evaluation.  For example, the standard
+class <code>MethodDefinition</code> has a method that stores the target
+and defined signatures in the environment.  Class
+<code>MethodWithNext</code> has a method taking account of the
+mechanism for storing the method to be used in a call to
+<code>callNextMethod</code>.
+</p>
+<p>Any methods defined for <code>loadMethod</code> must return the function
+definition to be used for this call; typically, this is just the
+<code>method</code> argument.
+</p>
+</dd>
+</dl>
+
+
+
+<h3>References</h3>
+
+<p>The R package <span class="pkg">methods</span> implements, with a few exceptions, the
+programming interface for classes and methods in the book
+<em>Programming with Data</em> (John M. Chambers, Springer, 1998), in
+particular sections 1.6, 2.7, 2.8, and chapters 7 and 8.
+</p>
+<p>While the programming interface for the <span class="pkg">methods</span> package follows
+the reference, the R software is an original implementation, so
+details in the reference that reflect the S4 implementation may appear
+differently in R.  Also, there are extensions to the programming
+interface developed more recently than the reference.  For a
+discussion of details and ongoing development, see the web page
+<a href="http://developer.r-project.org/methodsPackage.html">http://developer.r-project.org/methodsPackage.html</a> and the
+pointers from that page.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.8.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Specify Names for Old-Style Classes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setOldClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setOldClass.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>setOldClass {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='setOldClass'> Specify Names for Old-Style Classes </h2>
+
+<h3>Description</h3>
+
+<p>The <code>Classes</code> argument is an old-style class assignment.  In
+particular, if there is more than one name, we expect old-style
+class inheritance.  Calling <code>setOldClass</code> establishes similar
+inheritance for formal method dispatch, so that the class names can
+be used in a call to <code>setMethod</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>setOldClass(Classes, where = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="setOldClass_:_Classes">Classes</code></td>
+<td>
+<p> A character vector of names for old-style classes. </p>
+</td></tr>
+<tr><td><code id="setOldClass_:_where">where</code></td>
+<td>
+<p> Where to store the class definitions.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Each of the names will be defined as a virtual class, extending the
+remaining classes in <code>Classes</code>, and the class
+<code>oldClass</code>, which is the &ldquo;root&rdquo; of all old-style classes.
+See Methods for the details of method dispatch and inheritance.
+</p>
+<p>The list <code>.OldClassesList</code> contains the old-style classes that
+are defined by the methods package.  Each element of the list is an
+old-style list, with multiple character strings if inheritance is
+included.
+Each element of the list was passed to <code>setOldClass</code> when
+creating the methods package; therefore, these classes can be used
+in <code>setMethod</code> calls, with the inheritance as implied by
+the list.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>setClass</code>, <code>setMethod</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>setOldClass(c("mlm", "lm"))
+setGeneric("dfResidual", function(model)standardGeneric("dfResidual"))
+setMethod("dfResidual", "lm", function(model)model$df.residual)
+
+## dfResidual will work on mlm objects as well as lm objects
+myData &lt;- data.frame(time = 1:10, y = (1:10)^.5)
+myLm &lt;- lm(cbind(y, y^3)  ~ time, myData)
+
+
+
+rm(myData, myLm)
+removeGeneric("dfResidual")
+removeClass("mlm")
+removeClass("lm")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.7.1 ]</div>
+</div>
+</body></html>

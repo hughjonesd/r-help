@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><title>R: Set File Time</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.setFileTime.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.setFileTime.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Sys.setFileTime {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Sys.setFileTime'>
+Set File Time
+</h2>
+
+<h3>Description</h3>
+
+<p>Uses system calls to set the times on a file or directory.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Sys.setFileTime(path, time)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Sys.setFileTime_:_path">path</code></td>
+<td>
+
+<p>A length-one character vector specifying the path to a file or directory.
+</p>
+</td></tr>
+<tr><td><code id="Sys.setFileTime_:_time">time</code></td>
+<td>
+
+<p>A date-time of class <code>"POSIXct"</code> or an object which can
+be coerced to one.  Fractions of a second are ignored.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This attempts sets the file time to the value specified.
+</p>
+<p>On a Unix-alike it uses the system call <code>utimes</code> if that is
+available, otherwise <code>utimes</code>.  On a POSIX file system it sets
+both the last-access and modification times.
+</p>
+<p>On Windows it uses the system call <code>SetFileTime</code> to set the
+&lsquo;last write time&rsquo;.  Some Windows file systems only record the
+time at a resolution of two seconds.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Logical, invisibly.  An indication if the operation succeeded.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.1.2 ]</div>
+</div>
+</body></html>

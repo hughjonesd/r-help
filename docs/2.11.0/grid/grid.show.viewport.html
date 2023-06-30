@@ -1,0 +1,122 @@
+<!DOCTYPE html><html><head><title>R: Draw a Diagram of a Grid Viewport</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.show.viewport.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.show.viewport.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.show.viewport {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.show.viewport'>Draw a Diagram of a Grid Viewport</h2>
+
+<h3>Description</h3>
+
+<p>This function uses Grid graphics to draw a diagram of
+a Grid viewport.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.show.viewport(v, parent.layout = NULL, newpage = TRUE,
+                   border.fill="light grey",
+                   vp.col="blue", vp.fill="light blue",
+                   scale.col="red",
+                   vp = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.show.viewport_:_v">v</code></td>
+<td>
+<p>A Grid viewport object.</p>
+</td></tr>
+<tr><td><code id="grid.show.viewport_:_parent.layout">parent.layout</code></td>
+<td>
+<p>A grid layout object.  If this is not NULL and
+the viewport given in <code>v</code> has its location specified relative
+to the layout, then the diagram shows the layout and which cells
+<code>v</code> occupies within the layout.</p>
+</td></tr>
+<tr><td><code id="grid.show.viewport_:_newpage">newpage</code></td>
+<td>
+<p>A logical value to indicate whether to move to
+a new page before drawing the diagram.</p>
+</td></tr>
+<tr><td><code id="grid.show.viewport_:_border.fill">border.fill</code></td>
+<td>
+<p>Colour to fill the border margin.</p>
+</td></tr>
+<tr><td><code id="grid.show.viewport_:_vp.col">vp.col</code></td>
+<td>
+<p>Colour for the border of the viewport region.</p>
+</td></tr>
+<tr><td><code id="grid.show.viewport_:_vp.fill">vp.fill</code></td>
+<td>
+<p>Colour to fill the viewport region.</p>
+</td></tr>
+<tr><td><code id="grid.show.viewport_:_scale.col">scale.col</code></td>
+<td>
+<p>Colour to draw the viewport axes.</p>
+</td></tr>
+<tr><td><code id="grid.show.viewport_:_vp">vp</code></td>
+<td>
+<p>A Grid viewport object (or NULL).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A viewport is created within <code>vp</code> to provide a margin for
+annotation, and the diagram is drawn within that new viewport.
+By default, the margin is filled with light grey, the new viewport is filled
+with white and framed with a black border, and the viewport region
+is filled with light blue and framed with a blue border.
+The diagram is annotated with the width and height (including units)
+of the viewport, the (x, y) location of the viewport, and
+the x- and y-scales of the viewport, using red lines and text.
+</p>
+
+
+<h3>Value</h3>
+
+<p>None.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p>Grid,
+<code>viewport</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Diagram of a sample viewport
+grid.show.viewport(viewport(x=0.6, y=0.6,
+                            w=unit(1, "inches"), h=unit(1, "inches")))
+grid.show.viewport(viewport(layout.pos.row=2, layout.pos.col=2:3),
+                   grid.layout(3, 4))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 2.11.0 ]</div>
+</div>
+</body></html>

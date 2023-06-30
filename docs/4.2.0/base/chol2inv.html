@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>R: Inverse from Cholesky (or QR) Decomposition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/chol2inv.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/chol2inv.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>chol2inv {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='chol2inv'>Inverse from Cholesky (or QR) Decomposition</h2>
+
+<h3>Description</h3>
+
+<p>Invert a symmetric, positive definite square matrix from its Cholesky
+decomposition.  Equivalently, compute <code class="reqn">(X'X)^{-1}</code>
+from the (<code class="reqn">R</code> part) of the QR decomposition of <code class="reqn">X</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>chol2inv(x, size = NCOL(x), LINPACK = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="chol2inv_:_x">x</code></td>
+<td>
+<p>a matrix.  The first <code>size</code> columns of the upper triangle
+contain the Cholesky decomposition of the matrix to be inverted.</p>
+</td></tr>
+<tr><td><code id="chol2inv_:_size">size</code></td>
+<td>
+<p>the number of columns of <code>x</code> containing the
+Cholesky decomposition.</p>
+</td></tr>
+<tr><td><code id="chol2inv_:_LINPACK">LINPACK</code></td>
+<td>
+<p>logical.  Defunct and gives an error.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The inverse of the matrix whose Cholesky decomposition was given.
+</p>
+<p>Unsuccessful results from the underlying LAPACK code will result in an
+error giving a positive error code: these can only be interpreted by
+detailed study of the FORTRAN code.
+</p>
+
+
+<h3>Source</h3>
+
+<p>This is an interface to the LAPACK routine <code>DPOTRI</code>.
+LAPACK is from <a href="https://www.netlib.org/lapack/">https://www.netlib.org/lapack/</a> and its guide is listed
+in the references.
+</p>
+
+
+<h3>References</h3>
+
+<p>Anderson. E. and ten others (1999)
+<em>LAPACK Users' Guide</em>. Third Edition.
+SIAM.
+Available on-line at
+<a href="https://www.netlib.org/lapack/lug/lapack_lug.html">https://www.netlib.org/lapack/lug/lapack_lug.html</a>.
+</p>
+<p>Dongarra, J. J., Bunch, J. R., Moler, C. B. and Stewart, G. W. (1978)
+<em>LINPACK Users Guide</em>.
+Philadelphia: SIAM Publications.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>chol</code>, <code>solve</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>cma &lt;- chol(ma  &lt;- cbind(1, 1:3, c(1,3,7)))
+ma %*% chol2inv(cma)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.2.0 ]</div>
+</div>
+</body></html>

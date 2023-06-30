@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>R: Get the Contents of a Grid Graphical Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.get.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.get.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.get {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.get'>Get the Contents of a Grid Graphical Object</h2>
+
+<h3>Description</h3>
+
+<p>A Grid graphical object contains a list structure;  this
+function returns that list structure.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.get(grob, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.get_:_grob">grob</code></td>
+<td>
+<p>An object of class <code>"grob"</code>.</p>
+</td></tr>
+<tr><td><code id="grid.get_:_...">...</code></td>
+<td>
+<p>Zero or more element-specifiers.  Each specifier
+may be a single character or numeric value.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If there are no specifiers then the value returned is just the
+list structure of the <code>grob</code>.  If there is a specifier
+and the list structure of the <code>grob</code> has a corresponding
+element, and that element is an object of class <code>"grob"</code>,
+then the return value is the list structure within that element.
+And so on ...
+</p>
+<p>Typically, users will not need to call this function, even
+when writing their own graphical objects.  Most graphical object
+methods will work only with the list structure.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list structure.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p><code>grid.grob</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>xa &lt;- grid.xaxis(draw=FALSE)
+grid.get(xa)
+grid.get(xa, "ticks")
+
+temp &lt;- grid.collection(axis=grid.xaxis(draw=FALSE), draw=FALSE)
+grid.get(temp, "children", "axis", "ticks")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 1.8.1 ]</div>
+</div>
+</body></html>

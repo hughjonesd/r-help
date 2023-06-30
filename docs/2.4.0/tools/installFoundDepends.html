@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><title>R: A function to install unresolved dependencies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/installFoundDepends.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/installFoundDepends.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>installFoundDepends {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='installFoundDepends'>A function to install unresolved dependencies</h2>
+
+<h3>Description</h3>
+
+<p>This function will take the <code>Found</code> element of a
+<code>pkgDependsList</code> object and attempt to install 
+all of the listed packages from the specified repositories.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>installFoundDepends(depPkgList, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="installFoundDepends_:_depPkgList">depPkgList</code></td>
+<td>
+<p>A <code>Found</code> element from a <code>pkgDependsList</code> object</p>
+</td></tr>
+<tr><td><code id="installFoundDepends_:_...">...</code></td>
+<td>
+<p>Arguments to pass on to <code>install.packages</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function takes as input the <code>Found</code> list from a
+<code>pkgDependsList</code> object.  This list will have element names being
+URLs corresponding to repositories and the elements will be vectors of
+package names.  For each element, <code>install.packages</code> is
+called for that URL to install all packages listed in the vector.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jeff Gentry</p>
+
+
+<h3>See Also</h3>
+
+<p><code>pkgDepends</code>, <code>install.packages</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Set up a temporary directory to install packages to
+tmp &lt;- tempfile()
+dir.create(tmp)
+
+pDL &lt;- pkgDepends("tools",local=FALSE)
+installFoundDepends(pDL$Found, destdir=tmp)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.4.0 ]</div>
+</div>
+</body></html>

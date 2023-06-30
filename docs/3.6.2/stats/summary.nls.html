@@ -1,0 +1,156 @@
+<!DOCTYPE html><html><head><title>R: Summarizing Non-Linear Least-Squares Model Fits</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.nls.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>summary.nls {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='summary.nls'>Summarizing Non-Linear Least-Squares Model Fits</h2>
+
+<h3>Description</h3>
+
+<p><code>summary</code> method for class <code>"nls"</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'nls'
+summary(object, correlation = FALSE, symbolic.cor = FALSE, ...)
+
+## S3 method for class 'summary.nls'
+print(x, digits = max(3, getOption("digits") - 3),
+      symbolic.cor = x$symbolic.cor,
+      signif.stars = getOption("show.signif.stars"), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="summary.nls_:_object">object</code></td>
+<td>
+<p>an object of class <code>"nls"</code>.</p>
+</td></tr>
+<tr><td><code id="summary.nls_:_x">x</code></td>
+<td>
+<p>an object of class <code>"summary.nls"</code>, usually the result of a
+call to <code>summary.nls</code>.</p>
+</td></tr>
+<tr><td><code id="summary.nls_:_correlation">correlation</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the correlation matrix of
+the estimated parameters is returned and printed.</p>
+</td></tr>
+<tr><td><code id="summary.nls_:_digits">digits</code></td>
+<td>
+<p>the number of significant digits to use when printing.</p>
+</td></tr>
+<tr><td><code id="summary.nls_:_symbolic.cor">symbolic.cor</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, print the correlations in
+a symbolic form (see <code>symnum</code>) rather than as numbers.</p>
+</td></tr>
+<tr><td><code id="summary.nls_:_signif.stars">signif.stars</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, &lsquo;significance stars&rsquo;
+are printed for each coefficient.</p>
+</td></tr>
+<tr><td><code id="summary.nls_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The distribution theory used to find the distribution of the
+standard errors and of the residual standard error (for t ratios) is
+based on linearization and is approximate, maybe very approximate.
+</p>
+<p><code>print.summary.nls</code> tries to be smart about formatting the
+coefficients, standard errors, etc. and additionally gives
+&lsquo;significance stars&rsquo; if <code>signif.stars</code> is <code>TRUE</code>.
+</p>
+<p>Correlations are printed to two decimal places (or symbolically): to
+see the actual correlations print <code>summary(object)$correlation</code>
+directly.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The function <code>summary.nls</code> computes and returns a list of summary
+statistics of the fitted model given in <code>object</code>, using
+the component  <code>"formula"</code> from its argument, plus
+</p>
+<table>
+<tr><td><code>residuals</code></td>
+<td>
+<p>the <em>weighted</em> residuals, the usual residuals
+rescaled by the square root of the weights specified in the call to
+<code>nls</code>.</p>
+</td></tr>
+<tr><td><code>coefficients</code></td>
+<td>
+<p>a <code class="reqn">p \times 4</code> matrix with columns for
+the estimated coefficient, its standard error, t-statistic and
+corresponding (two-sided) p-value.</p>
+</td></tr>
+<tr><td><code>sigma</code></td>
+<td>
+<p>the square root of the estimated variance of the random
+error
+</p>
+<p style="text-align: center;"><code class="reqn">\hat\sigma^2 = \frac{1}{n-p}\sum_i{R_i^2},</code>
+</p>
+
+<p>where <code class="reqn">R_i</code> is the <code class="reqn">i</code>-th weighted residual.</p>
+</td></tr>
+<tr><td><code>df</code></td>
+<td>
+<p>degrees of freedom, a 2-vector <code class="reqn">(p, n-p)</code>.  (Here and
+elsewhere <code class="reqn">n</code> omits observations with zero weights.)</p>
+</td></tr>
+<tr><td><code>cov.unscaled</code></td>
+<td>
+<p>a <code class="reqn">p \times p</code> matrix of (unscaled)
+covariances of the parameter estimates.</p>
+</td></tr>
+<tr><td><code>correlation</code></td>
+<td>
+<p>the correlation matrix corresponding to the above
+<code>cov.unscaled</code>, if <code>correlation = TRUE</code> is specified and
+there are a non-zero number of residual degrees of freedom.</p>
+</td></tr>
+<tr><td><code>symbolic.cor</code></td>
+<td>
+<p>(only if <code>correlation</code> is true.)  The value
+of the argument <code>symbolic.cor</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p>The model fitting function <code>nls</code>, <code>summary</code>.
+</p>
+<p>Function <code>coef</code> will extract the matrix of coefficients
+with standard errors, t-statistics and p-values.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.6.2 ]</div>
+</div>
+</body></html>

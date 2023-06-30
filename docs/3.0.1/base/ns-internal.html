@@ -1,0 +1,154 @@
+<!DOCTYPE html><html><head><title>R: Namespace Internals</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-internal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-internal.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ns-internals {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ns-internals'>Namespace Internals</h2>
+
+<h3>Description</h3>
+
+<p>Internal namespace support functions.  Not intended to be called directly.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>asNamespace(ns, base.OK = TRUE)
+getNamespaceInfo(ns, which)
+importIntoEnv(impenv, impnames, expenv, expnames)
+isBaseNamespace(ns)
+isNamespace(ns)
+namespaceExport(ns, vars)
+namespaceImport(self, ...)
+namespaceImportFrom(self, ns, vars, generics, packages)
+namespaceImportClasses(self, ns, vars)
+namespaceImportMethods(self, ns, vars)
+packageHasNamespace(package, package.lib)
+parseNamespaceFile(package, package.lib, mustExist = TRUE)
+registerS3method(genname, class, method, envir = parent.frame())
+registerS3methods(info, package, env)
+setNamespaceInfo(ns, which, val)
+.mergeExportMethods(new, ns)
+.mergeImportMethods(impenv, expenv, metaname)
+.knownS3Generics
+loadingNamespaceInfo()
+.getNamespace(name)
+..getNamespace(name, where)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="ns-internals_:_ns">ns</code></td>
+<td>
+<p>string or namespace environment.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_base.OK">base.OK</code></td>
+<td>
+<p>logical.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_impenv">impenv</code></td>
+<td>
+<p>environment.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_expenv">expenv</code></td>
+<td>
+<p>namespace environment.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_vars">vars</code></td>
+<td>
+<p>character vector.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_generics">generics</code></td>
+<td>
+<p>optional character vector.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_self">self</code></td>
+<td>
+<p>namespace environment.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_package">package</code></td>
+<td>
+<p>string naming the package/namespace to load.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_packages">packages</code></td>
+<td>
+<p>vector of package names parallel to <code>generics</code>.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_package.lib">package.lib</code></td>
+<td>
+<p>character vector specifying library.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_mustExist">mustExist</code></td>
+<td>
+<p>logical.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_genname">genname</code></td>
+<td>
+<p>character.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_class">class</code></td>
+<td>
+<p>character.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_envir">envir</code>, <code id="ns-internals_:_env">env</code></td>
+<td>
+<p>environment.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_info">info</code></td>
+<td>
+<p>a 3-column character matrix.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_which">which</code></td>
+<td>
+<p>character.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_val">val</code></td>
+<td>
+<p>any object.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_...">...</code></td>
+<td>
+<p>character arguments.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_metaname">metaname</code></td>
+<td>
+<p>the methods table name.</p>
+</td></tr>
+<tr><td><code id="ns-internals_:_name">name</code></td>
+<td>
+<p>symbol: name of namespace</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>packageHasNamespace</code> does not indicate if the package has a
+namespace, rather if it has a &lsquo;<span class="file">NAMESPACE</span>&rsquo; file, which <code>base</code>
+and many older packages do not.  But then you are not intended to be
+using it ....
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Luke Tierney</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.0.1 ]</div>
+</div>
+</body></html>

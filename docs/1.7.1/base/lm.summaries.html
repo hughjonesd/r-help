@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><title>R: Accessing Linear Model Fits</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/lm.summaries.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/lm.summaries.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>lm.summaries {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='lm.summaries'>Accessing Linear Model Fits</h2>
+
+<h3>Description</h3>
+
+<p>All these functions are <code>methods</code> for class <code>"lm"</code>  objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'lm'
+family(object, ...)
+## S3 method for class 'lm'
+formula(x, ...)
+## S3 method for class 'lm'
+residuals(object,
+          type=c("working","response", "deviance","pearson", "partial"), ...)
+weights(object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="lm.summaries_:_object">object</code>, <code id="lm.summaries_:_x">x</code></td>
+<td>
+<p>an object of class <code>lm</code>, usually, a result of a
+call to <code>lm</code>.</p>
+</td></tr>
+<tr><td><code id="lm.summaries_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+<tr><td><code id="lm.summaries_:_type">type</code></td>
+<td>
+<p>the type of residuals which should be returned.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The generic accessor functions <code>coef</code>, <code>effects</code>,
+<code>fitted</code> and <code>residuals</code> can be used to extract
+various useful features of the value returned by <code>lm</code>.
+</p>
+<p>The working and response residuals are &ldquo;observed - fitted&rdquo;.  The
+deviance and pearson residuals are weighted residuals, scaled by the
+square root of the weights used in fitting.  The partial residuals
+are a matrix with each column formed by omitting a term from the
+model.  In all these, zero weight cases are never omitted (as opposed
+to the standardized <code>rstudent</code> and similarobservations
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. (1992)
+<em>Linear models.</em>
+Chapter 4 of <em>Statistical Models in S</em>
+eds J. M. Chambers and T. J. Hastie, Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The model fitting function <code>lm</code>, <code>anova.lm</code>.
+</p>
+<p><code>coef</code>, <code>deviance</code>,
+<code>df.residual</code>,
+<code>effects</code>, <code>fitted</code>,
+<code>glm</code> for <b>generalized</b> linear models,
+<code>influence</code> (etc on that page) for regression diagnostics,
+<code>weighted.residuals</code>,
+<code>residuals</code>, <code>residuals.glm</code>,
+<code>summary.lm</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+##-- Continuing the  lm(.) example:
+coef(lm.D90)# the bare coefficients
+
+## The 2 basic regression diagnostic plots [plot.lm(.) is preferred]
+plot(resid(lm.D90), fitted(lm.D90))# Tukey-Anscombe's
+abline(h=0, lty=2, col = 'gray')
+
+qqnorm(residuals(lm.D90))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.7.1 ]</div>
+</div>
+</body></html>

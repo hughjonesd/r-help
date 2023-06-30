@@ -1,0 +1,191 @@
+<!DOCTYPE html><html><head><title>R: Merge Two Data Frames</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/merge.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/merge.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>merge {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='merge'>Merge Two Data Frames</h2>
+
+<h3>Description</h3>
+
+<p>Merge two data frames by common columns or row names, or do other
+versions of database <em>join</em> operations.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>merge(x, y, ...)
+
+## Default S3 method:
+merge(x, y, ...)
+
+## S3 method for class 'data.frame'
+merge(x, y, by = intersect(names(x), names(y)),
+      by.x = by, by.y = by, all = FALSE, all.x = all, all.y = all,
+      sort = TRUE, suffixes = c(".x",".y"), incomparables = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="merge_:_x">x</code>, <code id="merge_:_y">y</code></td>
+<td>
+<p>data frames, or objects to be coerced to one.</p>
+</td></tr>
+<tr><td><code id="merge_:_by">by</code>, <code id="merge_:_by.x">by.x</code>, <code id="merge_:_by.y">by.y</code></td>
+<td>
+<p>specifications of the common columns.  See
+&lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="merge_:_all">all</code></td>
+<td>
+<p>logical; <code>all = L</code> is shorthand for <code>all.x = L</code> and
+<code>all.y = L</code>.</p>
+</td></tr>
+<tr><td><code id="merge_:_all.x">all.x</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, then extra rows will be added to
+the output, one for each row in <code>x</code> that has no matching row in
+<code>y</code>.  These rows will have <code>NA</code>s in those columns that are
+usually filled with values from <code>y</code>.  The default is
+<code>FALSE</code>, so that only rows with data from both <code>x</code> and
+<code>y</code> are included in the output.</p>
+</td></tr>
+<tr><td><code id="merge_:_all.y">all.y</code></td>
+<td>
+<p>logical; analogous to <code>all.x</code> above.</p>
+</td></tr>
+<tr><td><code id="merge_:_sort">sort</code></td>
+<td>
+<p>logical.  Should the results be sorted on the <code>by</code>
+columns?</p>
+</td></tr>
+<tr><td><code id="merge_:_suffixes">suffixes</code></td>
+<td>
+<p>character(2) specifying the suffixes to be used for
+making non-<code>by</code> <code>names()</code> unique.</p>
+</td></tr>
+<tr><td><code id="merge_:_incomparables">incomparables</code></td>
+<td>
+<p>values which cannot be matched.  See
+<code>match</code>.</p>
+</td></tr>
+<tr><td><code id="merge_:_...">...</code></td>
+<td>
+<p>arguments to be passed to or from methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>By default the data frames are merged on the columns with names they
+both have, but separate specifications of the columns can be given by
+<code>by.x</code> and <code>by.y</code>.  Columns can be specified by name, number
+or by a logical vector: the name <code>"row.names"</code> or the number
+<code>0</code> specifies the row names.  The rows in the two data frames
+that match on the specified columns are extracted, and joined
+together.  If there is more than one match, all possible matches
+contribute one row each.  For the precise meaning of &lsquo;match&rsquo;,
+see <code>match</code>.
+</p>
+<p>If <code>by</code> or both <code>by.x</code> and <code>by.y</code> are of length 0 (a
+length zero vector or <code>NULL</code>), the result, <code>r</code>, is the
+<em>Cartesian product</em> of <code>x</code> and <code>y</code>, i.e.,
+<code>dim(r) = c(nrow(x)*nrow(y), ncol(x) + ncol(y))</code>.
+</p>
+<p>If <code>all.x</code> is true, all the non matching cases of <code>x</code> are
+appended to the result as well, with <code>NA</code> filled in the
+corresponding columns of <code>y</code>;  analogously for <code>all.y</code>.
+</p>
+<p>If the remaining columns in the data frames have any common names,
+these have <code>suffixes</code> (<code>".x"</code> and <code>".y"</code> by default)
+appended to make the names of the result unique.
+</p>
+<p>The complexity of the algorithm used is proportional to the length of
+the answer.
+</p>
+
+<p>In SQL database terminology, the default value of <code>all = FALSE</code>
+gives a <em>natural join</em>, a special case of an <em>inner
+join</em>. Specifying <code>all.x = TRUE</code> gives a <em>left (outer)
+join</em>, <code>all.y = TRUE</code> a <em>right (outer) join</em>, and both
+(<code>all=TRUE</code> a <em>(full) outer join</em>.  DBMSes do not match
+<code>NULL</code> records, equivalent to <code>incomparables = NA</code> in <span class="rlang"><b>R</b></span>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame.  The rows are by default lexicographically sorted on the
+common columns, but for <code>sort = FALSE</code> are in an unspecified order.
+The columns are the common columns followed by the
+remaining columns in <code>x</code> and then those in <code>y</code>.  If the
+matching involved row names, an extra character column called
+<code>Row.names</code> is added at the left, and in all cases the result has
+&lsquo;automatic&rsquo; row names.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>data.frame</code>,
+<code>by</code>,
+<code>cbind</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## use character columns of names to get sensible sort order
+authors &lt;- data.frame(
+    surname = I(c("Tukey", "Venables", "Tierney", "Ripley", "McNeil")),
+    nationality = c("US", "Australia", "US", "UK", "Australia"),
+    deceased = c("yes", rep("no", 4)))
+books &lt;- data.frame(
+    name = I(c("Tukey", "Venables", "Tierney",
+             "Ripley", "Ripley", "McNeil", "R Core")),
+    title = c("Exploratory Data Analysis",
+              "Modern Applied Statistics ...",
+              "LISP-STAT",
+              "Spatial Statistics", "Stochastic Simulation",
+              "Interactive Data Analysis",
+              "An Introduction to R"),
+    other.author = c(NA, "Ripley", NA, NA, NA, NA,
+                     "Venables &amp; Smith"))
+
+(m1 &lt;- merge(authors, books, by.x = "surname", by.y = "name"))
+(m2 &lt;- merge(books, authors, by.x = "name", by.y = "surname"))
+stopifnot(as.character(m1[,1]) == as.character(m2[,1]),
+          all.equal(m1[, -1], m2[, -1][ names(m1)[-1] ]),
+          dim(merge(m1, m2, by = integer(0))) == c(36, 10))
+
+## "R core" is missing from authors and appears only here :
+merge(authors, books, by.x = "surname", by.y = "name", all = TRUE)
+
+## example of using 'incomparables'
+x &lt;- data.frame(k1=c(NA,NA,3,4,5), k2=c(1,NA,NA,4,5), data=1:5)
+y &lt;- data.frame(k1=c(NA,2,NA,4,5), k2=c(NA,NA,3,4,5), data=1:5)
+merge(x, y, by=c("k1","k2")) # NA's match
+merge(x, y, by=c("k1","k2"), incomparables=NA)
+merge(x, y, by="k1") # NA's match, so 6 rows
+merge(x, y, by="k2", incomparables=NA) # 2 rows
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.9.0 ]</div>
+</div>
+</body></html>

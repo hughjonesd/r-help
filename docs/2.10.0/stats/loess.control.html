@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head><title>R: Set Parameters for Loess</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/loess.control.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/loess.control.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>loess.control {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='loess.control'>Set Parameters for Loess</h2>
+
+<h3>Description</h3>
+
+<p>Set control parameters for <code>loess</code> fits.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>loess.control(surface = c("interpolate", "direct"),
+              statistics = c("approximate", "exact"),
+              trace.hat = c("exact", "approximate"),
+              cell = 0.2, iterations = 4, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="loess.control_:_surface">surface</code></td>
+<td>
+<p>should be fitted surface be computed exactly or via
+interpolation from a kd tree?</p>
+</td></tr>
+<tr><td><code id="loess.control_:_statistics">statistics</code></td>
+<td>
+<p>should the statistics be computed exactly or
+approximately? Exact computation can be very slow.</p>
+</td></tr>
+<tr><td><code id="loess.control_:_trace.hat">trace.hat</code></td>
+<td>
+<p>should the trace of the smoother matrix be computed
+exactly or approximately? It is recommended to use the approximation
+for more than about 1000 data points.</p>
+</td></tr>
+<tr><td><code id="loess.control_:_cell">cell</code></td>
+<td>
+<p>if interpolation is used this controls the accuracy of the
+approximation via the maximum number of points in a  cell in the kd
+tree. Cells with more than <code>floor(n*span*cell)</code> points are subdivided.</p>
+</td></tr>
+<tr><td><code id="loess.control_:_iterations">iterations</code></td>
+<td>
+<p>the number of iterations used in robust fitting.</p>
+</td></tr>
+<tr><td><code id="loess.control_:_...">...</code></td>
+<td>
+<p>further arguments which are ignored.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with components
+</p>
+<table>
+<tr><td><code>surface</code></td>
+<td>
+</td></tr>
+<tr><td><code>statistics</code></td>
+<td>
+</td></tr>
+<tr><td><code>trace.hat</code></td>
+<td>
+</td></tr>
+<tr><td><code>cell</code></td>
+<td>
+</td></tr>
+<tr><td><code>iterations</code></td>
+<td>
+</td></tr>
+</table>
+<p>with meanings as explained under &lsquo;Arguments&rsquo;.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>loess</code></p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.10.0 ]</div>
+</div>
+</body></html>

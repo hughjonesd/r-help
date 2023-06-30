@@ -1,0 +1,153 @@
+<!DOCTYPE html><html><head><title>R: Generic X-Y Plotting</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot'>Generic X-Y Plotting</h2>
+
+<h3>Description</h3>
+
+<p>Generic function for plotting of <span class="rlang"><b>R</b></span> objects.  For more details about
+the graphical parameter arguments, see <code>par</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>plot(x, y, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot_:_x">x</code></td>
+<td>
+<p>the coordinates of points in the plot. Alternatively, a
+single plotting structure, function or <em>any <span class="rlang"><b>R</b></span> object with a
+<code>plot</code> method</em> can be provided.</p>
+</td></tr>
+<tr><td><code id="plot_:_y">y</code></td>
+<td>
+<p>the y coordinates of points in the plot, <em>optional</em>
+if <code>x</code> is an appropriate structure.</p>
+</td></tr>
+<tr><td><code id="plot_:_...">...</code></td>
+<td>
+<p>Arguments to be passed to methods, such as graphical
+parameters (see <code>par</code>).
+Many methods will accept the following arguments:
+</p>
+
+<dl>
+<dt><code>type</code></dt><dd><p>what type of plot should be drawn.  Possible types are
+</p>
+
+<ul>
+<li> <p><code>"p"</code> for <b>p</b>oints,
+</p>
+</li>
+<li> <p><code>"l"</code> for <b>l</b>ines,
+</p>
+</li>
+<li> <p><code>"b"</code> for <b>b</b>oth,
+</p>
+</li>
+<li> <p><code>"c"</code> for the lines part alone of <code>"b"</code>,
+</p>
+</li>
+<li> <p><code>"o"</code> for both &lsquo;<b>o</b>verplotted&rsquo;,
+</p>
+</li>
+<li> <p><code>"h"</code> for &lsquo;<b>h</b>istogram&rsquo; like (or
+&lsquo;high-density&rsquo;) vertical lines,
+</p>
+</li>
+<li> <p><code>"s"</code> for stair <b>s</b>teps,
+</p>
+</li>
+<li> <p><code>"S"</code> for other <b>s</b>teps, see &lsquo;Details&rsquo; below,
+</p>
+</li>
+<li> <p><code>"n"</code> for no plotting.
+</p>
+</li></ul>
+
+<p>All other <code>type</code>s give a warning or an error; using, e.g.,
+<code>type = "punkte"</code> being equivalent to <code>type = "p"</code> for S
+compatibility.  Note that some methods,
+e.g. <code>plot.factor</code>, do not accept this.
+</p>
+</dd>
+<dt><code>main</code></dt><dd><p>an overall title for the plot: see <code>title</code>.</p>
+</dd>
+<dt><code>sub</code></dt><dd><p>a sub title for the plot: see <code>title</code>.</p>
+</dd>
+<dt><code>xlab</code></dt><dd><p>a title for the x axis: see <code>title</code>.</p>
+</dd>
+<dt><code>ylab</code></dt><dd><p>a title for the y axis: see <code>title</code>.</p>
+</dd>
+<dt><code>asp</code></dt><dd><p>the <code class="reqn">y/x</code> aspect ratio,
+see <code>plot.window</code>.</p>
+</dd>
+</dl>
+
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For simple scatter plots, <code>plot.default</code> will be used.
+However, there are <code>plot</code> methods for many <span class="rlang"><b>R</b></span> objects,
+including <code>function</code>s, <code>data.frame</code>s,
+<code>density</code> objects, etc.  Use <code>methods(plot)</code> and
+the documentation for these.
+</p>
+<p>The two step types differ in their x-y preference: Going from
+<code class="reqn">(x1,y1)</code> to <code class="reqn">(x2,y2)</code> with <code class="reqn">x1 &lt; x2</code>, <code>type = "s"</code>
+moves first horizontal, then vertical, whereas <code>type = "S"</code> moves
+the other way around.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>plot.default</code>, <code>plot.formula</code> and other
+methods; <code>points</code>, <code>lines</code>, <code>par</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(stats)
+plot(cars)
+lines(lowess(cars))
+
+plot(sin, -pi, 2*pi)
+
+## Discrete Distribution Plot:
+plot(table(rpois(100,5)), type = "h", col = "red", lwd=10,
+     main="rpois(100,lambda=5)")
+
+## Simple quantiles/ECDF, see ecdf() {library(stats)} for a better one:
+plot(x &lt;- sort(rnorm(47)), type = "s", main = "plot(x, type = \"s\")")
+points(x, cex = .5, col = "dark red")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 2.9.2 ]</div>
+</div>
+</body></html>

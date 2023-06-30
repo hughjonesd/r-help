@@ -1,0 +1,145 @@
+<!DOCTYPE html><html><head><title>R: Send a Post to R-help</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.request.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.request.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>help.request {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='help.request'>Send a Post to R-help</h2>
+
+<h3>Description</h3>
+
+<p>Prompts the user to check they have done all that is expected of them
+before sending a post to the R-help mailing list, provides a template
+for the post with session information included and optionally sends
+the email (on Unix systems).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>help.request(subject = "",
+             ccaddress = Sys.getenv("USER"),
+             method = getOption("mailer"),
+             address = "r-help@R-project.org",
+             file = "R.help.request")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="help.request_:_subject">subject</code></td>
+<td>
+<p>subject of the email.  Please do not use single quotes
+(<kbd>'</kbd>) in the subject!  Post separate help requests for multiple
+queries.</p>
+</td></tr>
+<tr><td><code id="help.request_:_ccaddress">ccaddress</code></td>
+<td>
+<p>optional email address for copies (default is current
+user).  Use <code>ccaddress = FALSE</code> for no copies.</p>
+</td></tr>
+<tr><td><code id="help.request_:_method">method</code></td>
+<td>
+<p>submission method: for Unix one of <code>"mailx"</code>,
+<code>"gnudoit"</code>, <code>"none"</code> or <code>"ess"</code>; for Windows either
+<code>"none"</code> (default) or <code>"mailto"</code>.</p>
+</td></tr>
+<tr><td><code id="help.request_:_address">address</code></td>
+<td>
+<p>recipient's email address.</p>
+</td></tr>
+<tr><td><code id="help.request_:_file">file</code></td>
+<td>
+<p>file to use for setting up the email (or storing it when
+method is <code>"none"</code> or sending mail fails).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is not intended to replace the posting
+guide. Please read the guide before posting to R-help or using this
+function (see <a href="http://www.r-project.org/posting-guide.html">http://www.r-project.org/posting-guide.html</a>).
+</p>
+<p>The <code>help.request</code> function:
+</p>
+
+<ul>
+<li><p> asks whether the user has consulted relevant resources,
+stopping and opening the relevant url if a negative response if
+given.
+</p>
+</li>
+<li><p> checks whether the current version of R is being used and
+whether the add-on packages are up-to-date, giving the option of
+updating where necessary.
+</p>
+</li>
+<li><p> asks whether the user has prepared appropriate (minimal,
+reproducible, self-contained, commented) example code ready to
+paste into the post.
+</p>
+</li></ul>
+
+<p>Once this checklist has been completed a template post is prepared
+including current session information.
+</p>
+<p>If method is <code>"none"</code> or <code>NULL</code>, then the default text
+editor is opened for the user to complete the post.  Which editor is
+used can be controlled using <code>options</code>, type
+<code>getOption("editor")</code> to see what editor is currently
+defined.  Please use the help pages of the respective editor for
+details of usage.  The report can then be copied to your favorite email
+program and sent to the r-help list.
+</p>
+<p>On Windows systems there is an experimental <code>"mailto"</code> option,
+which sends the template post to the system's default email program for
+the user to edit and send.
+</p>
+<p>On Unix systems there are three options for direct submission of the
+post. If the submission method is <code>"mailx"</code>, then the default
+editor is used to write the help request. After saving the help request
+(in the temporary file opened) and exiting the editor the report is
+mailed using a Unix command line mail utility such as <code>mailx</code>.  A
+copy of the mail is sent to the current user. If method is
+<code>"gnudoit"</code>, then an emacs mail buffer is opened and used for
+sending the email. If method is <code>"ess"</code> the body of the mail is
+simply sent to stdout.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Nothing useful.</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Heather Turner, based on code and help page of
+<code>bug.report()</code>.</p>
+
+
+<h3>See Also</h3>
+
+<p>The posting guide
+(<a href="http://www.r-project.org/posting-guide.html">http://www.r-project.org/posting-guide.html</a>),
+also <code>sessionInfo()</code> from which you may add
+to the help request.</p>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.11.0 ]</div>
+</div>
+</body></html>

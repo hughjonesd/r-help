@@ -1,0 +1,80 @@
+<!DOCTYPE html><html><head><title>R: Get and Set Contrast Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/contrasts.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/contrasts.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>contrasts {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='contrasts'>Get and Set Contrast Matrices</h2>
+
+<h3>Description</h3>
+
+<p>Set and view the contrasts associated with a factor.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>contrasts(x)
+contrasts(x) &lt;- ctr
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="contrasts_:_x">x</code></td>
+<td>
+<p>a factor.</p>
+</td></tr>
+<tr><td><code id="contrasts_:_ctr">ctr</code></td>
+<td>
+<p>either a matrix whose columns give coefficients for
+contrasts in the levels of <code>x</code>, or the (quoted) name of a
+function which computes such matrices.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If contrasts are not set for a factor the default functions from
+<code>options("contrasts")</code> are used.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>C</code>,
+<code>contr.helmert</code>,
+<code>contr.poly</code>,
+<code>contr.sum</code>,
+<code>contr.treatment</code>;
+<code>glm</code>,
+<code>aov</code>,
+<code>lm</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>example(factor)
+(fff &lt;- factor(ff))
+contrasts(fff) # treatment
+contrasts(C(fff, sum))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1 ]</div>
+</div>
+</body></html>

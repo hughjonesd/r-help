@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><title>R: Pattern Matching and Replacement</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/grep.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/grep.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grep {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grep'>Pattern Matching and Replacement</h2>
+
+<h3>Description</h3>
+
+<p><code>grep</code> searches for matches to pattern given as its first
+argument within the the vector of character strings given as
+its second argument.
+</p>
+<p><code>sub</code> and <code>gsub</code> perform replacement of matches
+determined by regular expression matching.
+The functions differ only in that <code>sub</code> replaces only
+the first occurence of a pattern whereas <code>gsub</code> replaces
+all occurences.
+</p>
+<p>The regular expressions used are those specified by POSIX 1003.2,
+either extended or basic, depending on the value of the
+<code>extended</code> argument.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grep(pattern, x, ignore.case=FALSE, extended=TRUE, value=FALSE)
+sub(pattern, replacement, x,
+        ignore.case=FALSE, extended=TRUE)
+gsub(pattern, replacement, x,
+        ignore.case=FALSE, extended=TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grep_:_pattern">pattern</code></td>
+<td>
+<p>character string containing a regular expression
+to be matched in the vector of character string <code>vec</code>.</p>
+</td></tr>
+<tr><td><code id="grep_:_x">x</code></td>
+<td>
+<p>a vector of character strings where matches is sought.</p>
+</td></tr>
+<tr><td><code id="grep_:_ignore.case">ignore.case</code></td>
+<td>
+<p>if <code>FALSE</code>, the pattern matching is
+<em>case sensitive</em> and if <code>TRUE</code>, case is ignored during matching.</p>
+</td></tr>
+<tr><td><code id="grep_:_extended">extended</code></td>
+<td>
+<p>if <code>TRUE</code>, extended regular expression matching
+is used, and if <code>FALSE</code> basic regular expressions are used.</p>
+</td></tr>
+<tr><td><code id="grep_:_value">value</code></td>
+<td>
+<p>if <code>FALSE</code>, a vector containing the indices
+of the matches determined by <code>grep</code> is returned,
+and if <code>TRUE</code>, a vector containing the matching
+elements themselves is returned.</p>
+</td></tr>
+<tr><td><code id="grep_:_replacement">replacement</code></td>
+<td>
+<p>a replacement for matched pattern in
+<code>sub</code> and <code>gsub</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>This function is based on the <em>regex</em> regular expression library
+written by Henry Spencer of the University of Toronto.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>match</code>, <code>pmatch</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>grep("[a-z]", letters)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61 ]</div>
+</div>
+</body></html>

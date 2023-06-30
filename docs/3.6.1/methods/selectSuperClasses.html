@@ -1,0 +1,122 @@
+<!DOCTYPE html><html><head><title>R: Super Classes (of Specific Kinds) of a Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/selectSuperClasses.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/selectSuperClasses.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>selectSuperClasses {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='selectSuperClasses'>Super Classes (of Specific Kinds) of a Class</h2>
+
+<h3>Description</h3>
+
+<p>Return superclasses of <code>ClassDef</code>, possibly only non-virtual or
+direct or simple ones.
+</p>
+<p>These functions are designed to be fast, and consequently only work
+with the <code>contains</code> slot of the corresponding class definitions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>selectSuperClasses(Class, dropVirtual = FALSE, namesOnly = TRUE,
+                   directOnly = TRUE, simpleOnly = directOnly,
+                   where = topenv(parent.frame()))
+
+.selectSuperClasses(ext, dropVirtual = FALSE, namesOnly = TRUE,
+                    directOnly = TRUE, simpleOnly = directOnly)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="selectSuperClasses_:_Class">Class</code></td>
+<td>
+<p>name of the class or (more efficiently) the class
+definition object (see <code>getClass</code>).</p>
+</td></tr>
+<tr><td><code id="selectSuperClasses_:_dropVirtual">dropVirtual</code></td>
+<td>
+<p>logical indicating if only non-virtual superclasses
+should be returned.</p>
+</td></tr>
+<tr><td><code id="selectSuperClasses_:_namesOnly">namesOnly</code></td>
+<td>
+<p>logical indicating if only a vector names instead of
+a named list class-extensions should be returned.</p>
+</td></tr>
+<tr><td><code id="selectSuperClasses_:_directOnly">directOnly</code></td>
+<td>
+<p>logical indicating if only a <em>direct</em> super
+classes should be returned.</p>
+</td></tr>
+<tr><td><code id="selectSuperClasses_:_simpleOnly">simpleOnly</code></td>
+<td>
+<p>logical indicating if only simple class extensions
+should be returned.</p>
+</td></tr>
+<tr><td><code id="selectSuperClasses_:_where">where</code></td>
+<td>
+<p>(only used when <code>Class</code> is not a class definition)
+environment where the class definition of <code>Class</code> is found.</p>
+</td></tr>
+<tr><td><code id="selectSuperClasses_:_ext">ext</code></td>
+<td>
+<p>for <code>.selectSuperClasses()</code> only, a <code>list</code>
+of class extensions, typically <code>getClassDef(..)@contains</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a <code>character</code> vector (if <code>namesOnly</code> is true, as per
+default) or a list of class extensions (as the <code>contains</code> slot in
+the result of <code>getClass</code>).
+</p>
+
+
+<h3>Note</h3>
+
+<p>The typical user level function is <code>selectSuperClasses()</code>
+which calls <code>.selectSuperClasses()</code>; i.e., the latter should only
+be used for efficiency reasons by experienced useRs.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>is</code>, <code>getClass</code>; further, the more technical
+class <code>classRepresentation</code> documentation.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>setClass("Root")
+setClass("Base", contains = "Root", slots = c(length = "integer"))
+setClass("A", contains = "Base", slots = c(x = "numeric"))
+setClass("B", contains = "Base", slots = c(y = "character"))
+setClass("C", contains = c("A", "B"))
+
+extends("C")   #--&gt;  "C"  "A" "B"  "Base" "Root"
+selectSuperClasses("C") # "A" "B"
+selectSuperClasses("C", direct=FALSE) # "A" "B"  "Base"  "Root"
+selectSuperClasses("C", dropVirt = TRUE, direct=FALSE)# ditto w/o "Root"
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 3.6.1 ]</div>
+</div>
+</body></html>

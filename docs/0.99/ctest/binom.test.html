@@ -1,0 +1,148 @@
+<!DOCTYPE html><html><head><title>R: Exact Binomial Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.99. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/binom.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/binom.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>binom.test {ctest}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='binom.test'>Exact Binomial Test</h2>
+
+<h3>Description</h3>
+
+<p>Performs an exact test of the null that the probability of success in
+a Bernoulli experiment of length <code>n</code> is <code>p</code>, based on the
+number <code>x</code> of successes observed.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>binom.test(x, n, p = 0.5, alternative = c("two.sided", "less", "greater"),
+           conf.level = 0.95)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="binom.test_:_x">x</code></td>
+<td>
+<p>number of successes.</p>
+</td></tr>
+<tr><td><code id="binom.test_:_n">n</code></td>
+<td>
+<p>number of trials.</p>
+</td></tr>
+<tr><td><code id="binom.test_:_p">p</code></td>
+<td>
+<p>probability of success.</p>
+</td></tr>
+<tr><td><code id="binom.test_:_alternative">alternative</code></td>
+<td>
+<p>indicates the alternative hypothesis and must be
+one of <code>"two.sided"</code>, <code>"greater"</code> or <code>"less"</code>.
+You can specify just the initial letter.</p>
+</td></tr>
+<tr><td><code id="binom.test_:_conf.level">conf.level</code></td>
+<td>
+<p>confidence level for the returned confidence
+interval.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with class <code>"htest"</code> containing the following components:
+</p>
+<table>
+<tr><td><code>statistic</code></td>
+<td>
+<p>the number of successes, <code>x</code>.</p>
+</td></tr>
+<tr><td><code>parameter</code></td>
+<td>
+<p>the number of trials, <code>n</code>.</p>
+</td></tr>
+<tr><td><code>p.value</code></td>
+<td>
+<p>the p-value of the test.</p>
+</td></tr>
+<tr><td><code>conf.int</code></td>
+<td>
+<p>a confidence interval for the probability of success.</p>
+</td></tr>
+<tr><td><code>estimate</code></td>
+<td>
+<p>the estimated probability of success, <code>x / n</code>.</p>
+</td></tr>
+<tr><td><code>null.value</code></td>
+<td>
+<p>the probability of success under the null,
+<code>p</code>.</p>
+</td></tr>
+<tr><td><code>alternative</code></td>
+<td>
+<p>a character string describing the alternative
+hypothesis.</p>
+</td></tr>
+<tr><td><code>method</code></td>
+<td>
+<p>the string <code>"Exact binomial test"</code>.</p>
+</td></tr>
+<tr><td><code>data.name</code></td>
+<td>
+<p>a character string giving the names of the data.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Conover, W. J. (1971),
+<em>Practical nonparametric statistics</em>.
+New York: John Wiley &amp; Sons.
+Pages 97&ndash;104.
+</p>
+<p>Myles Hollander &amp; Douglas A. Wolfe (1973),
+<em>Nonparametric statistical inference</em>.
+New York: John Wiley &amp; Sons.
+Pages 15&ndash;22.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>prop.test</code> for a general (approximate) test for equal or
+given proportions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Conover (1971), p. 97f.
+## Under (the assumption of) simple Mendelian inheritance, a cross
+##  between plants of two particular genotypes produces progeny 1/4 of
+##  which are ``dwarf'' and 3/4 of which are ``giant'', respectively.
+##  In an experiment to determine if this assumption is reasonable, a
+##  cross results in progeny having 243 dwarf and 682 giant plants.
+##  If ``giant'' is taken as success, the null hypothesis is that p =
+##  3/4 and the alternative that p != 3/4.
+binom.test(682, 682 + 243, p = 3/4)
+## =&gt; Data are in agreement with the null hypothesis.
+</code></pre>
+
+
+</div>
+</body></html>

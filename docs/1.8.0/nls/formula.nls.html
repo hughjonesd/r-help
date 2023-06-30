@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><title>R: Extract Model Formula from nls Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/formula.nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/formula.nls.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>formula.nls {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='formula.nls'>Extract Model Formula from nls Object</h2>
+
+<h3>Description</h3>
+
+<p>Returns the model used to fit <code>object</code>. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'nls'
+formula(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="formula.nls_:_x">x</code></td>
+<td>
+<p>an object inheriting from class <code>nls</code>, representing
+a nonlinear least squares fit.</p>
+</td></tr>
+<tr><td><code id="formula.nls_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a formula representing the model used to obtain <code>object</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jose Pinheiro and Douglas Bates</p>
+
+
+<h3>See Also</h3>
+
+<p><code>nls</code>, <code>formula</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(Orange)
+fm1 &lt;- nls(circumference ~ A/(1+exp((B-age)/C)), Orange,
+  start = list(A=160, B=700, C = 350))
+formula(fm1)
+</code></pre>
+
+
+</div>
+</body></html>

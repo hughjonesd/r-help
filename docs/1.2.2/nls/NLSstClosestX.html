@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><title>R: Inverse Interpolation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/NLSstClosestX.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/NLSstClosestX.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>NLSstClosestX {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='NLSstClosestX'>Inverse Interpolation</h2>
+
+<h3>Description</h3>
+
+<p>Use inverse linear interpolation to approximate the <code>x</code> value at
+which the function represented by <code>xy</code> is equal to <code>yval</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>NLSstClosestX(xy, yval)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="NLSstClosestX_:_xy">xy</code></td>
+<td>
+<p>a <code>sortedXyData</code> object</p>
+</td></tr>
+<tr><td><code id="NLSstClosestX_:_yval">yval</code></td>
+<td>
+<p>a numeric value on the <code>y</code> scale</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A single numeric value on the <code>x</code> scale.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Jose Pinheiro and Douglas Bates</p>
+
+
+<h3>See Also</h3>
+
+<p><code>sortedXyData</code>, <code>NLSstLfAsymptote</code>,
+<code>NLSstRtAsymptote</code>, <code>selfStart</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>library( nls )
+data( DNase )
+DNase.2 &lt;- DNase[ DNase$Run == "2", ]
+DN.srt &lt;- sortedXyData( expression(log(conc)), expression(density), DNase.2 )
+NLSstClosestX( DN.srt, 1.0 )
+</code></pre>
+
+
+</div>
+</body></html>

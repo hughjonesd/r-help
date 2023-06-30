@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>R: Contrast Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/contrast.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/contrast.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Contrast {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Contrast'>Contrast Matrices</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>contr.helmert(n, contrasts=TRUE)
+contr.poly(n, contrasts=TRUE)
+contr.sum(n, contrasts=TRUE)
+contr.treatment(n, base=1, contrasts=TRUE)
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>A matrix with <code>n</code> rows and <code>k</code> columns,
+with <code>k=n-1</code> if <code>contrasts</code> is <code>TRUE</code>
+and <code>k=n</code> if <code>contrasts</code> is <code>FALSE</code>.
+</p>
+<p>The base argument to <code>contr.treatment()</code> allows you to specify
+which group is considered the baseline group.
+</p>
+<p>These functions are used for creating contrast matrices
+for use in fitting analysis of variance and regression models.
+The columns of the resulting matrices contain contrasts
+which can be used for coding a factor with <code>n</code> levels.
+The returned value contains the computed contrasts.
+If the argument <code>contrasts</code> is <code>FALSE</code> then an
+additional column of ones is prepended to the matrix.
+</p>
+<p>Note that as from <span class="rlang"><b>R</b></span> version 0.62.2, <code>contr.poly</code> returns contrasts
+based on orthogonal (rather than raw) polynomials.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>contrasts</code>, <code>C</code>, and
+<code>aov</code>, <code>glm</code>, <code>lm</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>(cH &lt;- contr.helmert(4))
+apply(cH, 2,sum)# column sums are 0!
+crossprod(cH)# diagonal -- columns are orthogonal
+
+(cT &lt;- contr.treatment(5))
+all(crossprod(cT) == diag(4))# TRUE: even orthonormal
+
+(cP &lt;- contr.poly(3))# Linear and Quadratic
+zapsmall(crossprod(cP), dig=15) # orthonormal up to fuzz
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.65 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><title>R: Extracting the &quot;Environment&quot; of a Model Formula</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/model.frame.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/model.frame.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>model.frame {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='model.frame'>Extracting the &ldquo;Environment&rdquo; of a Model Formula</h2>
+
+<h3>Description</h3>
+
+<p><code>model.frame</code> (a generic function) and its methods return a
+<code>data.frame</code> with the variables needed to use
+<code>formula</code> and any <code>...</code> arguments.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>model.frame(formula, ...)
+model.frame.default(formula, data = NULL,
+                    subset = NULL, na.action = na.fail,
+                    drop.unused.levels = FALSE, xlev = NULL, ...)
+
+Methods for
+        lm      glm     aovlist
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="model.frame_:_formula">formula</code></td>
+<td>
+<p>a model formula</p>
+</td></tr>
+<tr><td><code id="model.frame_:_data">data</code></td>
+<td>
+<p><code>data.frame</code>, list, <code>environment</code> or object
+coercible to <code>data.frame</code> containing the variables in
+<code>formula</code>.</p>
+</td></tr>
+<tr><td><code id="model.frame_:_subset">subset</code></td>
+<td>
+<p>a specification of the rows to be used. Defaults to all rows.</p>
+</td></tr>
+<tr><td><code id="model.frame_:_na.action">na.action</code></td>
+<td>
+<p>how <code>NA</code>s are treated. The default is first,
+any <code>na.action</code> attribute of <code>data</code>, second
+a <code>na.action</code> setting of <code>options</code>, and third
+<code>na.fail</code> if that is unset.  The &ldquo;factory-fresh&rdquo;
+default is <code>na.omit</code>.</p>
+</td></tr>
+<tr><td><code id="model.frame_:_drop.unused.levels">drop.unused.levels</code></td>
+<td>
+<p>should factors have unused levels dropped?
+Defaults to <code>FALSE</code>.</p>
+</td></tr>
+<tr><td><code id="model.frame_:_xlev">xlev</code></td>
+<td>
+<p>a named list of character vectors giving the full set of levels
+to be assumed for each factor.</p>
+</td></tr>
+<tr><td><code id="model.frame_:_...">...</code></td>
+<td>
+<p>further arguments such as <code>subset</code>, <code>offset</code> and
+<code>weights</code>. <code>NULL</code> arguments are treated as missing.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Variables in the formula, <code>subset</code> and in <code>...</code> are looked
+for first in <code>data</code> and then in the environment of
+<code>formula</code>: see the help for <code>formula()</code> for further
+details.
+</p>
+<p>First all the variables needed are collected into a data frame.
+Then <code>subset</code>
+expression is evaluated, and it is is used as a row index to the data
+frame. Then the <code>na.action</code> function is applied to the data frame
+(and may well add attributes).  The levels of any factors in the data
+frame are adjusted according to the <code>drop.unused.levels</code> and
+<code>xlev</code> arguments.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A <code>data.frame</code> containing the variables used in
+<code>formula</code> plus those specified <code>...</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>model.matrix</code> for the &ldquo;design matrix&rdquo;,
+<code>formula</code> for formulas  and
+<code>expand.model.frame</code> for model.frame manipulation.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(cars)
+data.class(model.frame(dist ~ speed, data = cars))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><title>R: Generate Regular Sequences of Dates</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/seq.Date.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/seq.Date.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>seq.Date {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='seq.Date'>Generate Regular Sequences of Dates</h2>
+
+<h3>Description</h3>
+
+<p>The method for <code>seq</code> for objects of class class
+<code>"Date"</code> representing calendar dates.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'Date'
+seq(from, to, by, length.out = NULL, along.with = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="seq.Date_:_from">from</code></td>
+<td>
+<p>starting date.  Required</p>
+</td></tr>
+<tr><td><code id="seq.Date_:_to">to</code></td>
+<td>
+<p>end date.  Optional.</p>
+</td></tr>
+<tr><td><code id="seq.Date_:_by">by</code></td>
+<td>
+<p>increment of the sequence.  Optional.  See &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="seq.Date_:_length.out">length.out</code></td>
+<td>
+<p>integer, optional.  Desired length of the sequence.</p>
+</td></tr>
+<tr><td><code id="seq.Date_:_along.with">along.with</code></td>
+<td>
+<p>take the length from the length of this argument.</p>
+</td></tr>
+<tr><td><code id="seq.Date_:_...">...</code></td>
+<td>
+<p>arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>by</code> can be specified in several ways.
+</p>
+
+<ul>
+<li><p> A number, taken to be in days.
+</p>
+</li>
+<li><p> A object of class <code>difftime</code>
+</p>
+</li>
+<li><p> A character string, containing one of <code>"day"</code>,
+<code>"week"</code>, <code>"month"</code>, <code>"quarter"</code> or <code>"year"</code>.
+This can optionally be preceded by a (positive or negative) integer
+and a space, or followed by <code>"s"</code>.
+</p>
+<p>See <code>seq.POSIXt</code> for the details of <code>"month"</code>.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A vector of class <code>"Date"</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Quarterly increments were specified by <code>by = "3 months"</code> prior to
+<span class="rlang"><b>R</b></span> 3.1.0.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Date</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## first days of years
+seq(as.Date("1910/1/1"), as.Date("1999/1/1"), "years")
+## by month
+seq(as.Date("2000/1/1"), by = "month", length.out = 12)
+## quarters
+seq(as.Date("2000/1/1"), as.Date("2003/1/1"), by = "quarter")
+
+## find all 7th of the month between two dates, the last being a 7th.
+st &lt;- as.Date("1998-12-17")
+en &lt;- as.Date("2000-1-7")
+ll &lt;- seq(en, st, by = "-1 month")
+rev(ll[ll &gt; st &amp; ll &lt; en])
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.2.5 ]</div>
+</div>
+</body></html>

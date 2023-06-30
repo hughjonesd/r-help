@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>R: Internal grDevices Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/grDevices-internal.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/grDevices-internal.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grDevices-internal {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grDevices-internal'>Internal grDevices Functions</h2>
+
+<h3>Description</h3>
+
+<p>Internal grDevices functions
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.clipPath(fun, rule) 
+.defineGroup(source, op, destination) 
+.devUp() 
+.linearGradientPattern(colours = c("black", "white"),
+                       stops = seq(0, 1, length.out = length(colours)), 
+                       x1 = 0, y1 = 0, x2 = 1, y2 = 1, extend = "pad") 
+.mask(fun, type) 
+.opIndex(x) 
+.radialGradientPattern(colours = c("black", "white"),
+                       stops = seq(0, 1, length.out = length(colours)), 
+                       cx1 = 0, cy1 = 0, r1 = 0,
+                       cx2 = 1, cy2 = 1, r2 = 0.5,
+                       extend = "pad") 
+.ruleIndex(x) 
+.setClipPath(path, index) 
+.setMask(mask, ref) 
+.setPattern(pattern) 
+.tilingPattern(fun, x, y, width, height, extend) 
+.useGroup(ref, trans) 
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>These are used for communication between the graphics engine and
+graphics systems, <span class="pkg">graphics</span> and <span class="pkg">grid</span>, and are
+not to be called by the user.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>grDevices</em> version 4.3.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: Approximate String Matching (Fuzzy Matching)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/agrep.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/agrep.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>agrep {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='agrep'>Approximate String Matching (Fuzzy Matching)</h2>
+
+<h3>Description</h3>
+
+<p>Searches for approximate matches to <code>pattern</code> (the first argument)
+within the string <code>x</code> (the second argument) using the Levenshtein
+edit distance.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>agrep(pattern, x, ignore.case = FALSE, value = FALSE, max.distance = 0.1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="agrep_:_pattern">pattern</code></td>
+<td>
+<p>a non-empty character string to be matched (<em>not</em>
+a regular expression!)</p>
+</td></tr>
+<tr><td><code id="agrep_:_x">x</code></td>
+<td>
+<p>character vector where matches are sought.</p>
+</td></tr>
+<tr><td><code id="agrep_:_ignore.case">ignore.case</code></td>
+<td>
+<p>if <code>FALSE</code>, the pattern matching is <em>case
+sensitive</em> and if <code>TRUE</code>, case is ignored during matching.</p>
+</td></tr>
+<tr><td><code id="agrep_:_value">value</code></td>
+<td>
+<p>if <code>FALSE</code>, a vector containing the (integer)
+indices of the matches determined is returned and if <code>TRUE</code>, a
+vector containing the matching elements themselves is returned.</p>
+</td></tr>
+<tr><td><code id="agrep_:_max.distance">max.distance</code></td>
+<td>
+<p>Maximum distance allowed for a match.  Expressed
+either as integer, or as a fraction of the pattern length (will be
+replaced by the smallest integer not less than the corresponding
+fraction), or a list with possible components
+</p>
+
+<dl>
+<dt><code>all</code>:</dt><dd><p>maximal (overall) distance</p>
+</dd>
+<dt><code>insertions</code>:</dt><dd><p>maximum number/fraction of insertions</p>
+</dd>
+<dt><code>deletions</code>:</dt><dd><p>maximum number/fraction of deletions</p>
+</dd>
+<dt><code>substitutions</code>:</dt><dd><p>maximum number/fraction of
+substitutions</p>
+</dd>
+</dl>
+
+<p>If <code>all</code> is missing, it is set to 10%, the other components
+default to <code>all</code>.  The component names can be abbreviated.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The Levensthein edit distance is used as measure of approximateness:
+it is the the total number of insertions, deletions and substitutions
+required to transform one string into another.
+</p>
+<p>The function is a simple interface to the <code>apse</code> library
+developed by Jarkko Hietaniemi (also used in the Perl String::Approx
+module).
+</p>
+
+
+<h3>Value</h3>
+
+<p>Either a vector giving the indices of the elements that yielded a
+match, of, if <code>value</code> is <code>TRUE</code>, the matched elements.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>David Meyer <a href="mailto:David.Meyer@ci.tuwien.ac.at">David.Meyer@ci.tuwien.ac.at</a> (based on C code
+by Jarkko Hietaniemi); modifications by Kurt Hornik</p>
+
+
+<h3>See Also</h3>
+
+<p><code>grep</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>agrep("lasy", "1 lazy 2")
+agrep("lasy", "1 lazy 2", max = list(sub = 0))
+agrep("laysy", c("1 lazy", "1", "1 LAZY"), max = 2)
+agrep("laysy", c("1 lazy", "1", "1 LAZY"), max = 2, value = TRUE)
+agrep("laysy", c("1 lazy", "1", "1 LAZY"), max = 2, ignore.case = TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.0 ]</div>
+</div>
+</body></html>

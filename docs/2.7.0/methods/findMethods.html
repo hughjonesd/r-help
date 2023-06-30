@@ -1,0 +1,112 @@
+<!DOCTYPE html><html><head><title>R: Descriptions of the Methods Defined for a Generic Function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/findMethods.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/findMethods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>findMethods {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='findMethods'>Descriptions of the Methods Defined for a Generic Function</h2>
+
+<h3>Description</h3>
+
+<p>These functions convert the methods defined in a table for a generic function (as used for selection of methods) into a list, for study or display, or provide other information summarizing the methods.
+</p>
+<p>The function <code>findMethods</code> returns a list of the method definitions currently existing for generic function <code>f</code>, limited to the methods defined in environment <code>where</code> if that argument is supplied  and possibly limited to those including one or more of the specified <code>classes</code> in the method signature.
+</p>
+<p>The function <code>findMethodSignatures</code> returns a character matrix whose rows are the class names from the signature of the corresponding methods; it operates either from a list returned by <code>findMethods</code>, or by computing such a list itself,  given the same arguments as <code>findMethods</code> .
+</p>
+<p>The function <code>hasMethods</code> returns <code>TRUE</code> or <code>FALSE</code> according to whether there is a non-empty table of methods for function <code>f</code> in the environment or search position <code>where</code> (or anywhere on the search list if <code>where</code> is missing).
+</p>
+<p>The function <code>getMethods</code> is an older alternative to <code>findMethods</code> , returning  information in the form of an object of class <code>MethodsList</code>, previously used for method dispatch.  It is not recommended, since the object returned is usually less convenient than the value of <code>findMethods</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>findMethods(f, where, classes = character(), inherited = FALSE)
+findMethodSignatures(..., target = TRUE, methods = )
+
+hasMethods(f, where, package)
+
+getMethods(f, where)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="findMethods_:_f">f</code></td>
+<td>
+<p>A generic function or the character-string name of one.</p>
+</td></tr>
+<tr><td><code id="findMethods_:_where">where</code></td>
+<td>
+<p>Optionally, an environment or position on the search list to look for methods metadata.
+</p>
+<p>If <code>where</code> is missing,  <code>findMethods</code> uses the current table of methods in the generic function itself, and  <code>hasMethods</code> looks for metadata anywhere in the search list.</p>
+</td></tr>
+<tr><td><code id="findMethods_:_classes">classes</code></td>
+<td>
+<p>If supplied, only methods whose signatures contain at least one of the supplied classes will be included in the value returned. </p>
+</td></tr>
+<tr><td><code id="findMethods_:_inherited">inherited</code></td>
+<td>
+<p>Logical flag; if <code>TRUE</code>, the table of all methods, inherited or defined directly, will be used; otherwise, only the methods explicitly defined.  Option <code>TRUE</code> is meaningful only if <code>where</code> is missing.</p>
+</td></tr>
+<tr><td><code id="findMethods_:_...">...</code></td>
+<td>
+<p>In the call to <code>findMethodSignatures</code>, any arguments that might be given to <code>findMethods</code>.</p>
+</td></tr>
+<tr><td><code id="findMethods_:_target">target</code></td>
+<td>
+<p>Optional flag to <code>findMethodSignatures</code>; if <code>TRUE</code>, the signatures used are the target signatures (the classes for which the method will be selected); if <code>FALSE</code>, they will be the signatures are defined.  The difference is only meaningful if <code>inherited</code> is <code>TRUE</code>.</p>
+</td></tr>
+<tr><td><code id="findMethods_:_methods">methods</code></td>
+<td>
+<p>In the call to <code>findMethodSignatures</code>, an optional list of methods, presumably returned by a previous call to <code>findMethods</code>.  If missing, that function will be call with the ... arguments.</p>
+</td></tr>
+<tr><td><code id="findMethods_:_package">package</code></td>
+<td>
+<p>In a call to <code>hasMethods</code>, the package name for the generic function (e.g., <code>"base"</code> for primitives).  If missing this will be inferred either from the <code>"package"</code> attribute of the function name, if any, or from the package slot of the generic function.  See details below.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The functions obtain a table of the defined methods, either from the generic function or from the stored metadata object in the environment specified by <code>where</code>.  The information in the table is converted as described above to produce the returned value.
+</p>
+<p>Note that the list returned may contain the primitive function itself, when the generic corresponds to a primitive.  (Basically, because primitive functions are abnormal R objects, which cannot currently be extended as method definitions.)  Computations that use the returned list to derive other information need to take account of this possibility.  See the implementation of <code>findMethodSignatures</code> for an example.
+</p>
+<p>Note that <code>hasMethods</code>, but not the other functions, can be used even if no generic function of this name is currently found.
+In this case <code>package</code> must either be supplied as an argument or included as an attribute of <code>f</code>, since the package name is part of the identification of the methods tables.
+</p>
+<p>These functions should be used in searching for or summarizing methods, rather than using information about how the metadata for methods is stored.
+</p>
+
+
+<h3>See Also</h3>
+
+ <p><code>showMethods</code>, <code>MethodsList-class</code> </p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>mm &lt;-  findMethods("Ops")
+findMethodSignatures(methods = mm)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.7.0 ]</div>
+</div>
+</body></html>

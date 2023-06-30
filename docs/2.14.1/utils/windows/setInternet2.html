@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>R: Set or disable the use of Internet Explorer for Internet...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/setInternet2.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/setInternet2.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>setInternet2 {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='setInternet2'>
+Set or disable the use of Internet Explorer for Internet access.
+</h2>
+
+<h3>Description</h3>
+
+<p>With the <span class="option">--internet2</span> startup option, or by calling this function, R
+will make use of the &lsquo;<span class="file">internet2.dll</span>&rsquo; library for Internet 
+access, which makes use of Internet Explorer functions.  This allows specification
+of proxies, etc., in the &ldquo;Internet Options&rdquo; applet in &ldquo;Control Panel&rdquo;.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>setInternet2(use = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="setInternet2_:_use">use</code></td>
+<td>
+<p>Whether to use &lsquo;<span class="file">internet2.dll</span>&rsquo;.  If <code>NA</code>, just
+return the current setting.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>R does not load either &lsquo;<span class="file">internet.dll</span>&rsquo; or &lsquo;<span class="file">internet2.dll</span>&rsquo; until needed,
+so it is certainly safe to call this function before making any calls that access
+the Internet (e.g. <code>download.file</code>).  If one of the DLLs has already
+been loaded, this function will switch to the other one without unloading the first
+one, so there is a potential resource leak.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The previous setting is returned, invisibly if <code>use</code> is not <code>NA</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Murdoch
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>download.file</code>, <code>url</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>setInternet2(NA)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.14.1 ]</div>
+</div>
+</body></html>

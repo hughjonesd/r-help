@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><title>R: Plot a profile.nls Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.profile.nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.profile.nls.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.profile.nls {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.profile.nls'>Plot a profile.nls Object</h2>
+
+<h3>Description</h3>
+
+<p>Displays a series of plots of the profile t function and interpolated
+confidence intervals for the parameters in a nonlinear regression
+model that has been fit with <code>nls</code> and profiled with
+<code>profile.nls</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'profile.nls'
+plot(x, levels, conf= c(99, 95, 90, 80, 50)/100,
+     nseg = 50, absVal =TRUE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.profile.nls_:_x">x</code></td>
+<td>
+<p>an object of class <code>"profile.nls"</code> </p>
+</td></tr>
+<tr><td><code id="plot.profile.nls_:_levels">levels</code></td>
+<td>
+<p>levels, on the scale of the absolute value of a t
+statistic, at which to interpolate intervals.  Usually <code>conf</code>
+is used instead of giving <code>levels</code> explicitly.</p>
+</td></tr>
+<tr><td><code id="plot.profile.nls_:_conf">conf</code></td>
+<td>
+<p>a numeric vector of confidence levels for profile-based
+confidence intervals on the parameters.  Defaults to <code>c(0.99,
+	 0.95, 0.90, 0.80, 0.50).</code></p>
+</td></tr>
+<tr><td><code id="plot.profile.nls_:_nseg">nseg</code></td>
+<td>
+<p>an integer value giving the number of segments to use in
+the spline interpolation of the profile t curves. Defaults to 50.</p>
+</td></tr>
+<tr><td><code id="plot.profile.nls_:_absVal">absVal</code></td>
+<td>
+<p>a logical value indicating whether or not the plots
+should be on the scale of the absolute value of the profile t.
+Defaults to <code>TRUE</code>.</p>
+</td></tr> 
+<tr><td><code id="plot.profile.nls_:_...">...</code></td>
+<td>
+<p>other arguments to the <code>plot</code> function can be passed here.</p>
+</td></tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>Douglas M. Bates and Saikat DebRoy</p>
+
+
+<h3>References</h3>
+
+<p>Bates, D.M. and Watts, D.G. (1988),
+<em>Nonlinear Regression Analysis and Its Applications</em>,
+Wiley (chapter 6)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>nls</code>,
+<code>profile</code>,
+<code>profile.nls</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+# obtain the fitted object
+fm1 &lt;- nls(demand ~ SSasympOrig( Time, A, lrc ), data = BOD)
+# get the profile for the fitted model
+pr1 &lt;- profile( fm1 )
+opar &lt;- par(mfrow = c(2,2), oma = c(1.1, 0, 1.1, 0), las = 1)
+plot(pr1, conf = c(95, 90, 80, 50)/100)
+plot(pr1, conf = c(95, 90, 80, 50)/100, absVal = FALSE)
+mtext("Confidence intervals based on the profile sum of squares",
+      side = 3, outer = TRUE)
+mtext("BOD data - confidence levels of 50%, 80%, 90% and 95%",
+      side = 1, outer = TRUE)
+par(opar)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.6.1 ]</div>
+</div>
+</body></html>

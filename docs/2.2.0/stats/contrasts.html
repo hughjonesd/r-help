@@ -1,0 +1,115 @@
+<!DOCTYPE html><html><head><title>R: Get and Set Contrast Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/contrasts.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/contrasts.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>contrasts {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='contrasts'>Get and Set Contrast Matrices</h2>
+
+<h3>Description</h3>
+
+<p>Set and view the contrasts associated with a factor.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>contrasts(x, contrasts = TRUE)
+contrasts(x, how.many) &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="contrasts_:_x">x</code></td>
+<td>
+<p>a factor or a logical variable.</p>
+</td></tr>
+<tr><td><code id="contrasts_:_contrasts">contrasts</code></td>
+<td>
+<p>logical. See Details.</p>
+</td></tr>
+<tr><td><code id="contrasts_:_how.many">how.many</code></td>
+<td>
+<p>How many contrasts should be made. Defaults to one
+less than the number of levels of <code>x</code>.  This need not be the
+same as the number of columns of <code>ctr</code>.</p>
+</td></tr>
+<tr><td><code id="contrasts_:_value">value</code></td>
+<td>
+<p>either a numeric matrix whose columns give coefficients for
+contrasts in the levels of <code>x</code>, or the (quoted) name of a
+function which computes such matrices.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If contrasts are not set for a factor the default functions from
+<code>options("contrasts")</code> are used.
+</p>
+<p>A logical vector <code>x</code> is converted into a two-level factor with
+levels <code>c(FALSE, TRUE)</code> (regardless of which levels occur in the
+variable).
+</p>
+<p>The argument <code>contrasts</code> is ignored if <code>x</code> has a matrix
+<code>contrasts</code> attribute set.  Otherwise if <code>contrasts = TRUE</code>
+it is passed to a contrasts function such as
+<code>contr.treatment</code> and if <code>contrasts = FALSE</code>
+an identity matrix is returned.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. and Hastie, T. J. (1992)
+<em>Statistical models.</em>
+Chapter 2 of <em>Statistical Models in S</em>
+eds J. M. Chambers and T. J. Hastie, Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>C</code>,
+<code>contr.helmert</code>,
+<code>contr.poly</code>,
+<code>contr.sum</code>,
+<code>contr.treatment</code>;
+<code>glm</code>,
+<code>aov</code>,
+<code>lm</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>example(factor)
+fff &lt;- ff[, drop=TRUE]  # reduce to 5 levels.
+contrasts(fff) # treatment contrasts by default
+contrasts(C(fff, sum))
+contrasts(fff, contrasts = FALSE) # the 5x5 identity matrix
+
+contrasts(fff) &lt;- contr.sum(5); contrasts(fff)  # set sum contrasts
+contrasts(fff, 2) &lt;- contr.sum(5); contrasts(fff)  # set 2 contrasts
+# supply 2 contrasts, compute 2 more to make full set of 4.
+contrasts(fff) &lt;- contr.sum(5)[,1:2]; contrasts(fff)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.2.0 ]</div>
+</div>
+</body></html>

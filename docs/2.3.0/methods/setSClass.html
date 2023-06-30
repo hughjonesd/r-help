@@ -1,0 +1,122 @@
+<!DOCTYPE html><html><head><title>R: Create a Class Definition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setSClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setSClass.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>makeClassRepresentation {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='makeClassRepresentation'>Create a Class Definition</h2>
+
+<h3>Description</h3>
+
+<p>Constructs a <code>classRepresentation-class</code> object to
+describe a particular class.  Mostly a utility function, but you can
+call it to create a class definition without assigning it, as
+<code>setClass</code> would do.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>makeClassRepresentation(name, slots=list(), superClasses=character(),
+                        prototype=NULL, package, validity, access,
+                        version, sealed, virtual=NA, where)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="makeClassRepresentation_:_name">name</code></td>
+<td>
+<p>character string name for the class</p>
+</td></tr>
+<tr><td><code id="makeClassRepresentation_:_slots">slots</code></td>
+<td>
+<p>named list of slot classes as would be supplied to
+<code>setClass</code>, but <em>without</em> the unnamed arguments for
+superClasses if any.</p>
+</td></tr>
+<tr><td><code id="makeClassRepresentation_:_superClasses">superClasses</code></td>
+<td>
+<p>what classes does this class extend</p>
+</td></tr>
+<tr><td><code id="makeClassRepresentation_:_prototype">prototype</code></td>
+<td>
+<p>an object providing the default data for the class,
+e.g, the result of a call to <code>prototype</code>.</p>
+</td></tr>
+<tr><td><code id="makeClassRepresentation_:_package">package</code></td>
+<td>
+<p>The character string name for the package in which
+the class will be stored; see <code>getPackageName</code>.</p>
+</td></tr>
+<tr><td><code id="makeClassRepresentation_:_validity">validity</code></td>
+<td>
+<p>Optional validity method.  See
+<code>validObject</code>, and the discussion of validity methods in
+the reference.</p>
+</td></tr>
+<tr><td><code id="makeClassRepresentation_:_access">access</code></td>
+<td>
+<p>Access information.  Not currently used.</p>
+</td></tr>
+<tr><td><code id="makeClassRepresentation_:_version">version</code></td>
+<td>
+<p>Optional version key for version control.  Currently
+generated, but not used.</p>
+</td></tr>
+<tr><td><code id="makeClassRepresentation_:_sealed">sealed</code></td>
+<td>
+<p>Is the class sealed? See <code>setClass</code>.</p>
+</td></tr>
+<tr><td><code id="makeClassRepresentation_:_virtual">virtual</code></td>
+<td>
+<p>Is this known to be a virtual class?</p>
+</td></tr>
+<tr><td><code id="makeClassRepresentation_:_where">where</code></td>
+<td>
+<p>The environment from which to look for class
+definitions needed (e.g., for slots or superclasses). See the
+discussion of this argument under GenericFunctions.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>The R package <span class="pkg">methods</span> implements, with a few exceptions, the
+programming interface for classes and methods in the book
+<em>Programming with Data</em> (John M. Chambers, Springer, 1998), in
+particular sections 1.6, 2.7, 2.8, and chapters 7 and 8.
+</p>
+<p>While the programming interface for the <span class="pkg">methods</span> package follows
+the reference, the R software is an original implementation, so
+details in the reference that reflect the S4 implementation may appear
+differently in R.  Also, there are extensions to the programming
+interface developed more recently than the reference.  For a
+discussion of details and ongoing development, see the web page
+<a href="http://developer.r-project.org/methodsPackage.html">http://developer.r-project.org/methodsPackage.html</a> and the
+pointers from that page.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>setClass</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.3.0 ]</div>
+</div>
+</body></html>

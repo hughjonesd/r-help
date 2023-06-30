@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>R: Date Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Dates.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Dates.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Dates {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Dates'>Date Class</h2>
+
+<h3>Description</h3>
+
+<p>Description of the class <code>"Date"</code> representing calendar dates. 
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'Date'
+summary(object, digits = 12, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Dates_:_object">object</code></td>
+<td>
+<p>An object summarized.</p>
+</td></tr>
+<tr><td><code id="Dates_:_digits">digits</code></td>
+<td>
+<p>Number of significant digits for the computations.</p>
+</td></tr>
+<tr><td><code id="Dates_:_...">...</code></td>
+<td>
+<p>Further arguments to be passed from or to other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Dates are represented as the number of days since 1970-01-01, with
+negative values for earlier dates.  They are always printed
+following the rules of the current Gregorian calendar, even though
+that calendar was not in use long ago (it was adopted in 1752 in
+Great Britain and its colonies).
+</p>
+<p>It is intended that the date should be an integer, but this is not
+enforced in the internal representation.  Fractional days will be
+ignored when printing.  It is possible to produce fractional days via
+the <code>mean</code> method or by adding or subtracting (see
+<code>Ops.Date</code>).
+</p>
+<p>The print methods respect <code>options("max.print")</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Sys.Date</code> for the current date.
+</p>
+<p><code>Ops.Date</code> for operators on <code>"Date"</code> objects.
+</p>
+<p><code>format.Date</code> for conversion to and from character strings.
+</p>
+<p><code>axis.Date</code> and
+<code>hist.Date</code> for plotting.
+</p>
+<p><code>weekdays</code> for convenience extraction functions.
+</p>
+<p><code>seq.Date</code>, <code>cut.Date</code>,
+<code>round.Date</code> for utility operations.
+</p>
+<p><code>DateTimeClasses</code> for date-time classes.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+(today &lt;- Sys.Date())
+format(today, "%d %b %Y")  # with month as a word
+(tenweeks &lt;- seq(today, length.out=10, by="1 week")) # next ten weeks
+weekdays(today)
+months(tenweeks)
+as.Date(.leap.seconds)
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.15.2 ]</div>
+</div>
+</body></html>

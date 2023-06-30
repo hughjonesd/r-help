@@ -1,0 +1,112 @@
+<!DOCTYPE html><html><head><title>R: Flexible Formatting</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>formatC {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='formatC'>Flexible Formatting</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>formatC(x, digits = NULL, width = max(0, digits) + 1,
+        format = NULL, flag = "", mode = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="formatC_:_x">x</code></td>
+<td>
+<p>an atomic numerical or character object, typically a vector
+of real numbers.</p>
+</td></tr>
+<tr><td><code id="formatC_:_digits">digits</code></td>
+<td>
+<p>the desired number of digits after the decimal
+point. Default: 2 for integer, 4 for real numbers.  If less than 0,
+the C default of 6 digits is used.</p>
+</td></tr>
+<tr><td><code id="formatC_:_width">width</code></td>
+<td>
+<p>the total field width; <code>width &lt; 0</code> means left
+justify the number in this field (equivalent to <code>flag ="-"</code>).
+It is possible that the result will be longer than this, but that
+should only happen in reasonable cases.</p>
+</td></tr>
+<tr><td><code id="formatC_:_format">format</code></td>
+<td>
+<p>equal to <code>"d"</code>  (for integers), <code>"f"</code>,
+<code>"e"</code>, <code>"E"</code>, <code>"g"</code>, <code>"G"</code> (for reals), or
+<code>"s"</code> (for strings).  <code>"f"</code> gives numbers in the usual
+&ldquo;xxx.xxx&rdquo; format; <code>"e"</code> and <code>"E"</code> give &ldquo;n.dddenn&rdquo; or
+&ldquo;n.dddEnn&rdquo; (scientific format); <code>"g"</code> and <code>"G"</code> put
+<code>x[i]</code> into scientific format only if it saves space to do so.</p>
+</td></tr>
+<tr><td><code id="formatC_:_flag">flag</code></td>
+<td>
+<p>format modifier as in Kernighan and Ritchie, 2nd ed.,
+page 243.
+<code>"0"</code>  pads leading zeros; <code>"-"</code> does left adjustment,
+others are <code>"+"</code>, <code>" "</code>, and <code>"#"</code>.</p>
+</td></tr>
+<tr><td><code id="formatC_:_mode">mode</code></td>
+<td>
+<p><code>"real"</code>,  <code>"integer"</code> or <code>"character"</code>.
+Default: Automatic.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A character object of same size and attributes as <code>x</code>.
+Unlike <code>format</code>, each number is individually formatted.  A for
+loop over each element of <code>x</code>, calling <code>sprintf(...)</code> is
+done in the C function <code>str_signif</code>.
+</p>
+<p>For  character  arguments,  simple (left or right) padding with white
+space is done.
+</p>
+
+
+<h3>Note</h3>
+
+<p>This function was originally written by Bill Dunlap and later much
+improved by Martin Maechler.
+It was adapted for <span class="rlang"><b>R</b></span> by Friedrich Leisch.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>format</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>xx  &lt;- pi * 10^(-5:4)
+options(digits = 4)   # only for format
+cbind(format(xx), formatC(xx))
+cbind(formatC(xx, wid = 9, flag = "-"))
+cbind(formatC(xx, dig = 5, wid = 8, format = "f", flag = "0"))
+
+formatC(c("a", "Abc", "no way"), wid = -7)  # &lt;=&gt; flag = "-"
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.60 ]</div>
+</div>
+</body></html>

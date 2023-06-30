@@ -1,0 +1,140 @@
+<!DOCTYPE html><html><head><title>R: PostScript Graphics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/postscript.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/postscript.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>postscript {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='postscript'>PostScript Graphics</h2>
+
+<h3>Description</h3>
+
+<p><code>postscript</code> starts the graphics device driver for producing
+PostScript graphics.
+The auxiliary function <code>ps.options</code> can be used to set and view
+(if called without arguments)
+default values for the arguments to <code>postscript</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>postscript(file = "Rplots.ps", ...)
+
+ps.options(..., reset = FALSE, override.check = FALSE)
+
+
+.PostScript.Options
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="postscript_:_file">file</code></td>
+<td>
+<p>a character string giving the name of the file to print to.</p>
+</td></tr>
+<tr><td><code id="postscript_:_...">...</code></td>
+<td>
+<p>further options for <code>postscript()</code>.</p>
+</td></tr>
+<tr><td><code id="postscript_:_paper">paper</code></td>
+<td>
+<p>the size of paper in the printer.  The choices are
+<code>"a4"</code>, <code>"letter"</code>, <code>"legal"</code> and <code>"executive"</code>.</p>
+</td></tr>
+<tr><td><code id="postscript_:_horizontal">horizontal</code></td>
+<td>
+<p>the orientation of the printed image, a logical.</p>
+</td></tr>
+<tr><td><code id="postscript_:_width">width</code>, <code id="postscript_:_height">height</code></td>
+<td>
+<p>the width, and height of the graphics region in inches.
+The default is to use the entire page.</p>
+</td></tr>
+<tr><td><code id="postscript_:_family">family</code></td>
+<td>
+<p>the font family to be used.
+This must be one of <code>"AvantGarde"</code>,
+<code>"Bookman"</code>, <code>"Courier"</code>, <code>"Helvetica"</code>,
+<code>"Helvetica-Narrow"</code>, <code>"NewCenturySchoolbook"</code>,
+<code>"Palatino"</code> or <code>"Times"</code>.</p>
+</td></tr>
+<tr><td><code id="postscript_:_pointsize">pointsize</code></td>
+<td>
+<p>the default point size to be used.</p>
+</td></tr>
+<tr><td><code id="postscript_:_bg">bg</code></td>
+<td>
+<p>the default background color to be used.</p>
+</td></tr>
+<tr><td><code id="postscript_:_fg">fg</code></td>
+<td>
+<p>the default foreground color to be used.</p>
+</td></tr>
+<tr><td><code id="postscript_:_onefile">onefile</code>, <code id="postscript_:_print.it">print.it</code>, <code id="postscript_:_append">append</code></td>
+<td>
+<p>logical; are currently <b>all
+disregarded</b>; just there for compatibility reasons.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>postscript(..)</code> opens the file <code>file</code> and the
+PostScript commands needed to plot any graphics requested are
+stored in that file.
+This file can then be printed on a suitable device to obtain hard copy.
+</p>
+<p>The postscript produced by <span class="rlang"><b>R</b></span> is EPS (<em>Encapsulated PostScript</em>)
+compatible, and can be included into other documents, e.g. into LaTeX, using
+<code>\epsfig{file=&lt;filename&gt;}</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>x11</code>, <code>macintosh</code>, <code>Devices</code>.
+<code>check.options</code> which is called from both
+<code>ps.options</code> and <code>postscript</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+ # open the file "foo.ps" for graphics output
+ postscript("foo.ps")
+
+## End(Not run)
+
+plot(xx,yy)# produce the desired graph(s)
+## Not run: dev.off()# turn off the postscript device
+
+all(unlist(ps.options()) == unlist(.PostScript.Options))
+ps.options(bg = "pink")
+str(ps.options(reset = TRUE))
+
+##- error checking of arguments:
+ps.options(width=0:12, onefile=0, bg=pi)
+
+## override the check for 'onefile', but not the others:
+str(ps.options(width=0:12, onefile=1, bg=pi, override.check = c(F,T,F)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63.2 ]</div>
+</div>
+</body></html>

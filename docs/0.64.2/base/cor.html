@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>R: Correlation and Covariance Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/cor.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/cor.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>cor {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='cor'>Correlation and Covariance Matrices</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>cor(x, y=x, use="all.obs")
+cov(x, y=x, use="all.obs")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="cor_:_x">x</code></td>
+<td>
+<p>a matrix or data frame.</p>
+</td></tr>
+<tr><td><code id="cor_:_y">y</code></td>
+<td>
+<p>a matrix or data frame.</p>
+</td></tr>
+<tr><td><code id="cor_:_use">use</code></td>
+<td>
+<p>a character string giving the method for handling
+missing observations. This must be one of the stringss
+<code>"all.obs"</code>, <code>"complete.obs"</code> or <code>"pairwise.complete.obs"</code>
+(abbreviations are acceptable).</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The correlation matrix or covariance matrix
+of the columns of <code>x</code> and the columns of <code>y</code>.
+</p>
+<p>If <code>use</code> has the value <code>"all.obs"</code>, then the presence
+of missing observations will cause the computation to fail.
+If <code>use</code> has the value <code>"complete.obs"</code> then missing values
+are handled by casewise deletion.  Finally, if <code>use</code> has the
+value <code>"pairwise.complete.obs"</code> then the correlation between
+each pair of variables is computed using all complete pairs
+of observations on those variables.
+This can result in correlation matrices which are not
+positive semidefinite.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64.2 ]</div>
+</div>
+</body></html>

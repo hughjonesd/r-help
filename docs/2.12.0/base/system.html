@@ -1,0 +1,205 @@
+<!DOCTYPE html><html><head><title>R: Invoke a System Command</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>system {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='system'>Invoke a System Command</h2>
+
+<h3>Description</h3>
+
+<p><code>system</code> invokes the OS command specified by <code>command</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>system(command, intern = FALSE,
+       ignore.stdout = FALSE, ignore.stderr = FALSE,
+       wait = TRUE, input = NULL, show.output.on.console = TRUE,
+       minimized = FALSE, invisible = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="system_:_command">command</code></td>
+<td>
+<p>the system command to be invoked, as a character string.</p>
+</td></tr>
+<tr><td><code id="system_:_intern">intern</code></td>
+<td>
+<p>a logical (not <code>NA</code>) which indicates whether to
+capture the output of the command as an <span class="rlang"><b>R</b></span> character vector.</p>
+</td></tr>
+<tr><td><code id="system_:_ignore.stdout">ignore.stdout</code>, <code id="system_:_ignore.stderr">ignore.stderr</code></td>
+<td>
+<p>a logical (not <code>NA</code>)
+indicating whether messages written to &lsquo;<span class="file">stdout</span>&rsquo; or
+&lsquo;<span class="file">stderr</span>&rsquo; should be ignored.</p>
+</td></tr>
+<tr><td><code id="system_:_wait">wait</code></td>
+<td>
+<p>a logical (not <code>NA</code>) indicating whether the <span class="rlang"><b>R</b></span>
+interpreter should wait for the command to finish, or run it
+asynchronously.  This will be ignored (and the interpreter will
+always wait) if <code>intern = TRUE</code>.</p>
+</td></tr>
+<tr><td><code id="system_:_input">input</code></td>
+<td>
+<p>if a character vector is supplied, this is copied one
+string per line to a temporary file, and the standard input of
+<code>command</code> is redirected to the file.</p>
+</td></tr>
+<tr><td><code id="system_:_show.output.on.console">show.output.on.console</code>, <code id="system_:_minimized">minimized</code>, <code id="system_:_invisible">invisible</code></td>
+<td>
+<p>arguments
+that are accepted on Windows but ignored on this platform, with a
+warning.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>command</code> is parsed as a command plus arguments separated by spaces.
+So if the path to the command (or an argument) contains
+spaces, it must be quoted e.g. by <code>shQuote</code>.
+</p>
+
+<p>How the command is run differs by platform: Unix-alikes use a shell
+(normally &lsquo;<span class="file">/bin/sh</span>&rsquo;), and Windows executes the command directly.
+<code>command</code> can be anything the shell regards as executable,
+including shell scripts.
+</p>
+<p>If <code>intern</code> is <code>TRUE</code> then <code>popen</code> is used to invoke the
+command and the output collected, line by line, into an <span class="rlang"><b>R</b></span>
+<code>character</code> vector.  If <code>intern</code> is <code>FALSE</code> then
+the C function <code>system</code> is used to invoke the command.
+</p>
+<p>The ordering of arguments after the first two has changed from time to
+time: it is recommended to name all arguments after the first.
+</p>
+<p>There are many pitfalls in using <code>system</code> to ascertain if a
+command can be run &mdash; <code>Sys.which</code> is more suitable.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>intern = TRUE</code>, a character vector giving the output of the
+command, one line per character string.  (Output lines of more than
+8095 bytes will be split.)  If the command could not be run an <span class="rlang"><b>R</b></span>
+error is generated.
+</p>
+<p>If <code>intern = FALSE</code>, the return value is an error code (<code>0</code>
+for success), given the invisible attribute (so needs to be printed
+explicitly).  If the command could not be run for any reason, the
+value is <code>127</code>.  Otherwise if <code>wait = TRUE</code> the value is the
+exit status returned by the command, and if <code>wait = FALSE</code> it is
+<code>0</code> (the conventional success value).
+</p>
+
+
+<h3>Stdout and stderr</h3>
+
+<p>For command-line <span class="rlang"><b>R</b></span>, error messages written to &lsquo;<span class="file">stderr</span>&rsquo; will be
+sent to the terminal unless <code>ignore.stderr = TRUE</code>.  They can be
+captured (in the most likely shells) by
+</p>
+<pre>
+    system("some command 2&gt;&amp;1", intern=TRUE)
+</pre>
+<p>For GUIs, what happens to output sent to &lsquo;<span class="file">stdout</span>&rsquo; or
+&lsquo;<span class="file">stderr</span>&rsquo; if <code>intern = FALSE</code> is interface-specific, and it
+is unsafe to assume that such messages will appear on a GUI console
+(they do on the Mac OS X console, but not on some others).
+</p>
+
+
+<h3>Differences between Unix and Windows</h3>
+
+<p>How processes are launched differs fundamentally between Windows and
+Unix-alike operating systems, as do the higher-level OS functions on
+which this <span class="rlang"><b>R</b></span> function is built.  So it should not be surprising that
+there are many differences between OSes in how <code>system</code> behaves.
+For the benefit of programmers, the more important ones are summarized
+in this section.
+</p>
+
+<ul>
+<li><p> The most important difference is that on Unix-alike what
+<code>system</code> does is to launch a shell which then runs
+<code>command</code>.  On Windows the command is run directly &ndash; use
+<code>shell</code> for an interface which runs <code>comamnd</code> <em>via</em> a
+shell (by default the Windows shell <code>cmd.exe</code>).
+</p>
+<p>This means that it cannot be assumed that redirection or piping will
+work in <code>system</code> (redirection sometimes does, but we have seen
+cases where it stopped working after a Windows security patch), and
+<code>shell</code> must be used on Windows.
+</p>
+</li>
+<li><p> The behaviour on error is different in subtle ways (and has
+differed between <span class="rlang"><b>R</b></span> versions).
+</p>
+</li>
+<li><p> The quoting conventions for <code>command</code> differ, but
+<code>shQuote</code> is a portable interface.
+</p>
+</li>
+<li><p> Arguments <code>show.output.on.console</code>, <code>minimized</code>,
+<code>invisible</code> only do something on Windows (and are most relevant
+to a GUI interface there).
+</p>
+</li></ul>
+
+
+
+<h3>Note</h3>
+
+<p><code>wait</code> is implemented by appending <code>&amp;</code> to the command: this
+is shell-dependent, but required by POSIX and so widely supported.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>system2</code>.
+</p>
+<p><code>.Platform</code> for platform-specific variables.
+</p>
+<p><code>pipe</code> to set up a pipe connection.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># list all files in the current directory using the -F flag
+## Not run: system("ls -F")
+
+# t1 is a character vector, each one
+# representing a separate line of output from who
+# (if the platform has who)
+t1 &lt;- try(system("who", intern = TRUE))
+
+try(system("ls fizzlipuzzli", intern = TRUE, ignore.stderr = TRUE))
+# zero-length result since file does not exist, and will give warning.
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.12.0 ]</div>
+</div>
+</body></html>

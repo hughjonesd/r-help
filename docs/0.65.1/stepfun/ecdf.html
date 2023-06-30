@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><title>R: Empirical Cumulative Distribution Function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stepfun/html/ecdf.html'>https://stat.ethz.ch/R-manual/R-patched/library/stepfun/html/ecdf.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ecdf {stepfun}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ecdf'>Empirical Cumulative Distribution Function</h2>
+
+<h3>Description</h3>
+
+<p>For observations <code>x</code>, <code>ecdf(x)</code> returns the
+e.c.d.f. (empirical cumulative distribution function), i.e.
+the function <code class="reqn">F_n</code>.  Given  the observations,
+<code>x</code><code class="reqn">= (</code><code class="reqn">x_1,x_2</code>,...<code class="reqn">x_n)</code>,
+<code class="reqn">F_n</code> is the fraction of observations less or equal to <code class="reqn">t</code>,
+i.e.,
+</p>
+<p style="text-align: center;"><code class="reqn">F_n(t) = \#\{x_i\le t\}\ / n
+               = \frac1 n\sum_{i=1}^n \mathbf{1}_{[x_i \le t]}.</code>
+</p>
+
+<p>The function <code>plot.ecdf</code> which implements the <code>plot</code>
+method for <code>ecdf</code> objects, is implemented via a call to
+<code>plot.stepfun</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>ecdf(x)
+plot(ecdf(x), verticals = FALSE, col.01line = "gray70", ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="ecdf_:_x">x</code></td>
+<td>
+<p>numeric vector with the &ldquo;observations&rdquo;.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An <span class="rlang"><b>R</b></span> function <code class="reqn">F_n</code> of class <code>"ecdf"</code>, inheriting from the
+<code>"stepfun"</code> class.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Martin Maechler, <a href="mailto:maechler@stat.math.ethz.ch">maechler@stat.math.ethz.ch</a>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>stepfun</code>, the more general class of step functions,
+<code>approxfun</code> and <code>splinefun</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>##-- Simple didactical  ecdf  example:
+Fn &lt;- ecdf(rnorm(12))
+Fn; summary(Fn)
+12*Fn(knots(Fn)) == 1:12 ## == 1:12  iff there are no ties !
+
+y &lt;- round(rnorm(12),1); y[3] &lt;- y[1]
+Fn12 &lt;- ecdf(y)
+Fn12
+print(knots(Fn12), dig=2)
+12*Fn12(knots(Fn12)) ## ~= 1:12  if there where no ties
+
+summary(Fn12)
+summary.stepfun(Fn12)
+print(ls.Fn12 &lt;- ls(env= environment(Fn12)))
+##[1] "f"      "method" "n"      "x"      "y"      "yleft"  "yright"
+
+12 * Fn12((-20:20)/10)
+
+###----------------- Plotting --------------------------
+
+op &lt;- par(mfrow=c(3,1), mgp=c(1.5, 0.8,0), mar= .1+c(3,3,2,1))
+
+F10 &lt;- ecdf(rnorm(10))
+summary(F10)
+
+plot(F10)
+plot(F10, verticals= TRUE, do.p = F)
+
+plot(Fn12)# , lwd=2) dis-regarded
+xx &lt;- unique(sort(c(seq(-3,2, length=201), knots(Fn12))))
+lines(xx, Fn12(xx), col='blue')
+abline(v=knots(Fn12),lty=2,col='gray70')
+
+plot(xx, Fn12(xx), type='b', cex=.1)#- plot.default
+plot(Fn12, col.h='red', add= TRUE)  #- plot method
+abline(v=knots(Fn12),lty=2,col='gray70')
+plot(Fn12, verticals=T, col.p='blue', col.h='red',col.v='bisque')
+par(op)
+
+##-- this works too (automatic call to  ecdf(.)):
+plot.ecdf(rnorm(24))
+</code></pre>
+
+
+</div>
+</body></html>

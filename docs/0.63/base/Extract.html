@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><title>R: Extract or Replace Parts of an Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Extract.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Extract.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Extract {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Extract'>Extract or Replace Parts of an Object</h2>
+
+<h3>Description</h3>
+
+<p>These operators act on vectors, arrays, dataframes and lists.
+If one of these expressions appears on the left side of an assignment
+then that part of <code>x</code> is set to the value of the right hand side
+of the assignment.
+</p>
+<p>These operators are generic. You can write methods to handle subsetting
+of specific classes of data.
+</p>
+<p>The <code>[[</code> operator requires all relevent subscripts be supplied.
+With  the <code>[</code> operator a comma separated blank indicates that all
+entries in that dimension are selected.
+</p>
+<p>When operating on a list, the <code>[[</code> operator gives the specified
+element of the list while the <code>[</code> operator returns a list with
+the specified element(s) in it.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>x[i]
+x[i, j, ...]
+x[i, j, ... , drop=TRUE]
+x[[i]]
+x[[i, j, ...]]
+x$name
+</code></pre>
+
+
+<h3>See Also</h3>
+
+<p><code>list</code>, <code>array</code>, <code>matrix</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:12; m &lt;- matrix(1:6,nr=2); li &lt;- list(pi=pi, e = exp(1))
+x[10]                 # the tenth element of x
+m[1,]                 # the first row of matrix m
+m[1, , drop = FALSE]  # is a 1-row matrix
+li[[1]]               # the first element of list li
+y &lt;- list(1,2,a=4,5)
+y[c(3,4)]             # a list containing elements 3 and 4 of y
+y$a                   # the element of y named a
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63 ]</div>
+</div>
+</body></html>

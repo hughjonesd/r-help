@@ -1,0 +1,176 @@
+<!DOCTYPE html><html><head><title>R: Nonlinear Least Squares</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/nls.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>nls {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='nls'>Nonlinear Least Squares</h2>
+
+<h3>Description</h3>
+
+<p>Determine the nonlinear least squares estimates of the parameters.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>nls(formula, data, start, control = nls.control(),
+    algorithm = "default", trace = FALSE, subset,
+    weights, na.action)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="nls_:_formula">formula</code></td>
+<td>
+<p>a nonlinear model formula including variables and parameters</p>
+</td></tr>
+<tr><td><code id="nls_:_data">data</code></td>
+<td>
+<p>an optional data frame in which to evaluate the variables in
+<code>formula</code></p>
+</td></tr>
+<tr><td><code id="nls_:_start">start</code></td>
+<td>
+<p>a named list or named numeric vector of starting estimates</p>
+</td></tr>
+<tr><td><code id="nls_:_control">control</code></td>
+<td>
+<p>an optional list of control settings.  See
+<code>nls.control</code> for the names of the settable control values and
+their effect.</p>
+</td></tr>
+<tr><td><code id="nls_:_algorithm">algorithm</code></td>
+<td>
+<p>character string specifying the algorithm to use.
+The default algorithm is a Gauss-Newton algorithm. The other 
+alternative is &quot;plinear&quot;, the Golub-Pereyra algorithm for
+partially linear least-squares models.</p>
+</td></tr>
+<tr><td><code id="nls_:_trace">trace</code></td>
+<td>
+<p>logical value indicating if a trace of the iteration
+progress should be printed.  Default is <code>FALSE</code>.  If
+<code>TRUE</code> the residual sum-of-squares and the parameter values
+are printed at the conclusion of each iteration.  When the
+<code>"plinear"</code> algorithm is used, the conditional estimates of
+the linear parameters are printed after the nonlinear parameters.</p>
+</td></tr>
+<tr><td><code id="nls_:_subset">subset</code></td>
+<td>
+<p>an optional vector specifying a subset of observations
+to be used in the fitting process.</p>
+</td></tr>
+<tr><td><code id="nls_:_weights">weights</code></td>
+<td>
+<p>an optional numeric vector of (fixed) weights.  When
+present, the objective function is weighted least squares. <em>not
+yet implemented</em></p>
+</td></tr>
+<tr><td><code id="nls_:_na.action">na.action</code></td>
+<td>
+<p>a function which indicates what should happen
+when the data contain <code>NA</code>s.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>An <code>nls</code> object is a type of fitted model object.  It has methods
+for the generic functions <code>coef</code>, <code>formula</code>, <code>resid</code>,
+<code>print</code>, <code>summary</code>, and <code>fitted</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of
+</p>
+<table>
+<tr><td><code>m</code></td>
+<td>
+<p>an <code>nlsModel</code> object incorporating the model</p>
+</td></tr>
+<tr><td><code>data</code></td>
+<td>
+<p>the expression that was passed to <code>nls</code> as the data
+argument.  The actual data values are present in the environment of
+the <code>m</code> component.</p>
+</td></tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>Douglas M. Bates and Saikat DebRoy</p>
+
+
+<h3>References</h3>
+
+<p>Bates, D.M. and Watts, D.G. (1988), <em>Nonlinear Regression Analysis
+and Its Applications</em>, Wiley</p>
+
+
+<h3>See Also</h3>
+
+<p><code>nlsModel</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data( DNase )
+DNase1 &lt;- DNase[ DNase$Run == 1, ]
+## using a selfStart model
+fm1DNase1 &lt;- nls( density ~ SSlogis( log(conc), Asym, xmid, scal ), DNase1 )
+summary( fm1DNase1 )
+## using conditional linearity
+fm2DNase1 &lt;- nls( density ~ 1/(1 + exp(( xmid - log(conc) )/scal ) ),
+                  data = DNase1,
+                  start = list( xmid = 0, scal = 1 ),
+                  alg = "plinear", trace = TRUE )
+summary( fm2DNase1 )
+## without conditional linearity
+fm3DNase1 &lt;- nls( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+                  data = DNase1,
+                  start = list( Asym = 3, xmid = 0, scal = 1 ),
+                  trace = TRUE )
+summary( fm3DNase1 )
+## weighted nonlinear regression
+data(Puromycin)
+Treated &lt;- Puromycin[Puromycin$state == "treated", ]
+weighted.MM &lt;- function(resp, conc, Vm, K)
+{
+    ## Purpose: exactly as white book p.451 -- RHS for nls()
+    ##  Weighted version of Michaelis-Menten model
+    ## -------------------------------------------------------------------------
+    ## Arguments: `y', `x' and the two parameters (see book)
+    ## -------------------------------------------------------------------------
+    ## Author: Martin Maechler, Date: 23 Mar 2001, 18:48
+
+    pred &lt;- (Vm * conc)/(K + conc)
+    (resp - pred) / sqrt(pred)
+}
+
+Pur.wt &lt;- nls( ~ weighted.MM(rate, conc, Vm, K), data = Treated,
+              start = list(Vm = 200, K = 0.1),
+              trace = TRUE)
+</code></pre>
+
+
+</div>
+</body></html>

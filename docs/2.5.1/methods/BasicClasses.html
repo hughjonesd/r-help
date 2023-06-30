@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: Classes Corresponding to Basic Data Types</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/BasicClasses.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/BasicClasses.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>BasicClasses {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='BasicClasses'>Classes Corresponding to Basic Data Types </h2>
+
+<h3>Description</h3>
+
+<p>Formal classes exist corresponding to the basic R data types, allowing
+these types to be used in method signatures, as slots in class
+definitions, and to be extended by new classes.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>### The following are all basic vector classes.
+### They can appear as class names in method signatures,
+### in calls to as(), is(), and new().
+"character"
+"complex"
+"double"
+"expression"
+"integer"
+"list"
+"logical"
+"numeric"
+"single"
+"raw"
+
+### the class
+"vector"
+### is a virtual class, extended by all the above
+
+### The following are additional basic classes
+"NULL"     #  NULL objects
+"function" #  function objects, including primitives
+"externalptr" # raw external pointers for use in C code
+
+"ANY"  # virtual classes used by the methods package itself
+"VIRTUAL"
+"missing"
+</code></pre>
+
+
+<h3>Objects from the Classes</h3>
+
+<p>Objects can be created by calls of the form <code>new(Class, ...)</code>,
+where <code>Class</code> is the quoted class name, and the remaining
+arguments if any are objects to be interpreted as vectors of this
+class.  Multiple arguments will be concatenated.
+</p>
+<p>The class <code>"expression"</code> is slightly odd, in that the ...
+arguments will <em>not</em> be evaluated; therefore, don't enclose them
+in a call to <code>quote()</code>.
+</p>
+
+
+<h3>Extends</h3>
+
+<p>Class <code>"vector"</code>, directly.
+</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt>coerce</dt><dd><p>Methods are defined to coerce arbitrary objects to
+these classes, by calling the corresponding basic function, for
+example, <code>as(x, "numeric")</code> calls <code>as.numeric(x)</code>. </p>
+</dd>
+</dl>
+
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.5.1 ]</div>
+</div>
+</body></html>

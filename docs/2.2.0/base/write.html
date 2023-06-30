@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>R: Write Data to a File</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/write.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/write.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>write {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='write'>Write Data to a File</h2>
+
+<h3>Description</h3>
+
+<p>The data (usually a matrix) <code>x</code> are written to file <code>file</code>.
+If <code>x</code> is a two-dimensional matrix you need to transpose it to get the
+columns in <code>file</code> the same as those in the internal representation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>write(x, file = "data",
+      ncolumns = if(is.character(x)) 1 else 5,
+      append = FALSE, sep = " ")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="write_:_x">x</code></td>
+<td>
+<p>the data to be written out.</p>
+</td></tr>
+<tr><td><code id="write_:_file">file</code></td>
+<td>
+<p>A connection, or  a character string naming the file to write to.
+If <code>""</code>, print to the standard output connection.
+If it is <code>"|cmd"</code>, the output is piped to the command given
+by &lsquo;<span class="file">cmd</span>&rsquo;.
+</p>
+</td></tr>
+<tr><td><code id="write_:_ncolumns">ncolumns</code></td>
+<td>
+<p>the number of columns to write the data in.</p>
+</td></tr>
+<tr><td><code id="write_:_append">append</code></td>
+<td>
+<p>if <code>TRUE</code> the data <code>x</code> is appended to file <code>file</code>.</p>
+</td></tr>
+<tr><td><code id="write_:_sep">sep</code></td>
+<td>
+<p>a string used to separate columns.  Using <code>sep = "\t"</code>
+gives tab delimited output; default is <code>" "</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>save</code> for writing any <span class="rlang"><b>R</b></span> objects,
+<code>write.table</code> for data frames,
+and <code>scan</code> for reading data.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># create a 2 by 5 matrix
+x &lt;- matrix(1:10,ncol=5)
+
+# the file data contains x, two rows, five cols
+# 1 3 5 6 9 will form the first row
+write(t(x))
+
+# Writing to the "console" 'tab-delimited'
+# two rows, five cols but the first row is 1 2 3 4 5
+write(x, "", sep = "\t")
+unlink("data") # tidy up
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.2.0 ]</div>
+</div>
+</body></html>

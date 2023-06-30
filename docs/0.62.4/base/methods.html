@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Class Methods</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/methods.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/methods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>methods {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='methods'>Class Methods</h2>
+
+<h3>Description</h3>
+
+<p><span class="rlang"><b>R</b></span> possesses a simple generic function mechanism which can be used for
+an object-oriented style of programming.  Method despatch takes place
+based on the class of the first argument to the generic function.
+</p>
+<p>An <span class="rlang"><b>R</b></span> &ldquo;object&rdquo; is a data object which has a <code>class</code> attribute.
+A class attribute is a vector of character strings giving the names of
+the classes which the object &ldquo;inherits&rdquo; from.  When a generic
+function <code>fun</code> is applied to an object with class attribute
+<code>c("first", "second")</code>, the system searches for a function called
+<code>fun.first</code> and, if it finds it, applied it to the object.  If no
+such function is found a function called <code>fun.second</code> is tried.
+If no class name produces a suitable function, the function
+<code>fun.default</code> is used.
+</p>
+<p><code>methods</code> can be used to find out about the methods for a
+particular generic function or class.  See the examples below for
+details.
+</p>
+<p>Now for some obscure details that need to appear somewhere.  These
+comments will be slightly different than those in Appendix A of the
+White S Book. <code>UseMethod</code> creates a &ldquo;new&rdquo; function call with
+arguments matched as they came in to the generic.  Any local variables
+defined before the call to <code>UseMethod</code> are retained (!?).  Any
+statements after the call to <code>UseMethod</code> will not be evaluated as
+<code>UseMethod</code> does not return.
+</p>
+<p><code>NextMethod</code> invokes the next method (determined by the
+class).  It does this by creating a special call frame for that
+method.  The arguments will be the same in number, order and name as
+those to the current method but their values will be promises to
+evaluate their name in the current method and environment.  Any
+arguments matched to <code>...</code> are handled specially.  They are
+passed on as the promise that was supplied as an argument to the
+current environment. (S does this differently!)  If they have been
+evaluated in the current (or a previous environment) they remain
+evaluated.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>UseMethod(name)
+NextMethod(name, object, ...)
+methods(generic.function, class)
+</code></pre>
+
+
+<h3>Note</h3>
+
+<p>The <code>methods</code> function was written by Martin Maechler.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>class</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>methods(summary)
+
+methods(print)
+
+methods(class = data.frame)
+
+methods("[")#- does not list the C-internal ones...
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.4 ]</div>
+</div>
+</body></html>

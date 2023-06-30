@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><title>R: Delete Files and Directories</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/unlink.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/unlink.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>unlink {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='unlink'>Delete Files and Directories</h2>
+
+<h3>Description</h3>
+
+<p><code>unlink</code> deletes the file(s) or directories specified by <code>x</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>unlink(x, recursive = FALSE)</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="unlink_:_x">x</code></td>
+<td>
+<p>a character vector with the names of the file(s) or
+directories to be deleted.
+Wildcards (normally &lsquo;<span class="file">*</span>&rsquo; and &lsquo;<span class="file">?</span>&rsquo;) are allowed.</p>
+</td></tr>
+<tr><td><code id="unlink_:_recursive">recursive</code></td>
+<td>
+<p>logical. Should directories be deleted
+recusively?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>recusive = FALSE</code> directories are not deleted,
+not even empty ones.
+</p>
+<p><code>file.remove</code> can only remove files, but gives more
+detailed error information.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The return value of the corresponding system command, <code>rm -f</code>,
+normally <code>0</code> for success, <code>1</code> for failure.
+Not deleting a non-existent file is not a failure.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Prior to <span class="rlang"><b>R</b></span> version 1.2.0 the default on Unix was <code>recursive =
+    TRUE</code>, and on Windows empty directories could be deleted.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>file.remove</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.3 ]</div>
+</div>
+</body></html>

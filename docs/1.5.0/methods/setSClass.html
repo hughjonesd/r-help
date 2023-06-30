@@ -1,0 +1,108 @@
+<!DOCTYPE html><html><head><title>R: Low-level Class definition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setSClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setSClass.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>setSClass {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='setSClass'> Low-level Class definition </h2>
+
+<h3>Description</h3>
+
+<p>This is the lower-level version of <code>setClass</code>.  Unless you
+really know why you are calling it, use <code>setClass</code> instead.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>setSClass(name, properties=list(), extends=character(),
+          prototype=NULL, generatorFunction, where=1,
+          subclasses=character(), virtual=NA, validity, access)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="setSClass_:_name">name</code></td>
+<td>
+<p> character string name for the class </p>
+</td></tr>
+<tr><td><code id="setSClass_:_properties">properties</code></td>
+<td>
+<p> the <code>representation</code> argument to <code>setClass</code> </p>
+</td></tr>
+<tr><td><code id="setSClass_:_extends">extends</code></td>
+<td>
+<p> what classes does this class extend </p>
+</td></tr>
+<tr><td><code id="setSClass_:_prototype">prototype</code></td>
+<td>
+<p> an object (usually a list) providing the default
+data for the slots specified in the representation. </p>
+</td></tr>
+<tr><td><code id="setSClass_:_generatorFunction">generatorFunction</code></td>
+<td>
+<p> an optional function to use in generating
+new objects from the class </p>
+</td></tr>
+<tr><td><code id="setSClass_:_where">where</code></td>
+<td>
+<p> where to store the resulting definition (as metadata).
+By default, uses the global environment. </p>
+</td></tr>
+<tr><td><code id="setSClass_:_subclasses">subclasses</code></td>
+<td>
+<p> Classes that extend <em>this</em> class.  </p>
+</td></tr>
+<tr><td><code id="setSClass_:_virtual">virtual</code></td>
+<td>
+<p> Is this known to be a virtual class? </p>
+</td></tr>
+<tr><td><code id="setSClass_:_validity">validity</code>, <code id="setSClass_:_access">access</code></td>
+<td>
+<p>Optional arguments for validity method and
+access restrictions.  At the time of writing, these are included for
+compatibility and are not used.  In the future, however, the
+validity method is likely to be relevant.  See <em>Programming
+with Data</em> for its interpretation.</p>
+</td></tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>John Chambers
+</p>
+
+
+<h3>References</h3>
+
+<p>The web page <a href="http://www.omegahat.org/RSMethods/index.html">http://www.omegahat.org/RSMethods/index.html</a> is the
+primary documentation.
+</p>
+<p>The functions in this package emulate the facility for classes and
+methods described in <em>Programming with Data</em> (John M. Chambers,
+Springer, 1998).  See this book for further details and examples.
+</p>
+
+
+<h3>See Also</h3>
+
+ <p><code>setClass</code> </p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.5.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><title>R: Write an Object to a File or Recreate it</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dput.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dput.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dput {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dput'>Write an Object to a File or Recreate it</h2>
+
+<h3>Description</h3>
+
+<p>Writes an ASCII text representation of an <span class="rlang"><b>R</b></span> object to a file
+or connection, or uses one to recreate the object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dput(x, file = "",
+     control = c("keepNA", "keepInteger", "showAttributes"))
+
+dget(file)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dput_:_x">x</code></td>
+<td>
+<p>an object.</p>
+</td></tr>
+<tr><td><code id="dput_:_file">file</code></td>
+<td>
+<p>either a character string naming a file or a
+connection. <code>""</code> indicates output to the console.</p>
+</td></tr>
+<tr><td><code id="dput_:_control">control</code></td>
+<td>
+<p>character vector indicating deparsing options.
+See <code>.deparseOpts</code> for their description.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>dput</code> opens <code>file</code> and deparses the object <code>x</code> into
+that file.  The object name is not written (unlike <code>dump</code>).
+If <code>x</code> is a function the associated environment is stripped.
+Hence scoping information can be lost.
+</p>
+<p>Deparsing an object is difficult, and not always possible.  With the
+default <code>control</code>, <code>dput()</code> attempts to deparse in a way
+that is readable, but for more complex or unusual objects (see
+<code>dump</code>, not likely
+to be parsed as identical to the original.  Use <code>control = "all"</code>
+for the most complete deparsing; use <code>control = NULL</code> for the
+simplest deparsing, not even including attributes.
+</p>
+<p><code>dput</code> will warn if fewer characters were written to a file than
+expected, which may indicate a full or corrupt file system.
+</p>
+<p>To display saved source rather than deparsing the internal representation 
+include <code>"useSource"</code> in <code>control</code>.  <span class="rlang"><b>R</b></span> currently saves
+source only for function definitions.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>dput</code>, the first argument invisibly.
+</p>
+<p>For <code>dget</code>, the object created.
+</p>
+
+
+<h3>Note</h3>
+
+<p>To avoid the risk of a source attribute out of sync with the actual
+function definition, the source attribute of a function will never 
+be written as an attribute.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>deparse</code>, <code>dump</code>, <code>write</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Write an ASCII version of mean to the file "foo"
+dput(mean, "foo")
+## And read it back into 'bar'
+bar &lt;- dget("foo")
+unlink("foo")
+## Create a function with comments
+baz &lt;- function(x) {
+  # Subtract from one
+  1-x
+}
+## and display it
+dput(baz)
+## and now display the saved source
+dput(baz, control = "useSource")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.9.2 ]</div>
+</div>
+</body></html>

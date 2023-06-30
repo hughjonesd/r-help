@@ -1,0 +1,230 @@
+<!DOCTYPE html><html><head><title>R: Tk non-widget commands</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tcltk/html/TkCommands.html'>https://stat.ethz.ch/R-manual/R-patched/library/tcltk/html/TkCommands.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>TkCommands {tcltk}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='TkCommands'>Tk non-widget commands</h2>
+
+<h3>Description</h3>
+
+<p>These functions interface to Tk non-widget commands, such as the
+window manager interface commands and the geometry managers.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>tcl(...)
+tktitle(x)
+
+tktitle(x) &lt;- value
+
+tkbell(...)
+tkbind(...)
+tkbindtags(...)
+tkfocus(...)
+tklower(...)
+tkraise(...)
+
+tkclipboard.append(...)
+tkclipboard.clear(...)
+
+tkevent.add(...)
+tkevent.delete(...)
+tkevent.generate(...)
+tkevent.info(...)
+
+tkfont.actual(...)
+tkfont.configure(...)
+tkfont.create(...)
+tkfont.delete(...)
+tkfont.families(...)
+tkfont.measure(...)
+tkfont.metrics(...)
+tkfont.names(...)
+
+tkgrab(...)
+tkgrab.current(...)
+tkgrab.release(...)
+tkgrab.set(...)
+tkgrab.status(...)
+
+tkimage.cget(...)
+tkimage.configure(...)
+tkimage.create(...)
+tkimage.names(...)
+
+## NB: some widgets also have a selection.clear command, hence the "X".
+
+tkXselection.clear(...)
+tkXselection.get(...)
+tkXselection.handle(...)
+tkXselection.own(...)
+
+tkwait.variable(...)
+tkwait.visibility(...)
+tkwait.window(...)
+
+## winfo actually has a large number of subcommands, but it's rarely
+## used, so use tkwinfo("atom", ...) etc. instead.
+
+tkwinfo(...)
+
+# Window manager interface
+
+tkwm.aspect(...)
+tkwm.client(...)
+tkwm.colormapwindows(...)
+tkwm.command(...)
+tkwm.deiconify(...)
+tkwm.focusmodel(...)
+tkwm.frame(...)
+tkwm.geometry(...)
+tkwm.grid(...)
+tkwm.group(...)
+tkwm.iconbitmap(...)
+tkwm.iconify(...)
+tkwm.iconmask(...)
+tkwm.iconname(...)
+tkwm.iconposition(...)
+tkwm.iconwindow(...)
+tkwm.maxsize(...)
+tkwm.minsize(...)
+tkwm.overrideredirect(...)
+tkwm.positionfrom(...)
+tkwm.protocol(...)
+tkwm.resizable(...)
+tkwm.sizefrom(...)
+tkwm.state(...)
+tkwm.title(...)
+tkwm.transient(...)
+tkwm.withdraw(...)
+
+
+### Geometry managers
+
+tkgrid(...)
+tkgrid.bbox(...)
+tkgrid.columnconfigure(...)
+tkgrid.configure(...)
+tkgrid.forget(...)
+tkgrid.info(...)
+tkgrid.location(...)
+tkgrid.propagate(...)
+tkgrid.rowconfigure(...)
+tkgrid.remove(...)
+tkgrid.size(...)
+tkgrid.slaves(...)
+
+tkpack(...)
+tkpack.configure(...)
+tkpack.forget(...)
+tkpack.info(...)
+tkpack.propagate(...)
+tkpack.slaves(...)
+
+tkplace(...)
+tkplace.configure(...)
+tkplace.forget(...)
+tkplace.info(...)
+tkplace.slaves(...)
+
+## Standard dialogs
+tkgetOpenFile(...)
+tkgetSaveFile(...)
+tkchooseDirectory(...)
+tkmessageBox(...)
+tkdialog(...)
+tkpopup(...)
+
+
+## File handling functions
+tclfile.tail(...)
+tclfile.dir(...)
+tclopen(...)
+tclclose(...)
+tclputs(...)
+tclread(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="TkCommands_:_x">x</code></td>
+<td>
+<p>A window object</p>
+</td></tr>
+<tr><td><code id="TkCommands_:_value">value</code></td>
+<td>
+<p>For <code>tktitle</code> assignments, a character string.</p>
+</td></tr>
+<tr><td><code id="TkCommands_:_...">...</code></td>
+<td>
+<p>Handled via <code>.Tcl.args</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>tcl</code> provides a generic interface to calling any Tk or Tcl
+command by simply running <code>.Tcl.args.objv</code> on the argument list
+and passing the
+result to <code>.Tcl.objv</code>.  Most of the other commands simply call
+<code>tcl</code> with a particular
+first argument and sometimes also a second argument giving the
+subcommand.
+</p>
+<p><code>tktitle</code> and its assignment form provides an alternate interface
+to Tk's <code>wm title</code>
+</p>
+<p>There are far too many of these commands to describe them and their
+arguments in full.  Please refer to the Tcl/Tk documentation for details.
+With a few exceptions, the pattern is that Tk subcommands like
+<code>pack configure</code> are converted to function names like
+<code>tkpack.configure</code>, and Tcl subcommands are like
+<code>tclfile.dir</code>.  
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>TclInterface</code>, <code>TkWidgets</code>,
+<code>TkWidgetcmds</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## These cannot be run by examples() but should be OK when pasted
+## into an interactive R session with the tcltk package loaded
+
+tt &lt;- tktoplevel()
+tkpack(l1&lt;-tklabel(tt,text="Heave"), l2&lt;-tklabel(tt,text="Ho"))
+tkpack.configure(l1, side="left")
+
+## Try stretching the window and then
+
+tkdestroy(tt)
+
+## End(Not run)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tcltk</em> version 2.4.1 ]</div>
+</div>
+</body></html>

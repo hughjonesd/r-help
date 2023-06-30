@@ -1,0 +1,261 @@
+<!DOCTYPE html><html><head><title>R: K-Means Clustering</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kmeans.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kmeans.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>kmeans {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='kmeans'>
+K-Means Clustering
+</h2>
+
+<h3>Description</h3>
+
+<p>Perform k-means clustering on a data matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>kmeans(x, centers, iter.max = 10, nstart = 1,
+       algorithm = c("Hartigan-Wong", "Lloyd", "Forgy",
+                     "MacQueen"), trace = FALSE)
+## S3 method for class 'kmeans'
+fitted(object, method = c("centers", "classes"), ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="kmeans_:_x">x</code></td>
+<td>
+<p>numeric matrix of data, or an object that can be coerced to
+such a matrix (such as a numeric vector or a data frame with all
+numeric columns).</p>
+</td></tr>
+<tr><td><code id="kmeans_:_centers">centers</code></td>
+<td>
+<p>either the number of clusters, say <code class="reqn">k</code>, or a set of
+initial (distinct) cluster centres.  If a number, a random set of
+(distinct) rows in <code>x</code> is chosen as the initial centres.</p>
+</td></tr>
+<tr><td><code id="kmeans_:_iter.max">iter.max</code></td>
+<td>
+<p>the maximum number of iterations allowed.</p>
+</td></tr>
+<tr><td><code id="kmeans_:_nstart">nstart</code></td>
+<td>
+<p>if <code>centers</code> is a number, how many random sets
+should be chosen?</p>
+</td></tr>
+<tr><td><code id="kmeans_:_algorithm">algorithm</code></td>
+<td>
+<p>character: may be abbreviated.  Note that
+<code>"Lloyd"</code> and <code>"Forgy"</code> are alternative names for one
+algorithm.</p>
+</td></tr>
+<tr><td><code id="kmeans_:_object">object</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object of class <code>"kmeans"</code>, typically the
+result <code>ob</code> of <code>ob &lt;- kmeans(..)</code>.</p>
+</td></tr>
+<tr><td><code id="kmeans_:_method">method</code></td>
+<td>
+<p>character: may be abbreviated. <code>"centers"</code> causes
+<code>fitted</code> to return cluster centers (one for each input point) and
+<code>"classes"</code> causes <code>fitted</code> to return a vector of class
+assignments.</p>
+</td></tr>
+<tr><td><code id="kmeans_:_trace">trace</code></td>
+<td>
+<p>logical or integer number, currently only used in the
+default method (<code>"Hartigan-Wong"</code>): if positive (or true),
+tracing information on the progress of the algorithm is
+produced.  Higher values may produce more tracing information.</p>
+</td></tr>
+<tr><td><code id="kmeans_:_...">...</code></td>
+<td>
+<p>not used.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The data given by <code>x</code> are clustered by the <code class="reqn">k</code>-means method,
+which aims to partition the points into <code class="reqn">k</code> groups such that the
+sum of squares from points to the assigned cluster centres is minimized.
+At the minimum, all cluster centres are at the mean of their Voronoi
+sets (the set of data points which are nearest to the cluster centre).
+</p>
+<p>The algorithm of Hartigan and Wong (1979) is used by default.  Note
+that some authors use <code class="reqn">k</code>-means to refer to a specific algorithm
+rather than the general method: most commonly the algorithm given by
+MacQueen (1967) but sometimes that given by Lloyd (1957) and Forgy
+(1965).  The Hartigan&ndash;Wong algorithm generally does a better job than
+either of those, but trying several random starts (<code>nstart</code><code class="reqn">&gt;
+  1</code>) is often recommended.  In rare cases, when some of the points
+(rows of <code>x</code>) are extremely close, the algorithm may not converge
+in the &ldquo;Quick-Transfer&rdquo; stage, signalling a warning (and
+returning <code>ifault = 4</code>).  Slight
+rounding of the data may be advisable in that case.
+</p>
+<p>For ease of programmatic exploration, <code class="reqn">k = 1</code> is allowed, notably
+returning the center and <code>withinss</code>.
+</p>
+<p>Except for the Lloyd&ndash;Forgy method, <code class="reqn">k</code> clusters will always be
+returned if a number is specified.
+If an initial matrix of centres is supplied, it is possible that
+no point will be closest to one or more centres, which is currently
+an error for the Hartigan&ndash;Wong method.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>kmeans</code> returns an object of class <code>"kmeans"</code> which has a
+<code>print</code> and a <code>fitted</code> method.  It is a list with at least
+the following components:
+</p>
+<table>
+<tr><td><code>cluster</code></td>
+<td>
+
+<p>A vector of integers (from <code>1:k</code>) indicating the cluster to
+which each point is allocated.
+</p>
+</td></tr>
+<tr><td><code>centers</code></td>
+<td>
+<p>A matrix of cluster centres.</p>
+</td></tr>
+<tr><td><code>totss</code></td>
+<td>
+<p>The total sum of squares.</p>
+</td></tr>
+<tr><td><code>withinss</code></td>
+<td>
+<p>Vector of within-cluster sum of squares,
+one component per cluster.</p>
+</td></tr>
+<tr><td><code>tot.withinss</code></td>
+<td>
+<p>Total within-cluster sum of squares,
+i.e. <code>sum(withinss)</code>.</p>
+</td></tr>
+<tr><td><code>betweenss</code></td>
+<td>
+<p>The between-cluster sum of squares,
+i.e. <code>totss-tot.withinss</code>.</p>
+</td></tr>
+<tr><td><code>size</code></td>
+<td>
+<p>The number of points in each cluster.</p>
+</td></tr>
+<tr><td><code>iter</code></td>
+<td>
+<p>The number of (outer) iterations.</p>
+</td></tr>
+<tr><td><code>ifault</code></td>
+<td>
+<p>integer: indicator of a possible algorithm problem
+&ndash; for experts.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>The clusters are numbered in the returned object, but they are a
+<em>set</em> and no ordering is implied.  (Their apparent ordering may
+differ by platform.)
+</p>
+
+
+<h3>References</h3>
+
+<p>Forgy, E. W. (1965).
+Cluster analysis of multivariate data: efficiency vs interpretability
+of classifications. 
+<em>Biometrics</em>, <b>21</b>, 768&ndash;769.
+</p>
+<p>Hartigan, J. A. and Wong, M. A. (1979).
+Algorithm AS 136: A K-means clustering algorithm.
+<em>Applied Statistics</em>, <b>28</b>, 100&ndash;108.
+\Sexpr[results=rd]{tools:::Rd_expr_doi("10.2307/2346830")}.
+</p>
+<p>Lloyd, S. P. (1957, 1982).
+Least squares quantization in PCM.
+Technical Note, Bell Laboratories.
+Published in 1982 in <em>IEEE Transactions on Information Theory</em>,
+<b>28</b>, 128&ndash;137. 
+</p>
+<p>MacQueen, J. (1967).
+Some methods for classification and analysis of multivariate
+observations.
+In <em>Proceedings of the Fifth Berkeley Symposium on  Mathematical
+Statistics and Probability</em>, 
+eds L. M. Le Cam &amp; J. Neyman,
+<b>1</b>, pp. 281&ndash;297.
+Berkeley, CA: University of California Press.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+# a 2-dimensional example
+x &lt;- rbind(matrix(rnorm(100, sd = 0.3), ncol = 2),
+           matrix(rnorm(100, mean = 1, sd = 0.3), ncol = 2))
+colnames(x) &lt;- c("x", "y")
+(cl &lt;- kmeans(x, 2))
+plot(x, col = cl$cluster)
+points(cl$centers, col = 1:2, pch = 8, cex = 2)
+
+# sum of squares
+ss &lt;- function(x) sum(scale(x, scale = FALSE)^2)
+
+## cluster centers "fitted" to each obs.:
+fitted.x &lt;- fitted(cl);  head(fitted.x)
+resid.x &lt;- x - fitted(cl)
+
+## Equalities : ----------------------------------
+cbind(cl[c("betweenss", "tot.withinss", "totss")], # the same two columns
+         c(ss(fitted.x), ss(resid.x),    ss(x)))
+stopifnot(all.equal(cl$ totss,        ss(x)),
+	  all.equal(cl$ tot.withinss, ss(resid.x)),
+	  ## these three are the same:
+	  all.equal(cl$ betweenss,    ss(fitted.x)),
+	  all.equal(cl$ betweenss, cl$totss - cl$tot.withinss),
+	  ## and hence also
+	  all.equal(ss(x), ss(fitted.x) + ss(resid.x))
+	  )
+
+kmeans(x,1)$withinss # trivial one-cluster, (its W.SS == ss(x))
+
+## random starts do help here with too many clusters
+## (and are often recommended anyway!):
+## The ordering of the clusters may be platform-dependent.
+## IGNORE_RDIFF_BEGIN
+(cl &lt;- kmeans(x, 5, nstart = 25))
+## IGNORE_RDIFF_END
+plot(x, col = cl$cluster)
+points(cl$centers, col = 1:5, pch = 8)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 4.3.1 ]</div>
+</div>
+</body></html>

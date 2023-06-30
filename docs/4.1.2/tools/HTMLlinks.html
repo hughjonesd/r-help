@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>R: Collect HTML Links from Package Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/HTMLlinks.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/HTMLlinks.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>HTMLlinks {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='HTMLlinks'>Collect HTML Links from Package Documentation</h2>
+
+<h3>Description</h3>
+
+<p>Compute relative file paths for URLs to other package's installed HTML
+documentation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>findHTMLlinks(pkgDir = "", lib.loc = NULL, level = 0:2)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="HTMLlinks_:_pkgDir">pkgDir</code></td>
+<td>
+<p>the top-level directory of an installed package.  The
+default indicates no package.</p>
+</td></tr>
+<tr><td><code id="HTMLlinks_:_lib.loc">lib.loc</code></td>
+<td>
+<p>character vector describing the location of <span class="rlang"><b>R</b></span> library
+trees to scan: the default indicates <code>.libPaths()</code>.</p>
+</td></tr>
+<tr><td><code id="HTMLlinks_:_level">level</code></td>
+<td>
+<p>Which level(s) to include.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>findHTMLlinks</code> tries to resolve links from one help page to
+another.  It uses in decreasing priority
+</p>
+
+<ul>
+<li><p> The package in <code>pkgDir</code>: this is used when converting
+HTML help for that package (level 0).
+</p>
+</li>
+<li><p> The base and recommended packages (level 1).
+</p>
+</li>
+<li><p> Other packages found in the library trees specified by
+<code>lib.loc</code> in the order of the trees and alphabetically within a
+library tree (level 2).
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>A named character vector of file paths, relative to the &lsquo;<span class="file">html</span>&rsquo;
+directory of an installed package.  So these are of the form
+&lsquo;<span class="file">&quot;../../<var>somepkg</var>/html/<var>sometopic</var>.html&quot;</span>&rsquo;.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Murdoch, Brian Ripley</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 4.1.2 ]</div>
+</div>
+</body></html>

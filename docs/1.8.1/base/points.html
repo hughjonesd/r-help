@@ -1,0 +1,176 @@
+<!DOCTYPE html><html><head><title>R: Add Points to a Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/points.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/points.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>points {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='points'>Add Points to a Plot</h2>
+
+<h3>Description</h3>
+
+<p><code>points</code> is a generic function to draw a sequence of points at
+the specified coordinates.  The specified character(s) are plotted,
+centered at the coordinates.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>points(x, ...)
+
+## Default S3 method:
+points(x, y = NULL, type = "p", pch = par("pch"),
+       col = par("col"), bg = NA, cex = 1, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="points_:_x">x</code>, <code id="points_:_y">y</code></td>
+<td>
+<p>coordinate vectors of points to plot.</p>
+</td></tr>
+<tr><td><code id="points_:_type">type</code></td>
+<td>
+<p>character indicating the type of plotting; actually any of
+the <code>type</code>s as in <code>plot</code>.</p>
+</td></tr>
+<tr><td><code id="points_:_pch">pch</code></td>
+<td>
+<p>plotting &ldquo;character&rdquo;, i.e., symbol to use.  <code>pch</code> can
+either be a <code>character</code> or an integer code for a set of
+graphics symbols.  The full set of S symbols is available with
+<code>pch=0:18</code>, see the last picture from <code>example(points)</code>,
+i.e., the examples below.
+
+</p>
+<p>In addition, there is a special set of <span class="rlang"><b>R</b></span> plotting symbols which
+can be obtained with <code>pch=19:25</code> and <code>21:25</code> can be
+colored and filled with different colors:
+</p>
+
+<ul>
+<li> <p><code>pch=19</code>: solid circle,
+</p>
+</li>
+<li> <p><code>pch=20</code>: bullet (smaller circle),
+</p>
+</li>
+<li> <p><code>pch=21</code>: circle,
+</p>
+</li>
+<li> <p><code>pch=22</code>: square,
+</p>
+</li>
+<li> <p><code>pch=23</code>: diamond,
+</p>
+</li>
+<li> <p><code>pch=24</code>: triangle point-up,
+</p>
+</li>
+<li> <p><code>pch=25</code>: triangle point down.
+</p>
+</li></ul>
+
+<p>Values <code>pch=26:32</code> are currently unused, and <code>pch=32:255</code>
+give the text symbol in the encoding in use (see <code>postscript</code>).
+</p>
+</td></tr>
+<tr><td><code id="points_:_col">col</code></td>
+<td>
+<p>color code or name, see <code>par</code>.</p>
+</td></tr>
+<tr><td><code id="points_:_bg">bg</code></td>
+<td>
+<p>background (&ldquo;fill&rdquo;) color for open plot symbols</p>
+</td></tr>
+<tr><td><code id="points_:_cex">cex</code></td>
+<td>
+<p>character expansion: a numerical vector.</p>
+</td></tr>
+<tr><td><code id="points_:_...">...</code></td>
+<td>
+<p>Further graphical parameters (see <code>plot.xy</code>
+and <code>par</code>) may also be supplied as arguments.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The coordinates can be passed in a plotting structure
+(a list with <code>x</code> and <code>y</code> components), a two-column matrix, a
+time series, ....  See <code>xy.coords</code>.
+</p>
+<p>Arguments <code>pch</code>, <code>col</code>, <code>bg</code> and <code>cex</code> can be
+vectors (which will be recycled as needed) giving a value for each
+point plotted. 
+Points whose <code>x</code>, <code>y</code>, <code>pch</code>, <code>col</code> or <code>cex</code>
+value is <code>NA</code> are omitted from the plot.
+</p>
+<p>Graphical parameters are permitted as arguments to this function.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>plot</code>, <code>lines</code>, and the underlying
+&ldquo;primitive&rdquo; <code>plot.xy</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>plot(-4:4, -4:4, type = "n")# setting up coord. system
+points(rnorm(200), rnorm(200), col = "red")
+points(rnorm(100)/2, rnorm(100)/2, col = "blue", cex = 1.5)
+
+op &lt;- par(bg = "light blue")
+x &lt;- seq(0,2*pi, len=51)
+## something "between type='b' and type='o'":
+plot(x, sin(x), type="o", pch=21, bg=par("bg"), col = "blue", cex=.6,
+ main='plot(..., type="o", pch=21, bg=par("bg"))')
+par(op)
+
+##-------- Showing all the extra &amp; some char graphics symbols ------------
+Pex &lt;- 3 ## good for both .Device=="postscript" and "x11"
+ipch &lt;- 1:(np &lt;- 25+11); k &lt;- floor(sqrt(np)); dd &lt;- c(-1,1)/2
+rx &lt;- dd + range(ix &lt;- (ipch-1) %/% k)
+ry &lt;- dd + range(iy &lt;- 3 + (k-1)-(ipch-1) %% k)
+pch &lt;- as.list(ipch)
+pch[25+ 1:11] &lt;- as.list(c("*",".", "o","O","0","+","-",":","|","%","#"))
+plot(rx, ry, type="n", axes = FALSE, xlab = "", ylab = "",
+     main = paste("plot symbols :  points (...  pch = *, cex =", Pex,")"))
+abline(v = ix, h = iy, col = "lightgray", lty = "dotted")
+for(i in 1:np) {
+  pc &lt;- pch[[i]]
+  points(ix[i], iy[i], pch = pc, col = "red", bg = "yellow", cex = Pex)
+  ## red symbols with a yellow interior (where available)
+  text(ix[i] - .3, iy[i], pc, col = "brown", cex = 1.2)
+}
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.8.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><title>R: Length of an Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/length.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/length.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>length {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='length'>Length of an Object</h2>
+
+<h3>Description</h3>
+
+<p>Get or set the length of vectors (including lists) and factors, and of
+any other <span class="rlang"><b>R</b></span> object for which a method has been defined.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>length(x)
+length(x) &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="length_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object.  For replacement, a vector or factor.</p>
+</td></tr>
+<tr><td><code id="length_:_value">value</code></td>
+<td>
+<p>a non-negative integer or double (which will be rounded down).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Both functions are generic: you can write methods to handle specific
+classes of objects, see InternalMethods.  <code>length&lt;-</code> has a
+<code>"factor"</code> method.
+</p>
+<p>The replacement form can be used to reset the length of a vector.  If
+a vector is shortened, extra values are discarded and when a vector is
+lengthened, it is padded out to its new length with <code>NA</code>s
+(<code>nul</code> for raw vectors).
+</p>
+<p>Both are primitive functions.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The default method for <code>length</code> currently returns a non-negative
+<code>integer</code> of length 1, except for vectors of more than
+<code class="reqn">2^{31}-1</code> elements, when it returns a double.
+</p>
+<p>For vectors (including lists) and factors the length is the number of
+elements.  For an environment it is the number of objects in the
+environment, and <code>NULL</code> has length 0.  For expressions and
+pairlists (including language objects and dotlists) it is the
+length of the pairlist chain.  All other objects (including functions)
+have length one: note that for functions this differs from S.
+</p>
+<p>The replacement form removes all the attributes of <code>x</code> except its
+names, which are adjusted (and if necessary extended by <code>""</code>).
+</p>
+
+
+<h3>Warning</h3>
+
+<p>Package authors have written methods that return a result of length
+other than one (<a href="https://CRAN.R-project.org/package=Formula"><span class="pkg">Formula</span></a>) and that return a vector of type
+<code>double</code> (<a href="https://CRAN.R-project.org/package=Matrix"><span class="pkg">Matrix</span></a>), even with non-integer values
+(earlier versions of <a href="https://CRAN.R-project.org/package=sets"><span class="pkg">sets</span></a>). Where a single double value is
+returned that can be represented as an integer it is returned as a
+length-one integer vector.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>nchar</code> for counting the number of characters in character
+vectors, <code>lengths</code> for getting the length of every element
+in a list.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>length(diag(4))  # = 16 (4 x 4)
+length(options())  # 12 or more
+length(y ~ x1 + x2 + x3)  # 3
+length(expression(x, {y &lt;- x^2; y+2}, x^y))  # 3
+
+## from example(warpbreaks)
+require(stats)
+
+fm1 &lt;- lm(breaks ~ wool * tension, data = warpbreaks)
+length(fm1$call)      # 3, lm() and two arguments.
+length(formula(fm1))  # 3, ~ lhs rhs
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.4.3 ]</div>
+</div>
+</body></html>

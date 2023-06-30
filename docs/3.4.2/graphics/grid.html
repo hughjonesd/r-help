@@ -1,0 +1,111 @@
+<!DOCTYPE html><html><head><title>R: Add Grid to a Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/grid.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/grid.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid'>Add Grid to a Plot</h2>
+
+<h3>Description</h3>
+
+<p><code>grid</code> adds an <code>nx</code> by <code>ny</code> rectangular grid to an
+existing plot.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid(nx = NULL, ny = nx, col = "lightgray", lty = "dotted",
+     lwd = par("lwd"), equilogs = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid_:_nx">nx</code>, <code id="grid_:_ny">ny</code></td>
+<td>
+<p>number of cells of the grid in x and y direction.  When
+<code>NULL</code>, as per default, the grid aligns with the tick marks on
+the corresponding <em>default</em> axis (i.e., tickmarks as computed by
+<code>axTicks</code>).  When <code>NA</code>, no grid lines are
+drawn in the corresponding direction.</p>
+</td></tr>
+<tr><td><code id="grid_:_col">col</code></td>
+<td>
+<p>character or (integer) numeric; color of the grid lines.</p>
+</td></tr>
+<tr><td><code id="grid_:_lty">lty</code></td>
+<td>
+<p>character or (integer) numeric; line type of the grid lines.</p>
+</td></tr>
+<tr><td><code id="grid_:_lwd">lwd</code></td>
+<td>
+<p>non-negative numeric giving line width of the grid lines.</p>
+</td></tr>
+<tr><td><code id="grid_:_equilogs">equilogs</code></td>
+<td>
+<p>logical, only used when <em>log</em> coordinates and
+alignment with the axis tick marks are active.  Setting <code>equilogs =
+      FALSE</code> in that case gives <em>non equidistant</em> tick aligned
+grid lines.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>If more fine tuning is required, use <code>abline(h = ., v = .)</code>
+directly.
+</p>
+
+
+<h3>References</h3>
+
+<p>Murrell, P. (2005) <em>R Graphics</em>. Chapman &amp; Hall/CRC Press.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>plot</code>, <code>abline</code>, <code>lines</code>,
+<code>points</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>plot(1:3)
+grid(NA, 5, lwd = 2) # grid only in y-direction
+
+## maybe change the desired number of tick marks:  par(lab = c(mx, my, 7))
+op &lt;- par(mfcol = 1:2)
+with(iris,
+     {
+     plot(Sepal.Length, Sepal.Width, col = as.integer(Species),
+          xlim = c(4, 8), ylim = c(2, 4.5), panel.first = grid(),
+          main = "with(iris,  plot(...., panel.first = grid(), ..) )")
+     plot(Sepal.Length, Sepal.Width, col = as.integer(Species),
+          panel.first = grid(3, lty = 1, lwd = 2),
+          main = "... panel.first = grid(3, lty = 1, lwd = 2), ..")
+     }
+    )
+par(op)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 3.4.2 ]</div>
+</div>
+</body></html>

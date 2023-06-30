@@ -1,0 +1,52 @@
+<!DOCTYPE html><html><head><title>R: Average Yearly Temperatures in New Haven</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/nhtemp.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/nhtemp.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>nhtemp {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='nhtemp'>Average Yearly Temperatures in New Haven</h2>
+
+<h3>Description</h3>
+
+<p>The mean annual temperature in degrees Fahrenheit in New Haven,
+Connecticut, from 1912 to 1971.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data(nhtemp)</code></pre>
+
+
+<h3>Format</h3>
+
+<p>A time-series of 60 observations.
+</p>
+
+
+<h3>Source</h3>
+
+<p>Vaux, J. E. and N. B. Brinker (1972).  Cycles, 1972, 117-121.
+</p>
+
+
+<h3>References</h3>
+
+<p>McNeil, D. R. (1977).  Interactive Data Analysis.  New York: Wiley.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64 ]</div>
+</div>
+</body></html>

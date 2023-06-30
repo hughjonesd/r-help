@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Control Multiple Devices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dev.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dev.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dev.xxx {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dev.xxx'>Control Multiple Devices</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide control over multiple graphics devices.
+</p>
+<p>Only one device is the <em>active</em> device.  This is the device in
+which all graphics operations occur.
+</p>
+<p>Devices are associated with a name (e.g., &quot;X11&quot;  or &quot;postscript&quot;) and a
+number;  the &quot;null device&quot; is always device 1.
+</p>
+<p><code>dev.off</code> shuts down the specified (by default the current) device.
+<code>graphics.off()</code> shuts down all open graphics devices.
+</p>
+<p><code>dev.set</code> makes the specified device the active device.
+</p>
+<p>A list of device names is stored in <code>.Devices</code>.
+The name of the active device is stored in <code>.Device</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dev.cur()
+dev.list()
+dev.next(which = dev.cur())
+dev.prev(which = dev.cur())
+dev.off(which = dev.cur())
+dev.set(which = dev.next())
+graphics.off()
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dev.xxx_:_which">which</code></td>
+<td>
+<p>An integer specifying a device number</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>dev.cur</code> returns the number and name of the active device.
+</p>
+<p><code>dev.list</code> returns the numbers and names of all devices.
+</p>
+<p><code>dev.next</code> returns the number and name of the next device in the
+list of devices.
+</p>
+<p><code>dev.prev</code> returns the number and name of the previous device in
+the list of devices.
+</p>
+<p><code>dev.off</code> returns the name and number of the new active device
+(after the specified device has been shut down).
+</p>
+<p><code>dev.set</code> returns the name and number of the new active device.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Devices</code>, such as <code>postscript</code>, etc;
+<code>graphics.off</code> for closing all devices;
+<code>layout</code> and its links for setting up plotting regions
+on the current device.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+x11()
+plot(1:10)
+x11()
+plot(rnorm(10))
+dev.set(dev.prev())
+abline(0,1)# through the 1:10 points
+dev.set(dev.next())
+abline(h=0, col="gray")# for the residual plot
+dev.set(dev.prev())
+dev.off(); dev.off()#- close the two X devices
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html><html><head><title>R: Replicate Elements of Vectors and Lists</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rep.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rep.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>rep {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='rep'>Replicate Elements of Vectors and Lists</h2>
+
+<h3>Description</h3>
+
+<p><code>rep</code> replicates the values in <code>x</code>
+according to the values given in <code>times</code>
+and <code>length.out</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rep(x, times, length.out, each)
+rep.int(x, times)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="rep_:_x">x</code></td>
+<td>
+<p>a vector (of any mode including a list) or a pairlist.</p>
+</td></tr>
+<tr><td><code id="rep_:_times">times</code></td>
+<td>
+<p>integer.  A vector giving the number of times to repeat
+each element if of length <code>length(x)</code>, or to repeat the whole
+vector if of length 1.</p>
+</td></tr>
+<tr><td><code id="rep_:_length.out">length.out</code></td>
+<td>
+<p>integer.  (Optional.)  The desired length of the
+output vector.</p>
+</td></tr>
+<tr><td><code id="rep_:_each">each</code></td>
+<td>
+<p>optional integer. Each element of <code>x</code> is
+repeated <code>each</code> times.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>times</code> consists of a single integer,
+the result consists of the values in
+<code>x</code> repeated this many times.
+If <code>times</code> is a vector of the same length as
+<code>x</code>, the result consists of <code>x[1]</code>
+repeated <code>times[1]</code> times,
+<code>x[2]</code> repeated <code>times[2]</code> times and so on.
+</p>
+<p><code>length.out</code> may be given in place of <code>times</code>,
+in which case <code>x</code> is repeated as many times as is
+necessary to create a vector of this length.  If both
+<code>length.out</code> and <code>times</code> are specified, <code>times</code>
+determines the replication, and <code>length.out</code> can be used to
+truncate the output vector (or extend it by <code>NA</code>s).
+</p>
+<p>Non-integer values of <code>times</code> will be truncated towards zero.
+If <code>times</code> is a computed quantity it is prudent to add a small fuzz.
+</p>
+
+
+<h3>Note</h3>
+
+<p>If the original vector has names, these are also replicated and so
+will almost always contain duplicates.
+</p>
+<p>If <code>length.out</code> is used to extend the vector, the behaviour is
+different from that of S-PLUS, which recycles the existing vector.
+</p>
+<p>Function <code>rep.int</code> is a simple case handled by internal code, and
+provided as a separate function purely for S compatibility.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>seq</code>, <code>sequence</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>rep(1:4, 2)
+rep(1:4, each = 2)       # not the same.
+rep(1:4, c(2,2,2,2))     # same as second.
+rep(1:4, c(2,1,2,1))
+rep(1:4, each = 2, len = 4)  # first 4 only.
+rep(1:4, each = 2, len = 10)   # 8 integers plus two NAs
+
+rep(1, 40*(1-.8)) # length 7 on most platforms
+rep(1, 40*(1-.8)+1e-7) # better
+
+## replicate a list
+fred &lt;- list(happy = 1:10, name = "squash")
+rep(fred, 5)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.1 ]</div>
+</div>
+</body></html>

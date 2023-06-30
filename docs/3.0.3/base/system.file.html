@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Find Names of R System Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.file.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.file.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>system.file {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='system.file'>Find Names of R System Files</h2>
+
+<h3>Description</h3>
+
+<p>Finds the full file names of files in packages etc.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>system.file(..., package = "base", lib.loc = NULL,
+            mustWork = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="system.file_:_...">...</code></td>
+<td>
+<p>character vectors, specifying subdirectory and file(s)
+within some package.  The default, none, returns the
+root of the package.  Wildcards are not supported.</p>
+</td></tr>
+<tr><td><code id="system.file_:_package">package</code></td>
+<td>
+<p>a character string with the name of a single package.
+An error occurs if more than one package name is given.</p>
+</td></tr>
+<tr><td><code id="system.file_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector with path names of <span class="rlang"><b>R</b></span> libraries.
+See &lsquo;Details&rsquo; for the meaning of the default value of <code>NULL</code>.</p>
+</td></tr>
+<tr><td><code id="system.file_:_mustWork">mustWork</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, an error is given if there
+are no matching files.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This checks the existence of the specified files with
+<code>file.exists</code>.  So file paths are only returned if there
+are sufficient permissions to establish their existence.
+</p>
+<p>The unnamed arguments in <code>...</code> are usually character strings, but
+if character vectors they are recycled to the same length.
+</p>
+<p>This uses <code>find.package</code> to find the package, and hence
+with the default <code>lib.loc = NULL</code> looks first for attached
+packages then in each library listed in <code>.libPaths()</code>.
+Note that if a namespace is loaded but the package is not attached,
+this will look only on <code>.libPaths()</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of positive length, containing the file paths
+that matched <code>...</code>, or the empty string, <code>""</code>, if none
+matched (unless <code>mustWork = TRUE</code>).
+</p>
+<p>If matching the root of a package, there is no trailing separator.
+</p>
+<p><code>system.file()</code> with no arguments gives the root of the
+<span class="pkg">base</span> package.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>R.home</code> for the root directory of the <span class="rlang"><b>R</b></span>
+installation, <code>list.files</code>.
+</p>
+<p><code>Sys.glob</code> to find paths via wildcards.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>system.file()                  # The root of the 'base' package
+system.file(package = "stats") # The root of package 'stats'
+system.file("INDEX")
+system.file("help", "AnIndex", package = "splines")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.0.3 ]</div>
+</div>
+</body></html>

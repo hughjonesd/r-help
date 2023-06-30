@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Remove Stored Source from a Function or Language Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/removeSource.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/removeSource.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>removeSource {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='removeSource'>Remove Stored Source from a Function or Language Object</h2>
+
+<h3>Description</h3>
+
+<p>When <code>options("keep.source")</code> is <code>TRUE</code>, a copy of the
+original source code to a function is stored with it.  Similarly,
+<code>parse()</code> may keep formatted source for an expression.
+Such source reference attributes are removed from the object by
+<code>removeSource()</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>removeSource(fn)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="removeSource_:_fn">fn</code></td>
+<td>
+<p>a <code>function</code> or another language object
+(fulfilling <code>is.language</code>) from which to remove the
+source.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This removes the <code>"srcref"</code> and related attributes, via
+<em>recursive</em> cleaning of <code>body(fn)</code> in the case of a function
+or the recursive language parts, otherwise.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A copy of the <code>fn</code> object with the source removed.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>is.language</code> about language objects.
+</p>
+<p><code>srcref</code> for a description of source reference records,
+<code>deparse</code> for a description of how functions are deparsed.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## to make this act independently of the global 'options()' setting:
+op &lt;- options(keep.source = TRUE)
+fn &lt;- function(x) {
+  x + 1 # A comment, kept as part of the source
+}
+fn
+names(attributes(fn))       # "srcref" (only)
+names(attributes(body(fn))) # "srcref" "srcfile" "wholeSrcref"
+f2 &lt;- removeSource(fn)
+f2
+stopifnot(length(attributes(fn)) &gt; 0,
+          is.null(attributes(f2)),
+          is.null(attributes(body(f2))))
+
+## Source attribute of parse()d expressions,
+##	  have {"srcref", "srcfile", "wholeSrcref"} :
+E  &lt;- parse(text ="a &lt;- x^y  # power")  ; names(attributes(E ))
+E. &lt;- removeSource(E)                   ; names(attributes(E.))
+stopifnot(length(attributes(E ))  &gt; 0,
+          is.null(attributes(E.)))
+options(op) # reset to previous state
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 4.1.3 ]</div>
+</div>
+</body></html>

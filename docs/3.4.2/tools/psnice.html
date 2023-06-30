@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>R: Get or Set the Priority (Niceness) of a Process</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/psnice.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/psnice.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>psnice {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='psnice'>Get or Set the Priority (Niceness) of a Process</h2>
+
+<h3>Description</h3>
+
+<p>Get or set the &lsquo;niceness&rsquo; of the current process, or one or
+more other processes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>psnice(pid = Sys.getpid(), value = NA_integer_)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="psnice_:_pid">pid</code></td>
+<td>
+<p>positive integers: the process IDs of one of more
+processes: defaults to the <span class="rlang"><b>R</b></span> session process.</p>
+</td></tr>
+<tr><td><code id="psnice_:_value">value</code></td>
+<td>
+<p>The niceness to be set, or <code>NA</code> for an enquiry.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>POSIX operating systems have a concept of process priorities, usually
+from 0 to 39 (or 40) with 20 being a normal priority and (somewhat
+confusingly) larger numeric values denoting lower priority.  To add to
+the confusion, there is a &lsquo;niceness&rsquo; value, the amount by which
+the priority numerically exceeds 20 (which can be negative).
+Processes with high niceness will receive less CPU time than those
+with normal priority.  On some OSes, processes with niceness
+<code>+19</code> are only run when the system would otherwise be idle.
+</p>
+<p>On many OSes utilities such as <code>top</code> report the priority and
+not the niceness.  Niceness is used by the utility
+&lsquo;<span class="file">/usr/bin/renice</span>&rsquo;: &lsquo;<span class="file">/usr/bin/nice</span>&rsquo; (and
+<code>/usr/bin/renice -n</code>) specifies an <em>increment</em> in niceness.
+</p>
+<p>Only privileged users (usually super-users) can lower the niceness.
+</p>
+<p>Windows has a slightly different concept of &lsquo;priority
+classes&rsquo;.  We have mapped the idle priority to niceness <code>19</code>,
+&lsquo;below normal&rsquo; to <code>15</code>, normal to <code>0</code>, &lsquo;above
+normal&rsquo; to <code>-5</code> and &lsquo;realtime&rsquo; to <code>-10</code>.  Unlike
+Unix-alikes, a non-privileged user can increase the priority class on
+Windows (but using &lsquo;realtime&rsquo; is inadvisable).
+</p>
+
+
+<h3>Value</h3>
+
+<p>An integer vector of <em>previous</em> niceness values,
+<code>NA</code> if unknown for any reason.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Various functions in package <span class="pkg">parallel</span> create child processes
+whose priority may need to be changed.
+</p>
+<p><code>pskill</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 3.4.2 ]</div>
+</div>
+</body></html>

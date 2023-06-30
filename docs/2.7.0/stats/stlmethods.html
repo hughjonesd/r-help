@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>R: Methods for STL Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stlmethods.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stlmethods.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>stlmethods {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='stlmethods'>Methods for STL Objects</h2>
+
+<h3>Description</h3>
+
+<p>Methods for objects of class <code>stl</code>, typically the result of
+<code>stl</code>.  The <code>plot</code> method does a multiple figure plot
+with some flexibility.
+</p>
+<p>There are also (non-visible) <code>print</code> and <code>summary</code> methods.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'stl'
+plot(x, labels = colnames(X),
+     set.pars = list(mar = c(0, 6, 0, 6), oma = c(6, 0, 4, 0),
+                     tck = -0.01, mfrow = c(nplot, 1)),
+     main = NULL, range.bars = TRUE, ..., col.range = "light gray")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="stlmethods_:_x">x</code></td>
+<td>
+<p><code>stl</code> object.</p>
+</td></tr>
+<tr><td><code id="stlmethods_:_labels">labels</code></td>
+<td>
+<p>character of length 4 giving the names of the component
+time-series.</p>
+</td></tr>
+<tr><td><code id="stlmethods_:_set.pars">set.pars</code></td>
+<td>
+<p>settings for <code>par(.)</code> when setting up the plot.</p>
+</td></tr>
+<tr><td><code id="stlmethods_:_main">main</code></td>
+<td>
+<p>plot main title.</p>
+</td></tr>
+<tr><td><code id="stlmethods_:_range.bars">range.bars</code></td>
+<td>
+<p>logical indicating if each plot should have a bar at
+its right side which are of equal heights in user coordinates.</p>
+</td></tr>
+<tr><td><code id="stlmethods_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+<tr><td><code id="stlmethods_:_col.range">col.range</code></td>
+<td>
+<p>colour to be used for the range bars, if plotted.
+Note this appears after <code>...</code> and so cannot be abbreviated.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>plot.ts</code> and <code>stl</code>, particularly for
+examples.</p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.7.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head><title>R: Factor Levels Assignment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/levels.factor.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/levels.factor.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>levels.factor {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='levels.factor'>Factor Levels Assignment</h2>
+
+<h3>Description</h3>
+
+<p><code>levels&lt;-</code> provides a way to alter the levels attribute of factor.
+<code>value</code> can be a vector of character strings with length equal to
+the number of levels of <code>x</code>, or a named list specifying how to
+rename the levels.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>levels(x) &lt;- value
+</code></pre>
+
+
+<h3>See Also</h3>
+
+<p><code>factor</code>, <code>levels</code>,
+<code>levels&lt;-</code>, <code>nlevels</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'># assign individual levels
+x &lt;- gl(2, 4, 8)
+levels(x)[1] &lt;- "low"
+levels(x)[2] &lt;- "high"
+
+# or as a group
+y &lt;- gl(2, 4, 8)
+levels(y) &lt;- c("low", "high")
+
+# combine some levels
+z &lt;- gl(3, 2, 12)
+levels(z) &lt;- c("A", "B", "A")
+
+# same, using a named list
+z &lt;- gl(3, 2, 12)
+levels(z) &lt;- list(A=c(1,3), B=2)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1.1 ]</div>
+</div>
+</body></html>

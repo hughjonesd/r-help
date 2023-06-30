@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: Extract or Replace A Slot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/slotOp.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/slotOp.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>slotOp {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='slotOp'>Extract or Replace A Slot</h2>
+
+<h3>Description</h3>
+
+<p>Extract or replace the contents of a slot in a object with a
+formal (S4) class structure.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>object@name
+object@name &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="slotOp_:_object">object</code></td>
+<td>
+<p>An object from a formally defined (S4) class.</p>
+</td></tr>
+<tr><td><code id="slotOp_:_name">name</code></td>
+<td>
+<p>The character-string name of the slot, quoted or
+not.  Must be the name of a slot in the definition of the class
+of <code>object</code>.</p>
+</td></tr>
+<tr><td><code id="slotOp_:_value">value</code></td>
+<td>
+<p>A replacement value for the slot, which must be from a
+class compatible with the class defined for this slot in the
+definition of the class of  <code>object</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These operators support the formal classes of package <span class="pkg">methods</span>,
+and are enabled only when package <span class="pkg">methods</span> is loaded (as per
+default).  See <code>slot</code> for further details, in particular
+for the differences between <code>slot()</code> and the <code>@</code> operator.
+</p>
+<p>It is checked that <code>object</code> is an S4 object (see
+<code>isS4</code>), and it is an error to attempt to use <code>@</code> on
+any other object.  (There is an exception for name <code>.Data</code> for
+internal use only.)  The replacement operator checks that the slot
+already exists on the object (which it should if the object is really
+from the class it claims to be).
+</p>
+<p>Prior to <span class="rlang"><b>R</b></span> 3.0.0 the replacement operator was in package
+<span class="pkg">methods</span> and had a different test for validity of <code>name</code>.
+</p>
+<p>These are internal generic operators: see InternalMethods.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The current contents of the slot.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Extract</code>, <code>slot</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.2.0 ]</div>
+</div>
+</body></html>

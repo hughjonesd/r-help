@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>R: Replace Values in a Vector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/replace.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/replace.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>replace {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='replace'>Replace Values in a Vector</h2>
+
+<h3>Description</h3>
+
+<p><code>replace</code> replaces the values in <code>x</code>
+with indexes given in <code>list</code> by those given in <code>values</code>.
+If necessary, the values in <code>values</code> are recycled.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>replace(x, list, values)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="replace_:_x">x</code></td>
+<td>
+<p>vector</p>
+</td></tr>
+<tr><td><code id="replace_:_list">list</code></td>
+<td>
+<p>an index vector</p>
+</td></tr>
+<tr><td><code id="replace_:_values">values</code></td>
+<td>
+<p>replacement values</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector with the values replaced.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>x</code> is unchanged: remember to assign the result.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4 ]</div>
+</div>
+</body></html>

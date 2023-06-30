@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>R: The Number of Rows/Columns of an Array</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/nrow.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/nrow.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>nrow {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='nrow'>The Number of Rows/Columns of an Array</h2>
+
+<h3>Description</h3>
+
+<p><code>nrow</code> and <code>ncol</code> return the number of rows or columns
+present in <code>x</code>.
+<code>NCOL</code> and <code>NROW</code> do the same treating a vector as
+1-column matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>nrow(x)
+ncol(x)
+NCOL(x)
+NROW(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="nrow_:_x">x</code></td>
+<td>
+<p>a vector, array or data frame</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>an <code>integer</code> of length 1 or <code>NULL</code>.</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dim</code> which returns <em>all</em> dimensions;
+<code>array</code>, <code>matrix</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>ma &lt;- matrix(1:12, 3, 4)
+nrow(ma)   # 3
+ncol(ma)   # 4
+
+ncol(array(1:24, dim = 2:4)) # 3, the second dimension
+NCOL(1:12) # 1
+NROW(1:12) # 12
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3 ]</div>
+</div>
+</body></html>

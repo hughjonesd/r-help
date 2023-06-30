@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><title>R: Search Paths for Packages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/libPaths.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/libPaths.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>libPaths {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='libPaths'>Search Paths for Packages</h2>
+
+<h3>Description</h3>
+
+<p><code>.libPaths</code> gets/sets the library trees within which packages are
+looked for.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.libPaths(new)
+
+.Library
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="libPaths_:_new">new</code></td>
+<td>
+<p>a character vector with the locations of <span class="rlang"><b>R</b></span> library trees.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>.Library</code> is a character string giving the location of the
+default library, the &lsquo;<span class="file">library</span>&rsquo; subdirectory of <span class="env">R\_HOME</span>.
+</p>
+<p><code>.libPaths</code> is used for getting or setting the library trees that
+<span class="rlang"><b>R</b></span> knows about (and hence uses when looking for packages).  If called
+with argument <code>new</code>, the library search path is set to
+the existing files in <code>unique(new, .Library)</code> and this is
+returned.  If given no argument, a character vector with the currently
+known library trees is returned.
+</p>
+<p>The library search path is initialized at startup from the environment
+variable <span class="env">R\_LIBS</span> (which should be a colon-separated list of
+directories at which <span class="rlang"><b>R</b></span> library trees are rooted) by calling
+<code>.libPaths</code> with the directories specified in <span class="env">R\_LIBS</span>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of file paths.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>library</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>.libPaths()                 # all library trees R knows about
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.1.0 ]</div>
+</div>
+</body></html>

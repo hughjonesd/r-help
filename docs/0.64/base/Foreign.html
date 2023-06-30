@@ -1,0 +1,176 @@
+<!DOCTYPE html><html><head><title>R: Foreign Function Interface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Foreign.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Foreign.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Foreign {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Foreign'>Foreign Function Interface</h2>
+
+<h3>Description</h3>
+
+<p>The functions <code>.C</code> and <code>.Fortran</code> can be used to
+make calls to C and Fortran code.
+</p>
+<p><code>.External</code> can be used to call
+compiled code that uses <span class="rlang"><b>R</b></span> objects in the same way as internal <span class="rlang"><b>R</b></span>
+functions. There is no documentation to help you write this sort of code.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>      .C(name, ..., NAOK=FALSE, DUP=TRUE)
+.Fortran(name, ..., NAOK=FALSE, DUP=TRUE)
+.External(name, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Foreign_:_name">name</code></td>
+<td>
+<p>a character string giving the name of a C function or
+Fortran subroutine.</p>
+</td></tr>
+<tr><td><code id="Foreign_:_...">...</code></td>
+<td>
+<p>arguments to be passed to the foreign function.</p>
+</td></tr>
+<tr><td><code id="Foreign_:_NAOK">NAOK</code></td>
+<td>
+<p>if <code>TRUE</code> then any <code>NA</code> or <code>NaN</code> or
+<code>Inf</code> values in the arguments are passed on to the foreign function.
+If <code>FALSE</code>, the presence of <code>NA</code>  or <code>NaN</code> or
+<code>Inf</code> values is regarded as an error.</p>
+</td></tr>
+<tr><td><code id="Foreign_:_DUP">DUP</code></td>
+<td>
+<p>if <code>TRUE</code> then arguments are &ldquo;duplicated&rdquo; before their
+address is passed to C or Fortran.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The functions <code>.C</code> and <code>.Fortran</code> return a list similar to the <code>...</code>
+list of arguments passed in, but reflecting any
+changes made by the C or Fortran code.
+</p>
+<p><code>.External</code> returns an <span class="rlang"><b>R</b></span> object.
+</p>
+<p>These calls are typically made in conjunction with
+<code>dyn.load</code> which links DLLs to <span class="rlang"><b>R</b></span>.
+</p>
+
+
+<h3>Argument types</h3>
+
+<p>The mapping of the types of <span class="rlang"><b>R</b></span> arguments to C or Fortran arguments
+in <code>.C</code> or <code>.Fortran</code> is
+</p>
+
+<table>
+<tr>
+ <td style="text-align: left;">
+\    R </td><td style="text-align: left;">     C </td><td style="text-align: left;">     Fortran</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+integer </td><td style="text-align: left;"> int * </td><td style="text-align: left;"> integer</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+real </td><td style="text-align: left;"> double * </td><td style="text-align: left;"> double precision</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+complex </td><td style="text-align: left;"> complex * </td><td style="text-align: left;"> double precision</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+logical </td><td style="text-align: left;"> int * </td><td style="text-align: left;"> integer </td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+character </td><td style="text-align: left;"> char ** </td><td style="text-align: left;"> [compiler dependent]</td>
+</tr>
+<tr>
+ <td style="text-align: left;">
+</td>
+</tr>
+
+</table>
+
+<p>The C type <code>complex</code> is defined in &lsquo;<span class="file">Complex.h</span>&rsquo; as a
+<code>typedef struct {double r; double i;}</code>.
+</p>
+<p><em>Note:</em> The C types corresponding to <code>integer</code> and
+<code>logical</code> are <code>int</code>, not <code>long</code> as in S.
+</p>
+<p>Character strings are passed as C arrays of character strings to
+Fortran: the first string may be usable if its length is passed
+separately.
+</p>
+
+
+<h3>Header files for external code</h3>
+
+<p>Writing code for use with <code>.External</code> will typically require access 
+to the header files in the <code>src/include</code>. These are not copied by
+<code>make install</code> and so may not be available in an installed version
+of <span class="rlang"><b>R</b></span>.
+</p>
+
+
+<h3>Note</h3>
+
+<p><em><code>DUP=FALSE</code> is dangerous.</em>
+</p>
+<p>There are two important dangers with <code>DUP=FALSE</code>. The first is that
+garbage collection may move the object, resulting in the pointers
+pointing nowhere useful and causing hard-to-reproduce bugs.
+</p>
+<p>The second is that if you pass a formal parameter of the calling
+function to <code>.C</code>/<code>.Fortran</code> with <code>DUP=FALSE</code>, it may not
+necessarily be copied.  You may be able to change not only the local
+variable but the variable one level up.  This will also be very hard to
+trace.
+</p>
+<p>1.  If your C/Fortran routine calls back any <span class="rlang"><b>R</b></span> function including
+<code>S_alloc</code>/<code>R_alloc</code> then do not use <code>DUP=FALSE</code>.  Do not
+even think about it.  Calling almost any <span class="rlang"><b>R</b></span> function could trigger
+garbage collection.
+</p>
+<p>2.  If you don't trigger garbage collection it is safe and useful to set
+<code>DUP=FALSE</code> if you don't change any of the variables that might be
+affected, e.g.,
+</p>
+<p><code>.C("Cfunction", input=x, output=numeric(10))</code>.
+</p>
+<p>In this case the output variable didn't exist before the call so it can't
+cause trouble. If the input variable is not changed in <code>Cfunction</code> you are
+safe.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dyn.load</code>.</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.64 ]</div>
+</div>
+</body></html>

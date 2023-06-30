@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Select a Suitable Encoding Name from a Locale Name</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/localeToCharset.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/localeToCharset.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>localeToCharset {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='localeToCharset'>
+Select a Suitable Encoding Name from a Locale Name
+</h2>
+
+<h3>Description</h3>
+
+<p>This functions aims to find a suitable coding for the locale named, by
+default the current locale, and if it is a UTF-8 locale a suitable
+single-byte encoding.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>localeToCharset(locale = Sys.getlocale("LC_CTYPE"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="localeToCharset_:_locale">locale</code></td>
+<td>
+<p>character string naming a locale.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The operation differs by OS.
+Locale names are normaly like <code>es_MX.iso88591</code>.  If final
+component indicates an encoding and it is not <code>utf8</code> we just need
+to look up the equivalent encoding name.  Otherwise, the language
+(here <code>es</code>) is used to choose a primary or fallback encoding.
+</p>
+<p>In the <code>C</code> locale the answer will be <code>"ASCII"</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector naming an encoding and possibly a fallback
+single-encoding,  <code>NA</code> if unknown.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The encoding names are those used by <code>libiconv</code>, and ought also
+to work with <code>glibc</code> but maybe not with commercial Unixen.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Sys.getlocale</code>, <code>iconv</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>localeToCharset()
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.3.1 ]</div>
+</div>
+</body></html>

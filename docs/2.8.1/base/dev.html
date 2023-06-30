@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head><title>R: Lists of Open/Active Graphics Devices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dev.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dev.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>.Device {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='.Device'>
+Lists of Open/Active Graphics Devices
+</h2>
+
+<h3>Description</h3>
+
+<p>A pairlist of the names of open graphics devices is stored in
+<code>.Devices</code>. The name of the active device (see
+<code>dev.cur</code>) is stored in <code>.Device</code>.  Both are symbols
+and so appear in the base name space.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>.Device</code> is a length-one character vector.
+</p>
+<p><code>.Devices</code> is a pairlist of length-one character vectors.
+The first entry is always <code>"null device"</code>, and there are as many
+entries as the maximal number of graphics devices which have been
+simultaneously active.  If a device has been removed, its entry will be
+<code>""</code> until the device number is reused.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.8.1 ]</div>
+</div>
+</body></html>

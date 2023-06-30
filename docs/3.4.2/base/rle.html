@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>R: Run Length Encoding</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rle.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rle.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>rle {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='rle'>Run Length Encoding</h2>
+
+<h3>Description</h3>
+
+<p>Compute the lengths and values of runs of equal values in a vector
+&ndash; or the reverse operation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>rle(x)
+inverse.rle(x, ...)
+
+## S3 method for class 'rle'
+print(x, digits = getOption("digits"), prefix = "", ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="rle_:_x">x</code></td>
+<td>
+<p>a vector (atomic, not a list) for <code>rle()</code>;
+an object of class <code>"rle"</code> for <code>inverse.rle()</code>.</p>
+</td></tr>
+<tr><td><code id="rle_:_...">...</code></td>
+<td>
+<p>further arguments; ignored here.</p>
+</td></tr>
+<tr><td><code id="rle_:_digits">digits</code></td>
+<td>
+<p>number of significant digits for printing, see
+<code>print.default</code>.</p>
+</td></tr>
+<tr><td><code id="rle_:_prefix">prefix</code></td>
+<td>
+<p>character string, prepended to each printed line.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>&lsquo;vector&rsquo; is used in the sense of <code>is.vector</code>.
+</p>
+<p>Missing values are regarded as unequal to the previous value, even if
+that is also missing.
+</p>
+<p><code>inverse.rle()</code> is the inverse function of <code>rle()</code>,
+reconstructing <code>x</code> from the runs.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>rle()</code> returns an object of class <code>"rle"</code> which is a list
+with components:
+</p>
+<table>
+<tr><td><code>lengths</code></td>
+<td>
+<p>an integer vector containing the length of each run.</p>
+</td></tr>
+<tr><td><code>values</code></td>
+<td>
+<p>a vector of the same length as <code>lengths</code> with the
+corresponding values.</p>
+</td></tr>
+</table>
+<p><code>inverse.rle()</code> returns an atomic vector.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- rev(rep(6:10, 1:5))
+rle(x)
+## lengths [1:5]  5 4 3 2 1
+## values  [1:5] 10 9 8 7 6
+
+z &lt;- c(TRUE, TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, TRUE, TRUE)
+rle(z)
+rle(as.character(z))
+print(rle(z), prefix = "..| ")
+
+N &lt;- integer(0)
+stopifnot(x == inverse.rle(rle(x)),
+          identical(N, inverse.rle(rle(N))),
+          z == inverse.rle(rle(z)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.4.2 ]</div>
+</div>
+</body></html>

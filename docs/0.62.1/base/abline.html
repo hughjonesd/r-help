@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>R: Add a Straight Line to a Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/abline.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/abline.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>abline {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='abline'>Add a Straight Line to a Plot</h2>
+
+<h3>Description</h3>
+
+<p>This function adds one or more straight lines through the current plot.
+The first form above specifies the line in intercept/slope form
+(alternatively <code>a</code> can be specified on its own and is taken to
+contain the slope and intercept in vector form).
+The <code>h=</code> and <code>v=</code> forms draw horizontal and vertical lines
+at the specified coordinates.
+The <code>coef</code> form specifies the line by a vector containing the
+slope and intercept.
+<code>reg</code> is a regression object which contains <code>reg$coef</code>.  If
+it is of length 1 then the value is taken to be the slope of a line
+through the origin, otherwise, the first 2 values are taken to be the
+slope and intercept.
+</p>
+<p>The graphical parameters <code>col</code> and <code>lty</code> can be specified as
+arguments to <code>abline</code>; see <code>par</code> for details.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>abline(a, b, ...)
+abline(h=, ...)
+abline(v=, ...)
+abline(coef=, ...)
+abline(reg=, ...)
+</code></pre>
+
+
+<h3>See Also</h3>
+
+<p><code>lines</code> and <code>segments</code> for connected and
+arbitrary lines given by their <em>endpoints</em>.
+<code>par</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(cars)
+z &lt;- lm(dist ~ speed, data = cars)
+plot(cars)
+abline(z)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>R: Matrix Multiplication</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/matmult.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/matmult.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>matmult {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='matmult'>Matrix Multiplication</h2>
+
+<h3>Description</h3>
+
+<p>Multiplies two matrices, if they are conformable.
+If one argument is a vector, it will be coerced to a either a row or column
+matrix to make the two arguments conformable.
+If both are vectors it will return the inner product.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>a %*% b
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>The matrix product.  Use <code>drop</code> to get rid of dimensions
+which have only one level.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>matrix</code>,
+<code>Arithmetic</code>,
+<code>diag</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- 1:4
+(z &lt;- x %*% x)    # scalar ("inner") product (1 x 1 matrix)
+drop(z)             # as scalar
+
+y &lt;- diag(x)
+z &lt;- matrix(1:12, ncol = 3, nrow = 4)
+y %*% z
+y %*% x
+x %*% z
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.1 ]</div>
+</div>
+</body></html>

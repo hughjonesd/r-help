@@ -1,0 +1,128 @@
+<!DOCTYPE html><html><head><title>R: Plot function for HoltWinters objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.HoltWinters.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.HoltWinters.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.HoltWinters {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.HoltWinters'>Plot function for HoltWinters objects</h2>
+
+<h3>Description</h3>
+
+<p>Produces a chart of the original time series along with the fitted
+values. Optionally, predicted values (and their confidence bounds) can
+also be plotted.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'HoltWinters'
+plot(x, predicted.values = NA, intervals = TRUE,
+        separator = TRUE, col = 1, col.predicted = 2,
+        col.intervals = 4, col.separator = 1, lty = 1,
+        lty.predicted = 1, lty.intervals = 1, lty.separator = 3,
+        ylab = "Observed / Fitted",
+        main = "Holt-Winters filtering",
+        ylim = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.HoltWinters_:_x">x</code></td>
+<td>
+<p>Object of class <code>"HoltWinters"</code></p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_predicted.values">predicted.values</code></td>
+<td>
+<p>Predicted values as returned by <code>predict.HoltWinters</code></p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_intervals">intervals</code></td>
+<td>
+<p>If <code>TRUE</code>, the prediction intervals are plotted (default).</p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_separator">separator</code></td>
+<td>
+<p>If <code>TRUE</code>, a separating line between fitted and predicted values is plotted (default).</p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_col">col</code>, <code id="plot.HoltWinters_:_lty">lty</code></td>
+<td>
+<p>Color/line type of original data (default: black solid).</p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_col.predicted">col.predicted</code>, <code id="plot.HoltWinters_:_lty.predicted">lty.predicted</code></td>
+<td>
+<p>Color/line type of
+fitted and predicted values (default: red solid).</p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_col.intervals">col.intervals</code>, <code id="plot.HoltWinters_:_lty.intervals">lty.intervals</code></td>
+<td>
+<p>Color/line type of prediction
+intervals (default: blue solid).</p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_col.separator">col.separator</code>, <code id="plot.HoltWinters_:_lty.separator">lty.separator</code></td>
+<td>
+<p>Color/line type of
+observed/predicted values separator (default: black dashed).</p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_ylab">ylab</code></td>
+<td>
+<p>Label of the y-axis.</p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_main">main</code></td>
+<td>
+<p>Main title.</p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_ylim">ylim</code></td>
+<td>
+<p>Limits of the y-axis. If <code>NULL</code>, the range is chosen
+such that the plot contains the original series, the fitted values,
+and the predicted values if any.</p>
+</td></tr>
+<tr><td><code id="plot.HoltWinters_:_...">...</code></td>
+<td>
+<p>Other graphics parameters.</p>
+</td></tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>David Meyer <a href="mailto:David.Meyer@wu.ac.at">David.Meyer@wu.ac.at</a>
+</p>
+
+
+<h3>References</h3>
+
+<p>C. C. Holt (1957)
+Forecasting trends and seasonals by exponentially weighted
+moving averages,
+<em>ONR Research Memorandum, Carnegie Institute of Technology</em> <b>52</b>.
+</p>
+<p>P. R. Winters (1960).
+Forecasting sales by exponentially weighted moving averages.
+<em>Management Science</em>, <b>6</b>, 324&ndash;342.
+\Sexpr[results=rd]{tools:::Rd_expr_doi("10.1287/mnsc.6.3.324")}.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>HoltWinters</code>, <code>predict.HoltWinters</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 4.2.0 ]</div>
+</div>
+</body></html>

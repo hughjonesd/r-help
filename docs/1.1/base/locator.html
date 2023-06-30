@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Graphical Input</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/locator.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/locator.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>locator {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='locator'>Graphical Input</h2>
+
+<h3>Description</h3>
+
+<p>Reads the position of the graphics cursor when the (first) mouse
+button is pressed.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>locator(n = 512, type = "n", ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="locator_:_n">n</code></td>
+<td>
+<p>the maximum number of points to locate.</p>
+</td></tr>
+<tr><td><code id="locator_:_type">type</code></td>
+<td>
+<p>One of <code>"n"</code>, <code>"p"</code>, <code>"l"</code> or
+<code>"o"</code>. If <code>"p"</code> or <code>"o"</code> the points are
+plotted; if <code>"l"</code>  or <code>"o"</code> they are joined by lines.</p>
+</td></tr>
+<tr><td><code id="locator_:_...">...</code></td>
+<td>
+<p>additional graphics parameters used if <code>type != "n"</code>
+for plotting the locations.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Unless the process is terminated prematurely by the user (see below)
+at most <code>n</code> positions are determined.
+</p>
+<p>The input process can be terminated prematurely by pressing any mouse
+button other than the first.
+</p>
+<p>The current graphics parameters apply just as if <code>plot.default</code>
+has been called with the same value of <code>type</code>. The plotting of
+the points and lines is subject to clipping, but locations outside the
+current clipping rectangle will be returned.
+</p>
+<p>If the window is resized or hidden and then exposed before the input 
+process has terminated, any lines or points drawn by <code>locator</code>
+will disappear.  These will reappear once the input process has 
+terminated and the window is resized or hidden and exposed again.
+This is because the points and lines drawn by <code>locator</code> are not
+recorded in the device's display list until the input process has
+terminated.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list containing <code>x</code> and <code>y</code> components which are the
+coordinates of the identified points.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html><html><head><title>R: Cleveland Dot Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dotplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dotplot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>dotplot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='dotplot'>Cleveland Dot Plots</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dotplot(x, labels = NULL, groups = NULL, gdata = NULL, cex = par("cex"),
+        pch = 21, gpch = 21, bg = par("bg"), color = par("fg"),
+        gcolor = par("fg"), lcolor = "gray", ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="dotplot_:_x">x</code></td>
+<td>
+<p>either a vector or matrix of numeric values
+(<code>NA</code>s are allowed).
+If <code>x</code> is a matrix the overall plot consists of
+juxtaposed dotplots for each row.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_labels">labels</code></td>
+<td>
+<p>a vector of labels for each point.
+For vectors the default is to use <code>names(x)</code> and for
+matrices the row labels <code>dimnames(x)[[1]]</code>.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_groups">groups</code></td>
+<td>
+<p>an optional factor indicating how the
+elements of <code>x</code> are grouped.
+If <code>x</code> is a matrix, <code>groups</code> will default to the columns
+of <code>x</code>.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_gdata">gdata</code></td>
+<td>
+<p>data values for the groups.
+This is typically a summary such as the median or mean
+of each group.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_cex">cex</code></td>
+<td>
+<p>the character size to be used.  Setting <code>cex</code>
+to a value smaller than one can be a useful way of avoiding label
+overlap.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_pch">pch</code></td>
+<td>
+<p>the plotting character or symbol to be used.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_gpch">gpch</code></td>
+<td>
+<p>the plotting character or symbol to be usea for group
+values.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_bg">bg</code></td>
+<td>
+<p>the background color to be used.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_color">color</code></td>
+<td>
+<p>the color to be used for points an labels.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_gcolor">gcolor</code></td>
+<td>
+<p>the color to be used for group labels and values.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_lcolor">lcolor</code></td>
+<td>
+<p>the color to be used for the horizontal lines.</p>
+</td></tr>
+<tr><td><code id="dotplot_:_...">...</code></td>
+<td>
+<p>graphical parameters can also be specified as arguments.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>This function is invoked for its side effect, which is to produce two
+variants of dotplots as described in Cleveland's graphics book.
+</p>
+<p>Dot plots are a reasonable substitute for bar plots.</p>
+
+
+<h3>References</h3>
+
+<p>Cleveland, W. S. (1985).
+<em>The Elements of Graphing Data</em>,
+Monterey, CA: Wadsworth.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(deaths)
+dotplot(deaths, main = "Death Rates in Virginia - 1940")
+dotplot(t(deaths), main = "Death Rates in Virginia - 1940")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61 ]</div>
+</div>
+</body></html>

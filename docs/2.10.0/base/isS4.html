@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><title>R: Test for an S4 object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/isS4.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/isS4.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>isS4 {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='isS4'> Test for an S4 object </h2>
+
+<h3>Description</h3>
+
+<p>Tests whether the object is an instance of an S4 class.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>isS4(object)
+
+asS4(object, flag = TRUE, complete = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="isS4_:_object">object</code></td>
+<td>
+<p> Any R object. </p>
+</td></tr>
+<tr><td><code id="isS4_:_flag">flag</code></td>
+<td>
+<p>A single logical value; not <code>NA</code>, whether to turn
+the S4 object flag on or off.</p>
+</td></tr>
+<tr><td><code id="isS4_:_complete">complete</code></td>
+<td>
+<p>How to complete the transformation to/from S4.  Only
+currently used when <code>flag</code> is <code>FALSE</code>.  If <code>1</code>, the object
+must convert to a valid S3 object, or an error results.  If <code>2</code>, a
+non-valid S3 object is left alone, silently.  If <code>0</code>, no conversion
+is made other than setting the internal bit (used internally but not recommended, since it can result
+in an invalid object).
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note that <code>isS4</code> does not rely on the <span class="pkg">methods</span>
+package, so in particular it can be used to detect the need to
+<code>require</code> that package.  (But <code>asS4</code> does depend on
+<span class="pkg">methods</span>.)
+</p>
+<p>Note that the S4 methods for primitive functions do not apply to S3
+classes and that the methods for basic classes, such as the vector
+types, are sealed.  To apply S4 methods reliably to an S3 object,
+define an S4 class that extends the S3 class (see
+<code>setOldClass</code>).
+</p>
+<p>When <code>asS4</code> is called with <code>flag == FALSE</code>, the value of
+<code>complete</code> controls whether an attempt is made to transform
+<code>object</code> into a valid object of the implied S3 class.  If so,
+then an object from an S4 class extending an S3 class will be
+transformed into an S3 object with the corresponding S3 class (see
+<code>S3Part</code>).  This includes classes extending the
+pseudo-classes <code>array</code> and <code>matrix</code>: such objects will have
+their class attribute set to <code>NULL</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>isS4</code> always returns <code>TRUE</code> or <code>FALSE</code> according to
+whether the internal flag marking an S4 object has been turned on for
+this object.
+</p>
+<p><code>asS4</code> will turn this flag on or off, according to argument
+<code>flag</code>, and in the latter case complete the conversion as
+described under argument <code>complete</code>. Note that with <code>flag
+    FALSE</code>, an S4 object will <em>not</em> but turned into an S3 object
+unless there is a valid conversion; that is, an object of type other
+than <code>"S4"</code> for which the S4 object is an extension, unless
+argument <code>complete</code> is <code>0</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>is.object</code> for a more general test; Methods
+for general information on S4.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+isS4(pi) # FALSE
+isS4(getClass("MethodDefinition")) # TRUE
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.10.0 ]</div>
+</div>
+</body></html>

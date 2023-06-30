@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Utility Functions for Methods and S-Plus Compatibility</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/methodUtilities.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/methodUtilities.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>methodUtilities {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='methodUtilities'>Utility Functions for Methods and S-Plus Compatibility</h2>
+
+<h3>Description</h3>
+
+<p>These are utilities, currently in the methods package, that either
+provide some functionality needed by the package (e.g., element
+matching by name), or add compatibility with S-Plus, or both.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>functionBody(fun=sys.function(sys.parent()))
+
+allNames(x)
+
+getFunction(name, generic=TRUE, mustFind=TRUE, where)
+
+el(object, where)
+
+elNamed(x, name, mustFind=FALSE)
+
+formalArgs(def)
+
+Quote()
+
+message(...)
+
+showDefault(object, printTo = stdout(), oldMethods = TRUE)
+
+</code></pre>
+
+
+<h3>Summary of Functions</h3>
+
+
+<dl>
+<dt><code>allNames</code>:</dt><dd> 
+<p>the character vector of names (unlike names(), never returns NULL)
+</p>
+</dd>
+<dt><code>getFunction</code>:</dt><dd> 
+<p>find the object as a function.
+</p>
+</dd>
+<dt><code>elNamed</code>:</dt><dd> 
+<p>get the element of the vector corresponding to name.  Unlike the
+<code>[</code>, <code>[[</code>, and <code>$</code> operators, this function requires 
+<code>name</code> to match the element name exactly (no partial matching).
+</p>
+</dd>
+<dt><code>formalArgs</code>:</dt><dd> 
+<p>Returns the names of the formal arguments of this function.
+</p>
+</dd>
+<dt><code>existsFunction</code>:</dt><dd> 
+<p>Is there a function of this name? If <code>generic==FALSE</code>, generic functions are not counted.
+</p>
+</dd>
+<dt><code>findFunction</code>:</dt><dd> 
+<p>return all the indices of the search list on which a function
+definition for <code>name</code> exists.  
+</p>
+<p>If <code>generic</code> is <code>FALSE</code>, ignore generic
+functions.
+</p>
+</dd>
+<dt><code>message</code>:</dt><dd> 
+<p>Output all the arguments, pasted together with no intervening spaces.
+</p>
+</dd>
+<dt><code>showDefault</code>:</dt><dd> 
+<p>Utility, used to enable <code>show</code> methods to be called by the
+automatic printing (via <code>print.default</code>).
+</p>
+</dd>
+</dl>
+
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.4.1 ]</div>
+</div>
+</body></html>

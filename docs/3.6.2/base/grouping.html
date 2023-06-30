@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>R: Grouping Permutation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/grouping.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/grouping.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grouping {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grouping'>Grouping Permutation</h2>
+
+<h3>Description</h3>
+
+<p><code>grouping</code> returns a permutation which rearranges its first
+argument such that identical values are adjacent to each other.  Also
+returned as attributes are the group-wise partitioning and the maximum
+group size.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grouping(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grouping_:_...">...</code></td>
+<td>
+<p>a sequence of numeric, character or logical
+vectors, all of the same length, or a classed <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function partially sorts the elements so that identical values are
+adjacent. <code>NA</code> values come last.  This is guaranteed to be
+stable, so ties are preserved, and if the data are already
+grouped/sorted, the grouping is unchanged.  This is useful for
+aggregation and is particularly fast for character vectors.
+</p>
+<p>Under the covers, the <code>"radix"</code> method of <code>order</code> is
+used, and the same caveats apply, including restrictions on character
+encodings and lack of support for long vectors (those with
+<code class="reqn">2^{31}</code> or more elements). Real-valued numbers are slightly
+rounded to account for numerical imprecision.
+</p>
+<p>Like <code>order</code>, for a classed <span class="rlang"><b>R</b></span> object the grouping is based on
+the result of <code>xtfrm</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"grouping"</code>, the representation of which
+should be considered experimental and subject to change.  It is an
+integer vector with two attributes:
+</p>
+<table>
+<tr><td><code>ends</code></td>
+<td>
+<p>subscripts in the result corresponding to the last
+member of each group</p>
+</td></tr>
+<tr><td><code>maxgrpn</code></td>
+<td>
+<p>the maximum group size</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>order</code>, <code>xtfrm</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>(ii &lt;- grouping(x &lt;- c(1, 1, 3:1, 1:4, 3), y &lt;- c(9, 9:1), z &lt;- c(2, 1:9)))
+## 6  5  2  1  7  4 10  8  3  9
+rbind(x, y, z)[, ii]
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.6.2 ]</div>
+</div>
+</body></html>

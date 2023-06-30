@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><title>R: Compute Factor Interactions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/interaction.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/interaction.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>interaction {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='interaction'>Compute Factor Interactions</h2>
+
+<h3>Description</h3>
+
+<p><code>interaction</code> computes a factor which represents the interaction
+of the given factors.  The result of <code>interaction</code> is always unordered.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>interaction(..., drop=FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="interaction_:_...">...</code></td>
+<td>
+<p>The factors for which interaction is to be computed.</p>
+</td></tr>
+<tr><td><code id="interaction_:_drop">drop</code></td>
+<td>
+<p>If <code>drop</code> is <code>TRUE</code>, empty factor levels
+are dropped from the result. The default is to retain all
+factor levels.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A factor which represents the interaction of the given factors.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>factor</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>a &lt;- gl(2, 2, 8)
+b &lt;- gl(2, 4, 8)
+interaction(a, b)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.2.1 ]</div>
+</div>
+</body></html>

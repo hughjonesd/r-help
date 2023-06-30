@@ -1,0 +1,234 @@
+<!DOCTYPE html><html><head><title>R: Seasonal Decomposition of Time Series by Loess</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/stl.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/stl.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>stl {ts}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='stl'>Seasonal Decomposition of Time Series by Loess</h2>
+
+<h3>Description</h3>
+
+<p>Decompose a time series into seasonal, trend and irregular components
+using <code>loess</code>, acronym STL.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>stl(x, s.window, s.degree = 0,
+    t.window = NULL, t.degree = 1,
+    l.window = nextodd(period), l.degree = t.degree, 
+    s.jump = ceiling(s.window/10),
+    t.jump = ceiling(t.window/10),
+    l.jump = ceiling(l.window/10),
+    robust = FALSE,
+    inner = if(robust)  1 else 2,
+    outer = if(robust) 15 else 0,
+    na.action = na.fail)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="stl_:_x">x</code></td>
+<td>
+<p>univariate time series to be decomposed.
+This should be an object of class <code>"ts"</code> with a frequency
+greater than one.</p>
+</td></tr>
+<tr><td><code id="stl_:_s.window">s.window</code></td>
+<td>
+<p>either the character string <code>"periodic"</code> or the span (in
+lags) of the loess window for seasonal extraction, which should
+be odd.  This has no default.</p>
+</td></tr>
+<tr><td><code id="stl_:_s.degree">s.degree</code></td>
+<td>
+<p>degree of locally-fitted polynomial in seasonal
+extraction.  Should be zero or one.</p>
+</td></tr> 
+<tr><td><code id="stl_:_t.window">t.window</code></td>
+<td>
+<p>the span (in lags) of the loess window for trend
+extraction, which should be odd.  If <code>NULL</code>, the default,
+<code>nextodd(ceiling((1.5*period) / (1-(1.5/s.window))))</code>, is taken.</p>
+</td></tr>
+<tr><td><code id="stl_:_t.degree">t.degree</code></td>
+<td>
+<p>degree of locally-fitted polynomial in trend
+extraction.  Should be zero or one.</p>
+</td></tr>
+<tr><td><code id="stl_:_l.window">l.window</code></td>
+<td>
+<p>the span (in lags) of the loess window of the low-pass
+filter used for each subseries.  Defaults to the smallest odd
+integer greater than or equal to <code>frequency(x)</code> which is
+recommended since it prevents competition between the trend and
+seasonal components.  If not an odd integer its given value is
+increased to the next odd one.</p>
+</td></tr>
+<tr><td><code id="stl_:_l.degree">l.degree</code></td>
+<td>
+<p>degree of locally-fitted polynomial for the subseries
+low-pass filter.  Must be 0 or 1.</p>
+</td></tr>
+<tr><td><code id="stl_:_s.jump">s.jump</code>, <code id="stl_:_t.jump">t.jump</code>, <code id="stl_:_l.jump">l.jump</code></td>
+<td>
+<p>integers at least one to increase speed of
+the respective smoother.  Linear interpolation happens between every
+<code>*.jump</code>th value.</p>
+</td></tr>
+<tr><td><code id="stl_:_robust">robust</code></td>
+<td>
+<p>logical indicating if robust fitting be used in the <code>loess</code>
+procedure.</p>
+</td></tr>
+<tr><td><code id="stl_:_inner">inner</code></td>
+<td>
+<p>integer; the number of &lsquo;inner&rsquo; (backfitting) iterations;
+usually very few (2) iterations suffice.</p>
+</td></tr>
+<tr><td><code id="stl_:_outer">outer</code></td>
+<td>
+<p>integer; the number of &lsquo;outer&rsquo; robustness iterations.</p>
+</td></tr>
+<tr><td><code id="stl_:_na.action">na.action</code></td>
+<td>
+<p>action on missing values.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The seasonal component is found by <em>loess</em> smoothing the
+seasonal sub-series (the series of all January values, ...); if
+<code>s.window = "periodic"</code> smoothing is effectively replaced by
+taking the mean. The seasonal values are removed, and the remainder
+smoothed to find the trend. The overall level is removed from the
+seasonal component and added to the trend component. This process is
+iterated a few times.  The <code>remainder</code> component is the
+residuals from the seasonal plus trend fit.
+</p>
+<p>Several methods for the resulting class <code>"stl"</code> objects, see,
+<code>plot.stl</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>stl</code> returns an object of class <code>"stl"</code> with components
+</p>
+<table>
+<tr><td><code>time.series</code></td>
+<td>
+<p>a multiple time series with columns
+<code>seasonal</code>, <code>trend</code> and <code>remainder</code>.</p>
+</td></tr>
+<tr><td><code>weights</code></td>
+<td>
+<p>the final robust weights (all one if fitting is not
+done robustly).</p>
+</td></tr>
+<tr><td><code>call</code></td>
+<td>
+<p>the matched call.</p>
+</td></tr>
+<tr><td><code>win</code></td>
+<td>
+<p>integer (length 3 vector) with the spans used for the <code>"s"</code>,
+<code>"t"</code>, and <code>"l"</code> smoothers.</p>
+</td></tr>
+<tr><td><code>deg</code></td>
+<td>
+<p>integer (length 3) vector with the polynomial degrees for
+these smoothers.</p>
+</td></tr>
+<tr><td><code>jump</code></td>
+<td>
+<p>integer (length 3) vector with the &ldquo;jumps&rdquo; (skips) used
+for these smoothers.</p>
+</td></tr>
+<tr><td><code>ni</code></td>
+<td>
+<p>number of <b>i</b>nner iterations</p>
+</td></tr>
+<tr><td><code>no</code></td>
+<td>
+<p>number of <b>o</b>uter robustness iterations</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>This is similar to but not identical to the <code>stl</code> function in
+S-PLUS. The <code>remainder</code> component given by S-PLUS is the sum of
+the <code>trend</code> and <code>remainder</code> series from this function.</p>
+
+
+<h3>Author(s)</h3>
+
+<p>B.D. Ripley; Fortran code by Cleveland <em>et al.</em> (1990) from
+&lsquo;<span class="file">netlib</span>&rsquo;.</p>
+
+
+<h3>References</h3>
+
+<p>R. B. Cleveland, W. S. Cleveland, J.E.  McRae, and I. Terpenning (1990)
+STL:  A  Seasonal-Trend  Decomposition  Procedure Based on Loess.
+<em>Journal of Official Statistics</em>, <b>6</b>, 3&ndash;73.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>plot.stl</code> for <code>stl</code> methods;
+<code>loess</code> in package &lsquo;<span class="file">modreg</span>&rsquo; (which is not actually
+used in <code>stl</code>).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(nottem)
+plot(stl(nottem, "per"))
+plot(stl(nottem, s.win = 4, t.win = 50, t.jump = 1))
+    
+data(co2)
+plot(stllc &lt;- stl(log(co2), s.window=21))
+summary(stllc)
+## linear trend, strict period.
+plot(stl(log(co2), s.window="per", t.window=1000))
+
+## Two STL plotted side by side :    
+data(UKLungDeaths)
+        stmd &lt;- stl(mdeaths, s.w = "per") # un-robust
+summary(stmR &lt;- stl(mdeaths, s.w = "per", robust = TRUE))
+op &lt;- par(mar = c(0, 4, 0, 3), oma = c(5, 0, 4, 0), mfcol = c(4, 2))
+plot(stmd, set.pars=NULL, labels = NULL,
+     main = "stl(mdeaths, s.w = \"per\",  robust = FALSE / TRUE )")
+plot(stmR, set.pars=NULL)
+# mark the `outliers' :    
+(iO &lt;- which(stmR $ weights  &lt; 1e-8)) # 10 were considered outliers
+sts &lt;- stmR$time.series
+points(time(sts)[iO], .8* sts[,"remainder"][iO], pch = 4, col = "red")
+par(op)# reset    
+</code></pre>
+
+
+</div>
+</body></html>

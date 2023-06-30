@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>R: Package versions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/package_version.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/package_version.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>package-version {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='package-version'>Package versions</h2>
+
+<h3>Description</h3>
+
+<p>A simple S3 class for representing package versions, and
+associated methods.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>package_version(x, strict = TRUE)
+
+getRversion()
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="package-version_:_x">x</code></td>
+<td>
+<p>a character vector with package version strings.</p>
+</td></tr>
+<tr><td><code id="package-version_:_strict">strict</code></td>
+<td>
+<p>a logical indicating whether invalid package versions
+should results in an error (default) or not.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><span class="rlang"><b>R</b></span> (package) versions are sequences of at least two non-negative
+integers, usually (e.g., in package &lsquo;<span class="file">DESCRIPTION</span>&rsquo; files)
+represented as character strings with the elements of the sequence
+concatenated and separated by single &lsquo;<span class="samp">&#8288;.&#8288;</span>&rsquo; or &lsquo;<span class="samp">&#8288;-&#8288;</span>&rsquo; characters.
+</p>
+<p><code>package_version</code> creates a representation from such strings
+which allows for coercion and testing, combination, comparison,
+summaries (min/max), inclusion in data frames, subscripting, and
+printing.
+</p>
+<p><code>getRversion</code> returns the version of the running <span class="rlang"><b>R</b></span> as an object
+of class <code>"package_version"</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>compareVersion</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- package_version(c("1.2-4", "1.2-3", "2.1"))
+x &lt; "1.4-2.3"
+c(min(x), max(x))
+x[2, 2]
+x$major
+x$minor
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.2.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><title>R: Pairwise Wilcoxon rank sum tests</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/pairwise.wilcox.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/pairwise.wilcox.test.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>pairwise.wilcox.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='pairwise.wilcox.test'> Pairwise Wilcoxon rank sum tests</h2>
+
+<h3>Description</h3>
+
+<p>Calculate pairwise comparisons between group levels with corrections
+for multiple testing.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>pairwise.wilcox.test(x, g, p.adjust.method=p.adjust.methods, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="pairwise.wilcox.test_:_x">x</code></td>
+<td>
+<p> Response vector </p>
+</td></tr>
+<tr><td><code id="pairwise.wilcox.test_:_g">g</code></td>
+<td>
+<p> Grouping vector or factor </p>
+</td></tr>
+<tr><td><code id="pairwise.wilcox.test_:_p.adjust.method">p.adjust.method</code></td>
+<td>
+<p> Method for adjusting p values (see
+<code>p.adjust</code>) </p>
+</td></tr>
+<tr><td><code id="pairwise.wilcox.test_:_...">...</code></td>
+<td>
+<p>Additional arguments to pass to <code>wilcox.test</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Object of class <code>"pairwise.htest"</code>
+</p>
+
+
+<h3>See Also</h3>
+
+ <p><code>wilcox.test</code>, <code>p.adjust</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(airquality)
+attach(airquality)
+Month &lt;- factor(Month, labels = month.abb[5:9])
+## These give warnings because of ties :
+pairwise.wilcox.test(Ozone, Month)
+pairwise.wilcox.test(Ozone, Month, p.adj = "bonf")
+detach()
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 1.9.0 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><title>R: Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/fixed/html/help.html'>https://stat.ethz.ch/R-manual/R-patched/library/fixed/html/help.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>help {fixed}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='help'>Documentation</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide access to documentation.
+Documentation on a topic with name <code>name</code> (typically, an <span class="rlang"><b>R</b></span>
+object or a data set) can be printed with either <code>help(name)</code> or
+<code>?name</code>.
+In the case of unary and binary operators and control-flow special
+forms, the name may need to be quoted.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>help(topic, offline = FALSE, package = c(.packages(), .Autoloaded),
+     lib.loc = .lib.loc, verbose = .Options$verbose,
+     htmlhelp = .Options$htmlhelp, winhelp = .Options$winhelp)
+?topic
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="help_:_topic">topic</code></td>
+<td>
+<p>a name or character string on which documentation is
+sought (but <em>not</em> a variable containing a character string!).</p>
+</td></tr>
+<tr><td><code id="help_:_offline">offline</code></td>
+<td>
+<p>a logical indicating whether documentation should be
+displayed on-line to the screen (the default) or hardcopy of it
+should be produced.  <em>Ignored in this port of <span class="rlang"><b>R</b></span></em>.</p>
+</td></tr>
+<tr><td><code id="help_:_package">package</code></td>
+<td>
+<p>a name or character vector giving the packages to look
+into for documentation.  By default, all packages in the search path
+are used.</p>
+</td></tr>
+<tr><td><code id="help_:_lib.loc">lib.loc</code></td>
+<td>
+<p>A character vector of directory names of <span class="rlang"><b>R</b></span> libraries.
+Defaults to all libraries currently known.</p>
+</td></tr>
+<tr><td><code id="help_:_verbose">verbose</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the file name is reported.</p>
+</td></tr>
+<tr><td><code id="help_:_htmlhelp">htmlhelp</code></td>
+<td>
+<p>logical (or <code>NULL</code>).  If <code>TRUE</code>, the help
+will not be shown on the console, but via the html browser.</p>
+</td></tr>
+<tr><td><code id="help_:_winlhelp">winlhelp</code></td>
+<td>
+<p>logical (or <code>NULL</code>).  If <code>TRUE</code>, a Windows
+<code>.hlp</code> file will be used if one is available.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>help.start()</code> which opens the HTML version of the <span class="rlang"><b>R</b></span>
+Manual;
+<code>library()</code> for listing available packages and the
+user-level objects they contain;
+<code>data()</code> for listing available data sets;
+<code>methods()</code>.
+</p>
+<p>See <code>prompt()</code> to get a prototype for writing <code>help</code>
+pages of private packages.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>help()
+help(help)		# the same
+
+help(lapply)
+?lapply			# the same
+
+help("for")		# or ?"for", but the quotes are needed
+?"+"
+
+help(package = stepfun)	# get help even when it's not present
+
+data()			# list all available data sets
+?women			# information about data set "women"
+
+topi &lt;- "women"
+## Not run: help(topi) ##--&gt; Error: No documentation for `topi'
+</code></pre>
+
+
+</div>
+</body></html>

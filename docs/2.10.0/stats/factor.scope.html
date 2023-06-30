@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>R: Compute Allowed Changes in Adding to or Dropping from a...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/factor.scope.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/factor.scope.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>factor.scope {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='factor.scope'>Compute Allowed Changes in Adding to or Dropping from a Formula</h2>
+
+<h3>Description</h3>
+
+<p><code>add.scope</code> and <code>drop.scope</code> compute those terms that can be
+individually added to or dropped from a model while respecting the
+hierarchy of terms.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>add.scope(terms1, terms2)
+
+drop.scope(terms1, terms2)
+
+factor.scope(factor, scope)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="factor.scope_:_terms1">terms1</code></td>
+<td>
+<p>the terms or formula for the base model.</p>
+</td></tr>
+<tr><td><code id="factor.scope_:_terms2">terms2</code></td>
+<td>
+<p>the terms or formula for the upper (<code>add.scope</code>) or
+lower (<code>drop.scope</code>) scope. If missing for <code>drop.scope</code> it is
+taken to be the null formula, so all terms (except any intercept) are
+candidates to be dropped.</p>
+</td></tr>
+<tr><td><code id="factor.scope_:_factor">factor</code></td>
+<td>
+<p>the <code>"factor"</code> attribute of the terms of the base object.</p>
+</td></tr>
+<tr><td><code id="factor.scope_:_scope">scope</code></td>
+<td>
+<p>a list with one or both components <code>drop</code> and
+<code>add</code> giving the <code>"factor"</code> attribute of the lower and
+upper scopes respectively.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>factor.scope</code> is not intended to be called directly by users.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>add.scope</code> and <code>drop.scope</code> a character vector of
+terms labels.  For <code>factor.scope</code>, a list with components
+<code>drop</code> and <code>add</code>, character vectors of terms labels.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>add1</code>, <code>drop1</code>,
+<code>aov</code>, <code>lm</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>add.scope( ~ a + b + c + a:b,  ~ (a + b + c)^3)
+# [1] "a:c" "b:c"
+drop.scope( ~ a + b + c + a:b)
+# [1] "c"   "a:b"
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.10.0 ]</div>
+</div>
+</body></html>

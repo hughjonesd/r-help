@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><title>R: Deprecated Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Deprecated.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Deprecated.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Deprecated {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Deprecated'>Deprecated Functions</h2>
+
+<h3>Description</h3>
+
+<p>These functions are provided for compatibility with older versions of
+<span class="rlang"><b>R</b></span> only, and may be defunct as soon as of the next release.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.Deprecated(new)
+
+
+print.coefmat(x, digits=max(3, getOption("digits") - 2),
+              signif.stars = getOption("show.signif.stars"),
+              dig.tst = max(1, min(5, digits - 1)),
+              cs.ind = 1:k, tst.ind = k + 1, zap.ind = integer(0),
+              P.values = NULL,
+              has.Pvalue = nc &gt;= 4 &amp;&amp; substr(colnames(x)[nc],1,3) == "Pr(",
+              eps.Pvalue = .Machine$double.eps,
+              na.print = "", ...)
+
+codes(x, ...)
+codes(x, ...) &lt;- value
+
+anovalist.lm(object, ..., test = NULL)
+lm.fit.null(x, y, method = "qr", tol = 1e-07, ...)
+lm.wfit.null(x, y, w, method = "qr", tol = 1e-07, ...)
+glm.fit.null(x, y, weights = rep(1, nobs), start = NULL,
+             etastart = NULL, mustart = NULL, offset = rep(0, nobs),
+             family = gaussian(), control = glm.control(),
+             intercept = FALSE)
+print.atomic(x, quote = TRUE, ...)
+
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p><code>.Deprecated("&lt;new name&gt;")</code> is called from deprecated
+functions. The original help page for these functions is often
+available at <code>help("oldName-deprecated")</code> (note the quotes).
+</p>
+<p><code>tkfilefind</code> is a demo in package <span class="pkg">tcltk</span> displaying a
+widget for selecting files but the same functionality is available in
+a better form in the <code>tkgetOpenFile</code> and <code>tkgetSaveFile</code>
+functions. The demo is reported not even to work with recent versions
+of Tcl and Tk libraries.
+</p>
+<p><code>print.coefmat</code> is an older name for <code>printCoefmat</code>
+with a different default for <code>na.print</code>.
+</p>
+<p><code>codes</code> was almost always used inappropriately.  To get the
+internal coding of a factor, use <code>unclass</code>, <code>as.vector</code> or
+<code>as.integer</code>.  For <em>ordered</em> factors, <code>codes</code> was
+equivalent to these, but for <em>unordered</em> factors it assumed an
+an alphabetical ordering of the levels in the locale in use.
+</p>
+<p><code>anovalist.lm</code> was replaced by <code>anova.lmlist</code> in
+<span class="rlang"><b>R</b></span> 1.2.0.
+</p>
+<p><code>lm.fit.null</code> and <code>lm.wfit.null</code> are superseded by
+<code>lm.fit</code> and <code>lm.wfit</code> which handle null models now.
+Similarly, <code>glm.fit.null</code> is superseded by <code>glm.fit</code>.
+</p>
+<p><code>print.atomic</code> differs from <code>print.default</code> only in its
+argument sequence.  It is not a method for <code>print</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Defunct</code>,
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.8.0 ]</div>
+</div>
+</body></html>

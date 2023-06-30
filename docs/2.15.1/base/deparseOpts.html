@@ -1,0 +1,137 @@
+<!DOCTYPE html><html><head><title>R: Options for Expression Deparsing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/deparseOpts.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/deparseOpts.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>deparseOpts {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='deparseOpts'>Options for Expression Deparsing</h2>
+
+<h3>Description</h3>
+
+<p>Process the deparsing options for <code>deparse</code>, <code>dput</code> and
+<code>dump</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>.deparseOpts(control)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="deparseOpts_:_control">control</code></td>
+<td>
+<p>character vector of deparsing options.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is called by <code>deparse</code>, <code>dput</code> and
+<code>dump</code> to process their <code>control</code> argument.
+</p>
+<p>The <code>control</code> argument is a vector containing zero or more of the
+following strings.  Partial string matching is used.
+</p>
+
+<dl>
+<dt><code>keepInteger</code></dt><dd>
+<p>Either surround integer vectors by <code>as.integer()</code> or use
+suffix <code>L</code>, so they are not converted to type double when
+parsed.  This includes making sure that integer <code>NA</code>s are
+preserved (via <code>NA_integer_</code> if there are no non-<code>NA</code>
+values in the vector, unless <code>"S_compatible"</code> is set).
+</p>
+</dd>
+<dt><code>quoteExpressions</code></dt><dd>
+<p>Surround expressions with <code>quote()</code>, so they are not
+evaluated when re-parsed.
+</p>
+</dd>
+<dt><code>showAttributes</code></dt><dd>
+<p>If the object has attributes (other than a <code>source</code>
+attribute), use <code>structure()</code> to display them as well as the
+object value.  This is the default for <code>deparse</code> and
+<code>dput</code>.
+</p>
+</dd>
+<dt><code>useSource</code></dt><dd>
+<p>If the object has a <code>source</code> attribute, display that instead
+of deparsing the object.  Currently only applies to function
+definitions.
+</p>
+</dd>
+<dt><code>warnIncomplete</code></dt><dd>
+<p>Some exotic objects such as environments,
+external pointers, etc. can not be deparsed properly.  This option
+causes a warning to be issued if the deparser recognizes one of these
+situations.
+</p>
+<p>Also, the parser in <span class="rlang"><b>R</b></span> &lt; 2.7.0 would only accept strings of up to
+8192 bytes, and this option gives a warning for longer strings.
+</p>
+</dd>
+<dt><code>keepNA</code></dt><dd>
+<p>Integer, real and character <code>NA</code>s are surrounded by coercion
+where necessary to ensure that they are parsed to the same type.
+</p>
+</dd>
+<dt><code>all</code></dt><dd>
+<p>An abbreviated way to specify all of the options
+listed above.  This is the default for <code>dump</code>, and the options
+used by <code>edit</code> (which are fixed).
+</p>
+</dd>
+<dt><code>delayPromises</code></dt><dd>
+<p>Deparse promises in the form &lt;promise: expression&gt; rather than
+evaluating them.  The value and the environment of the promise
+will not be shown and the deparsed code cannot be sourced.
+</p>
+</dd>
+<dt><code>S_compatible</code></dt><dd>
+<p>Make deparsing as far as possible compatible with S and <span class="rlang"><b>R</b></span> &lt; 2.5.0.
+For compatibility with S, integer values of double vectors are
+deparsed with a trailing decimal point.  Backticks are not used.
+</p>
+</dd>
+</dl>
+
+<p>For the most readable (but perhaps incomplete) display, use
+<code>control = NULL</code>. This displays the object's value, but not its
+attributes.  The default in <code>deparse</code> is to display the
+attributes as well, but not to use any of the other options to make
+the result parseable.  (<code>dput</code> and <code>dump</code> do
+use more default options, and printing of functions without sources
+uses <code>c("keepInteger", "keepNA")</code>.)
+</p>
+<p>Using <code>control = "all"</code> comes closest to making <code>deparse()</code>
+an inverse of <code>parse()</code>.  However, not all objects are
+deparse-able even with this option.  A warning will be issued if the
+function recognizes that it is being asked to do the impossible.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A numerical value corresponding to the options selected.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.15.1 ]</div>
+</div>
+</body></html>

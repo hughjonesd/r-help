@@ -1,0 +1,181 @@
+<!DOCTYPE html><html><head><title>R: Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/help.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/help.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>help {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='help'>Documentation</h2>
+
+<h3>Description</h3>
+
+<p>These functions provide access to documentation.
+Documentation on a topic with name <code>name</code> (typically, an <span class="rlang"><b>R</b></span>
+object or a data set) can be printed with either <code>help(name)</code> or
+<code>?name</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>help(topic, offline = FALSE, package = .packages(),
+     lib.loc = NULL, verbose = getOption("verbose"),
+     try.all.packages = getOption("help.try.all.packages"),
+     htmlhelp = getOption("htmlhelp"),
+     pager = getOption("pager"))
+?topic
+type?topic
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="help_:_topic">topic</code></td>
+<td>
+<p>a name or character string on which documentation is
+sought (but <em>not</em> a variable containing a character string!).</p>
+</td></tr>
+<tr><td><code id="help_:_offline">offline</code></td>
+<td>
+<p>a logical indicating whether documentation should be
+displayed on-line to the screen (the default) or hardcopy of it
+should be produced.</p>
+</td></tr>
+<tr><td><code id="help_:_package">package</code></td>
+<td>
+<p>a name or character vector giving the packages to look
+into for documentation.  By default, all packages in the search path
+are used.</p>
+</td></tr>
+<tr><td><code id="help_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
+or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
+libraries currently known.  If the default is used, the loaded
+packages are searched before the libraries.</p>
+</td></tr>
+<tr><td><code id="help_:_verbose">verbose</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, the file name is reported.</p>
+</td></tr>
+<tr><td><code id="help_:_try.all.packages">try.all.packages</code></td>
+<td>
+<p>logical; see <code>Notes</code>.</p>
+</td></tr>
+<tr><td><code id="help_:_htmlhelp">htmlhelp</code></td>
+<td>
+<p>logical (or <code>NULL</code>).  If <code>TRUE</code> (which is the
+default after <code>help.start</code> has been called), the HTML
+version of the help will be shown in the browser specified by
+<code>options("browser")</code>. See <code>help.start</code> for details
+of the browsers that are supported. </p>
+</td></tr>
+<tr><td><code id="help_:_pager">pager</code></td>
+<td>
+<p>the pager to be used for <code>file.show</code>.</p>
+</td></tr>
+<tr><td><code id="help_:_type">type</code></td>
+<td>
+<p>the special type of documentation to use for this topic;
+for example, if the type is <code>class</code>, documentation is
+provided for the class with name <code>topic</code>.  The function
+<code>topicName</code> returns the actual name used in this case.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>In the case of unary and binary operators and control-flow special
+forms, the name may need to be quoted.
+</p>
+<p>If <code>offline</code> is <code>TRUE</code>, hardcopy of the documentation is
+produced by running the LaTeX version of the help page through
+<code>latex</code> (note that LaTeX 2e is needed) and <code>dvips</code>.
+Depending on your <code>dvips</code> configuration, hardcopy will be sent to
+the printer or saved in a file.  If the programs are in non-standard
+locations and hence were not found at compile time, you can either set
+the options <code>latexcmd</code> and <code>dvipscmd</code>, or the environment
+variables <code>R_LATEXCMD</code> and <code>R_DVIPSCMD</code> appropriately.
+The appearance of the output can be customized through a file
+&lsquo;<span class="file">Rhelp.cfg</span>&rsquo; somewhere in your LaTeX search path.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Unless <code>lib.loc</code> is specified explicitly, the loaded packages are
+searched before those in the specified libraries.  This ensures that
+if a library is loaded from a library not in the known library trees,
+then the help from the loaded library is used.  If <code>lib.loc</code> is
+specified explicitly, the loaded packages are <em>not</em> searched.
+</p>
+<p>If this search fails and argument <code>try.all.packages</code> is
+<code>TRUE</code> and neither <code>packages</code> nor <code>lib.loc</code> is
+specified, then all the packages in the known library trees are
+searched for help on <code>topic</code> and a list of (any) packages where
+help may be found is printed (but no help is shown).
+<b>N.B.</b> searching all packages can be slow.
+</p>
+<p>The help files can be many small files.  On some file systems it is
+desirable to save space, and the text files in the &lsquo;<span class="file">help</span>&rsquo; directory
+of an installed package can be zipped up as a zip archive
+&lsquo;<span class="file">Rhelp.zip</span>&rsquo;. Ensure that file &lsquo;<span class="file">AnIndex</span>&rsquo; remains un-zipped.
+Similarly, all the files in the
+&lsquo;<span class="file">latex</span>&rsquo; directory can be zipped to &lsquo;<span class="file">Rhelp.zip</span>&rsquo;.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>help.search()</code> for finding help pages on a &ldquo;vague&rdquo; topic.
+<code>help.start()</code> which opens the HTML version of the <span class="rlang"><b>R</b></span>
+help pages;
+<code>library()</code> for listing available packages and the
+user-level objects they contain;
+<code>data()</code> for listing available data sets;
+<code>methods()</code>.
+</p>
+<p>See <code>prompt()</code> to get a prototype for writing <code>help</code>
+pages of private packages.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>help()
+help(help)              # the same
+
+help(lapply)
+?lapply                 # the same
+
+help("for")             # or ?"for", but the quotes are needed
+?"+"
+
+help(package = stepfun) # get help even when package is not loaded
+
+data()                  # list all available data sets
+?women                  # information about data set "women"
+
+topi &lt;- "women"
+## Not run: help(topi) ##--&gt; Error: No documentation for `topi'
+
+try(help("bs", try.all.packages=FALSE)) # reports not found (an error)
+help("bs", try.all.packages=TRUE) # reports can be found in package `splines'
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.5.0 ]</div>
+</div>
+</body></html>

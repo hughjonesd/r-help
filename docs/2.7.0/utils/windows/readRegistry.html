@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><title>R: Read a Windows Registy Hive</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/readRegistry.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/readRegistry.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>readRegistry {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='readRegistry'>Read a Windows Registy Hive</h2>
+
+<h3>Description</h3>
+
+<p>Read values of keys in the Windows Registry, and optionally whole hives.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>readRegistry(key, hive = c("HLM", "HCR", "HCU", "HU", "HCC, HPD"),
+             maxdepth = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="readRegistry_:_key">key</code></td>
+<td>
+<p>character string, the path to the key in the Windows Registry.</p>
+</td></tr>
+<tr><td><code id="readRegistry_:_hive">hive</code></td>
+<td>
+<p>The &lsquo;hive&rsquo; containing the key.  The abbreviations
+are for <code>HKEY_LOCAL_MACHINE</code>,
+<code>HKEY_CLASSES_ROOT</code>. <code>HKEY_CURRENT_USER</code>,
+<code>HKEY_USERS</code>. <code>HKEY_CURRENT_CONFIG</code> and
+<code>HKEY_PERFORMANCE_DATA</code></p>
+</td></tr>
+<tr><td><code id="readRegistry_:_maxdepth">maxdepth</code></td>
+<td>
+<p>How far to recurse into the subkeys of the key.  By
+default only the values of the key and the names of subkeys are
+returned.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Registry access is done using the security settings of the current <span class="rlang"><b>R</b></span>
+session: this means that some Registry keys may not be accessible even
+if they exist.  This may result in <code>NULL</code> values in the object
+return, and, possibly, empty element names.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A named list of values and subkeys (which may themselves be named
+lists).  The default value (if any) precedes named values which
+precede subkeys, and both the latter sets are sorted alphabetically.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+readRegistry("SOFTWARE\\R-core", maxdepth = 3)
+gmt &lt;- file.path("SOFTWARE", "Microsoft", "Windows NT",
+                 "CurrentVersion", "Time Zones",
+                 "GMT Standard Time", fsep="\\")
+readRegistry(gmt, "HLM")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.7.0 ]</div>
+</div>
+</body></html>

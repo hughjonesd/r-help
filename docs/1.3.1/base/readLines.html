@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><title>R: Read Text Lines from a Connection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/readLines.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/readLines.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>readLines {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='readLines'>Read Text Lines from a Connection</h2>
+
+<h3>Description</h3>
+
+<p>Read text lines from a connection.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>readLines(con = stdin(), n = -1, ok = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="readLines_:_con">con</code></td>
+<td>
+<p>A connection object or a character string.</p>
+</td></tr>
+<tr><td><code id="readLines_:_n">n</code></td>
+<td>
+<p>integer.  The (maximal) number of lines to
+read. Negative values indicate that one should read up to the end of
+the connection.</p>
+</td></tr>
+<tr><td><code id="readLines_:_ok">ok</code></td>
+<td>
+<p>logical. Is it OK to reach the end of the connection before
+<code>n &gt; 0</code> lines are read? If not, an error will be generated.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If the <code>con</code> is a character string, the functions call
+<code>file</code> to obtain an file connection which is opened for
+the duration of the function call.
+</p>
+<p>If the connection is open it is read from its current position.
+If it is not open, it is opened for the duration of the call and then
+closed again.
+</p>
+<p>If the final line is incomplete (no final EOL marker) the behaviour
+depends on whether the connection is blocking or not. For a blocking
+text-mode connection (or a non-text-mode connection) the line
+will be accepted, with a warning.  For a non-blocking text-mode
+connection the incomplete line is pushed back, silently.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of length the number of lines read.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>connections</code>, <code>writeLines</code>,
+<code>scan</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>cat("TITLE extra line", "2 3 5 7", "", "11 13 17", file="ex.data",
+    sep="\n")
+readLines("ex.data", n=-1)
+unlink("ex.data") # tidy up
+
+## difference in blocking
+cat("123\nabc", file = "test1")
+readLines("test1") # line with a warning
+
+con &lt;- file("test1", "r", blocking = FALSE)
+readLines(con) # empty
+cat(" def\n", file = "test1", append = TRUE)
+readLines(con) # gets both
+close(con)
+
+unlink("test1") # tidy up
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3.1 ]</div>
+</div>
+</body></html>

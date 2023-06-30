@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>R: Object Classes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/data.class.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/data.class.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>data.class {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='data.class'>Object Classes</h2>
+
+<h3>Description</h3>
+
+<p>Determine the class of an arbitrary <span class="rlang"><b>R</b></span> object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>data.class(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="data.class_:_x">x</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>character string giving the <em>class</em> of <code>x</code>.
+</p>
+<p>The class is the (first element) of the <code>class</code>
+attribute if this is non-<code>NULL</code>, or inferred from the object's
+<code>dim</code> attribute if this is non-<code>NULL</code>, or <code>mode(x)</code>.
+</p>
+<p>Simply speaking, <code>data.class(x)</code> returns what is typically useful
+for method dispatching.  (Or, what the basic creator functions already
+and maybe eventually all will attach as a class attribute.)
+</p>
+
+
+<h3>Note</h3>
+
+<p>For compatibility reasons, there is one exception to the rule above:
+When <code>x</code> is <code>integer</code>, the result of
+<code>data.class(x)</code> is <code>"numeric"</code> even when <code>x</code> is classed.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>class</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- LETTERS
+data.class(factor(x))                 # has a class attribute
+data.class(matrix(x, ncol = 13))      # has a dim attribute
+data.class(list(x))                   # the same as mode(x)
+data.class(x)                         # the same as mode(x)
+
+stopifnot(data.class(1:2) == "numeric") # compatibility "rule"
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.5.1 ]</div>
+</div>
+</body></html>

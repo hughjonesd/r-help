@@ -1,0 +1,203 @@
+<!DOCTYPE html><html><head><title>R: Class Definitions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/Classes.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/Classes.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Classes {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Classes'>Class Definitions</h2>
+
+<h3>Description</h3>
+
+<p>Class definitions are objects that contain the formal definition of a
+class of R objects, usually referred to as an S4 class, to
+distinguish them from the informal S3 classes.
+This document gives an overview of S4 classes; for
+details of the  class representation objects themselves, see
+<code>class?classRepresentation</code> (<code>classRepresentation-class</code>).
+</p>
+
+
+<h3>Details</h3>
+
+<p>When a class is defined, an object is stored that contains the
+information about that class, including:
+</p>
+
+<dl>
+<dt>Slots:</dt><dd>
+<p>The data contained in an object from an S4 class is defined by
+the <em>slots</em> in the class definition.
+</p>
+<p>Each slot in an object is a component of the object;
+like components (that is, elements) of a
+list, these may be extracted and set, using the
+function <code>slot()</code> or more often the operator
+<code>"@"</code>.  However, they
+differ from list components in important ways.
+First, slots can only be referred to by name, not by position,
+and there is no partial matching of names as with list elements.
+</p>
+<p>All the objects from a particular class have the same set of slot
+names; specifically, the slot names that are contained in the
+class definition.  Each slot in each object always has the same
+class; again, this is defined by the overall class definition.
+The phrase &ldquo;has the same class&rdquo; means that the class of the object in
+the slot must be the same as the class specified in the
+definition, or some class that extends the one in the
+definition.
+</p>
+<p>One class name is special, <code>.Data</code>.  This stands for the
+&lsquo;data part&rsquo; of the object.  Any class that contains one
+of the basic data types in <span class="rlang"><b>R</b></span>, has implicitly a corresponding
+<code>.Data</code> slot of that type, allowing computations to extract
+or replace the data part while leaving other slots
+unchanged. The <code>.Data</code> slot also determines the type of the
+object; if <code>x</code> has a <code>.Data</code> slot, the type of the
+slot is the type of the object (that is, the value of
+<code>typeof(x)</code>.  Otherwise the type of the object is
+<code>"S4"</code>.  Extending a basic type this way allows objects to
+use old-style code for the corresponding type as well as S4
+methods.  Any basic type can be used for <code>.Data</code>, with the
+exception of a few that do not behave like ordinary objects;
+namely, <code>"NULL"</code>, environments, and external pointers.
+</p>
+<p>Classes exist for which there are no actual objects, the
+<em>virtual</em> classes, in fact a
+very important programming tool.  They are used to group together
+ordinary classes that want to share some programming behavior,
+without necessarily restricting how the behavior is implemented.
+Virtual class definitions may if you want include
+slots (to provide some common behavior without fully defining
+the object&mdash;see traceable-class for an example).
+</p>
+<p>A simple and useful form of virtual class is the <em>class
+union</em>, a virtual class that is defined in a call to
+<code>setClassUnion</code> by listing one or
+more of subclasses (classes that extend the class union).  Class
+unions can include as subclasses basic data types (whose
+definition is otherwise sealed).
+</p>
+</dd>
+<dt>Superclasses:</dt><dd>
+<p>The definition of a class includes the <em>superclasses</em> &mdash;the classes that this class extends.  A
+class <code>Fancy</code>, say, extends a class <code>Simple</code> if an
+object from the <code>Fancy</code> class has all the capabilities of
+the <code>Simple</code> class (and probably some more as well).  In
+particular, and very usefully, any method defined to work for a
+<code>Simple</code> object can be applied to a <code>Fancy</code> object as
+well.
+</p>
+<p>This relationship is
+expressed equivalently by saying that <code>Simple</code> is a superclass of
+<code>Fancy</code>, or that <code>Fancy</code> is a subclass of
+<code>Simple</code>.
+</p>
+<p>The direct superclasses of a class are those superclasses
+explicitly defined.   Direct superclasses can be defined in
+three ways.  Most commonly, the superclasses are listed in the
+<code>contains=</code> argument in the call to <code>setClass</code>
+that creates the subclass.   In this case the subclass will
+contain all the slots of the superclass, and the relation
+between the class is called <em>simple</em>, as it in fact is.
+Superclasses can also be defined
+explicitly by a call to <code>setIs</code>; in this case, the
+relation requires methods to be specified to go from subclass to
+superclass.   Thirdly, a class union is a superclass of all the
+members of the union.  In this case too the relation is simple,
+but notice that the relation is defined when the superclass is
+created, not when the subclass is created as with the
+<code>contains=</code> mechanism.
+</p>
+<p>The definition of a superclass will also potentially contain
+its own direct superclasses.  These are considered (and shown) as
+superclasses at distance 2 from the original class; their direct
+superclasses are at distance 3, and so on.  All these are
+legitimate superclasses for purposes such as method selection.
+</p>
+<p>When superclasses are defined  by including the names of
+superclasses in the <code>contains=</code> argument to
+<code>setClass</code>,   an object from the class will have all the slots
+defined for its own class <em>and</em> all the slots defined for all
+its superclasses as well.
+</p>
+<p>The information about the relation between a class and a
+particular superclass is encoded as an object of class
+<code>"SClassExtension"</code> (see SClassExtension-class).  A
+list of such objects for the superclasses (and sometimes for the
+subclasses) is included in the metadata object defining the
+class.  If you need to compute with these objects (for example,
+to compare the distances), call the function
+<code>extends</code> with argument <code>fullInfo=TRUE</code>.
+</p>
+</dd>
+<dt>Objects:</dt><dd>
+<p>The objects from a class, typically created by a call to
+<code>new</code> or by assigning another object from the class,
+are defined by the <em>prototype</em> object for the class and by
+additional arguments in the call to <code>new</code>, which are
+passed to a method for that class for the function
+<code>initialize</code>.
+</p>
+<p>Each class definition contains a prototype object
+for the class.  This must have values for all the slots defined by
+the class definition.
+By default, these are the prototypes of all
+the slot classes, if those are not virtual classes.  However, the
+definition of the class can specify any valid object for any of
+the slots.
+</p>
+<p>There are a number of &lsquo;basic&rsquo; classes, corresponding to the
+ordinary kinds of data occurring in R.  For example,
+<code>"numeric"</code> is a class corresponding to numeric vectors.
+There are also basic classes corresponding to objects in the
+language, such as <code>"function"</code> and <code>"call"</code>, and for
+specialized objects, such as <code>"environment"</code>
+These classes are predefined and can then be used as slots or as
+superclasses for any other class definitions.  The prototypes for
+the vector classes are vectors of length 0 of the corresponding
+type.  Notice that basic classes are unusual in that the
+prototype object is from the class itself.
+</p>
+<p>There are also a few basic virtual classes, the most important
+being <code>"vector"</code>, grouping together all the vector classes;
+and <code>"language"</code>, grouping together all the types of objects
+making up the R language.
+</p>
+</dd>
+</dl>
+
+
+
+<h3>References</h3>
+
+<p>The functions in this package emulate the facility for classes and
+methods described in <em>Programming with Data</em> (John M. Chambers,
+Springer, 1998).  See this book for further details and examples.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Methods</code>,
+<code>setClass</code>,
+<code>is</code>,
+<code>as</code>,
+<code>new</code>,
+<code>slot</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.6.0 ]</div>
+</div>
+</body></html>

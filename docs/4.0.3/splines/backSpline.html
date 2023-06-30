@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><title>R: Monotone Inverse Spline</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/splines/html/backSpline.html'>https://stat.ethz.ch/R-manual/R-patched/library/splines/html/backSpline.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>backSpline {splines}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='backSpline'>Monotone Inverse Spline</h2>
+
+<h3>Description</h3>
+
+<p>Create a monotone inverse of a monotone natural spline.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>backSpline(object)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="backSpline_:_object">object</code></td>
+<td>
+<p>an object that inherits from class <code>nbSpline</code> or
+<code>npolySpline</code>.  That is, the object must represent a natural
+interpolation spline but it can be either in the B-spline
+representation or the piecewise polynomial one.  The spline is
+checked to see if it represents a monotone function.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>polySpline</code> that contains the piecewise
+polynomial representation of a function that has the appropriate
+values and derivatives at the knot positions to be an inverse of the
+spline represented by <code>object</code>.  Technically this object is not a
+spline because the second derivative is not constrained to be
+continuous at the knot positions.  However, it is often a much better
+approximation to the inverse than fitting an interpolation spline to
+the y/x pairs.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Douglas Bates and Bill Venables</p>
+
+
+<h3>See Also</h3>
+
+<p><code>interpSpline</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+ispl &lt;- interpSpline( women$height, women$weight )
+bspl &lt;- backSpline( ispl )
+plot( bspl )                   # plots over the range of the knots
+points( women$weight, women$height )
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>splines</em> version 4.0.3 ]</div>
+</div>
+</body></html>

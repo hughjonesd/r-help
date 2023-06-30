@@ -1,0 +1,115 @@
+<!DOCTYPE html><html><head><title>R: Compute Axis Tickmark Locations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/axTicks.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/axTicks.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>axTicks {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='axTicks'>Compute Axis Tickmark Locations</h2>
+
+<h3>Description</h3>
+
+<p>Compute tickmark locations, the same way as <span class="rlang"><b>R</b></span> does internally.
+This is only non-trivial when <b>log</b> coordinates are active.
+By default, gives the <code>at</code> values which
+<code>axis(side)</code> would use.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>axTicks(side, axp = NULL, usr = NULL, log = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="axTicks_:_side">side</code></td>
+<td>
+<p>integer in 1:4, as for <code>axis</code>.</p>
+</td></tr>
+<tr><td><code id="axTicks_:_axp">axp</code></td>
+<td>
+<p>numeric vector of length three, defaulting to
+<code>par("Zaxp")</code> where &ldquo;Z&rdquo; is &ldquo;x&rdquo; or
+&ldquo;y&rdquo; depending on the <code>side</code> argument.</p>
+</td></tr>
+<tr><td><code id="axTicks_:_usr">usr</code></td>
+<td>
+<p>numeric vector of length four, defaulting to
+<code>par("usr")</code> giving horizontal (&lsquo;x&rsquo;) and vertical
+(&lsquo;y&rsquo;) user coordinate limits.</p>
+</td></tr>
+<tr><td><code id="axTicks_:_log">log</code></td>
+<td>
+<p>logical indicating if log coordinates are active; defaults
+to <code>par("Zlog")</code> where &lsquo;Z&rsquo; is as for the
+<code>axp</code> argument above.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>axp</code>, <code>usr</code>, and <code>log</code> arguments must be consistent
+as their default values (the <code>par(..)</code> results) are.
+Note that the meaning of <code>axp</code> alters very much when <code>log</code>
+is <code>TRUE</code>, see the documentation on <code>par(xaxp=.)</code>.
+</p>
+<p><code>axTicks()</code> can be regarded as an <span class="rlang"><b>R</b></span> implementation  of the
+C function <code>CreateAtVector()</code> in &lsquo;<span class="file">..../src/main/graphics.c</span>&rsquo;
+which is called by <code>axis(side,*)</code> when no argument
+<code>at</code> is specified.
+</p>
+
+
+<h3>Value</h3>
+
+<p>numeric vector of coordinate values at which axis tickmarks can be
+drawn.  By default, when only the first argument is specified,
+these values should be identical to those that
+<code>axis(side)</code> would use or has used.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>axis</code>, <code>par</code>.  <code>pretty</code>
+uses the same algorithm but is independent of the graphics
+environment and has more options.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'> plot(1:7, 10*21:27)
+ axTicks(1)
+ axTicks(2)
+ stopifnot(identical(axTicks(1), axTicks(3)),
+           identical(axTicks(2), axTicks(4)))
+
+## Show how axTicks() and axis() correspond :
+op &lt;- par(mfrow = c(3,1))
+for(x in 9999*c(1,2,8)) {
+    plot(x,9, log = "x")
+    cat(formatC(par("xaxp"),wid=5),";",T &lt;- axTicks(1),"\n")
+    rug(T, col="red")
+}
+par(op)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.8.0 ]</div>
+</div>
+</body></html>

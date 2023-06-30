@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>R: Formal Methods and Classes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/methods-package.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/methods-package.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>methods-package {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='methods-package'>
+Formal Methods and Classes
+</h2>
+
+<h3>Description</h3>
+
+<p>Formally defined methods and classes for R objects, plus
+other programming tools, as described in the references.
+</p>
+
+
+<h3>Details</h3>
+
+<p>This package provides the &lsquo;S4&rsquo; or &lsquo;S version 4&rsquo; 
+approach to methods and classes in a functional language.
+</p>
+<p>See the documentation entries <code>Classes</code>,
+<code>Methods</code>, and <code>GenericFunctions</code> for general discussion of these topics, at a
+fairly technical level.  Links from those pages, and the
+documentation of <code>setClass</code> and <code>setMethod</code>
+cover the main programming tools needed.
+</p>
+<p>For a complete
+list of functions and classes, use <code>library(help="methods")</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>R Development Core Team
+</p>
+<p>Maintainer: R Core Team <a href="mailto:R-core@r-project.org">R-core@r-project.org</a>
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, John M. (2008)
+<em>Software for Data Analysis: Programming with R</em>
+Springer.  (For the R version.)
+</p>
+<p>Chambers, John M. (1998)
+<em>Programming with Data</em>
+Springer (For the original S4 version.) 
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 2.10.0 ]</div>
+</div>
+</body></html>

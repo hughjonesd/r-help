@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><title>R: Conditional Element Selection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ifelse.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ifelse.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>ifelse {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='ifelse'>Conditional Element Selection</h2>
+
+<h3>Description</h3>
+
+<p><code>ifelse</code> returns a value with the same shape as
+<code>test</code> which is filled with elements selected
+from either <code>yes</code> or <code>no</code>
+depending on whether the element of <code>test</code>
+is <code>TRUE</code> or <code>FALSE</code>.
+If <code>yes</code> or <code>no</code> are too short, their elements are recycled.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>ifelse(test, yes, no)
+</code></pre>
+
+
+<h3>See Also</h3>
+
+<p><code>if</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- c(6:-4)
+sqrt(x)#- gives warning
+sqrt(ifelse(x &gt;= 0, x, NA))# no warning
+
+## Note: the following also gives the warning !
+ifelse(x &gt;= 0, sqrt(x), NA)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.61.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html><html><head><title>R: Define a New Generic Function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>setGeneric {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='setGeneric'>Define a New Generic Function</h2>
+
+<h3>Description</h3>
+
+<p>Create a new generic function of the given name, for which formal methods can
+then be defined.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>setGeneric(name, def, group=NULL, valueClass=NULL, where=1, doAssign)
+
+setGroupGeneric(name, def, group=NULL, valueClass=NULL, knownMembers, where=1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="setGeneric_:_name">name</code></td>
+<td>
+<p> The character string name of the generic function.  In
+the simplest and most common case, a function of this name is
+already defined.  The existing function may be non-generic or
+already a generic (see the details).
+</p>
+</td></tr>
+<tr><td><code id="setGeneric_:_def">def</code></td>
+<td>
+<p> An optional function object, defining the generic.  This
+argument is usually only needed (and is then required) if there is
+no current function of this name. In that case, the formal arguments
+and default values for the generic are taken from <code>def</code>.  See
+also argument <code>useAsDefault</code>.
+</p>
+</td></tr>
+<tr><td><code id="setGeneric_:_group">group</code></td>
+<td>
+<p> Optionally, a character string giving the group of
+generic functions to which this function belongs.  Methods can be
+defined for the corresponding group generic, and these will then
+define methods for this specific generic function, if no method has
+been explicitly defined for the corresponding signature.  See the
+references for more discussion.
+</p>
+</td></tr>
+<tr><td><code id="setGeneric_:_valueClass">valueClass</code></td>
+<td>
+<p> An optional character string defining the class to
+asserted to be given to the value returned by this generic
+function. By default, the generic function can return any object.
+(At the moment, the assertion supplied in this argument is not
+enforced or checked.)
+</p>
+</td></tr>
+<tr><td><code id="setGeneric_:_where">where</code></td>
+<td>
+<p> Where to store the resulting initial methods definition,
+and possibly the generic function; by
+default, stored into the global environment.
+</p>
+</td></tr>
+<tr><td><code id="setGeneric_:_doAssign">doAssign</code></td>
+<td>
+<p> Should a new generic version of the function be
+assigned?  The default action depends on whether a generic version
+currently exists.  If not, one will be assigned to <code>where</code>,
+except that primitive functions in the base package are never turned
+into explicit generic functions (they are dispatched from the
+internal code in the evaluator).
+</p>
+<p>You can supply <code>doAssign</code> as <code>TRUE</code> to force assigning a
+generic function even if one already exists, or as <code>FALSE</code> to
+prevent assigning the generic in any case (for example, because you
+know one exists on another package).  But the rule of not assigning
+generics for primitives cannot be overriden by setting
+<code>doAssign</code> to <code>TRUE</code>.
+</p>
+</td></tr>
+<tr><td><code id="setGeneric_:_knownMembers">knownMembers</code></td>
+<td>
+
+<p>(For <code>setGroupGeneric</code> only)  The names of functions that are known to be
+members of this group.  This information is used to reset cached
+definitions of the member generics when information about the group
+generic is changed.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>setGeneric</code> function is called to initialize a generic
+function in an environment (usually the global environment), as
+prepartion for defining some methods for that function.
+</p>
+<p>The simplest and most common situation is that <code>name</code> is already
+a function, either an ordinary non-generic function or else a generic
+function in another environment.  In the second case, essentially all
+you will be doing is to make a copy of the existing generic, without
+its methods, in the current environment.  <em>Only</em> the <code>name</code>
+argument will be used.  The new generic <em>must</em> agree with the
+current one in essentially everything except for the methods defined.
+</p>
+<p>The other simple and common situation is that you already have a
+non-generic function (probably in the same place you plan to save the
+generic), and now want to turn this function into a generic.  In this
+case, too, you will most often supply only <code>name</code>.  The existing
+function becomes the default method, and the special <code>group</code> and
+<code>valueClass</code> properties remain unspecified.
+</p>
+<p>The <code>setGroupGeneric</code> function behaves like <code>setGeneric</code> except that
+it constructs a group generic function, differing in two ways from an
+ordinary generic function.  First,
+this function cannot be called directly, and the body of the function
+created will contain a stop call with this information.  Second, the
+group generic function contains information about the known members of
+the group, used to keep the members up to date when the group
+definition changes, through changes in the search list or direct
+specification of methods, etc.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The <code>setGeneric</code> function exists for its side effect:  saving the
+generic function to allow methods to be specified later.  It returns <code>name</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>John Chambers
+</p>
+
+
+<h3>References</h3>
+
+<p>The web page <a href="http://www.omegahat.org/RSMethods/index.html">http://www.omegahat.org/RSMethods/index.html</a> is the primary documentation.
+</p>
+<p>The functions in this package emulate the facility for classes and methods described in
+<em>Programming with Data</em>, (John M. Chambers, Springer, 1998).  See this book
+for further details and examples.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Methods</code> for a discussion of other functions to
+specify and manipulate the methods of generic functions.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>methods</em> version 1.4.1 ]</div>
+</div>
+</body></html>

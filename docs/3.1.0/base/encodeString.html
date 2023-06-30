@@ -1,0 +1,133 @@
+<!DOCTYPE html><html><head><title>R: Encode Character Vector as for Printing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/encodeString.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/encodeString.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>encodeString {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='encodeString'>
+Encode Character Vector as for Printing
+</h2>
+
+<h3>Description</h3>
+
+<p><code>encodeString</code> escapes the strings in a character vector in the
+same way <code>print.default</code> does, and optionally fits the encoded
+strings within a field width.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>encodeString(x, width = 0, quote = "", na.encode = TRUE,
+             justify = c("left", "right", "centre", "none"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="encodeString_:_x">x</code></td>
+<td>
+<p>A character vector, or an object that can be coerced to one
+by <code>as.character</code>.</p>
+</td></tr>
+<tr><td><code id="encodeString_:_width">width</code></td>
+<td>
+<p>integer: the minimum field width.  If <code>NULL</code> or
+<code>NA</code>, this is taken to be the largest field width needed for
+any element of <code>x</code>.</p>
+</td></tr>
+<tr><td><code id="encodeString_:_quote">quote</code></td>
+<td>
+<p>character: quoting character, if any.</p>
+</td></tr>
+<tr><td><code id="encodeString_:_na.encode">na.encode</code></td>
+<td>
+<p>logical: should <code>NA</code> strings be encoded?</p>
+</td></tr>
+<tr><td><code id="encodeString_:_justify">justify</code></td>
+<td>
+<p>character: partial matches are allowed.  If padding to
+the minimum field width is needed, how should spaces be inserted?
+<code>justify == "none"</code> is equivalent to <code>width = 0</code>, for
+consistency with <code>format.default</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This escapes backslash and the control characters &lsquo;<span class="samp">&#8288;\a&#8288;</span>&rsquo; (bell),
+&lsquo;<span class="samp">&#8288;\b&#8288;</span>&rsquo; (backspace), &lsquo;<span class="samp">&#8288;\f&#8288;</span>&rsquo; (formfeed), &lsquo;<span class="samp">&#8288;\n&#8288;</span>&rsquo; (line feed),
+&lsquo;<span class="samp">&#8288;\r&#8288;</span>&rsquo; (carriage return), &lsquo;<span class="samp">&#8288;\t&#8288;</span>&rsquo; (tab) and &lsquo;<span class="samp">&#8288;\v&#8288;</span>&rsquo;
+(vertical tab) as well as any non-printable characters in a
+single-byte locale, which are printed in octal notation (&lsquo;<span class="samp">&#8288;\xyz&#8288;</span>&rsquo;
+with leading zeroes).
+</p>
+<p>Which characters are non-printable depends on the current locale.
+Windows' reporting of printable characters is unreliable, so there all
+other control characters are regarded as non-printable, and all
+characters with codes 32&ndash;255 as printable in a single-byte locale.
+See <code>print.default</code> for how non-printable characters are
+handled in multi-byte locales.
+</p>
+<p>If <code>quote</code> is a single or double quote any embedded quote of the
+same type is escaped.  Note that justification is of the quoted
+string, hence spaces are added outside the quotes.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of the same length as <code>x</code>, with the same
+attributes (including names and dimensions) but with no class set.
+</p>
+<p>As from <span class="rlang"><b>R</b></span> 3.0.0, marked UTF-8 encodings are preserved.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The default for <code>width</code> is different from <code>format.default</code>,
+which does similar things for character vectors but without encoding
+using escapes.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>print.default</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- "ab\bc\ndef"
+print(x)
+cat(x) # interprets escapes
+cat(encodeString(x), "\n", sep = "") # similar to print()
+
+factor(x) # makes use of this to print the levels
+
+x &lt;- c("a", "ab", "abcde")
+encodeString(x, width = NA) # left justification
+encodeString(x, width = NA, justify = "c")
+encodeString(x, width = NA, justify = "r")
+encodeString(x, width = NA, quote = "'", justify = "r")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.1.0 ]</div>
+</div>
+</body></html>

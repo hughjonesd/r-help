@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: Plotting Factor Variables</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.factor.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.factor.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.factor {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.factor'>Plotting Factor Variables</h2>
+
+<h3>Description</h3>
+
+<p>This functions implements a scatterplot method for
+<code>factor</code> arguments of the <em>generic</em>
+<code>plot</code> function.
+</p>
+<p>If <code>y</code> is missing <code>barplot</code> is produced.
+For numeric <code>y</code> a <code>boxplot</code> is used, and for a factor
+<code>y</code> a <code>spineplot</code> is shown.  For any other type of
+<code>y</code> the next <code>plot</code> method is called, normally
+<code>plot.default</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'factor'
+plot(x, y, legend.text = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.factor_:_x">x</code>, <code id="plot.factor_:_y">y</code></td>
+<td>
+<p>numeric or factor. <code>y</code> may be missing.</p>
+</td></tr>
+<tr><td><code id="plot.factor_:_legend.text">legend.text</code></td>
+<td>
+<p>character vector for annotation of y axis in the
+case of a factor <code>y</code>: defaults to <code>levels(y)</code>.  This
+sets the <code>yaxlabels</code> argument of <code>spineplot</code>.</p>
+</td></tr>
+<tr><td><code id="plot.factor_:_...">...</code></td>
+<td>
+<p>Further arguments to <code>barplot</code>,
+<code>boxplot</code>, <code>spineplot</code> or
+<code>plot</code> as appropriate.  All of these accept
+graphical parameters (see <code>par</code>) and
+annotation arguments passed
+to <code>title</code> and <code>axes = FALSE</code>.  None accept <code>type</code>.
+</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>plot.default</code>, <code>plot.formula</code>,
+<code>barplot</code>, <code>boxplot</code>, <code>spineplot</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(grDevices)
+
+
+plot(weight ~ group, data = PlantGrowth)           # numeric vector ~ factor
+plot(cut(weight, 2) ~ group, data = PlantGrowth)   # factor ~ factor
+## passing "..." to spineplot() eventually:
+plot(cut(weight, 3) ~ group, data = PlantGrowth,
+     col = hcl(c(0, 120, 240), 50, 70))
+
+plot(PlantGrowth$group, axes = FALSE, main = "no axes")  # extremely silly
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 4.0.1 ]</div>
+</div>
+</body></html>

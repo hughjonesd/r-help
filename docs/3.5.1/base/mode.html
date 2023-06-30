@@ -1,0 +1,147 @@
+<!DOCTYPE html><html><head><title>R: The (Storage) Mode of an Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/mode.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/mode.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>mode {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='mode'>The (Storage) Mode of an Object</h2>
+
+<h3>Description</h3>
+
+<p>Get or set the type or storage mode of an object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mode(x)
+mode(x) &lt;- value
+storage.mode(x)
+storage.mode(x) &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="mode_:_x">x</code></td>
+<td>
+<p>any <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+<tr><td><code id="mode_:_value">value</code></td>
+<td>
+<p>a character string giving the desired mode or
+&lsquo;storage mode&rsquo; (type) of the object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Both <code>mode</code> and <code>storage.mode</code> return a character string
+giving the (storage) mode of the object &mdash; often the same &mdash; both
+relying on the output of <code>typeof(x)</code>, see the example
+below.
+</p>
+<p><code>mode(x) &lt;- "newmode"</code> changes the <code>mode</code> of object <code>x</code> to
+<code>newmode</code>.  This is only supported if there is an appropriate
+<code>as.newmode</code> function, for example
+<code>"logical"</code>, <code>"integer"</code>, <code>"double"</code>, <code>"complex"</code>,
+<code>"raw"</code>, <code>"character"</code>, <code>"list"</code>, <code>"expression"</code>,
+<code>"name"</code>, <code>"symbol"</code> and <code>"function"</code>.  Attributes are
+preserved (but see below).
+</p>
+<p><code>storage.mode(x) &lt;- "newmode"</code> is a more efficient primitive
+version of <code>mode&lt;-</code>, which works for <code>"newmode"</code> which is
+one of the internal types (see <code>typeof</code>), but not for
+<code>"single"</code>.  Attributes are preserved.
+</p>
+<p>As storage mode <code>"single"</code> is only a pseudo-mode in <span class="rlang"><b>R</b></span>, it will
+not be reported by <code>mode</code> or <code>storage.mode</code>: use
+<code>attr(object, "Csingle")</code> to examine this.  However,
+<code>mode&lt;-</code> can be used to set the mode to <code>"single"</code>,
+which sets the real mode to <code>"double"</code> and the <code>"Csingle"</code>
+attribute to <code>TRUE</code>.  Setting any other mode will remove this
+attribute.
+</p>
+<p>Note (in the examples below) that some <code>call</code>s have mode
+<code>"("</code> which is S compatible.
+</p>
+
+
+<h3>Mode names</h3>
+
+<p>Modes have the same set of names as types (see <code>typeof</code>)
+except that
+</p>
+
+<ul>
+<li><p> types <code>"integer"</code> and <code>"double"</code> are
+returned as <code>"numeric"</code>.
+</p>
+</li>
+<li><p> types <code>"special"</code> and <code>"builtin"</code> are returned as
+<code>"function"</code>.
+</p>
+</li>
+<li><p> type <code>"symbol"</code> is called mode <code>"name"</code>.
+</p>
+</li>
+<li><p> type <code>"language"</code> is returned as <code>"("</code> or <code>"call"</code>.
+</p>
+</li></ul>
+
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>typeof</code> for the R-internal &lsquo;mode&rsquo;,
+<code>type.convert</code>, <code>attributes</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(stats)
+
+sapply(options(), mode)
+
+cex3 &lt;- c("NULL", "1", "1:1", "1i", "list(1)", "data.frame(x = 1)",
+  "pairlist(pi)", "c", "lm", "formals(lm)[[1]]",  "formals(lm)[[2]]",
+  "y ~ x","expression((1))[[1]]", "(y ~ x)[[1]]",
+  "expression(x &lt;- pi)[[1]][[1]]")
+lex3 &lt;- sapply(cex3, function(x) eval(parse(text = x)))
+mex3 &lt;- t(sapply(lex3,
+                 function(x) c(typeof(x), storage.mode(x), mode(x))))
+dimnames(mex3) &lt;- list(cex3, c("typeof(.)","storage.mode(.)","mode(.)"))
+mex3
+
+## This also makes a local copy of 'pi':
+storage.mode(pi) &lt;- "complex"
+storage.mode(pi)
+rm(pi)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.5.1 ]</div>
+</div>
+</body></html>

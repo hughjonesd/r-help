@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><title>R: Create / Start a New Plot Frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/frame.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/frame.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>frame {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='frame'>Create / Start a New Plot Frame</h2>
+
+<h3>Description</h3>
+
+<p>This function (<code>frame</code> is an alias for
+<code>plot.new</code>) causes the completion of plotting in the current plot
+(if there is one) and an advance to a new graphics frame.  This is
+used in all high-level plotting functions and also useful for skipping
+plots when a multi-figure region is in use.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>plot.new()
+frame()
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>The new page is painted with the background colour
+(<code>par("bg")</code>), which is often transparent.  For devices
+with a <em>canvas</em> colour (the on-screen devices <code>X11</code>,
+<code>windows</code> and <code>quartz</code>), the window is first painted with the
+canvas colour and then the background colour.
+</p>
+<p>There are two hooks called <code>"before.plot.new"</code> and
+<code>"plot.new"</code> (see <code>setHook</code>) called immediately
+before and after advancing the frame. The latter is used
+in the testing code to annotate the new page. The hook function(s) are
+called with no argument.  (If the value is a character string,
+<code>get</code> is called on it from within the <span class="pkg">graphics</span> namespace.)
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole. (<code>frame</code>.)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>plot.window</code>, <code>plot.default</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 2.15.2 ]</div>
+</div>
+</body></html>

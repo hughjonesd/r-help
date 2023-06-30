@@ -1,0 +1,51 @@
+<!DOCTYPE html><html><head><title>R: The R License Terms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/license.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/license.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>license {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='license'>The R License Terms</h2>
+
+<h3>Description</h3>
+
+<p>The license terms under which <span class="rlang"><b>R</b></span> is distributed.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>license()
+licence()
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p><span class="rlang"><b>R</b></span> is distributed under the terms of the GNU GENERAL PUBLIC LICENSE,
+either Version 2, June 1991 or Version 3, June 2007.  A copy of the
+version 2 license is in file &lsquo;<span class="file"><var>R_HOME</var>/doc/COPYING</span>&rsquo;
+and can be viewed by <code>RShowDoc("COPYING")</code>.  Version 3 of the
+license can be displayed by <code>RShowDoc("GPL-3")</code>.
+</p>
+<p>A small number of files (some of the API header files) are distributed
+under the LESSER GNU GENERAL PUBLIC LICENSE, version 2.1 or later.  A
+copy of this license is in file &lsquo;<span class="file">$R_SHARE_DIR/licenses/LGPL-2.1</span>&rsquo;
+and can be viewed by <code>RShowDoc("LGPL-2.1")</code>.  Version 3 of the
+license can be displayed by <code>RShowDoc("LGPL-3")</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.3.1 ]</div>
+</div>
+</body></html>

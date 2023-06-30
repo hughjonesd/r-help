@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>R: Read R's NEWS file or a similar one</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/readNEWS.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/readNEWS.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>readNEWS {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='readNEWS'>Read R's NEWS file or a similar one</h2>
+
+<h3>Description</h3>
+
+<p>Read/check <span class="rlang"><b>R</b></span>'s &lsquo;<span class="file">NEWS</span>&rsquo; file or a similarly formatted one.
+This was an experimental feature added in <span class="rlang"><b>R</b></span> 2.4.0: as from
+<span class="rlang"><b>R</b></span> 2.12.0 the preferred format is &lsquo;<span class="file">NEWS.Rd</span>&rsquo;.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>readNEWS(file = file.path(R.home(), "NEWS"), trace = FALSE,
+         chop = c("first", "1", "par1", "keepAll"))
+checkNEWS(file = file.path(R.home(), "NEWS"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="readNEWS_:_file">file</code></td>
+<td>
+<p>the name of the file which the data are to be read from.
+Alternatively, <code>file</code> can be a <code>connection</code>, which
+will be opened if necessary, and can also be a complete URL.  For
+more details, see the <code>file</code> argument of <code>read.table</code>.</p>
+</td></tr>
+<tr><td><code id="readNEWS_:_trace">trace</code></td>
+<td>
+<p>logical indicating if the recursive reading should be
+traced, i.e., print what it is doing.</p>
+</td></tr>
+<tr><td><code id="readNEWS_:_chop">chop</code></td>
+<td>
+<p>a character string specifying how the news entries should
+be <em>chopped</em>; <code>chop = "keepAll"</code> saves the full entries.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>readNEWS()</code> reads a pre-<span class="rlang"><b>R</b></span>-2.12.0-style &lsquo;<span class="file">NEWS</span>&rsquo; file;
+<code>checkNEWS()</code> checks for common errors in formatting.  Currently it
+detects an incorrect number of spaces before the <code>"o"</code> item marker.
+</p>
+<p>If non-ASCII characters are needed, the &lsquo;<span class="file">NEWS</span>&rsquo; file may be encoded in
+UTF-8 with a byte-order mark (BOM) at the beginning, which
+<code>readNEWS()</code> will recognize.  Other encodings will display
+incorrectly on some systems.  However, BOMs are discouraged on many
+systems and not all editors recognize them, so &lsquo;<span class="file">NEWS</span>&rsquo; files should
+normally be written in ASCII.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>readNEWS()</code> returns an (S3) object of class <code>"newsTree"</code>;
+effectively a <code>list</code> of lists which is a tree of NEWS
+entries.
+</p>
+<p><code>checkNEWS()</code> returns <code>TRUE</code> if no suspected errors are found,
+or prints a message for each suspected error and returns <code>FALSE</code>.
+</p>
+<p>Note that this was only ever experimental and may be removed soon,
+since the NEWS-file format is not longer supported (but there are
+examples &lsquo;<span class="file">ONEWS</span>&rsquo;, &lsquo;<span class="file">OONEWS</span>&rsquo; and perhaps in packages).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+NEWStr  &lt;- readNEWS(trace = TRUE)# chop = "first" ( = "first non-empty")
+## keep the full NEWS entry text i.e. "no chopping":
+NEWStrA &lt;- readNEWS(chop = "keepAll")
+object.size(NEWStr)
+object.size(NEWStrA) ## (no chopping) ==&gt; about double the size
+
+str(NEWStr, max.level = 3)
+
+str(NEWStr[[c("2.3", "2.3.1")]], max.level=2, vec.len=1)
+
+NEWStr [[c("2.3", "2.3.1", "NEW FEATURES")]]
+NEWStrA[[c("2.4", "2.4.0", "NEW FEATURES")]]
+
+# Check the current NEWS file
+
+stopifnot(checkNEWS())
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.15.0 ]</div>
+</div>
+</body></html>

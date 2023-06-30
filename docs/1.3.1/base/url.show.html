@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>R: Display a text URL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/url.show.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/url.show.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>url.show {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='url.show'>Display a text URL</h2>
+
+<h3>Description</h3>
+
+<p>Extension of <code>file.show</code> to display text files on a remote 
+server.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>url.show(url, title = url, file = tempfile(),
+         delete.file = TRUE, method, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="url.show_:_url">url</code></td>
+<td>
+<p>The URL to read from.</p>
+</td></tr>
+<tr><td><code id="url.show_:_title">title</code></td>
+<td>
+<p>Thitel for the browser.</p>
+</td></tr>
+<tr><td><code id="url.show_:_file">file</code></td>
+<td>
+<p>File to copy to.</p>
+</td></tr>
+<tr><td><code id="url.show_:_delete.file">delete.file</code></td>
+<td>
+<p>Delete the file afterwards?</p>
+</td></tr>
+<tr><td><code id="url.show_:_method">method</code></td>
+<td>
+<p>File transfer method: see <code>download.file</code></p>
+</td></tr>
+<tr><td><code id="url.show_:_...">...</code></td>
+<td>
+<p>Arguments to pass to <code>file.show</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>url</code>, <code>file.show</code>,<code>download.file</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: url.show("http://lib.stat.cmu.edu/datasets/csb/ch3a.txt")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.3.1 ]</div>
+</div>
+</body></html>

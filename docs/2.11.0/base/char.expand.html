@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Expand a String with Respect to a Target Table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/char.expand.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/char.expand.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>char.expand {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='char.expand'>Expand a String with Respect to a Target Table</h2>
+
+<h3>Description</h3>
+
+<p>Seeks a unique match of its first argument among the
+elements of its second.  If successful, it returns this element;
+otherwise, it performs an action specified by the third argument.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>char.expand(input, target, nomatch = stop("no match"))</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="char.expand_:_input">input</code></td>
+<td>
+<p>a character string to be expanded.</p>
+</td></tr>
+<tr><td><code id="char.expand_:_target">target</code></td>
+<td>
+<p>a character vector with the values to be matched
+against.</p>
+</td></tr>
+<tr><td><code id="char.expand_:_nomatch">nomatch</code></td>
+<td>
+<p>an <span class="rlang"><b>R</b></span> expression to be evaluated in case expansion was
+not possible.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is particularly useful when abbreviations are allowed in
+function arguments, and need to be uniquely expanded with respect to a
+target table of possible values.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A length-one character vector, one of the elements of <code>target</code>
+(unless <code>nomatch</code> is changed to be a non-error, when it can be a
+zero-length character string).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>charmatch</code> and <code>pmatch</code> for performing
+partial string matching.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>locPars &lt;- c("mean", "median", "mode")
+char.expand("me", locPars, warning("Could not expand!"))
+char.expand("mo", locPars)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.11.0 ]</div>
+</div>
+</body></html>

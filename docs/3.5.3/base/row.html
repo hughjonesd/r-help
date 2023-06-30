@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Row Indexes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/row.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/row.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>row {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='row'>Row Indexes</h2>
+
+<h3>Description</h3>
+
+<p>Returns a matrix of integers indicating their row number in a
+matrix-like object, or a factor indicating the row labels.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>row(x, as.factor = FALSE)
+.row(dim)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="row_:_x">x</code></td>
+<td>
+<p>a matrix-like object, that is one with a two-dimensional
+<code>dim</code>.</p>
+</td></tr>
+<tr><td><code id="row_:_dim">dim</code></td>
+<td>
+<p>a matrix dimension, i.e., <code>integer</code> vector of
+length two (with non-negative entries).</p>
+</td></tr>
+<tr><td><code id="row_:_as.factor">as.factor</code></td>
+<td>
+<p>a logical value indicating whether the value should
+be returned as a factor of row labels (created if necessary)
+rather than as numbers.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An integer (or factor) matrix with the same dimensions as <code>x</code> and whose
+<code>ij</code>-th element is equal to <code>i</code> (or the <code>i</code>-th row label).
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>col</code> to get columns;
+<code>slice.index</code> for a general way to get slice indices
+in an array.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- matrix(1:12, 3, 4)
+# extract the diagonal of a matrix - more slowly than diag(x)
+dx &lt;- x[row(x) == col(x)]
+dx
+
+# create an identity 5-by-5 matrix more slowly than diag(n = 5):
+x &lt;- matrix(0, nrow = 5, ncol = 5)
+x[row(x) == col(x)] &lt;- 1
+x
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.5.3 ]</div>
+</div>
+</body></html>

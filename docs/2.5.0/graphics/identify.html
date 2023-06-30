@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><title>R: Identify Points in a Scatter Plot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/identify.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/identify.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>identify {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='identify'>Identify Points in a Scatter Plot</h2>
+
+<h3>Description</h3>
+
+<p><code>identify</code> reads the position of the graphics pointer when the
+(first) mouse button is pressed.  It then searches the coordinates
+given in <code>x</code> and <code>y</code> for the point closest to the pointer.
+If this point is close enough to the pointer, its index will be returned as
+part of the value of the call.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>identify(x, ...)
+
+## Default S3 method:
+identify(x, y = NULL, labels = seq(along = x), pos = FALSE,
+         n = length(x), plot = TRUE, atpen = FALSE, offset = 0.5,
+         tolerance = 0.25, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="identify_:_x">x</code>, <code id="identify_:_y">y</code></td>
+<td>
+<p>coordinates of points in a scatter plot.  Alternatively, any
+object which defines coordinates (a plotting structure, time
+series etc: see <code>xy.coords</code>) can be given as <code>x</code>,
+and <code>y</code> left undefined.</p>
+</td></tr>
+<tr><td><code id="identify_:_labels">labels</code></td>
+<td>
+<p>an optional character vector, the same length as <code>x</code> and
+<code>y</code>, giving labels for the points.  Will be coerced using
+<code>as.character</code>.</p>
+</td></tr>
+<tr><td><code id="identify_:_pos">pos</code></td>
+<td>
+<p>if <code>pos</code> is <code>TRUE</code>, a component is added to the
+return value which indicates where text was plotted relative to each
+identified point: see Value.</p>
+</td></tr>
+<tr><td><code id="identify_:_n">n</code></td>
+<td>
+<p>the maximum number of points to be identified.</p>
+</td></tr>
+<tr><td><code id="identify_:_plot">plot</code></td>
+<td>
+<p>logical: if <code>plot</code> is <code>TRUE</code>, the labels are printed at
+the points and if <code>FALSE</code> they are omitted.</p>
+</td></tr>
+<tr><td><code id="identify_:_atpen">atpen</code></td>
+<td>
+<p>logical: if <code>TRUE</code> and <code>plot = TRUE</code>, the
+lower-left corners of the labels are plotted at the points clicked
+rather than relative to the points.</p>
+</td></tr>
+<tr><td><code id="identify_:_offset">offset</code></td>
+<td>
+<p>the distance (in character widths) which separates the
+label from identified points.  Ignored if <code>atpen = TRUE</code> or
+<code>pos = 0</code>.</p>
+</td></tr>
+<tr><td><code id="identify_:_tolerance">tolerance</code></td>
+<td>
+<p>the maximal distance (in inches) for the pointer to be
+&lsquo;close enough&rsquo; to a point.</p>
+</td></tr>
+<tr><td><code id="identify_:_...">...</code></td>
+<td>
+<p>further arguments passed to <code>par</code> such as
+<code>cex</code>, <code>col</code> and <code>font</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>identify</code> is only supported on screen devices such as
+<code>X11</code>, <code>windows</code> and <code>quartz</code>.  On other devices the
+call will do nothing.
+</p>
+<p>If <code>plot</code> is <code>TRUE</code>, the point is labelled with
+the corresponding element of <code>text</code>.
+The labels are placed below, to the left, above or to the right
+of the identified point, depending on where the cursor was relative to
+the point.
+</p>
+<p>For the usual <code>X11</code> device the identification process is
+terminated by pressing any mouse button other than the first.
+For the <code>quartz</code> device the process is terminated by
+pressing the <code>ESC</code> key.
+</p>
+<p>On most devices which support <code>identify</code>, successful selection of
+a point is indicated by a bell sound unless
+<code>options(locatorBell = FALSE)</code> has been set.
+</p>
+<p>If the window is resized or hidden and then exposed before the identification
+process has terminated, any labels drawn by <code>identify</code>
+will disappear.  These will reappear once the identification process has 
+terminated and the window is resized or hidden and exposed again.
+This is because the labels drawn by <code>identify</code> are not
+recorded in the device's display list until the identification process has
+terminated.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>pos</code> is <code>FALSE</code>, an integer
+vector containing the indexes of the identified points.
+</p>
+<p>If <code>pos</code> is <code>TRUE</code>, a list containing a component
+<code>ind</code>, indicating which points were identified and a component
+<code>pos</code>, indicating where the labels were placed relative to the
+identified points (1=below, 2=left, 3=above, 4=right and 0=no offset,
+used if <code>atpen = TRUE</code>).
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>locator</code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 2.5.0 ]</div>
+</div>
+</body></html>

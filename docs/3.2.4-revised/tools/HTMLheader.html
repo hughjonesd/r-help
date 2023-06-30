@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>R: Generate a standard HTML header for R help</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4-revised. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/HTMLheader.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/HTMLheader.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>HTMLheader {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='HTMLheader'>
+Generate a standard HTML header for R help
+</h2>
+
+<h3>Description</h3>
+
+<p>This function generates the standard HTML header used on R help pages.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>HTMLheader(title = "R", logo = TRUE, up = NULL,
+           top = file.path(Rhome, "doc/html/index.html"),
+           Rhome = "",
+           css = file.path(Rhome, "doc/html/R.css"),
+           headerTitle = paste("R:", title),
+           outputEncoding = "UTF-8")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="HTMLheader_:_title">title</code></td>
+<td>
+
+<p>The title to display and use in the HTML headers.  Should have had any
+HTML escaping already done.
+</p>
+</td></tr>
+<tr><td><code id="HTMLheader_:_logo">logo</code></td>
+<td>
+
+<p>Whether to display the <span class="rlang"><b>R</b></span> logo after the title.
+</p>
+</td></tr>
+<tr><td><code id="HTMLheader_:_up">up</code></td>
+<td>
+
+<p>Which page (if any) to link to on the &ldquo;up&rdquo; button.
+</p>
+</td></tr>
+<tr><td><code id="HTMLheader_:_top">top</code></td>
+<td>
+
+<p>Which page (if any) to link to on the &ldquo;top&rdquo; button.
+</p>
+</td></tr>
+<tr><td><code id="HTMLheader_:_Rhome">Rhome</code></td>
+<td>
+
+<p>A <b>relative</b> path to the R home directory.  See the &lsquo;Details&rsquo;.
+</p>
+</td></tr>
+<tr><td><code id="HTMLheader_:_css">css</code></td>
+<td>
+
+<p>The relative URL for the Cascading Style Sheet.
+</p>
+</td></tr>
+<tr><td><code id="HTMLheader_:_headerTitle">headerTitle</code></td>
+<td>
+
+<p>The title used in the headers.
+</p>
+</td></tr>
+<tr><td><code id="HTMLheader_:_outputEncoding">outputEncoding</code></td>
+<td>
+
+<p>The declared encoding for the whole page.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>up</code> and <code>top</code> links should be relative to the current page.
+The <code>Rhome</code> path default works with dynamic help; for static help, a
+relative path (e.g., &lsquo;<span class="file">../..</span>&rsquo;) to it should be used.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector containing the lines of an HTML header which can be used
+to start a page in the R help system.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>cat(HTMLheader("This is a sample header"), sep="\n")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 3.2.4-revised ]</div>
+</div>
+</body></html>

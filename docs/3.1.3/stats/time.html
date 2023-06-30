@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>R: Sampling Times of Time Series</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/time.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/time.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>time {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='time'>Sampling Times of Time Series</h2>
+
+<h3>Description</h3>
+
+<p><code>time</code> creates the vector of times at which a time series was sampled.
+</p>
+<p><code>cycle</code> gives the positions in the cycle of each observation.
+</p>
+<p><code>frequency</code> returns the number of samples per unit time and
+<code>deltat</code> the time interval between observations (see
+<code>ts</code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>time(x, ...)
+## Default S3 method:
+time(x, offset = 0, ...)
+
+cycle(x, ...)
+frequency(x, ...)
+deltat(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="time_:_x">x</code></td>
+<td>
+<p>a univariate or multivariate time-series, or a vector or matrix.</p>
+</td></tr>
+<tr><td><code id="time_:_offset">offset</code></td>
+<td>
+<p>can be used to indicate when sampling took place
+in the time unit. <code>0</code> (the default) indicates the start
+of the unit, <code>0.5</code> the middle and <code>1</code> the end of
+the interval.</p>
+</td></tr>
+<tr><td><code id="time_:_...">...</code></td>
+<td>
+<p>extra arguments for future methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These are all generic functions, which will use the
+<code>tsp</code> attribute of <code>x</code> if it exists. <code>time</code>
+and <code>cycle</code> have methods for class <code>ts</code> that coerce
+the result to that class.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ts</code>, <code>start</code>, <code>tsp</code>,
+<code>window</code>.
+</p>
+<p><code>date</code> for clock time, <code>system.time</code>
+for CPU usage.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+cycle(presidents)
+# a simple series plot
+plot(as.vector(time(presidents)), as.vector(presidents), type = "l")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 3.1.3 ]</div>
+</div>
+</body></html>

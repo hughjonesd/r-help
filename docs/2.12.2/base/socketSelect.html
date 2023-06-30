@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>R: Wait on Socket Connections</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/socketSelect.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/socketSelect.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>socketSelect {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='socketSelect'>Wait on Socket Connections</h2>
+
+<h3>Description</h3>
+
+<p>Waits for the first of several socket connections to become available.  
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>socketSelect(socklist, write = FALSE, timeout = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="socketSelect_:_socklist">socklist</code></td>
+<td>
+<p>list of open socket connections</p>
+</td></tr>
+<tr><td><code id="socketSelect_:_write">write</code></td>
+<td>
+<p>logical. If <code>TRUE</code> wait for corresponding socket to
+become available for writing; otherwise wait for it to become
+available for reading.</p>
+</td></tr>
+<tr><td><code id="socketSelect_:_timeout">timeout</code></td>
+<td>
+<p>numeric or <code>NULL</code>. Time in seconds to wait for a
+socket to become available; <code>NULL</code> means wait
+indefinitely.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The values in <code>write</code> are recycled if necessary to make up a
+logical vector the same length as <code>socklist</code>. Socket connections
+can appear more than once in <code>socklist</code>; this can be useful if
+you want to determine whether a socket is available for reading or
+writing.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Logical the same length as <code>socklist</code> indicating
+whether the corresponding socket connection is available for
+output or input, depending on the corresponding value of <code>write</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## test whether socket connection s is available for writing or reading
+socketSelect(list(s,s),c(TRUE,FALSE),timeout=0)
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.12.2 ]</div>
+</div>
+</body></html>

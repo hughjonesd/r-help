@@ -1,0 +1,165 @@
+<!DOCTYPE html><html><head><title>R: Bar Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/barplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/barplot.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>barplot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='barplot'>Bar Plots</h2>
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>barplot(height, width = 1, space = NULL, names.arg = NULL,
+        legend.text = NULL, beside = FALSE, horiz = FALSE,
+        col = heat.colors(NR), border = par("fg"), main = NULL,
+        xlab = NULL, ylab = NULL, xlim = NULL, ylim = NULL,
+        axes = TRUE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="barplot_:_height">height</code></td>
+<td>
+<p>either a vector or matrix of values describing the bars
+which make up the plot.  If <code>height</code> is a vector, the plot
+consists of a sequence of rectangular bars with heights given by the
+values in the vector.  If <code>height</code> is a matrix and
+<code>beside</code> is <code>FALSE</code> then each bar of the plot corresponds
+to a column of <code>height</code>, with the values in the column giving
+the heights of stacked &ldquo;sub-bars&rdquo; making up the bar. If
+<code>height</code> is a matrix and <code>beside</code> is <code>TRUE</code>, then the
+values in each column are juxtaposed rather than stacked.</p>
+</td></tr>
+<tr><td><code id="barplot_:_width">width</code></td>
+<td>
+<p>optional vector of bar widths.</p>
+</td></tr>
+<tr><td><code id="barplot_:_space">space</code></td>
+<td>
+<p>the amount of space (as a fraction of the average bar
+width) left before each bar.  May be given as a single number or one
+number per bar.  If <code>height</code> is a matrix and <code>beside</code> is
+<code>TRUE</code>, <code>space</code> may be specified by two numbers, where the
+first is the space between bars in the same group, and the second
+the space between the groups.  If not given explicitly, it defaults
+to <code>c(0,1)</code> if <code>height</code> is a matrix and <code>beside</code> is
+<code>TRUE</code>, and to 0.2 otherwise.</p>
+</td></tr>
+<tr><td><code id="barplot_:_names.arg">names.arg</code></td>
+<td>
+<p>a vector of names to be plotted below each bar or
+group of bars.  If this argument is omitted, then the names are
+taken from the <code>names</code> attribute of <code>height</code> if this is a
+vector, or the column names of <code>height</code> if this is a matrix.</p>
+</td></tr>
+<tr><td><code id="barplot_:_legend.text">legend.text</code></td>
+<td>
+<p>a vector of text used to construct a legend for the
+plot.  This is only useful when <code>height</code> is a matrix.  In that
+case the legend labels should correspond to the rows of
+<code>height</code>.</p>
+</td></tr>
+<tr><td><code id="barplot_:_beside">beside</code></td>
+<td>
+<p>a logical value.  If <code>FALSE</code>, the columns of
+<code>height</code> are portrayed as stacked bars, and if <code>TRUE</code> the
+columns are portrayed as juxtaposed bars.</p>
+</td></tr>
+<tr><td><code id="barplot_:_horiz">horiz</code></td>
+<td>
+<p>a logical value.  If <code>FALSE</code>, the bars are drawn
+vertically with the first bar to the left.  If <code>TRUE</code>, the bars
+are drwan horizontally with the first at the bottom.</p>
+</td></tr>
+<tr><td><code id="barplot_:_col">col</code></td>
+<td>
+<p>a vector of colors for the bars or bar components.</p>
+</td></tr>
+<tr><td><code id="barplot_:_border">border</code></td>
+<td>
+<p>the color to be used for the border of the bars.</p>
+</td></tr>
+<tr><td><code id="barplot_:_main">main</code></td>
+<td>
+<p>an overall title for the plot.</p>
+</td></tr>
+<tr><td><code id="barplot_:_xlab">xlab</code></td>
+<td>
+<p>a label for the x axis.</p>
+</td></tr>
+<tr><td><code id="barplot_:_ylab">ylab</code></td>
+<td>
+<p>a label for the y axis.</p>
+</td></tr>
+<tr><td><code id="barplot_:_xlim">xlim</code></td>
+<td>
+<p>limits for the x axis.</p>
+</td></tr>
+<tr><td><code id="barplot_:_ylim">ylim</code></td>
+<td>
+<p>limits for the y axis.</p>
+</td></tr>
+<tr><td><code id="barplot_:_axes">axes</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, a vertical axis is drawn.</p>
+</td></tr>
+<tr><td><code id="barplot_:_...">...</code></td>
+<td>
+<p>further arguments are passed to <code>title(.)</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A numeric vector, giving the coordinates of the bar midpoints drawn,
+useful for adding to the graph.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>plot(...,type="h")</code>,
+<code>dotplot</code>, <code>hist</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>tN &lt;- table(Ni &lt;- rpois(100, lambda=5))
+r &lt;- barplot(tN, col='gray')
+points(r, tN, type='h', col='red', lwd=2)#- type = "h" plotting *is* `bar'plot
+
+data(deaths)
+mp &lt;- barplot(deaths) # default
+tot &lt;- apply(deaths,2,sum); text(mp, tot + 3, format(tot))
+barplot(deaths, beside = TRUE,
+        col = c("lightblue", "mistyrose", "lightcyan",
+                "lavender", "cornsilk"),
+        legend = rownames(deaths), ylim = c(0, 100))
+title(main = "Death Rates in Virginia", font.main = 4)
+
+barplot(t(deaths)[, 5:1], beside = TRUE,
+        col = c("lightblue", "mistyrose",
+                "lightcyan", "lavender"),
+        legend = colnames(deaths), ylim = c(0,80),
+        main = "Death Rates in Virginia", font.main = 4)
+        ## instead of title(.)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.3 ]</div>
+</div>
+</body></html>

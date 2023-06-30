@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>R: Plot Methods for 'table' Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.table.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.table.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.table {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.table'>Plot Methods for <code>table</code> Objects</h2>
+
+<h3>Description</h3>
+
+<p>This is a method of the generic <code>plot</code> function for
+(contingency) <code>table</code> objects.  Whereas for two- and more
+dimensional tables, a <code>mosaicplot</code> is drawn,
+one-dimensional ones are plotted as bars.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'table'
+plot(x, type = "h", ylim = c(0, max(x)), lwd = 2,
+     xlab = NULL, ylab = NULL, frame.plot = is.num, ...)
+## S3 method for class 'table'
+points(x, y = NULL, type = "h", lwd = 2, ...)
+## S3 method for class 'table'
+lines(x, y = NULL, type = "h", lwd = 2, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.table_:_x">x</code></td>
+<td>
+<p>a <code>table</code> (like) object.</p>
+</td></tr>
+<tr><td><code id="plot.table_:_y">y</code></td>
+<td>
+<p>Must be <code>NULL</code>: there to protect against incorrect calls.</p>
+</td></tr>
+<tr><td><code id="plot.table_:_type">type</code></td>
+<td>
+<p>plotting type.</p>
+</td></tr>
+<tr><td><code id="plot.table_:_ylim">ylim</code></td>
+<td>
+<p>range of y-axis.</p>
+</td></tr>
+<tr><td><code id="plot.table_:_lwd">lwd</code></td>
+<td>
+<p>line width for bars when <code>type = "h"</code> is used in the 1D case.</p>
+</td></tr>
+<tr><td><code id="plot.table_:_xlab">xlab</code>, <code id="plot.table_:_ylab">ylab</code></td>
+<td>
+<p>x- and y-axis labels.</p>
+</td></tr>
+<tr><td><code id="plot.table_:_frame.plot">frame.plot</code></td>
+<td>
+<p>logical indicating if a frame (<code>box</code>)
+should be drawn in the 1D case.  Defaults to true when <code>x</code> has
+<code>dimnames</code> coerce-able to numbers.</p>
+</td></tr>
+<tr><td><code id="plot.table_:_...">...</code></td>
+<td>
+<p>further graphical arguments, see <code>plot.default</code>.
+<code>axes = FALSE</code> is accepted.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>plot.factor</code>, the <code>plot</code> method for factors.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## 1-d tables
+(Poiss.tab &lt;- table(N = stats::rpois(200, lambda = 5)))
+plot(Poiss.tab, main = "plot(table(rpois(200, lambda = 5)))")
+
+plot(table(state.division))
+
+## 4-D :
+plot(Titanic, main ="plot(Titanic, main= *)")
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>graphics</em> version 4.0.3 ]</div>
+</div>
+</body></html>

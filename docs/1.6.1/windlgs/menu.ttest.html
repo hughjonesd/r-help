@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><title>R: An Example Dialog for t Tests</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/windlgs/html/menu.ttest.html'>https://stat.ethz.ch/R-manual/R-patched/library/windlgs/html/menu.ttest.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>menu.ttest {windlgs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='menu.ttest'>An Example Dialog for t Tests</h2>
+
+<h3>Description</h3>
+
+<p>An example of writing a dialog box for an <span class="rlang"><b>R</b></span> function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>menu.ttest()
+menu.ttest2()
+menu.ttest3()
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>This just calls <code>t.test</code> and returns its value for
+printing by <code>print.htest</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The purpose of this function is to exemplify GUI programming. See
+the source C code for the details.  The three functions differ in
+the way they return the information. <code>menu.ttest</code> returns the
+values of the fields etc for assembly in <span class="rlang"><b>R</b></span> code. <code>menu.ttest2</code>
+submits a string directly to the console.  <code>menu.ttest3</code>
+returns the parsed and evaluated expression as an R object.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## The functions are currently defined as
+menu.ttest &lt;- function () 
+{
+    z &lt;- .C("menu_ttest", vars = character(2), ints = integer(4), 
+            level = double(1))
+    ## check for cancel button
+    if (z$ints[4] &gt; 1) return(invisible())
+    ## do it this way to get named variables in the answer
+    oc &lt;- call("t.test", x = as.name(z$vars[1]), y = as.name(z$vars[2]), 
+               alternative = c("two.sided", "less", "greater")[z$ints[1]], 
+               paired = z$ints[2] != 0, var.equal = z$ints[3] != 0, 
+               conf.level = z$level)
+    eval(oc)
+}
+
+menu.ttest2 &lt;- function()
+{
+    .C("menu_ttest2")
+    return(invisible())
+}
+
+menu.ttest3 &lt;- function() .Call("menu_ttest3")
+</code></pre>
+
+
+</div>
+</body></html>

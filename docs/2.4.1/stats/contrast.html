@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head><title>R: Contrast Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/contrast.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/contrast.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>contrast {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='contrast'>Contrast Matrices</h2>
+
+<h3>Description</h3>
+
+<p>Return a matrix of contrasts.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>contr.helmert(n, contrasts = TRUE)
+contr.poly(n, scores = 1:n, contrasts = TRUE)
+contr.sum(n, contrasts = TRUE)
+contr.treatment(n, base = 1, contrasts = TRUE)
+contr.SAS(n, contrasts = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="contrast_:_n">n</code></td>
+<td>
+<p>a vector of levels for a factor, or the number of levels.</p>
+</td></tr>
+<tr><td><code id="contrast_:_contrasts">contrasts</code></td>
+<td>
+<p>a logical indicating whether contrasts should be
+computed.</p>
+</td></tr>
+<tr><td><code id="contrast_:_scores">scores</code></td>
+<td>
+<p>the set of values over which orthogonal polynomials are
+to be computed.</p>
+</td></tr>
+<tr><td><code id="contrast_:_base">base</code></td>
+<td>
+<p>an integer specifying which group is considered the
+baseline group. Ignored if <code>contrasts</code> is <code>FALSE</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These functions are used for creating contrast matrices for use in
+fitting analysis of variance and regression models.  The columns of
+the resulting matrices contain contrasts which can be used for coding
+a factor with <code>n</code> levels.  The returned value contains the
+computed contrasts.  If the argument <code>contrasts</code> is <code>FALSE</code>
+a square indicator matrix (the dummy coding) is returned <b>except</b>
+for <code>contr.poly</code> (which include the 0-degree, i.e. constant,
+polynomial when <code>contrasts = FALSE</code>).
+</p>
+<p><code>cont.helmert</code> returns Helmert contrasts, which contrast the
+second level with the first, the third with the average of the first
+two, and so on.  <code>contr.poly</code> returns contrasts based on
+orthogonal polynomials. <code>contr.sum</code> uses &lsquo;sum to zero
+contrasts&rsquo;.
+</p>
+<p><code>contr.treatment</code> contrasts each level with the baseline level
+(specified by <code>base</code>): the baseline level is omitted.  Note that
+this does not produce &lsquo;contrasts&rsquo; as defined in the standard
+theory for linear models as they are not orthogonal to the intercept.
+</p>
+<p><code>contr.SAS</code> is a wrapper for <code>contr.treatment</code> that sets
+the base level to be the last level of the factor.  The coefficients
+produced when using these contrasts should be equivalent to those
+produced by many (but not all) SAS procedures.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A matrix with <code>n</code> rows and <code>k</code> columns, with <code>k=n-1</code> if
+<code>contrasts</code> is <code>TRUE</code> and <code>k=n</code> if <code>contrasts</code> is
+<code>FALSE</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. and Hastie, T. J. (1992)
+<em>Statistical models.</em>
+Chapter 2 of <em>Statistical Models in S</em>
+eds J. M. Chambers and T. J. Hastie, Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>contrasts</code>,
+<code>C</code>,
+and
+<code>aov</code>,
+<code>glm</code>,
+<code>lm</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>(cH &lt;- contr.helmert(4))
+apply(cH, 2,sum) # column sums are 0!
+crossprod(cH) # diagonal -- columns are orthogonal
+contr.helmert(4, contrasts = FALSE) # just the 4 x 4 identity matrix
+
+(cT &lt;- contr.treatment(5))
+all(crossprod(cT) == diag(4)) # TRUE: even orthonormal
+
+(cP &lt;- contr.SAS(5))
+all(crossprod(cP) == diag(4)) # TRUE: even orthonormal
+
+(cP &lt;- contr.poly(3)) # Linear and Quadratic
+zapsmall(crossprod(cP), dig=15) # orthonormal up to fuzz
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.4.1 ]</div>
+</div>
+</body></html>

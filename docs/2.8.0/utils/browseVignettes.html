@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>R: List Vignettes in an HTML Browser</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/browseVignettes.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/browseVignettes.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>browseVignettes {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='browseVignettes'>List Vignettes in an HTML Browser</h2>
+
+<h3>Description</h3>
+
+<p>List available vignettes in an HTML browser with links to PDF,
+LaTeX/noweb source, and (tangled) R code (if available).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>browseVignettes(package = NULL, lib.loc = NULL, all = TRUE)
+
+## S3 method for class 'browseVignettes'
+print(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="browseVignettes_:_package">package</code></td>
+<td>
+<p>a character vector with the names of packages to
+search through, or <code>NULL</code> in which &quot;all&quot; packages (as defined
+by argument <code>all</code>) are searched.</p>
+</td></tr>
+<tr><td><code id="browseVignettes_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
+or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
+libraries currently known.</p>
+</td></tr>
+<tr><td><code id="browseVignettes_:_all">all</code></td>
+<td>
+<p>logical; if <code>TRUE</code> search
+all available packages in the library trees specified by <code>lib.loc</code>, 
+and if <code>FALSE</code>, search only attached packages.</p>
+</td></tr>
+<tr><td><code id="browseVignettes_:_x">x</code></td>
+<td>
+<p>Object of class <code>browseVignettes</code>.</p>
+</td></tr>
+<tr><td><code id="browseVignettes_:_...">...</code></td>
+<td>
+<p>Further arguments, ignored by the <code>print</code> method. </p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Function <code>browseVignettes</code> returns an object of the same class;
+the print method displays it as an HTML page in a browser (using
+<code>browseURL</code>).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>browseURL</code>, <code>vignette</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## List vignettes from all *attached* packages
+browseVignettes(all = FALSE)
+
+## List vignettes from a specific package
+browseVignettes("grid")
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>utils</em> version 2.8.0 ]</div>
+</div>
+</body></html>

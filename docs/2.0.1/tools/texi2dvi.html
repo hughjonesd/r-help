@@ -1,0 +1,82 @@
+<!DOCTYPE html><html><head><title>R: Compile LaTeX Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/texi2dvi.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/texi2dvi.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>texi2dvi {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='texi2dvi'>Compile LaTeX Files</h2>
+
+<h3>Description</h3>
+
+<p>Run latex and bibtex until all cross-references are
+resolved and create either a dvi or PDF file.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>texi2dvi(file, pdf = FALSE, clean = FALSE, quiet = TRUE,
+         texi2dvi = getOption("texi2dvi"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="texi2dvi_:_file">file</code></td>
+<td>
+<p>character.  Name of TeX source file.</p>
+</td></tr>
+<tr><td><code id="texi2dvi_:_pdf">pdf</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, a PDF file is produced insted of
+the default dvi file (texi2dvi command line option <span class="option">--pdf</span>).</p>
+</td></tr>
+<tr><td><code id="texi2dvi_:_clean">clean</code></td>
+<td>
+<p>logical.  If <code>TRUE</code>, all auxiliary files are removed
+(texi2dvi command line option <span class="option">--clean</span>). Does not work on
+some platforms.</p>
+</td></tr>
+<tr><td><code id="texi2dvi_:_quiet">quiet</code></td>
+<td>
+<p>logical.  No output unless an error occurs.</p>
+</td></tr>
+<tr><td><code id="texi2dvi_:_texi2dvi">texi2dvi</code></td>
+<td>
+<p>character (or <code>NULL</code>).  Script or program used to
+compile a TeX file to dvi or PDF, respectively.  If set to
+<code>NULL</code>, the &lsquo;<span class="file">texi2dvi</span>&rsquo; script in R's &lsquo;<span class="file">bin</span>&rsquo; directory
+is used (if it exists), otherwise it is assumed that
+<code>texi2dvi</code> is in the search path.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Some TeX installations on Windows do not have &lsquo;<span class="file">texi2dvi.exe</span>&rsquo;.  If
+&lsquo;<span class="file">texify.exe</span>&rsquo; is present (e.g., part of MikTeX), then it can be 
+used instead: set <code>options(texi2dvi="texify.exe")</code> or to the full
+path of the program.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Achim Zeileis</p>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.0.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><title>R: Model Predictions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>predict {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='predict'>Model Predictions</h2>
+
+<h3>Description</h3>
+
+<p><code>predict</code> is a generic function for predictions from the results of
+various model fitting functions.  The function invokes particular
+<em>methods</em> which depend on the <code>class</code> of
+the first argument.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>predict (object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="predict_:_object">object</code></td>
+<td>
+<p>a model object for which prediction is desired.</p>
+</td></tr>
+<tr><td><code id="predict_:_...">...</code></td>
+<td>
+<p>additional arguments affecting the predictions produced.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Most prediction methods which similar to fitting linear models have an
+argument <code>newdata</code> specifiying the first place to look for
+explanatory variables to be used for prediction.
+Some considerable attempts are made to match up
+the columns in <code>newdata</code> to those used for fitting, for example
+that they are of comparable types and that any factors have the same
+level set in the same order (or can be transformed to be so).
+</p>
+<p>Time series prediction methods in package <span class="pkg">stats</span> have an argument
+<code>n.ahead</code> specifying how many time steps ahead to predict.
+</p>
+<p>Many methods have a logical argument <code>se.fit</code> saying if standard
+errors are to returned.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The form of the value returned by <code>predict</code> depends on the
+class of its argument.  See the documentation of the
+particular methods for details of what is produced by that method.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. and Hastie, T. J. (1992)
+<em>Statistical Models in S</em>.
+Wadsworth \&amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>predict.glm</code>,
+<code>predict.lm</code>,
+<code>predict.loess</code>,
+<code>predict.nls</code>,
+<code>predict.poly</code>,
+<code>predict.princomp</code>,
+<code>predict.smooth.spline</code>.
+</p>
+<p>For time-series prediction,
+<code>predict.ar</code>,
+<code>predict.Arima</code>,
+<code>predict.arima0</code>,
+<code>predict.HoltWinters</code>,
+<code>predict.StructTS</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## All the "predict" methods found
+## NB most of the methods in the standard packages are hidden.
+for(fn in methods("predict"))
+   try({
+       f &lt;- eval(substitute(getAnywhere(fn)$objs[[1]], list(fn = fn)))
+       cat(fn, ":\n\t", deparse(args(f)), "\n")
+       }, silent = TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.2.0 ]</div>
+</div>
+</body></html>

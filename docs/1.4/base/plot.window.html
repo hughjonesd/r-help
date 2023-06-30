@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>R: Set up World Coordinates for Graphics Window</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/plot.window.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/plot.window.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>plot.window {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='plot.window'>Set up World Coordinates for Graphics Window</h2>
+
+<h3>Description</h3>
+
+<p>This function sets up the world coordinate system for a graphics
+window.  It is called by higher level functions such as
+<code>plot.default</code> (<em>after</em> <code>plot.new</code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>plot.window(xlim, ylim, log = "", asp = NA, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="plot.window_:_xlim">xlim</code>, <code id="plot.window_:_ylim">ylim</code></td>
+<td>
+<p>numeric of length 2, giving the x and y coordinates
+ranges.</p>
+</td></tr>
+<tr><td><code id="plot.window_:_log">log</code></td>
+<td>
+<p>character; indicating which axes should be in log scale.</p>
+</td></tr>
+<tr><td><code id="plot.window_:_asp">asp</code></td>
+<td>
+<p>numeric, giving the <b>asp</b>ect ratio y/x.</p>
+</td></tr>
+<tr><td><code id="plot.window_:_...">...</code></td>
+<td>
+<p>further graphical parameters as in <code>par</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note that if <code>asp</code> is a finite positive value then the window is
+set up so that one data unit in the x direction is equal in length to
+<code>asp</code> <code class="reqn">\times</code> one data unit in the y direction.
+</p>
+<p>The special case <code>asp == 1</code> produces plots where distances
+between points are represented accurately on screen.  Values with
+<code>asp &gt; 1</code> can be used to produce more accurate maps when using
+latitude and longitude.
+</p>
+<p>Usually, one should rather use the higher level functions such as
+<code>plot</code>, <code>hist</code>, <code>image</code>, ...,
+instead and refer to their help pages for explanation of the
+arguments.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>xy.coords</code>,
+<code>plot.xy</code>,
+<code>plot.default</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>##--- An example for the use of  `asp' :
+library(mva)
+data(eurodist)
+loc &lt;- cmdscale(eurodist)
+rx &lt;- range(x &lt;- loc[,1])
+ry &lt;- range(y &lt;- -loc[,2])
+plot(x, y, type="n", asp=1, xlab="", ylab="")
+abline(h=pretty(rx, 10),
+       v=pretty(ry, 10), col= "lightgray")
+text(x, y, names(eurodist), cex=0.5)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.4 ]</div>
+</div>
+</body></html>

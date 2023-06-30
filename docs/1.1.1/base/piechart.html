@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>R: Pie Charts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/piechart.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/piechart.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>piechart {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='piechart'>Pie Charts</h2>
+
+<h3>Description</h3>
+
+<p>Draw a pie chart.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>piechart(x, labels=names(x), shadow=FALSE,
+        edges=200, radius=0.8, fill=NULL, main=NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="piechart_:_x">x</code></td>
+<td>
+<p>a vector of positive quantities.
+The values in <code>x</code> are displayed as the areas of pie slices.</p>
+</td></tr>
+<tr><td><code id="piechart_:_labels">labels</code></td>
+<td>
+<p>a vector of character strings giving names for
+the slices.</p>
+</td></tr>
+<tr><td><code id="piechart_:_shadow">shadow</code></td>
+<td>
+<p>a logical vector indicating whether a shadow
+effect should be attempted for the chart.
+This only makes sense if the slices are filled with colors.</p>
+</td></tr>
+<tr><td><code id="piechart_:_edges">edges</code></td>
+<td>
+<p>the circular outline of the pie is approximated by a
+polygon with this many edges.</p>
+</td></tr>
+<tr><td><code id="piechart_:_radius">radius</code></td>
+<td>
+<p>the pie is drawn centered in a square box
+whose sides range from <code class="reqn">-1</code> to <code class="reqn">1</code>.
+If the character strings labeling the slices are long it
+may be necessary to use a smaller radius.</p>
+</td></tr>
+<tr><td><code id="piechart_:_col">col</code></td>
+<td>
+<p>a vector of colors to be used in filling
+the slices.</p>
+</td></tr>
+<tr><td><code id="piechart_:_main">main</code></td>
+<td>
+<p>an overall title for the plot.</p>
+</td></tr>
+<tr><td><code id="piechart_:_...">...</code></td>
+<td>
+<p>graphical parameters can be given as arguments to <code>piechart</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>Pie charts are a very bad way of displaying information.
+The eye is good at judging linear measures and bad at judging
+relative areas.
+</p>
+<p>A bar chart or dot chart is a preferable way of displaying this
+type of data.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dotplot</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>piechart(rep(1,24), col=rainbow(24), radius=0.9)
+
+pie.sales &lt;- c(0.12, 0.3, 0.26, 0.16, 0.04, 0.12)
+names(pie.sales) &lt;- c("Blueberry", "Cherry",
+    "Apple", "Boston Cream", "Other", "Vanilla Cream")
+piechart(pie.sales,
+    col=c("purple", "violetred1", "green3",
+    "cornsilk", "cyan", "white"))
+piechart(pie.sales,
+    col=gray(seq(0.4,1.0,length=6)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.1.1 ]</div>
+</div>
+</body></html>

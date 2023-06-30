@@ -1,0 +1,145 @@
+<!DOCTYPE html><html><head><title>R: Default Printing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/print.default.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/print.default.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>print.default {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='print.default'>Default Printing</h2>
+
+<h3>Description</h3>
+
+<p><code>print.default</code> is the <em>default</em> method of the generic
+<code>print</code> function which prints its argument.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## Default S3 method:
+print(x, digits = NULL, quote = TRUE, na.print = NULL,
+      print.gap = NULL, right = FALSE, max = NULL, useSource = TRUE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="print.default_:_x">x</code></td>
+<td>
+<p>the object to be printed.</p>
+</td></tr>
+<tr><td><code id="print.default_:_digits">digits</code></td>
+<td>
+<p>a non-null value for <code>digits</code> specifies the minimum
+number of significant digits to be printed in values.  The default,
+<code>NULL</code>, uses <code>getOption(digits)</code>.  (For the
+interpretation for complex numbers see <code>signif</code>.)
+Non-integer values will be rounded down, and only values
+greater than or equal to 1 and no greater than 22 are accepted.
+</p>
+</td></tr>
+<tr><td><code id="print.default_:_quote">quote</code></td>
+<td>
+<p>logical, indicating whether or not strings
+(<code>character</code>s) should be printed with surrounding quotes.</p>
+</td></tr>
+<tr><td><code id="print.default_:_na.print">na.print</code></td>
+<td>
+<p>a character string which is used to indicate
+<code>NA</code> values in printed output, or <code>NULL</code> (see Details)</p>
+</td></tr>
+<tr><td><code id="print.default_:_print.gap">print.gap</code></td>
+<td>
+<p>a non-negative integer <code class="reqn">\le 1024</code>,
+or <code>NULL</code> (meaning 1), giving the spacing between adjacent
+columns in printed vectors, matrices and arrays.</p>
+</td></tr>
+<tr><td><code id="print.default_:_right">right</code></td>
+<td>
+<p>logical, indicating whether or not strings should be
+right aligned.  The default is left alignment.</p>
+</td></tr>
+<tr><td><code id="print.default_:_max">max</code></td>
+<td>
+<p>a non-null value for <code>max</code> specifies the approximate
+maximum number of entries to be printed.  The default, <code>NULL</code>,
+uses <code>getOption(max.print)</code>; see that help page for more
+details.</p>
+</td></tr>
+<tr><td><code id="print.default_:_useSource">useSource</code></td>
+<td>
+<p>logical, indicating whether to use source
+references or copies rather than deparsing language objects.
+The default is to use the original source if it is available.</p>
+</td></tr>
+<tr><td><code id="print.default_:_...">...</code></td>
+<td>
+<p>further arguments to be passed to or from other
+methods.  They are ignored in this function.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The default for printing <code>NA</code>s is to print <code>NA</code> (without
+quotes) unless this is a character <code>NA</code> <em>and</em> <code>quote =
+    FALSE</code>, when <code>&lt;NA&gt;</code> is printed.
+</p>
+<p>The same number of decimal places is used throughout a vector.  This
+means that <code>digits</code> specifies the minimum number of significant
+digits to be used, and that at least one entry will be encoded with
+that minimum number.  However, if all the encoded elements then have
+trailing zeroes, the number of decimal places is reduced until at
+least one element has a non-zero final digit.  Decimal points are only
+included if at least one decimal place is selected.
+</p>
+<p>Attributes are printed respecting their class(es), using the values of
+<code>digits</code> to <code>print.default</code>, but using the default values
+(for the methods called) of the other arguments.
+</p>
+<p>When the <span class="pkg">methods</span> package is attached, <code>print</code> will call
+<code>show</code> for <span class="rlang"><b>R</b></span> objects with formal classes if called
+with no optional arguments.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>Using too large a value of <code>digits</code> may lead to representation
+errors in the calculation of the number of significant digits and the
+decimal representation: these are likely for <code>digits &gt;= 16</code>, and
+these possible errors are taken into account in
+assessing the numher of significant digits to be printed in that case.
+</p>
+<p>Whereas earlier versions of <span class="rlang"><b>R</b></span> might have printed further digits for
+<code>digits &gt;= 16</code> on some platforms, they were not necessarily reliable.
+</p>
+
+
+<h3>Single-byte locales</h3>
+
+<p>If a non-printable character is encountered during output, it is
+represented as one of the ANSI escape sequences (<code>\a</code>, <code>\b</code>,
+<code>\f</code>, <code>\n</code>, <code>\r</code>, <code>\t</code>, <code>\v</code>, <code>\\</code> and
+<code>\0</code>: see Quotes), or failing that as a 3-digit octal
+code: for example the UK currency pound sign in the C locale (if
+implemented correctly) is printed as <code>\243</code>.  Which characters
+are non-printable depends on the locale.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 2.6.1 ]</div>
+</div>
+</body></html>

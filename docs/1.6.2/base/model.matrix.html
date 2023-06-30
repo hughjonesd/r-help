@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><title>R: Construct Design Matrices</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/model.matrix.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/model.matrix.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>model.matrix {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='model.matrix'>Construct Design Matrices</h2>
+
+<h3>Description</h3>
+
+<p><code>model.matrix</code> creates a design matrix.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>model.matrix   (object, ...)
+## Default S3 method:
+model.matrix(object, data = environment(object),
+             contrasts.arg = NULL, xlev = NULL, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="model.matrix_:_object">object</code></td>
+<td>
+<p>an object of an appropriate class. For the default
+method, a model formula or terms object.</p>
+</td></tr>
+<tr><td><code id="model.matrix_:_data">data</code></td>
+<td>
+<p>a data frame created with <code>model.frame</code>.</p>
+</td></tr>
+<tr><td><code id="model.matrix_:_contrasts.arg">contrasts.arg</code></td>
+<td>
+<p>A list, whose entries are contrasts suitable for
+input to the <code>contrasts</code> function and whose names are
+the names of columns of <code>data</code> containing <code>factor</code>s.</p>
+</td></tr>
+<tr><td><code id="model.matrix_:_xlev">xlev</code></td>
+<td>
+<p>to be used as argument of <code>model.frame</code> if
+<code>data</code> has no <code>"terms"</code> attribute.</p>
+</td></tr>
+<tr><td><code id="model.matrix_:_...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>model.matrix</code> creates a design matrix from the description given
+in <code>terms(formula)</code>, using the data in <code>data</code> which must
+contain columns with the same names as would be created by a call to
+<code>model.frame(formula)</code> or, more precisely, by evaluating
+<code>attr(terms(formula), "variables")</code>.  There may be other columns
+and the order is not important. If <code>contrasts</code> is specified it
+overrides the default factor coding for that variable.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The design matrix for a regression model with the specified formula
+and data.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. and Hastie, T. J. eds (1992)
+<em>Statistical Models in S.</em>
+Chapman &amp; Hall, London.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>model.frame</code>, <code>model.extract</code>,
+<code>terms</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(trees)
+ff &lt;- log(Volume) ~ log(Height) + log(Girth)
+str(m &lt;- model.frame(ff, trees))
+mat &lt;- model.matrix(ff, m)
+
+dd &lt;- data.frame(a = gl(3,4), b = gl(4,1,12))# balanced 2-way
+options("contrasts")
+model.matrix(~ a + b, dd)
+model.matrix(~ a + b, dd, contrasts = list(a="contr.sum"))
+model.matrix(~ a + b, dd, contrasts = list(a="contr.sum", b="contr.poly"))
+m.orth &lt;- model.matrix(~a+b, dd, contrasts = list(a="contr.helmert"))
+crossprod(m.orth)# m.orth is  ALMOST  orthogonal
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.2 ]</div>
+</div>
+</body></html>

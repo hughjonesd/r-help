@@ -1,0 +1,95 @@
+<!DOCTYPE html><html><head><title>R: Interface to the HDF5 Library</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/hdf5.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/hdf5.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>hdf5 {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='hdf5'>Interface to the HDF5 Library</h2>
+
+<h3>Description</h3>
+
+<p><code>hdf5save</code> and <code>hd5fload</code> provide an experimental interface
+to version 5 of the NCSA HDF library.  <code>hdf5save</code> writes a
+representation of <span class="rlang"><b>R</b></span> objects to the specified file in a form which
+can be read by software which understands the HDF5 format.
+The objects can be read back from the file at a later
+date by using the function <code>hdf5load</code>.
+</p>
+<p>Not all R types are supported and it probably doesn't make sense to
+put some of them into an HDF file (e.g. closures).  However, lists,
+strings, vectors, and matrices work.  Lists map to HDF groups.
+Vectors and matrices map to datasets.
+</p>
+<p>This capability is only available on machines which have the HDF5
+library.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>hdf5save(file, ...)
+hdf5load(file, load=TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="hdf5_:_file">file</code></td>
+<td>
+<p>the name of the file in which the objects will be stored.</p>
+</td></tr>
+<tr><td><code id="hdf5_:_...">...</code></td>
+<td>
+<p>the names of the objects to be saved.</p>
+</td></tr>
+<tr><td><code id="hdf5_:_load">load</code></td>
+<td>
+<p>a logical value.  If <code>FALSE</code>, a character vector
+containing the names of the objects in the file is returned.
+If <code>TRUE</code> (the default), the objects are returned as the
+components of a named list.</p>
+</td></tr>
+</table>
+
+
+<h3>Author(s)</h3>
+
+<p>Marcus G. Daniels <a href="mailto:mgd@santafe.edu">mgd@santafe.edu</a>.</p>
+
+
+<h3>References</h3>
+
+<p><a href="http://hdf.ncsa.uiuc.edu">http://hdf.ncsa.uiuc.edu</a></p>
+
+
+<h3>See Also</h3>
+
+<p><code>save</code>, <code>load</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+hdf5save("examp.hdf", pi, letters, ls)
+str(hdf5load("examp.hdf"))
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.63.2 ]</div>
+</div>
+</body></html>

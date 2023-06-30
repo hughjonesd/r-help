@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: Weighted Arithmetic Mean</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/weighted.mean.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/weighted.mean.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>weighted.mean {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='weighted.mean'>Weighted Arithmetic Mean</h2>
+
+<h3>Description</h3>
+
+<p>Compute a weighted mean of a numeric vector.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>weighted.mean(x, w, na.rm = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="weighted.mean_:_x">x</code></td>
+<td>
+<p>a numeric vector containing the values
+whose mean is to be computed.</p>
+</td></tr>
+<tr><td><code id="weighted.mean_:_w">w</code></td>
+<td>
+<p>a vector of weights the same length as <code>x</code> giving
+the weights to use for each element of <code>x</code>.</p>
+</td></tr>
+<tr><td><code id="weighted.mean_:_na.rm">na.rm</code></td>
+<td>
+<p>a logical value indicating whether <code>NA</code>
+values in <code>x</code> should be stripped before the computation proceeds.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>w</code> is missing then all elements of <code>x</code> are
+given the same weight.
+</p>
+<p>Missing values in <code>w</code> are not handled.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>mean</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## GPA from Siegel 1994
+wt &lt;- c(5,  5,  4,  1)/15
+x &lt;- c(3.7,3.3,3.5,2.8)
+xm &lt;- weighted.mean(x,wt)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>stats</em> version 2.7.2 ]</div>
+</div>
+</body></html>

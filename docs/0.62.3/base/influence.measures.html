@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><title>R: Regression Diagnostics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.3. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/influence.measures.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/influence.measures.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>influence.measures {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='influence.measures'>Regression Diagnostics</h2>
+
+<h3>Description</h3>
+
+<p>This suite of functions can be used to compute some of the regression
+diagnostics discussed in Belsley, Kuh and Welsch (1980), and in Cook
+and Weisberg (1982).
+</p>
+<p>The primary function is <code>influence.measures</code> which produces a
+class <code>"infl"</code> object tabular display showing the DFBETAS for
+each model variable, DFFITS, covariance ratios, Cook's distances and
+the diagonal elements of the hat matrix.  Cases which are influential
+with respect to any of these measures are marked with an asterisk.
+</p>
+<p>The functions <code>rstudent</code>, <code>dfbetas</code>, <code>dffits</code>,
+<code>covratio</code> and <code>cooks.distance</code> provide direct access to the
+corresponding diagnostic quantities.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>influence.measures(lm.obj)
+summary.infl (object, digits = max(2, .Options$digits - 5), ...)
+  print.infl (x, digits = max(3, .Options$digits - 4), ...)
+
+rstandard(lm.obj)
+rstudent(lm.obj)
+dfbetas(lm.obj)
+dffits(lm.obj)
+covratio(lm.obj)
+cooks.distance(lm.obj)
+hat(xmat)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="influence.measures_:_lm.obj">lm.obj</code></td>
+<td>
+<p>the results returned by <code>lm</code>.</p>
+</td></tr>
+<tr><td><code id="influence.measures_:_xmat">xmat</code></td>
+<td>
+<p>the &lsquo;X&rsquo; or design matrix.</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Belsley, D. A., E. Kuh and R. E. Welsch (1980).
+<em>Regression Diagnostics.</em>
+New York: Wiley.
+</p>
+<p>Cook, R. D. and S. Weisberg (1982).
+<em>Residuals and Influence in Regression.</em>
+London: Chapman and Hall.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>lm.influence</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Analysis of the life-cycle savings data
+## given in Belsley, Kuh and Welsch.
+data(savings)
+lm.SR &lt;- lm(sr ~ pop15 + pop75 + dpi + ddpi, data = savings)
+summary(inflm.SR &lt;- influence.measures(lm.SR))
+inflm.SR
+which(apply(inflm.SR$is.inf, 1, any)) # which observations `are' influential
+dim(dfb &lt;- dfbetas(lm.SR))            # the 1st columns of influence.measures
+all(dfb == inflm.SR$infmat[, 1:5])
+rstudent(lm.SR)
+dffits(lm.SR)
+covratio(lm.SR)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 0.62.3 ]</div>
+</div>
+</body></html>

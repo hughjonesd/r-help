@@ -1,0 +1,136 @@
+<!DOCTYPE html><html><head><title>R: Rd Utilities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/Rdutils.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/Rdutils.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>Rdutils {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='Rdutils'>Rd Utilities</h2>
+
+<h3>Description</h3>
+
+<p>Utilities for computing on the information in Rd objects.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Rd_db(package, dir, lib.loc = NULL)
+Rd_parse(file, text = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="Rdutils_:_package">package</code></td>
+<td>
+<p>a character string naming an installed package.</p>
+</td></tr>
+<tr><td><code id="Rdutils_:_dir">dir</code></td>
+<td>
+<p>a character string specifying the path to a package's root
+source directory.  This should contain the subdirectory &lsquo;<span class="file">man</span>&rsquo;
+with <span class="rlang"><b>R</b></span> documentation sources (in Rd format).  Only used if
+<code>package</code> is not given.</p>
+</td></tr>
+<tr><td><code id="Rdutils_:_lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
+or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
+libraries currently known.  The specified library trees are used to
+to search for <code>package</code>.</p>
+</td></tr>
+<tr><td><code id="Rdutils_:_file">file</code></td>
+<td>
+<p>a connection, or a character string giving the name of a
+file or a URL to read documentation in Rd format from.</p>
+</td></tr>
+<tr><td><code id="Rdutils_:_text">text</code></td>
+<td>
+<p>character vector with documentation in Rd format.
+Elements are treated as if they were lines of a file.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>Rd_db</code> builds a simple &ldquo;data base&rdquo; of all Rd sources in a
+package, as a list of character vectors with the lines of the Rd files
+in the package.  This is particularly useful for working on installed
+packages, where the individual Rd files in the sources are no longer
+available.
+</p>
+<p><code>Rd_parse</code> is a simple top-level Rd parser/analyzer.  It returns
+a list with components
+</p>
+
+<dl>
+<dt><code>meta</code></dt><dd><p>a list containing the Rd meta data (aliases,
+concepts, keywords, and documentation type);
+</p>
+</dd>
+<dt><code>data</code></dt><dd><p>a data frame with the names (<code>tags</code>) and
+corresponding text (<code>vals</code>) of the top-level sections in the
+R documentation object;
+</p>
+</dd>
+<dt><code>rest</code></dt><dd><p>top-level text not accounted for (currently,
+silently discarded by Rdconv, and hence usually the indication of
+a problem).
+</p>
+</dd>
+</dl>
+
+<p>Note that at least for the time being, only the top-level structure is
+analyzed.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>These functions are still experimental.  Names, interfaces and values
+might change in future versions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Build the Rd db for the (installed) base package.
+db &lt;- Rd_db("base")
+## Run Rd_parse on all entries in the Rd db.
+db &lt;- lapply(db, function(txt) Rd_parse(text = txt))
+## Extract the metadata.
+meta &lt;- lapply(db, "[[", "meta")
+
+## Keyword metadata per Rd file.
+keywords &lt;- lapply(meta, "[[", "keywords")
+## Tabulate the keyword entries.
+kw_table &lt;- sort(table(unlist(keywords)))
+## The 5 most frequent ones:
+rev(kw_table)[1 : 5]
+## The "most informative" ones:
+kw_table[kw_table == 1]
+
+## Concept metadata per Rd file.
+concepts &lt;- lapply(meta, "[[", "concepts")
+## How many files already have \concept metadata?
+sum(sapply(concepts, length) &gt; 0)
+## How many concept entries altogether?
+length(unlist(concepts))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>tools</em> version 2.0.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html><html><head><title>R: Kernel Density Estimation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/density.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/density.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>density {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='density'>Kernel Density Estimation</h2>
+
+<h3>Description</h3>
+
+<p>The function <code>density</code> computes kernel density estimates
+with the given kernel and bandwidth.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>density(x, bw = "nrd0", adjust = 1,
+        kernel = c("gaussian", "epanechnikov", "rectangular", "triangular",
+                   "biweight", "cosine", "optcosine"),
+        window = kernel, width,
+        give.Rkern = FALSE,
+        n = 512, from, to, cut = 3, na.rm = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="density_:_x">x</code></td>
+<td>
+<p>the data from which the estimate is to be computed.</p>
+</td></tr>
+<tr><td><code id="density_:_bw">bw</code></td>
+<td>
+<p>the smoothing bandwidth to be used.  The kernels are scaled
+such that this is the standard deviation of the smoothing kernel.
+(Note this differs from the reference books cited below, and from S-PLUS.)
+</p>
+<p><code>bw</code> can also be a character string giving a rule to choose the
+bandwidth.  See <code>bw.nrd</code>.
+</p>
+<p>The specified (or computed) value of <code>bw</code> is multiplied by
+<code>adjust</code>.
+</p>
+</td></tr>
+<tr><td><code id="density_:_adjust">adjust</code></td>
+<td>
+<p>the bandwidth used is actually <code>adjust*bw</code>.
+This makes it easy to specify values like &ldquo;half the default&rdquo;
+bandwidth.</p>
+</td></tr>
+<tr><td><code id="density_:_kernel">kernel</code>, <code id="density_:_window">window</code></td>
+<td>
+<p>a character string giving the smoothing kernel
+to be used. This must be one of <code>"gaussian"</code>,
+<code>"rectangular"</code>, <code>"triangular"</code>, <code>"epanechnikov"</code>,
+<code>"biweight"</code>, <code>"cosine"</code> or <code>"optcosine"</code>, with default
+<code>"gaussian"</code>, and may be abbreviated to a unique prefix (single
+letter).
+</p>
+<p><code>"cosine"</code> is smoother than <code>"optcosine"</code>, which is the
+usual &ldquo;cosine&rdquo; kernel in the literature and almost MSE-efficient.
+However, <code>"cosine"</code> is the version used by S.
+</p>
+</td></tr>
+<tr><td><code id="density_:_width">width</code></td>
+<td>
+<p>this exists for compatibility with S; if given, and
+<code>bw</code> is not, will set <code>bw</code> to <code>width</code> if this is a
+character string, or to a kernel-dependent multiple of <code>width</code>
+if this is numeric.</p>
+</td></tr>
+<tr><td><code id="density_:_give.Rkern">give.Rkern</code></td>
+<td>
+<p>logical; if true, <em>no</em> density is estimated, and
+the &ldquo;canonical bandwidth&rdquo; of the chosen <code>kernel</code> is returned
+instead.</p>
+</td></tr>
+<tr><td><code id="density_:_n">n</code></td>
+<td>
+<p>the number of equally spaced points at which the density
+is to be estimated.  When <code>n &gt; 512</code>, it is rounded up to the next
+power of 2 for efficiency reasons (<code>fft</code>).</p>
+</td></tr>
+<tr><td><code id="density_:_from">from</code>, <code id="density_:_to">to</code></td>
+<td>
+<p>the left and right-most points of the grid at which the
+density is to be estimated.</p>
+</td></tr>
+<tr><td><code id="density_:_cut">cut</code></td>
+<td>
+<p>by default, the values of <code>left</code> and <code>right</code> are
+<code>cut</code> bandwidths beyond the extremes of the data. This allows the
+estimated density to drop to approximately zero at the extremes.</p>
+</td></tr>
+<tr><td><code id="density_:_na.rm">na.rm</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, missing values are removed
+from <code>x</code>. If <code>FALSE</code> any missing values cause an error.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The algorithm used in <code>density</code> disperses the mass of the
+empirical distribution function over a regular grid of at least 512
+points and then uses the fast Fourier transform to convolve this
+approximation with a discretized version of the kernel and then uses
+linear approximation to evaluate the density at the specified points.
+</p>
+<p>The statistical properties of a kernel are determined by
+<code class="reqn">\sigma^2_K = \int t^2 K(t) dt</code>
+which is always <code class="reqn">= 1</code> for our kernels (and hence the bandwidth
+<code>bw</code> is the standard deviation of the kernel) and
+<code class="reqn">R(K) = \int K^2(t) dt</code>.<br />
+MSE-equivalent bandwidths (for different kernels) are proportional to
+<code class="reqn">\sigma_K R(K)</code> which is scale invariant and for our
+kernels equal to <code class="reqn">R(K)</code>.  This value is returned when
+<code>give.Rkern = TRUE</code>.  See the examples for using exact equivalent
+bandwidths.
+</p>
+<p>Infinite values in <code>x</code> are assumed to correspond to a point mass at
+<code>+/-Inf</code> and the density estimate is of the sub-density on
+<code>(-Inf, +Inf)</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If <code>give.Rkern</code> is true, the number <code class="reqn">R(K)</code>, otherwise
+an object with class <code>"density"</code> whose
+underlying structure is a list containing the following components.
+</p>
+<table>
+<tr><td><code>x</code></td>
+<td>
+<p>the <code>n</code> coordinates of the points where the density is
+estimated.</p>
+</td></tr>
+<tr><td><code>y</code></td>
+<td>
+<p>the estimated density values.</p>
+</td></tr>
+<tr><td><code>bw</code></td>
+<td>
+<p>the bandwidth used.</p>
+</td></tr>
+<tr><td><code>N</code></td>
+<td>
+<p>the sample size after elimination of missing values.</p>
+</td></tr>
+<tr><td><code>call</code></td>
+<td>
+<p>the call which produced the result.</p>
+</td></tr>
+<tr><td><code>data.name</code></td>
+<td>
+<p>the deparsed name of the <code>x</code> argument.</p>
+</td></tr>
+<tr><td><code>has.na</code></td>
+<td>
+<p>logical, for compatibility (always FALSE).</p>
+</td></tr>
+</table>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth \&amp; Brooks/Cole (for S version).
+</p>
+<p>Scott, D. W. (1992)
+<em>Multivariate Density Estimation. Theory, Practice and Visualization</em>.
+New York: Wiley.
+</p>
+<p>Sheather, S. J. and Jones M. C. (1991)
+A reliable data-based bandwidth selection method for kernel density
+estimation.
+<em>J. Roy. Statist. Soc.</em> <b>B</b>, 683&ndash;690.
+</p>
+<p>Silverman, B. W. (1986)
+<em>Density Estimation</em>.
+London: Chapman and Hall.
+</p>
+<p>Venables, W. N. and Ripley, B. D. (1999)
+<em>Modern Applied Statistics with S-PLUS</em>.
+New York: Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>bw.nrd</code>,
+<code>plot.density</code>, <code>hist</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>plot(density(c(-20,rep(0,98),20)), xlim = c(-4,4))# IQR = 0
+
+# The Old Faithful geyser data
+data(faithful)
+d &lt;- density(faithful$eruptions, bw = "sj")
+d
+plot(d)
+
+plot(d, type = "n")
+polygon(d, col = "wheat")
+
+## Missing values:
+x &lt;- xx &lt;- faithful$eruptions
+x[i.out &lt;- sample(length(x), 10)] &lt;- NA
+doR &lt;- density(x, bw = 0.15, na.rm = TRUE)
+lines(doR, col = "blue")
+points(xx[i.out], rep(0.01, 10))
+
+
+(kernels &lt;- eval(formals(density)$kernel))
+
+## show the kernels in the R parametrization
+plot (density(0, bw = 1), xlab = "",
+      main="R's density() kernels with bw = 1")
+for(i in 2:length(kernels))
+   lines(density(0, bw = 1, kern =  kernels[i]), col = i)
+legend(1.5,.4, legend = kernels, col = seq(kernels),
+       lty = 1, cex = .8, y.int = 1)
+
+## show the kernels in the S parametrization
+plot(density(0, from=-1.2, to=1.2, width=2, kern="gaussian"), type="l",
+     ylim = c(0, 1), xlab="", main="R's density() kernels with width = 1")
+for(i in 2:length(kernels))
+   lines(density(0, width=2, kern =  kernels[i]), col = i)
+legend(0.6, 1.0, legend = kernels, col = seq(kernels), lty = 1)
+
+(RKs &lt;- cbind(sapply(kernels, function(k)density(kern = k, give.Rkern = TRUE))))
+100*round(RKs["epanechnikov",]/RKs, 4) ## Efficiencies
+
+if(interactive()) {
+data(precip)
+bw &lt;- bw.SJ(precip) ## sensible automatic choice
+plot(density(precip, bw = bw, n = 2^13),
+     main = "same sd bandwidths, 7 different kernels")
+for(i in 2:length(kernels))
+   lines(density(precip, bw = bw, kern =  kernels[i], n = 2^13), col = i)
+
+## Bandwidth Adjustment for "Exactly Equivalent Kernels"
+h.f &lt;- sapply(kernels, function(k)density(kern = k, give.Rkern = TRUE))
+(h.f &lt;- (h.f["gaussian"] / h.f)^ .2)
+## -&gt; 1, 1.01, .995, 1.007,... close to 1 =&gt; adjustment barely visible..
+
+plot(density(precip, bw = bw, n = 2^13),
+     main = "equivalent bandwidths, 7 different kernels")
+for(i in 2:length(kernels))
+   lines(density(precip, bw = bw, adjust = h.f[i], kern =  kernels[i],
+         n = 2^13), col = i)
+legend(55, 0.035, legend = kernels, col = seq(kernels), lty = 1)
+}
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.7.1 ]</div>
+</div>
+</body></html>

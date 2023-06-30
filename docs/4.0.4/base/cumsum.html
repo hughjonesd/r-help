@@ -1,0 +1,94 @@
+<!DOCTYPE html><html><head><title>R: Cumulative Sums, Products, and Extremes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/cumsum.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/cumsum.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>cumsum {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='cumsum'>Cumulative Sums, Products, and Extremes</h2>
+
+<h3>Description</h3>
+
+<p>Returns a vector whose elements are the cumulative sums, products,
+minima or maxima of the elements of the argument.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>cumsum(x)
+cumprod(x)
+cummax(x)
+cummin(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="cumsum_:_x">x</code></td>
+<td>
+<p>a numeric or complex (not <code>cummin</code> or <code>cummax</code>)
+object, or an object that can be coerced to one of these.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These are generic functions: methods can be defined for them
+individually or via the <code>Math</code> group generic.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A vector of the same length and type as <code>x</code> (after coercion),
+except that <code>cumprod</code> returns a numeric vector for integer input
+(for consistency with <code>*</code>).  Names are preserved.
+</p>
+<p>An <code>NA</code> value in <code>x</code> causes the corresponding and following
+elements of the return value to be <code>NA</code>, as does integer overflow
+in <code>cumsum</code> (with a warning).
+</p>
+
+
+<h3>S4 methods</h3>
+
+<p><code>cumsum</code> and <code>cumprod</code> are S4 generic functions:
+methods can be defined for them individually or via the
+<code>Math</code> group generic.
+<code>cummax</code> and <code>cummin</code> are individually S4 generic functions.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole. (<code>cumsum</code> only.)
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>cumsum(1:10)
+cumprod(1:10)
+cummin(c(3:1, 2:0, 4:2))
+cummax(c(3:1, 2:0, 4:2))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 4.0.4 ]</div>
+</div>
+</body></html>

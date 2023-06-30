@@ -1,0 +1,174 @@
+<!DOCTYPE html><html><head><title>R: Report Capabilities of this Build of R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/capabilities.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/capabilities.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>capabilities {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='capabilities'>Report Capabilities of this Build of R</h2>
+
+<h3>Description</h3>
+
+<p>Report on the optional features which have been compiled into this
+build of <span class="rlang"><b>R</b></span>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>capabilities(what = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="capabilities_:_what">what</code></td>
+<td>
+<p>character vector or <code>NULL</code>, specifying
+required components.  <code>NULL</code> implies that all are required.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A named logical vector.  Current components are
+</p>
+<table>
+<tr><td><code>jpeg</code></td>
+<td>
+<p>is the <code>jpeg</code> function operational?</p>
+</td></tr>
+<tr><td><code>png</code></td>
+<td>
+<p>is the <code>png</code> function operational?</p>
+</td></tr>
+<tr><td><code>tiff</code></td>
+<td>
+<p>is the <code>tiff</code> function operational?</p>
+</td></tr>
+<tr><td><code>tcltk</code></td>
+<td>
+<p>is the <span class="pkg">tcltk</span> package operational?
+Note that to make use of Tk you will almost always need to check
+that <code>"X11"</code> is also available.
+</p>
+</td></tr>
+<tr><td><code>X11</code></td>
+<td>
+<p>Are the <code>X11</code> graphics device and the
+X11-based data editor available?  This loads the X11 module if not
+already loaded, and checks that the default display can be
+contacted unless a <code>X11</code> device has already been used.</p>
+</td></tr>
+<tr><td><code>aqua</code></td>
+<td>
+<p>Are the <code>R.app</code> GUI components and the
+<code>quartz</code> function operational?  Only on some OS X
+builds.  Note that this is distinct from
+<code>.Platform$GUI == "AQUA"</code>, which is true when using the Mac
+<code>R.app</code> GUI console.</p>
+</td></tr>
+<tr><td><code>http/ftp</code></td>
+<td>
+<p>Are <code>url</code> and the internal method for
+<code>download.file</code> available?</p>
+</td></tr>
+<tr><td><code>sockets</code></td>
+<td>
+<p>Are <code>make.socket</code> and related functions
+available?</p>
+</td></tr>
+<tr><td><code>libxml</code></td>
+<td>
+<p>is there support for integrating <code>libxml</code> with
+the <span class="rlang"><b>R</b></span> event loop?</p>
+</td></tr>
+<tr><td><code>fifo</code></td>
+<td>
+<p>are FIFO connections supported?</p>
+</td></tr>
+<tr><td><code>cledit</code></td>
+<td>
+<p>is command-line editing available in the current <span class="rlang"><b>R</b></span>
+session?  This is false in non-interactive sessions.
+It will be true for the command-line interface if <code>readline</code>
+support has been compiled in and <span class="option">--no-readline</span> was
+<em>not</em> used when <span class="rlang"><b>R</b></span> was invoked.  (If <span class="option">--interactive</span>
+was used, command-line editing will not actually be available.)
+</p>
+</td></tr>
+<tr><td><code>iconv</code></td>
+<td>
+<p>is internationalization conversion via
+<code>iconv</code> supported?  Always true in current <span class="rlang"><b>R</b></span>.</p>
+</td></tr>
+<tr><td><code>NLS</code></td>
+<td>
+<p>is there Natural Language Support (for message translations)?</p>
+</td></tr>
+<tr><td><code>profmem</code></td>
+<td>
+<p>is there support for memory profiling?  See
+<code>tracemem</code>.</p>
+</td></tr>
+<tr><td><code>cairo</code></td>
+<td>
+<p>is there support the <code>svg</code>,
+<code>cairo_pdf</code> and <code>cairo_ps</code> devices, and
+for <code>type = "cairo"</code> in the
+<code>X11</code>,
+<code>bmp</code>, <code>jpeg</code>, <code>png</code>,
+and <code>tiff</code> devices?</p>
+</td></tr>
+<tr><td><code>ICU</code></td>
+<td>
+<p>is ICU used for collation?  See Comparison and
+<code>icuSetCollate</code>.</p>
+</td></tr></table>
+<p>,
+</p>
+
+
+<h3>Note to OS X users</h3>
+
+<p>Capabilities <code>"jpeg"</code>, <code>"png"</code> and <code>"tiff"</code> refer to
+the X11-based versions of these devices.  If
+<code>capabilities("aqua")</code> is true, then these devices with
+<code>type = "quartz"</code> will be available, and out-of-the-box will be the
+default type.  Thus for example the <code>tiff</code> device will be
+available if <code>capabilities("aqua") || capabilities("tiff")</code> if
+the defaults are unchanged.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>.Platform</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>capabilities()
+
+if(!capabilities("http/ftp"))
+   warning("internal download.file() is not available")
+
+## See also the examples for 'connections'.
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 3.1.2 ]</div>
+</div>
+</body></html>

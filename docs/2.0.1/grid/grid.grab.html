@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Grab the current grid output</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grab.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grab.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>grid.grab {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='grid.grab'> Grab the current grid output </h2>
+
+<h3>Description</h3>
+
+<p>Creates a gTree object from the current grid display list.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.grab(...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="grid.grab_:_...">...</code></td>
+<td>
+<p> arguments passed to gTree, for example, a
+name and/or class for the gTree that is created.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The gTree has a childrenvp slot containing all viewports on
+the display list (including those
+that are popped).  
+Every grob on the display list is made a child of the new
+gTree, with a vpPath in the vp slot so that the grob is
+drawn in the appropriate viewport.
+</p>
+<p>In other words, the gTree contains all elements on the display
+list, but in a slightly altered form.
+</p>
+<p>The gTree should produce exactly the same output as the
+display list.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A gTree object.
+</p>
+
+
+<h3>See Also</h3>
+
+ <p><code>gTree</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>pushViewport(viewport(w=.5, h=.5))
+grid.rect()
+grid.points(runif(10), runif(10))
+popViewport()
+grab &lt;- grid.grab()
+grid.newpage()
+grid.draw(grab)
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>grid</em> version 2.0.1 ]</div>
+</div>
+</body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><title>R: Coerce to Character or Expression</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/as.char.or.expr.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/as.char.or.expr.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>as.char.or.expr {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='as.char.or.expr'>Coerce to Character or Expression</h2>
+
+<h3>Description</h3>
+
+<p>Coerce expression and call objects to expressions, and all other
+objects to character.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>as.char.or.expr(x)</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="as.char.or.expr_:_x">x</code></td>
+<td>
+<p>an arbitrary <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is used for handling the <code>text</code> arguments to the
+text-drawing functions.  These arguments can be character strings or
+expressions (which are interpreted as mathematical expressions and
+typeset according to TeX-like rules, see <code>plotmath</code> for
+more details).  Users will typically have no need for it.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>as.char.or.expr("This is a string.")
+as.char.or.expr(call("round", 10.5))
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.0 ]</div>
+</div>
+</body></html>

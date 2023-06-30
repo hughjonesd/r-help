@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><title>R: Formula Notation for Box Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the corresponding topic in the current version of R, see <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.formula.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.formula.html</a></b></div><div class="container">
+
+<table style="width: 100%;"><tr><td>boxplot.formula {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2 id='boxplot.formula'>Formula Notation for Box Plots</h2>
+
+<h3>Description</h3>
+
+<p>Produce box-and-whisker plot(s) of the given (grouped) values using
+formula notation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'formula'
+boxplot(formula, data = NULL, ..., subset)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="boxplot.formula_:_formula">formula</code></td>
+<td>
+<p>a formula, such as <code>y ~ x</code>.</p>
+</td></tr>
+<tr><td><code id="boxplot.formula_:_data">data</code></td>
+<td>
+<p>a data.frame (or list) from which the variables in
+<code>formula</code> should be taken.</p>
+</td></tr>
+<tr><td><code id="boxplot.formula_:_...">...</code></td>
+<td>
+<p>arguments to the default boxplot method and graphical
+parameters may also be passed as arguments, see <code>par</code>.</p>
+</td></tr>
+<tr><td><code id="boxplot.formula_:_subset">subset</code></td>
+<td>
+<p>an optional vector specifying a subset of observations
+to be used for plotting.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is a method of the generic function <code>boxplot</code>.  It
+operates by setting up the data from the formula specification, and
+then calling <code>boxplot.default</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>boxplot.default</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>data(OrchardSprays)
+boxplot(decrease ~ treatment, data = OrchardSprays,
+        log = "y", col="bisque")
+</code></pre>
+
+<hr /><div style="text-align: center;">[Package <em>base</em> version 1.6.2 ]</div>
+</div>
+</body></html>
