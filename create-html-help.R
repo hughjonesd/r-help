@@ -60,7 +60,7 @@ for (branch_name in branches) {
                            "<a href='", current_url, "'>", current_url, "</a></b></div>")
     html <- sub("<body>", paste("<body>", version_html), html)
     html <- sub("Package <em>(.*?)</em> version \\S+",
-                paste0("<a href='/", R_version, 
+                paste0("<a href='/r-help/", R_version, 
                        "/00index.html'>Package <em>\\1</em> version ", 
                        R_version, "</a>"), 
                 html)
