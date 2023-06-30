@@ -28,5 +28,5 @@ A **very** simple index file is available for every R version.
 
 ```{r results='asis', echo = FALSE}
 rv <- list.files("docs", include.dirs = TRUE)
-cat(paste0("* ", "[", rv, "](/", rv, "/00index.html)\n"))
+cat(paste0("* [", rv, "](https://hughjonesd.github.io/r-help/", rv, "/00index.html)\n"))
 ```
