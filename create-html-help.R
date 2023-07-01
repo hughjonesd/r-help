@@ -19,7 +19,8 @@ for (branch_name in branches) {
                              branch_name)
   R_version <- gsub("\\.$", "", R_version)
   
-  gert::git_branch_checkout(branch = branch_name, repo = r_source_dir)   
+  # Unimaginably, tools::Rd2HTML sometimes edits the original Rd files
+  gert::git_branch_checkout(branch = branch_name, repo = r_source_dir, force = TRUE)   
   rd_files <- list.files(path = r_source_dir, 
                          pattern = "Rd$", recursive = TRUE, full.names = TRUE)
   # some Rd files are for tests:
@@ -53,10 +54,14 @@ for (branch_name in branches) {
     )
     
     html <- readLines(output_path)
+    
+    
+    package_info <- try(library(help = rd_package, character.only = TRUE), silent = TRUE)
+    # No known quick way to test for existence of a help topic. 
     current_url <- paste0("https://stat.ethz.ch/R-manual/R-patched/library/",
-                          rd_package, "/html/", rd_topic, ".html")
+                            rd_package, "/html/", rd_topic, ".html")
     version_html <- paste0("<div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version ", R_version,
-                           ". For the corresponding topic in the current version of R, see ",
+                           ". For the current version of R, try ",
                            "<a href='", current_url, "'>", current_url, "</a></b></div>")
     html <- sub("<body>", paste("<body>", version_html), html)
     html <- sub("Package <em>(.*?)</em> version \\S+",
