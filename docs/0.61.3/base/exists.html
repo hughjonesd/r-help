@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/exists.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/exists.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/exists.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/exists.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>exists {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='exists'>Is a Variable Defined?</h2>
+<h2>Is a Variable Defined?</h2>
 
 <h3>Description</h3>
 
@@ -39,21 +39,21 @@ The function returns <code>TRUE</code> if the variable is encountered and
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="exists_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a variable name (given as a quoted string).</p>
 </td></tr>
-<tr><td><code id="exists_:_where">where</code>, <code id="exists_:_envir">envir</code>, <code id="exists_:_frame">frame</code></td>
+<tr><td><code id="where">where</code>, <code id="envir">envir</code>, <code id="frame">frame</code></td>
 <td>
 <p>an environent to be searched. By default this is the
 environment where the call to <code>envir</code> takes place.</p>
 </td></tr>
-<tr><td><code id="exists_:_mode">mode</code></td>
+<tr><td><code id="mode">mode</code></td>
 <td>
 <p>the type of interest for the object.</p>
 </td></tr>
-<tr><td><code id="exists_:_inherits">inherits</code></td>
+<tr><td><code id="inherits">inherits</code></td>
 <td>
 <p>should the enclosing frames of the environment be inspected.</p>
 </td></tr>
@@ -73,6 +73,7 @@ if(!exists("some.fun", mode="function"))
  some.fun &lt;- function(x) { cat("some.fun(x)\n"); x }
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.61.3/00index.html'>Package <em>base</em> version 0.61.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.61.3/00index.html'>Package <em>base</em> version 0.61.3</a> ]</div></main>
+
 </div>
 </body></html>

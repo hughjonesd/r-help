@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/BATCH.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/BATCH.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/BATCH.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/BATCH.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>BATCH {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='BATCH'>Batch Execution of R</h2>
+<h2>Batch Execution of R</h2>
 
 <h3>Description</h3>
 
@@ -32,19 +32,19 @@ send output (stdout/stderr) to another file.</p>
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="BATCH_:_infile">infile</code></td>
+<table role = "presentation">
+<tr><td><code id="infile">infile</code></td>
 <td>
 <p>the name of a file with <span class="rlang"><b>R</b></span> code to be executed.</p>
 </td></tr>
-<tr><td><code id="BATCH_:_options">options</code></td>
+<tr><td><code id="options">options</code></td>
 <td>
 <p>a list of <span class="rlang"><b>R</b></span> command line options, e.g., for setting the
 amount of memory available and controlling the load/save process.
 If <code>infile</code> starts with a &lsquo;<span class="samp">&#8288;-&#8288;</span>&rsquo;, use &lsquo;<span class="samp">&#8288;--&#8288;</span>&rsquo; as the final
 option.  The default options are &lsquo;<span class="samp">&#8288;--restore --save&#8288;</span>&rsquo;.</p>
 </td></tr>
-<tr><td><code id="BATCH_:_outfile">outfile</code></td>
+<tr><td><code id="outfile">outfile</code></td>
 <td>
 <p>the name of a file to which to write output.  If not
 given, the name used is that of <code>infile</code>, with a possible
@@ -72,6 +72,7 @@ script unless the latter calls <code>q(runLast=FALSE)</code> or is aborted.
 and before any options given on the command line.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.5.1/00index.html'>Package <em>utils</em> version 2.5.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.5.1/00index.html'>Package <em>utils</em> version 2.5.1</a> ]</div></main>
+
 </div>
 </body></html>

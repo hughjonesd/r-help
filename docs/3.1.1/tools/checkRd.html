@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkRd.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkRd.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkRd.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkRd.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>checkRd {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='checkRd'> Check an Rd Object </h2>
+<h2> Check an Rd Object </h2>
 
 <h3>Description</h3>
 
@@ -33,38 +33,38 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="checkRd_:_Rd">Rd</code></td>
+<table role = "presentation">
+<tr><td><code id="Rd">Rd</code></td>
 <td>
 <p> a filename or <code>Rd</code> object to use as input. </p>
 </td></tr>
-<tr><td><code id="checkRd_:_defines">defines</code></td>
+<tr><td><code id="defines">defines</code></td>
 <td>
 <p> string(s) to use in <code style="white-space: pre;">&#8288;#ifdef&#8288;</code> tests. </p>
 </td></tr>
-<tr><td><code id="checkRd_:_stages">stages</code></td>
+<tr><td><code id="stages">stages</code></td>
 <td>
 <p> at which stage (<code>"build"</code>, <code>"install"</code>, or
 <code>"render"</code>) should <code style="white-space: pre;">&#8288;\Sexpr&#8288;</code> macros be executed? See the
 notes below.</p>
 </td></tr>
-<tr><td><code id="checkRd_:_unknownOK">unknownOK</code></td>
+<tr><td><code id="unknownOK">unknownOK</code></td>
 <td>
 <p> unrecognized macros are treated as errors if
 <code>FALSE</code>, otherwise warnings. </p>
 </td></tr>
-<tr><td><code id="checkRd_:_listOK">listOK</code></td>
+<tr><td><code id="listOK">listOK</code></td>
 <td>
 <p> unnecessary non-empty braces (e.g., around text, not as
 an argument) are treated as errors if <code>FALSE</code>, otherwise
 warnings.</p>
 </td></tr>
-<tr><td><code id="checkRd_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p> additional parameters to pass to <code>parse_Rd</code> when
 <code>Rd</code> is a filename.  One that is often useful is <code>encoding</code>.</p>
 </td></tr>
-<tr><td><code id="checkRd_:_def_enc">def_enc</code></td>
+<tr><td><code id="def_enc">def_enc</code></td>
 <td>
 <p>logical: has the package declared an encoding, so tests
 for non-ASCII text are suppressed?</p>
@@ -249,6 +249,7 @@ specified encoding) or from <code>prepare_Rd</code> (multiple
 <p><code>parse_Rd</code>, <code>Rd2HTML</code>.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.1/00index.html'>Package <em>tools</em> version 3.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.1/00index.html'>Package <em>tools</em> version 3.1.1</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>help {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='help'>Documentation</h2>
+<h2>Documentation</h2>
 
 <h3>Description</h3>
 
@@ -35,8 +35,8 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="help_:_topic">topic</code></td>
+<table role = "presentation">
+<tr><td><code id="topic">topic</code></td>
 <td>
 <p>usually, a name or character string specifying the
 topic for which help is sought.  A character string (enclosed in
@@ -50,14 +50,14 @@ word (if syntactically valid) or character string.
 <p>See &lsquo;Details&rsquo; for what happens if this is omitted.
 </p>
 </td></tr>
-<tr><td><code id="help_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p>a name or character vector giving the packages to look
 into for documentation, or <code>NULL</code>.  By default, all packages in
 the search path are used.  To avoid a name being deparsed use e.g.
 <code>(pkg_ref)</code> (see the examples).</p>
 </td></tr>
-<tr><td><code id="help_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
@@ -65,15 +65,15 @@ libraries currently known.  If the default is used, the loaded
 packages are searched before the libraries.  This is not used for
 HTML help (see &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="help_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the file name is reported.</p>
 </td></tr>
-<tr><td><code id="help_:_try.all.packages">try.all.packages</code></td>
+<tr><td><code id="try.all.packages">try.all.packages</code></td>
 <td>
 <p>logical; see <code>Note</code>.</p>
 </td></tr>
-<tr><td><code id="help_:_help_type">help_type</code></td>
+<tr><td><code id="help_type">help_type</code></td>
 <td>
 <p>character string: the type of help required.
 Possible values are <code>"text"</code>, <code>"html"</code> and <code>"pdf"</code>.
@@ -250,6 +250,7 @@ topic &lt;- "family"; pkg_ref &lt;- "stats"
 help((topic), (pkg_ref))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.3/00index.html'>Package <em>utils</em> version 3.0.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.3/00index.html'>Package <em>utils</em> version 3.0.3</a> ]</div></main>
+
 </div>
 </body></html>

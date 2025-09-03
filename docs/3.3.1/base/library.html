@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>library {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='library'>Loading/Attaching and Listing of Packages</h2>
+<h2>Loading/Attaching and Listing of Packages</h2>
 
 <h3>Description</h3>
 
@@ -39,21 +39,21 @@ require(package, lib.loc = NULL, quietly = FALSE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="library_:_package">package</code>, <code id="library_:_help">help</code></td>
+<table role = "presentation">
+<tr><td><code id="package">package</code>, <code id="help">help</code></td>
 <td>
 <p>the name of a package, given as a name or
 literal character string, or a character string, depending on
 whether <code>character.only</code> is <code>FALSE</code> (default) or
 <code>TRUE</code>).</p>
 </td></tr>
-<tr><td><code id="library_:_pos">pos</code></td>
+<tr><td><code id="pos">pos</code></td>
 <td>
 <p>the position on the search list at which to attach the
 loaded namespace.  Can also be the name of a position on the current
 search list as given by <code>search()</code>.</p>
 </td></tr>
-<tr><td><code id="library_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector describing the location of <span class="rlang"><b>R</b></span>
 library trees to search through, or <code>NULL</code>.  The default value
@@ -61,17 +61,17 @@ of <code>NULL</code> corresponds to all libraries currently known to
 <code>.libPaths()</code>.
 Non-existent library trees are silently ignored.</p>
 </td></tr>
-<tr><td><code id="library_:_character.only">character.only</code></td>
+<tr><td><code id="character.only">character.only</code></td>
 <td>
 <p>a logical indicating whether <code>package</code> or
 <code>help</code> can be assumed to be character strings.</p>
 </td></tr>
-<tr><td><code id="library_:_logical.return">logical.return</code></td>
+<tr><td><code id="logical.return">logical.return</code></td>
 <td>
 <p>logical.  If it is <code>TRUE</code>,  <code>FALSE</code> or
 <code>TRUE</code> is returned to indicate success.</p>
 </td></tr>
-<tr><td><code id="library_:_warn.conflicts">warn.conflicts</code></td>
+<tr><td><code id="warn.conflicts">warn.conflicts</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, warnings are
 printed about <code>conflicts</code> from attaching the new
@@ -79,12 +79,12 @@ package.  A conflict is a function masking a function,
 or a non-function masking a non-function.
 </p>
 </td></tr>
-<tr><td><code id="library_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, additional diagnostics are
 printed.</p>
 </td></tr>
-<tr><td><code id="library_:_quietly">quietly</code></td>
+<tr><td><code id="quietly">quietly</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, no message confirming
 package attaching is printed, and most often, no errors/warnings are
@@ -253,6 +253,7 @@ library(mypkg, pos = "package:base")
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>base</em> version 3.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>base</em> version 3.3.1</a> ]</div></main>
+
 </div>
 </body></html>

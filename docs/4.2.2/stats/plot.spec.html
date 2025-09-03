@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.spec.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.spec.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.spec.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.spec.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>plot.spec {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='plot.spec'>Plotting Spectral Densities</h2>
+<h2>Plotting Spectral Densities</h2>
 
 <h3>Description</h3>
 
@@ -51,24 +51,24 @@ plot.spec.coherency(x, ci = 0.95,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="plot.spec_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object of class <code>"spec"</code>.</p>
 </td></tr>
-<tr><td><code id="plot.spec_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, add to already existing plot.
 Only valid for <code>plot.type = "marginal"</code>.
 </p>
 </td></tr>
-<tr><td><code id="plot.spec_:_ci">ci</code></td>
+<tr><td><code id="ci">ci</code></td>
 <td>
 <p>coverage probability for confidence interval.  Plotting of
 the confidence bar/limits is omitted unless <code>ci</code> is strictly
 positive.</p>
 </td></tr>
-<tr><td><code id="plot.spec_:_log">log</code></td>
+<tr><td><code id="log">log</code></td>
 <td>
 <p>If <code>"dB"</code>, plot on log10 (decibel) scale (as S-PLUS),
 otherwise use conventional log scale or linear scale.  Logical
@@ -77,45 +77,45 @@ values are also accepted.  The default is <code>"yes"</code> unless
 <code>"dB"</code>.  Only valid for <code>plot.type = "marginal"</code>.
 </p>
 </td></tr>
-<tr><td><code id="plot.spec_:_xlab">xlab</code></td>
+<tr><td><code id="xlab">xlab</code></td>
 <td>
 <p>the x label of the plot.</p>
 </td></tr>
-<tr><td><code id="plot.spec_:_ylab">ylab</code></td>
+<tr><td><code id="ylab">ylab</code></td>
 <td>
 <p>the y label of the plot.  If missing a suitable label will
 be constructed.</p>
 </td></tr>
-<tr><td><code id="plot.spec_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>the type of plot to be drawn, defaults to lines.</p>
 </td></tr>
-<tr><td><code id="plot.spec_:_ci.col">ci.col</code></td>
+<tr><td><code id="ci.col">ci.col</code></td>
 <td>
 <p>colour for plotting confidence bar or confidence
 intervals for coherency and phase.</p>
 </td></tr>
-<tr><td><code id="plot.spec_:_ci.lty">ci.lty</code></td>
+<tr><td><code id="ci.lty">ci.lty</code></td>
 <td>
 <p>line type for confidence intervals for coherency and
 phase.</p>
 </td></tr>
-<tr><td><code id="plot.spec_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>overall title for the plot. If missing, a suitable title
 is constructed.</p>
 </td></tr>
-<tr><td><code id="plot.spec_:_sub">sub</code></td>
+<tr><td><code id="sub">sub</code></td>
 <td>
 <p>a subtitle for the plot.  Only used for <code>plot.type =
       "marginal"</code>.  If missing, a description of the smoothing is used.</p>
 </td></tr>
-<tr><td><code id="plot.spec_:_plot.type">plot.type</code></td>
+<tr><td><code id="plot.type">plot.type</code></td>
 <td>
 <p>For multivariate time series, the type of plot
 required.  Only the first character is needed.</p>
 </td></tr>
-<tr><td><code id="plot.spec_:_ylim">ylim</code>, <code id="plot.spec_:_...">...</code></td>
+<tr><td><code id="ylim">ylim</code>, <code id="...">...</code></td>
 <td>
 <p>Graphical parameters.</p>
 </td></tr>
@@ -127,6 +127,7 @@ required.  Only the first character is needed.</p>
 <p><code>spectrum</code>
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>stats</em> version 4.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>stats</em> version 4.2.2</a> ]</div></main>
+
 </div>
 </body></html>

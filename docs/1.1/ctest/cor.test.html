@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/cor.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/cor.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/cor.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/cor.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cor.test {ctest}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cor.test'>Test for Zero Correlation</h2>
+<h2>Test for Zero Correlation</h2>
 
 <h3>Description</h3>
 
@@ -36,25 +36,25 @@ Kendall's tau, or Spearman's rho.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cor.test_:_x">x</code>, <code id="cor.test_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>numeric vectors of data values.  <code>x</code> and <code>y</code>
 must have the same length.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_alternative">alternative</code></td>
+<tr><td><code id="alternative">alternative</code></td>
 <td>
 <p>indicates the alternative hypothesis and must be
 one of <code>"two.sided"</code>, <code>"greater"</code> or <code>"less"</code>.  You
 can specify just the initial letter.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>a string indicating which correlation coefficient is
 used for the test.  One of <code>"pearson"</code>,
 <code>"kendall"</code>, or <code>"spearman"</code>, can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_exact">exact</code></td>
+<tr><td><code id="exact">exact</code></td>
 <td>
 <p>a logical indicating whether an exact p-value should be
 computed.</p>
@@ -86,7 +86,7 @@ used as the test statistic, and is approximately normally distributed.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>the value of the test statistic.</p>
@@ -163,6 +163,7 @@ cor.test(x, y, method = "spearm", alternative = "g")
 cor.test(x, y,                    alternative = "g")
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

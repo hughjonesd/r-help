@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/model.frame.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/model.frame.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/model.frame.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/model.frame.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>model.frame {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='model.frame'>Extracting the Model Frame from a Formula or Fit</h2>
+<h2>Extracting the Model Frame from a Formula or Fit</h2>
 
 <h3>Description</h3>
 
@@ -50,27 +50,27 @@ get_all_vars(formula, data, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="model.frame_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a model <code>formula</code> or <code>terms</code>
 object or an <span class="rlang"><b>R</b></span> object.</p>
 </td></tr>
-<tr><td><code id="model.frame_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data.frame, list or environment (or object
 coercible by <code>as.data.frame</code> to a data.frame),
 containing the variables in <code>formula</code>.  Neither a matrix nor an
 array will be accepted.</p>
 </td></tr>
-<tr><td><code id="model.frame_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>a specification of the rows to be used: defaults to all
 rows. This can be any valid indexing vector (see
 <code>[.data.frame</code>) for the rows of <code>data</code> or if that is not
 supplied, a data frame made up of the variables used in <code>formula</code>.</p>
 </td></tr>
-<tr><td><code id="model.frame_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>how <code>NA</code>s are treated.  The default is first,
 any <code>na.action</code> attribute of <code>data</code>, second
@@ -78,17 +78,17 @@ a <code>na.action</code> setting of <code>options</code>, and third
 <code>na.fail</code> if that is unset.  The &lsquo;factory-fresh&rsquo;
 default is <code>na.omit</code>.  Another possible value is <code>NULL</code>.</p>
 </td></tr>
-<tr><td><code id="model.frame_:_drop.unused.levels">drop.unused.levels</code></td>
+<tr><td><code id="drop.unused.levels">drop.unused.levels</code></td>
 <td>
 <p>should factors have unused levels dropped?
 Defaults to <code>FALSE</code>.</p>
 </td></tr>
-<tr><td><code id="model.frame_:_xlev">xlev</code></td>
+<tr><td><code id="xlev">xlev</code></td>
 <td>
 <p>a named list of character vectors giving the full set of levels
 to be assumed for each factor.</p>
 </td></tr>
-<tr><td><code id="model.frame_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>for <code>model.frame</code> methods, a mix of further
 arguments such as <code>data</code>, <code>na.action</code>, <code>subset</code> to pass
@@ -200,6 +200,7 @@ stopifnot(is.data.frame(ncars),
           ncol(ncars) == ncol(cars) + 1)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>stats</em> version 3.5.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>stats</em> version 3.5.3</a> ]</div></main>
+
 </div>
 </body></html>

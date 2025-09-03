@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/lines.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/lines.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/lines.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/lines.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>lines {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='lines'>Add Connected Line Segments to a Plot</h2>
+<h2>Add Connected Line Segments to a Plot</h2>
 
 <h3>Description</h3>
 
@@ -36,17 +36,17 @@ lines(x, y = NULL, type = "l", ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="lines_:_x">x</code>, <code id="lines_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>coordinate vectors of points to join.</p>
 </td></tr>
-<tr><td><code id="lines_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>character indicating the type of plotting; actually any of
 the <code>type</code>s as in <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="lines_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further graphical parameters (see <code>par</code>) may
 also be supplied as arguments, particularly, line type, <code>lty</code>,
@@ -106,6 +106,7 @@ plot(cars, main = "Stopping Distance versus Speed")
 lines(stats::lowess(cars))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>graphics</em> version 3.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>graphics</em> version 3.6.0</a> ]</div></main>
+
 </div>
 </body></html>

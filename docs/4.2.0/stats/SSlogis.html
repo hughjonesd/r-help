@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/SSlogis.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/SSlogis.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/SSlogis.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/SSlogis.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>SSlogis {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='SSlogis'>Self-Starting Nls Logistic Model</h2>
+<h2>Self-Starting Nls Logistic Model</h2>
 
 <h3>Description</h3>
 
@@ -36,22 +36,22 @@ init function failed when <code>min(input)</code> was exactly zero.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="SSlogis_:_input">input</code></td>
+<table role = "presentation">
+<tr><td><code id="input">input</code></td>
 <td>
 <p>a numeric vector of values at which to evaluate the model.</p>
 </td></tr>
-<tr><td><code id="SSlogis_:_Asym">Asym</code></td>
+<tr><td><code id="Asym">Asym</code></td>
 <td>
 <p>a numeric parameter representing the asymptote.</p>
 </td></tr>
-<tr><td><code id="SSlogis_:_xmid">xmid</code></td>
+<tr><td><code id="xmid">xmid</code></td>
 <td>
 <p>a numeric parameter representing the <code>x</code> value at the
 inflection point of the curve.  The value of <code>SSlogis</code> will be
 <code>Asym/2</code> at <code>xmid</code>.</p>
 </td></tr>
-<tr><td><code id="SSlogis_:_scal">scal</code></td>
+<tr><td><code id="scal">scal</code></td>
 <td>
 <p>a numeric scale parameter on the <code>input</code> axis.</p>
 </td></tr>
@@ -132,6 +132,7 @@ stopifnot(all.equal(tolerance = 1e-6,
   par(op)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>stats</em> version 4.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>stats</em> version 4.2.0</a> ]</div></main>
+
 </div>
 </body></html>

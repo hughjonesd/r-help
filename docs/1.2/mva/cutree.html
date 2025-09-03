@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cutree.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cutree.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cutree.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cutree.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cutree {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cutree'>Cut a tree into groups of data</h2>
+<h2>Cut a tree into groups of data</h2>
 
 <h3>Description</h3>
 
@@ -34,16 +34,16 @@ height.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cutree_:_tree">tree</code></td>
+<table role = "presentation">
+<tr><td><code id="tree">tree</code></td>
 <td>
 <p>a tree as produced by <code>hclust</code></p>
 </td></tr> 
-<tr><td><code id="cutree_:_k">k</code></td>
+<tr><td><code id="k">k</code></td>
 <td>
 <p>An integer scalar or vector with the desired number of groups</p>
 </td></tr>
-<tr><td><code id="cutree_:_h">h</code></td>
+<tr><td><code id="h">h</code></td>
 <td>
 <p>A numeric scalar or vector with heights where the tree should
 be cut.</p>
@@ -79,6 +79,7 @@ cutree(hc, k=2:5)
 cutree(hc, h=250)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

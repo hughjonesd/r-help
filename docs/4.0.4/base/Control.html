@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Control.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Control.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Control.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Control.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Control {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Control'>Control Flow</h2>
+<h2>Control Flow</h2>
 
 <h3>Description</h3>
 
@@ -41,8 +41,8 @@ next
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Control_:_cond">cond</code></td>
+<table role = "presentation">
+<tr><td><code id="cond">cond</code></td>
 <td>
 <p>A length-one logical vector that is not <code>NA</code>.
 Conditions of length greater than one are currently accepted with a
@@ -52,18 +52,18 @@ is set to true.  Other types are coerced to logical
 if possible, ignoring any class.
 </p>
 </td></tr>
-<tr><td><code id="Control_:_var">var</code></td>
+<tr><td><code id="var">var</code></td>
 <td>
 <p>A syntactical name for a variable.</p>
 </td></tr>
-<tr><td><code id="Control_:_seq">seq</code></td>
+<tr><td><code id="seq">seq</code></td>
 <td>
 <p>An expression evaluating to a vector (including a list and
 an expression) or to a pairlist or <code>NULL</code>.  A
 factor value will be coerced to a character vector.  As from <span class="rlang"><b>R</b></span>
 4.0.0 this can be a long vector.</p>
 </td></tr>
-<tr><td><code id="Control_:_expr">expr</code>, <code id="Control_:_cons.expr">cons.expr</code>, <code id="Control_:_alt.expr">alt.expr</code></td>
+<tr><td><code id="expr">expr</code>, <code id="cons.expr">cons.expr</code>, <code id="alt.expr">alt.expr</code></td>
 <td>
 
 <p>An <em>expression</em> in a formal sense.  This is either a
@@ -143,6 +143,7 @@ f &lt;- factor(sample(letters[1:5], 10, replace = TRUE))
 for(i in unique(f)) print(i)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.4/00index.html'>Package <em>base</em> version 4.0.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.4/00index.html'>Package <em>base</em> version 4.0.4</a> ]</div></main>
+
 </div>
 </body></html>

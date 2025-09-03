@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/SSfpl.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/SSfpl.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/SSfpl.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/SSfpl.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>SSfpl {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='SSfpl'>Self-Starting Nls Four-Parameter Logistic Model</h2>
+<h2>Self-Starting Nls Four-Parameter Logistic Model</h2>
 
 <h3>Description</h3>
 
@@ -35,28 +35,28 @@ initial estimates of the parameters <code>A</code>, <code>B</code>,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="SSfpl_:_input">input</code></td>
+<table role = "presentation">
+<tr><td><code id="input">input</code></td>
 <td>
 <p>a numeric vector of values at which to evaluate the model.</p>
 </td></tr>
-<tr><td><code id="SSfpl_:_A">A</code></td>
+<tr><td><code id="A">A</code></td>
 <td>
 <p>a numeric parameter representing the horizontal asymptote on
 the left side (very small values of <code>input</code>).</p>
 </td></tr>
-<tr><td><code id="SSfpl_:_B">B</code></td>
+<tr><td><code id="B">B</code></td>
 <td>
 <p>a numeric parameter representing the horizontal asymptote on
 the right side (very large values of <code>input</code>).</p>
 </td></tr>
-<tr><td><code id="SSfpl_:_xmid">xmid</code></td>
+<tr><td><code id="xmid">xmid</code></td>
 <td>
 <p>a numeric parameter representing the <code>input</code> value at the
 inflection point of the curve.  The value of <code>SSfpl</code> will be
 midway between <code>A</code> and <code>B</code> at <code>xmid</code>.</p>
 </td></tr>
-<tr><td><code id="SSfpl_:_scal">scal</code></td>
+<tr><td><code id="scal">scal</code></td>
 <td>
 <p>a numeric scale parameter on the <code>input</code> axis.</p>
 </td></tr>
@@ -129,6 +129,7 @@ summary(fm1)
   par(op)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.1/00index.html'>Package <em>stats</em> version 4.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.1/00index.html'>Package <em>stats</em> version 4.0.1</a> ]</div></main>
+
 </div>
 </body></html>

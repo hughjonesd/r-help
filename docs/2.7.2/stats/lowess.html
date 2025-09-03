@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lowess.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lowess.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lowess.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lowess.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>lowess {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='lowess'>Scatter Plot Smoothing</h2>
+<h2>Scatter Plot Smoothing</h2>
 
 <h3>Description</h3>
 
@@ -35,26 +35,26 @@ regression (see the references).
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="lowess_:_x">x</code>, <code id="lowess_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>vectors giving the coordinates of the points in the scatter plot.
 Alternatively a single plotting structure can be specified &ndash; see
 <code>xy.coords</code>.</p>
 </td></tr>
-<tr><td><code id="lowess_:_f">f</code></td>
+<tr><td><code id="f">f</code></td>
 <td>
 <p>the smoother span. This gives the proportion of points in
 the plot which influence the smooth at each value.
 Larger values give more smoothness.</p>
 </td></tr>
-<tr><td><code id="lowess_:_iter">iter</code></td>
+<tr><td><code id="iter">iter</code></td>
 <td>
 <p>the number of &lsquo;robustifying&rsquo; iterations which should be
 performed.
 Using smaller values of <code>iter</code> will make <code>lowess</code> run faster.</p>
 </td></tr>
-<tr><td><code id="lowess_:_delta">delta</code></td>
+<tr><td><code id="delta">delta</code></td>
 <td>
 <p>See &lsquo;Details&rsquo;.  Defaults to 1/100th of the range
 of <code>x</code>.</p>
@@ -131,6 +131,7 @@ lines(lowess(cars, f=.2), col = 3)
 legend(5, 120, c(paste("f = ", c("2/3", ".2"))), lty = 1, col = 2:3)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.7.2/00index.html'>Package <em>stats</em> version 2.7.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.7.2/00index.html'>Package <em>stats</em> version 2.7.2</a> ]</div></main>
+
 </div>
 </body></html>

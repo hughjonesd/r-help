@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ar.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ar.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ar.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ar.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ar {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ar'>Fit Autoregressive Models to Time Series</h2>
+<h2>Fit Autoregressive Models to Time Series</h2>
 
 <h3>Description</h3>
 
@@ -60,19 +60,19 @@ predict(object, newdata, n.ahead = 1, se.fit = TRUE, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ar_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a univariate or multivariate time series.</p>
 </td></tr>
-<tr><td><code id="ar_:_aic">aic</code></td>
+<tr><td><code id="aic">aic</code></td>
 <td>
 <p><code>logical</code>.  If <code>TRUE</code> then the Akaike Information
 Criterion is used to choose the order of the autoregressive
 model.  If <code>FALSE</code>, the model of order <code>order.max</code> is
 fitted.</p>
 </td></tr>
-<tr><td><code id="ar_:_order.max">order.max</code></td>
+<tr><td><code id="order.max">order.max</code></td>
 <td>
 <p>maximum order (or order) of model to fit.  Defaults
 to the smaller of <code class="reqn">N-1</code> and <code class="reqn">10\log_{10}(N)</code>
@@ -80,51 +80,51 @@ where <code class="reqn">N</code> is the number of non-missing observations
 except for <code>method = "mle"</code> where it is the minimum of this
 quantity and 12.</p>
 </td></tr>
-<tr><td><code id="ar_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>character string specifying the method to fit the
 model.  Must be one of the strings in the default argument
 (the first few characters are sufficient).  Defaults to
 <code>"yule-walker"</code>.</p>
 </td></tr>
-<tr><td><code id="ar_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>function to be called to handle missing
 values.  Currently, via <code>na.action = na.pass</code>, only Yule-Walker
 method can handle missing values which must be consistent within a
 time point: either all variables must be missing or none.</p>
 </td></tr>
-<tr><td><code id="ar_:_demean">demean</code></td>
+<tr><td><code id="demean">demean</code></td>
 <td>
 <p>should a mean be estimated during fitting?</p>
 </td></tr>
-<tr><td><code id="ar_:_series">series</code></td>
+<tr><td><code id="series">series</code></td>
 <td>
 <p>names for the series.  Defaults to
 <code>deparse(substitute(x))</code>.</p>
 </td></tr>
-<tr><td><code id="ar_:_var.method">var.method</code></td>
+<tr><td><code id="var.method">var.method</code></td>
 <td>
 <p>the method to estimate the innovations variance
 (see &lsquo;Details&rsquo;).</p>
 </td></tr>
-<tr><td><code id="ar_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional arguments for specific methods.</p>
 </td></tr>
-<tr><td><code id="ar_:_object">object</code></td>
+<tr><td><code id="object">object</code></td>
 <td>
 <p>a fit from <code>ar()</code>.</p>
 </td></tr>
-<tr><td><code id="ar_:_newdata">newdata</code></td>
+<tr><td><code id="newdata">newdata</code></td>
 <td>
 <p>data to which to apply the prediction.</p>
 </td></tr>
-<tr><td><code id="ar_:_n.ahead">n.ahead</code></td>
+<tr><td><code id="n.ahead">n.ahead</code></td>
 <td>
 <p>number of steps ahead at which to predict.</p>
 </td></tr>
-<tr><td><code id="ar_:_se.fit">se.fit</code></td>
+<tr><td><code id="se.fit">se.fit</code></td>
 <td>
 <p>logical: return estimated standard errors of the
 prediction error?</p>
@@ -171,7 +171,7 @@ or (<code>ar.mle</code>) estimating a constant to subtract.
 <p>For <code>ar</code> and its methods a list of class <code>"ar"</code> with
 the following elements:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>order</code></td>
 <td>
 <p>The order of the fitted model.  This is chosen by
@@ -322,6 +322,7 @@ ar(ts.union(BJsales, BJsales.lead))
 ar(ts.union(BJsales, BJsales.lead), method = "burg")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.1/00index.html'>Package <em>stats</em> version 3.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.1/00index.html'>Package <em>stats</em> version 3.6.1</a> ]</div></main>
+
 </div>
 </body></html>

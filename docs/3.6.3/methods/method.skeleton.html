@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/method.skeleton.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/method.skeleton.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/method.skeleton.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/method.skeleton.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>method.skeleton {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='method.skeleton'>Create a Skeleton File for a New Method</h2>
+<h2>Create a Skeleton File for a New Method</h2>
 
 <h3>Description</h3>
 
@@ -35,19 +35,19 @@ in the call, but can be made an external (previously assigned) function.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="method.skeleton_:_generic">generic</code></td>
+<table role = "presentation">
+<tr><td><code id="generic">generic</code></td>
 <td>
 <p>the character string name of the generic function, or
 the generic function itself.  In the first case, the function
 need not currently be a generic, as it would not for the
 resulting call to <code>setMethod</code>.</p>
 </td></tr>
-<tr><td><code id="method.skeleton_:_signature">signature</code></td>
+<tr><td><code id="signature">signature</code></td>
 <td>
 <p>the method signature, as it would be given to <code>setMethod</code></p>
 </td></tr>
-<tr><td><code id="method.skeleton_:_file">file</code></td>
+<tr><td><code id="file">file</code></td>
 <td>
 <p>a character string name for the output file, or a
 writable connection.  By default the generic function name and
@@ -59,8 +59,8 @@ underscore characters.  The file name should normally end in <code>".R"</code>. 
 connection first and then pass it to <code>method.skeleton()</code> in
 multiple calls.
 </p>
-<table>
-<tr><td><code id="method.skeleton_:_external">external</code></td>
+<table role = "presentation">
+<tr><td><code id="external">external</code></td>
 <td>
 <p>flag to control whether the function definition for
 the method should be a separate external object assigned in the
@@ -70,7 +70,7 @@ If supplied as a character string, this will be used as the name
 for the external function; by default the name concatenates the
 generic and signature names, with separating underscores.</p>
 </td></tr>
-<tr><td><code id="method.skeleton_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p>The environment in which to look for the function; by default,
 the top-level environment of the call to <code>method.skeleton</code>.</p>
@@ -106,6 +106,7 @@ close(con)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>methods</em> version 3.6.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>methods</em> version 3.6.3</a> ]</div></main>
+
 </div>
 </body></html>

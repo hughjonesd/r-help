@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/unique.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/unique.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/unique.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/unique.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>unique {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='unique'>Extract Unique Elements</h2>
+<h2>Extract Unique Elements</h2>
 
 <h3>Description</h3>
 
@@ -45,12 +45,12 @@ unique(x, incomparables = FALSE, MARGIN = 1,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="unique_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector or a data frame or an array or <code>NULL</code>.</p>
 </td></tr>
-<tr><td><code id="unique_:_incomparables">incomparables</code></td>
+<tr><td><code id="incomparables">incomparables</code></td>
 <td>
 <p>a vector of values that cannot be compared.
 <code>FALSE</code> is a special value, meaning that all values can be
@@ -58,23 +58,23 @@ compared, and may be the only value accepted for methods other than
 the default.  It will be coerced internally to the same type as
 <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="unique_:_fromLast">fromLast</code></td>
+<tr><td><code id="fromLast">fromLast</code></td>
 <td>
 <p>logical indicating if duplication should be considered
 from the last, i.e., the last (or rightmost) of identical elements will
 be kept.  This only matters for <code>names</code> or
 <code>dimnames</code>.</p>
 </td></tr>
-<tr><td><code id="unique_:_nmax">nmax</code></td>
+<tr><td><code id="nmax">nmax</code></td>
 <td>
 <p>the maximum number of unique items expected (greater than one).
 See <code>duplicated</code>.</p>
 </td></tr>
-<tr><td><code id="unique_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments for particular methods.</p>
 </td></tr>
-<tr><td><code id="unique_:_MARGIN">MARGIN</code></td>
+<tr><td><code id="MARGIN">MARGIN</code></td>
 <td>
 <p>the array margin to be held fixed: a single integer.</p>
 </td></tr>
@@ -170,6 +170,7 @@ length(unique(sample(100, 100, replace = TRUE)))
 unique(iris)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>base</em> version 3.5.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>base</em> version 3.5.1</a> ]</div></main>
+
 </div>
 </body></html>

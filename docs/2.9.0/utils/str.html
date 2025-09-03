@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/str.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/str.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/str.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/str.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>str {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='str'>Compactly Display the Structure of an Arbitrary R Object</h2>
+<h2>Compactly Display the Structure of an Arbitrary R Object</h2>
 
 <h3>Description</h3>
 
@@ -60,19 +60,19 @@ strOptions(strict.width = "no", digits.d = 3, vec.len = 4,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="str_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>any <span class="rlang"><b>R</b></span> object about which you want to have some
 information.</p>
 </td></tr>
-<tr><td><code id="str_:_max.level">max.level</code></td>
+<tr><td><code id="max.level">max.level</code></td>
 <td>
 <p>maximal level of nesting which is applied for
 displaying nested structures, e.g., a list containing sub lists.
 Default NA: Display all nesting levels.</p>
 </td></tr>
-<tr><td><code id="str_:_vec.len">vec.len</code></td>
+<tr><td><code id="vec.len">vec.len</code></td>
 <td>
 <p>numeric (&gt;= 0) indicating how many &lsquo;first few&rsquo; elements
 are displayed of each vector.  The number is multiplied by different
@@ -80,63 +80,63 @@ factors (from .5 to 3) depending on the kind of vector.  Defaults to
 the <code>vec.len</code> component of option <code>"str"</code> (see
 <code>options</code>) which defaults to 4.</p>
 </td></tr>
-<tr><td><code id="str_:_digits.d">digits.d</code></td>
+<tr><td><code id="digits.d">digits.d</code></td>
 <td>
 <p>number of digits for numerical components (as for
 <code>print</code>).  Defaults to the <code>digits.d</code> component of
 option <code>"str"</code> which defaults to 3.</p>
 </td></tr>
-<tr><td><code id="str_:_nchar.max">nchar.max</code></td>
+<tr><td><code id="nchar.max">nchar.max</code></td>
 <td>
 <p>maximal number of characters to show for
 <code>character</code> strings.  Longer strings are truncated, see
 <code>longch</code> example below.</p>
 </td></tr>
-<tr><td><code id="str_:_give.attr">give.attr</code></td>
+<tr><td><code id="give.attr">give.attr</code></td>
 <td>
 <p>logical; if <code>TRUE</code> (default), show attributes
 as sub structures.</p>
 </td></tr>
-<tr><td><code id="str_:_give.length">give.length</code></td>
+<tr><td><code id="give.length">give.length</code></td>
 <td>
 <p>logical; if <code>TRUE</code> (default), indicate
 length (as <code>[1:...]</code>).</p>
 </td></tr>
-<tr><td><code id="str_:_give.head">give.head</code></td>
+<tr><td><code id="give.head">give.head</code></td>
 <td>
 <p>logical; if <code>TRUE</code> (default), give (possibly
 abbreviated) mode/class and length (as <code>&lt;type&gt;[1:...]</code>).</p>
 </td></tr>
-<tr><td><code id="str_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>the page width to be used.  The default is the currently
 active <code>options("width")</code>; note that this has only a
 weak effect, unless <code>strict.width</code> is not <code>"no"</code>.</p>
 </td></tr>
-<tr><td><code id="str_:_nest.lev">nest.lev</code></td>
+<tr><td><code id="nest.lev">nest.lev</code></td>
 <td>
 <p>current nesting level in the recursive calls to
 <code>str</code>.</p>
 </td></tr>
-<tr><td><code id="str_:_indent.str">indent.str</code></td>
+<tr><td><code id="indent.str">indent.str</code></td>
 <td>
 <p>the indentation string to use.</p>
 </td></tr>
-<tr><td><code id="str_:_comp.str">comp.str</code></td>
+<tr><td><code id="comp.str">comp.str</code></td>
 <td>
 <p>string to be used for separating list components.</p>
 </td></tr>
-<tr><td><code id="str_:_no.list">no.list</code></td>
+<tr><td><code id="no.list">no.list</code></td>
 <td>
 <p>logical; if true, no &lsquo;list of ...&rsquo; nor the
 class are printed.</p>
 </td></tr>
-<tr><td><code id="str_:_envir">envir</code></td>
+<tr><td><code id="envir">envir</code></td>
 <td>
 <p>the environment to be used for <em>promise</em> (see
 <code>delayedAssign</code>) objects only.</p>
 </td></tr>
-<tr><td><code id="str_:_strict.width">strict.width</code></td>
+<tr><td><code id="strict.width">strict.width</code></td>
 <td>
 <p>string indicating if the <code>width</code> argument's
 specification should be followed strictly, one of the values
@@ -148,7 +148,7 @@ compatibility reasons; <code>"wrap"</code> uses
 directly to <code>width</code>.  Note that a small <code>vec.length</code>
 may be better than setting <code>strict.width = "wrap"</code>.</p>
 </td></tr>
-<tr><td><code id="str_:_formatNum">formatNum</code></td>
+<tr><td><code id="formatNum">formatNum</code></td>
 <td>
 <p>a function such as <code>format</code> for
 formatting numeric vectors.  It defaults to the <code>formatNum</code>
@@ -157,7 +157,7 @@ component of option <code>"str"</code>, see &ldquo;Usage&rdquo; of
 version <code class="reqn">\le</code> 2.7.x, however, using <code>formatC</code>
 may be slightly better.</p>
 </td></tr>
-<tr><td><code id="str_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>potential further arguments (required for Method/Generic
 reasons).</p>
@@ -229,7 +229,6 @@ options(op)
 str(quote( { A+B; list(C,D) } ))
 
 
-
 ## S4 classes :
 require(stats4)
 x &lt;- 0:10; y &lt;- c(26, 17, 13, 12, 20, 5, 9, 8, 5, 4, 8)
@@ -240,6 +239,7 @@ str(fit)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>utils</em> version 2.9.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>utils</em> version 2.9.0</a> ]</div></main>
+
 </div>
 </body></html>

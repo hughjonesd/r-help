@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/factor.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/factor.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/factor.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/factor.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>factor {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='factor'>Factors</h2>
+<h2>Factors</h2>
 
 <h3>Description</h3>
 
@@ -50,13 +50,13 @@ addNA(x, ifany = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="factor_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector of data, usually taking a small number of distinct
 values.</p>
 </td></tr>
-<tr><td><code id="factor_:_levels">levels</code></td>
+<tr><td><code id="levels">levels</code></td>
 <td>
 <p>an optional vector of the unique values (as character strings)
 that <code>x</code> might have taken.  The default is the unique set of
@@ -64,7 +64,7 @@ values taken by <code>as.character(x)</code>, sorted into
 increasing order <em>of <code>x</code></em>.  Note that this set can be
 specified as smaller than <code>sort(unique(x))</code>.</p>
 </td></tr>
-<tr><td><code id="factor_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p><em>either</em> an optional character vector of
 labels for the levels (in the same order as <code>levels</code> after
@@ -72,27 +72,27 @@ removing those in <code>exclude</code>), <em>or</em> a character string of
 length 1.  Duplicated values in <code>labels</code> can be used to map
 different values of <code>x</code> to the same factor level.</p>
 </td></tr>
-<tr><td><code id="factor_:_exclude">exclude</code></td>
+<tr><td><code id="exclude">exclude</code></td>
 <td>
 <p>a vector of values to be excluded when forming the
 set of levels.  This may be factor with the same level set as <code>x</code>
 or should be a <code>character</code>.</p>
 </td></tr>
-<tr><td><code id="factor_:_ordered">ordered</code></td>
+<tr><td><code id="ordered">ordered</code></td>
 <td>
 <p>logical flag to determine if the levels should be regarded
 as ordered (in the order given).</p>
 </td></tr>
-<tr><td><code id="factor_:_nmax">nmax</code></td>
+<tr><td><code id="nmax">nmax</code></td>
 <td>
 <p>an upper bound on the number of levels; see &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="factor_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>(in <code>ordered(.)</code>): any of the above, apart from
 <code>ordered</code> itself.</p>
 </td></tr>
-<tr><td><code id="factor_:_ifany">ifany</code></td>
+<tr><td><code id="ifany">ifany</code></td>
 <td>
 <p>only add an <code>NA</code> level if it is used, i.e.
 if <code>any(is.na(x))</code>.</p>
@@ -310,6 +310,7 @@ table(addNA(Month))
 table(addNA(Month, ifany = TRUE))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.2/00index.html'>Package <em>base</em> version 3.5.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.2/00index.html'>Package <em>base</em> version 3.5.2</a> ]</div></main>
+
 </div>
 </body></html>

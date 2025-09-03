@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/confint.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/confint.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/confint.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/confint.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>confint {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='confint'>Confidence Intervals for Model Parameters</h2>
+<h2>Confidence Intervals for Model Parameters</h2>
 
 <h3>Description</h3>
 
@@ -34,22 +34,22 @@ model.  There is a default and a method for objects inheriting from class
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="confint_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>a fitted model object.</p>
 </td></tr>
-<tr><td><code id="confint_:_parm">parm</code></td>
+<tr><td><code id="parm">parm</code></td>
 <td>
 <p>a specification of which parameters are to be given
 confidence intervals, either a vector of numbers or a vector of
 names.  If missing, all parameters are considered.</p>
 </td></tr>
-<tr><td><code id="confint_:_level">level</code></td>
+<tr><td><code id="level">level</code></td>
 <td>
 <p>the confidence level required.</p>
 </td></tr>
-<tr><td><code id="confint_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional argument(s) for methods.</p>
 </td></tr>
@@ -101,6 +101,7 @@ confint(glm.D93) # needs MASS to be present on the system
 confint.default(glm.D93)  # based on asymptotic normality
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.0/00index.html'>Package <em>stats</em> version 3.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.0/00index.html'>Package <em>stats</em> version 3.2.0</a> ]</div></main>
+
 </div>
 </body></html>

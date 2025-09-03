@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.formula.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.formula.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.formula.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.formula.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>plot.formula {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='plot.formula'>Formula Notation for Scatterplots</h2>
+<h2>Formula Notation for Scatterplots</h2>
 
 <h3>Description</h3>
 
@@ -43,31 +43,31 @@ text(formula, data = parent.frame(), ..., subset)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="plot.formula_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a <code>formula</code>, such as <code>y ~ x</code>.</p>
 </td></tr>
-<tr><td><code id="plot.formula_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data.frame (or list) from which the variables in
 <code>formula</code> should be taken.  A matrix is converted to a data frame.</p>
 </td></tr>
-<tr><td><code id="plot.formula_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Arguments to be passed to or from other methods.
 <code>horizontal = TRUE</code> is also accepted.</p>
 </td></tr>
-<tr><td><code id="plot.formula_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used in the fitting process.</p>
 </td></tr>
-<tr><td><code id="plot.formula_:_ylab">ylab</code></td>
+<tr><td><code id="ylab">ylab</code></td>
 <td>
 <p>the y label of the plot(s).</p>
 </td></tr>
-<tr><td><code id="plot.formula_:_ask">ask</code></td>
+<tr><td><code id="ask">ask</code></td>
 <td>
 <p>logical, see <code>par</code>.</p>
 </td></tr>
@@ -144,6 +144,7 @@ plot(breaks ~ time, data = wb, type = "b")
 text(breaks ~ time, data = wb, label = W.T, col = 1+as.integer(wool))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.1/00index.html'>Package <em>graphics</em> version 4.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.1/00index.html'>Package <em>graphics</em> version 4.0.1</a> ]</div></main>
+
 </div>
 </body></html>

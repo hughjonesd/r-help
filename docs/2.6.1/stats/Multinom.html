@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Multinom.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Multinom.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Multinom.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Multinom.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Multinomial {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Multinomial'>The Multinomial Distribution</h2>
+<h2>The Multinomial Distribution</h2>
 
 <h3>Description</h3>
 
@@ -34,29 +34,29 @@ dmultinom(x, size = NULL, prob, log = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Multinomial_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>vector of length <code class="reqn">K</code> of integers in <code>0:size</code>.</p>
 </td></tr>
 
-<tr><td><code id="Multinomial_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>number of random vectors to draw.</p>
 </td></tr>
-<tr><td><code id="Multinomial_:_size">size</code></td>
+<tr><td><code id="size">size</code></td>
 <td>
 <p>integer, say <code class="reqn">N</code>, specifying the total number
 of objects that are put into <code class="reqn">K</code> boxes in the typical multinomial
 experiment. For <code>dmultinom</code>, it defaults to <code>sum(x)</code>.</p>
 </td></tr>
-<tr><td><code id="Multinomial_:_prob">prob</code></td>
+<tr><td><code id="prob">prob</code></td>
 <td>
 <p>numeric non-negative vector of length <code class="reqn">K</code>, specifying
 the probability for the <code class="reqn">K</code> classes; is internally normalized to
 sum 1.</p>
 </td></tr>
-<tr><td><code id="Multinomial_:_log">log</code></td>
+<tr><td><code id="log">log</code></td>
 <td>
 <p>logical; if TRUE, log probabilities are computed.</p>
 </td></tr>
@@ -109,7 +109,6 @@ no C interface (API); this may be amended in the future.
 <h3>See Also</h3>
 
 <p><code>rbinom</code> which is a special case conceptually.
-
 </p>
 
 
@@ -127,6 +126,7 @@ X
 round(apply(X, 2, function(x) dmultinom(x, prob = c(1,2,5))), 3)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>stats</em> version 2.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>stats</em> version 2.6.1</a> ]</div></main>
+
 </div>
 </body></html>

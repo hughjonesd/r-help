@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/cut.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/cut.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/cut.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/cut.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cut {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cut'>Convert Numeric to Factor</h2>
+<h2>Convert Numeric to Factor</h2>
 
 <h3>Description</h3>
 
@@ -40,17 +40,17 @@ cut(x, breaks, labels = NULL,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cut_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector which is to be converted to a factor by cutting.</p>
 </td></tr>
-<tr><td><code id="cut_:_breaks">breaks</code></td>
+<tr><td><code id="breaks">breaks</code></td>
 <td>
 <p>either a numeric vector of cut points or number
 giving the number of intervals which <code>x</code> is to be cut into.</p>
 </td></tr>
-<tr><td><code id="cut_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>labels for the levels of the resulting category.  By default,
 labels are constructed using <code>"(a,b]"</code> interval notation. If
@@ -59,24 +59,24 @@ a factor.</p>
 </td></tr></table>
 <p>.
 </p>
-<table>
-<tr><td><code id="cut_:_include.lowest">include.lowest</code></td>
+<table role = "presentation">
+<tr><td><code id="include.lowest">include.lowest</code></td>
 <td>
 <p>logical, indicating if an &lsquo;x[i]&rsquo; equal to
 the lowest (or highest, for <code>right = FALSE</code>) &lsquo;breaks&rsquo;
 value should be included.</p>
 </td></tr>
-<tr><td><code id="cut_:_right">right</code></td>
+<tr><td><code id="right">right</code></td>
 <td>
 <p>logical, indicating if the intervals should be closed on
 the right (and open on the left) or vice versa.</p>
 </td></tr>
-<tr><td><code id="cut_:_dig.lab">dig.lab</code></td>
+<tr><td><code id="dig.lab">dig.lab</code></td>
 <td>
 <p>integer which is used when labels are not given. It
 determines the number of digits used in formatting the break numbers.</p>
 </td></tr>
-<tr><td><code id="cut_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td></tr>
@@ -168,6 +168,7 @@ cut(aaa, 3)
 cut(aaa, 3, dig.lab=4)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>base</em> version 2.4.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>base</em> version 2.4.0</a> ]</div></main>
+
 </div>
 </body></html>

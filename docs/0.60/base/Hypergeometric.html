@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Hypergeometric.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Hypergeometric.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Hypergeometric.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Hypergeometric.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Hypergeometric {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Hypergeometric'>The Hypergeometric Distribution</h2>
+<h2>The Hypergeometric Distribution</h2>
 
 <h3>Usage</h3>
 
@@ -29,28 +29,28 @@ rhyper(nobs, N1, N2, n)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Hypergeometric_:_x">x</code>, <code id="Hypergeometric_:_q">q</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="q">q</code></td>
 <td>
 <p>vector of quantiles.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_N1">N1</code></td>
+<tr><td><code id="N1">N1</code></td>
 <td>
 <p>the number of white balls in the population.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_N2">N2</code></td>
+<tr><td><code id="N2">N2</code></td>
 <td>
 <p>the number of black balls in the population.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>the number of balls drawn from the urn.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>probability, it must be between 0 and 1.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_nobs">nobs</code></td>
+<tr><td><code id="nobs">nobs</code></td>
 <td>
 <p>the number of observations to be generated.</p>
 </td></tr>
@@ -90,6 +90,7 @@ formatC(signif((phyper(x, N1, N2, n) / cumsum(dhyper(x, N1, N2, n)) - 1), 2),
         format='g', dig=2)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.60/00index.html'>Package <em>base</em> version 0.60</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.60/00index.html'>Package <em>base</em> version 0.60</a> ]</div></main>
+
 </div>
 </body></html>

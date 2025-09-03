@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Memory.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Memory.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Memory.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Memory.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Memory {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Memory'>Memory Available for Data Storage</h2>
+<h2>Memory Available for Data Storage</h2>
 
 <h3>Description</h3>
 
@@ -34,16 +34,16 @@ mem.limits(nsize = NA, vsize = NA)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Memory_:_vl">vl</code>, <code id="Memory_:_vu">vu</code>, <code id="Memory_:_vsize">vsize</code></td>
+<table role = "presentation">
+<tr><td><code id="vl">vl</code>, <code id="vu">vu</code>, <code id="vsize">vsize</code></td>
 <td>
 <p>Heap memory in bytes.</p>
 </td></tr>
-<tr><td><code id="Memory_:_nl">nl</code>, <code id="Memory_:_nu">nu</code>, <code id="Memory_:_nsize">nsize</code></td>
+<tr><td><code id="nl">nl</code>, <code id="nu">nu</code>, <code id="nsize">nsize</code></td>
 <td>
 <p>Number of cons cells.</p>
 </td></tr>
-<tr><td><code id="Memory_:_N">N</code></td>
+<tr><td><code id="N">N</code></td>
 <td>
 <p>Number of nested <code>PROTECT</code> calls.</p>
 </td></tr></table>
@@ -58,7 +58,8 @@ much less need to set memory options than prior to <span class="rlang"><b>R</b><
 users will never need to set these.  They are provided both as a way
 to control the overall memory usage (which can also be done
 by operating-system facilities such as <code>limit</code> on Unix),
-and since setting larger values of the minima will make <span class="rlang"><b>R</b></span> slightly
+</p>
+<p>and since setting larger values of the minima will make <span class="rlang"><b>R</b></span> slightly
 more efficient on large tasks.
 </p>
 <p>To understand the options, one needs to know that <span class="rlang"><b>R</b></span> maintains
@@ -141,6 +142,7 @@ R --min-vsize=10M --max-vsize=100M --min-nsize=500k --max-nsize=1M
 ## End(Not run)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.10.0/00index.html'>Package <em>base</em> version 2.10.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.10.0/00index.html'>Package <em>base</em> version 2.10.0</a> ]</div></main>
+
 </div>
 </body></html>

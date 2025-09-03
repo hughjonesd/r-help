@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grep.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grep.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grep.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grep.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>grid.grep {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='grid.grep'>
+<h2>
 Search for grobs
 </h2>
 
@@ -37,40 +37,40 @@ or within a given grob.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="grid.grep_:_path">path</code></td>
+<table role = "presentation">
+<tr><td><code id="path">path</code></td>
 <td>
 <p> a gPath. </p>
 </td></tr>
-<tr><td><code id="grid.grep_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p> a grob or <code>NULL</code>.  If <code>NULL</code>, the display list
 is searched.
 </p>
 </td></tr>
-<tr><td><code id="grid.grep_:_grobs">grobs</code></td>
+<tr><td><code id="grobs">grobs</code></td>
 <td>
 <p>A logical value indicating whether to search for grobs.</p>
 </td></tr>
-<tr><td><code id="grid.grep_:_viewports">viewports</code></td>
+<tr><td><code id="viewports">viewports</code></td>
 <td>
 <p>A logical value indicating whether to search for
 viewports.</p>
 </td></tr>
-<tr><td><code id="grid.grep_:_strict">strict</code></td>
+<tr><td><code id="strict">strict</code></td>
 <td>
 
 <p>A boolean indicating whether the <code>path</code> must be matched
 exactly.
 </p>
 </td></tr>
-<tr><td><code id="grid.grep_:_grep">grep</code></td>
+<tr><td><code id="grep">grep</code></td>
 <td>
 
 <p>Whether the <code>path</code> should be treated as a regular expression.
 </p>
 </td></tr>
-<tr><td><code id="grid.grep_:_global">global</code></td>
+<tr><td><code id="global">global</code></td>
 <td>
 
 <p>A boolean indicating whether the function should affect just the
@@ -78,7 +78,7 @@ first match of the <code>path</code>, or whether all matches should be
 affected.
 </p>
 </td></tr>
-<tr><td><code id="grid.grep_:_no.match">no.match</code></td>
+<tr><td><code id="no.match">no.match</code></td>
 <td>
 
 <p>The value to return if no matches are found.
@@ -128,6 +128,7 @@ grid.grep("vp1::vp2", sampleGTree, viewports=TRUE)
 grid.grep("[a-z]", sampleGTree, viewports=TRUE, grep=TRUE, global=TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>grid</em> version 3.6.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>grid</em> version 3.6.3</a> ]</div></main>
+
 </div>
 </body></html>

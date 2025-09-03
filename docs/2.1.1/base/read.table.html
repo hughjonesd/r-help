@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/read.table.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/read.table.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/read.table.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/read.table.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>read.table {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='read.table'>Data Input</h2>
+<h2>Data Input</h2>
 
 <h3>Description</h3>
 
@@ -50,8 +50,8 @@ read.delim2(file, header = TRUE, sep = "\t", quote="\"", dec=",",
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="read.table_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>the name of the file which the data are to be read from.
 Each row of the table appears as one line of the file.  If it does
@@ -73,7 +73,7 @@ Latin-1 file in a UTF-8 locale or conversely) use a
 <code>file</code> connection setting the <code>encoding</code> argument.
 </p>
 </td></tr>
-<tr><td><code id="read.table_:_header">header</code></td>
+<tr><td><code id="header">header</code></td>
 <td>
 <p>a logical value indicating whether the file contains the
 names of the variables as its first line.  If missing, the value is
@@ -81,24 +81,24 @@ determined from the file format: <code>header</code> is set to <code>TRUE</code>
 if and only if the first row contains one fewer field than the
 number of columns.</p>
 </td></tr>
-<tr><td><code id="read.table_:_sep">sep</code></td>
+<tr><td><code id="sep">sep</code></td>
 <td>
 <p>the field separator character.  Values on each line of the
 file are separated by this character.  If <code>sep = ""</code> (the
 default for <code>read.table</code>) the separator is &ldquo;white space&rdquo;,
 that is one or more spaces, tabs, newlines or carriage returns.</p>
 </td></tr>
-<tr><td><code id="read.table_:_quote">quote</code></td>
+<tr><td><code id="quote">quote</code></td>
 <td>
 <p>the set of quoting characters. To disable quoting
 altogether, use <code>quote = ""</code>.  See <code>scan</code> for the
 behaviour on quotes embedded in quotes.</p>
 </td></tr>
-<tr><td><code id="read.table_:_dec">dec</code></td>
+<tr><td><code id="dec">dec</code></td>
 <td>
 <p>the character used in the file for decimal points.</p>
 </td></tr>
-<tr><td><code id="read.table_:_row.names">row.names</code></td>
+<tr><td><code id="row.names">row.names</code></td>
 <td>
 <p>a vector of row names.  This can be a vector giving
 the actual row names, or a single number giving the column of the
@@ -113,12 +113,12 @@ numbered.
 <p>Using <code>row.names = NULL</code> forces row numbering.
 </p>
 </td></tr>
-<tr><td><code id="read.table_:_col.names">col.names</code></td>
+<tr><td><code id="col.names">col.names</code></td>
 <td>
 <p>a vector of optional names for the variables.
 The default is to use <code>"V"</code> followed by the column number.</p>
 </td></tr>
-<tr><td><code id="read.table_:_as.is">as.is</code></td>
+<tr><td><code id="as.is">as.is</code></td>
 <td>
 <p>the default behavior of <code>read.table</code> is to convert
 character variables (which are not converted to logical, numeric or
@@ -136,13 +136,13 @@ variable) and so includes the column of row names (if any) and any
 columns to be skipped.
 </p>
 </td></tr>
-<tr><td><code id="read.table_:_na.strings">na.strings</code></td>
+<tr><td><code id="na.strings">na.strings</code></td>
 <td>
 <p>a vector of strings which are to be interpreted as
 <code>NA</code> values.  Blank fields are also considered to be
 missing values.</p>
 </td></tr>
-<tr><td><code id="read.table_:_colClasses">colClasses</code></td>
+<tr><td><code id="colClasses">colClasses</code></td>
 <td>
 <p>character.  A vector of classes to be assumed for
 the columns.  Recycled as necessary, or if the character vector is
@@ -160,17 +160,17 @@ class.
 variable) and so includes the column of row names (if any).
 </p>
 </td></tr>
-<tr><td><code id="read.table_:_nrows">nrows</code></td>
+<tr><td><code id="nrows">nrows</code></td>
 <td>
 <p>the maximum number of rows to read in.  Negative values
 are ignored.</p>
 </td></tr>
-<tr><td><code id="read.table_:_skip">skip</code></td>
+<tr><td><code id="skip">skip</code></td>
 <td>
 <p>the number of lines of the data file to skip before
 beginning to read data.</p>
 </td></tr>
-<tr><td><code id="read.table_:_check.names">check.names</code></td>
+<tr><td><code id="check.names">check.names</code></td>
 <td>
 <p>logical.  If <code>TRUE</code> then the names of the
 variables in the data frame are checked to ensure that they are
@@ -178,12 +178,12 @@ syntactically valid variable names.  If necessary they are adjusted
 (by <code>make.names</code>) so that they are, and also to ensure
 that there are no duplicates.</p>
 </td></tr>
-<tr><td><code id="read.table_:_fill">fill</code></td>
+<tr><td><code id="fill">fill</code></td>
 <td>
 <p>logical. If <code>TRUE</code> then in case the rows have unequal
 length, blank fields are implicitly added.  See Details.</p>
 </td></tr>
-<tr><td><code id="read.table_:_strip.white">strip.white</code></td>
+<tr><td><code id="strip.white">strip.white</code></td>
 <td>
 <p>logical. Used only when <code>sep</code> has
 been specified, and allows the stripping of leading and trailing
@@ -191,18 +191,18 @@ white space from <code>character</code> fields (<code>numeric</code> fields
 are always stripped).  See <code>scan</code> for further details,
 remembering that the columns may include the row names.</p>
 </td></tr>
-<tr><td><code id="read.table_:_blank.lines.skip">blank.lines.skip</code></td>
+<tr><td><code id="blank.lines.skip">blank.lines.skip</code></td>
 <td>
 <p>logical: if <code>TRUE</code> blank lines in the
 input are ignored.</p>
 </td></tr>
-<tr><td><code id="read.table_:_comment.char">comment.char</code></td>
+<tr><td><code id="comment.char">comment.char</code></td>
 <td>
 <p>character: a character vector of length one
 containing a single character or an empty string.  Use <code>""</code> to
 turn off the interpretation of comments altogether.</p>
 </td></tr>
-<tr><td><code id="read.table_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further arguments to <code>read.table</code>.</p>
 </td></tr>
@@ -308,6 +308,7 @@ eds J. M. Chambers and T. J. Hastie, Wadsworth \&amp; Brooks/Cole.
 reading files which result in reports of incorrect record lengths.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.1.1/00index.html'>Package <em>base</em> version 2.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.1.1/00index.html'>Package <em>base</em> version 2.1.1</a> ]</div></main>
+
 </div>
 </body></html>

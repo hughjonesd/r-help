@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/all.equal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/all.equal.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/all.equal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/all.equal.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>all.equal {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='all.equal'>Test if Two Objects are (Nearly) Equal</h2>
+<h2>Test if Two Objects are (Nearly) Equal</h2>
 
 <h3>Description</h3>
 
@@ -56,49 +56,49 @@ attr.all.equal(target, current, ...,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="all.equal_:_target">target</code></td>
+<table role = "presentation">
+<tr><td><code id="target">target</code></td>
 <td>
 <p><span class="rlang"><b>R</b></span> object.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_current">current</code></td>
+<tr><td><code id="current">current</code></td>
 <td>
 <p>other <span class="rlang"><b>R</b></span> object, to be compared with <code>target</code>.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further arguments for different methods, notably the
 following two, for numerical comparison:</p>
 </td></tr>
-<tr><td><code id="all.equal_:_tolerance">tolerance</code></td>
+<tr><td><code id="tolerance">tolerance</code></td>
 <td>
 <p>numeric <code class="reqn">\ge</code> 0.  Differences smaller than
 <code>tolerance</code> are not reported.  The default value is close to
 <code>1.5e-8</code>.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_scale">scale</code></td>
+<tr><td><code id="scale">scale</code></td>
 <td>
 <p>numeric scalar &gt; 0 (or <code>NULL</code>). See &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_check.attributes">check.attributes</code></td>
+<tr><td><code id="check.attributes">check.attributes</code></td>
 <td>
 <p>logical indicating if the
 <code>attributes</code> of <code>target</code> and <code>current</code>
 (other than the names) should be compared.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_use.names">use.names</code></td>
+<tr><td><code id="use.names">use.names</code></td>
 <td>
 <p>logical indicating if <code>list</code> comparison
 should report differing components by name (if matching) instead of
 integer index.  Note that this comes after <code>...</code> and so must
 be specified by its full name.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_all.names">all.names</code></td>
+<tr><td><code id="all.names">all.names</code></td>
 <td>
 <p>logical passed to <code>ls</code> indicating if
 &ldquo;hidden&rdquo; objects should also be considered in the environments.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_check.names">check.names</code></td>
+<tr><td><code id="check.names">check.names</code></td>
 <td>
 <p>logical indicating if the <code>names(.)</code>
 of <code>target</code> and <code>current</code> should be compared.</p>
@@ -196,6 +196,7 @@ stopifnot(is.character(ae), length(ae) &gt; 10,
           all.equal(asNamespace("stats"), asNamespace("stats")))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>base</em> version 3.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>base</em> version 3.2.3</a> ]</div></main>
+
 </div>
 </body></html>

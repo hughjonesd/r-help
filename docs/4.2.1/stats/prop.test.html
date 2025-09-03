@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/prop.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/prop.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/prop.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/prop.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>prop.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='prop.test'>Test of Equal or Given Proportions</h2>
+<h2>Test of Equal or Given Proportions</h2>
 
 <h3>Description</h3>
 
@@ -36,25 +36,25 @@ same, or that they equal certain given values.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="prop.test_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector of counts of successes, a one-dimensional table with
 two entries, or a two-dimensional table (or matrix) with 2 columns,
 giving the counts of successes and failures, respectively.</p>
 </td></tr>
-<tr><td><code id="prop.test_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>a vector of counts of trials; ignored if <code>x</code> is a
 matrix or a table.</p>
 </td></tr>
-<tr><td><code id="prop.test_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>a vector of probabilities of success.  The length of
 <code>p</code> must be the same as the number of groups specified by
 <code>x</code>, and its elements must be greater than 0 and less than 1.</p>
 </td></tr>
-<tr><td><code id="prop.test_:_alternative">alternative</code></td>
+<tr><td><code id="alternative">alternative</code></td>
 <td>
 <p>a character string specifying the alternative
 hypothesis, must be one of <code>"two.sided"</code> (default),
@@ -63,14 +63,14 @@ letter.  Only used for testing the null that a single proportion
 equals a given value, or that two proportions are equal; ignored
 otherwise.</p>
 </td></tr>
-<tr><td><code id="prop.test_:_conf.level">conf.level</code></td>
+<tr><td><code id="conf.level">conf.level</code></td>
 <td>
 <p>confidence level of the returned confidence
 interval.  Must be a single number between 0 and 1.  Only used
 when testing the null that a single proportion equals a given
 value, or that two proportions are equal; ignored otherwise.</p>
 </td></tr>
-<tr><td><code id="prop.test_:_correct">correct</code></td>
+<tr><td><code id="correct">correct</code></td>
 <td>
 <p>a logical indicating whether Yates' continuity
 correction should be applied where possible.</p>
@@ -123,7 +123,7 @@ is never used.
 <p>A list with class <code>"htest"</code> containing the following
 components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>the value of Pearson's chi-squared test statistic.</p>
@@ -217,6 +217,7 @@ patients &lt;- c( 86, 93, 136, 82 )
 prop.test(smokers, patients)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.1/00index.html'>Package <em>stats</em> version 4.2.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.1/00index.html'>Package <em>stats</em> version 4.2.1</a> ]</div></main>
+
 </div>
 </body></html>

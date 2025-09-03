@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-internal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-internal.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-internal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-internal.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ns-internals {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ns-internals'>Namespace Internals</h2>
+<h2>Namespace Internals</h2>
 
 <h3>Description</h3>
 
@@ -57,88 +57,88 @@ loadingNamespaceInfo()
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ns-internals_:_ns">ns</code></td>
+<table role = "presentation">
+<tr><td><code id="ns">ns</code></td>
 <td>
 <p>string or namespace environment.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_base.OK">base.OK</code></td>
+<tr><td><code id="base.OK">base.OK</code></td>
 <td>
 <p>logical.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_impenv">impenv</code></td>
+<tr><td><code id="impenv">impenv</code></td>
 <td>
 <p>environment.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_expenv">expenv</code></td>
+<tr><td><code id="expenv">expenv</code></td>
 <td>
 <p>namespace environment.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_vars">vars</code></td>
+<tr><td><code id="vars">vars</code></td>
 <td>
 <p>character vector.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_generics">generics</code></td>
+<tr><td><code id="generics">generics</code></td>
 <td>
 <p>optional character vector.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_self">self</code></td>
+<tr><td><code id="self">self</code></td>
 <td>
 <p>namespace environment.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p>string naming the package/namespace to load.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_packages">packages</code></td>
+<tr><td><code id="packages">packages</code></td>
 <td>
 <p>vector of package names parallel to <code>generics</code>.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_package.lib">package.lib</code></td>
+<tr><td><code id="package.lib">package.lib</code></td>
 <td>
 <p>character vector specifying library.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_mustExist">mustExist</code></td>
+<tr><td><code id="mustExist">mustExist</code></td>
 <td>
 <p>logical.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_genname">genname</code></td>
+<tr><td><code id="genname">genname</code></td>
 <td>
 <p>character.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_class">class</code></td>
+<tr><td><code id="class">class</code></td>
 <td>
 <p>character.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_envir">envir</code>, <code id="ns-internals_:_env">env</code></td>
+<tr><td><code id="envir">envir</code>, <code id="env">env</code></td>
 <td>
 <p>environment.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_info">info</code></td>
+<tr><td><code id="info">info</code></td>
 <td>
 <p>a 3-column character matrix.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_which">which</code></td>
+<tr><td><code id="which">which</code></td>
 <td>
 <p>character.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_val">val</code></td>
+<tr><td><code id="val">val</code></td>
 <td>
 <p>any object.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>character arguments.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_metaname">metaname</code></td>
+<tr><td><code id="metaname">metaname</code></td>
 <td>
 <p>the methods table name.</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>symbol: name of namespace</p>
 </td></tr>
-<tr><td><code id="ns-internals_:_except">except</code></td>
+<tr><td><code id="except">except</code></td>
 <td>
 <p>character vector naming symbols to exclude from the
 import, particularly useful when <code>vars</code> is missing.
@@ -192,6 +192,7 @@ utils::str(allinfoNS("stats"))
 utils::str(allinfoNS("stats4"))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>base</em> version 3.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>base</em> version 3.6.0</a> ]</div></main>
+
 </div>
 </body></html>

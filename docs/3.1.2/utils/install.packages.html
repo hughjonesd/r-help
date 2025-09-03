@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/install.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/install.packages.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/install.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/install.packages.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>install.packages {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='install.packages'>Install Packages from Repositories or Local Files</h2>
+<h2>Install Packages from Repositories or Local Files</h2>
 
 <h3>Description</h3>
 
@@ -42,14 +42,15 @@ local files.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="install.packages_:_pkgs">pkgs</code></td>
+<table role = "presentation">
+<tr><td><code id="pkgs">pkgs</code></td>
 <td>
 <p>character vector of the names of packages whose
 current versions should be downloaded from the repositories.
 </p>
 <p>If <code>repos = NULL</code>, a character vector of
-file paths.  These can be source directories or archives
+</p>
+<p>file paths.  These can be source directories or archives
 or binary package archive files (as created by <code>R CMD build
       --binary</code>).  (<code>http://</code> and <code>file://</code> URLs are also
 accepted and the files will be downloaded and installed from local
@@ -62,7 +63,7 @@ available packages is presented where possible in an interactive <span class="rl
 session.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_lib">lib</code></td>
+<tr><td><code id="lib">lib</code></td>
 <td>
 
 <p>character vector giving the library directories where to
@@ -70,7 +71,7 @@ install the packages.  Recycled as needed.  If missing, defaults to
 the first element of <code>.libPaths()</code>.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_repos">repos</code></td>
+<tr><td><code id="repos">repos</code></td>
 <td>
 
 <p>character vector, the base URL(s) of the repositories
@@ -82,7 +83,7 @@ supported URL schemes see <code>url</code>.
 this will be inferred by extension from <code>pkgs</code> if of length one.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_contriburl">contriburl</code></td>
+<tr><td><code id="contriburl">contriburl</code></td>
 <td>
 
 <p>URL(s) of the contrib sections of the repositories.  Use this
@@ -92,13 +93,13 @@ binary packages.  Overrides argument <code>repos</code>.  Can also be
 <code>NULL</code> to install from local files.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 
 <p>download method, see <code>download.file</code>.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_available">available</code></td>
+<tr><td><code id="available">available</code></td>
 <td>
 
 <p>an object as returned by <code>available.packages</code>
@@ -106,7 +107,7 @@ listing packages available at the repositories, or <code>NULL</code> when
 the function makes an internal call to <code>available.packages</code>.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_destdir">destdir</code></td>
+<tr><td><code id="destdir">destdir</code></td>
 <td>
 
 <p>directory where downloaded packages are stored.  If it is
@@ -116,7 +117,7 @@ directory will be used (and the files will be deleted
 at the end of the session).
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_dependencies">dependencies</code></td>
+<tr><td><code id="dependencies">dependencies</code></td>
 <td>
 <p>logical indicating to also install uninstalled
 packages which these packages depend on/link to/import/suggest
@@ -142,7 +143,7 @@ correctly).
 <p>In all of these, <code>"LinkingTo"</code> is omitted for binary packages.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>character, indicating the type of package to download and
 install.
@@ -162,7 +163,7 @@ In interactive use it will ask before attempting to install source
 packages.)
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_configure.args">configure.args</code></td>
+<tr><td><code id="configure.args">configure.args</code></td>
 <td>
 
 <p>(Used only for source installs.) A character vector or a named list.
@@ -182,7 +183,7 @@ which are concatenated to a single string to be used as the
 value for <span class="option">--configure-args</span>.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_configure.vars">configure.vars</code></td>
+<tr><td><code id="configure.vars">configure.vars</code></td>
 <td>
 
 <p>(Used only for source installs.) Analogous to <code>configure.args</code>
@@ -190,7 +191,7 @@ for flag <span class="option">--configure-vars</span>, which is used to set envi
 variables for the <code>configure</code> run.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_clean">clean</code></td>
+<tr><td><code id="clean">clean</code></td>
 <td>
 <p>a logical value indicating whether to specify
 to add the <span class="option">--clean</span> flag to the call to
@@ -199,7 +200,7 @@ This is sometimes used to perform additional operations at the end
 of the package installation in addition to removing intermediate files.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_Ncpus">Ncpus</code></td>
+<tr><td><code id="Ncpus">Ncpus</code></td>
 <td>
 <p>the number of parallel processes to use for a parallel
 install of more than one source package.  Values greater than one
@@ -208,12 +209,12 @@ are supported if the <code>make</code> command specified by
     <var>Ncpus</var></code>.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>a logical indicating if some &ldquo;progress report&rdquo;
 should happen.</p>
 </td></tr>
-<tr><td><code id="install.packages_:_libs_only">libs_only</code></td>
+<tr><td><code id="libs_only">libs_only</code></td>
 <td>
 
 <p>a logical value: should the <span class="option">--libs-only</span> option be used to
@@ -223,7 +224,7 @@ just the DLL(s) from a binary package, e.g. to add 64-bit
 DLLs to a 32-bit install.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_INSTALL_opts">INSTALL_opts</code></td>
+<tr><td><code id="INSTALL_opts">INSTALL_opts</code></td>
 <td>
 
 <p>an optional character vector of additional option(s) to be passed to
@@ -234,11 +235,11 @@ DLLs to a 32-bit install.
 additional options, with names the respective package names.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_quiet">quiet</code></td>
+<tr><td><code id="quiet">quiet</code></td>
 <td>
 <p>logical: if true, reduce the amount of output.</p>
 </td></tr>
-<tr><td><code id="install.packages_:_keep_outputs">keep_outputs</code></td>
+<tr><td><code id="keep_outputs">keep_outputs</code></td>
 <td>
 <p>a logical: if true, keep the outputs from
 installing source packages in the current working directory, with
@@ -248,7 +249,7 @@ where to save the outputs.  Ignored when installing from local
 files.
 </p>
 </td></tr>
-<tr><td><code id="install.packages_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 
 <p>Arguments to be passed to <code>download.file</code> or to the
@@ -404,6 +405,7 @@ install.packages(c("ncdf4", "RNetCDF"),
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>utils</em> version 3.1.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>utils</em> version 3.1.2</a> ]</div></main>
+
 </div>
 </body></html>

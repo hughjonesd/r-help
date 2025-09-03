@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatDL.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatDL.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatDL.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatDL.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>formatDL {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='formatDL'>Format Description Lists</h2>
+<h2>Format Description Lists</h2>
 
 <h3>Description</h3>
 
@@ -34,20 +34,20 @@ tables or LaTeX-style description lists.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="formatDL_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector giving the items to be described, or a list of
 length 2 or a matrix with 2 columns giving both items and
 descriptions.</p>
 </td></tr>
-<tr><td><code id="formatDL_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>a vector of the same length as <code>x</code> with the
 corresponding descriptions.  Only used if <code>x</code> does not already
 give the descriptions.</p>
 </td></tr>
-<tr><td><code id="formatDL_:_style">style</code></td>
+<tr><td><code id="style">style</code></td>
 <td>
 <p>a character string specifying the rendering style of the
 description information.  Can be abbreviated.
@@ -56,12 +56,12 @@ items and descriptions as columns is produced (similar to Texinfo's
 <code style="white-space: pre;">&#8288;@table&#8288;</code> environment).  If <code>"list"</code>, a LaTeX-style tagged
 description list is obtained.</p>
 </td></tr>
-<tr><td><code id="formatDL_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>a positive integer giving the target column for wrapping
 lines in the output.</p>
 </td></tr>
-<tr><td><code id="formatDL_:_indent">indent</code></td>
+<tr><td><code id="indent">indent</code></td>
 <td>
 <p>a positive integer specifying the indentation of the
 second column in table style, and the indentation of continuation
@@ -98,6 +98,7 @@ writeLines(formatDL(unlist(.Machine)))
 writeLines(formatDL(Sys.getenv(), style = "list"))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.2/00index.html'>Package <em>base</em> version 3.5.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.2/00index.html'>Package <em>base</em> version 3.5.2</a> ]</div></main>
+
 </div>
 </body></html>

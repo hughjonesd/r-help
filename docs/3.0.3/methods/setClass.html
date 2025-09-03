@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>setClass {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='setClass'>Create a Class Definition</h2>
+<h2>Create a Class Definition</h2>
 
 <h3>Description</h3>
 
@@ -41,12 +41,12 @@ arguments to the function only <code>Class</code>,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="setClass_:_Class">Class</code></td>
+<table role = "presentation">
+<tr><td><code id="Class">Class</code></td>
 <td>
 <p>character string name for the class.</p>
 </td></tr>
-<tr><td><code id="setClass_:_slots">slots</code></td>
+<tr><td><code id="slots">slots</code></td>
 <td>
 <p> a named list or named character vector.
 The names are the names of the slots in the new class and
@@ -63,21 +63,21 @@ case, with the elements taken as slot names and all slots having
 the unrestricted class <code>"ANY"</code>.
 </p>
 </td></tr>
-<tr><td><code id="setClass_:_contains">contains</code></td>
+<tr><td><code id="contains">contains</code></td>
 <td>
 <p> the names (and optionally package slots) for the
 <em>superclasses</em> of this class.  The special superclass
 <code>"VIRTUAL"</code> causes the new class to be created as a
 virtual class; see the section on virtual classes in Classes.</p>
 </td></tr>
-<tr><td><code id="setClass_:_prototype">prototype</code></td>
+<tr><td><code id="prototype">prototype</code></td>
 <td>
 <p> an object providing the default
 data for the slots in this class.  By default, each will be the
 prototype object for the superclass.  If provided, using a call to
 <code>prototype</code> will carry out some checks. </p>
 </td></tr>
-<tr><td><code id="setClass_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p> the environment in which to store the definition.
 Should not be supplied in standard use.  For calls to
@@ -86,7 +86,7 @@ default to the namespace of the package.  For calls typed or sourced
 at the top level in a session, will default to the global environment.
 </p>
 </td></tr>
-<tr><td><code id="setClass_:_validity">validity</code></td>
+<tr><td><code id="validity">validity</code></td>
 <td>
 <p> if supplied, should be a validity-checking method
 for objects from this class (a function that returns <code>TRUE</code> if
@@ -94,7 +94,7 @@ its argument is a valid object of this class and one or more strings
 describing the failures otherwise).  See <code>validObject</code>
 for details.</p>
 </td></tr>
-<tr><td><code id="setClass_:_S3methods">S3methods</code>, <code id="setClass_:_representation">representation</code>, <code id="setClass_:_access">access</code>, <code id="setClass_:_version">version</code></td>
+<tr><td><code id="S3methods">S3methods</code>, <code id="representation">representation</code>, <code id="access">access</code>, <code id="version">version</code></td>
 <td>
 <p> All these
 arguments are deprecated from version 3.0.0 of <span class="rlang"><b>R</b></span> and should be
@@ -112,13 +112,13 @@ the latter two arguments is clearer and recommended.
 <p><code>access</code> and <code>version</code> are included for
 historical compatibility with S-Plus, but ignored.</p>
 </td></tr>
-<tr><td><code id="setClass_:_sealed">sealed</code></td>
+<tr><td><code id="sealed">sealed</code></td>
 <td>
 <p> if <code>TRUE</code>, the class definition will be sealed,
 so that another call to <code>setClass</code> will fail on this class name.
 </p>
 </td></tr>
-<tr><td><code id="setClass_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p> an optional package name for the class.  Should very
 rarely be used. By default
@@ -358,6 +358,7 @@ e1[["noise"]] &lt;- rnorm(10)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.3/00index.html'>Package <em>methods</em> version 3.0.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.3/00index.html'>Package <em>methods</em> version 3.0.3</a> ]</div></main>
+
 </div>
 </body></html>

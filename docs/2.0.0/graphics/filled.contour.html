@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/filled.contour.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/filled.contour.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/filled.contour.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/filled.contour.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>filled.contour {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='filled.contour'>Level (Contour) Plots</h2>
+<h2>Level (Contour) Plots</h2>
 
 <h3>Description</h3>
 
@@ -46,8 +46,8 @@ the plot.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="filled.contour_:_x">x</code>, <code id="filled.contour_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>locations of grid lines at which the values in <code>z</code> are
 measured.  These must be in ascending order.  By default, equally
@@ -56,89 +56,89 @@ its components <code>x$x</code> and <code>x$y</code> are used for <code>x</code>
 and <code>y</code>, respectively. If the list has component <code>z</code> this
 is used for <code>z</code>.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_z">z</code></td>
+<tr><td><code id="z">z</code></td>
 <td>
 <p>a matrix containing the values to be plotted (<code>NA</code>s are
 allowed).  Note that <code>x</code> can be used instead of <code>z</code> for
 convenience.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_xlim">xlim</code></td>
+<tr><td><code id="xlim">xlim</code></td>
 <td>
 <p>x limits for the plot.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_ylim">ylim</code></td>
+<tr><td><code id="ylim">ylim</code></td>
 <td>
 <p>y limits for the plot.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_zlim">zlim</code></td>
+<tr><td><code id="zlim">zlim</code></td>
 <td>
 <p>z limits for the plot.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_levels">levels</code></td>
+<tr><td><code id="levels">levels</code></td>
 <td>
 <p>a set of levels which are used to partition the range
 of <code>z</code>.  Must be <b>strictly</b> increasing (and finite).  Areas
 with <code>z</code> values between consecutive levels are painted with the
 same color.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_nlevels">nlevels</code></td>
+<tr><td><code id="nlevels">nlevels</code></td>
 <td>
 <p>if <code>levels</code> is not specified, the range of <code>z</code>,
 values is divided into approximately this many levels.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_color.palette">color.palette</code></td>
+<tr><td><code id="color.palette">color.palette</code></td>
 <td>
 <p>a color palette function to be used to assign
 colors in the plot.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>an explicit set of colors to be used in the plot.
 This argument overrides any palette function specification.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_plot.title">plot.title</code></td>
+<tr><td><code id="plot.title">plot.title</code></td>
 <td>
 <p>statements which add titles to the main plot.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_plot.axes">plot.axes</code></td>
+<tr><td><code id="plot.axes">plot.axes</code></td>
 <td>
 <p>statements which draw axes (and a <code>box</code>)
 on the main plot.  This overrides the default axes.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_key.title">key.title</code></td>
+<tr><td><code id="key.title">key.title</code></td>
 <td>
 <p>statements which add titles for the plot key.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_key.axes">key.axes</code></td>
+<tr><td><code id="key.axes">key.axes</code></td>
 <td>
 <p>statements which draw axes on the plot key.
 This overrides the default axis.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_asp">asp</code></td>
+<tr><td><code id="asp">asp</code></td>
 <td>
 <p>the <code class="reqn">y/x</code> aspect ratio, see <code>plot.window</code>.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_xaxs">xaxs</code></td>
+<tr><td><code id="xaxs">xaxs</code></td>
 <td>
 <p>the x axis style.  The default is to use internal
 labeling.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_yaxs">yaxs</code></td>
+<tr><td><code id="yaxs">yaxs</code></td>
 <td>
 <p>the y axis style.  The default is to use internal
 labeling.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_las">las</code></td>
+<tr><td><code id="las">las</code></td>
 <td>
 <p>the style of labeling to be used.  The default is to
 use horizontal labeling. </p>
 </td></tr>
-<tr><td><code id="filled.contour_:_axes">axes</code>, <code id="filled.contour_:_frame.plot">frame.plot</code></td>
+<tr><td><code id="axes">axes</code>, <code id="frame.plot">frame.plot</code></td>
 <td>
 <p>logicals indicating if axes and a box should be
 drawn, as in <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="filled.contour_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional graphical parameters, currently only passed to
 <code>title()</code>.</p>
@@ -213,6 +213,7 @@ filled.contour(cos(r^2)*exp(-r/(2*pi)), axes = FALSE)
 filled.contour(cos(r^2)*exp(-r/(2*pi)), frame.plot = FALSE, plot.axes = {})
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>graphics</em> version 2.0.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>graphics</em> version 2.0.0</a> ]</div></main>
+
 </div>
 </body></html>

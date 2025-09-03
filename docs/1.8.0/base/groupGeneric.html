@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/groupGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/groupGeneric.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/groupGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/groupGeneric.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>groupGeneric {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='groupGeneric'>Group Generic Functions</h2>
+<h2>Group Generic Functions</h2>
 
 <h3>Description</h3>
 
@@ -53,20 +53,20 @@ Complex(z)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="groupGeneric_:_x">x</code>, <code id="groupGeneric_:_z">z</code>, <code id="groupGeneric_:_e1">e1</code>, <code id="groupGeneric_:_e2">e2</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="z">z</code>, <code id="e1">e1</code>, <code id="e2">e2</code></td>
 <td>
 <p>objects.</p>
 </td></tr>
-<tr><td><code id="groupGeneric_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>number of digits to be used in <code>round</code> or <code>signif</code>.</p>
 </td></tr>
-<tr><td><code id="groupGeneric_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from methods.</p>
 </td></tr>
-<tr><td><code id="groupGeneric_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>logical: should missing values be removed?</p>
 </td></tr>
@@ -82,12 +82,6 @@ are not <span class="rlang"><b>R</b></span> objects, but methods can be supplied
 contain <code>factor</code> and <code>data.frame</code> methods.
 (There is also a <code>ordered</code> method for <code>Ops</code>.)
 </p>
-
-
-
-
-
-
 
 <ol>
 <li><p> Group <code>"Math"</code>:
@@ -252,6 +246,7 @@ d.fr &lt;- data.frame(x=1:9, y=rnorm(9))
 data.class(1 + d.fr) == "data.frame" ##-- add to d.f. ...
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.8.0/00index.html'>Package <em>base</em> version 1.8.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.8.0/00index.html'>Package <em>base</em> version 1.8.0</a> ]</div></main>
+
 </div>
 </body></html>

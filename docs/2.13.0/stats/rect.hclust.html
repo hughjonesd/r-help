@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/rect.hclust.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/rect.hclust.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/rect.hclust.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/rect.hclust.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>rect.hclust {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='rect.hclust'>Draw Rectangles Around Hierarchical Clusters</h2>
+<h2>Draw Rectangles Around Hierarchical Clusters</h2>
 
 <h3>Description</h3>
 
@@ -35,17 +35,17 @@ level, then a rectangle is drawn around selected branches.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="rect.hclust_:_tree">tree</code></td>
+<table role = "presentation">
+<tr><td><code id="tree">tree</code></td>
 <td>
 <p>an object of the type produced by <code>hclust</code>.</p>
 </td></tr>
-<tr><td><code id="rect.hclust_:_k">k</code>, <code id="rect.hclust_:_h">h</code></td>
+<tr><td><code id="k">k</code>, <code id="h">h</code></td>
 <td>
 <p>Scalar. Cut the dendrogram such that either exactly
 <code>k</code> clusters are produced or by cutting at height <code>h</code>.</p>
 </td></tr>
-<tr><td><code id="rect.hclust_:_which">which</code>, <code id="rect.hclust_:_x">x</code></td>
+<tr><td><code id="which">which</code>, <code id="x">x</code></td>
 <td>
 <p>A vector selecting the clusters around which a
 rectangle should be drawn. <code>which</code> selects clusters by number
@@ -53,11 +53,11 @@ rectangle should be drawn. <code>which</code> selects clusters by number
 containing the respective horizontal coordinates. Default is
 <code>which = 1:k</code>.</p>
 </td></tr>
-<tr><td><code id="rect.hclust_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p>Vector with border colors for the rectangles.</p>
 </td></tr>
-<tr><td><code id="rect.hclust_:_cluster">cluster</code></td>
+<tr><td><code id="cluster">cluster</code></td>
 <td>
 <p>Optional vector with cluster memberships as returned by
 <code>cutree(hclust.obj, k = k)</code>, can be specified for efficiency if
@@ -89,6 +89,7 @@ x &lt;- rect.hclust(hca, h=50, which=c(2,7), border=3:4)
 x
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.13.0/00index.html'>Package <em>stats</em> version 2.13.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.13.0/00index.html'>Package <em>stats</em> version 2.13.0</a> ]</div></main>
+
 </div>
 </body></html>

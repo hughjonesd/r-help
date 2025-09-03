@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/kronecker.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/kronecker.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/kronecker.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/kronecker.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>kronecker {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='kronecker'>Kronecker Product of Arrays</h2>
+<h2>Kronecker Product of Arrays</h2>
 
 <h3>Description</h3>
 
@@ -35,20 +35,20 @@ X %x% Y
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="kronecker_:_X">X</code></td>
+<table role = "presentation">
+<tr><td><code id="X">X</code></td>
 <td>
 <p>vector or array.</p>
 </td></tr>
-<tr><td><code id="kronecker_:_Y">Y</code></td>
+<tr><td><code id="Y">Y</code></td>
 <td>
 <p>vector or array.</p>
 </td></tr>
-<tr><td><code id="kronecker_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>a function, possibly specified as character (string).</p>
 </td></tr>
-<tr><td><code id="kronecker_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>optional arguments to be passed to <code>FUN</code>.</p>
 </td></tr>
@@ -99,6 +99,7 @@ kronecker(diag(3), M)
 all(kronecker(diag(3), M) == diag(3) %x% M)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.90.1/00index.html'>Package <em>base</em> version 0.90.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.90.1/00index.html'>Package <em>base</em> version 0.90.1</a> ]</div></main>
+
 </div>
 </body></html>

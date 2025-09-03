@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/fourfoldplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/fourfoldplot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/fourfoldplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/fourfoldplot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>fourfoldplot {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='fourfoldplot'>Fourfold Plots</h2>
+<h2>Fourfold Plots</h2>
 
 <h3>Description</h3>
 
@@ -39,24 +39,24 @@ populations (strata).
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="fourfoldplot_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a 2 by 2 by <code class="reqn">k</code> contingency table in array form, or as a
 2 by 2 matrix if <code class="reqn">k</code> is 1.</p>
 </td></tr>
-<tr><td><code id="fourfoldplot_:_color">color</code></td>
+<tr><td><code id="color">color</code></td>
 <td>
 <p>a vector of length 2 specifying the colors to use for the
 smaller and larger diagonals of each 2 by 2 table.</p>
 </td></tr>
-<tr><td><code id="fourfoldplot_:_conf.level">conf.level</code></td>
+<tr><td><code id="conf.level">conf.level</code></td>
 <td>
 <p>confidence level used for the confidence rings on
 the odds ratios.  Must be a single nonnegative number less than 1;
 if set to 0, confidence rings are suppressed.</p>
 </td></tr>
-<tr><td><code id="fourfoldplot_:_std">std</code></td>
+<tr><td><code id="std">std</code></td>
 <td>
 <p>a character string specifying how to standardize the table.
 Must be one of <code>"margins"</code>, <code>"ind.max"</code>, or
@@ -67,7 +67,7 @@ odds ratio.  If <code>"ind.max"</code> or <code>"all.max"</code>, the tables are
 either individually or simultaneously standardized to a maximal cell
 frequency of 1.</p>
 </td></tr>
-<tr><td><code id="fourfoldplot_:_margin">margin</code></td>
+<tr><td><code id="margin">margin</code></td>
 <td>
 <p>a numeric vector with the margins to equate.  Must be
 one of <code>1</code>, <code>2</code>, or <code>c(1, 2)</code> (the default), which
@@ -75,22 +75,22 @@ corresponds to standardizing the row, column, or both margins in
 each 2 by 2 table.
 Only used if <code>std</code> equals <code>"margins"</code>.</p>
 </td></tr>
-<tr><td><code id="fourfoldplot_:_space">space</code></td>
+<tr><td><code id="space">space</code></td>
 <td>
 <p>the amount of space (as a fraction of the maximal radius
 of the quarter circles) used for the row and column lebals.</p>
 </td></tr>
-<tr><td><code id="fourfoldplot_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>character string for the fourfold title.</p>
 </td></tr>
-<tr><td><code id="fourfoldplot_:_mfrow">mfrow</code></td>
+<tr><td><code id="mfrow">mfrow</code></td>
 <td>
 <p>a numeric vector of the form <code>c(nr, nc)</code>, indicating
 that the displays for the 2 by 2 tables should be arranged in an
 <code>nr</code> by <code>nc</code> layout, filled by rows.</p>
 </td></tr>
-<tr><td><code id="fourfoldplot_:_mfcol">mfcol</code></td>
+<tr><td><code id="mfcol">mfcol</code></td>
 <td>
 <p>a numeric vector of the form <code>c(nr, nc)</code>, indicating
 that the displays for the 2 by 2 tables should be arranged in an
@@ -165,6 +165,7 @@ fourfoldplot(x)
 fourfoldplot(x, margin = 2)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.13.2/00index.html'>Package <em>graphics</em> version 2.13.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.13.2/00index.html'>Package <em>graphics</em> version 2.13.2</a> ]</div></main>
+
 </div>
 </body></html>

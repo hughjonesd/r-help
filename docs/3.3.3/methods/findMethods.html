@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/findMethods.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/findMethods.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/findMethods.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/findMethods.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>findMethods {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='findMethods'>Description of the Methods Defined for a Generic Function</h2>
+<h2>Description of the Methods Defined for a Generic Function</h2>
 
 <h3>Description</h3>
 
@@ -71,12 +71,12 @@ getMethods(f, where, table = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="findMethods_:_f">f</code></td>
+<table role = "presentation">
+<tr><td><code id="f">f</code></td>
 <td>
 <p>A generic function or the character-string name of one.</p>
 </td></tr>
-<tr><td><code id="findMethods_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p>Optionally, an environment or position on the search list
 to look for methods metadata.
@@ -86,7 +86,7 @@ table of methods in the generic function itself, and
 <code>hasMethods</code> looks for metadata anywhere in the search list.
 </p>
 </td></tr>
-<tr><td><code id="findMethods_:_table">table</code></td>
+<tr><td><code id="table">table</code></td>
 <td>
 <p> If <code>TRUE</code> in a call to <code>getMethods</code> the
 returned value is the table used for dispatch, including
@@ -95,25 +95,25 @@ since the default result is the now unused <code>mlist</code> object,
 the default will likely be changed at some point.
 </p>
 </td></tr>
-<tr><td><code id="findMethods_:_classes">classes</code></td>
+<tr><td><code id="classes">classes</code></td>
 <td>
 <p>If supplied, only methods whose signatures contain at
 least one of the supplied classes will be included in the value
 returned.</p>
 </td></tr>
-<tr><td><code id="findMethods_:_inherited">inherited</code></td>
+<tr><td><code id="inherited">inherited</code></td>
 <td>
 <p>Logical flag; if <code>TRUE</code>, the table of all
 methods, inherited or defined directly, will be used; otherwise,
 only the methods explicitly defined.  Option <code>TRUE</code> is
 meaningful only if <code>where</code> is missing.</p>
 </td></tr>
-<tr><td><code id="findMethods_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>In the call to <code>findMethodSignatures</code>, any arguments
 that might be given to <code>findMethods</code>.</p>
 </td></tr>
-<tr><td><code id="findMethods_:_target">target</code></td>
+<tr><td><code id="target">target</code></td>
 <td>
 <p>Optional flag to <code>findMethodSignatures</code>; if
 <code>TRUE</code>, the signatures used are the target signatures (the
@@ -121,14 +121,14 @@ classes for which the method will be selected); if <code>FALSE</code>,
 they will be the signatures are defined.  The difference is only
 meaningful if <code>inherited</code> is <code>TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="findMethods_:_methods">methods</code></td>
+<tr><td><code id="methods">methods</code></td>
 <td>
 <p>In the call to <code>findMethodSignatures</code>, an optional
 list of methods, presumably returned by a previous call to
 <code>findMethods</code>.  If missing, that function will be call with the
 ... arguments.</p>
 </td></tr>
-<tr><td><code id="findMethods_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p>In a call to <code>hasMethods</code>, the package name for
 the generic function (e.g., <code>"base"</code> for primitives).  If
@@ -231,6 +231,7 @@ names as noted are the class names separated by <code>"#"</code> .</p>
 findMethodSignatures(methods = mm)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.3/00index.html'>Package <em>methods</em> version 3.3.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.3/00index.html'>Package <em>methods</em> version 3.3.3</a> ]</div></main>
+
 </div>
 </body></html>

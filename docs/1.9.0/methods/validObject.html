@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/validObject.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/validObject.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/validObject.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/validObject.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>validObject {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='validObject'> Test the Validity of an Object </h2>
+<h2> Test the Validity of an Object </h2>
 
 <h3>Description</h3>
 
@@ -43,25 +43,25 @@ object that returns <code>TRUE</code> or a description of the non-validity.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="validObject_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p> Any object, but not much will happen unless the
 object's class has a formal definition.</p>
 </td></tr>
-<tr><td><code id="validObject_:_test">test</code></td>
+<tr><td><code id="test">test</code></td>
 <td>
 <p> If <code>test</code> is <code>TRUE</code>, and validity fails the
 function returns a vector of strings describing the problems.  If
 <code>test</code> is <code>FALSE</code> (the default) validity failure generates
 an error.</p>
 </td></tr>
-<tr><td><code id="validObject_:_Class">Class</code></td>
+<tr><td><code id="Class">Class</code></td>
 <td>
 <p>the name or class definition of the class whose validity
 method is to be set.</p>
 </td></tr>
-<tr><td><code id="validObject_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>a validity method;  that is, either <code>NULL</code> or a
 function of one argument (the <code>object</code>).  Like
@@ -71,7 +71,7 @@ are found.  Unlike <code>validObject</code>, it should never generate an
 error.
 </p>
 </td></tr>
-<tr><td><code id="validObject_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p>the modified class definition will be stored in this
 environment.</p>
@@ -156,6 +156,7 @@ t1@x &lt;- 1:20
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.9.0/00index.html'>Package <em>methods</em> version 1.9.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.9.0/00index.html'>Package <em>methods</em> version 1.9.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/add1.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/add1.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/add1.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/add1.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>add1 {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='add1'>Add or Drop All Possible Single Terms to a Model</h2>
+<h2>Add or Drop All Possible Single Terms to a Model</h2>
 
 <h3>Description</h3>
 
@@ -48,22 +48,22 @@ drop1.glm(object, scope, scale = 0, test=c("none", "Chisq"),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="add1_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>a fitted models object.</p>
 </td></tr>
-<tr><td><code id="add1_:_scope">scope</code></td>
+<tr><td><code id="scope">scope</code></td>
 <td>
 <p>a formula giving the terms to be considered for adding or
 dropping.</p>
 </td></tr>
-<tr><td><code id="add1_:_scale">scale</code></td>
+<tr><td><code id="scale">scale</code></td>
 <td>
 <p>an estimate of the residual mean square to be used in
 computing Cp. Ignored if <code>0</code> or <code>NULL</code>.</p>
 </td></tr>
-<tr><td><code id="add1_:_test">test</code></td>
+<tr><td><code id="test">test</code></td>
 <td>
 <p>should the results include a test statistic relative to the
 original model?  The F test is only appropriate for <code>lm</code> and
@@ -71,21 +71,21 @@ original model?  The F test is only appropriate for <code>lm</code> and
 (<code>lm</code> models with known scale) or a likelihood-ratio test depending
 on the method.</p>
 </td></tr>
-<tr><td><code id="add1_:_k">k</code></td>
+<tr><td><code id="k">k</code></td>
 <td>
 <p>the penalty constant in AIC/Cp.</p>
 </td></tr>
-<tr><td><code id="add1_:_trace">trace</code></td>
+<tr><td><code id="trace">trace</code></td>
 <td>
 <p>if <code>TRUE</code>, print out progress reports.</p>
 </td></tr>
-<tr><td><code id="add1_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a model matrix containing columns for the fitted model and all
 terms in the upper scope.  Useful if <code>add1</code> is to be called
 repeatedly.</p>
 </td></tr>
-<tr><td><code id="add1_:_all.cols">all.cols</code></td>
+<tr><td><code id="all.cols">all.cols</code></td>
 <td>
 <p>(Provided for compatibility with S.) Logical to specify
 whether all columns of the design matrix should be used. If
@@ -151,6 +151,7 @@ those of the authors of the models chapter of S.
 (alm1 &lt;- add1(lm1, ~ I(Education^2) + .^2))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.65/00index.html'>Package <em>base</em> version 0.65</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.65/00index.html'>Package <em>base</em> version 0.65</a> ]</div></main>
+
 </div>
 </body></html>

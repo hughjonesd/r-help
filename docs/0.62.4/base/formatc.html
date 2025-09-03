@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>formatC {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='formatC'>Flexible Formatting</h2>
+<h2>Flexible Formatting</h2>
 
 <h3>Usage</h3>
 
@@ -28,13 +28,13 @@ format.char(x, width = NULL, flag = "-")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="formatC_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an atomic numerical or character object, typically a vector
 of real numbers.</p>
 </td></tr>
-<tr><td><code id="formatC_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>the desired number of digits after the decimal
 point (<code>format = "f"</code>) or <em>significant</em> digits
@@ -43,14 +43,14 @@ point (<code>format = "f"</code>) or <em>significant</em> digits
 <p>Default: 2 for integer, 4 for real numbers.  If less than 0,
 the C default of 6 digits is used.</p>
 </td></tr>
-<tr><td><code id="formatC_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>the total field width; <code>width &lt; 0</code> means left
 justify the number in this field (equivalent to <code>flag ="-"</code>).
 It is possible that the result will be longer than this, but that
 should only happen in reasonable cases.</p>
 </td></tr>
-<tr><td><code id="formatC_:_format">format</code></td>
+<tr><td><code id="format">format</code></td>
 <td>
 <p>equal to <code>"d"</code>  (for integers), <code>"f"</code>,
 <code>"e"</code>, <code>"E"</code>, <code>"g"</code>, <code>"G"</code>, <code>"fg"</code> (for
@@ -65,14 +65,14 @@ reals), or <code>"s"</code> (for strings).
 number of <em>significant</em> digits.  Note that this can lead to
 quite long result strings, see examples below.</p>
 </td></tr>
-<tr><td><code id="formatC_:_flag">flag</code></td>
+<tr><td><code id="flag">flag</code></td>
 <td>
 <p>format modifier as in Kernighan and Ritchie, 2nd ed.,
 page 243.
 <code>"0"</code>  pads leading zeros; <code>"-"</code> does left adjustment,
 others are <code>"+"</code>, <code>" "</code>, and <code>"#"</code>.</p>
 </td></tr>
-<tr><td><code id="formatC_:_mode">mode</code></td>
+<tr><td><code id="mode">mode</code></td>
 <td>
 <p><code>"double"</code> (or <code>"real"</code>), <code>"integer"</code> or
 <code>"character"</code>.
@@ -125,6 +125,7 @@ formatC(xx, format="fg")       # special "fixed" format.
 formatC(xx, format="f", dig=80)#&gt;&gt; also long strings
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.62.4/00index.html'>Package <em>base</em> version 0.62.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.62.4/00index.html'>Package <em>base</em> version 0.62.4</a> ]</div></main>
+
 </div>
 </body></html>

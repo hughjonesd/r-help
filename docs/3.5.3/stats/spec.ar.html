@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/spec.ar.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/spec.ar.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/spec.ar.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/spec.ar.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>spec.ar {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='spec.ar'>Estimate Spectral Density of a Time Series from AR Fit</h2>
+<h2>Estimate Spectral Density of a Time Series from AR Fit</h2>
 
 <h3>Description</h3>
 
@@ -34,34 +34,34 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="spec.ar_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A univariate (not yet:or multivariate) time series or the
 result of a fit by <code>ar</code>.</p>
 </td></tr>
-<tr><td><code id="spec.ar_:_n.freq">n.freq</code></td>
+<tr><td><code id="n.freq">n.freq</code></td>
 <td>
 <p>The number of points at which to plot.</p>
 </td></tr>
-<tr><td><code id="spec.ar_:_order">order</code></td>
+<tr><td><code id="order">order</code></td>
 <td>
 <p>The order of the AR model to be fitted.  If omitted,
 the order is chosen by AIC.</p>
 </td></tr>
-<tr><td><code id="spec.ar_:_plot">plot</code></td>
+<tr><td><code id="plot">plot</code></td>
 <td>
 <p>Plot the periodogram?</p>
 </td></tr>
-<tr><td><code id="spec.ar_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p><code>NA</code> action function.</p>
 </td></tr>
-<tr><td><code id="spec.ar_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p><code>method</code> for <code>ar</code> fit.</p>
 </td></tr>
-<tr><td><code id="spec.ar_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Graphical arguments passed to <code>plot.spec</code>.</p>
 </td></tr>
@@ -121,6 +121,7 @@ spec.ar(log(lynx), method = "mle", add = TRUE, col = "forest green")
 spec.ar(log(lynx), method = "ols", add = TRUE, col = "blue")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>stats</em> version 3.5.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>stats</em> version 3.5.3</a> ]</div></main>
+
 </div>
 </body></html>

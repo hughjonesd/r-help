@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/dendrogram.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/dendrogram.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/dendrogram.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/dendrogram.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>dendrogram {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='dendrogram'>General Tree Structures</h2>
+<h2>General Tree Structures</h2>
 
 <h3>Description</h3>
 
@@ -59,31 +59,31 @@ str(object, max.level = 0, digits.d = 3,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="dendrogram_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>any <span class="rlang"><b>R</b></span> object that can be made into one of class
 <code>"dendrogram"</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>object of class <code>"dendrogram"</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>type of plot.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_center">center</code></td>
+<tr><td><code id="center">center</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, nodes are plotted centered with
 respect to the leaves in the branch.  Otherwise (default), plot them
 in the middle of all direct child nodes.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_edge.root">edge.root</code></td>
+<tr><td><code id="edge.root">edge.root</code></td>
 <td>
 <p>logical; if true, draw an edge to the root node.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_nodePar">nodePar</code></td>
+<tr><td><code id="nodePar">nodePar</code></td>
 <td>
 <p>a <code>list</code> of plotting parameters to use for the
 nodes (see <code>points</code>) or <code>NULL</code> by default which
@@ -92,37 +92,37 @@ named <code>pch</code>, <code>cex</code>, <code>col</code>, and/or <code>bg</cod
 which can have length two for specifying separate attributes for
 <em>inner</em> nodes and <em>leaves</em>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_edgePar">edgePar</code></td>
+<tr><td><code id="edgePar">edgePar</code></td>
 <td>
 <p>a <code>list</code> of plotting parameters to use for the
 edge (see <code>lines</code>).  The list may contain components
 named <code>col</code>, <code>lty</code> and/or <code>lwd</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_horiz">horiz</code></td>
+<tr><td><code id="horiz">horiz</code></td>
 <td>
 <p>logical indicating if the dendrogram should be draw
 <em>horizontally</em> or not.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_frame.plot">frame.plot</code></td>
+<tr><td><code id="frame.plot">frame.plot</code></td>
 <td>
 <p>logical indicating if a box around the plot should
 be drawn, see <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_h">h</code></td>
+<tr><td><code id="h">h</code></td>
 <td>
 <p>height at which the tree is cut.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_...">...</code>, <code id="dendrogram_:_xlab">xlab</code>, <code id="dendrogram_:_ylab">ylab</code></td>
+<tr><td><code id="...">...</code>, <code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>graphical parameters, or arguments for
 other methods.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>integer specifiying the precision for printing, see
 <code>print.default</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_max.level">max.level</code>, <code id="dendrogram_:_digits.d">digits.d</code>, <code id="dendrogram_:_give.attr">give.attr</code>, <code id="dendrogram_:_wid">wid</code>, <code id="dendrogram_:_nest.lev">nest.lev</code>, <code id="dendrogram_:_indent.str">indent.str</code></td>
+<tr><td><code id="max.level">max.level</code>, <code id="digits.d">digits.d</code>, <code id="give.attr">give.attr</code>, <code id="wid">wid</code>, <code id="nest.lev">nest.lev</code>, <code id="indent.str">indent.str</code></td>
 <td>
 
 <p>arguments to <code>str</code>, see <code>str.default()</code>.  Note that
@@ -224,6 +224,7 @@ plot(dend2$lower[[2]], nodePar=list(col=1),# non empty list
 par(op)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

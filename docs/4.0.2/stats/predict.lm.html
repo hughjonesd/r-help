@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.lm.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.lm.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>predict.lm {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='predict.lm'>Predict method for Linear Model Fits</h2>
+<h2>Predict method for Linear Model Fits</h2>
 
 <h3>Description</h3>
 
@@ -37,62 +37,62 @@ predict(object, newdata, se.fit = FALSE, scale = NULL, df = Inf,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="predict.lm_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>Object of class inheriting from <code>"lm"</code></p>
 </td></tr>
-<tr><td><code id="predict.lm_:_newdata">newdata</code></td>
+<tr><td><code id="newdata">newdata</code></td>
 <td>
 <p>An optional data frame in which to look for variables with
 which to predict.  If omitted, the fitted values are used.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_se.fit">se.fit</code></td>
+<tr><td><code id="se.fit">se.fit</code></td>
 <td>
 <p>A switch indicating if standard errors are required.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_scale">scale</code></td>
+<tr><td><code id="scale">scale</code></td>
 <td>
 <p>Scale parameter for std.err. calculation.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_df">df</code></td>
+<tr><td><code id="df">df</code></td>
 <td>
 <p>Degrees of freedom for scale.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_interval">interval</code></td>
+<tr><td><code id="interval">interval</code></td>
 <td>
 <p>Type of interval calculation.  Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_level">level</code></td>
+<tr><td><code id="level">level</code></td>
 <td>
 <p>Tolerance/confidence level.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>Type of prediction (response or model term).  Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_terms">terms</code></td>
+<tr><td><code id="terms">terms</code></td>
 <td>
 <p>If <code>type = "terms"</code>, which terms (default is all
 terms), a <code>character</code> vector.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>function determining what should be done with missing
 values in <code>newdata</code>.  The default is to predict <code>NA</code>.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_pred.var">pred.var</code></td>
+<tr><td><code id="pred.var">pred.var</code></td>
 <td>
 <p>the variance(s) for future observations to be assumed
 for prediction intervals.  See &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_weights">weights</code></td>
+<tr><td><code id="weights">weights</code></td>
 <td>
 <p>variance weights for prediction.  This can be a numeric
 vector or a one-sided model formula.  In the latter case, it is
 interpreted as an expression evaluated in <code>newdata</code>.</p>
 </td></tr>
-<tr><td><code id="predict.lm_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td></tr>
@@ -150,7 +150,7 @@ is a matrix with a column per term and may have an attribute
 <p>If <code>se.fit</code> is
 <code>TRUE</code>, a list with the following components is returned:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>fit</code></td>
 <td>
 <p>vector or matrix as above</p>
@@ -234,6 +234,7 @@ stopifnot(all.equal(pt[,1:4], pt.,
                     tolerance = 1e-12, check.attributes = FALSE))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.2/00index.html'>Package <em>stats</em> version 4.0.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.2/00index.html'>Package <em>stats</em> version 4.0.2</a> ]</div></main>
+
 </div>
 </body></html>

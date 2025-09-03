@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kmeans.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kmeans.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kmeans.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kmeans.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>kmeans {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='kmeans'>
+<h2>
 K-Means Clustering
 </h2>
 
@@ -38,54 +38,54 @@ fitted(object, method = c("centers", "classes"), ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="kmeans_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric matrix of data, or an object that can be coerced to
 such a matrix (such as a numeric vector or a data frame with all
 numeric columns).</p>
 </td></tr>
-<tr><td><code id="kmeans_:_centers">centers</code></td>
+<tr><td><code id="centers">centers</code></td>
 <td>
 <p>either the number of clusters, say <code class="reqn">k</code>, or a set of
 initial (distinct) cluster centres.  If a number, a random set of
 (distinct) rows in <code>x</code> is chosen as the initial centres.</p>
 </td></tr>
-<tr><td><code id="kmeans_:_iter.max">iter.max</code></td>
+<tr><td><code id="iter.max">iter.max</code></td>
 <td>
 <p>the maximum number of iterations allowed.</p>
 </td></tr>
-<tr><td><code id="kmeans_:_nstart">nstart</code></td>
+<tr><td><code id="nstart">nstart</code></td>
 <td>
 <p>if <code>centers</code> is a number, how many random sets
 should be chosen?</p>
 </td></tr>
-<tr><td><code id="kmeans_:_algorithm">algorithm</code></td>
+<tr><td><code id="algorithm">algorithm</code></td>
 <td>
 <p>character: may be abbreviated.  Note that
 <code>"Lloyd"</code> and <code>"Forgy"</code> are alternative names for one
 algorithm.</p>
 </td></tr>
-<tr><td><code id="kmeans_:_object">object</code></td>
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object of class <code>"kmeans"</code>, typically the
 result <code>ob</code> of <code>ob &lt;- kmeans(..)</code>.</p>
 </td></tr>
-<tr><td><code id="kmeans_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>character: may be abbreviated. <code>"centers"</code> causes
 <code>fitted</code> to return cluster centers (one for each input point) and
 <code>"classes"</code> causes <code>fitted</code> to return a vector of class
 assignments.</p>
 </td></tr>
-<tr><td><code id="kmeans_:_trace">trace</code></td>
+<tr><td><code id="trace">trace</code></td>
 <td>
 <p>logical or integer number, currently only used in the
 default method (<code>"Hartigan-Wong"</code>): if positive (or true),
 tracing information on the progress of the algorithm is
 produced.  Higher values may produce more tracing information.</p>
 </td></tr>
-<tr><td><code id="kmeans_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>not used.</p>
 </td></tr>
@@ -129,7 +129,7 @@ an error for the Hartigan&ndash;Wong method.
 <code>print</code> and a <code>fitted</code> method.  It is a list with at least
 the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>cluster</code></td>
 <td>
 
@@ -245,6 +245,7 @@ plot(x, col = cl$cluster)
 points(cl$centers, col = 1:5, pch = 8)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.1/00index.html'>Package <em>stats</em> version 4.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.1/00index.html'>Package <em>stats</em> version 4.0.1</a> ]</div></main>
+
 </div>
 </body></html>

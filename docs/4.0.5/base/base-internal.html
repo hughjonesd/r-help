@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/base-internal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/base-internal.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/base-internal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/base-internal.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>base-internal {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='base-internal'>Internal Objects in Package <span class="pkg">base</span></h2>
+<h2>Internal Objects in Package <span class="pkg">base</span></h2>
 
 <h3>Description</h3>
 
@@ -35,8 +35,6 @@ because of the special nature of the base namespace.
                      quietly = FALSE, useImports = FALSE)
 .getRequiredPackages2(pkgInfo, quietly = FALSE, lib.loc = NULL,
                       useImports = FALSE)
-
-
 
 .isMethodsDispatchOn(onOff = NULL)
 
@@ -81,8 +79,8 @@ lazyLoadDBfetch(key, file, compressed, hook)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="base-internal_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object
 </p>
@@ -98,7 +96,7 @@ data frame.</p>
 </dl>
 
 </td></tr>
-<tr><td><code id="base-internal_:_file">file</code></td>
+<tr><td><code id="file">file</code></td>
 <td>
 
 <dl>
@@ -110,129 +108,129 @@ data frame.</p>
 </dl>
 
 </td></tr>
-<tr><td><code id="base-internal_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector describing the location of <span class="rlang"><b>R</b></span>
 library trees to search through, or <code>NULL</code>.  The default value
 of <code>NULL</code> corresponds to all libraries currently known to
 <code>.libPaths()</code>.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_quiet">quiet</code></td>
+<tr><td><code id="quiet">quiet</code></td>
 <td>
 <p>logical.  Should this not give warnings or an error
 if the package(s) are not found?</p>
 </td></tr>
-<tr><td><code id="base-internal_:_useImports">useImports</code></td>
+<tr><td><code id="useImports">useImports</code></td>
 <td>
 <p>logical.  Should  the <code>Imports</code> field be processed?</p>
 </td></tr>
-<tr><td><code id="base-internal_:_quietly">quietly</code></td>
+<tr><td><code id="quietly">quietly</code></td>
 <td>
 <p>logical: should message(s) be printed.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_pkginfo">pkginfo</code></td>
+<tr><td><code id="pkginfo">pkginfo</code></td>
 <td>
 <p>A processed &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file of class
 <code>"packageDescription2"</code>.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_built">built</code>, <code id="base-internal_:_run">run</code></td>
+<tr><td><code id="built">built</code>, <code id="run">run</code></td>
 <td>
 <p>platform strings of the form <code>"cpu-vendor-os"</code>.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>name of image file to save or load.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>integer.  Currently <code>type = 0</code> returns the internal
 <code>"row.names"</code> attribute (possibly <code>NULL</code>), <code>type = 2</code>
 the number of rows implied by the attribute, and <code>type = 1</code> the
 latter with a negative sign for &lsquo;automatic&rsquo; row names.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>integer.  The number of rows.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_info">info</code></td>
+<tr><td><code id="info">info</code></td>
 <td>
 <p>character string such as <code>"package:MASS"</code>.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_key">key</code></td>
+<tr><td><code id="key">key</code></td>
 <td>
 <p>the object name in a lazyload database.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_compressed">compressed</code></td>
+<tr><td><code id="compressed">compressed</code></td>
 <td>
 <p>logical: are the values in the database compressed?</p>
 </td></tr>
-<tr><td><code id="base-internal_:_refhook">refhook</code></td>
+<tr><td><code id="refhook">refhook</code></td>
 <td>
 <p>a load hook: see <code>unserialize</code>.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_seed">seed</code></td>
+<tr><td><code id="seed">seed</code></td>
 <td>
 <p>a length-one integer vector.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_i">i</code>, <code id="base-internal_:_j">j</code></td>
+<tr><td><code id="i">i</code>, <code id="j">j</code></td>
 <td>
 <p>indices.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_strictly">strictly</code></td>
+<tr><td><code id="strictly">strictly</code></td>
 <td>
 <p>logical.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_obj">obj</code></td>
+<tr><td><code id="obj">obj</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_xx">xx</code></td>
+<tr><td><code id="xx">xx</code></td>
 <td>
 <p>a classless object to be placed into the class.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_tz">tz</code></td>
+<tr><td><code id="tz">tz</code></td>
 <td>
 <p>an optional time zone.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_cl">cl</code></td>
+<tr><td><code id="cl">cl</code></td>
 <td>
 <p>an optional character vector of classes <em>containing</em>
 the default classes.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_units">units</code></td>
+<tr><td><code id="units">units</code></td>
 <td>
 <p>see <code>difftime</code>.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Arguments passed to non-dot name versions.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>function to apply, found via <code>match.fun</code>.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_dots">dots</code></td>
+<tr><td><code id="dots">dots</code></td>
 <td>
 <p>list of arguments to vectorize over (vectors or lists of
 strictly positive length, or all of zero length).</p>
 </td></tr>
-<tr><td><code id="base-internal_:_MoreArgs">MoreArgs</code></td>
+<tr><td><code id="MoreArgs">MoreArgs</code></td>
 <td>
 <p>a list of other arguments to <code>FUN</code>.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_pos">pos</code></td>
+<tr><td><code id="pos">pos</code></td>
 <td>
 <p>an integer.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_same">same</code></td>
+<tr><td><code id="same">same</code></td>
 <td>
 <p>character vector of <em>same</em> objects, masking others.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_pkg">pkg</code></td>
+<tr><td><code id="pkg">pkg</code></td>
 <td>
 <p>character string naming the package which is masked from or by.</p>
 </td></tr>
-<tr><td><code id="base-internal_:_by">by</code></td>
+<tr><td><code id="by">by</code></td>
 <td>
 <p>logical indicating if the masking happens <em>by</em>
 <code>pkg</code>, or (<code>by = FALSE</code>) from <code>pkg</code>.</p>
@@ -257,11 +255,6 @@ checks the versions of the packages found against the <code>Depends</code> field
 <p><code>.getRequiredPackages</code> is a wrapper to
 <code>.getRequiredPackages2</code> using a &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file.
 </p>
-
-
-
-
-
 <p>The function <code>.isMethodsDispatchOn()</code> returns <code>TRUE</code> if
 the S4 method dispatch has been turned on in the evaluator (usually by
 loading package <span class="pkg">methods</span>).  It is meant for <span class="rlang"><b>R</b></span> internal use only.
@@ -340,6 +333,7 @@ return <code>invisible()</code>.
 <p><code>testPlatformEquivalence</code> returns <code>TRUE</code> or <code>FALSE</code>.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>base</em> version 4.0.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>base</em> version 4.0.5</a> ]</div></main>
+
 </div>
 </body></html>

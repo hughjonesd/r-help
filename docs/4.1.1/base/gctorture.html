@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/gctorture.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/gctorture.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/gctorture.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/gctorture.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>gctorture {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='gctorture'>Torture Garbage Collector</h2>
+<h2>Torture Garbage Collector</h2>
 
 <h3>Description</h3>
 
@@ -35,22 +35,22 @@ gctorture2(step, wait = step, inhibit_release = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="gctorture_:_on">on</code></td>
+<table role = "presentation">
+<tr><td><code id="on">on</code></td>
 <td>
 <p>logical; turning it on/off.</p>
 </td></tr>
-<tr><td><code id="gctorture_:_step">step</code></td>
+<tr><td><code id="step">step</code></td>
 <td>
 <p>integer; run GC every <code>step</code> allocations; <code>step
       = 0</code> turns the GC torture off.</p>
 </td></tr>
-<tr><td><code id="gctorture_:_wait">wait</code></td>
+<tr><td><code id="wait">wait</code></td>
 <td>
 <p>integer; number of allocations to wait before starting
 GC torture.</p>
 </td></tr>
-<tr><td><code id="gctorture_:_inhibit_release">inhibit_release</code></td>
+<tr><td><code id="inhibit_release">inhibit_release</code></td>
 <td>
 <p>logical; do not release free objects for
 re-use: use with caution.</p>
@@ -94,6 +94,7 @@ start of the <span class="rlang"><b>R</b></span> session.  <span class="env">R_G
 
 <p>Peter Dalgaard and Luke Tierney</p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>base</em> version 4.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>base</em> version 4.1.1</a> ]</div></main>
+
 </div>
 </body></html>

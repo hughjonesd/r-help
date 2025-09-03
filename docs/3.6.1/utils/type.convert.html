@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/type.convert.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/type.convert.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/type.convert.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/type.convert.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>type.convert {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='type.convert'>Convert Data to Appropriate Type</h2>
+<h2>Convert Data to Appropriate Type</h2>
 
 <h3>Description</h3>
 
@@ -40,28 +40,28 @@ type.convert(x, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="type.convert_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector, matrix, array, data frame, or list.</p>
 </td></tr>
-<tr><td><code id="type.convert_:_na.strings">na.strings</code></td>
+<tr><td><code id="na.strings">na.strings</code></td>
 <td>
 <p>a vector of strings which are to be interpreted as
 <code>NA</code> values.  Blank fields are also considered to be
 missing values in logical, integer, numeric or complex vectors.</p>
 </td></tr>
-<tr><td><code id="type.convert_:_as.is">as.is</code></td>
+<tr><td><code id="as.is">as.is</code></td>
 <td>
 <p>whether to convert factors to character vectors. The
 default is to convert character vectors to factors.  See
 &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="type.convert_:_dec">dec</code></td>
+<tr><td><code id="dec">dec</code></td>
 <td>
 <p>the character to be assumed for decimal points.</p>
 </td></tr>
-<tr><td><code id="type.convert_:_numerals">numerals</code></td>
+<tr><td><code id="numerals">numerals</code></td>
 <td>
 <p>string indicating how to convert numbers whose
 conversion to double precision would lose accuracy, typically when
@@ -86,7 +86,7 @@ behavior of <span class="rlang"><b>R</b></span> version 3.1.0.</p>
 </dl>
 
 </td></tr>
-<tr><td><code id="type.convert_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments to be passed to or from methods.</p>
 </td></tr>
@@ -169,6 +169,7 @@ type.convert(chr, as.is = TRUE) # -&gt; character
 type.convert(fac, as.is = TRUE) # -&gt; character
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.1/00index.html'>Package <em>utils</em> version 3.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.1/00index.html'>Package <em>utils</em> version 3.6.1</a> ]</div></main>
+
 </div>
 </body></html>

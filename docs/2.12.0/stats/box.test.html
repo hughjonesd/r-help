@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/box.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/box.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/box.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/box.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Box.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Box.test'>Box-Pierce and Ljung-Box Tests</h2>
+<h2>Box-Pierce and Ljung-Box Tests</h2>
 
 <h3>Description</h3>
 
@@ -34,21 +34,21 @@ sometimes known as &lsquo;portmanteau&rsquo; tests.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Box.test_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector or univariate time series.</p>
 </td></tr>
-<tr><td><code id="Box.test_:_lag">lag</code></td>
+<tr><td><code id="lag">lag</code></td>
 <td>
 <p>the statistic will be based on <code>lag</code> autocorrelation
 coefficients.</p>
 </td></tr>
-<tr><td><code id="Box.test_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>test to be performed: partial matching is used.</p>
 </td></tr>
-<tr><td><code id="Box.test_:_fitdf">fitdf</code></td>
+<tr><td><code id="fitdf">fitdf</code></td>
 <td>
 <p>number of degrees of freedom to be subtracted if <code>x</code>
 is a series of residuals.</p>
@@ -69,7 +69,7 @@ setting <code>fitdf = p+q</code>, provided of course that <code>lag &gt; fitdf</
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>the value of the test statistic.</p>
@@ -131,6 +131,7 @@ Box.test (x, lag = 1)
 Box.test (x, lag = 1, type="Ljung")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>stats</em> version 2.12.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>stats</em> version 2.12.0</a> ]</div></main>
+
 </div>
 </body></html>

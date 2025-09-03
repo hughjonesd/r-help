@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4-revised. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4-revised. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/formatc.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>formatC {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='formatC'>Formatting Using C-style Formats</h2>
+<h2>Formatting Using C-style Formats</h2>
 
 <h3>Description</h3>
 
@@ -54,14 +54,14 @@ prettyNum(x, big.mark = "",   big.interval = 3L,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="formatC_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an atomic numerical or character object, possibly
 <code>complex</code> only for <code>prettyNum()</code>, typically a
 vector of real numbers.  Any class is discarded, with a warning.</p>
 </td></tr>
-<tr><td><code id="formatC_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>the desired number of digits after the decimal
 point (<code>format = "f"</code>) or <em>significant</em> digits
@@ -75,7 +75,7 @@ accurate, depending on the OS and compiler used.  This limit is
 just a precaution against segfaults in the underlying C runtime.)
 </p>
 </td></tr>
-<tr><td><code id="formatC_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>the total field width; if both <code>digits</code> and
 <code>width</code> are unspecified, <code>width</code> defaults to 1,
@@ -87,7 +87,7 @@ If necessary, the result will have more characters than
 (not bytes nor display width).
 </p>
 </td></tr>
-<tr><td><code id="formatC_:_format">format</code></td>
+<tr><td><code id="format">format</code></td>
 <td>
 <p>equal to <code>"d"</code>  (for integers), <code>"f"</code>,
 <code>"e"</code>, <code>"E"</code>, <code>"g"</code>, <code>"G"</code>, <code>"fg"</code> (for
@@ -107,7 +107,7 @@ more significant digits than <code>digits</code>.  Trailing zeros are
 <em>dropped</em> in this format, unless <code>flag</code> contains
 <code>"#"</code>.</p>
 </td></tr>
-<tr><td><code id="formatC_:_flag">flag</code></td>
+<tr><td><code id="flag">flag</code></td>
 <td>
 <p>For <code>formatC</code>, a character string giving a
 format modifier as in Kernighan and Ritchie (1988, page 243).
@@ -116,44 +116,44 @@ others are <code>"+"</code>, <code>" "</code>, and <code>"#"</code>.  There can 
 more than one of these, in any order.
 </p>
 </td></tr>
-<tr><td><code id="formatC_:_mode">mode</code></td>
+<tr><td><code id="mode">mode</code></td>
 <td>
 <p><code>"double"</code> (or <code>"real"</code>), <code>"integer"</code> or
 <code>"character"</code>.
 Default: Determined from the storage mode of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="formatC_:_big.mark">big.mark</code></td>
+<tr><td><code id="big.mark">big.mark</code></td>
 <td>
 <p>character; if not empty used as mark between every
 <code>big.interval</code> decimals <em>before</em> (hence <code>big</code>) the
 decimal point.</p>
 </td></tr>
-<tr><td><code id="formatC_:_big.interval">big.interval</code></td>
+<tr><td><code id="big.interval">big.interval</code></td>
 <td>
 <p>see <code>big.mark</code> above; defaults to 3.</p>
 </td></tr>
-<tr><td><code id="formatC_:_small.mark">small.mark</code></td>
+<tr><td><code id="small.mark">small.mark</code></td>
 <td>
 <p>character; if not empty used as mark between every
 <code>small.interval</code> decimals <em>after</em> (hence <code>small</code>) the
 decimal point.</p>
 </td></tr>
-<tr><td><code id="formatC_:_small.interval">small.interval</code></td>
+<tr><td><code id="small.interval">small.interval</code></td>
 <td>
 <p>see <code>small.mark</code> above; defaults to 5.</p>
 </td></tr>
-<tr><td><code id="formatC_:_decimal.mark">decimal.mark</code></td>
+<tr><td><code id="decimal.mark">decimal.mark</code></td>
 <td>
 <p>the character to be used to indicate the numeric
 decimal point.</p>
 </td></tr>
-<tr><td><code id="formatC_:_input.d.mark">input.d.mark</code></td>
+<tr><td><code id="input.d.mark">input.d.mark</code></td>
 <td>
 <p>if <code>x</code> is <code>character</code>, the
 character known to have been used as the numeric decimal point in
 <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="formatC_:_preserve.width">preserve.width</code></td>
+<tr><td><code id="preserve.width">preserve.width</code></td>
 <td>
 <p>string specifying if the string widths should
 be preserved where possible in those cases where marks
@@ -162,30 +162,30 @@ the default, corresponds to <code>format</code>-like behavior
 whereas <code>"individual"</code> is the default in
 <code>formatC()</code>. Value can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="formatC_:_zero.print">zero.print</code></td>
+<tr><td><code id="zero.print">zero.print</code></td>
 <td>
 <p>logical, character string or <code>NULL</code> specifying
 if and how <em>zeros</em> should be formatted specially.  Useful for
 pretty printing &lsquo;sparse&rsquo; objects.</p>
 </td></tr>
-<tr><td><code id="formatC_:_drop0trailing">drop0trailing</code></td>
+<tr><td><code id="drop0trailing">drop0trailing</code></td>
 <td>
 <p>logical, indicating if trailing zeros,
 i.e., <code>"0"</code> <em>after</em> the decimal mark, should be removed;
 also drops <code>"e+00"</code> in exponential formats.</p>
 </td></tr>
-<tr><td><code id="formatC_:_is.cmplx">is.cmplx</code></td>
+<tr><td><code id="is.cmplx">is.cmplx</code></td>
 <td>
 <p>optional logical, to be used when <code>x</code> is
 <code>"character"</code> to indicate if it stems from
 <code>complex</code> vector or not.  By default (<code>NA</code>),
 <code>x</code> is checked to &lsquo;look like&rsquo; complex.</p>
 </td></tr>
-<tr><td><code id="formatC_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments passed to <code>format</code>.</p>
 </td></tr>
-<tr><td><code id="formatC_:_nx">nx</code></td>
+<tr><td><code id="nx">nx</code></td>
 <td>
 <p>numeric vector of the same length as <code>x</code>, typically the
 numbers of which the character vector <code>x</code> is the pre-format.</p>
@@ -342,6 +342,7 @@ prettyNum(fv, drop0trailing = TRUE) # a bit nicer
 options(op)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.4-revised/00index.html'>Package <em>base</em> version 3.2.4-revised</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.4-revised/00index.html'>Package <em>base</em> version 3.2.4-revised</a> ]</div></main>
+
 </div>
 </body></html>

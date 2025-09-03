@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/writePACKAGES.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/writePACKAGES.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/writePACKAGES.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/writePACKAGES.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>write_PACKAGES {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='write_PACKAGES'>Generate PACKAGES Files</h2>
+<h2>Generate PACKAGES Files</h2>
 
 <h3>Description</h3>
 
@@ -36,8 +36,8 @@ files for a repository of source or Mac/Windows binary packages.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="write_PACKAGES_:_dir">dir</code></td>
+<table role = "presentation">
+<tr><td><code id="dir">dir</code></td>
 <td>
 <p>Character vector describing the location of the repository
 (directory including source or binary packages) to generate the
@@ -45,7 +45,7 @@ files for a repository of source or Mac/Windows binary packages.
 from and write them to.
 </p>
 </td></tr>
-<tr><td><code id="write_PACKAGES_:_fields">fields</code></td>
+<tr><td><code id="fields">fields</code></td>
 <td>
 
 <p>a character vector giving the fields to be used in the
@@ -64,7 +64,7 @@ and the path to the subdirectory in field <code>"Path"</code> if subdirectories
 are used.
 </p>
 </td></tr>
-<tr><td><code id="write_PACKAGES_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 
 <p>Type of packages: currently source &lsquo;<span class="file">.tar.{gz,bz2,xz}</span>&rsquo; archives,
@@ -73,33 +73,33 @@ respectively) packages are supported.  Defaults to
 <code>"win.binary"</code> on Windows and to <code>"source"</code> otherwise.
 </p>
 </td></tr>
-<tr><td><code id="write_PACKAGES_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical.  Should packages be listed as they are
 processed?</p>
 </td></tr>
-<tr><td><code id="write_PACKAGES_:_unpacked">unpacked</code></td>
+<tr><td><code id="unpacked">unpacked</code></td>
 <td>
 <p>a logical indicating whether the package contents are
 available in unpacked form or not (default).</p>
 </td></tr>
-<tr><td><code id="write_PACKAGES_:_subdirs">subdirs</code></td>
+<tr><td><code id="subdirs">subdirs</code></td>
 <td>
 <p>either logical (to indicate if subdirectories should be
 included, recursively) or a character vector of names of subdirectories
 to include (which are not recursed).</p>
 </td></tr>
-<tr><td><code id="write_PACKAGES_:_latestOnly">latestOnly</code></td>
+<tr><td><code id="latestOnly">latestOnly</code></td>
 <td>
 <p>logical: if multiple versions of a package are
 available should only the latest version be included?</p>
 </td></tr>
-<tr><td><code id="write_PACKAGES_:_addFiles">addFiles</code></td>
+<tr><td><code id="addFiles">addFiles</code></td>
 <td>
 <p>logical: should the filenames be included as field
 &lsquo;<span class="samp">&#8288;File&#8288;</span>&rsquo; in the &lsquo;<span class="file">PACKAGES</span>&rsquo; file.</p>
 </td></tr>
-<tr><td><code id="write_PACKAGES_:_rds_compress">rds_compress</code></td>
+<tr><td><code id="rds_compress">rds_compress</code></td>
 <td>
 <p>The type of compression to be used for
 &lsquo;<span class="file">PACKAGES.rds</span>&rsquo;: see <code>saveRDS</code>.  The default is the
@@ -189,6 +189,7 @@ write_PACKAGES("/pub/RWin/bin/windows/contrib/2.9",
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.2/00index.html'>Package <em>tools</em> version 3.6.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.2/00index.html'>Package <em>tools</em> version 3.6.2</a> ]</div></main>
+
 </div>
 </body></html>

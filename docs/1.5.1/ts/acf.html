@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/acf.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/acf.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/acf.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/acf.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>acf {ts}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='acf'>Auto- and Cross- Covariance and -Correlation Function Estimation</h2>
+<h2>Auto- and Cross- Covariance and -Correlation Function Estimation</h2>
 
 <h3>Description</h3>
 
@@ -41,40 +41,40 @@ ccf(x, y, lag.max = NULL, type = c("correlation", "covariance"),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="acf_:_x">x</code>, <code id="acf_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>a univariate or multivariate (not <code>ccf</code>) time
 series object or a numeric vector or matrix.</p>
 </td></tr>
-<tr><td><code id="acf_:_lag.max">lag.max</code></td>
+<tr><td><code id="lag.max">lag.max</code></td>
 <td>
 <p>maximum number of lags at which to calculate the acf.
 Default is <code class="reqn">10\log_{10}(N)</code> where <code class="reqn">N</code> is the
 number of observations.</p>
 </td></tr>
-<tr><td><code id="acf_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>character string giving the type of acf to be computed.
 Allowed values are
 <code>"correlation"</code> (the default), <code>"covariance"</code> or
 <code>"partial"</code>.</p>
 </td></tr>
-<tr><td><code id="acf_:_plot">plot</code></td>
+<tr><td><code id="plot">plot</code></td>
 <td>
 <p>logical. If <code>TRUE</code> the acf is plotted.</p>
 </td></tr>
-<tr><td><code id="acf_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>function to be called to handle missing
 values. <code>na.pass</code> can be used.</p>
 </td></tr>
-<tr><td><code id="acf_:_demean">demean</code></td>
+<tr><td><code id="demean">demean</code></td>
 <td>
 <p>logical.  Should the covariances be about the sample
 means?</p>
 </td></tr>
-<tr><td><code id="acf_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to be passed to <code>plot.acf</code>.</p>
 </td></tr>
@@ -110,7 +110,7 @@ observations.
 <p>An object of class <code>"acf"</code>, which is a list with the following
 elements:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>lag</code></td>
 <td>
 <p>A three dimensional array containing the lags at which
@@ -176,6 +176,7 @@ acf(presidents, na.action = na.pass)
 pacf(presidents, na.action = na.pass)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

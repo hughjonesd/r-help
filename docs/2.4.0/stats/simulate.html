@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/simulate.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/simulate.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/simulate.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/simulate.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>simulate {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='simulate'>Simulate Responses</h2>
+<h2>Simulate Responses</h2>
 
 <h3>Description</h3>
 
@@ -33,16 +33,16 @@ corresponding to a fitted model object.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="simulate_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an object representing a fitted model.</p>
 </td></tr>
-<tr><td><code id="simulate_:_nsim">nsim</code></td>
+<tr><td><code id="nsim">nsim</code></td>
 <td>
 <p>number of response vectors to simulate.  Defaults to 1.</p>
 </td></tr>
-<tr><td><code id="simulate_:_seed">seed</code></td>
+<tr><td><code id="seed">seed</code></td>
 <td>
 <p>an object specifying if and how the random number
 generator should be initialized (&ldquo;seeded&rdquo;).<br />
@@ -54,7 +54,7 @@ random generator state, and return <code>.Random.seed</code> as
 <code>"seed"</code> attribute, see below.
 </p>
 </td></tr>
-<tr><td><code id="simulate_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional optional arguments.</p>
 </td></tr>
@@ -116,6 +116,7 @@ do.call(RNGkind, attr(sseed, "kind"))
 identical(S2, simulate(mod1, nsim = 200, seed = sseed))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>stats</em> version 2.4.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>stats</em> version 2.4.0</a> ]</div></main>
+
 </div>
 </body></html>

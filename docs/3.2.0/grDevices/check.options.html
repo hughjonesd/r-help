@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/check.options.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/check.options.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/check.options.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/check.options.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>check.options {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='check.options'>Set Options with Consistency Checks</h2>
+<h2>Set Options with Consistency Checks</h2>
 
 <h3>Description</h3>
 
@@ -38,37 +38,37 @@ list in <code>name.opt</code>.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="check.options_:_new">new</code></td>
+<table role = "presentation">
+<tr><td><code id="new">new</code></td>
 <td>
 <p>a <em>named</em> list</p>
 </td></tr>
-<tr><td><code id="check.options_:_name.opt">name.opt</code></td>
+<tr><td><code id="name.opt">name.opt</code></td>
 <td>
 <p>character with the name of <span class="rlang"><b>R</b></span> object containing the
 default list.</p>
 </td></tr>
-<tr><td><code id="check.options_:_reset">reset</code></td>
+<tr><td><code id="reset">reset</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, reset the options from
 <code>name.opt</code>.  If there is more than one <span class="rlang"><b>R</b></span> object with name
 <code>name.opt</code>, remove the first one in the <code>search()</code> path.</p>
 </td></tr>
-<tr><td><code id="check.options_:_assign.opt">assign.opt</code></td>
+<tr><td><code id="assign.opt">assign.opt</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, assign the ...</p>
 </td></tr>
-<tr><td><code id="check.options_:_envir">envir</code></td>
+<tr><td><code id="envir">envir</code></td>
 <td>
 <p>the <code>environment</code> used for <code>get</code>
 and <code>assign</code>.</p>
 </td></tr>
-<tr><td><code id="check.options_:_check.attributes">check.attributes</code></td>
+<tr><td><code id="check.attributes">check.attributes</code></td>
 <td>
 <p>character containing the attributes which
 <code>check.options</code> should check.</p>
 </td></tr>
-<tr><td><code id="check.options_:_override.check">override.check</code></td>
+<tr><td><code id="override.check">override.check</code></td>
 <td>
 <p>logical vector of length <code>length(new)</code> (or 1
 which entails recycling).
@@ -115,6 +115,7 @@ check.options(list(a = 0:2), name.opt = "L1")
 check.options(NULL, reset = TRUE, name.opt = "L1")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.0/00index.html'>Package <em>grDevices</em> version 3.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.0/00index.html'>Package <em>grDevices</em> version 3.2.0</a> ]</div></main>
+
 </div>
 </body></html>

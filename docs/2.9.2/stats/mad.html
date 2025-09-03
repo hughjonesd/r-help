@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/mad.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/mad.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/mad.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/mad.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>mad {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='mad'>Median Absolute Deviation</h2>
+<h2>Median Absolute Deviation</h2>
 
 <h3>Description</h3>
 
@@ -35,31 +35,31 @@ factor for asymptotically normal consistency.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="mad_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector.</p>
 </td></tr>
-<tr><td><code id="mad_:_center">center</code></td>
+<tr><td><code id="center">center</code></td>
 <td>
 <p>Optionally, the centre: defaults to the median.</p>
 </td></tr>
-<tr><td><code id="mad_:_constant">constant</code></td>
+<tr><td><code id="constant">constant</code></td>
 <td>
 <p>scale factor.</p>
 </td></tr>
-<tr><td><code id="mad_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>if <code>TRUE</code> then <code>NA</code> values are stripped
 from <code>x</code> before computation takes place.</p>
 </td></tr>
-<tr><td><code id="mad_:_low">low</code></td>
+<tr><td><code id="low">low</code></td>
 <td>
 <p>if <code>TRUE</code>, compute the &lsquo;lo-median&rsquo;, i.e., for even
 sample size, do not average the two middle values, but take the
 smaller one.</p>
 </td></tr>
-<tr><td><code id="mad_:_high">high</code></td>
+<tr><td><code id="high">high</code></td>
 <td>
 <p>if <code>TRUE</code>, compute the &lsquo;hi-median&rsquo;, i.e., take the
 larger of the two middle values for even sample size.</p>
@@ -109,6 +109,7 @@ c(mad(x, constant=1),
   mad(x, constant=1, high = TRUE))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.9.2/00index.html'>Package <em>stats</em> version 2.9.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.9.2/00index.html'>Package <em>stats</em> version 2.9.2</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/stars.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/stars.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/stars.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/stars.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>stars {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='stars'>Star Plots and Segment Diagrams of Multivariate Data</h2>
+<h2>Star Plots and Segment Diagrams of Multivariate Data</h2>
 
 <h3>Description</h3>
 
@@ -38,20 +38,20 @@ device.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="stars_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>matrix of data.  One segment plot will be produced for each
 row of the matrix.  Missing values (<code>NA</code>) are allowed, but they
 are treated as if they were 0.</p>
 </td></tr>
-<tr><td><code id="stars_:_full">full</code></td>
+<tr><td><code id="full">full</code></td>
 <td>
 <p>logical flag: if <code>TRUE</code>, the segment plots will
 occupy a full circle.  Otherwise, they occupy the (upper) semicircle
 only.</p>
 </td></tr>
-<tr><td><code id="stars_:_scale">scale</code></td>
+<tr><td><code id="scale">scale</code></td>
 <td>
 <p>logical flag: if <code>TRUE</code>, the columns of the data
 matrix are scaled independently so that the maximum value in each
@@ -59,69 +59,69 @@ column is 1 and the minimum is 0.  If <code>FALSE</code>, the presumption
 is that the data have been scaled by some other algorithm to the
 range <code class="reqn">[0,1]</code>.</p>
 </td></tr>
-<tr><td><code id="stars_:_radius">radius</code></td>
+<tr><td><code id="radius">radius</code></td>
 <td>
 <p>logical flag: in <code>TRUE</code>, the radii corresponding to
 each variable in the data will be drawn.</p>
 </td></tr>
-<tr><td><code id="stars_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>vector of character strings for labeling the plots.
 Unlike the S function <code>stars</code>, no attempt is made to construct
 labels if <code>labels = NULL</code>.</p>
 </td></tr>
-<tr><td><code id="stars_:_locations">locations</code></td>
+<tr><td><code id="locations">locations</code></td>
 <td>
 <p>two column matrix with the x and y coordinates used
 to place each of the segment plots.  If <code>locations</code> is
 <code>NULL</code> the segment plots will be placed in a rectangular grid.</p>
 </td></tr>
-<tr><td><code id="stars_:_xlim">xlim</code></td>
+<tr><td><code id="xlim">xlim</code></td>
 <td>
 <p>vector with the range of x coordinates to plot. </p>
 </td></tr>
-<tr><td><code id="stars_:_ylim">ylim</code></td>
+<tr><td><code id="ylim">ylim</code></td>
 <td>
 <p>vector with the range of y coordinates to plot.</p>
 </td></tr>
-<tr><td><code id="stars_:_len">len</code></td>
+<tr><td><code id="len">len</code></td>
 <td>
 <p>scale factor for the length of radii or segments.</p>
 </td></tr>
-<tr><td><code id="stars_:_colors">colors</code></td>
+<tr><td><code id="colors">colors</code></td>
 <td>
 <p>vector of integers, each of which specifies  a color
 for one of the segments.  Ignored if <code>draw.segments = FALSE</code></p>
 </td></tr>
-<tr><td><code id="stars_:_key.loc">key.loc</code></td>
+<tr><td><code id="key.loc">key.loc</code></td>
 <td>
 <p>vector with x and y coordinates of the unit key.</p>
 </td></tr>
-<tr><td><code id="stars_:_key.labels">key.labels</code></td>
+<tr><td><code id="key.labels">key.labels</code></td>
 <td>
 <p>vector of character strings for labeling the
 segments of the unit key.  If omitted, the second component of
 <code>dimnames(x)</code> is used, if available.</p>
 </td></tr>
-<tr><td><code id="stars_:_key.xpd">key.xpd</code></td>
+<tr><td><code id="key.xpd">key.xpd</code></td>
 <td>
 <p>clipping switch for the unit key (drawing and
 labeling), see <code>par("xpd")</code>.</p>
 </td></tr>
-<tr><td><code id="stars_:_axes">axes</code></td>
+<tr><td><code id="axes">axes</code></td>
 <td>
 <p>logical flag: if <code>TRUE</code> axes are added to the
 plot.</p>
 </td></tr>
-<tr><td><code id="stars_:_cex">cex</code></td>
+<tr><td><code id="cex">cex</code></td>
 <td>
 <p>character expansion factor for the labels.</p>
 </td></tr>
-<tr><td><code id="stars_:_lwd">lwd</code></td>
+<tr><td><code id="lwd">lwd</code></td>
 <td>
 <p>line width used for drawing.</p>
 </td></tr>
-<tr><td><code id="stars_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments, passed to the first call of
 <code>plot()</code>, see <code>plot.default</code>.</p>
@@ -169,6 +169,7 @@ stars(USJudgeRatings, labels = abbreviate(case.names(USJudgeRatings)),
       key.loc = c(13, 1.5), main = "Judge not ...", len = 0.8)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.2.2/00index.html'>Package <em>base</em> version 1.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.2.2/00index.html'>Package <em>base</em> version 1.2.2</a> ]</div></main>
+
 </div>
 </body></html>

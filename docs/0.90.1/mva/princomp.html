@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/princomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/princomp.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/princomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/princomp.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>princomp {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='princomp'>Principal Components Analysis</h2>
+<h2>Principal Components Analysis</h2>
 
 <h3>Description</h3>
 
@@ -47,41 +47,41 @@ print(x,...)  summary(object)  predict(object,...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="princomp_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a matrix (or data frame) which provides the data for the
 principal components analysis.</p>
 </td></tr>
-<tr><td><code id="princomp_:_cor">cor</code></td>
+<tr><td><code id="cor">cor</code></td>
 <td>
 <p>a logical value indicating whether the calculation should
 use the correlation matrix or the covariance matrix.</p>
 </td></tr>
-<tr><td><code id="princomp_:_score">score</code></td>
+<tr><td><code id="score">score</code></td>
 <td>
 <p>a logical value indicating whether the score on each
 principal component should be calculated.</p>
 </td></tr>
-<tr><td><code id="princomp_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>a vector used to select rows (observations) of the
 data matrix <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="princomp_:_x">x</code>, <code id="princomp_:_object">object</code></td>
+<tr><td><code id="x">x</code>, <code id="object">object</code></td>
 <td>
 <p>an object of class <code>"princomp"</code>, as
 from <code>princomp()</code>.</p>
 </td></tr>
-<tr><td><code id="princomp_:_npcs">npcs</code></td>
+<tr><td><code id="npcs">npcs</code></td>
 <td>
 <p>the number of principal components to be plotted.</p>
 </td></tr>
-<tr><td><code id="princomp_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>the type of plot.</p>
 </td></tr>
-<tr><td><code id="princomp_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>graphics parameters.</p>
 </td></tr>
@@ -115,7 +115,7 @@ a scree plot.
 <p><code>princomp</code> returns a list with class <code>"princomp"</code>
 containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>sdev</code></td>
 <td>
 <p>the standard deviations of the principal components
@@ -183,6 +183,7 @@ plot(pc.cr) # does a screeplot.
 biplot(pc.cr)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

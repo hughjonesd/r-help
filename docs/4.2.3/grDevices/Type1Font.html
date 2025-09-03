@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/Type1Font.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/Type1Font.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/Type1Font.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/Type1Font.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Type1Font {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Type1Font'>Type 1 and CID Fonts</h2>
+<h2>Type 1 and CID Fonts</h2>
 
 <h3>Description</h3>
 
@@ -36,24 +36,24 @@ CIDFont(family, cmap, cmapEncoding, pdfresource = "")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Type1Font_:_family">family</code></td>
+<table role = "presentation">
+<tr><td><code id="family">family</code></td>
 <td>
 <p>a character string giving the name to be used internally
 for a Type 1 or CID-keyed font family.  This needs to uniquely
 identify each family, so if you modify a family which is in use
 (see <code>postscriptFonts</code>) you need to change the family name.</p>
 </td></tr>
-<tr><td><code id="Type1Font_:_metrics">metrics</code></td>
+<tr><td><code id="metrics">metrics</code></td>
 <td>
 <p>a character vector of four or five strings giving paths
 to the afm (Adobe Font Metric) files for the font.</p>
 </td></tr>
-<tr><td><code id="Type1Font_:_cmap">cmap</code></td>
+<tr><td><code id="cmap">cmap</code></td>
 <td>
 <p>the name of a CMap file for a CID-keyed font.</p>
 </td></tr>
-<tr><td><code id="Type1Font_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>for <code>Type1Font</code>, the name of an encoding file.
 Defaults to <code>"default"</code>, which maps on Unix-alikes to
@@ -62,14 +62,14 @@ Otherwise, a file name in the &lsquo;<span class="file">enc</span>&rsquo; direct
 <span class="pkg">grDevices</span> package, which is used if the path does not contain a
 path separator.  An extension <code>".enc"</code> can be omitted.</p>
 </td></tr>
-<tr><td><code id="Type1Font_:_cmapEncoding">cmapEncoding</code></td>
+<tr><td><code id="cmapEncoding">cmapEncoding</code></td>
 <td>
 
 <p>The name of a character encoding to be used with the named CMap
 file: strings will be translated to this encoding when written to
 the file.</p>
 </td></tr>
-<tr><td><code id="Type1Font_:_pdfresource">pdfresource</code></td>
+<tr><td><code id="pdfresource">pdfresource</code></td>
 <td>
 <p>A chunk of PDF code;  only required for using
 a CID-keyed font on <code>pdf</code>; users should not be expected to
@@ -145,6 +145,7 @@ postscript(family = "CMitalic", encoding = "TeXtext.enc")
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.3/00index.html'>Package <em>grDevices</em> version 4.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.3/00index.html'>Package <em>grDevices</em> version 4.2.3</a> ]</div></main>
+
 </div>
 </body></html>

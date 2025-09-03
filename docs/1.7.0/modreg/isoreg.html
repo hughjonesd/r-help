@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/isoreg.html'>https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/isoreg.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/isoreg.html'>https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/isoreg.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>isoreg {modreg}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='isoreg'>Isotonic / Monotone Regression</h2>
+<h2>Isotonic / Monotone Regression</h2>
 
 <h3>Description</h3>
 
@@ -28,8 +28,6 @@ squares regression which is piecewise constant.
 <h3>Usage</h3>
 
 <pre><code class='language-R'>isoreg(x, y = NULL)
-
-
 ## S3 method for class 'isoreg'
 as.stepfun(x, ...)
 </code></pre>
@@ -37,18 +35,18 @@ as.stepfun(x, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="isoreg_:_x">x</code>, <code id="isoreg_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>coordinate vectors of the regression points.
 Alternatively a single &ldquo;plotting&rdquo; structure can be
 specified: see <code>xy.coords</code>.</p>
 </td></tr>
-<tr><td><code id="isoreg_:_object">object</code></td>
+<tr><td><code id="object">object</code></td>
 <td>
 <p>a <code>isoreg</code> object.</p>
 </td></tr>
-<tr><td><code id="isoreg_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>potentially further arguments passed to methods.</p>
 </td></tr>
@@ -72,7 +70,7 @@ which can be more parsimonious.
 <p><code>isoreg()</code> returns an object of class <code>isoreg</code> which is
 basically a list with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>x</code></td>
 <td>
 <p>original (constructed) abscissa values <code>x</code>.</p>
@@ -149,6 +147,7 @@ library(stepfun)
 cat("R^2 =", formatC(sum(residuals(ir4)^2) / (9*var(y4)), dig=2),"\n")
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

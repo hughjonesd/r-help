@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ppr.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ppr.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ppr.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ppr.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ppr {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ppr'>Projection Pursuit Regression</h2>
+<h2>Projection Pursuit Regression</h2>
 
 <h3>Description</h3>
 
@@ -42,44 +42,44 @@ ppr(x, y, weights = rep(1,n),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ppr_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 
 <p>a formula specifying one or more numeric response variables and the
 explanatory variables.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 
 <p>numeric matrix of explanatory variables.  Rows represent observations, and
 columns represent variables.  Missing values are not accepted.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 
 <p>numeric matrix of response variables.  Rows represent observations, and
 columns represent variables.  Missing values are not accepted.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_nterms">nterms</code></td>
+<tr><td><code id="nterms">nterms</code></td>
 <td>
 <p>number of terms to include in the final model.</p>
 </td></tr>
-<tr><td><code id="ppr_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 
 <p>a data frame (or similar: see <code>model.frame</code>) from which
 variables specified in <code>formula</code> are preferentially to be taken.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_weights">weights</code></td>
+<tr><td><code id="weights">weights</code></td>
 <td>
 <p>a vector of weights <code>w_i</code> for each <em>case</em>.</p>
 </td></tr>
-<tr><td><code id="ppr_:_ww">ww</code></td>
+<tr><td><code id="ww">ww</code></td>
 <td>
 
 <p>a vector of weights for each <em>response</em>, so the fit criterion is
@@ -87,14 +87,14 @@ the sum over case <code>i</code> and responses <code>j</code> of
 <code>w_i ww_j (y_ij - fit_ij)^2</code> divided by the sum of <code>w_i</code>.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 
 <p>an index vector specifying the cases to be used in the training
 sample.  (NOTE: If given, this argument must be named.)
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 
 <p>a function to specify the action to be taken if <code>NA</code>s are
@@ -102,19 +102,19 @@ found. The default action is given by <code>getOption("na.action")</code>.
 (NOTE: If given, this argument must be named.)
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_contrasts">contrasts</code></td>
+<tr><td><code id="contrasts">contrasts</code></td>
 <td>
 
 <p>the contrasts to be used when any factor explanatory variables are coded.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_max.terms">max.terms</code></td>
+<tr><td><code id="max.terms">max.terms</code></td>
 <td>
 
 <p>maximum number of terms to choose from when building the model.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_optlevel">optlevel</code></td>
+<tr><td><code id="optlevel">optlevel</code></td>
 <td>
 
 <p>integer from 0 to 3 which determines the thoroughness of an
@@ -122,7 +122,7 @@ optimization routine in the SMART program. See the &lsquo;Details&rsquo;
 section.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_sm.method">sm.method</code></td>
+<tr><td><code id="sm.method">sm.method</code></td>
 <td>
 
 <p>the method used for smoothing the ridge functions.  The default is to
@@ -132,7 +132,7 @@ specified (equivalent) degrees of freedom for each ridge functions, or
 to allow the smoothness to be chosen by GCV.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_bass">bass</code></td>
+<tr><td><code id="bass">bass</code></td>
 <td>
 
 <p>super smoother bass tone control used with automatic span selection
@@ -140,7 +140,7 @@ to allow the smoothness to be chosen by GCV.
 resulting in increased smoothing.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_span">span</code></td>
+<tr><td><code id="span">span</code></td>
 <td>
 
 <p>super smoother span control (see <code>supsmu</code>).  The default, <code>0</code>,
@@ -148,25 +148,25 @@ results in automatic span selection by local cross validation. <code>span</code>
 can also take a value in <code>(0, 1]</code>.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_df">df</code></td>
+<tr><td><code id="df">df</code></td>
 <td>
 
 <p>if <code>sm.method</code> is <code>"spline"</code> specifies the smoothness of
 each ridge term via the requested equivalent degrees of freedom.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_gcvpen">gcvpen</code></td>
+<tr><td><code id="gcvpen">gcvpen</code></td>
 <td>
 
 <p>if <code>sm.method</code> is <code>"gcvspline"</code> this is the penalty used
 in the GCV selection for each degree of freedom used.
 </p>
 </td></tr>
-<tr><td><code id="ppr_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments to be passed to or from other methods.</p>
 </td></tr>
-<tr><td><code id="ppr_:_model">model</code></td>
+<tr><td><code id="model">model</code></td>
 <td>
 <p>logical.  If true, the model frame is returned.</p>
 </td></tr>
@@ -190,7 +190,6 @@ differ in how thoroughly the models are refitted during this process.
 At level 0 the existing ridge terms are not refitted.  At level 1
 the projection directions are not refitted, but the ridge
 functions and the regression coefficients are.
-
 Levels 2 and 3 refit all the terms and are equivalent for one
 response; level 3 is more careful to re-balance the contributions
 from each regressor at each step and so is a little less likely to
@@ -203,7 +202,7 @@ converge to a saddle point of the sum of squares criterion.
 <p>A list with the following components, many of which are for use by the
 method functions.
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>call</code></td>
 <td>
 <p>the matched call</p>
@@ -355,6 +354,7 @@ cbind(perm=rock$perm, prediction=round(exp(predict(rock.ppr)), 1))
 detach()
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.1/00index.html'>Package <em>stats</em> version 2.12.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.1/00index.html'>Package <em>stats</em> version 2.12.1</a> ]</div></main>
+
 </div>
 </body></html>

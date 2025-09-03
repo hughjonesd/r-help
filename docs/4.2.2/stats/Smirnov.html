@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Smirnov.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Smirnov.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Smirnov.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Smirnov.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Smirnov {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Smirnov'>Distribution of the Smirnov Statistic</h2>
+<h2>Distribution of the Smirnov Statistic</h2>
 
 <h3>Description</h3>
 
@@ -37,57 +37,57 @@ rsmirnov(n, sizes, z = NULL, two.sided = TRUE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Smirnov_:_q">q</code></td>
+<table role = "presentation">
+<tr><td><code id="q">q</code></td>
 <td>
 <p>a numeric vector of quantiles.</p>
 </td></tr>
-<tr><td><code id="Smirnov_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>a numeric vector of probabilities.</p>
 </td></tr>
-<tr><td><code id="Smirnov_:_sizes">sizes</code></td>
+<tr><td><code id="sizes">sizes</code></td>
 <td>
 <p>an integer vector of length two giving the sample sizes.</p>
 </td></tr>
-<tr><td><code id="Smirnov_:_z">z</code></td>
+<tr><td><code id="z">z</code></td>
 <td>
 <p>a numeric vector of the pooled data values in both samples
 when the exact conditional distribution of the Smirnov statistic
 given the data shall be computed.</p>
 </td></tr>
-<tr><td><code id="Smirnov_:_two.sided">two.sided</code></td>
+<tr><td><code id="two.sided">two.sided</code></td>
 <td>
 <p>a logical indicating whether absolute (<code>TRUE</code>) or
 raw differences of frequencies define the test statistic.</p>
 </td></tr>
-<tr><td><code id="Smirnov_:_exact">exact</code></td>
+<tr><td><code id="exact">exact</code></td>
 <td>
 <p><code>NULL</code> or a logical indicating whether the exact
 (conditional on the pooled data values in <code>z</code>) distribution
 or the asymptotic distribution should be used.</p>
 </td></tr>
-<tr><td><code id="Smirnov_:_simulate">simulate</code></td>
+<tr><td><code id="simulate">simulate</code></td>
 <td>
 <p>a logical indicating whether to compute the
 distribution function by Monte Carlo simulation.</p>
 </td></tr>
-<tr><td><code id="Smirnov_:_B">B</code></td>
+<tr><td><code id="B">B</code></td>
 <td>
 <p>an integer specifying the number of replicates used in the
 Monte Carlo test.</p>
 </td></tr>
-<tr><td><code id="Smirnov_:_lower.tail">lower.tail</code></td>
+<tr><td><code id="lower.tail">lower.tail</code></td>
 <td>
 <p>a logical, if <code>TRUE</code> (default), probabilities are
 <code class="reqn">P[D &lt; q]</code>, otherwise, <code class="reqn">P[D \ge q]</code>.</p>
 </td></tr>
-<tr><td><code id="Smirnov_:_log.p">log.p</code></td>
+<tr><td><code id="log.p">log.p</code></td>
 <td>
 <p>a logical, if <code>TRUE</code> (default), probabilities are given
 as log-probabilities.</p>
 </td></tr>
-<tr><td><code id="Smirnov_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>an integer giving number of observations.</p>
 </td></tr>
@@ -139,6 +139,7 @@ are not specified, a pooled sample without ties is assumed.
 computing exact distributions.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>stats</em> version 4.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>stats</em> version 4.2.2</a> ]</div></main>
+
 </div>
 </body></html>

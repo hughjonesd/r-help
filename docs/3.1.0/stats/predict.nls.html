@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.nls.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.nls.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>predict.nls {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='predict.nls'>Predicting from Nonlinear Least Squares Fits</h2>
+<h2>Predicting from Nonlinear Least Squares Fits</h2>
 
 <h3>Description</h3>
 
@@ -45,49 +45,49 @@ predict(object, newdata , se.fit = FALSE, scale = NULL, df = Inf,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="predict.nls_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>An object that inherits from class <code>nls</code>.</p>
 </td></tr>
-<tr><td><code id="predict.nls_:_newdata">newdata</code></td>
+<tr><td><code id="newdata">newdata</code></td>
 <td>
 <p>A named list or data frame in which to look for variables with
 which to predict.  If <code>newdata</code> is
 missing the fitted values at the original data points are returned.</p>
 </td></tr>
-<tr><td><code id="predict.nls_:_se.fit">se.fit</code></td>
+<tr><td><code id="se.fit">se.fit</code></td>
 <td>
 <p>A logical value indicating if the standard errors of the
 predictions should be calculated.  Defaults to <code>FALSE</code>.  At
 present this argument is ignored.</p>
 </td></tr>
-<tr><td><code id="predict.nls_:_scale">scale</code></td>
+<tr><td><code id="scale">scale</code></td>
 <td>
 <p>A numeric scalar.  If it is set (with optional
 <code>df</code>), it is used as the residual standard deviation in the
 computation of the standard errors, otherwise this information is
 extracted from the model fit. At present this argument is ignored.</p>
 </td></tr>
-<tr><td><code id="predict.nls_:_df">df</code></td>
+<tr><td><code id="df">df</code></td>
 <td>
 <p>A positive numeric scalar giving the number of degrees of
 freedom for the <code>scale</code> estimate. At present this argument is
 ignored.</p>
 </td></tr>
-<tr><td><code id="predict.nls_:_interval">interval</code></td>
+<tr><td><code id="interval">interval</code></td>
 <td>
 <p>A character string indicating if prediction intervals
 or a confidence interval on the mean responses are to be
 calculated. At present this argument is ignored.</p>
 </td></tr>
-<tr><td><code id="predict.nls_:_level">level</code></td>
+<tr><td><code id="level">level</code></td>
 <td>
 <p>A numeric scalar between 0 and 1 giving the confidence
 level for the intervals (if any) to be calculated.  At present
 this argument is ignored.</p>
 </td></tr>
-<tr><td><code id="predict.nls_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Additional optional arguments.  At present no optional
 arguments are used.</p>
@@ -103,7 +103,7 @@ predictions and bounds with column names <code>fit</code>, <code>lwr</code>, and
 <code>upr</code>.  When implemented, if <code>se.fit</code> is
 <code>TRUE</code>, a list with the following components will be returned:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>fit</code></td>
 <td>
 <p>vector or matrix as above</p>
@@ -158,6 +158,7 @@ par(opar)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.0/00index.html'>Package <em>stats</em> version 3.1.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.0/00index.html'>Package <em>stats</em> version 3.1.0</a> ]</div></main>
+
 </div>
 </body></html>

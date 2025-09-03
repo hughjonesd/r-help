@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/serialize.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/serialize.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/serialize.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/serialize.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>serialize {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='serialize'>Simple Serialization Interface</h2>
+<h2>Simple Serialization Interface</h2>
 
 <h3>Description</h3>
 
@@ -35,35 +35,35 @@ unserialize(connection, refhook = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="serialize_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p><span class="rlang"><b>R</b></span> object to serialize.</p>
 </td></tr>
-<tr><td><code id="serialize_:_connection">connection</code></td>
+<tr><td><code id="connection">connection</code></td>
 <td>
 <p>an open connection or (for <code>serialize</code>)
 <code>NULL</code> or (for <code>unserialize</code>) a raw vector
 (see &lsquo;Details&rsquo;).</p>
 </td></tr>
-<tr><td><code id="serialize_:_ascii">ascii</code></td>
+<tr><td><code id="ascii">ascii</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code> or <code>NA</code>, an ASCII
 representation is written; otherwise (default) a binary one.
 See also the comments in the help for <code>save</code>.</p>
 </td></tr>
-<tr><td><code id="serialize_:_xdr">xdr</code></td>
+<tr><td><code id="xdr">xdr</code></td>
 <td>
 <p>a logical: if a binary representation is used, should a
 big-endian one (XDR) be used?</p>
 </td></tr>
-<tr><td><code id="serialize_:_version">version</code></td>
+<tr><td><code id="version">version</code></td>
 <td>
 <p>the workspace format version to use.  <code>NULL</code>
 specifies the current default version (3). The only other supported
 value is 2, the default from <span class="rlang"><b>R</b></span> 1.4.0 to <span class="rlang"><b>R</b></span> 3.5.0.</p>
 </td></tr>
-<tr><td><code id="serialize_:_refhook">refhook</code></td>
+<tr><td><code id="refhook">refhook</code></td>
 <td>
 <p>a hook function for handling reference objects.</p>
 </td></tr>
@@ -153,6 +153,7 @@ unserialize(x)
 ## see also the examples for saveRDS
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.1/00index.html'>Package <em>base</em> version 4.2.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.1/00index.html'>Package <em>base</em> version 4.2.1</a> ]</div></main>
+
 </div>
 </body></html>

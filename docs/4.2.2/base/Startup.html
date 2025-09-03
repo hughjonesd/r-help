@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Startup {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Startup'>Initialization at Start of an R Session</h2>
+<h2>Initialization at Start of an R Session</h2>
 
 <h3>Description</h3>
 
@@ -40,7 +40,8 @@ environment variable (after tilde expansion).  If this variable
 is unset, the default is &lsquo;<span class="file"><var>R_HOME</var>/etc/Rprofile.site</span>&rsquo;,
 which is used if it exists
 (which it does not in a &lsquo;factory-fresh&rsquo; installation).
-This code is sourced into the workspace (global environment).  Users need
+</p>
+<p>This code is sourced into the workspace (global environment).  Users need
 to be careful not to unintentionally create objects in the workspace, and
 it is normally advisable to use <code>local</code> if code needs to be
 executed: see the examples.  <code>.Library.site</code> may be assigned to and
@@ -195,7 +196,8 @@ parameter substitution in shells.
 </p>
 <p>There are examples of using startup files to set defaults for graphics
 devices in the help for
-<code>X11</code> and <code>quartz</code>.
+</p>
+<p><code>X11</code> and <code>quartz</code>.
 </p>
 <p><em>An Introduction to R</em> for more command-line options: those
 affecting memory management are covered in the help file for
@@ -258,6 +260,7 @@ FOOBAR="coo\bar"doh\ex"abc\"def'"
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>base</em> version 4.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>base</em> version 4.2.2</a> ]</div></main>
+
 </div>
 </body></html>

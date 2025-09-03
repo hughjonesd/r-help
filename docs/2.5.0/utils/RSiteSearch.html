@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/RSiteSearch.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/RSiteSearch.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/RSiteSearch.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/RSiteSearch.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>RSiteSearch {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='RSiteSearch'>
+<h2>
 Search for Key Words or Phrases in the R-help Mailing List Archives
 or Documentation
 </h2>
@@ -44,13 +44,13 @@ archives, or <span class="rlang"><b>R</b></span> manuals and help pages, using t
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="RSiteSearch_:_string">string</code></td>
+<table role = "presentation">
+<tr><td><code id="string">string</code></td>
 <td>
 <p>word(s) or phrase to search.  If the words are to be
 searched as one entity, enclose all words in braces (see example).</p>
 </td></tr>
-<tr><td><code id="RSiteSearch_:_restrict">restrict</code></td>
+<tr><td><code id="restrict">restrict</code></td>
 <td>
 <p>a character vector, typically of length larger than one:
 What areas to search in:
@@ -61,11 +61,11 @@ What areas to search in:
 <code>R-devel</code> for R-devel mailing list.
 Use <code>c()</code> to specify more than one.</p>
 </td></tr>
-<tr><td><code id="RSiteSearch_:_format">format</code></td>
+<tr><td><code id="format">format</code></td>
 <td>
 <p><code>normal</code> or <code>short</code> (no excerpts); can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="RSiteSearch_:_sortby">sortby</code></td>
+<tr><td><code id="sortby">sortby</code></td>
 <td>
 <p>character string (can be abbreviated) indicating how to sort the search
 results:<br />
@@ -77,7 +77,7 @@ results:<br />
 <code>from</code> or <code>from:descending</code> for sender (when applicable),
 <code>size</code> or <code>size:descending</code> for size.)</p>
 </td></tr>
-<tr><td><code id="RSiteSearch_:_matchesPerPage">matchesPerPage</code></td>
+<tr><td><code id="matchesPerPage">matchesPerPage</code></td>
 <td>
 <p>How many items to show per page.</p>
 </td></tr>
@@ -125,11 +125,11 @@ RSiteSearch("Baron Liaw", restr = "Rhelp02a")
 fullquery &lt;- RSiteSearch("S4", restr = c("R-dev", "docs"))
 fullquery # a string of ~ 116 characters
 ## the latest purported bug reports
-
 RSiteSearch("bug", restr = "R-devel", sortby = "date:late")
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.5.0/00index.html'>Package <em>utils</em> version 2.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.5.0/00index.html'>Package <em>utils</em> version 2.5.0</a> ]</div></main>
+
 </div>
 </body></html>

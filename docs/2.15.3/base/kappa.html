@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/kappa.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/kappa.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/kappa.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/kappa.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>kappa {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='kappa'>Compute or Estimate the Condition Number of a Matrix</h2>
+<h2>Compute or Estimate the Condition Number of a Matrix</h2>
 
 <h3>Description</h3>
 
@@ -54,17 +54,17 @@ rcond(x, norm = c("O","I","1"), triangular = FALSE, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="kappa_:_z">z</code>, <code id="kappa_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="z">z</code>, <code id="x">x</code></td>
 <td>
 <p>A matrix or a the result of <code>qr</code> or a fit from
 a class inheriting from <code>"lm"</code>.</p>
 </td></tr>
-<tr><td><code id="kappa_:_exact">exact</code></td>
+<tr><td><code id="exact">exact</code></td>
 <td>
 <p>logical.  Should the result be exact?</p>
 </td></tr>
-<tr><td><code id="kappa_:_norm">norm</code></td>
+<tr><td><code id="norm">norm</code></td>
 <td>
 <p>character string, specifying the matrix norm with respect
 to which the condition number is to be computed, see also
@@ -72,23 +72,23 @@ to which the condition number is to be computed, see also
 meaning the <b>O</b>ne- or 1-norm.  The (currently only) other
 possible value is <code>"I"</code> for the infinity norm.</p>
 </td></tr>
-<tr><td><code id="kappa_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>character string, specifying the method to be used;
 <code>"qr"</code> is default for back-compatibility, mainly.</p>
 </td></tr>
-<tr><td><code id="kappa_:_triangular">triangular</code></td>
+<tr><td><code id="triangular">triangular</code></td>
 <td>
 <p>logical.  If true, the matrix used is just the lower
 triangular part of <code>z</code>.</p>
 </td></tr>
-<tr><td><code id="kappa_:_LINPACK">LINPACK</code></td>
+<tr><td><code id="LINPACK">LINPACK</code></td>
 <td>
 <p>logical.  If true and <code>z</code> is not complex, the
 Linpack routine <code>dtrco()</code> is called; otherwise the relevant
 Lapack routine is.</p>
 </td></tr>
-<tr><td><code id="kappa_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods;
 for <code>kappa.*()</code>, notably <code>LINPACK</code> when <code>norm</code> is not
@@ -180,6 +180,7 @@ kappa(h9, exact = TRUE) == max(sv9) / min(sv9)
 kappa(h9, exact = TRUE) / kappa(h9)  # 0.677 (i.e., rel.error = 32%)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.3/00index.html'>Package <em>base</em> version 2.15.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.3/00index.html'>Package <em>base</em> version 2.15.3</a> ]</div></main>
+
 </div>
 </body></html>

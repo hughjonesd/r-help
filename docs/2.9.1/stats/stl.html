@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stl.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stl.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stl.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stl.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>stl {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='stl'>Seasonal Decomposition of Time Series by Loess</h2>
+<h2>Seasonal Decomposition of Time Series by Loess</h2>
 
 <h3>Description</h3>
 
@@ -42,36 +42,36 @@ using <code>loess</code>, acronym STL.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="stl_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>univariate time series to be decomposed.
 This should be an object of class <code>"ts"</code> with a frequency
 greater than one.</p>
 </td></tr>
-<tr><td><code id="stl_:_s.window">s.window</code></td>
+<tr><td><code id="s.window">s.window</code></td>
 <td>
 <p>either the character string <code>"periodic"</code> or the span (in
 lags) of the loess window for seasonal extraction, which should
 be odd.  This has no default.</p>
 </td></tr>
-<tr><td><code id="stl_:_s.degree">s.degree</code></td>
+<tr><td><code id="s.degree">s.degree</code></td>
 <td>
 <p>degree of locally-fitted polynomial in seasonal
 extraction.  Should be zero or one.</p>
 </td></tr>
-<tr><td><code id="stl_:_t.window">t.window</code></td>
+<tr><td><code id="t.window">t.window</code></td>
 <td>
 <p>the span (in lags) of the loess window for trend
 extraction, which should be odd.  If <code>NULL</code>, the default,
 <code>nextodd(ceiling((1.5*period) / (1-(1.5/s.window))))</code>, is taken.</p>
 </td></tr>
-<tr><td><code id="stl_:_t.degree">t.degree</code></td>
+<tr><td><code id="t.degree">t.degree</code></td>
 <td>
 <p>degree of locally-fitted polynomial in trend
 extraction.  Should be zero or one.</p>
 </td></tr>
-<tr><td><code id="stl_:_l.window">l.window</code></td>
+<tr><td><code id="l.window">l.window</code></td>
 <td>
 <p>the span (in lags) of the loess window of the low-pass
 filter used for each subseries.  Defaults to the smallest odd
@@ -80,33 +80,33 @@ recommended since it prevents competition between the trend and
 seasonal components.  If not an odd integer its given value is
 increased to the next odd one.</p>
 </td></tr>
-<tr><td><code id="stl_:_l.degree">l.degree</code></td>
+<tr><td><code id="l.degree">l.degree</code></td>
 <td>
 <p>degree of locally-fitted polynomial for the subseries
 low-pass filter.  Must be 0 or 1.</p>
 </td></tr>
-<tr><td><code id="stl_:_s.jump">s.jump</code>, <code id="stl_:_t.jump">t.jump</code>, <code id="stl_:_l.jump">l.jump</code></td>
+<tr><td><code id="s.jump">s.jump</code>, <code id="t.jump">t.jump</code>, <code id="l.jump">l.jump</code></td>
 <td>
 <p>integers at least one to increase speed of
 the respective smoother.  Linear interpolation happens between every
 <code>*.jump</code>th value.</p>
 </td></tr>
-<tr><td><code id="stl_:_robust">robust</code></td>
+<tr><td><code id="robust">robust</code></td>
 <td>
 <p>logical indicating if robust fitting be used in the
 <code>loess</code> procedure.</p>
 </td></tr>
-<tr><td><code id="stl_:_inner">inner</code></td>
+<tr><td><code id="inner">inner</code></td>
 <td>
 <p>integer; the number of &lsquo;inner&rsquo; (backfitting)
 iterations; usually very few (2) iterations suffice.</p>
 </td></tr>
-<tr><td><code id="stl_:_outer">outer</code></td>
+<tr><td><code id="outer">outer</code></td>
 <td>
 <p>integer; the number of &lsquo;outer&rsquo; robustness
 iterations.</p>
 </td></tr>
-<tr><td><code id="stl_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>action on missing values.</p>
 </td></tr>
@@ -133,7 +133,7 @@ residuals from the seasonal plus trend fit.
 
 <p><code>stl</code> returns an object of class <code>"stl"</code> with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>time.series</code></td>
 <td>
 <p>a multiple time series with columns
@@ -231,6 +231,7 @@ points(time(sts)[iO], 0.8* sts[,"remainder"][iO], pch = 4, col = "red")
 par(op)# reset
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.9.1/00index.html'>Package <em>stats</em> version 2.9.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.9.1/00index.html'>Package <em>stats</em> version 2.9.1</a> ]</div></main>
+
 </div>
 </body></html>

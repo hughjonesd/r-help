@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>boxplot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='boxplot'>Box Plots</h2>
+<h2>Box Plots</h2>
 
 <h3>Description</h3>
 
@@ -38,16 +38,16 @@ boxplot.formula(formula, data = NULL, subset, na.action, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="boxplot_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>methods may have additional arguments.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_x">x</code>, <code id="boxplot_:_...">...</code></td>
+<tr><td><code id="x">x</code>, <code id="...">...</code></td>
 <td>
 <p>the data from which the boxplots are to be produced.
 The data can be specified as separate vectors, each
@@ -60,7 +60,7 @@ case the argument <code>data</code> can be used to provide values for
 the variables in the specification. <code>NA</code>s are
 allowed in the data.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_range">range</code></td>
+<tr><td><code id="range">range</code></td>
 <td>
 <p>this determines how far the plot whiskers extend out
 from the box.  If <code>range</code> is positive, the whiskers extend
@@ -68,96 +68,96 @@ to the most extreme data point which is no more than
 <code>range</code> times the interquartile range from the box. A value
 of zero causes the whiskers to extend to the data extremes.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>a vector giving the relative widths of the boxes making
 up the plot.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_varwidth">varwidth</code></td>
+<tr><td><code id="varwidth">varwidth</code></td>
 <td>
 <p>if <code>varwidth</code> is <code>TRUE</code>, the boxes are
 drawn with widths proportional to the square-roots of the number
 of observations in the groups.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_notch">notch</code></td>
+<tr><td><code id="notch">notch</code></td>
 <td>
 <p>if <code>notch</code> is <code>TRUE</code>, a notch is drawn in
 each side of the boxes.  If the notches of two plots do not
 overlap then the medians are significantly different at the 5
 percent level.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_names">names</code></td>
+<tr><td><code id="names">names</code></td>
 <td>
 <p>group labels which will be printed under each boxplot.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_boxwex">boxwex</code></td>
+<tr><td><code id="boxwex">boxwex</code></td>
 <td>
 <p>a scale factor to be applied to all boxes.  When there
 are only a few groups, the appearance of the plot can be improved
 by making the boxes narrower.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p><code>data.frame</code>, <code>list</code>, or
 <code>environment</code> in which variable names are evaluated
 when <code>x</code> is a formula.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_plot">plot</code></td>
+<tr><td><code id="plot">plot</code></td>
 <td>
 <p>if <code>TRUE</code> (the default) then a boxplot is
 produced.  If not, the summaries which the boxplots are based on
 are returned.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p>an optional vector of colors for the outlines of the
 boxplots.  The values in <code>border</code> are recycled if the
 length of <code>border</code> is less than the number of plots.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>if <code>col</code> is non-null it is assumed to contain colors
 to be used to col the bodies of the box plots.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_log">log</code></td>
+<tr><td><code id="log">log</code></td>
 <td>
 <p>character indicating if x or y or both coordinates should
 be plotted in log scale.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_pars">pars</code></td>
+<tr><td><code id="pars">pars</code></td>
 <td>
 <p>graphical parameters can also be passed as arguments to
 <code>boxplot</code>.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_horizontal">horizontal</code></td>
+<tr><td><code id="horizontal">horizontal</code></td>
 <td>
 <p>logical indicating if the  boxplots should be
 horizontal; default <code>FALSE</code> means vertical boxes.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>logical, if true <em>add</em> boxplot to current plot.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_formula">formula</code></td>
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula, such as <code>y ~ x</code>.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data.frame (or list) from which the variables in
 <code>formula</code> should be taken.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used in the fitting process.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen when
 the data contain <code>NA</code>s.</p>
 </td></tr>
-<tr><td><code id="boxplot_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to the default boxplot method and
 graphical parameters may also be passed as arguments, see
@@ -177,7 +177,7 @@ graphical parameters may also be passed as arguments, see
 
 <p>List with the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>stats</code></td>
 <td>
 <p>a matrix, each column contains the extreme of the lower whisker,
@@ -240,6 +240,7 @@ boxplot(data.frame(mat), main = "boxplot(*, horizontal = TRUE)",
         horizontal = TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.2.2/00index.html'>Package <em>base</em> version 1.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.2.2/00index.html'>Package <em>base</em> version 1.2.2</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/proj.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/proj.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/proj.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/proj.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>proj {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='proj'>Projections of models</h2>
+<h2>Projections of models</h2>
 
 <h3>Description</h3>
 
@@ -38,27 +38,27 @@ proj.lm     (object, onedf = FALSE, unweighted.scale = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="proj_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>An object of class <code>"lm"</code> or a class inheriting from
 it, or an object with a similar structure including in particular
 components <code>qr</code> and <code>effects</code>.</p>
 </td></tr>
-<tr><td><code id="proj_:_onedf">onedf</code></td>
+<tr><td><code id="onedf">onedf</code></td>
 <td>
 <p>A logical flag. If <code>TRUE</code>, a projection is returned for all
 the columns of the model matrix. If <code>FALSE</code>, the single-column
 projections are collapsed by terms of the model (as represented in
 the analysis of variance table).</p>
 </td></tr>
-<tr><td><code id="proj_:_unweighted.scale">unweighted.scale</code></td>
+<tr><td><code id="unweighted.scale">unweighted.scale</code></td>
 <td>
 <p>If the fit producing <code>object</code> used
 weights, this determines if the projections correspond to weighted or
 unweighted observations.</p>
 </td></tr>
-<tr><td><code id="proj_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Swallow and ignore any other arguments.</p>
 </td></tr>
@@ -127,6 +127,7 @@ npk.aovE &lt;- aov(yield ~  N*P*K + Error(block), npk)
 proj(npk.aovE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.65/00index.html'>Package <em>base</em> version 0.65</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.65/00index.html'>Package <em>base</em> version 0.65</a> ]</div></main>
+
 </div>
 </body></html>

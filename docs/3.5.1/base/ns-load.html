@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-load.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-load.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-load.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-load.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ns-load {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ns-load'>Loading and Unloading Name Spaces</h2>
+<h2>Loading and Unloading Name Spaces</h2>
 
 <h3>Description</h3>
 
@@ -39,53 +39,53 @@ isNamespaceLoaded(name)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ns-load_:_ns">ns</code></td>
+<table role = "presentation">
+<tr><td><code id="ns">ns</code></td>
 <td>
 <p>string or name space object.</p>
 </td></tr>
-<tr><td><code id="ns-load_:_pos">pos</code></td>
+<tr><td><code id="pos">pos</code></td>
 <td>
 <p>integer specifying position to attach.</p>
 </td></tr>
-<tr><td><code id="ns-load_:_depends">depends</code></td>
+<tr><td><code id="depends">depends</code></td>
 <td>
 <p><code>NULL</code> or a character vector of dependencies to be
 recorded in object <code>.Depends</code> in the package.</p>
 </td></tr>
-<tr><td><code id="ns-load_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p>string naming the package/name space to load.</p>
 </td></tr>
-<tr><td><code id="ns-load_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>character vector specifying library search path.</p>
 </td></tr>
-<tr><td><code id="ns-load_:_keep.source">keep.source</code></td>
+<tr><td><code id="keep.source">keep.source</code></td>
 <td>
 <p>Now ignored except during package installation.
 For more details see this argument to <code>library</code>.
 </p>
 </td></tr>
-<tr><td><code id="ns-load_:_partial">partial</code></td>
+<tr><td><code id="partial">partial</code></td>
 <td>
 <p>logical; if true, stop just after loading code.</p>
 </td></tr>
-<tr><td><code id="ns-load_:_versionCheck">versionCheck</code></td>
+<tr><td><code id="versionCheck">versionCheck</code></td>
 <td>
 <p><code>NULL</code> or a version specification (a list
 with components <code>op</code> and <code>version</code>).</p>
 </td></tr>
-<tr><td><code id="ns-load_:_quietly">quietly</code></td>
+<tr><td><code id="quietly">quietly</code></td>
 <td>
 <p>logical: should progress and error messages be suppressed?</p>
 </td></tr>
-<tr><td><code id="ns-load_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>string or &lsquo;name&rsquo;, see <code>as.symbol</code>,
 of a package, e.g., <code>"stats"</code>.</p>
 </td></tr>
-<tr><td><code id="ns-load_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to be passed to <code>loadNamespace</code>.</p>
 </td></tr>
@@ -197,6 +197,7 @@ stopifnot( ! isNamespaceLoaded("splines"))
 if (hasS) loadNamespace("splines") # (restoring previous state)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>base</em> version 3.5.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>base</em> version 3.5.1</a> ]</div></main>
+
 </div>
 </body></html>

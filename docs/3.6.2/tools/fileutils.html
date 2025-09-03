@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/fileutils.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/fileutils.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/fileutils.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/fileutils.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>fileutils {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='fileutils'>File Utilities</h2>
+<h2>File Utilities</h2>
 
 <h3>Description</h3>
 
@@ -39,36 +39,36 @@ list_files_with_type(dir, type, all.files = FALSE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="fileutils_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>character vector giving file paths.</p>
 </td></tr>
-<tr><td><code id="fileutils_:_compression">compression</code></td>
+<tr><td><code id="compression">compression</code></td>
 <td>
 <p>logical: should compression extension &lsquo;<span class="file">.gz</span>&rsquo;,
 &lsquo;<span class="file">.bz2</span>&rsquo; or &lsquo;<span class="file">.xz</span>&rsquo; be removed first?</p>
 </td></tr>
-<tr><td><code id="fileutils_:_dir">dir</code></td>
+<tr><td><code id="dir">dir</code></td>
 <td>
 <p>a character string with the path name to a directory.</p>
 </td></tr>
-<tr><td><code id="fileutils_:_exts">exts</code></td>
+<tr><td><code id="exts">exts</code></td>
 <td>
 <p>a character vector of possible file extensions (excluding
 the leading dot).</p>
 </td></tr>
-<tr><td><code id="fileutils_:_all.files">all.files</code></td>
+<tr><td><code id="all.files">all.files</code></td>
 <td>
 <p>a logical.  If <code>FALSE</code> (default), only visible
 files are considered; if <code>TRUE</code>, all files are used.</p>
 </td></tr>
-<tr><td><code id="fileutils_:_full.names">full.names</code></td>
+<tr><td><code id="full.names">full.names</code></td>
 <td>
 <p>a logical indicating whether the full paths of the
 files found are returned (default), or just the file names.</p>
 </td></tr>
-<tr><td><code id="fileutils_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>a character string giving the &lsquo;type&rsquo; of the files
 to be listed, as characterized by their extensions.  Currently,
@@ -76,7 +76,7 @@ possible values are <code>"code"</code> (R code), <code>"data"</code> (data
 sets), <code>"demo"</code> (demos), <code>"docs"</code> (R documentation), and
 <code>"vignette"</code> (vignettes).</p>
 </td></tr>
-<tr><td><code id="fileutils_:_OS_subdirs">OS_subdirs</code></td>
+<tr><td><code id="OS_subdirs">OS_subdirs</code></td>
 <td>
 <p>a character vector with the names of OS-specific
 subdirectories to possibly include in the listing of R code and
@@ -133,6 +133,7 @@ list_files_with_type(file.path(dir, "demo"), "demo") # the same
 file_path_sans_ext(list.files(file.path(R.home("modules"))))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.2/00index.html'>Package <em>tools</em> version 3.6.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.2/00index.html'>Package <em>tools</em> version 3.6.2</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/news.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/news.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/news.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/news.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>news {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='news'>Build and Query R or Package News Information</h2>
+<h2>Build and Query R or Package News Information</h2>
 
 <h3>Description</h3>
 
@@ -37,45 +37,45 @@ print(x, doBrowse = interactive(),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="news_:_query">query</code></td>
+<table role = "presentation">
+<tr><td><code id="query">query</code></td>
 <td>
 <p>an expression for selecting news entries</p>
 </td></tr>
-<tr><td><code id="news_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p>a character string giving the name of an installed
 add-on package, or <code>"R"</code>.</p>
 </td></tr>
-<tr><td><code id="news_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector of directory names of R libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.</p>
 </td></tr>
-<tr><td><code id="news_:_format">format</code></td>
+<tr><td><code id="format">format</code></td>
 <td>
 <p>Not yet used.</p>
 </td></tr>
-<tr><td><code id="news_:_reader">reader</code></td>
+<tr><td><code id="reader">reader</code></td>
 <td>
 <p>Not yet used.</p>
 </td></tr>
-<tr><td><code id="news_:_db">db</code>, <code id="news_:_x">x</code></td>
+<tr><td><code id="db">db</code>, <code id="x">x</code></td>
 <td>
 <p>a news db obtained from <code>news()</code>.</p>
 </td></tr>
-<tr><td><code id="news_:_doBrowse">doBrowse</code></td>
+<tr><td><code id="doBrowse">doBrowse</code></td>
 <td>
 <p>logical specifying that the news should be opened in
 the browser (by <code>browseURL</code>, accessible as via
 <code>help.start</code>) instead of printed to the console.</p>
 </td></tr>
-<tr><td><code id="news_:_browser">browser</code></td>
+<tr><td><code id="browser">browser</code></td>
 <td>
 <p>the browser to be used, see <code>browseURL</code>.</p>
 </td></tr>
-<tr><td><code id="news_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>potentially further arguments passed to <code>print()</code>.</p>
 </td></tr>
@@ -192,6 +192,7 @@ sort(table(db[, "Category"]), decreasing = TRUE)
 table(news(Version &gt;= "3.0.0", db = db)$Version)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.4.2/00index.html'>Package <em>utils</em> version 3.4.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.4.2/00index.html'>Package <em>utils</em> version 3.4.2</a> ]</div></main>
+
 </div>
 </body></html>

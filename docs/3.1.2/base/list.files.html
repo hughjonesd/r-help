@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/list.files.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/list.files.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/list.files.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/list.files.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>list.files {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='list.files'>List the Files in a Directory/Folder</h2>
+<h2>List the Files in a Directory/Folder</h2>
 
 <h3>Description</h3>
 
@@ -41,45 +41,45 @@ list.dirs(path = ".", full.names = TRUE, recursive = TRUE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="list.files_:_path">path</code></td>
+<table role = "presentation">
+<tr><td><code id="path">path</code></td>
 <td>
 <p>a character vector of full path names; the default
 corresponds to the working directory, <code>getwd()</code>.  Tilde
 expansion (see <code>path.expand</code>) is performed.  Missing
 values will be ignored.</p>
 </td></tr>
-<tr><td><code id="list.files_:_pattern">pattern</code></td>
+<tr><td><code id="pattern">pattern</code></td>
 <td>
 <p>an optional regular expression.  Only file names
 which match the regular expression will be returned.</p>
 </td></tr>
-<tr><td><code id="list.files_:_all.files">all.files</code></td>
+<tr><td><code id="all.files">all.files</code></td>
 <td>
 <p>a logical value.  If <code>FALSE</code>, only the
 names of visible files are returned.  If <code>TRUE</code>,
 all file names will be returned.</p>
 </td></tr>
-<tr><td><code id="list.files_:_full.names">full.names</code></td>
+<tr><td><code id="full.names">full.names</code></td>
 <td>
 <p>a logical value.  If <code>TRUE</code>, the directory
 path is prepended to the file names to give a relative file path.
 If <code>FALSE</code>, the file names (rather than paths) are returned.</p>
 </td></tr>
-<tr><td><code id="list.files_:_recursive">recursive</code></td>
+<tr><td><code id="recursive">recursive</code></td>
 <td>
 <p>logical.  Should the listing recurse into directories?</p>
 </td></tr>
-<tr><td><code id="list.files_:_ignore.case">ignore.case</code></td>
+<tr><td><code id="ignore.case">ignore.case</code></td>
 <td>
 <p>logical.  Should pattern-matching be case-insensitive?</p>
 </td></tr>
-<tr><td><code id="list.files_:_include.dirs">include.dirs</code></td>
+<tr><td><code id="include.dirs">include.dirs</code></td>
 <td>
 <p>logical.  Should subdirectory names be included in
 recursive listings?  (They always are in non-recursive ones).</p>
 </td></tr>
-<tr><td><code id="list.files_:_no..">no..</code></td>
+<tr><td><code id="no..">no..</code></td>
 <td>
 <p>logical.  Should both <code>"."</code> and <code>".."</code> be excluded
 also from non-recursive listings?</p>
@@ -123,7 +123,8 @@ directories.
 <p><code>file.info</code>, <code>file.access</code>
 and <code>files</code> for many more file handling functions and
 <code>file.choose</code>
-for interactive selection.
+</p>
+<p>for interactive selection.
 </p>
 <p><code>glob2rx</code> to convert wildcards (as used by system file
 commands and shells) to regular expressions.
@@ -144,6 +145,7 @@ list.dirs(R.home("doc"))
 list.dirs(R.home("doc"), full.names = FALSE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>base</em> version 3.1.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>base</em> version 3.1.2</a> ]</div></main>
+
 </div>
 </body></html>

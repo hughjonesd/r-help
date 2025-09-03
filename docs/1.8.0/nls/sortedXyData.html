@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/sortedXyData.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/sortedXyData.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/sortedXyData.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/sortedXyData.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>sortedXyData {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='sortedXyData'>Create a sortedXyData object</h2>
+<h2>Create a sortedXyData object</h2>
 
 <h3>Description</h3>
 
@@ -35,18 +35,18 @@ of the <code>selfStart</code> class.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="sortedXyData_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p> a numeric vector or an expression that will evaluate in
 <code>data</code> to a numeric vector </p>
 </td></tr>
-<tr><td><code id="sortedXyData_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p> a numeric vector or an expression that will evaluate in
 <code>data</code> to a numeric vector </p>
 </td></tr>
-<tr><td><code id="sortedXyData_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p> an optional data frame in which to evaluate expressions
 for <code>x</code> and <code>y</code>, if they are given as expressions </p>
@@ -83,6 +83,7 @@ DNase.2 &lt;- DNase[ DNase$Run == "2", ]
 sortedXyData( expression(log(conc)), expression(density), DNase.2 )
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

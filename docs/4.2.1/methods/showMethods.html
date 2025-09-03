@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/showMethods.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/showMethods.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/showMethods.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/showMethods.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>showMethods {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='showMethods'>Show all the methods for the specified function(s) or class</h2>
+<h2>Show all the methods for the specified function(s) or class</h2>
 
 <h3>Description</h3>
 
@@ -37,8 +37,8 @@ possibly restricted to those involving specified classes.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="showMethods_:_f">f</code></td>
+<table role = "presentation">
+<tr><td><code id="f">f</code></td>
 <td>
 <p>one or more function names.  If omitted, all functions
 will be shown that match the other arguments.
@@ -49,7 +49,7 @@ case argument <code>fdef</code> is ignored.  Providing an expression for
 the function allows examination of hidden or anonymous functions;
 see the example for <code>isDiagonal()</code>.</p>
 </td></tr>
-<tr><td><code id="showMethods_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p>Where to find the generic function, if not supplied as an
 argument. When <code>f</code> is missing, or length 0, this also
@@ -59,18 +59,18 @@ supplied, only the generic functions returned by
 <code>where</code> is also missing, all the cached generic functions are
 considered.</p>
 </td></tr>
-<tr><td><code id="showMethods_:_classes">classes</code></td>
+<tr><td><code id="classes">classes</code></td>
 <td>
 <p>If argument <code>classes</code> is supplied, it is a vector
 of class names that restricts the displayed results to those methods
 whose signatures include one or more of those classes.</p>
 </td></tr>
-<tr><td><code id="showMethods_:_includeDefs">includeDefs</code></td>
+<tr><td><code id="includeDefs">includeDefs</code></td>
 <td>
 <p>If <code>includeDefs</code> is <code>TRUE</code>, include the
 definitions of the individual methods in the printout.</p>
 </td></tr>
-<tr><td><code id="showMethods_:_inherited">inherited</code></td>
+<tr><td><code id="inherited">inherited</code></td>
 <td>
 <p>logical indicating if methods that have been found by
 inheritance, so far in the session, will be included and marked as
@@ -79,25 +79,25 @@ until it has been used in this session.  See
 <code>selectMethod</code> if you want to know what method would be
 dispatched for particular classes of arguments.</p>
 </td></tr>
-<tr><td><code id="showMethods_:_showEmpty">showEmpty</code></td>
+<tr><td><code id="showEmpty">showEmpty</code></td>
 <td>
 <p>logical indicating whether methods with no defined
 methods matching the other criteria should be shown at all.  By
 default, <code>TRUE</code> if and only if argument <code>f</code> is not
 missing.</p>
 </td></tr>
-<tr><td><code id="showMethods_:_printTo">printTo</code></td>
+<tr><td><code id="printTo">printTo</code></td>
 <td>
 <p>The connection on which the information will be
 shown; by default, on standard output.</p>
 </td></tr>
-<tr><td><code id="showMethods_:_fdef">fdef</code></td>
+<tr><td><code id="fdef">fdef</code></td>
 <td>
 <p>Optionally, the generic function definition to use; if
 missing, one is found, looking in <code>where</code> if that is specified.
 See also comment in &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="showMethods_:_generic.function">generic.function</code>, <code id="showMethods_:_class">class</code></td>
+<tr><td><code id="generic.function">generic.function</code>, <code id="class">class</code></td>
 <td>
 <p>See <code>methods</code>.</p>
 </td></tr>
@@ -176,14 +176,13 @@ showMethods(Matrix:::isDiagonal) # a non-exported generic
 
 ## End(Not run)
 
-
-
 if(no4 &lt;- is.na(match("stats4", loadedNamespaces())))
    loadNamespace("stats4")
 showMethods(classes = "mle") # -&gt; a method for show()
 if(no4) unloadNamespace("stats4")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.1/00index.html'>Package <em>methods</em> version 4.2.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.1/00index.html'>Package <em>methods</em> version 4.2.1</a> ]</div></main>
+
 </div>
 </body></html>

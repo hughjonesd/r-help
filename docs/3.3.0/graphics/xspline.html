@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/xspline.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/xspline.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/xspline.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/xspline.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>xspline {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='xspline'>Draw an X-spline</h2>
+<h2>Draw an X-spline</h2>
 
 <h3>Description</h3>
 
@@ -33,44 +33,44 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="xspline_:_x">x</code>, <code id="xspline_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>vectors containing the coordinates of the vertices
 of the polygon. See <code>xy.coords</code> for alternatives.</p>
 </td></tr>
-<tr><td><code id="xspline_:_shape">shape</code></td>
+<tr><td><code id="shape">shape</code></td>
 <td>
 <p>A numeric vector of values between -1 and 1, which
 control the shape of the spline relative to the control points.</p>
 </td></tr>
-<tr><td><code id="xspline_:_open">open</code></td>
+<tr><td><code id="open">open</code></td>
 <td>
 <p>A logical value indicating whether the spline is
 an open or a closed shape.</p>
 </td></tr>
-<tr><td><code id="xspline_:_repEnds">repEnds</code></td>
+<tr><td><code id="repEnds">repEnds</code></td>
 <td>
 <p>For open X-splines, a logical value indicating whether
 the first and last control points should be replicated for drawing
 the curve. Ignored for closed X-splines.</p>
 </td></tr>
-<tr><td><code id="xspline_:_draw">draw</code></td>
+<tr><td><code id="draw">draw</code></td>
 <td>
 <p>logical: should the X-spline be drawn?  If false, a set of
 line segments to draw the curve is returned, and nothing is drawn.</p>
 </td></tr>
-<tr><td><code id="xspline_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p>the color to draw the curve.   Use <code>border = NA</code> to
 omit borders.</p>
 </td></tr>
-<tr><td><code id="xspline_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>the color for filling the shape. The default,
 <code>NA</code>, is to leave unfilled.</p>
 </td></tr>
-<tr><td><code id="xspline_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>graphical parameters such as <code>lty</code>, <code>xpd</code>,
 <code>lend</code>, <code>ljoin</code> and <code>lmitre</code> can be given as arguments.</p>
@@ -190,6 +190,7 @@ arrows(res$x[1], res$y[1], res$x[4], res$y[4], code = 1, length = 0.1)
 arrows(res$x[nr-3], res$y[nr-3], res$x[nr], res$y[nr], code = 2, length = 0.1)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.0/00index.html'>Package <em>graphics</em> version 3.3.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.0/00index.html'>Package <em>graphics</em> version 3.3.0</a> ]</div></main>
+
 </div>
 </body></html>

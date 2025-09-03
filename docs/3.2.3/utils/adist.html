@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/adist.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/adist.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/adist.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/adist.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>adist {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='adist'>Approximate String Distances</h2>
+<h2>Approximate String Distances</h2>
 
 <h3>Description</h3>
 
@@ -36,17 +36,17 @@ substitutions needed to transform one string into another.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="adist_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a character vector.  Long vectors are not supported.</p>
 </td></tr>
-<tr><td><code id="adist_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>a character vector, or <code>NULL</code> (default) indicating
 taking <code>x</code> as <code>y</code>.</p>
 </td></tr>
-<tr><td><code id="adist_:_costs">costs</code></td>
+<tr><td><code id="costs">costs</code></td>
 <td>
 <p>a numeric vector or list with names partially matching
 &lsquo;<span class="samp">&#8288;insertions&#8288;</span>&rsquo;, &lsquo;<span class="samp">&#8288;deletions&#8288;</span>&rsquo; and &lsquo;<span class="samp">&#8288;substitutions&#8288;</span>&rsquo; giving
@@ -54,14 +54,14 @@ the respective costs for computing the Levenshtein distance, or
 <code>NULL</code> (default) indicating using unit cost for all three
 possible transformations.</p>
 </td></tr>
-<tr><td><code id="adist_:_counts">counts</code></td>
+<tr><td><code id="counts">counts</code></td>
 <td>
 <p>a logical indicating whether to optionally return the
 transformation counts (numbers of insertions, deletions and
 substitutions) as the <code>"counts"</code> attribute of the return
 value.</p>
 </td></tr>
-<tr><td><code id="adist_:_fixed">fixed</code></td>
+<tr><td><code id="fixed">fixed</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code> (default), the <code>x</code>
 elements are used as string literals.  Otherwise, they are taken as
@@ -69,19 +69,19 @@ regular expressions and <code>partial = TRUE</code> is implied
 (corresponding to the approximate string distance used by
 <code>agrep</code> with <code>fixed = FALSE</code>.</p>
 </td></tr>
-<tr><td><code id="adist_:_partial">partial</code></td>
+<tr><td><code id="partial">partial</code></td>
 <td>
 <p>a logical indicating whether the transformed <code>x</code>
 elements must exactly match the complete <code>y</code> elements, or only
 substrings of these.  The latter corresponds to the approximate
 string distance used by <code>agrep</code> (by default).</p>
 </td></tr>
-<tr><td><code id="adist_:_ignore.case">ignore.case</code></td>
+<tr><td><code id="ignore.case">ignore.case</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, case is ignored for
 computing the distances.</p>
 </td></tr>
-<tr><td><code id="adist_:_useBytes">useBytes</code></td>
+<tr><td><code id="useBytes">useBytes</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code> distance computations are
 done byte-by-byte rather than character-by-character.</p>
@@ -163,6 +163,7 @@ adist("lasy", "1 lazy 2")
 adist("lasy", "1 lazy 2", partial = TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>utils</em> version 3.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>utils</em> version 3.2.3</a> ]</div></main>
+
 </div>
 </body></html>

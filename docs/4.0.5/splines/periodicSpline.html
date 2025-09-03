@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/splines/html/periodicSpline.html'>https://stat.ethz.ch/R-manual/R-patched/library/splines/html/periodicSpline.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/splines/html/periodicSpline.html'>https://stat.ethz.ch/R-manual/R-patched/library/splines/html/periodicSpline.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>periodicSpline {splines}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='periodicSpline'>Create a Periodic Interpolation Spline</h2>
+<h2>Create a Periodic Interpolation Spline</h2>
 
 <h3>Description</h3>
 
@@ -33,27 +33,27 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="periodicSpline_:_obj1">obj1</code></td>
+<table role = "presentation">
+<tr><td><code id="obj1">obj1</code></td>
 <td>
 <p>either a numeric vector of <code>x</code> values or a formula.</p>
 </td></tr>
-<tr><td><code id="periodicSpline_:_obj2">obj2</code></td>
+<tr><td><code id="obj2">obj2</code></td>
 <td>
 <p>if <code>obj1</code> is numeric this should be a numeric vector
 of the same length.  If <code>obj1</code> is a formula this can be an
 optional data frame in which to evaluate the names in the formula.</p>
 </td></tr>
-<tr><td><code id="periodicSpline_:_knots">knots</code></td>
+<tr><td><code id="knots">knots</code></td>
 <td>
 <p>optional numeric vector of knot positions.</p>
 </td></tr>
-<tr><td><code id="periodicSpline_:_period">period</code></td>
+<tr><td><code id="period">period</code></td>
 <td>
 <p>positive numeric value giving the period for the
 periodic spline.  Defaults to <code>2 * pi</code>.</p>
 </td></tr>
-<tr><td><code id="periodicSpline_:_ord">ord</code></td>
+<tr><td><code id="ord">ord</code></td>
 <td>
 <p>integer giving the order of the spline, at least 2.  Defaults
 to 4.  See <code>splineOrder</code> for a definition of the order of
@@ -99,6 +99,7 @@ points( yy ~ xx, col = "brown")
 plot( predict( pispl, seq(-3*pi, 3*pi, length.out = 101) ), type = "l" )
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>splines</em> version 4.0.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>splines</em> version 4.0.5</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/update.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/update.packages.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/update.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/update.packages.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>update.packages {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='update.packages'>Download Packages from CRAN</h2>
+<h2>Download Packages from CRAN</h2>
 
 <h3>Description</h3>
 
@@ -51,48 +51,48 @@ install.packages(pkgs, lib, available = NULL,
 <h3>Arguments</h3>
 
  
-<table>
-<tr><td><code id="update.packages_:_lib.loc">lib.loc</code></td>
+<table role = "presentation">
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>A character vector describing the location of R
 library trees to search through (and update packages therein).</p>
 </td></tr>
-<tr><td><code id="update.packages_:_CRAN">CRAN</code></td>
+<tr><td><code id="CRAN">CRAN</code></td>
 <td>
 <p>The base URL of the CRAN mirror to use, i.e., the URL of a
 CRAN root such as <code>"http://www.r-project.org"</code> (the default) or
 its Statlib mirror, <code>"http://lib.stat.cmu.edu/R/CRAN"</code>.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_contriburl">contriburl</code></td>
+<tr><td><code id="contriburl">contriburl</code></td>
 <td>
 <p>URL of the contrib section of CRAN. Use this argument
 only if your CRAN mirror is incomplete, e.g., because you burned
 only the contrib section on a CD.  Overrides argument <code>CRAN</code>.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>Download method, see <code>download.file</code>.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_pkgs">pkgs</code></td>
+<tr><td><code id="pkgs">pkgs</code></td>
 <td>
 <p>A character vector of the short names of
 packages whose current versions should be downloaded from <code>CRAN</code>.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_destdir">destdir</code></td>
+<tr><td><code id="destdir">destdir</code></td>
 <td>
 <p>Directory where downloaded packages are stored.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_available">available</code></td>
+<tr><td><code id="available">available</code></td>
 <td>
 <p>List of packages available at CRAN as returned by
 <code>CRAN.packages</code>.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_lib">lib</code>, <code id="update.packages_:_instlib">instlib</code></td>
+<tr><td><code id="lib">lib</code>, <code id="instlib">instlib</code></td>
 <td>
 <p>A character string giving the library directory where to
 install the packages.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_ask">ask</code></td>
+<tr><td><code id="ask">ask</code></td>
 <td>
 <p>If <code>TRUE</code>, ask before packages are actually downloaded
 and installed.</p>
@@ -134,8 +134,6 @@ takes a vector of package names and a destination directory, downloads
 the packages from CRAN and installs them. If the destination directory
 is omitted it defaults to the first directory in <code>.lib.loc</code>, with
 a warning.
-
-
 </p>
 
 
@@ -146,6 +144,7 @@ a warning.
 <code>parse.dcf</code>, <code>download.file</code>
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.0/00index.html'>Package <em>base</em> version 1.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.0/00index.html'>Package <em>base</em> version 1.0</a> ]</div></main>
+
 </div>
 </body></html>

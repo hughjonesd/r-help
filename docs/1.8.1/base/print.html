@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/print.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/print.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/print.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/print.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>print {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='print'>Print Values</h2>
+<h2>Print Values</h2>
 
 <h3>Description</h3>
 
@@ -43,48 +43,48 @@ print(x, digits = getOption("digits"), quote = FALSE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="print_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object used to select a method.</p>
 </td></tr>
-<tr><td><code id="print_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td></tr>
-<tr><td><code id="print_:_quote">quote</code></td>
+<tr><td><code id="quote">quote</code></td>
 <td>
 <p>logical, indicating whether or not strings should be
 printed with surrounding quotes.</p>
 </td></tr>
-<tr><td><code id="print_:_max.levels">max.levels</code></td>
+<tr><td><code id="max.levels">max.levels</code></td>
 <td>
 <p>integer, indicating how many levels should be
 printed for a factor; if <code>0</code>, no extra &quot;Levels&quot; line will be
 printed.  The default, <code>NULL</code>, entails chosing <code>max.levels</code>
 such that the levels print on one line of width <code>width</code>.</p>
 </td></tr>
-<tr><td><code id="print_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>only used when <code>max.levels</code> is NULL, see above.</p>
 </td></tr>
-<tr><td><code id="print_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>minimal number of <em>significant</em> digits, see
 <code>print.default</code>.</p>
 </td></tr>
-<tr><td><code id="print_:_na.print">na.print</code></td>
+<tr><td><code id="na.print">na.print</code></td>
 <td>
 <p>character string (or <code>NULL</code>) indicating
 <code>NA</code> values in printed output, see
 <code>print.default</code>.</p>
 </td></tr>
-<tr><td><code id="print_:_zero.print">zero.print</code></td>
+<tr><td><code id="zero.print">zero.print</code></td>
 <td>
 <p>character specifying how zeros (<code>0</code>) should be
 printed; for sparse tables, using <code>"."</code> can produce stronger results.</p>
 </td></tr>
-<tr><td><code id="print_:_justify">justify</code></td>
+<tr><td><code id="justify">justify</code></td>
 <td>
 <p>character indicating if strings should left- or
 right-justified or left alone, passed to <code>format</code>.</p>
@@ -149,6 +149,7 @@ table(t1,t2) # simple
 print(table(t1,t2), zero.print = ".")# nicer to read
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.8.1/00index.html'>Package <em>base</em> version 1.8.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.8.1/00index.html'>Package <em>base</em> version 1.8.1</a> ]</div></main>
+
 </div>
 </body></html>

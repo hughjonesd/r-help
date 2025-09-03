@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/predict.lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/predict.lm.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/predict.lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/predict.lm.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>predict.lm {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='predict.lm'>Predicting from Linear Model Fits</h2>
+<h2>Predicting from Linear Model Fits</h2>
 
 <h3>Description</h3>
 
@@ -47,7 +47,7 @@ predictions and bounds with column names <code>fit</code>, <code>lwr</code>, and
 <code>upr</code> if <code>interval</code> is set. If <code>se.fit</code> is
 <code>TRUE</code>, a list with the following components is returned
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>fit</code></td>
 <td>
 <p>vector or matrix as above</p>
@@ -82,6 +82,7 @@ predict(lm(y ~ x))
 predict(lm(y ~ x), data.frame(x = seq(-3, 3, 0.1)), se = TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.65/00index.html'>Package <em>base</em> version 0.65</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.65/00index.html'>Package <em>base</em> version 0.65</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/piechart.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/piechart.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/piechart.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/piechart.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>piechart {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='piechart'>Pie Charts</h2>
+<h2>Pie Charts</h2>
 
 <h3>Description</h3>
 
@@ -36,45 +36,45 @@ type of data.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="piechart_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector of positive quantities.
 The values in <code>x</code> are displayed as the areas of pie slices.</p>
 </td></tr>
-<tr><td><code id="piechart_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>a vector of character strings giving names for
 the slices.</p>
 </td></tr>
-<tr><td><code id="piechart_:_shadow">shadow</code></td>
+<tr><td><code id="shadow">shadow</code></td>
 <td>
 <p>a logical vector indicating whether a shadow
 effect should be attempted for the chart.
 This only makes sense if the slices are filled with colors.</p>
 </td></tr>
-<tr><td><code id="piechart_:_edges">edges</code></td>
+<tr><td><code id="edges">edges</code></td>
 <td>
 <p>the circular outline of the pie is approximated by a
 polygon with this many edges.</p>
 </td></tr>
-<tr><td><code id="piechart_:_radius">radius</code></td>
+<tr><td><code id="radius">radius</code></td>
 <td>
 <p>the pie is drawn centered in a square box
 whose sides range from <code class="reqn">-1</code> to <code class="reqn">1</code>.
 If the character strings labeling the slices are long it
 may be necessary to use a smaller radius.</p>
 </td></tr>
-<tr><td><code id="piechart_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>a vector of colors to be used in filling
 the slices.</p>
 </td></tr>
-<tr><td><code id="piechart_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>an overall title for the plot.</p>
 </td></tr>
-<tr><td><code id="piechart_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>graphical parameters can be given as arguments to <code>piechart</code>.</p>
 </td></tr>
@@ -101,6 +101,7 @@ piechart(pie.sales,
     col=gray(seq(0.4,1.0,length=6)))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.65.1/00index.html'>Package <em>base</em> version 0.65.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.65.1/00index.html'>Package <em>base</em> version 0.65.1</a> ]</div></main>
+
 </div>
 </body></html>

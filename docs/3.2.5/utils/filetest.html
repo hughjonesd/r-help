@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/filetest.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/filetest.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/filetest.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/filetest.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>file_test {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='file_test'>
+<h2>
 Shell-style Tests on Files
 </h2>
 
@@ -34,8 +34,8 @@ Shell-style Tests on Files
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="file_test_:_op">op</code></td>
+<table role = "presentation">
+<tr><td><code id="op">op</code></td>
 <td>
 <p>a character string specifying the test to be performed.
 Unary tests (only <code>x</code> is used) are <code>"-f"</code> (existence and
@@ -45,7 +45,7 @@ Binary tests are <code>"-nt"</code> (strictly newer than, using the modification
 dates) and <code>"-ot"</code> (strictly older than): in both cases the
 test is false unless both files exist.</p>
 </td></tr>
-<tr><td><code id="file_test_:_x">x</code>, <code id="file_test_:_y">y</code></td>
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>character vectors giving file paths.</p>
 </td></tr>
@@ -80,6 +80,7 @@ file_test("-d", dir)
 file_test("-nt", file.path(dir, "R"), file.path(dir, "demo"))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.5/00index.html'>Package <em>utils</em> version 3.2.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.5/00index.html'>Package <em>utils</em> version 3.2.5</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ts.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ts.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ts.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ts.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ts {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ts'>Time-Series Objects</h2>
+<h2>Time-Series Objects</h2>
 
 <h3>Description</h3>
 
@@ -61,30 +61,30 @@ plot(ts.obj, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ts_:_data">data</code></td>
+<table role = "presentation">
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a vector or matrix the observed time-series values.</p>
 </td></tr>
-<tr><td><code id="ts_:_start">start</code></td>
+<tr><td><code id="start">start</code></td>
 <td>
 <p>the time of the first observation.</p>
 </td></tr>
-<tr><td><code id="ts_:_end">end</code></td>
+<tr><td><code id="end">end</code></td>
 <td>
 <p>the time of the last observation.</p>
 </td></tr>
-<tr><td><code id="ts_:_frequency">frequency</code></td>
+<tr><td><code id="frequency">frequency</code></td>
 <td>
 <p>the number of observations per unit of time.</p>
 </td></tr>
-<tr><td><code id="ts_:_deltat">deltat</code></td>
+<tr><td><code id="deltat">deltat</code></td>
 <td>
 <p>the fraction of the sampling period between successive
 observations; e.g., 1/12 for monthly data.
 Only one of <code>frequency</code> or <code>deltat</code> should be provided.</p>
 </td></tr>
-<tr><td><code id="ts_:_ts.eps">ts.eps</code></td>
+<tr><td><code id="ts.eps">ts.eps</code></td>
 <td>
 <p>time series comparison tolerance.  Frequencies are
 considered equal if their absolute difference is less than
@@ -113,6 +113,7 @@ gnp &lt;- ts(cumsum(1 + round(rnorm(100), 2)),
 plot(gnp) # using `plot.ts' for time-series plot
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.62/00index.html'>Package <em>base</em> version 0.62</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.62/00index.html'>Package <em>base</em> version 0.62</a> ]</div></main>
+
 </div>
 </body></html>

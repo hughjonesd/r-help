@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/citation.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/citation.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/citation.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/citation.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>citation {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='citation'>Citing R and R Packages in Publications</h2>
+<h2>Citing R and R Packages in Publications</h2>
 
 <h3>Description</h3>
 
@@ -33,31 +33,31 @@ readCitationFile(file, meta = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="citation_:_package">package</code></td>
+<table role = "presentation">
+<tr><td><code id="package">package</code></td>
 <td>
 <p>a character string with the name of a single package.
 An error occurs if more than one package name is given.</p>
 </td></tr>
-<tr><td><code id="citation_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector with path names of <span class="rlang"><b>R</b></span> libraries, or
 <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  If the default is used, the loaded
 packages are searched before the libraries.</p>
 </td></tr>
-<tr><td><code id="citation_:_auto">auto</code></td>
+<tr><td><code id="auto">auto</code></td>
 <td>
 <p>a logical indicating whether the default citation
 auto-generated from the package &lsquo;<span class="file">DESCRIPTION</span>&rsquo; metadata should
 be used or not, or <code>NULL</code> (default), indicating that a
 &lsquo;<span class="file">CITATION</span>&rsquo; file is used if it exists.</p>
 </td></tr>
-<tr><td><code id="citation_:_file">file</code></td>
+<tr><td><code id="file">file</code></td>
 <td>
 <p>a file name.</p>
 </td></tr>
-<tr><td><code id="citation_:_meta">meta</code></td>
+<tr><td><code id="meta">meta</code></td>
 <td>
 <p>a list of package metadata as obtained by
 <code>packageDescription</code>, or <code>NULL</code> (the default).</p>
@@ -140,6 +140,7 @@ x &lt;- citation()
 toBibtex(x)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>utils</em> version 2.12.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>utils</em> version 2.12.0</a> ]</div></main>
+
 </div>
 </body></html>

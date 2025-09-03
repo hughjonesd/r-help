@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xfig.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xfig.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.10.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xfig.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xfig.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>xfig {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='xfig'>XFig Graphics Device</h2>
+<h2>XFig Graphics Device</h2>
 
 <h3>Description</h3>
 
@@ -42,8 +42,8 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="xfig_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>a character string giving the name of the file.   For use
 with <code>onefile = FALSE</code> give a C integer format such as
@@ -51,13 +51,13 @@ with <code>onefile = FALSE</code> give a C integer format such as
 (See <code>postscript</code> for further details.)
 </p>
 </td></tr>
-<tr><td><code id="xfig_:_onefile">onefile</code></td>
+<tr><td><code id="onefile">onefile</code></td>
 <td>
 <p>logical: if true allow multiple figures
 in one file. If false, assume only one page per file and generate a
 file number containing the page number.</p>
 </td></tr>
-<tr><td><code id="xfig_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>The encoding in which to write text strings.  The
 default is not to re-encode.  This can be any encoding recognized by
@@ -66,7 +66,7 @@ select an 8-bit encoding such as <code>latin1</code>, and in an East Asian
 locale an <code>EUC</code> encoding.  If re-encoding fails, the text
 strings will be written in the current encoding with a warning.</p>
 </td></tr>
-<tr><td><code id="xfig_:_paper">paper</code></td>
+<tr><td><code id="paper">paper</code></td>
 <td>
 <p>the size of paper region.  The choices
 are <code>"A4"</code>, <code>"Letter"</code> and <code>"Legal"</code> (and these
@@ -75,19 +75,19 @@ is the default.  If this is selected, the papersize is taken
 from the option <code>"papersize"</code> if that is set to a non-empty
 value, otherwise <code>"A4"</code>.</p>
 </td></tr>
-<tr><td><code id="xfig_:_horizontal">horizontal</code></td>
+<tr><td><code id="horizontal">horizontal</code></td>
 <td>
 <p>the orientation of the printed image, a
 logical.  Defaults to true, that is landscape orientation.</p>
 </td></tr>
-<tr><td><code id="xfig_:_width">width</code>, <code id="xfig_:_height">height</code></td>
+<tr><td><code id="width">width</code>, <code id="height">height</code></td>
 <td>
 <p>the width and height of the
 graphics region in inches.  The default is to use the entire
 page less a 0.5 inch overall margin in each direction.  (See
 <code>postscript</code> for further details.)</p>
 </td></tr>
-<tr><td><code id="xfig_:_family">family</code></td>
+<tr><td><code id="family">family</code></td>
 <td>
 <p>the font family to be used.  This must be one
 of <code>"AvantGarde"</code>, <code>"Bookman"</code>, <code>"Courier"</code>,
@@ -96,29 +96,29 @@ of <code>"AvantGarde"</code>, <code>"Bookman"</code>, <code>"Courier"</code>,
 <code>"Times"</code>.  Any other value is replaced by
 <code>"Helvetica"</code>, with a warning.</p>
 </td></tr>
-<tr><td><code id="xfig_:_pointsize">pointsize</code></td>
+<tr><td><code id="pointsize">pointsize</code></td>
 <td>
 <p>the default point size to be used.</p>
 </td></tr>
-<tr><td><code id="xfig_:_bg">bg</code></td>
+<tr><td><code id="bg">bg</code></td>
 <td>
 <p>the initial background color to be used.</p>
 </td></tr>
-<tr><td><code id="xfig_:_fg">fg</code></td>
+<tr><td><code id="fg">fg</code></td>
 <td>
 <p>the initial foreground color to be used.</p>
 </td></tr>
-<tr><td><code id="xfig_:_pagecentre">pagecentre</code></td>
+<tr><td><code id="pagecentre">pagecentre</code></td>
 <td>
 <p>logical: should the device region be centred on the
 page?</p>
 </td></tr>
-<tr><td><code id="xfig_:_defaultfont">defaultfont</code></td>
+<tr><td><code id="defaultfont">defaultfont</code></td>
 <td>
 <p>logical: should the device use xfig's default
 font?</p>
 </td></tr>
-<tr><td><code id="xfig_:_textspecial">textspecial</code></td>
+<tr><td><code id="textspecial">textspecial</code></td>
 <td>
 <p>logical: should the device set the textspecial flag
 for all text elements. This is useful when generating pstex from xfig
@@ -202,6 +202,7 @@ contributed by Sebastian Fischmeister.
 <code>ps.options</code>.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.10.1/00index.html'>Package <em>grDevices</em> version 2.10.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.10.1/00index.html'>Package <em>grDevices</em> version 2.10.1</a> ]</div></main>
+
 </div>
 </body></html>

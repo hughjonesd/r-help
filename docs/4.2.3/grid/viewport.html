@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/viewport.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/viewport.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/viewport.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/viewport.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Grid Viewports {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Grid+20Viewports'>Create a Grid Viewport</h2>
+<h2>Create a Grid Viewport</h2>
 
 <h3>Description</h3>
 
@@ -45,30 +45,30 @@ vpTree(parent, children)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Grid+20Viewports_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A numeric vector or unit object specifying x-location.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>A numeric vector or unit object specifying y-location.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>A numeric vector or unit object specifying width.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_height">height</code></td>
+<tr><td><code id="height">height</code></td>
 <td>
 <p>A numeric vector or unit object specifying height.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_default.units">default.units</code></td>
+<tr><td><code id="default.units">default.units</code></td>
 <td>
 <p>A string indicating the default units to use
 if <code>x</code>, <code>y</code>, <code>width</code>, or <code>height</code>
 are only given as numeric vectors.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_just">just</code></td>
+<tr><td><code id="just">just</code></td>
 <td>
 <p>A string or numeric
 vector specifying the justification of the viewport
@@ -80,13 +80,13 @@ and <code>"top"</code>.  For numeric values, 0 means left alignment
 and 1 means right alignment.
 </p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_gp">gp</code></td>
+<tr><td><code id="gp">gp</code></td>
 <td>
 <p>An object of class <code>"gpar"</code>, typically the output
 from a call to the function <code>gpar</code>.  This is basically
 a list of graphical parameter settings.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_clip">clip</code></td>
+<tr><td><code id="clip">clip</code></td>
 <td>
 <p>One of <code>"on"</code>, <code>"inherit"</code>, or
 <code>"off"</code>, indicating whether to
@@ -98,7 +98,7 @@ to <code>"on"</code> and <code>FALSE</code> corresponds to <code>"inherit"</code
 <p>May also be a grob (or a gTree) that describes a clipping path
 or the result of a call to <code>as.path</code>.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_mask">mask</code></td>
+<tr><td><code id="mask">mask</code></td>
 <td>
 <p>One of <code>"none"</code> (or <code>FALSE</code>)
 or <code>"inherit"</code> (or <code>TRUE</code>) 
@@ -107,53 +107,53 @@ or a grob (or a gTree) or the result of call to
 should have no mask, or it should inherit the mask of its parent,
 or it should have its own mask, as described by the grob.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_xscale">xscale</code></td>
+<tr><td><code id="xscale">xscale</code></td>
 <td>
 <p>A numeric vector of length two indicating the minimum and
 maximum on the x-scale.  The limits may not be identical. </p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_yscale">yscale</code></td>
+<tr><td><code id="yscale">yscale</code></td>
 <td>
 <p>A numeric vector of length two indicating the minimum
 and maximum on the y-scale. The limits may not be identical. </p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_angle">angle</code></td>
+<tr><td><code id="angle">angle</code></td>
 <td>
 <p>A numeric value indicating the angle of rotation of the
 viewport.  Positive values indicate the amount of rotation, in
 degrees, anticlockwise from the positive x-axis.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_layout">layout</code></td>
+<tr><td><code id="layout">layout</code></td>
 <td>
 <p>A Grid layout object which splits the viewport into
 subregions.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_layout.pos.row">layout.pos.row</code></td>
+<tr><td><code id="layout.pos.row">layout.pos.row</code></td>
 <td>
 <p>A numeric vector giving the
 rows occupied by this viewport in its
 parent's layout.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_layout.pos.col">layout.pos.col</code></td>
+<tr><td><code id="layout.pos.col">layout.pos.col</code></td>
 <td>
 <p>A numeric vector giving the
 columns occupied by this viewport in its
 parent's layout.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>A character value to uniquely identify the viewport
 once it has been pushed onto the viewport tree.  </p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Any number of grid viewport objects.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_parent">parent</code></td>
+<tr><td><code id="parent">parent</code></td>
 <td>
 <p>A grid viewport object.</p>
 </td></tr>
-<tr><td><code id="Grid+20Viewports_:_children">children</code></td>
+<tr><td><code id="children">children</code></td>
 <td>
 <p>A vpList object.</p>
 </td></tr>
@@ -303,6 +303,7 @@ for (i in LETTERS[1:5]) {
 }
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.3/00index.html'>Package <em>grid</em> version 4.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.3/00index.html'>Package <em>grid</em> version 4.2.3</a> ]</div></main>
+
 </div>
 </body></html>

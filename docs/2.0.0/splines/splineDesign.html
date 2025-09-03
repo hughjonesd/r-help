@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/splines/html/splineDesign.html'>https://stat.ethz.ch/R-manual/R-patched/library/splines/html/splineDesign.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/splines/html/splineDesign.html'>https://stat.ethz.ch/R-manual/R-patched/library/splines/html/splineDesign.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>splineDesign {splines}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='splineDesign'>Design Matrix for B-splines</h2>
+<h2>Design Matrix for B-splines</h2>
 
 <h3>Description</h3>
 
@@ -34,25 +34,25 @@ spline.des(knots, x, ord = 4, derivs)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="splineDesign_:_knots">knots</code></td>
+<table role = "presentation">
+<tr><td><code id="knots">knots</code></td>
 <td>
 <p>a numeric vector of knot positions with non-decreasing
 values.</p>
 </td></tr>
-<tr><td><code id="splineDesign_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector of values at which to evaluate the B-spline
 functions or derivatives. The values in <code>x</code> must be between
 <code>knots[ord]</code> and <code>knots[ length(knots) + 1 - ord ]</code>.</p>
 </td></tr>
-<tr><td><code id="splineDesign_:_ord">ord</code></td>
+<tr><td><code id="ord">ord</code></td>
 <td>
 <p>a positive integer giving the order of the spline function.
 This is the number of coefficients in each piecewise polynomial
 segment, thus a cubic spline has order 4.  Defaults to 4.</p>
 </td></tr>
-<tr><td><code id="splineDesign_:_derivs">derivs</code></td>
+<tr><td><code id="derivs">derivs</code></td>
 <td>
 <p>an integer vector of the same length as <code>x</code> and with
 values between <code>0</code> and <code>ord - 1</code>.  The derivative of the
@@ -93,6 +93,7 @@ function.
 <pre><code class='language-R'>splineDesign(knots = 1:10, x = 4:7)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>splines</em> version 2.0.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>splines</em> version 2.0.0</a> ]</div></main>
+
 </div>
 </body></html>

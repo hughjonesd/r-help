@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/head.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/head.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/head.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/head.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>head {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='head'>Return the First or Last Parts of an Object</h2>
+<h2>Return the First or Last Parts of an Object</h2>
 
 <h3>Description</h3>
 
@@ -31,7 +31,6 @@ functions, they may also have been extended to other classes.
 <pre><code class='language-R'>head(x, ...)
 ## Default S3 method:
 head(x, n = 6L, ...)
-
 ## S3 method for class 'matrix'
 head(x, n = 6L, ...) # is exported as head.matrix()
 ## NB: The methods for 'data.frame' and 'array'  are identical to the 'matrix' one
@@ -59,12 +58,12 @@ tail(x, n = 6L, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="head_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object</p>
 </td></tr>
-<tr><td><code id="head_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>an integer vector of length up to <code>dim(x)</code> (or 1,
 for non-dimensioned objects). Values specify the indices to be
@@ -76,19 +75,19 @@ indices. <code>NA</code> or non-specified values (when <code>length(n) &lt;
       length(dim(x))</code>) select all indices in that dimension. Must
 contain at least one non-missing value.</p>
 </td></tr>
-<tr><td><code id="head_:_keepnums">keepnums</code></td>
+<tr><td><code id="keepnums">keepnums</code></td>
 <td>
 <p>in each dimension, if no names in that dimension are
 present, create them using the indices included in that dimension.
 Ignored if <code>dim(x)</code> is <code>NULL</code> or its length 1.</p>
 </td></tr>
-<tr><td><code id="head_:_addrownums">addrownums</code></td>
+<tr><td><code id="addrownums">addrownums</code></td>
 <td>
 <p>deprecated - <code>keepnums</code> should be used
 instead. Taken as the value of <code>keepnums</code> if it is explicitly
 set when <code>keepnums</code> is not.</p>
 </td></tr>
-<tr><td><code id="head_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments to be passed to or from other methods.</p>
 </td></tr>
@@ -226,6 +225,7 @@ stopifnot(exprs = {
 })
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>utils</em> version 4.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>utils</em> version 4.1.1</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/splines/html/ns.html'>https://stat.ethz.ch/R-manual/R-patched/library/splines/html/ns.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/splines/html/ns.html'>https://stat.ethz.ch/R-manual/R-patched/library/splines/html/ns.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ns {splines}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ns'>Generate a Basis Matrix for Natural Cubic Splines</h2>
+<h2>Generate a Basis Matrix for Natural Cubic Splines</h2>
 
 <h3>Description</h3>
 
@@ -33,12 +33,12 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ns_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>the predictor variable.  Missing values are allowed.</p>
 </td></tr>
-<tr><td><code id="ns_:_df">df</code></td>
+<tr><td><code id="df">df</code></td>
 <td>
 <p>degrees of freedom.  One can supply <code>df</code> rather than
 knots; <code>ns()</code> then chooses <code>df - 1 - intercept</code> knots at
@@ -46,7 +46,7 @@ suitably chosen quantiles of <code>x</code> (which will ignore missing
 values).  The default, <code>df = NULL</code>, sets the number of
 inner knots as <code>length(knots)</code>.</p>
 </td></tr>
-<tr><td><code id="ns_:_knots">knots</code></td>
+<tr><td><code id="knots">knots</code></td>
 <td>
 <p>breakpoints that define the spline.  The default is no
 knots; together with the natural boundary conditions this results in
@@ -54,12 +54,12 @@ a basis for linear regression on <code>x</code>.  Typical values are the
 mean or median for one knot, quantiles for more knots.  See also
 <code>Boundary.knots</code>.</p>
 </td></tr>
-<tr><td><code id="ns_:_intercept">intercept</code></td>
+<tr><td><code id="intercept">intercept</code></td>
 <td>
 <p>if <code>TRUE</code>, an intercept is included in the
 basis; default is <code>FALSE</code>.</p>
 </td></tr>
-<tr><td><code id="ns_:_Boundary.knots">Boundary.knots</code></td>
+<tr><td><code id="Boundary.knots">Boundary.knots</code></td>
 <td>
 <p>boundary points at which to impose the natural
 boundary conditions and anchor the B-spline basis (default the range
@@ -127,6 +127,7 @@ lines(ht, predict(fm1, data.frame(height = ht)))
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>splines</em> version 3.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>splines</em> version 3.5.0</a> ]</div></main>
+
 </div>
 </body></html>

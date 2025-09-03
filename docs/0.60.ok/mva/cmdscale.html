@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60.ok. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cmdscale.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cmdscale.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60.ok. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cmdscale.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/cmdscale.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cmdscale {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cmdscale'>Classical (Metric) Multidimensional Scaling</h2>
+<h2>Classical (Metric) Multidimensional Scaling</h2>
 
 <h3>Description</h3>
 
@@ -37,17 +37,17 @@ alternative ordination techniques.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cmdscale_:_d">d</code></td>
+<table role = "presentation">
+<tr><td><code id="d">d</code></td>
 <td>
 <p>a distance structure such as that returned by <code>dist</code>
 or a full symmetric matrix containing the dissimilarities.</p>
 </td></tr>
-<tr><td><code id="cmdscale_:_k">k</code></td>
+<tr><td><code id="k">k</code></td>
 <td>
 <p>the dimension of the space which the data are to be represented in.</p>
 </td></tr>
-<tr><td><code id="cmdscale_:_eig">eig</code></td>
+<tr><td><code id="eig">eig</code></td>
 <td>
 <p>indicates whether eigenvalues should be returned.</p>
 </td></tr>
@@ -58,7 +58,7 @@ or a full symmetric matrix containing the dissimilarities.</p>
 
 <p>A list containing the following components.
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>points</code></td>
 <td>
 <p>a matrix with <code>k</code> columns whose rows give the
@@ -109,6 +109,7 @@ plot(x, y, type="n",
 text(x, y, text=names(eurodist), cex=0.5)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

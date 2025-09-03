@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/interaction.plot.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/interaction.plot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/interaction.plot.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/interaction.plot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>interaction.plot {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='interaction.plot'>Two-way Interaction Plot</h2>
+<h2>Two-way Interaction Plot</h2>
 
 <h3>Description</h3>
 
@@ -43,77 +43,77 @@ combinations of factors, thereby illustrating possible interactions.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="interaction.plot_:_x.factor">x.factor</code></td>
+<table role = "presentation">
+<tr><td><code id="x.factor">x.factor</code></td>
 <td>
 <p>a factor whose levels will form the x axis.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_trace.factor">trace.factor</code></td>
+<tr><td><code id="trace.factor">trace.factor</code></td>
 <td>
 <p>another factor whose levels will form the traces.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_response">response</code></td>
+<tr><td><code id="response">response</code></td>
 <td>
 <p>a numeric variable giving the response</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_fun">fun</code></td>
+<tr><td><code id="fun">fun</code></td>
 <td>
 <p>the function to compute the summary. Should return a single
 real value.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>the type of plot: lines or points.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_legend">legend</code></td>
+<tr><td><code id="legend">legend</code></td>
 <td>
 <p>logical. Should a legend be included?</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_trace.label">trace.label</code></td>
+<tr><td><code id="trace.label">trace.label</code></td>
 <td>
 <p>overall label for the legend.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_fixed">fixed</code></td>
+<tr><td><code id="fixed">fixed</code></td>
 <td>
 <p>logical.  Should the legend be in the order of the levels
 of <code>trace.factor</code> or in the order of the traces at their right-hand ends?</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_xlab">xlab</code>, <code id="interaction.plot_:_ylab">ylab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>the x and y label of the plot each with a sensible default.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_ylim">ylim</code></td>
+<tr><td><code id="ylim">ylim</code></td>
 <td>
 <p>numeric of length 2 giving the y limits for the plot.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_lty">lty</code></td>
+<tr><td><code id="lty">lty</code></td>
 <td>
 <p>line type for the lines drawn, with sensible default.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>the color to be used for plotting.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_pch">pch</code></td>
+<tr><td><code id="pch">pch</code></td>
 <td>
 <p>a vector of plotting symbols or characters, with sensible
 default.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_xpd">xpd</code></td>
+<tr><td><code id="xpd">xpd</code></td>
 <td>
 <p>determines clipping behaviour for the <code>legend</code>
 used, see <code>par(xpd)</code>.  Per default, the legend is
 <em>not</em> clipped at the figure border.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_leg.bg">leg.bg</code>, <code id="interaction.plot_:_leg.bty">leg.bty</code></td>
+<tr><td><code id="leg.bg">leg.bg</code>, <code id="leg.bty">leg.bty</code></td>
 <td>
 <p>arguments passed to <code>legend()</code>.</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_xtick">xtick</code></td>
+<tr><td><code id="xtick">xtick</code></td>
 <td>
 <p>logical. Should tick marks be used on the x axis?</p>
 </td></tr>
-<tr><td><code id="interaction.plot_:_xaxt">xaxt</code>, <code id="interaction.plot_:_axes">axes</code>, <code id="interaction.plot_:_...">...</code></td>
+<tr><td><code id="xaxt">xaxt</code>, <code id="axes">axes</code>, <code id="...">...</code></td>
 <td>
 <p>graphics parameters to be passed to the plotting routines.</p>
 </td></tr>
@@ -196,6 +196,7 @@ with(esophNA, {
 rm(esophNA) # to clear up
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.11.0/00index.html'>Package <em>stats</em> version 2.11.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.11.0/00index.html'>Package <em>stats</em> version 2.11.0</a> ]</div></main>
+
 </div>
 </body></html>

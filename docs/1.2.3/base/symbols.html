@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/symbols.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/symbols.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/symbols.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/symbols.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>symbols {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='symbols'>Draw symbols on a plot</h2>
+<h2>Draw symbols on a plot</h2>
 
 <h3>Description</h3>
 
@@ -40,35 +40,35 @@ parameters.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="symbols_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector giving the x coordinates of the symbols.</p>
 </td></tr>
-<tr><td><code id="symbols_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>a vector giving the y coordinates of the symbols.</p>
 </td></tr>
-<tr><td><code id="symbols_:_circles">circles</code></td>
+<tr><td><code id="circles">circles</code></td>
 <td>
 <p>a vector giving the radii of the circles.</p>
 </td></tr>
-<tr><td><code id="symbols_:_squares">squares</code></td>
+<tr><td><code id="squares">squares</code></td>
 <td>
 <p>a vector giving the length of the sides of the squares.</p>
 </td></tr>
-<tr><td><code id="symbols_:_rectangles">rectangles</code></td>
+<tr><td><code id="rectangles">rectangles</code></td>
 <td>
 <p>a matrix with two columns.  The first column gives
 widths and the second the heights of rectangle symbols.</p>
 </td></tr>
-<tr><td><code id="symbols_:_stars">stars</code></td>
+<tr><td><code id="stars">stars</code></td>
 <td>
 <p>a matrix with three or more columns giving the lengths
 of the rays from the center of the stars.  <code>NA</code> values
 are replaced by zeroes.</p>
 </td></tr>
-<tr><td><code id="symbols_:_thermometers">thermometers</code></td>
+<tr><td><code id="thermometers">thermometers</code></td>
 <td>
 <p>a matrix with three or four columns.  The first
 two columns give the width and height of the thermometer symbols.
@@ -78,7 +78,7 @@ of their height.  If there are four columns, the third and fourth
 columns are taken as proportions.  The thermometers are filled
 between these two proportions of their heights.</p>
 </td></tr>
-<tr><td><code id="symbols_:_boxplots">boxplots</code></td>
+<tr><td><code id="boxplots">boxplots</code></td>
 <td>
 <p>a matrix with five columns.  The first two columns
 give the width and height of the boxes and the third the
@@ -86,7 +86,7 @@ proportion of the way up the box that the median line is
 drawn.  The last two columns give the lengths of the lower and
 upper whiskers.</p>
 </td></tr>
-<tr><td><code id="symbols_:_inches">inches</code></td>
+<tr><td><code id="inches">inches</code></td>
 <td>
 <p>If <code>inches</code> is <code>FALSE</code>, the units are taken
 to be those of the x axis.  If <code>inches</code> is <code>TRUE</code>,
@@ -94,39 +94,39 @@ the symbols are scaled so that the largest symbol is one
 inch in height.  If a number is given the symbols are scaled to
 make largest symbol this height in inches.</p>
 </td></tr>
-<tr><td><code id="symbols_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>if <code>add</code> is <code>TRUE</code>, the symbols are added to
 an existing plot, otherwise a new plot is created. If a new plot
 is created the axis labels default to <code>""</code>.</p>
 </td></tr>
-<tr><td><code id="symbols_:_fg">fg</code></td>
+<tr><td><code id="fg">fg</code></td>
 <td>
 <p>colors the symbols are to be drawn in (the default is
 the value of the <code>col</code> graphics parameter).</p>
 </td></tr>
-<tr><td><code id="symbols_:_bg">bg</code></td>
+<tr><td><code id="bg">bg</code></td>
 <td>
 <p>if specified, the symbols are filled with this color.
 The default is to leave the symbols unfilled. </p>
 </td></tr>
-<tr><td><code id="symbols_:_xlab">xlab</code></td>
+<tr><td><code id="xlab">xlab</code></td>
 <td>
 <p>the x label of the plot.</p>
 </td></tr>  
-<tr><td><code id="symbols_:_ylab">ylab</code></td>
+<tr><td><code id="ylab">ylab</code></td>
 <td>
 <p>the y label of the plot.</p>
 </td></tr>
-<tr><td><code id="symbols_:_xlim">xlim</code></td>
+<tr><td><code id="xlim">xlim</code></td>
 <td>
 <p>numeric of length 2 giving the x limits for the plot.</p>
 </td></tr>
-<tr><td><code id="symbols_:_ylim">ylim</code></td>
+<tr><td><code id="ylim">ylim</code></td>
 <td>
 <p>numeric of length 2 giving the y limits for the plot.</p>
 </td></tr>
-<tr><td><code id="symbols_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>graphics parameters can also be passed to this function.</p>
 </td></tr>
@@ -165,6 +165,7 @@ symbols(Height, Volume, circles=Girth/24, inches=FALSE,
 detach()
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.2.3/00index.html'>Package <em>base</em> version 1.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.2.3/00index.html'>Package <em>base</em> version 1.2.3</a> ]</div></main>
+
 </div>
 </body></html>

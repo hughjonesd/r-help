@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkRdaFiles.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkRdaFiles.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkRdaFiles.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkRdaFiles.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>checkRdaFiles {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='checkRdaFiles'>
+<h2>
 Report on Details of Saved Images or Re-saves them
 </h2>
 
@@ -41,14 +41,14 @@ resaveRdaFiles(paths, compress = c("auto", "gzip", "bzip2", "xz"),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="checkRdaFiles_:_paths">paths</code></td>
+<table role = "presentation">
+<tr><td><code id="paths">paths</code></td>
 <td>
 <p>A character vector of paths to <code>save</code> files.  If
 this specifies a single directory, it is taken to refer to all
 &lsquo;<span class="file">.rda</span>&rsquo; and &lsquo;<span class="file">.RData</span>&rsquo; files in that directory.</p>
 </td></tr>
-<tr><td><code id="checkRdaFiles_:_compress">compress</code>, <code id="checkRdaFiles_:_compression_level">compression_level</code></td>
+<tr><td><code id="compress">compress</code>, <code id="compression_level">compression_level</code></td>
 <td>
 <p>type and level of compression: see
 <code>save</code>.  Values of <code>compress</code> can be abbreviated.</p>
@@ -71,7 +71,7 @@ choose the smallest compressed file (but with a 10% bias towards
 <p>For <code>checkRdaFiles</code>, a data frame with rows names <code>paths</code>
 and columns
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>size</code></td>
 <td>
 <p>numeric: file size in bytes, <code>NA</code> if the file does
@@ -109,6 +109,7 @@ res[bad, ]
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.0/00index.html'>Package <em>tools</em> version 3.3.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.0/00index.html'>Package <em>tools</em> version 3.3.0</a> ]</div></main>
+
 </div>
 </body></html>

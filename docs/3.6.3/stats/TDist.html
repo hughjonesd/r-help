@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/TDist.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/TDist.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/TDist.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/TDist.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>TDist {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='TDist'>The Student t Distribution</h2>
+<h2>The Student t Distribution</h2>
 
 <h3>Description</h3>
 
@@ -37,36 +37,36 @@ rt(n, df, ncp)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="TDist_:_x">x</code>, <code id="TDist_:_q">q</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="q">q</code></td>
 <td>
 <p>vector of quantiles.</p>
 </td></tr>
-<tr><td><code id="TDist_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>vector of probabilities.</p>
 </td></tr>
-<tr><td><code id="TDist_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>number of observations. If <code>length(n) &gt; 1</code>, the length
 is taken to be the number required.</p>
 </td></tr>
-<tr><td><code id="TDist_:_df">df</code></td>
+<tr><td><code id="df">df</code></td>
 <td>
 <p>degrees of freedom (<code class="reqn">&gt; 0</code>, maybe non-integer).  <code>df
       = Inf</code> is allowed.</p>
 </td></tr>
-<tr><td><code id="TDist_:_ncp">ncp</code></td>
+<tr><td><code id="ncp">ncp</code></td>
 <td>
 <p>non-centrality parameter <code class="reqn">\delta</code>;
 currently except for <code>rt()</code>, only for <code>abs(ncp) &lt;= 37.62</code>.
 If omitted, use the central t distribution.</p>
 </td></tr>
-<tr><td><code id="TDist_:_log">log</code>, <code id="TDist_:_log.p">log.p</code></td>
+<tr><td><code id="log">log</code>, <code id="log.p">log.p</code></td>
 <td>
 <p>logical; if TRUE, probabilities p are given as log(p).</p>
 </td></tr>
-<tr><td><code id="TDist_:_lower.tail">lower.tail</code></td>
+<tr><td><code id="lower.tail">lower.tail</code></td>
 <td>
 <p>logical; if TRUE (default), probabilities are
 <code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
@@ -217,6 +217,7 @@ plot(function(x) dt(x, df = 3, ncp = 2), -3, 11, ylim = c(0, 0.32),
      main = "Non-central t - Density", yaxs = "i")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>stats</em> version 3.6.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>stats</em> version 3.6.3</a> ]</div></main>
+
 </div>
 </body></html>

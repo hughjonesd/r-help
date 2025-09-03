@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/grepRaw.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/grepRaw.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/grepRaw.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/grepRaw.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>grepRaw {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='grepRaw'>Pattern Matching for Raw Vectors</h2>
+<h2>Pattern Matching for Raw Vectors</h2>
 
 <h3>Description</h3>
 
@@ -34,45 +34,45 @@ raw vector <code>x</code>.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="grepRaw_:_pattern">pattern</code></td>
+<table role = "presentation">
+<tr><td><code id="pattern">pattern</code></td>
 <td>
 <p>raw vector containing a regular expression
 (or fixed pattern for <code>fixed = TRUE</code>) to be matched in the
 given raw vector.  Coerced by <code>charToRaw</code> to a character
 string if possible.</p>
 </td></tr>
-<tr><td><code id="grepRaw_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a raw vector where matches are sought, or an object which can
 be coerced by <code>charToRaw</code> to a raw vector.</p>
 </td></tr>
-<tr><td><code id="grepRaw_:_ignore.case">ignore.case</code></td>
+<tr><td><code id="ignore.case">ignore.case</code></td>
 <td>
 <p>if <code>FALSE</code>, the pattern matching is <em>case
 sensitive</em> and if <code>TRUE</code>, case is ignored during matching.</p>
 </td></tr>
-<tr><td><code id="grepRaw_:_offset">offset</code></td>
+<tr><td><code id="offset">offset</code></td>
 <td>
 <p>An integer specifying the offset from
 which the search should start.  Must be positive.  The beginning of
 line is defined to be at that offset so <code>"^"</code> will match there.</p>
 </td></tr>
-<tr><td><code id="grepRaw_:_value">value</code></td>
+<tr><td><code id="value">value</code></td>
 <td>
 <p>logical.  Determines the return value: see &lsquo;Value&rsquo;.</p>
 </td></tr>
-<tr><td><code id="grepRaw_:_fixed">fixed</code></td>
+<tr><td><code id="fixed">fixed</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, <code>pattern</code> is a pattern to be
 matched as is.</p>
 </td></tr>
-<tr><td><code id="grepRaw_:_all">all</code></td>
+<tr><td><code id="all">all</code></td>
 <td>
 <p>logical.  If <code>TRUE</code> all matches are returned,
 otherwise just the first one.</p>
 </td></tr>
-<tr><td><code id="grepRaw_:_invert">invert</code></td>
+<tr><td><code id="invert">invert</code></td>
 <td>
 <p>logical.  If <code>TRUE</code> return indices or values for
 elements that do <em>not</em> match.  Ignored (with a warning) unless
@@ -132,6 +132,7 @@ of the pattern specification.
 <p><code>grep</code> for matching character vectors.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.14.1/00index.html'>Package <em>base</em> version 2.14.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.14.1/00index.html'>Package <em>base</em> version 2.14.1</a> ]</div></main>
+
 </div>
 </body></html>

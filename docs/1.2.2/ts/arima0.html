@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/arima0.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/arima0.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/arima0.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/arima0.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>arima0 {ts}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='arima0'>ARIMA Modelling of Time Series &ndash; Preliminary Version</h2>
+<h2>ARIMA Modelling of Time Series &ndash; Preliminary Version</h2>
 
 <h3>Description</h3>
 
@@ -40,68 +40,68 @@ arima0.diag(fit, gof.lag = 10)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="arima0_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a univariate time series</p>
 </td></tr>
-<tr><td><code id="arima0_:_order">order</code></td>
+<tr><td><code id="order">order</code></td>
 <td>
 <p>A specification of the non-seasonal part of the ARIMA
 model: the three components <code class="reqn">(p, d, q)</code> are the AR order, the
 degree of differencing, and the MA order.</p>
 </td></tr>
-<tr><td><code id="arima0_:_seasonal">seasonal</code></td>
+<tr><td><code id="seasonal">seasonal</code></td>
 <td>
 <p>A specification of the seasonal part of the ARIMA
 model, plus the period (which defaults to <code>frequency(x)</code>).</p>
 </td></tr>
-<tr><td><code id="arima0_:_xreg">xreg</code></td>
+<tr><td><code id="xreg">xreg</code></td>
 <td>
 <p>Optionally, a vector or matrix of external regressors,
 which must have the same number of rows as <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="arima0_:_include.mean">include.mean</code></td>
+<tr><td><code id="include.mean">include.mean</code></td>
 <td>
 <p>Should the ARIMA model include
 a mean term? The default is <code>TRUE</code> for undifferenced series,
 <code>FALSE</code> for differenced ones (where a mean would not affect
 the fit nor predictions).</p>
 </td></tr>
-<tr><td><code id="arima0_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>Function to be applied to remove missing values.</p>
 </td></tr>
-<tr><td><code id="arima0_:_delta">delta</code></td>
+<tr><td><code id="delta">delta</code></td>
 <td>
 <p>A value to indicate at which point &lsquo;fast recursions&rsquo;
 should be used. See the Details section.</p>
 </td></tr>
-<tr><td><code id="arima0_:_transform.pars">transform.pars</code></td>
+<tr><td><code id="transform.pars">transform.pars</code></td>
 <td>
 <p>If greater than 0, the ARMA parameters are
 transformed to ensure that they remain in the region of
 invertibility. If equal to 2, the optimization is rerun on
 the original scale to find the Hessian.</p>
 </td></tr>
-<tr><td><code id="arima0_:_arima0.obj">arima0.obj</code>, <code id="arima0_:_fit">fit</code></td>
+<tr><td><code id="arima0.obj">arima0.obj</code>, <code id="fit">fit</code></td>
 <td>
 <p>The result of an <code>arima0</code> fit.</p>
 </td></tr>
-<tr><td><code id="arima0_:_newxreg">newxreg</code></td>
+<tr><td><code id="newxreg">newxreg</code></td>
 <td>
 <p>New values of <code>xreg</code> to be used for
 prediction. Must have at least <code>n.ahead</code> rows.</p>
 </td></tr>
-<tr><td><code id="arima0_:_n.ahead">n.ahead</code></td>
+<tr><td><code id="n.ahead">n.ahead</code></td>
 <td>
 <p>The number of steps ahead for which prediction is required.</p>
 </td></tr>
-<tr><td><code id="arima0_:_se.fit">se.fit</code></td>
+<tr><td><code id="se.fit">se.fit</code></td>
 <td>
 <p>Logical: should standard errors of prediction be returned?</p>
 </td></tr>
-<tr><td><code id="arima0_:_gof.lag">gof.lag</code></td>
+<tr><td><code id="gof.lag">gof.lag</code></td>
 <td>
 <p>Number of lags to be used in goodness-of-fit test.</p>
 </td></tr>
@@ -149,7 +149,7 @@ models.
 
 <p>For <code>arima0</code>, a list of class <code>"arima0"</code> with components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>coef</code></td>
 <td>
 <p>a vector of AR, MA and regression coefficients,</p>
@@ -263,6 +263,7 @@ data(LakeHuron)
 arima0(LakeHuron, order=c(2,0,0), xreg=1:98)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

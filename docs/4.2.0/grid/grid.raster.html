@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.raster.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.raster.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.raster.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.raster.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>grid.raster {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='grid.raster'>
+<h2>
 Render a raster object
 </h2>
 
@@ -47,30 +47,30 @@ rasterGrob(image,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="grid.raster_:_image">image</code></td>
+<table role = "presentation">
+<tr><td><code id="image">image</code></td>
 <td>
 
 <p>Any R object that can be coerced to a raster object.
 </p>
 </td></tr>
-<tr><td><code id="grid.raster_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A numeric vector or unit object specifying x-location.</p>
 </td></tr>
-<tr><td><code id="grid.raster_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>A numeric vector or unit object specifying y-location.</p>
 </td></tr>
-<tr><td><code id="grid.raster_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>A numeric vector or unit object specifying width.</p>
 </td></tr>
-<tr><td><code id="grid.raster_:_height">height</code></td>
+<tr><td><code id="height">height</code></td>
 <td>
 <p>A numeric vector or unit object specifying height.</p>
 </td></tr>
-<tr><td><code id="grid.raster_:_just">just</code></td>
+<tr><td><code id="just">just</code></td>
 <td>
 <p>The justification of the rectangle
 relative to its (x, y) location.  If there are two values, the first
@@ -81,37 +81,37 @@ and <code>"top"</code>.  For numeric values, 0 means left alignment
 and 1 means right alignment.
 </p>
 </td></tr>
-<tr><td><code id="grid.raster_:_hjust">hjust</code></td>
+<tr><td><code id="hjust">hjust</code></td>
 <td>
 <p>A numeric vector specifying horizontal justification.
 If specified, overrides the <code>just</code> setting.</p>
 </td></tr>
-<tr><td><code id="grid.raster_:_vjust">vjust</code></td>
+<tr><td><code id="vjust">vjust</code></td>
 <td>
 <p>A numeric vector specifying vertical justification.
 If specified, overrides the <code>just</code> setting.</p>
 </td></tr>
-<tr><td><code id="grid.raster_:_default.units">default.units</code></td>
+<tr><td><code id="default.units">default.units</code></td>
 <td>
 <p>A string indicating the default units to use
 if <code>x</code>, <code>y</code>, <code>width</code>, or <code>height</code>
 are only given as numeric vectors.</p>
 </td></tr>
-<tr><td><code id="grid.raster_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p> A character identifier. </p>
 </td></tr>
-<tr><td><code id="grid.raster_:_gp">gp</code></td>
+<tr><td><code id="gp">gp</code></td>
 <td>
 <p>An object of class <code>"gpar"</code>, typically the output
 from a call to the function <code>gpar</code>.  This is basically
 a list of graphical parameter settings.</p>
 </td></tr>
-<tr><td><code id="grid.raster_:_vp">vp</code></td>
+<tr><td><code id="vp">vp</code></td>
 <td>
 <p>A Grid viewport object (or NULL).</p>
 </td></tr>
-<tr><td><code id="grid.raster_:_interpolate">interpolate</code></td>
+<tr><td><code id="interpolate">interpolate</code></td>
 <td>
 
 <p>A logical value indicating whether to linearly interpolate the
@@ -178,6 +178,7 @@ grid.newpage()
 grid.raster(0, x=1:3/4, y=1:3/4, width=.1, interpolate=FALSE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>grid</em> version 4.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>grid</em> version 4.2.0</a> ]</div></main>
+
 </div>
 </body></html>

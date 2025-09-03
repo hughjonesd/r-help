@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/lqs/html/cov.rob.html'>https://stat.ethz.ch/R-manual/R-patched/library/lqs/html/cov.rob.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/lqs/html/cov.rob.html'>https://stat.ethz.ch/R-manual/R-patched/library/lqs/html/cov.rob.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cov.rob {lqs}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cov.rob'>
+<h2>
 Resistant Estimation of Multivariate Location and Scatter
 </h2>
 
@@ -42,26 +42,26 @@ cov.mcd(x, cor=FALSE, quantile.used=floor((n + p + 1)/2),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cov.rob_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 
 <p>a matrix or data frame.
 </p>
 </td></tr>
-<tr><td><code id="cov.rob_:_cor">cor</code></td>
+<tr><td><code id="cor">cor</code></td>
 <td>
 
 <p>should the returned result include a correlation matrix?
 </p>
 </td></tr>
-<tr><td><code id="cov.rob_:_quantile.used">quantile.used</code></td>
+<tr><td><code id="quantile.used">quantile.used</code></td>
 <td>
 
 <p>the minimum number of the data points regarded as <code>good</code> points.
 </p>
 </td></tr>
-<tr><td><code id="cov.rob_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 
 <p>the method to be used &ndash; minimum volume ellipsoid, minimum
@@ -70,7 +70,7 @@ covariance determinant or classical product-moment. Using
 respectively.
 </p>
 </td></tr>
-<tr><td><code id="cov.rob_:_nsamp">nsamp</code></td>
+<tr><td><code id="nsamp">nsamp</code></td>
 <td>
 
 <p>the number of samples or <code>"best"</code> or <code>"exact"</code> or
@@ -81,7 +81,7 @@ enumeration is done up to 5000 samples: if <code>"exact"</code>
 exhaustive enumeration will be attempted however many samples are needed.
 </p>
 </td></tr>
-<tr><td><code id="cov.rob_:_seed">seed</code></td>
+<tr><td><code id="seed">seed</code></td>
 <td>
 
 <p>the seed to be used for random sampling: see <code>RNGkind</code>. The
@@ -121,7 +121,7 @@ is tested (as this will have no larger a determinant, and may be smaller).
 
 <p>A list with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>center</code></td>
 <td>
 
@@ -208,6 +208,7 @@ cov.rob(stackloss)
 cov.rob(stack.x, method="mcd", nsamp="exact")
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

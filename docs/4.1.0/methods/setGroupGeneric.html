@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGroupGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGroupGeneric.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGroupGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGroupGeneric.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>setGroupGeneric {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='setGroupGeneric'>Create a Group Generic Version of a Function</h2>
+<h2>Create a Group Generic Version of a Function</h2>
 
 <h3>Description</h3>
 
@@ -42,13 +42,13 @@ changes in the search list or direct specification of methods, etc.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="setGroupGeneric_:_name">name</code></td>
+<table role = "presentation">
+<tr><td><code id="name">name</code></td>
 <td>
 <p>the character string name of the generic function.
 </p>
 </td></tr>
-<tr><td><code id="setGroupGeneric_:_def">def</code></td>
+<tr><td><code id="def">def</code></td>
 <td>
 <p>A function object.  There isn't likely to be an existing
 nongeneric of this name, so some function needs to be supplied.  Any
@@ -56,13 +56,13 @@ known member or other function with the same argument list will do,
 because the group generic cannot be called directly.
 </p>
 </td></tr>
-<tr><td><code id="setGroupGeneric_:_group">group</code>, <code id="setGroupGeneric_:_valueClass">valueClass</code></td>
+<tr><td><code id="group">group</code>, <code id="valueClass">valueClass</code></td>
 <td>
 <p>arguments to pass to
 <code>setGeneric</code>.
 </p>
 </td></tr>
-<tr><td><code id="setGroupGeneric_:_knownMembers">knownMembers</code></td>
+<tr><td><code id="knownMembers">knownMembers</code></td>
 <td>
 <p>the names of functions that are
 known to be members of this group.  This information is used to
@@ -70,7 +70,7 @@ reset cached definitions of the member generics when information
 about the group generic is changed.
 </p>
 </td></tr>
-<tr><td><code id="setGroupGeneric_:_package">package</code>, <code id="setGroupGeneric_:_where">where</code></td>
+<tr><td><code id="package">package</code>, <code id="where">where</code></td>
 <td>
 <p>passed to <code>setGeneric</code>, but
 obsolete and to be avoided.</p>
@@ -112,6 +112,7 @@ setGroupGeneric("Logic", function(e1, e2) NULL,
 ## End(Not run)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.0/00index.html'>Package <em>methods</em> version 4.1.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.0/00index.html'>Package <em>methods</em> version 4.1.0</a> ]</div></main>
+
 </div>
 </body></html>

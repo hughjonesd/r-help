@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/model.matrix.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/model.matrix.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/model.matrix.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/model.matrix.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>model.matrix {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='model.matrix'>Construct design matrices</h2>
+<h2>Construct design matrices</h2>
 
 <h3>Description</h3>
 
@@ -40,22 +40,22 @@ model.matrix.default(formula, data, contrasts.arg = NULL, xlev = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="model.matrix_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a model formula or terms object.</p>
 </td></tr>
-<tr><td><code id="model.matrix_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data frame created with <code>model.frame</code>.</p>
 </td></tr>
-<tr><td><code id="model.matrix_:_contrasts.arg">contrasts.arg</code></td>
+<tr><td><code id="contrasts.arg">contrasts.arg</code></td>
 <td>
 <p>A list, whose entries are contrasts suitable for
 input to the <code>contrasts</code> function and whose names are
 the names of columns of <code>data</code> containing <code>factor</code>s.</p>
 </td></tr>
-<tr><td><code id="model.matrix_:_xlev">xlev</code></td>
+<tr><td><code id="xlev">xlev</code></td>
 <td>
 <p>to be used as argument of <code>model.frame</code> if
 <code>data</code> has no <code>"terms"</code> attribute.</p>
@@ -99,6 +99,7 @@ m.orth &lt;- model.matrix(~a+b,dd, contrasts=list(a="contr.helmert"))
 crossprod(m.orth)# m.orth is  ALMOST  orthogonal
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.62.3/00index.html'>Package <em>base</em> version 0.62.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.62.3/00index.html'>Package <em>base</em> version 0.62.3</a> ]</div></main>
+
 </div>
 </body></html>

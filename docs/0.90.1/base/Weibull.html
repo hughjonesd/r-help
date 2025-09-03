@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Weibull.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Weibull.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Weibull.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Weibull.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Weibull {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Weibull'>The Weibull Distribution</h2>
+<h2>The Weibull Distribution</h2>
 
 <h3>Description</h3>
 
@@ -39,20 +39,20 @@ rweibull(n, shape, scale = 1)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Weibull_:_x">x</code>, <code id="Weibull_:_q">q</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="q">q</code></td>
 <td>
 <p>vector of quantiles.</p>
 </td></tr>
-<tr><td><code id="Weibull_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>vector of probabilities.</p>
 </td></tr>
-<tr><td><code id="Weibull_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>number of observations to generate.</p>
 </td></tr>
-<tr><td><code id="Weibull_:_shape">shape</code>, <code id="Weibull_:_scale">scale</code></td>
+<tr><td><code id="shape">shape</code>, <code id="scale">scale</code></td>
 <td>
 <p>shape and scale parameters.</p>
 </td></tr>
@@ -90,6 +90,7 @@ all.equal(pweibull(x, shape = 1, scale = pi), pexp(x, rate = 1/pi))
 all.equal(qweibull(x/11, shape = 1, scale = pi), qexp(x/11, rate = 1/pi))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.90.1/00index.html'>Package <em>base</em> version 0.90.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.90.1/00index.html'>Package <em>base</em> version 0.90.1</a> ]</div></main>
+
 </div>
 </body></html>

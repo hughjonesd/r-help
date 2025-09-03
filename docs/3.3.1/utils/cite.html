@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/cite.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/cite.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/cite.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/cite.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cite {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cite'>
+<h2>
 Cite a bibliography entry.
 </h2>
 
@@ -42,73 +42,73 @@ citeNatbib(keys, bib, textual = FALSE, before = NULL, after = NULL,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cite_:_keys">keys</code></td>
+<table role = "presentation">
+<tr><td><code id="keys">keys</code></td>
 <td>
 
 <p>A character vector of keys of entries to cite.  May contain multiple keys in
 a single entry, separated by commas.
 </p>
 </td></tr>
-<tr><td><code id="cite_:_bib">bib</code></td>
+<tr><td><code id="bib">bib</code></td>
 <td>
 
 <p>A <code>"bibentry"</code> object containing the list of documents in which
 to find the keys.
 </p>
 </td></tr>
-<tr><td><code id="cite_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 
 <p>Additional arguments to pass to the <code>cite()</code> function for the
 default style.
 </p>
 </td></tr>
-<tr><td><code id="cite_:_textual">textual</code></td>
+<tr><td><code id="textual">textual</code></td>
 <td>
 
 <p>Produce a &ldquo;textual&rdquo; style of citation, i.e. what <code>\citet</code> would
 produce in LaTeX.
 </p>
 </td></tr>
-<tr><td><code id="cite_:_before">before</code></td>
+<tr><td><code id="before">before</code></td>
 <td>
 
 <p>Optional text to display before the citation.
 </p>
 </td></tr>
-<tr><td><code id="cite_:_after">after</code></td>
+<tr><td><code id="after">after</code></td>
 <td>
 
 <p>Optional text to display after the citation.
 </p>
 </td></tr>
-<tr><td><code id="cite_:_mode">mode</code></td>
+<tr><td><code id="mode">mode</code></td>
 <td>
 
 <p>The &ldquo;mode&rdquo; of citation.
 </p>
 </td></tr>
-<tr><td><code id="cite_:_abbreviate">abbreviate</code></td>
+<tr><td><code id="abbreviate">abbreviate</code></td>
 <td>
 
 <p>Whether to abbreviate long author lists.
 </p>
 </td></tr>
-<tr><td><code id="cite_:_longnamesfirst">longnamesfirst</code></td>
+<tr><td><code id="longnamesfirst">longnamesfirst</code></td>
 <td>
 
 <p>If <code>abbreviate == TRUE</code>, whether to leave the first citation long.
 </p>
 </td></tr>
-<tr><td><code id="cite_:_bibpunct">bibpunct</code></td>
+<tr><td><code id="bibpunct">bibpunct</code></td>
 <td>
 
 <p>A vector of punctuation to use in the citation, as used in <span class="pkg">natbib</span>.  See
 the Details section.
 </p>
 </td></tr>
-<tr><td><code id="cite_:_previous">previous</code></td>
+<tr><td><code id="previous">previous</code></td>
 <td>
 
 <p>A list of keys that have been previously cited, to be used when
@@ -233,6 +233,7 @@ refs
 tools::bibstyle(savestyle, .default = TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>utils</em> version 3.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>utils</em> version 3.3.1</a> ]</div></main>
+
 </div>
 </body></html>

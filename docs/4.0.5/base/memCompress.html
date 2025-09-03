@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/memCompress.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/memCompress.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/memCompress.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/memCompress.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>memCompress {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='memCompress'>In-memory Compression and Decompression</h2>
+<h2>In-memory Compression and Decompression</h2>
 
 <h3>Description</h3>
 
@@ -36,8 +36,8 @@ memDecompress(from,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="memCompress_:_from">from</code></td>
+<table role = "presentation">
+<tr><td><code id="from">from</code></td>
 <td>
 <p>A raw vector.  For <code>memCompress</code> a character vector
 will be converted to a raw vector with character strings separated
@@ -45,12 +45,12 @@ by <code>"\n"</code>.  Types <code>"gzip"</code> and <code>"xz"</code> support l
 raw vectors as from <span class="rlang"><b>R</b></span> 4.0.0.
 </p>
 </td></tr>
-<tr><td><code id="memCompress_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>character string, the type of compression.  May be
 abbreviated to a single letter, defaults to the first of the alternatives.</p>
 </td></tr>
-<tr><td><code id="memCompress_:_asChar">asChar</code></td>
+<tr><td><code id="asChar">asChar</code></td>
 <td>
 <p>logical: should the result be converted to a character
 string?  NB: character strings have a limit of
@@ -141,6 +141,7 @@ txt3 &lt;- strsplit(memDecompress(txt.xz, asChar = TRUE), "\n")[[1]]
 stopifnot(identical(txt, txt3))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>base</em> version 4.0.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>base</em> version 4.0.5</a> ]</div></main>
+
 </div>
 </body></html>

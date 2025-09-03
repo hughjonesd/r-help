@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/qraux.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/qraux.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/qraux.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/qraux.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>QR.Auxiliaries {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='QR.Auxiliaries'>Reconstruct the Q, R, or X Matrices from a QR Object</h2>
+<h2>Reconstruct the Q, R, or X Matrices from a QR Object</h2>
 
 <h3>Description</h3>
 
@@ -35,14 +35,14 @@ qr.R(qr, complete = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="QR.Auxiliaries_:_qr">qr</code></td>
+<table role = "presentation">
+<tr><td><code id="qr">qr</code></td>
 <td>
 <p>object representing a QR decomposition.  This will
 typically have come from a previous call to <code>qr</code> or
 <code>lsfit</code>.</p>
 </td></tr>
-<tr><td><code id="QR.Auxiliaries_:_complete">complete</code></td>
+<tr><td><code id="complete">complete</code></td>
 <td>
 <p>logical expression of length 1.  Indicates whether an
 arbitrary  orthogonal completion of the <code class="reqn">\bold{Q}</code> or
@@ -50,7 +50,7 @@ arbitrary  orthogonal completion of the <code class="reqn">\bold{Q}</code> or
 matrix is to be completed  by binding zero-value rows beneath the
 square upper triangle.</p>
 </td></tr>
-<tr><td><code id="QR.Auxiliaries_:_ncol">ncol</code></td>
+<tr><td><code id="ncol">ncol</code></td>
 <td>
 <p>integer in the range <code>1:nrow(qr$qr)</code>.  The number
 of columns to be in the reconstructed <code class="reqn">\bold{X}</code>.  The default
@@ -62,7 +62,7 @@ from which the qr object was constructed.  The default when
 orthogonal completion (unitary completion in the complex case) in
 the remaining columns.</p>
 </td></tr>
-<tr><td><code id="QR.Auxiliaries_:_Dvec">Dvec</code></td>
+<tr><td><code id="Dvec">Dvec</code></td>
 <td>
 <p>vector (not matrix) of diagonal values.  Each column of
 the returned <code class="reqn">\bold{Q}</code> will be multiplied by the corresponding
@@ -125,6 +125,7 @@ dim(Xc &lt;- qr.X(qrstr, complete=TRUE)) # square: nrow(x) ^ 2
 all(Xc[,1:p] == X)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.6.2/00index.html'>Package <em>base</em> version 1.6.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.6.2/00index.html'>Package <em>base</em> version 1.6.2</a> ]</div></main>
+
 </div>
 </body></html>

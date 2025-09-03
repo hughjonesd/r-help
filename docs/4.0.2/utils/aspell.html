@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/aspell.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/aspell.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/aspell.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/aspell.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>aspell {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='aspell'>Spell Check Interface</h2>
+<h2>Spell Check Interface</h2>
 
 <h3>Description</h3>
 
@@ -33,12 +33,12 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="aspell_:_files">files</code></td>
+<table role = "presentation">
+<tr><td><code id="files">files</code></td>
 <td>
 <p>a character vector with the names of files to be checked.</p>
 </td></tr>
-<tr><td><code id="aspell_:_filter">filter</code></td>
+<tr><td><code id="filter">filter</code></td>
 <td>
 <p>an optional filter for processing the files before spell
 checking, given as either a function (with formals <code>ifile</code> and
@@ -47,16 +47,16 @@ filter, or a list with the name of a built-in filter and additional
 arguments to be passed to it.  See <b>Details</b> for available
 filters.  If missing or <code>NULL</code>, no filtering is performed.</p>
 </td></tr>
-<tr><td><code id="aspell_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>a list or character vector of control options for the
 spell checker.</p>
 </td></tr>
-<tr><td><code id="aspell_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>the encoding of the files.  Recycled as needed.</p>
 </td></tr>
-<tr><td><code id="aspell_:_program">program</code></td>
+<tr><td><code id="program">program</code></td>
 <td>
 <p>a character string giving the name (if on the system
 path) or full path of the spell check program to be used, or
@@ -64,7 +64,7 @@ path) or full path of the spell check program to be used, or
 <code>aspell</code>, <code>hunspell</code> and <code>ispell</code> (in that
 order), and the first one found is used.</p>
 </td></tr>
-<tr><td><code id="aspell_:_dictionaries">dictionaries</code></td>
+<tr><td><code id="dictionaries">dictionaries</code></td>
 <td>
 <p>a character vector of names or file paths of
 additional R level dictionaries to use.  Elements with no path
@@ -179,6 +179,7 @@ aspell(files, control = "--mode=texinfo")
 Sys.glob(file.path(R.home("share"), "dictionaries", "*.rds"))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.2/00index.html'>Package <em>utils</em> version 4.0.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.2/00index.html'>Package <em>utils</em> version 4.0.2</a> ]</div></main>
+
 </div>
 </body></html>

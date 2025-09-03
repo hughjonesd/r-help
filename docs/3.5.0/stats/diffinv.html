@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/diffinv.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/diffinv.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/diffinv.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/diffinv.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>diffinv {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='diffinv'>Discrete Integration: Inverse of Differencing</h2>
+<h2>Discrete Integration: Inverse of Differencing</h2>
 
 <h3>Description</h3>
 
@@ -38,26 +38,26 @@ diffinv(x, lag = 1, differences = 1, xi, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="diffinv_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector, matrix, or time series.</p>
 </td></tr>
-<tr><td><code id="diffinv_:_lag">lag</code></td>
+<tr><td><code id="lag">lag</code></td>
 <td>
 <p>a scalar lag parameter.</p>
 </td></tr>
-<tr><td><code id="diffinv_:_differences">differences</code></td>
+<tr><td><code id="differences">differences</code></td>
 <td>
 <p>an integer representing the order of the
 difference.</p>
 </td></tr>
-<tr><td><code id="diffinv_:_xi">xi</code></td>
+<tr><td><code id="xi">xi</code></td>
 <td>
 <p>a numeric vector, matrix, or time series containing the
 initial values for the integrals.  If missing, zeros are used.</p>
 </td></tr>
-<tr><td><code id="diffinv_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments passed to or from other methods.</p>
 </td></tr>
@@ -98,6 +98,7 @@ d &lt;- diff(s)
 diffinv(d, xi = 1)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>stats</em> version 3.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>stats</em> version 3.5.0</a> ]</div></main>
+
 </div>
 </body></html>

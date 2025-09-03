@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.search.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.search.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.search.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/help.search.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>help.search {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='help.search'>Search the Help System</h2>
+<h2>Search the Help System</h2>
 
 <h3>Description</h3>
 
@@ -43,14 +43,14 @@ field??pattern
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="help.search_:_pattern">pattern</code></td>
+<table role = "presentation">
+<tr><td><code id="pattern">pattern</code></td>
 <td>
 <p>a character string to be matched in the specified
 fields.  If this is given, the arguments <code>apropos</code>,
 <code>keyword</code>, and <code>whatis</code> are ignored.</p>
 </td></tr>
-<tr><td><code id="help.search_:_fields">fields</code></td>
+<tr><td><code id="fields">fields</code></td>
 <td>
 <p>a character vector specifying the fields of the help
 data bases to be searched.  The entries must be abbreviations of
@@ -59,12 +59,12 @@ data bases to be searched.  The entries must be abbreviations of
 title, the topics and concepts it provides documentation for, and
 the keywords it can be classified to.</p>
 </td></tr>
-<tr><td><code id="help.search_:_apropos">apropos</code></td>
+<tr><td><code id="apropos">apropos</code></td>
 <td>
 <p>a character string to be matched in the help page
 topics and title.</p>
 </td></tr>
-<tr><td><code id="help.search_:_keyword">keyword</code></td>
+<tr><td><code id="keyword">keyword</code></td>
 <td>
 <p>a character string to be matched in the help page
 &lsquo;keywords&rsquo;. &lsquo;Keywords&rsquo; are really categories: the
@@ -72,46 +72,46 @@ standard categories are listed in file &lsquo;<span class="file">RHOME/doc/KEYWO
 (see also the example) and some package writers have defined their
 own.  If <code>keyword</code> is specified, <code>agrep</code> defaults to
 <code>FALSE</code>.</p>
-</td></tr>  <tr><td><code id="help.search_:_whatis">whatis</code></td>
+</td></tr>  <tr><td><code id="whatis">whatis</code></td>
 <td>
 <p>a character string to be matched in
 the help page topics.</p>
 </td></tr>
-<tr><td><code id="help.search_:_ignore.case">ignore.case</code></td>
+<tr><td><code id="ignore.case">ignore.case</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, case is ignored during
 matching; if <code>FALSE</code>, pattern matching is case sensitive.</p>
 </td></tr>
-<tr><td><code id="help.search_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p>a character vector with the names of packages to
 search through, or <code>NULL</code> in which case <em>all</em> available
 packages in the library trees specified by <code>lib.loc</code> are
 searched.</p>
 </td></tr>
-<tr><td><code id="help.search_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector describing the location of <span class="rlang"><b>R</b></span>
 library trees to search through, or <code>NULL</code>.  The default value
 of <code>NULL</code> corresponds to all libraries currently known.</p>
 </td></tr>
-<tr><td><code id="help.search_:_help.db">help.db</code></td>
+<tr><td><code id="help.db">help.db</code></td>
 <td>
 <p>a character string giving the file path to a previously
 built and saved help data base, or <code>NULL</code>.</p>
 </td></tr>
-<tr><td><code id="help.search_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the search process is traced.</p>
 </td></tr>
-<tr><td><code id="help.search_:_rebuild">rebuild</code></td>
+<tr><td><code id="rebuild">rebuild</code></td>
 <td>
 <p>a logical indicating whether the help data base should
 be rebuilt.  This will be done automatically if <code>lib.loc</code> or
 the search path is changed, or if <code>package</code> is used and a value
 is not found.</p>
 </td></tr>
-<tr><td><code id="help.search_:_agrep">agrep</code></td>
+<tr><td><code id="agrep">agrep</code></td>
 <td>
 <p>if <code>NULL</code> (the default unless <code>keyword</code> is
 used) and the character string to
@@ -124,7 +124,7 @@ used.  Otherwise, one can give a numeric or a list specifying the
 maximal distance for the approximate match, see argument
 <code>max.distance</code> in the documentation for <code>agrep</code>.</p>
 </td></tr>
-<tr><td><code id="help.search_:_field">field</code></td>
+<tr><td><code id="field">field</code></td>
 <td>
 <p>a single value of <code>fields</code> to search.</p>
 </td></tr>
@@ -212,6 +212,7 @@ help.search("\\btry", fields = "alias")
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>utils</em> version 2.9.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>utils</em> version 2.9.0</a> ]</div></main>
+
 </div>
 </body></html>

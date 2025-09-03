@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/kronecker.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/kronecker.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/kronecker.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/kronecker.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>kronecker {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='kronecker'>Kronecker products on arrays</h2>
+<h2>Kronecker products on arrays</h2>
 
 <h3>Description</h3>
 
@@ -34,25 +34,25 @@ X %x% Y
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="kronecker_:_X">X</code></td>
+<table role = "presentation">
+<tr><td><code id="X">X</code></td>
 <td>
 <p>A vector or array.</p>
 </td></tr>
-<tr><td><code id="kronecker_:_Y">Y</code></td>
+<tr><td><code id="Y">Y</code></td>
 <td>
 <p>A vector or array.</p>
 </td></tr>
-<tr><td><code id="kronecker_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>a function; it may be a quoted string.</p>
 </td></tr>
-<tr><td><code id="kronecker_:_make.dimnames">make.dimnames</code></td>
+<tr><td><code id="make.dimnames">make.dimnames</code></td>
 <td>
 <p>Provide dimnames that are the product of the
 dimnames of <code>X</code> and <code>Y</code>.</p>
 </td></tr>
-<tr><td><code id="kronecker_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>optional arguments to be passed to <code>FUN</code>.</p>
 </td></tr>
@@ -108,6 +108,7 @@ bill &lt;- outer(bill, c("cat"=3, "dog"=4))
 kronecker(fred, bill, make.dimnames = TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.8.0/00index.html'>Package <em>base</em> version 2.8.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.8.0/00index.html'>Package <em>base</em> version 2.8.0</a> ]</div></main>
+
 </div>
 </body></html>

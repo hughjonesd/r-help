@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/quartz.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/quartz.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/quartz.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/quartz.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>quartz {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='quartz'>OS X Quartz Device</h2>
+<h2>OS X Quartz Device</h2>
 
 <h3>Description</h3>
 
@@ -39,74 +39,74 @@ quartz.save(file, type = "png", device = dev.cur(), dpi = 100, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="quartz_:_title">title</code></td>
+<table role = "presentation">
+<tr><td><code id="title">title</code></td>
 <td>
 <p>title for the Quartz window (applies to on-screen output
 only), default <code>"Quartz %d"</code>.  A C-style format for an integer
 will be substituted by the device number (see the <code>file</code>
 argument to <code>postscript</code> for further details).</p>
 </td></tr>
-<tr><td><code id="quartz_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>the width of the plotting area in inches.  Default <code>7</code>.</p>
 </td></tr>
-<tr><td><code id="quartz_:_height">height</code></td>
+<tr><td><code id="height">height</code></td>
 <td>
 <p>the height of the plotting area in inches.  Default <code>7</code>.</p>
 </td></tr>
-<tr><td><code id="quartz_:_pointsize">pointsize</code></td>
+<tr><td><code id="pointsize">pointsize</code></td>
 <td>
 <p>the default pointsize to be used.  Default <code>12</code>.</p>
 </td></tr>
-<tr><td><code id="quartz_:_family">family</code></td>
+<tr><td><code id="family">family</code></td>
 <td>
 <p>this is the family name of the font
 that will be used by the device.  Default <code>"Arial"</code>.  This will
 be the base name of a font as  shown in Font Book.</p>
 </td></tr>
-<tr><td><code id="quartz_:_antialias">antialias</code></td>
+<tr><td><code id="antialias">antialias</code></td>
 <td>
 <p>whether to use antialiasing.  Default <code>TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="quartz_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>the type of output to use.  See &lsquo;Details&rsquo; for
 more information.  Default <code>"native"</code>.</p>
 </td></tr>
-<tr><td><code id="quartz_:_file">file</code></td>
+<tr><td><code id="file">file</code></td>
 <td>
 <p>an optional target for the graphics device. The default,
 <code>NULL</code>, selects a default name where one is needed.  See
 &lsquo;Details&rsquo; for more information.</p>
 </td></tr>
-<tr><td><code id="quartz_:_bg">bg</code></td>
+<tr><td><code id="bg">bg</code></td>
 <td>
 <p>the initial background colour to use for the device.  Default
 <code>"transparent"</code>.  An opaque colour such as <code>"white"</code> will
 normally be required on off-screen types that support transparency
 such as <code>"png"</code> and <code>"tiff"</code>.</p>
 </td></tr>
-<tr><td><code id="quartz_:_canvas">canvas</code></td>
+<tr><td><code id="canvas">canvas</code></td>
 <td>
 <p>canvas colour to use for an on-screen device.  Default
 <code>"white"</code>, and will be forced to be an opaque colour.</p>
 </td></tr>
-<tr><td><code id="quartz_:_dpi">dpi</code></td>
+<tr><td><code id="dpi">dpi</code></td>
 <td>
 <p>resolution of the output.  The default (<code>NA_real_</code>)
 for an on-screen display defaults to the resolution of
 the main screen, and to 72 dpi otherwise.  See &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="quartz_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Any of the arguments to <code>quartz</code> except <code>file</code>.</p>
 </td></tr>
-<tr><td><code id="quartz_:_reset">reset</code></td>
+<tr><td><code id="reset">reset</code></td>
 <td>
 <p>logical: should the defaults be reset to their defaults?</p>
 </td></tr>
-<tr><td><code id="quartz_:_device">device</code></td>
+<tr><td><code id="device">device</code></td>
 <td>
 <p>device number to copy from.</p>
 </td></tr>
@@ -240,6 +240,7 @@ setHook(packageEvent("grDevices", "onLoad"),
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>grDevices</em> version 3.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>grDevices</em> version 3.3.1</a> ]</div></main>
+
 </div>
 </body></html>

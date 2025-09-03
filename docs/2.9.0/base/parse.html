@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/parse.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/parse.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/parse.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/parse.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>parse {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='parse'>Parse Expressions</h2>
+<h2>Parse Expressions</h2>
 
 <h3>Description</h3>
 
@@ -34,37 +34,37 @@ list.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="parse_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>a connection, or a character string giving the name of a
 file or a URL to read the expressions from.
 If <code>file</code> is <code>""</code> and <code>text</code> is missing or <code>NULL</code>
 then input is taken from the console.</p>
 </td></tr>
-<tr><td><code id="parse_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>integer (or coerced to integer).  The maximum number of
 expressions to parse.  If <code>n</code> is <code>NULL</code> or negative or
 <code>NA</code> the input is parsed in its entirety.</p>
 </td></tr>
-<tr><td><code id="parse_:_text">text</code></td>
+<tr><td><code id="text">text</code></td>
 <td>
 <p>character vector.  The text to parse.  Elements are treated
 as if they were lines of a file.  Other <span class="rlang"><b>R</b></span> objects will be coerced
 to character (without method dispatch) if possible.</p>
 </td></tr>
-<tr><td><code id="parse_:_prompt">prompt</code></td>
+<tr><td><code id="prompt">prompt</code></td>
 <td>
 <p>the prompt to print when parsing from the keyboard.
 <code>NULL</code> means to use <span class="rlang"><b>R</b></span>'s prompt, <code>getOption("prompt")</code>.</p>
 </td></tr>
-<tr><td><code id="parse_:_srcfile">srcfile</code></td>
+<tr><td><code id="srcfile">srcfile</code></td>
 <td>
 <p><code>NULL</code>, or a <code>srcfile</code> object.  See
 the &lsquo;Details&rsquo; section.</p>
 </td></tr>
-<tr><td><code id="parse_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>encoding to be assumed for input strings.  If the
 value is <code>"latin1"</code> or <code>"UTF-8"</code> it is used to mark
@@ -144,6 +144,7 @@ parse(file = "xyz.Rdmped", n = 3)
 unlink("xyz.Rdmped")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>base</em> version 2.9.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>base</em> version 2.9.0</a> ]</div></main>
+
 </div>
 </body></html>

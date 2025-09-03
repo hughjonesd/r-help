@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/pie.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/pie.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/pie.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/pie.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>pie {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='pie'>Pie Charts</h2>
+<h2>Pie Charts</h2>
 
 <h3>Description</h3>
 
@@ -35,13 +35,13 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="pie_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector of non-negative numerical quantities.
 The values in <code>x</code> are displayed as the areas of pie slices.</p>
 </td></tr>
-<tr><td><code id="pie_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>one or more expressions or character strings giving
 names for the slices.  Other objects are coerced by
@@ -49,58 +49,58 @@ names for the slices.  Other objects are coerced by
 (after coercion to character) labels, no label nor pointing line
 is drawn.</p>
 </td></tr>
-<tr><td><code id="pie_:_edges">edges</code></td>
+<tr><td><code id="edges">edges</code></td>
 <td>
 <p>the circular outline of the pie is approximated by a
 polygon with this many edges.</p>
 </td></tr>
-<tr><td><code id="pie_:_radius">radius</code></td>
+<tr><td><code id="radius">radius</code></td>
 <td>
 <p>the pie is drawn centered in a square box whose sides
 range from <code class="reqn">-1</code> to <code class="reqn">1</code>.  If the character strings labeling
 the slices are long it may be necessary to use a smaller radius.</p>
 </td></tr>
-<tr><td><code id="pie_:_clockwise">clockwise</code></td>
+<tr><td><code id="clockwise">clockwise</code></td>
 <td>
 <p>logical indicating if slices are drawn clockwise or
 counter clockwise (i.e., mathematically positive direction), the
 latter is default.</p>
 </td></tr>
-<tr><td><code id="pie_:_init.angle">init.angle</code></td>
+<tr><td><code id="init.angle">init.angle</code></td>
 <td>
 <p>number specifying the <em>starting angle</em> (in
 degrees) for the slices. Defaults to 0 (i.e., &lsquo;3 o'clock&rsquo;)
 unless <code>clockwise</code> is true where <code>init.angle</code>
 defaults to 90 (degrees), (i.e., &lsquo;12 o'clock&rsquo;).</p>
 </td></tr>
-<tr><td><code id="pie_:_density">density</code></td>
+<tr><td><code id="density">density</code></td>
 <td>
 <p>the density of shading lines, in lines per inch.
 The default value of <code>NULL</code> means that no shading lines
 are drawn. Non-positive values of <code>density</code> also inhibit the
 drawing of shading lines.</p>
 </td></tr>
-<tr><td><code id="pie_:_angle">angle</code></td>
+<tr><td><code id="angle">angle</code></td>
 <td>
 <p>the slope of shading lines, given as an angle in
 degrees (counter-clockwise).</p>
 </td></tr>
-<tr><td><code id="pie_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>a vector of colors to be used in filling or shading
 the slices. If missing a set of 6 pastel colours is used,
 unless <code>density</code> is specified when <code>par("fg")</code> is used.</p>
 </td></tr>
-<tr><td><code id="pie_:_border">border</code>, <code id="pie_:_lty">lty</code></td>
+<tr><td><code id="border">border</code>, <code id="lty">lty</code></td>
 <td>
 <p>(possibly vectors) arguments passed to
 <code>polygon</code> which draws each slice.</p>
 </td></tr>
-<tr><td><code id="pie_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>an overall title for the plot.</p>
 </td></tr>
-<tr><td><code id="pie_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>graphical parameters can be given as arguments to
 <code>pie</code>.  They will affect the main title and labels only.</p>
@@ -164,6 +164,7 @@ pie(rep(1,n), labels="", col=rainbow(n), border=NA,
     main = "pie(*, labels=\"\", col=rainbow(n), border=NA,..")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.0/00index.html'>Package <em>graphics</em> version 2.15.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.0/00index.html'>Package <em>graphics</em> version 2.15.0</a> ]</div></main>
+
 </div>
 </body></html>

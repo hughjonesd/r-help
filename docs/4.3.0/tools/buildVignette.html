@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/buildVignette.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/buildVignette.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/buildVignette.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/buildVignette.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>buildVignette {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='buildVignette'>Build One Vignette</h2>
+<h2>Build One Vignette</h2>
 
 <h3>Description</h3>
 
@@ -38,53 +38,53 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="buildVignette_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>character; the vignette source file.</p>
 </td></tr>
-<tr><td><code id="buildVignette_:_dir">dir</code></td>
+<tr><td><code id="dir">dir</code></td>
 <td>
 <p>character; the working directory in which the intermediate and 
 output files will be produced.</p>
 </td></tr>
-<tr><td><code id="buildVignette_:_weave">weave</code></td>
+<tr><td><code id="weave">weave</code></td>
 <td>
 <p>logical; should weave be run?</p>
 </td></tr>
-<tr><td><code id="buildVignette_:_latex">latex</code></td>
+<tr><td><code id="latex">latex</code></td>
 <td>
 <p>logical; should texi2pdf be run if weaving produces a &lsquo;<span class="file">.tex</span>&rsquo; file?</p>
 </td></tr>
-<tr><td><code id="buildVignette_:_tangle">tangle</code></td>
+<tr><td><code id="tangle">tangle</code></td>
 <td>
 <p>logical; should tangle be run?</p>
 </td></tr>
-<tr><td><code id="buildVignette_:_quiet">quiet</code></td>
+<tr><td><code id="quiet">quiet</code></td>
 <td>
 <p>logical; run in quiet mode?</p>
 </td></tr>
-<tr><td><code id="buildVignette_:_clean">clean</code></td>
+<tr><td><code id="clean">clean</code></td>
 <td>
 <p>logical; whether to remove some newly created, often
 intermediate, files.  See details below.</p>
 </td></tr>
-<tr><td><code id="buildVignette_:_keep">keep</code></td>
+<tr><td><code id="keep">keep</code></td>
 <td>
 <p>a list of file names to keep in any case when cleaning.  Note
 that &ldquo;target&rdquo; files are kept anyway.</p>
 </td></tr>
-<tr><td><code id="buildVignette_:_engine">engine</code></td>
+<tr><td><code id="engine">engine</code></td>
 <td>
 <p><code>NULL</code> or character; name of vignette engine to
 use.  Overrides any <code>\VignetteEngine{}</code> markup in the vignette.</p>
 </td></tr>
-<tr><td><code id="buildVignette_:_buildPkg">buildPkg</code></td>
+<tr><td><code id="buildPkg">buildPkg</code></td>
 <td>
 <p><code>NULL</code> or a character vector; optional packages
 in which to find the vignette engine.</p>
 </td></tr>
-<tr><td><code id="buildVignette_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>the encoding to assume for the file.  If not
 specified, it will be read if possible from the file's contents.
@@ -92,7 +92,7 @@ Note that if the vignette is part of a package,
 <code>buildVignettes</code> reads the package's encoding from the
 &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file but this function does not.</p>
 </td></tr> 
-<tr><td><code id="buildVignette_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Additional arguments passed to weave and tangle.</p>
 </td></tr>
@@ -138,6 +138,7 @@ source.
 <p><code>buildVignettes</code> for building all vignettes in a package.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.3.0/00index.html'>Package <em>tools</em> version 4.3.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.0/00index.html'>Package <em>tools</em> version 4.3.0</a> ]</div></main>
+
 </div>
 </body></html>

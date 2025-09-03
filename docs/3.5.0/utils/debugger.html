@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/debugger.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/debugger.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/debugger.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/debugger.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>debugger {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='debugger'>Post-Mortem Debugging</h2>
+<h2>Post-Mortem Debugging</h2>
 
 <h3>Description</h3>
 
@@ -35,25 +35,25 @@ debugger(dump = last.dump)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="debugger_:_dumpto">dumpto</code></td>
+<table role = "presentation">
+<tr><td><code id="dumpto">dumpto</code></td>
 <td>
 <p>a character string. The name of the object or file to
 dump to.</p>
 </td></tr>
-<tr><td><code id="debugger_:_to.file">to.file</code></td>
+<tr><td><code id="to.file">to.file</code></td>
 <td>
 <p>logical.  Should the dump be to an <span class="rlang"><b>R</b></span> object or to a
 file?</p>
 </td></tr>
-<tr><td><code id="debugger_:_include.GlobalEnv">include.GlobalEnv</code></td>
+<tr><td><code id="include.GlobalEnv">include.GlobalEnv</code></td>
 <td>
 <p>logical indicating if a <em>copy</em> of the
 <code>.GlobalEnv</code> environment should be included in addition
 to the <code>sys.frames()</code>.  Will be particularly useful when
 used in a batch job.</p>
 </td></tr>
-<tr><td><code id="debugger_:_dump">dump</code></td>
+<tr><td><code id="dump">dump</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> dump object created by <code>dump.frames</code>.</p>
 </td></tr>
@@ -170,6 +170,7 @@ options(error = quote({dump.frames(to.file = TRUE); q(status = 1)}))
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>utils</em> version 3.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>utils</em> version 3.5.0</a> ]</div></main>
+
 </div>
 </body></html>

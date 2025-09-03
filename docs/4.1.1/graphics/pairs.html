@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/pairs.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/pairs.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/pairs.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/pairs.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>pairs {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='pairs'>Scatterplot Matrices</h2>
+<h2>Scatterplot Matrices</h2>
 
 <h3>Description</h3>
 
@@ -46,32 +46,32 @@ pairs(x, labels, panel = points, ...,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="pairs_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>the coordinates of points given as numeric columns of a
 matrix or data frame.  Logical and factor columns are converted to
 numeric in the same way that <code>data.matrix</code> does.
 </p>
 </td></tr>
-<tr><td><code id="pairs_:_formula">formula</code></td>
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula, such as <code>~ x + y + z</code>.  Each term will
 give a separate variable in the pairs plot, so terms should be
 numeric vectors.  (A response will be interpreted as another
 variable, but not treated specially, so it is confusing to use one.)</p>
 </td></tr>
-<tr><td><code id="pairs_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data.frame (or list) from which the variables in
 <code>formula</code> should be taken.</p>
 </td></tr>
-<tr><td><code id="pairs_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used for plotting.</p>
 </td></tr>
-<tr><td><code id="pairs_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen
 when the data contain <code>NA</code>s.  The default is to pass missing
@@ -79,16 +79,16 @@ values on to the panel functions, but <code>na.action = na.omit</code>
 will cause cases with missing values in any of the variables to be
 omitted entirely.</p>
 </td></tr>
-<tr><td><code id="pairs_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>the names of the variables.</p>
 </td></tr>
-<tr><td><code id="pairs_:_panel">panel</code></td>
+<tr><td><code id="panel">panel</code></td>
 <td>
 <p><code>function(x, y, ...)</code> which is used to plot
 the contents of each panel of the display.</p>
 </td></tr>
-<tr><td><code id="pairs_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 
 <p>arguments to be passed to or from methods.
@@ -98,51 +98,51 @@ the contents of each panel of the display.</p>
 appropriately unless specified.
 </p>
 </td></tr>
-<tr><td><code id="pairs_:_horInd">horInd</code>, <code id="pairs_:_verInd">verInd</code></td>
+<tr><td><code id="horInd">horInd</code>, <code id="verInd">verInd</code></td>
 <td>
 <p>The (numerical) indices of the variables to be
 plotted on the horizontal and vertical axes respectively.</p>
 </td></tr>
-<tr><td><code id="pairs_:_lower.panel">lower.panel</code>, <code id="pairs_:_upper.panel">upper.panel</code></td>
+<tr><td><code id="lower.panel">lower.panel</code>, <code id="upper.panel">upper.panel</code></td>
 <td>
 <p>separate panel functions (or
 <code>NULL</code>) to be used below and above the diagonal respectively.</p>
 </td></tr>
-<tr><td><code id="pairs_:_diag.panel">diag.panel</code></td>
+<tr><td><code id="diag.panel">diag.panel</code></td>
 <td>
 <p>optional <code>function(x, ...)</code> to be
 applied on the diagonals.</p>
 </td></tr>
-<tr><td><code id="pairs_:_text.panel">text.panel</code></td>
+<tr><td><code id="text.panel">text.panel</code></td>
 <td>
 <p>optional <code>function(x, y, labels, cex,
       font, ...)</code> to be applied on the diagonals.</p>
 </td></tr>
-<tr><td><code id="pairs_:_label.pos">label.pos</code></td>
+<tr><td><code id="label.pos">label.pos</code></td>
 <td>
 <p><code>y</code> position of labels in the text panel.</p>
 </td></tr>
-<tr><td><code id="pairs_:_line.main">line.main</code></td>
+<tr><td><code id="line.main">line.main</code></td>
 <td>
 <p>if <code>main</code> is specified, <code>line.main</code> gives
 the <code>line</code> argument to <code>mtext()</code> which draws the
 title.  You may want to specify <code>oma</code> when changing <code>line.main</code>.</p>
 </td></tr>
-<tr><td><code id="pairs_:_cex.labels">cex.labels</code>, <code id="pairs_:_font.labels">font.labels</code></td>
+<tr><td><code id="cex.labels">cex.labels</code>, <code id="font.labels">font.labels</code></td>
 <td>
 <p>graphics parameters for the text panel.</p>
 </td></tr>
-<tr><td><code id="pairs_:_row1attop">row1attop</code></td>
+<tr><td><code id="row1attop">row1attop</code></td>
 <td>
 <p>logical.  Should the layout be matrix-like with row 1
 at the top, or graph-like with row 1 at the bottom?  The latter (non
 default) leads to a basically symmetric scatterplot matrix.</p>
 </td></tr>
-<tr><td><code id="pairs_:_gap">gap</code></td>
+<tr><td><code id="gap">gap</code></td>
 <td>
 <p>distance between subplots, in margin lines.</p>
 </td></tr>
-<tr><td><code id="pairs_:_log">log</code></td>
+<tr><td><code id="log">log</code></td>
 <td>
 <p>a character string indicating if logarithmic axes are to be
 used, see <code>plot.default</code> <em>or</em> a numeric vector of
@@ -150,7 +150,7 @@ indices specifying the indices of those variables where logarithmic
 axes should be used for both x and y.  <code>log = "xy"</code> specifies
 logarithmic axes for all variables.</p>
 </td></tr>
-<tr><td><code id="pairs_:_horOdd">horOdd</code>, <code id="pairs_:_verOdd">verOdd</code></td>
+<tr><td><code id="horOdd">horOdd</code>, <code id="verOdd">verOdd</code></td>
 <td>
 <p><code>logical</code> (or integer) determining
 how the horizontal and vertical axis labeling happens.  If true, the
@@ -259,6 +259,7 @@ pairs(iris, log = 1:4, # log the first four
       main = "Lengths and Widths in [log]", line.main=1.5, oma=c(2,2,3,2))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>graphics</em> version 4.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>graphics</em> version 4.1.1</a> ]</div></main>
+
 </div>
 </body></html>

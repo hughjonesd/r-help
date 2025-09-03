@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/lapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/lapply.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/lapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/lapply.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>lapply {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='lapply'>Apply a Function over a List or Vector</h2>
+<h2>Apply a Function over a List or Vector</h2>
 
 <h3>Description</h3>
 
@@ -60,24 +60,24 @@ simplify2array(x, higher = TRUE, except = c(0L, 1L))
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="lapply_:_X">X</code></td>
+<table role = "presentation">
+<tr><td><code id="X">X</code></td>
 <td>
 <p>a vector (atomic or list) or an <code>expression</code>
 object.  Other objects (including classed objects) will be coerced
 by <code>base::as.list</code>.</p>
 </td></tr>
-<tr><td><code id="lapply_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>the function to be applied to each element of <code>X</code>:
 see &lsquo;Details&rsquo;.  In the case of functions like
 <code>+</code>, <code>%*%</code>, the function name must be backquoted or quoted.</p>
 </td></tr>
-<tr><td><code id="lapply_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>optional arguments to <code>FUN</code>.</p>
 </td></tr>
-<tr><td><code id="lapply_:_simplify">simplify</code></td>
+<tr><td><code id="simplify">simplify</code></td>
 <td>
 <p>logical or character string; should the result be
 simplified to a vector, matrix or higher dimensional array if
@@ -88,32 +88,32 @@ whereas if <code>simplify = "array"</code> the result may be an
 (<code class="reqn">=</code><code>length(dim(.))</code>) one higher than the result
 of <code>FUN(X[[i]])</code>.</p>
 </td></tr>
-<tr><td><code id="lapply_:_USE.NAMES">USE.NAMES</code></td>
+<tr><td><code id="USE.NAMES">USE.NAMES</code></td>
 <td>
 <p>logical; if <code>TRUE</code> and if <code>X</code> is character,
 use <code>X</code> as <code>names</code> for the result unless it had names
 already.  Since this argument follows <code>...</code> its name cannot
 be abbreviated.</p>
 </td></tr>
-<tr><td><code id="lapply_:_FUN.VALUE">FUN.VALUE</code></td>
+<tr><td><code id="FUN.VALUE">FUN.VALUE</code></td>
 <td>
 <p>a (generalized) vector; a template for the return
 value from FUN.  See &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="lapply_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>integer: the number of replications.</p>
 </td></tr>
-<tr><td><code id="lapply_:_expr">expr</code></td>
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p>the expression (a language object, usually a call)
 to evaluate repeatedly.</p>
 </td></tr>
-<tr><td><code id="lapply_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a list, typically returned from <code>lapply()</code>.</p>
 </td></tr>
-<tr><td><code id="lapply_:_higher">higher</code></td>
+<tr><td><code id="higher">higher</code></td>
 <td>
 <p>logical; if true, <code>simplify2array()</code> will produce a
 (&ldquo;higher rank&rdquo;) array when appropriate, whereas
@@ -121,7 +121,7 @@ to evaluate repeatedly.</p>
 These two cases correspond to <code>sapply(*, simplify = "array")</code> or
 <code>simplify = TRUE</code>, respectively.</p>
 </td></tr>
-<tr><td><code id="lapply_:_except">except</code></td>
+<tr><td><code id="except">except</code></td>
 <td>
 <p>integer vector or <code>NULL</code>; the default <code>c(0L,
       1L)</code> corresponds to the exceptions used by <code>sapply</code>: a list
@@ -278,6 +278,7 @@ bar &lt;- function(n, x) replicate(n, foo(x = x))
 bar(5, x = 3)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>base</em> version 4.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>base</em> version 4.2.2</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/chol.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/chol.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/chol.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/chol.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>chol {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='chol'>The Choleski Decomposition</h2>
+<h2>The Choleski Decomposition</h2>
 
 <h3>Description</h3>
 
@@ -36,21 +36,21 @@ chol(x, pivot = FALSE,  LINPACK = pivot, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="chol_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object for which a method exists.  The default method
 applies to real symmetric, positive-definite matrices.</p>
 </td></tr>
-<tr><td><code id="chol_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments to be based to or from methods.</p>
 </td></tr>
-<tr><td><code id="chol_:_pivot">pivot</code></td>
+<tr><td><code id="pivot">pivot</code></td>
 <td>
 <p>Should pivoting be used?</p>
 </td></tr>
-<tr><td><code id="chol_:_LINPACK">LINPACK</code></td>
+<tr><td><code id="LINPACK">LINPACK</code></td>
 <td>
 <p>logical.  Should LINPACK be used in the non-pivoting
 case (for compatibility with <span class="rlang"><b>R</b></span> &lt; 1.7.0)?</p>
@@ -163,6 +163,7 @@ try(chol(m, LINPACK=TRUE))   # fails
 crossprod(Q)  # not equal to m
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>base</em> version 2.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>base</em> version 2.6.1</a> ]</div></main>
+
 </div>
 </body></html>

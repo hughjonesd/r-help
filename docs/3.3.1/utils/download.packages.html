@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/download.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/download.packages.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/download.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/download.packages.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>download.packages {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='download.packages'>Download Packages from CRAN-like Repositories</h2>
+<h2>Download Packages from CRAN-like Repositories</h2>
 
 <h3>Description</h3>
 
@@ -37,21 +37,21 @@ the repositories and update outdated packages on the fly.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="download.packages_:_pkgs">pkgs</code></td>
+<table role = "presentation">
+<tr><td><code id="pkgs">pkgs</code></td>
 <td>
 
 <p>character vector of the names of packages whose latest available
 versions should be downloaded from the repositories.
 </p>
 </td></tr>
-<tr><td><code id="download.packages_:_destdir">destdir</code></td>
+<tr><td><code id="destdir">destdir</code></td>
 <td>
 
 <p>directory where downloaded packages are to be stored.
 </p>
 </td></tr>
-<tr><td><code id="download.packages_:_available">available</code></td>
+<tr><td><code id="available">available</code></td>
 <td>
 
 <p>an object as returned by <code>available.packages</code>
@@ -59,7 +59,7 @@ listing packages available at the repositories, or <code>NULL</code> which
 makes an internal call to <code>available.packages</code>.
 </p>
 </td></tr>
-<tr><td><code id="download.packages_:_repos">repos</code></td>
+<tr><td><code id="repos">repos</code></td>
 <td>
 
 <p>character vector, the base URL(s) of the repositories
@@ -68,7 +68,7 @@ to use, i.e., the URL of the CRAN master such as
 <code>"http://lib.stat.cmu.edu/R/CRAN"</code>.
 </p>
 </td></tr>
-<tr><td><code id="download.packages_:_contriburl">contriburl</code></td>
+<tr><td><code id="contriburl">contriburl</code></td>
 <td>
 
 <p>URL(s) of the contrib sections of the
@@ -77,20 +77,20 @@ incomplete, e.g., because you burned only the &lsquo;<span class="file">contrib<
 CD.  Overrides argument <code>repos</code>.
 </p>
 </td></tr>
-<tr><td><code id="download.packages_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 
 <p>Download method, see <code>download.file</code>.
 </p>
 </td></tr>
-<tr><td><code id="download.packages_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 
 <p>character string, indicate which type of packages: see
 <code>install.packages</code>.
 </p>
 </td></tr>
-<tr><td><code id="download.packages_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 
 <p>additional arguments to be passed to
@@ -135,6 +135,7 @@ other options to monitor file transfers.
 set up a repository.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>utils</em> version 3.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>utils</em> version 3.3.1</a> ]</div></main>
+
 </div>
 </body></html>

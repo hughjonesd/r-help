@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/compactPDF.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/compactPDF.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/compactPDF.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/compactPDF.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>compactPDF {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='compactPDF'>
+<h2>
 Compact PDF Files
 </h2>
 
@@ -42,19 +42,19 @@ format(x, ratio = 0.9, diff = 1e4, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="compactPDF_:_paths">paths</code></td>
+<table role = "presentation">
+<tr><td><code id="paths">paths</code></td>
 <td>
 <p>A character vector of paths to PDF files, or a length-one
 character vector naming a directory, when all &lsquo;<span class="file">.pdf</span>&rsquo; files in
 that directory will be used.</p>
 </td></tr>
-<tr><td><code id="compactPDF_:_qpdf">qpdf</code></td>
+<tr><td><code id="qpdf">qpdf</code></td>
 <td>
 <p>Character string giving the path to the <code>qpdf</code>
 command.  If empty, <code>qpdf</code> will not be used.</p>
 </td></tr>
-<tr><td><code id="compactPDF_:_gs_cmd">gs_cmd</code></td>
+<tr><td><code id="gs_cmd">gs_cmd</code></td>
 <td>
 <p>Character string giving the path to the GhostScript
 executable, if that is to be used.  On Windows this is the path to
@@ -62,29 +62,29 @@ executable, if that is to be used.  On Windows this is the path to
 default), the function will try to find a platform-specific path to
 GhostScript where required.</p>
 </td></tr>
-<tr><td><code id="compactPDF_:_gs_quality">gs_quality</code></td>
+<tr><td><code id="gs_quality">gs_quality</code></td>
 <td>
 <p>A character string indicating the quality required:
 the options are <code>"none"</code> (so GhostScript is not used),
 <code>"printer"</code> (300dpi), <code>"ebook"</code> (150dpi) and
 <code>"screen"</code> (72dpi).</p>
 </td></tr>
-<tr><td><code id="compactPDF_:_gs_extras">gs_extras</code></td>
+<tr><td><code id="gs_extras">gs_extras</code></td>
 <td>
 <p>An optional character vector of further options to be
 passed to GhostScript.</p>
 </td></tr>
-<tr><td><code id="compactPDF_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>An object of class <code>"compactPDF"</code>.</p>
 </td></tr>
-<tr><td><code id="compactPDF_:_ratio">ratio</code>, <code id="compactPDF_:_diff">diff</code></td>
+<tr><td><code id="ratio">ratio</code>, <code id="diff">diff</code></td>
 <td>
 <p>Limits for reporting: files are only reported whose
 sizes are reduced both by a factor of <code>ratio</code> and by
 <code>diff</code> bytes.</p>
 </td></tr>
-<tr><td><code id="compactPDF_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further arguments to be passed to or from other methods.</p>
 </td></tr>
@@ -160,6 +160,7 @@ are available, including Adobe Acrobat (not Reader).
 See the &lsquo;Writing R Extensions&rsquo; manual.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>tools</em> version 3.1.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>tools</em> version 3.1.2</a> ]</div></main>
+
 </div>
 </body></html>

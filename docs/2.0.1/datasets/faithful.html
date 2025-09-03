@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/faithful.html'>https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/faithful.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/faithful.html'>https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/faithful.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>faithful {datasets}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='faithful'>Old Faithful Geyser Data</h2>
+<h2>Old Faithful Geyser Data</h2>
 
 <h3>Description</h3>
 
@@ -68,46 +68,3 @@ more frequent than expected under non-human measurement.  For a
 
 <h3>Source</h3>
 
-<p>W. H&lt;e4&gt;rdle.</p>
-
-
-<h3>References</h3>
-
-<p>H&lt;e4&gt;rdle, W. (1991)
-<em>Smoothing Techniques with Implementation in S</em>.
-New York: Springer.
-</p>
-<p>Azzalini, A. and Bowman, A. W. (1990).
-A look at some data on the Old Faithful geyser.
-<em>Applied Statistics</em> <b>39</b>, 357&ndash;365.
-</p>
-
-
-<h3>See Also</h3>
-
-<p><code>geyser</code> in package <span class="pkg">MASS</span> for the Azzalini-Bowman version.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre><code class='language-R'>f.tit &lt;-  "faithful data: Eruptions of Old Faithful"
-
-ne60 &lt;- round(e60 &lt;- 60 * faithful$eruptions)
-all.equal(e60, ne60)             # relative diff. ~ 1/10000
-table(zapsmall(abs(e60 - ne60))) # 0, 0.02 or 0.04
-faithful$better.eruptions &lt;- ne60 / 60
-te &lt;- table(ne60)
-te[te &gt;= 4]                      # (too) many multiples of 5 !
-plot(names(te), te, type="h", main = f.tit, xlab = "Eruption time (sec)")
-
-plot(faithful[, -3], main = f.tit,
-     xlab = "Eruption time (min)",
-     ylab = "Waiting time to next eruption (min)")
-lines(lowess(faithful$eruptions, faithful$waiting, f = 2/3, iter = 3),
-      col = "red")
-</code></pre>
-
-<hr /><div style="text-align: center;">[<a href='/r-help/2.0.1/00index.html'>Package <em>datasets</em> version 2.0.1</a> ]</div>
-</div>
-</body></html>

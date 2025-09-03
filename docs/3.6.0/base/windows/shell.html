@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/shell.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/shell.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/shell.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/shell.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>shell {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='shell'>Invoke a System Command, using a Shell</h2>
+<h2>Invoke a System Command, using a Shell</h2>
 
 <h3>Description</h3>
 
@@ -34,46 +34,46 @@ a shell, because that is what the POSIX standards require.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="shell_:_cmd">cmd</code></td>
+<table role = "presentation">
+<tr><td><code id="cmd">cmd</code></td>
 <td>
 <p>the system command to be invoked, as a string.</p>
 </td></tr>
-<tr><td><code id="shell_:_shell">shell</code></td>
+<tr><td><code id="shell">shell</code></td>
 <td>
 <p>a string giving the name of the shell to be used, or
 <code>NULL</code> (no shell).  If missing, a suitable shell is chosen:
 see &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="shell_:_flag">flag</code></td>
+<tr><td><code id="flag">flag</code></td>
 <td>
 <p>the switch to run a command under the shell.  If the shell
 is <code>bash</code> or <code>tcsh</code> or <code>sh</code> the default is changed to
 <code>"-c"</code>.</p>
 </td></tr>
-<tr><td><code id="shell_:_intern">intern</code></td>
+<tr><td><code id="intern">intern</code></td>
 <td>
 <p>a logical, indicates whether to make the output of the
 command an <span class="rlang"><b>R</b></span> object.</p>
 </td></tr>
-<tr><td><code id="shell_:_wait">wait</code></td>
+<tr><td><code id="wait">wait</code></td>
 <td>
 <p>should the <span class="rlang"><b>R</b></span> interpreter wait for the command to finish?
 The default is to wait, and the interpreter will always wait if
 <code>intern = TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="shell_:_translate">translate</code></td>
+<tr><td><code id="translate">translate</code></td>
 <td>
 <p>If <code>TRUE</code>, &lsquo;<span class="samp">&#8288;"/"&#8288;</span>&rsquo; in <code>cmd</code> is
 translated to &lsquo;<span class="samp">&#8288;"\"&#8288;</span>&rsquo;.</p>
 </td></tr>
-<tr><td><code id="shell_:_mustWork">mustWork</code></td>
+<tr><td><code id="mustWork">mustWork</code></td>
 <td>
 <p>a logical; if <code>TRUE</code> failure to run the command
 will give an <span class="rlang"><b>R</b></span> error, if <code>FALSE</code> a warning and if <code>NA</code>,
 no <span class="rlang"><b>R</b></span> message.</p>
 </td></tr>
-<tr><td><code id="shell_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional arguments to <code>system</code>.</p>
 </td></tr>
@@ -125,6 +125,7 @@ the <span class="rlang"><b>R</b></span> console (<code>Rgui</code>) or the windo
 
 <p><code>system</code>, <code>shell.exec</code></p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>base</em> version 3.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>base</em> version 3.6.0</a> ]</div></main>
+
 </div>
 </body></html>

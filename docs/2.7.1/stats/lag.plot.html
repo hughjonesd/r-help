@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lag.plot.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lag.plot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lag.plot.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lag.plot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>lag.plot {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='lag.plot'>Time Series Lag Plots</h2>
+<h2>Time Series Lag Plots</h2>
 
 <h3>Description</h3>
 
@@ -38,66 +38,66 @@ vanish.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="lag.plot_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>time-series (univariate or multivariate)</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_lags">lags</code></td>
+<tr><td><code id="lags">lags</code></td>
 <td>
 <p>number of lag plots desired, see arg <code>set.lags</code>.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_layout">layout</code></td>
+<tr><td><code id="layout">layout</code></td>
 <td>
 <p>the layout of multiple plots, basically the <code>mfrow</code>
 <code>par()</code> argument.  The default uses about a square
 layout (see <code>n2mfrow</code> such that all plots are on one page.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_set.lags">set.lags</code></td>
+<tr><td><code id="set.lags">set.lags</code></td>
 <td>
 <p>vector of positive integers allowing specification of
 the set of lags used; defaults to <code>1:lags</code>.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>character with a main header title to be done on the top
 of each page.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_asp">asp</code></td>
+<tr><td><code id="asp">asp</code></td>
 <td>
 <p>Aspect ratio to be fixed, see <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_diag">diag</code></td>
+<tr><td><code id="diag">diag</code></td>
 <td>
 <p>logical indicating if the x=y diagonal should be drawn.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_diag.col">diag.col</code></td>
+<tr><td><code id="diag.col">diag.col</code></td>
 <td>
 <p>color to be used for the diagonal <code>if(diag)</code>.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>plot type to be used, but see <code>plot.ts</code> about
 its restricted meaning.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_oma">oma</code></td>
+<tr><td><code id="oma">oma</code></td>
 <td>
 <p>outer margins, see <code>par</code>.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_ask">ask</code></td>
+<tr><td><code id="ask">ask</code></td>
 <td>
 <p>logical or <code>NULL</code>; if true, the user is asked to
 confirm before a new page is started.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_do.lines">do.lines</code></td>
+<tr><td><code id="do.lines">do.lines</code></td>
 <td>
 <p>logical indicating if lines should be drawn.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>logical indicating if labels should be used.</p>
 </td></tr>
-<tr><td><code id="lag.plot_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further arguments to <code>plot.ts</code>.  Several
 graphical parameters are set in this function and so cannot be
@@ -158,6 +158,7 @@ lag.plot(sqrt(sunspots), set = c(1:4, 9:12), pch = ".", col = "gold")
 ## End(Not run)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.7.1/00index.html'>Package <em>stats</em> version 2.7.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.7.1/00index.html'>Package <em>stats</em> version 2.7.1</a> ]</div></main>
+
 </div>
 </body></html>

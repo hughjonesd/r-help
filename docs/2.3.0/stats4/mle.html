@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>mle {stats4}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='mle'>Maximum Likelihood Estimation</h2>
+<h2>Maximum Likelihood Estimation</h2>
 
 <h3>Description</h3>
 
@@ -33,25 +33,25 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="mle_:_minuslogl">minuslogl</code></td>
+<table role = "presentation">
+<tr><td><code id="minuslogl">minuslogl</code></td>
 <td>
 <p>Function to calculate negative log-likelihood.</p>
 </td></tr>
-<tr><td><code id="mle_:_start">start</code></td>
+<tr><td><code id="start">start</code></td>
 <td>
 <p>Named list. Initial values for optimizer.</p>
 </td></tr>
-<tr><td><code id="mle_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>Optimization method to use. See <code>optim</code>.</p>
 </td></tr>
-<tr><td><code id="mle_:_fixed">fixed</code></td>
+<tr><td><code id="fixed">fixed</code></td>
 <td>
 <p>Named list.  Parameter values to keep fixed during
 optimization.</p>
 </td></tr>
-<tr><td><code id="mle_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further arguments to pass to <code>optim</code>.</p>
 </td></tr>
@@ -114,6 +114,7 @@ plot(profile(fit2), absVal=FALSE)
 exp(confint(fit2))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.3.0/00index.html'>Package <em>stats4</em> version 2.3.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.3.0/00index.html'>Package <em>stats4</em> version 2.3.0</a> ]</div></main>
+
 </div>
 </body></html>

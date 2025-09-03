@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ks.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ks.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ks.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ks.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ks.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ks.test'>Kolmogorov-Smirnov Tests</h2>
+<h2>Kolmogorov-Smirnov Tests</h2>
 
 <h3>Description</h3>
 
@@ -38,25 +38,25 @@ ks.test(formula, data, subset, na.action, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ks.test_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector of data values.</p>
 </td></tr>
-<tr><td><code id="ks.test_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>either a numeric vector of data values, or a character string
 naming a cumulative distribution function or an actual cumulative
 distribution function such as <code>pnorm</code>.  Only continuous CDFs
 are valid.</p>
 </td></tr>
-<tr><td><code id="ks.test_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>for the default method, parameters of the distribution
 specified (as a character string) by <code>y</code>.  Otherwise, further
 arguments to be passed to or from methods.</p>
 </td></tr>
-<tr><td><code id="ks.test_:_alternative">alternative</code></td>
+<tr><td><code id="alternative">alternative</code></td>
 <td>
 <p>indicates the alternative hypothesis and must be
 one of <code>"two.sided"</code> (default), <code>"less"</code>, or
@@ -64,42 +64,42 @@ one of <code>"two.sided"</code> (default), <code>"less"</code>, or
 value, but the argument name must be given in full.
 See &lsquo;Details&rsquo; for the meanings of the possible values.</p>
 </td></tr>
-<tr><td><code id="ks.test_:_exact">exact</code></td>
+<tr><td><code id="exact">exact</code></td>
 <td>
 <p><code>NULL</code> or a logical indicating whether an exact
 p-value should be computed.  See &lsquo;Details&rsquo; for the meaning of
 <code>NULL</code>.</p>
 </td></tr>
-<tr><td><code id="ks.test_:_simulate.p.value">simulate.p.value</code></td>
+<tr><td><code id="simulate.p.value">simulate.p.value</code></td>
 <td>
 <p>a logical indicating whether to compute
 p-values by Monte Carlo simulation.</p>
 </td></tr>
-<tr><td><code id="ks.test_:_B">B</code></td>
+<tr><td><code id="B">B</code></td>
 <td>
 <p>an integer specifying the number of replicates used in the
 Monte Carlo test.</p>
 </td></tr>
-<tr><td><code id="ks.test_:_formula">formula</code></td>
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula of the form <code>lhs ~ rhs</code> where <code>lhs</code>
 is a numeric variable giving the data values and <code>rhs</code> either
 <code>1</code> for a one-sample test or a factor with two levels giving
 the corresponding groups for a two-sample test.</p>
 </td></tr>
-<tr><td><code id="ks.test_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional matrix or data frame (or similar: see
 <code>model.frame</code>) containing the variables in the
 formula <code>formula</code>.  By default the variables are taken from
 <code>environment(formula)</code>.</p>
 </td></tr>
-<tr><td><code id="ks.test_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used.</p>
 </td></tr>
-<tr><td><code id="ks.test_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen when
 the data contain <code>NA</code>s.  Defaults to
@@ -170,7 +170,7 @@ in <code>ks.test</code>.
 <p>A list inheriting from classes <code>"ks.test"</code> and <code>"htest"</code>
 containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>the value of the test statistic.</p>
@@ -287,6 +287,7 @@ ks.test(Ozone ~ Month, data = airquality,
         subset = Month %in% c(5, 8))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>stats</em> version 4.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>stats</em> version 4.2.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/hcl.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/hcl.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/hcl.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/hcl.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>hcl {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='hcl'>HCL Color Specification</h2>
+<h2>HCL Color Specification</h2>
 
 <h3>Description</h3>
 
@@ -33,29 +33,29 @@ chroma and luminance.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="hcl_:_h">h</code></td>
+<table role = "presentation">
+<tr><td><code id="h">h</code></td>
 <td>
 <p>The hue of the color specified as an angle in the range
 [0,360].  0 yields red, 120 yields green 240 yields blue, etc.</p>
 </td></tr>
-<tr><td><code id="hcl_:_c">c</code></td>
+<tr><td><code id="c">c</code></td>
 <td>
 <p>The chroma of the color.  The upper bound for chroma depends
 on hue and luminance.</p>
 </td></tr>
-<tr><td><code id="hcl_:_l">l</code></td>
+<tr><td><code id="l">l</code></td>
 <td>
 <p>A value in the range [0,100] giving the luminance of the
 colour.  For a given combination of hue and chroma, only
 a subset of this range is possible.</p>
 </td></tr>
-<tr><td><code id="hcl_:_alpha">alpha</code></td>
+<tr><td><code id="alpha">alpha</code></td>
 <td>
 <p>numeric value in the range <code>[0,1]</code> for
 alpha transparency channel (0 means transparent and 1 means opaque).</p>
 </td></tr>
-<tr><td><code id="hcl_:_fixup">fixup</code></td>
+<tr><td><code id="fixup">fixup</code></td>
 <td>
 <p>a logical value which indicates whether the resulting
 RGB values should be corrected to ensure that a real color results.
@@ -173,6 +173,7 @@ csphd(hcl(h = seq(120, 0, length = 4) - 30))
 hist(rnorm(1000), col = hcl(240))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.4.1/00index.html'>Package <em>grDevices</em> version 2.4.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.4.1/00index.html'>Package <em>grDevices</em> version 2.4.1</a> ]</div></main>
+
 </div>
 </body></html>

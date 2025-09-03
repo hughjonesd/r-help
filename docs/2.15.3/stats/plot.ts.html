@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.ts.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.ts.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.ts.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.ts.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>plot.ts {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='plot.ts'>Plotting Time-Series Objects</h2>
+<h2>Plotting Time-Series Objects</h2>
 
 <h3>Description</h3>
 
@@ -39,56 +39,56 @@ lines(x, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="plot.ts_:_x">x</code>, <code id="plot.ts_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>time series objects, usually inheriting from class <code>"ts"</code>.</p>
 </td></tr>
-<tr><td><code id="plot.ts_:_plot.type">plot.type</code></td>
+<tr><td><code id="plot.type">plot.type</code></td>
 <td>
 <p>for multivariate time series, should the series by
 plotted separately (with a common time axis) or on a single plot?</p>
 </td></tr>
-<tr><td><code id="plot.ts_:_xy.labels">xy.labels</code></td>
+<tr><td><code id="xy.labels">xy.labels</code></td>
 <td>
 <p>logical, indicating if <code>text()</code> labels
 should be used for an x-y plot, <em>or</em> character, supplying a
 vector of labels to be used.  The default is to label for up to 150
 points, and not for more.</p>
 </td></tr>
-<tr><td><code id="plot.ts_:_xy.lines">xy.lines</code></td>
+<tr><td><code id="xy.lines">xy.lines</code></td>
 <td>
 <p>logical, indicating if <code>lines</code>
 should be drawn for an x-y plot.  Defaults to the value of
 <code>xy.labels</code> if that is logical, otherwise to <code>TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="plot.ts_:_panel">panel</code></td>
+<tr><td><code id="panel">panel</code></td>
 <td>
 <p>a <code>function(x, col, bg, pch, type, ...)</code> which gives the
 action to be carried out in each panel of the display for
 <code>plot.type = "multiple"</code>.  The default is <code>lines</code>.</p>
 </td></tr>
-<tr><td><code id="plot.ts_:_nc">nc</code></td>
+<tr><td><code id="nc">nc</code></td>
 <td>
 <p>the number of columns to use when <code>type = "multiple"</code>.
 Defaults to 1 for up to 4 series, otherwise to 2.</p>
 </td></tr>
-<tr><td><code id="plot.ts_:_yax.flip">yax.flip</code></td>
+<tr><td><code id="yax.flip">yax.flip</code></td>
 <td>
 <p>logical indicating if the y-axis (ticks and numbering)
 should flip from side 2 (left) to 4 (right) from series to series
 when <code>type = "multiple"</code>.</p>
 </td></tr>
-<tr><td><code id="plot.ts_:_mar.multi">mar.multi</code>, <code id="plot.ts_:_oma.multi">oma.multi</code></td>
+<tr><td><code id="mar.multi">mar.multi</code>, <code id="oma.multi">oma.multi</code></td>
 <td>
 <p>the (default) <code>par</code> settings
 for <code>plot.type = "multiple"</code>.  Modify with care!</p>
 </td></tr>
-<tr><td><code id="plot.ts_:_axes">axes</code></td>
+<tr><td><code id="axes">axes</code></td>
 <td>
 <p>logical indicating if x- and y- axes should be drawn.</p>
 </td></tr>
-<tr><td><code id="plot.ts_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional graphical arguments, see <code>plot</code>,
 <code>plot.default</code> and <code>par</code>.</p>
@@ -152,6 +152,7 @@ plot(lag(SMI, 20), SMI, pch = ".", log = "xy",
      main = "4 weeks lagged SMI stocks -- log scale", xy.lines =  TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.3/00index.html'>Package <em>stats</em> version 2.15.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.3/00index.html'>Package <em>stats</em> version 2.15.3</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.dynam.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.dynam.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.dynam.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.dynam.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>library.dynam {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='library.dynam'>Loading Shared Libraries</h2>
+<h2>Loading Shared Libraries</h2>
 
 <h3>Description</h3>
 
@@ -33,34 +33,34 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="library.dynam_:_chname">chname</code></td>
+<table role = "presentation">
+<tr><td><code id="chname">chname</code></td>
 <td>
 <p>a character string naming a shared library to load.</p>
 </td></tr>
-<tr><td><code id="library.dynam_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p>a character vector with the names of packages to search
 through.</p>
 </td></tr>
-<tr><td><code id="library.dynam_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector describing the location of <span class="rlang"><b>R</b></span>
 library trees to search through.</p>
 </td></tr>
-<tr><td><code id="library.dynam_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>a logical value  indicating whether an announcement
 is printed on the console before loading the shared library.
 The default value is taken from the verbose entry in the system options.</p>
 </td></tr>
-<tr><td><code id="library.dynam_:_file.ext">file.ext</code></td>
+<tr><td><code id="file.ext">file.ext</code></td>
 <td>
 <p>the extension to append to the file name to specify
 the library to be loaded. This defaults to the appropriate value
 for the operating system.</p>
 </td></tr>
-<tr><td><code id="library.dynam_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional arguments needed by some libraries that
 are passed to the call to <code>dyn.load</code> to control
@@ -76,7 +76,8 @@ package rather than at the command line, and should really only be
 used inside <code>.First.lib()</code>.  The system-specific extension
 for shared libraries
 (e.g., &lsquo;<span class="file">.so</span>&rsquo; or &lsquo;<span class="file">.sl</span>&rsquo; on Unix systems)
-should not be added.
+</p>
+<p>should not be added.
 </p>
 
 
@@ -107,6 +108,7 @@ argument is missing.
 <pre><code class='language-R'>library.dynam()# which packages have been ``dynamically loaded''
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.3.1/00index.html'>Package <em>base</em> version 1.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.3.1/00index.html'>Package <em>base</em> version 1.3.1</a> ]</div></main>
+
 </div>
 </body></html>

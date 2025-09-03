@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/cairo.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/cairo.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/cairo.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/cairo.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cairo {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cairo'>Cairographics-based SVG, PDF and PostScript Graphics Devices</h2>
+<h2>Cairographics-based SVG, PDF and PostScript Graphics Devices</h2>
 
 <h3>Description</h3>
 
@@ -48,8 +48,8 @@ cairo_ps(filename = if(onefile) "Rplots.ps" else "Rplot%03d.ps",
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cairo_:_filename">filename</code></td>
+<table role = "presentation">
+<tr><td><code id="filename">filename</code></td>
 <td>
 <p>the name of the output file.
 The page number is substituted if a C integer format is included in
@@ -58,23 +58,23 @@ than <code>PATH_MAX</code> characters long, and may be truncated if not.
 See <code>postscript</code> for further details.)  Tilde expansion
 is performed where supported by the platform.</p>
 </td></tr>
-<tr><td><code id="cairo_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>the width of the device in inches.</p>
 </td></tr>
-<tr><td><code id="cairo_:_height">height</code></td>
+<tr><td><code id="height">height</code></td>
 <td>
 <p>the height of the device in inches.</p>
 </td></tr>
-<tr><td><code id="cairo_:_pointsize">pointsize</code></td>
+<tr><td><code id="pointsize">pointsize</code></td>
 <td>
 <p>the default pointsize of plotted text (in big points).</p>
 </td></tr>
-<tr><td><code id="cairo_:_onefile">onefile</code></td>
+<tr><td><code id="onefile">onefile</code></td>
 <td>
 <p>should all plots appear in one file or in separate files?</p>
 </td></tr>
-<tr><td><code id="cairo_:_family">family</code></td>
+<tr><td><code id="family">family</code></td>
 <td>
 <p>one of the device-independent font families,
 <code>"sans"</code>, <code>"serif"</code> and <code>"mono"</code>, or a character
@@ -83,17 +83,17 @@ system-dependent way.
 See, the &lsquo;Cairo fonts&rsquo; section in the help for <code>X11</code>.
 </p>
 </td></tr>
-<tr><td><code id="cairo_:_bg">bg</code></td>
+<tr><td><code id="bg">bg</code></td>
 <td>
 <p>the initial background colour: can be overridden by setting
 par(&quot;bg&quot;).</p>
 </td></tr>
-<tr><td><code id="cairo_:_antialias">antialias</code></td>
+<tr><td><code id="antialias">antialias</code></td>
 <td>
 <p>string, the type of anti-aliasing (if any) to be used;
 defaults to <code>"default"</code>.</p>
 </td></tr>
-<tr><td><code id="cairo_:_fallback_resolution">fallback_resolution</code></td>
+<tr><td><code id="fallback_resolution">fallback_resolution</code></td>
 <td>
 <p>numeric: the resolution in dpi used when
 falling back to bitmap output.  Prior to <span class="rlang"><b>R</b></span> 3.3.0 this depended on
@@ -199,6 +199,7 @@ XQuartz) may need to be installed.
 <p><code>capabilities</code> to see if cairo is supported.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.3/00index.html'>Package <em>grDevices</em> version 3.3.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.3/00index.html'>Package <em>grDevices</em> version 3.3.3</a> ]</div></main>
+
 </div>
 </body></html>

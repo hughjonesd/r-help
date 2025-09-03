@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setLoadActions.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setLoadActions.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setLoadActions.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setLoadActions.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>setLoadActions {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='setLoadActions'>
+<h2>
 Set Actions For Package Loading
 </h2>
 
@@ -62,8 +62,8 @@ evalqOnLoad(expr, where=, aname=)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="setLoadActions_:_action">action</code>, <code id="setLoadActions_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="action">action</code>, <code id="...">...</code></td>
 <td>
 
 <p>functions of one or more arguments, to be called when this package is
@@ -74,7 +74,7 @@ namespace) so all following arguments must have default values.
 corresponding load metadata.
 </p>
 </td></tr>
-<tr><td><code id="setLoadActions_:_where">where</code>, <code id="setLoadActions_:_.where">.where</code></td>
+<tr><td><code id="where">where</code>, <code id=".where">.where</code></td>
 <td>
 
 <p>the namespace of the package for which the list of load actions are
@@ -83,14 +83,14 @@ source code for the package itself, but will be needed if a package
 supplies load actions for another package.
 </p>
 </td></tr>
-<tr><td><code id="setLoadActions_:_aname">aname</code></td>
+<tr><td><code id="aname">aname</code></td>
 <td>
 <p>the name for the action.  If an action is set without
 supplying a name,  the default uses the position in the sequence of
 actions specified (<code>".1"</code>, etc.).
 </p>
 </td></tr>
-<tr><td><code id="setLoadActions_:_expr">expr</code></td>
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p>an expression to be evaluated in a load action in
 environment <code>where</code>.  In the case of <code>evalqOnLoad()</code>,
@@ -199,6 +199,7 @@ if(countShouldBe0)
 ## End(Not run)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>methods</em> version 3.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>methods</em> version 3.2.3</a> ]</div></main>
+
 </div>
 </body></html>

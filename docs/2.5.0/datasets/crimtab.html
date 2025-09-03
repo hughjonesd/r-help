@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/crimtab.html'>https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/crimtab.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/crimtab.html'>https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/crimtab.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>crimtab {datasets}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='crimtab'>Student's 3000 Criminals Data</h2>
+<h2>Student's 3000 Criminals Data</h2>
 
 <h3>Description</h3>
 
@@ -84,79 +84,3 @@ random sampling.</em>
 <h3>Source</h3>
 
 <p><a href="http://pbil.univ-lyon1.fr/R/donnees/criminals1902.txt">http://pbil.univ-lyon1.fr/R/donnees/criminals1902.txt</a>
-thanks to Jean R. Lobry and Anne-B&lt;e9&gt;atrice Dufour.
-</p>
-
-
-<h3>References</h3>
-
-<p>Garson, J.G. (1900)
-The metric system of identification of criminals, as used in in Great
-Britain and Ireland.
-<em>The Journal of the Anthropological Institute of Great Britain
-and Ireland</em> <b>30</b>, 161&ndash;198.
-</p>
-<p>MacDonell, W.R. (1902)
-On criminal anthropometry and the identification of criminals.
-<em>Biometrika</em> <b>1</b>, 2, 177&ndash;227.
-</p>
-<p>Student (1908) The probable error of a mean.
-<em>Biometrika</em> <b>6</b>, 1&ndash;25.
-</p>
-
-
-<h3>Examples</h3>
-
-<pre><code class='language-R'>data(crimtab)
-dim(crimtab)
-str(crimtab)
-## for nicer printing:
-local({cT &lt;- crimtab
-       colnames(cT) &lt;- substring(colnames(cT), 2,3)
-       print(cT, zero = " ")
-})
-
-## Repeat Student's experiment:
-
-# 1) Reconstitute 3000 raw data for heights in inches and rounded to
-#    nearest integer as in Student's paper:
-
-(heIn &lt;- round(as.numeric(colnames(crimtab)) / 2.54))
-d.hei &lt;- data.frame(height = rep(heIn, colSums(crimtab)))
-
-# 2) shuffle the data:
-
-set.seed(1)
-d.hei &lt;- d.hei[sample(1:3000), , drop = FALSE]
-
-# 3) Make 750 samples each of size 4:
-
-d.hei$sample &lt;- as.factor(rep(1:750, each = 4))
-
-# 4) Compute the means and standard deviations (n) for the 750 samples:
-
-
-
-h.mean &lt;- with(d.hei, tapply(height, sample, FUN = mean))
-h.sd   &lt;- with(d.hei, tapply(height, sample, FUN = sd)) * sqrt(3/4)
-
-# 5) Compute the difference between the mean of each sample and the mean of
-#    the population and then divide by the standard deviation of the sample:
-
-zobs &lt;- (h.mean - mean(d.hei[,"height"]))/h.sd
-
-# 6) Replace infinite values by +/- 6 as in Student's paper:
-
-zobs[infZ &lt;- is.infinite(zobs)] # 3 of them
-zobs[infZ] &lt;- 6 * sign(zobs[infZ])
-
-# 7) Plot the distribution:
-
-hist(x = zobs, probab = TRUE, xlab = "Student's z",
-     col = grey(0.8), border = grey(0.5),
-     main = "Distribution of Student's z score  for 'crimtab' data")
-</code></pre>
-
-<hr /><div style="text-align: center;">[<a href='/r-help/2.5.0/00index.html'>Package <em>datasets</em> version 2.5.0</a> ]</div>
-</div>
-</body></html>

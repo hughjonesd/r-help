@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/cor.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/cor.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/cor.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/cor.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cor {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cor'>Correlation, Variance and Covariance (Matrices)</h2>
+<h2>Correlation, Variance and Covariance (Matrices)</h2>
 
 <h3>Description</h3>
 
@@ -38,18 +38,18 @@ cov(x, y = NULL, use = "all.obs")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cor_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector, matrix or data frame.</p>
 </td></tr>
-<tr><td><code id="cor_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p><code>NULL</code> (default) or a vector, matrix or data frame with
 compatible dimensions to <code>x</code>.  The default is equivalent to
 <code>y = x</code> (but more efficient).</p>
 </td></tr>
-<tr><td><code id="cor_:_use">use</code></td>
+<tr><td><code id="use">use</code></td>
 <td>
 <p>an optional character string giving a
 method for computing covariances in the presence
@@ -57,7 +57,7 @@ of missing values.  This must be (an abbreviation of) one of the strings
 <code>"all.obs"</code>, <code>"complete.obs"</code>
 or <code>"pairwise.complete.obs"</code>.</p>
 </td></tr>
-<tr><td><code id="cor_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>logical. Should missing values be removed?</p>
 </td></tr>
@@ -139,6 +139,7 @@ C3 &lt;- cov(swiss, use = "pairwise")
 range(eigen(C3, only=TRUE)$val) # 6.19  1938
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.6.1/00index.html'>Package <em>base</em> version 1.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.6.1/00index.html'>Package <em>base</em> version 1.6.1</a> ]</div></main>
+
 </div>
 </body></html>

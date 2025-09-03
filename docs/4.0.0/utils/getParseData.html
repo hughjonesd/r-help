@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/getParseData.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/getParseData.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/getParseData.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/getParseData.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>getParseData {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='getParseData'>Get Detailed Parse Information from Object</h2>
+<h2>Get Detailed Parse Information from Object</h2>
 
 <h3>Description</h3>
 
@@ -35,27 +35,27 @@ getParseText(parseData, id)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="getParseData_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 
 <p>an expression returned from <code>parse</code>, or a function or other
 object with source reference information
 </p>
 </td></tr>
-<tr><td><code id="getParseData_:_includeText">includeText</code></td>
+<tr><td><code id="includeText">includeText</code></td>
 <td>
 
 <p>logical; whether to include the text of parsed items in the result
 </p>
 </td></tr>
-<tr><td><code id="getParseData_:_parseData">parseData</code></td>
+<tr><td><code id="parseData">parseData</code></td>
 <td>
 
 <p>a data frame returned from <code>getParseData</code>
 </p>
 </td></tr>
-<tr><td><code id="getParseData_:_id">id</code></td>
+<tr><td><code id="id">id</code></td>
 <td>
 
 <p>a vector of item identifiers whose text is to be retrieved
@@ -81,7 +81,7 @@ parsed code, and retrieved by the <code>getParseData</code> function.
 If parse data is not present, <code>NULL</code>.  Otherwise
 a data frame is returned, containing the following columns:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>line1</code></td>
 <td>
 <p>integer. The line number where the item starts.  This is the
@@ -202,6 +202,7 @@ if (!is.null(d)) {
 }
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.0/00index.html'>Package <em>utils</em> version 4.0.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.0/00index.html'>Package <em>utils</em> version 4.0.0</a> ]</div></main>
+
 </div>
 </body></html>

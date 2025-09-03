@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/loglin.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/loglin.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/loglin.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/loglin.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>loglin {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='loglin'>Fitting Log-Linear Models</h2>
+<h2>Fitting Log-Linear Models</h2>
 
 <h3>Description</h3>
 
@@ -34,13 +34,13 @@ contingency tables by Iterative Proportional Fitting.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="loglin_:_table">table</code></td>
+<table role = "presentation">
+<tr><td><code id="table">table</code></td>
 <td>
 <p>a contingency table to be fit, typically the output from
 <code>table</code>.</p>
 </td></tr>
-<tr><td><code id="loglin_:_margin">margin</code></td>
+<tr><td><code id="margin">margin</code></td>
 <td>
 <p>a list of vectors with the marginal totals to be fit.
 </p>
@@ -57,7 +57,7 @@ a model where factors 2 and 3 are independent conditional on factor
 used rather than numeric indices.
 </p>
 </td></tr>
-<tr><td><code id="loglin_:_start">start</code></td>
+<tr><td><code id="start">start</code></td>
 <td>
 <p>a starting estimate for the fitted table.  This optional
 argument is important for incomplete tables with structural zeros
@@ -65,26 +65,26 @@ in <code>table</code> which should be preserved in the fit.  In this
 case, the corresponding entries in <code>start</code> should be zero and
 the others can be taken as one.</p>
 </td></tr>
-<tr><td><code id="loglin_:_fit">fit</code></td>
+<tr><td><code id="fit">fit</code></td>
 <td>
 <p>a logical indicating whether the fitted values should be
 returned.</p>
 </td></tr>
-<tr><td><code id="loglin_:_eps">eps</code></td>
+<tr><td><code id="eps">eps</code></td>
 <td>
 <p>maximum deviation allowed between observed and fitted
 margins.</p>
 </td></tr>
-<tr><td><code id="loglin_:_iter">iter</code></td>
+<tr><td><code id="iter">iter</code></td>
 <td>
 <p>maximum number of iterations.</p>
 </td></tr>
-<tr><td><code id="loglin_:_param">param</code></td>
+<tr><td><code id="param">param</code></td>
 <td>
 <p>a logical indicating whether the parameter values should
 be returned.</p>
 </td></tr>
-<tr><td><code id="loglin_:_print">print</code></td>
+<tr><td><code id="print">print</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, the number of iterations and
 the final deviation are printed.</p>
@@ -122,7 +122,7 @@ functions such as <code>lm</code> or <code>glm</code>.
 
 <p>A list with the following components.
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>lrt</code></td>
 <td>
 <p>the Likelihood Ratio Test statistic.</p>
@@ -199,6 +199,7 @@ fm
 ## Model with no three-factor interactions fits well.
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>stats</em> version 4.0.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>stats</em> version 4.0.5</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/nlsModel.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/nlsModel.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/nlsModel.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/nlsModel.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>nlsModel {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='nlsModel'>Create an nlsModel Object</h2>
+<h2>Create an nlsModel Object</h2>
 
 <h3>Description</h3>
 
@@ -35,17 +35,17 @@ well as parameters and their values.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="nlsModel_:_form">form</code></td>
+<table role = "presentation">
+<tr><td><code id="form">form</code></td>
 <td>
 <p>a nonlinear model formula</p>
 </td></tr>
-<tr><td><code id="nlsModel_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data frame or a list in which to evaluate the variables
 from the model formula</p>
 </td></tr>
-<tr><td><code id="nlsModel_:_start">start</code></td>
+<tr><td><code id="start">start</code></td>
 <td>
 <p>a named list or named numeric vector of starting
 estimates for the parameters in the model</p>
@@ -67,7 +67,7 @@ by the <code>nls</code> function.
 
 <p>The value is a list of functions that share a common environment.
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>resid</code></td>
 <td>
 <p>returns the residual vector evaluated at the current
@@ -175,6 +175,7 @@ mod$trace()       # check the tracing
 mod$Rmat()        # R matrix from the QR decomposition of the gradient
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

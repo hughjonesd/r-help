@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/decompose.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/decompose.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/decompose.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/decompose.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>decompose {ts}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='decompose'>
+<h2>
 Classical Seasonal Decomposition by Moving Averages
 </h2>
 
@@ -36,12 +36,12 @@ seasonal component.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="decompose_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A time series.</p>
 </td></tr>
-<tr><td><code id="decompose_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>The type of seasonal component.</p>
 </td></tr>
@@ -64,7 +64,7 @@ seasonal component.
 
 <p>An object of class <code>"decomposed.ts"</code> with following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>seasonal</code></td>
 <td>
 <p>The seasonal component (i.e., the repeated seasonal figure)</p>
@@ -114,6 +114,7 @@ m$figure
 plot(m)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

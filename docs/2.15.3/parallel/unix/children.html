@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/children.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/children.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/children.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/children.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>mcchildren {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='mcchildren'>Low-level Functions for Management of Forked Processes</h2>
+<h2>Low-level Functions for Management of Forked Processes</h2>
 
 <h3>Description</h3>
 
@@ -41,30 +41,30 @@ mckill(process, signal = 2L)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="mcchildren_:_select">select</code></td>
+<table role = "presentation">
+<tr><td><code id="select">select</code></td>
 <td>
 <p>if omitted, all active children are returned, otherwise
 <code>select</code> should be a list of processes and only those from the
 list that are active will be returned.</p>
 </td></tr>
-<tr><td><code id="mcchildren_:_child">child</code></td>
+<tr><td><code id="child">child</code></td>
 <td>
 <p>child process (object of the class <code>"childProcess"</code>) or a
 process ID (pid).  See also &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="mcchildren_:_timeout">timeout</code></td>
+<tr><td><code id="timeout">timeout</code></td>
 <td>
 <p>timeout (in seconds, fractions supported) to wait
 for a response before giving up.</p>
 </td></tr>
-<tr><td><code id="mcchildren_:_children">children</code></td>
+<tr><td><code id="children">children</code></td>
 <td>
 <p>list of child processes or a single child process
 object or a vector of process IDs or <code>NULL</code>.  If <code>NULL</code>
 behaves as if all currently known children were supplied.</p>
 </td></tr>
-<tr><td><code id="mcchildren_:_what">what</code></td>
+<tr><td><code id="what">what</code></td>
 <td>
 <p>For <code>sendChildStdin</code>:<br />
 Character or raw vector.  In the former case elements are
@@ -76,12 +76,12 @@ Data to send to the master process.  If <code>what</code> is not
 a raw vector, it will be serialized into a raw vector.  Do NOT
 send an empty raw vector &ndash; that is reserved for internal use.</p>
 </td></tr>
-<tr><td><code id="mcchildren_:_process">process</code></td>
+<tr><td><code id="process">process</code></td>
 <td>
 <p>process (object of the class <code>process</code>) or a
 process ID (pid)</p>
 </td></tr>
-<tr><td><code id="mcchildren_:_signal">signal</code></td>
+<tr><td><code id="signal">signal</code></td>
 <td>
 <p>integer: signal to send.  Values of 2 (SIGINT), 9
 (SIGKILL) and 15 (SIGTERM) are pretty much portable, but for maximal
@@ -168,6 +168,7 @@ mccollect(p)[[1]]
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.3/00index.html'>Package <em>parallel</em> version 2.15.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.3/00index.html'>Package <em>parallel</em> version 2.15.3</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/findLineNum.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/findLineNum.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/findLineNum.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/findLineNum.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>findLineNum {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='findLineNum'>
+<h2>
 Find the Location of a Line of Source Code, or Set a Breakpoint There
 </h2>
 
@@ -41,49 +41,49 @@ setBreakpoint(srcfile, line, nameonly = TRUE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="findLineNum_:_srcfile">srcfile</code></td>
+<table role = "presentation">
+<tr><td><code id="srcfile">srcfile</code></td>
 <td>
 <p>The name of the file containing the source code.</p>
 </td></tr>
-<tr><td><code id="findLineNum_:_line">line</code></td>
+<tr><td><code id="line">line</code></td>
 <td>
 <p>The line number within the file.  See Details for an
 alternate way to specify this.</p>
 </td></tr>
-<tr><td><code id="findLineNum_:_nameonly">nameonly</code></td>
+<tr><td><code id="nameonly">nameonly</code></td>
 <td>
 <p>If <code>TRUE</code> (the default), we require only a match
 to <code>basename(srcfile)</code>, not to the full path.</p>
 </td></tr>
-<tr><td><code id="findLineNum_:_envir">envir</code></td>
+<tr><td><code id="envir">envir</code></td>
 <td>
 <p>Where do we start looking for function objects?</p>
 </td></tr>
-<tr><td><code id="findLineNum_:_lastenv">lastenv</code></td>
+<tr><td><code id="lastenv">lastenv</code></td>
 <td>
 <p>Where do we stop?  See the Details.</p>
 </td></tr>
-<tr><td><code id="findLineNum_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>Should we print information on where breakpoints were set?</p>
 </td></tr>
-<tr><td><code id="findLineNum_:_tracer">tracer</code></td>
+<tr><td><code id="tracer">tracer</code></td>
 <td>
 <p>An optional <code>tracer</code> function to pass to
 <code>trace</code>.  By default, a call to <code>browser</code>
 is inserted.</p>
 </td></tr>
-<tr><td><code id="findLineNum_:_print">print</code></td>
+<tr><td><code id="print">print</code></td>
 <td>
 <p>The <code>print</code> argument to pass to <code>trace</code>.</p>
 </td></tr>
-<tr><td><code id="findLineNum_:_clear">clear</code></td>
+<tr><td><code id="clear">clear</code></td>
 <td>
 <p>If <code>TRUE</code>, call <code>untrace</code> rather than
 <code>trace</code>.</p>
 </td></tr>
-<tr><td><code id="findLineNum_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Additional arguments to pass to <code>trace</code>.</p>
 </td></tr>
@@ -175,6 +175,7 @@ setBreakpoint("mysource.R#100", envir = myfunction)
 ## End(Not run)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.4/00index.html'>Package <em>utils</em> version 4.0.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.4/00index.html'>Package <em>utils</em> version 4.0.4</a> ]</div></main>
+
 </div>
 </body></html>

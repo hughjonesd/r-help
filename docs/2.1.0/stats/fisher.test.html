@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/fisher.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/fisher.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/fisher.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/fisher.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>fisher.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='fisher.test'>Fisher's Exact Test for Count Data</h2>
+<h2>Fisher's Exact Test for Count Data</h2>
 
 <h3>Description</h3>
 
@@ -35,49 +35,49 @@ rows and columns in a contingency table with fixed marginals.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="fisher.test_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>either a two-dimensional contingency table in matrix form,
 or a factor object.</p>
 </td></tr>
-<tr><td><code id="fisher.test_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>a factor object; ignored if <code>x</code> is a matrix.</p>
 </td></tr>
-<tr><td><code id="fisher.test_:_workspace">workspace</code></td>
+<tr><td><code id="workspace">workspace</code></td>
 <td>
 <p>an integer specifying the size of the workspace
 used in the network algorithm.</p>
 </td></tr>
-<tr><td><code id="fisher.test_:_hybrid">hybrid</code></td>
+<tr><td><code id="hybrid">hybrid</code></td>
 <td>
 <p>a logical indicating whether the exact probabilities
 (default) or a hybrid approximation thereof should be computed.
 In the hybrid case, asymptotic chi-squared probabilities are only
 used provided that the &ldquo;Cochran&rdquo; conditions are satisfied.</p>
 </td></tr>
-<tr><td><code id="fisher.test_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>a list with named components for low level algorithm control.</p>
 </td></tr>
-<tr><td><code id="fisher.test_:_or">or</code></td>
+<tr><td><code id="or">or</code></td>
 <td>
 <p>the hypothesized odds ratio.  Only used in the 2 by 2 case.</p>
 </td></tr>
-<tr><td><code id="fisher.test_:_alternative">alternative</code></td>
+<tr><td><code id="alternative">alternative</code></td>
 <td>
 <p>indicates the alternative hypothesis and must be
 one of <code>"two.sided"</code>, <code>"greater"</code> or <code>"less"</code>.
 You can specify just the initial letter.  Only used in the 2 by
 2 case.</p>
 </td></tr>
-<tr><td><code id="fisher.test_:_conf.int">conf.int</code></td>
+<tr><td><code id="conf.int">conf.int</code></td>
 <td>
 <p>logical indicating if a confidence interval should be
 computed (and returned).</p>
 </td></tr>
-<tr><td><code id="fisher.test_:_conf.level">conf.level</code></td>
+<tr><td><code id="conf.level">conf.level</code></td>
 <td>
 <p>confidence level for the returned confidence
 interval.  Only used in the 2 by 2 case.</p>
@@ -114,7 +114,7 @@ odds ratio (Fisher, 1935).
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>p.value</code></td>
 <td>
 <p>the p-value of the test.</p>
@@ -220,6 +220,7 @@ fisher.test(Convictions, conf.level = 0.95)$conf.int
 fisher.test(Convictions, conf.level = 0.99)$conf.int
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.1.0/00index.html'>Package <em>stats</em> version 2.1.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.1.0/00index.html'>Package <em>stats</em> version 2.1.0</a> ]</div></main>
+
 </div>
 </body></html>

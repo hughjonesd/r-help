@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setOldClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setOldClass.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setOldClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setOldClass.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>setOldClass {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='setOldClass'>Register Old-Style (S3) Classes and Inheritance</h2>
+<h2>Register Old-Style (S3) Classes and Inheritance</h2>
 
 <h3>Description</h3>
 
@@ -47,8 +47,8 @@ equivalent S4 class can be specified by <code>S4Class=</code> in the call to
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="setOldClass_:_Classes">Classes</code></td>
+<table role = "presentation">
+<tr><td><code id="Classes">Classes</code></td>
 <td>
 
 <p>A character vector, giving the names for S3
@@ -60,7 +60,7 @@ can be specified, if the S3 class is known to require its data to
 be of that form.
 </p>
 </td></tr>
-<tr><td><code id="setOldClass_:_S4Class">S4Class</code></td>
+<tr><td><code id="S4Class">S4Class</code></td>
 <td>
 <p> optionally, the class definition or the class name
 of an S4 class.  The new class will have all the slots and other
@@ -69,7 +69,7 @@ multiple names in the <code>Classes</code> argument.  See the section
 on &ldquo;S3 classes with known attributes&rdquo; below.
 </p>
 </td></tr>
-<tr><td><code id="setOldClass_:_prototype">prototype</code>, <code id="setOldClass_:_where">where</code>, <code id="setOldClass_:_test">test</code></td>
+<tr><td><code id="prototype">prototype</code>, <code id="where">where</code>, <code id="test">test</code></td>
 <td>
 <p><em>These arguments are currently
 allowed, but not recommended in typical applications.</em>
@@ -257,6 +257,7 @@ setOldClass("ts", S4Class = "ts", where = envir)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.4/00index.html'>Package <em>methods</em> version 4.0.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.4/00index.html'>Package <em>methods</em> version 4.0.4</a> ]</div></main>
+
 </div>
 </body></html>

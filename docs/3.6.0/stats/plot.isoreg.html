@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.isoreg.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.isoreg.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.isoreg.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.isoreg.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>plot.isoreg {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='plot.isoreg'>Plot Method for isoreg Objects</h2>
+<h2>Plot Method for isoreg Objects</h2>
 
 <h3>Description</h3>
 
@@ -45,62 +45,61 @@ lines(x, col = "red", lwd = 1.5,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="plot.isoreg_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an <code>isoreg</code> object.</p>
 </td></tr>
-<tr><td><code id="plot.isoreg_:_plot.type">plot.type</code></td>
+<tr><td><code id="plot.type">plot.type</code></td>
 <td>
 <p>character indicating which type of plot is desired.
 The first (default) only draws the data and the fit, where the
 others add a plot of the cumulative data and fit.  Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="plot.isoreg_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>main title of plot, see <code>title</code>.</p>
 </td></tr>
-<tr><td><code id="plot.isoreg_:_main2">main2</code></td>
+<tr><td><code id="main2">main2</code></td>
 <td>
 <p>title for second (cumulative) plot.</p>
 </td></tr>
-<tr><td><code id="plot.isoreg_:_xlab">xlab</code>, <code id="plot.isoreg_:_ylab">ylab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>x- and y- axis annotation.</p>
 </td></tr>
-<tr><td><code id="plot.isoreg_:_par.fit">par.fit</code></td>
+<tr><td><code id="par.fit">par.fit</code></td>
 <td>
 <p>a <code>list</code> of arguments (for
 <code>points</code> and <code>lines</code>) for drawing the fit.</p>
 </td></tr>
-<tr><td><code id="plot.isoreg_:_mar">mar</code>, <code id="plot.isoreg_:_mgp">mgp</code></td>
+<tr><td><code id="mar">mar</code>, <code id="mgp">mgp</code></td>
 <td>
 <p>graphical parameters, see <code>par</code>, mainly
 for the case of two plots.</p>
 </td></tr>
-<tr><td><code id="plot.isoreg_:_grid">grid</code></td>
+<tr><td><code id="grid">grid</code></td>
 <td>
 <p>logical indicating if grid lines should be drawn.  If
 true, <code>grid()</code> is used for the first plot, where as
 vertical lines are drawn at &lsquo;touching&rsquo; points for the
 cumulative plot.</p>
 </td></tr>
-<tr><td><code id="plot.isoreg_:_do.points">do.points</code></td>
+<tr><td><code id="do.points">do.points</code></td>
 <td>
 <p>for <code>lines()</code>: logical indicating if the step
 points should be drawn as well (and as they are drawn in <code>plot()</code>).</p>
 </td></tr>
-<tr><td><code id="plot.isoreg_:_col">col</code>, <code id="plot.isoreg_:_lwd">lwd</code>, <code id="plot.isoreg_:_cex">cex</code>, <code id="plot.isoreg_:_pch">pch</code></td>
+<tr><td><code id="col">col</code>, <code id="lwd">lwd</code>, <code id="cex">cex</code>, <code id="pch">pch</code></td>
 <td>
 <p>graphical arguments for <code>lines()</code>,
 where <code>cex</code> and <code>pch</code> are only used when <code>do.points</code>
 is <code>TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="plot.isoreg_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to and from methods.</p>
 </td></tr>
-
 </table>
 
 
@@ -133,6 +132,7 @@ plot(ir &lt;- isoreg(sample(10), sample(10, replace = TRUE)),
                   plot.type = "r")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>stats</em> version 3.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>stats</em> version 3.6.0</a> ]</div></main>
+
 </div>
 </body></html>

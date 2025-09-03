@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/SSweibull.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/SSweibull.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/SSweibull.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/SSweibull.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>SSweibull {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='SSweibull'>Weibull growth curve model</h2>
+<h2>Weibull growth curve model</h2>
 
 <h3>Description</h3>
 
@@ -35,27 +35,27 @@ will evaluate initial estimates of the parameters <code>Asym</code>, <code>Drop<
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="SSweibull_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector of values at which to evaluate the model.</p>
 </td></tr>
-<tr><td><code id="SSweibull_:_Asym">Asym</code></td>
+<tr><td><code id="Asym">Asym</code></td>
 <td>
 <p>a numeric parameter representing the horizontal asymptote on
 the right side (very small values of <code>x</code>).</p>
 </td></tr>
-<tr><td><code id="SSweibull_:_Drop">Drop</code></td>
+<tr><td><code id="Drop">Drop</code></td>
 <td>
 <p>a numeric parameter representing the change from
 <code>Asym</code> to the <code>y</code> intercept.</p>
 </td></tr>
-<tr><td><code id="SSweibull_:_lrc">lrc</code></td>
+<tr><td><code id="lrc">lrc</code></td>
 <td>
 <p>a numeric parameter representing the natural logarithm of
 the rate constant.</p>
 </td></tr>
-<tr><td><code id="SSweibull_:_pwr">pwr</code></td>
+<tr><td><code id="pwr">pwr</code></td>
 <td>
 <p>a numeric parameter representing the power to which <code>x</code>
 is raised.</p>
@@ -111,6 +111,7 @@ fm1 &lt;- nls(weight ~ SSweibull(Time, Asym, Drop, lrc, pwr), data = Chick.6)
 summary(fm1)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

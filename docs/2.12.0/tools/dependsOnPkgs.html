@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/dependsOnPkgs.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/dependsOnPkgs.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/dependsOnPkgs.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/dependsOnPkgs.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>dependsOnPkgs {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='dependsOnPkgs'>Find Reverse Dependencies</h2>
+<h2>Find Reverse Dependencies</h2>
 
 <h3>Description</h3>
 
@@ -35,28 +35,28 @@ which depend on this one, and (optionally) so on recursively.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="dependsOnPkgs_:_pkgs">pkgs</code></td>
+<table role = "presentation">
+<tr><td><code id="pkgs">pkgs</code></td>
 <td>
 <p>a character vector of package names.</p>
 </td></tr>
-<tr><td><code id="dependsOnPkgs_:_dependencies">dependencies</code></td>
+<tr><td><code id="dependencies">dependencies</code></td>
 <td>
 <p>a character vector listing the types of
 dependencies, a subset of <code>c("Depends", "Imports", "LinkingTo",
       "Suggests", "Enhances")</code>.</p>
 </td></tr>
-<tr><td><code id="dependsOnPkgs_:_recursive">recursive</code></td>
+<tr><td><code id="recursive">recursive</code></td>
 <td>
 <p>logical: should reverse dependencies of reverse
 dependencies (and so on) be included?</p>
 </td></tr>
-<tr><td><code id="dependsOnPkgs_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector of <span class="rlang"><b>R</b></span> library trees, or <code>NULL</code>
 for all known trees (see <code>.libPaths</code>).</p>
 </td></tr>
-<tr><td><code id="dependsOnPkgs_:_installed">installed</code></td>
+<tr><td><code id="installed">installed</code></td>
 <td>
 <p>a result of calling <code>installed.packages</code>.</p>
 </td></tr>
@@ -76,6 +76,7 @@ for all known trees (see <code>.libPaths</code>).</p>
 dependsOnPkgs("lattice")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>tools</em> version 2.12.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>tools</em> version 2.12.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/convolve.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/convolve.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/convolve.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/convolve.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>convolve {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='convolve'>Convolution of Sequences via FFT</h2>
+<h2>Convolution of Sequences via FFT</h2>
 
 <h3>Description</h3>
 
@@ -33,18 +33,18 @@ convolutions of two sequences.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="convolve_:_x">x</code>, <code id="convolve_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>numeric sequences <em>of the same length</em> to be
 convolved.</p>
 </td></tr>
-<tr><td><code id="convolve_:_conj">conj</code></td>
+<tr><td><code id="conj">conj</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, take the complex <em>conjugate</em>
 before back-transforming (default, and used for usual convolution).</p>
 </td></tr>
-<tr><td><code id="convolve_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>character; partially matched to <code>"circular"</code>, <code>"open"</code>,
 <code>"filter"</code>.  For <code>"circular"</code>, the
@@ -127,6 +127,7 @@ lines(x[-c(1  , n)      ], Han(y), col = "red")
 lines(x[-c(1:2, (n-1):n)], Han(Han(y)), lwd = 2, col = "dark blue")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.3/00index.html'>Package <em>stats</em> version 4.0.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.3/00index.html'>Package <em>stats</em> version 4.0.3</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/KalmanLike.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/KalmanLike.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/KalmanLike.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/KalmanLike.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>KalmanLike {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='KalmanLike'>Kalman Filtering</h2>
+<h2>Kalman Filtering</h2>
 
 <h3>Description</h3>
 
@@ -37,42 +37,42 @@ makeARIMA(phi, theta, Delta, kappa = 1e6)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="KalmanLike_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="y">y</code></td>
 <td>
 <p>a univariate time series.</p>
 </td></tr>
-<tr><td><code id="KalmanLike_:_mod">mod</code></td>
+<tr><td><code id="mod">mod</code></td>
 <td>
 <p>A list describing the state-space model: see Details.</p>
 </td></tr>
-<tr><td><code id="KalmanLike_:_nit">nit</code></td>
+<tr><td><code id="nit">nit</code></td>
 <td>
 <p>The time at which the initialization is computed.
 <code>nit = 0</code> implies that the initialization is for a one-step
 prediction, so <code>Pn</code> should not be computed at the first step.</p>
 </td></tr>
-<tr><td><code id="KalmanLike_:_n.ahead">n.ahead</code></td>
+<tr><td><code id="n.ahead">n.ahead</code></td>
 <td>
 <p>The number of steps ahead for which prediction is
 required.</p>
 </td></tr>
-<tr><td><code id="KalmanLike_:_phi">phi</code>, <code id="KalmanLike_:_theta">theta</code></td>
+<tr><td><code id="phi">phi</code>, <code id="theta">theta</code></td>
 <td>
 <p>numeric vectors of length <code class="reqn">\ge 0</code> giving AR
 and MA parameters.</p>
 </td></tr>
-<tr><td><code id="KalmanLike_:_Delta">Delta</code></td>
+<tr><td><code id="Delta">Delta</code></td>
 <td>
 <p>vector of differencing coefficients, so an ARMA model is
 fitted to <code>y[t] - Delta[1]*y[t-1] - ...</code>.</p>
 </td></tr>
-<tr><td><code id="KalmanLike_:_kappa">kappa</code></td>
+<tr><td><code id="kappa">kappa</code></td>
 <td>
 <p>the prior variance (as a multiple of the innovations
 variance) for the past observations in a differenced model.</p>
 </td></tr>
-<tr><td><code id="KalmanLike_:_fast">fast</code></td>
+<tr><td><code id="fast">fast</code></td>
 <td>
 <p>If <code>TRUE</code> the <code>mod</code> object may be modified.</p>
 </td></tr>
@@ -146,6 +146,7 @@ State Space Methods.</em>  Oxford University Press.
 <p><code>arima</code>, <code>StructTS</code>. <code>tsSmooth</code>.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.2.1/00index.html'>Package <em>stats</em> version 2.2.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.2.1/00index.html'>Package <em>stats</em> version 2.2.1</a> ]</div></main>
+
 </div>
 </body></html>

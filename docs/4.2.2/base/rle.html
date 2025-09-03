@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rle.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rle.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rle.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rle.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>rle {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='rle'>Run Length Encoding</h2>
+<h2>Run Length Encoding</h2>
 
 <h3>Description</h3>
 
@@ -37,22 +37,22 @@ print(x, digits = getOption("digits"), prefix = "", ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="rle_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector (atomic, not a list) for <code>rle()</code>;
 an object of class <code>"rle"</code> for <code>inverse.rle()</code>.</p>
 </td></tr>
-<tr><td><code id="rle_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments; ignored here.</p>
 </td></tr>
-<tr><td><code id="rle_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>number of significant digits for printing, see
 <code>print.default</code>.</p>
 </td></tr>
-<tr><td><code id="rle_:_prefix">prefix</code></td>
+<tr><td><code id="prefix">prefix</code></td>
 <td>
 <p>character string, prepended to each printed line.</p>
 </td></tr>
@@ -76,7 +76,7 @@ reconstructing <code>x</code> from the runs.
 <p><code>rle()</code> returns an object of class <code>"rle"</code> which is a list
 with components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>lengths</code></td>
 <td>
 <p>an integer vector containing the length of each run.</p>
@@ -109,6 +109,7 @@ stopifnot(x == inverse.rle(rle(x)),
           z == inverse.rle(rle(z)))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>base</em> version 4.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>base</em> version 4.2.2</a> ]</div></main>
+
 </div>
 </body></html>

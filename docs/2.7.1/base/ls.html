@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ls.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ls.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ls.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ls.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ls {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ls'>List Objects</h2>
+<h2>List Objects</h2>
 
 <h3>Description</h3>
 
@@ -41,8 +41,8 @@ objects(name, pos= -1, envir = as.environment(pos),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ls_:_name">name</code></td>
+<table role = "presentation">
+<tr><td><code id="name">name</code></td>
 <td>
 <p>which environment to use in listing the available objects.
 Defaults to the <em>current</em>
@@ -50,24 +50,24 @@ environment.  Although called <code>name</code> for back compatibility, in
 fact this argument can specify the environment in any form; see the
 details section.</p>
 </td></tr>
-<tr><td><code id="ls_:_pos">pos</code></td>
+<tr><td><code id="pos">pos</code></td>
 <td>
 <p>an alternative argument to <code>name</code> for specifying the
 environment as a position in the search list.  Mostly there for
 back compatibility.</p>
 </td></tr>
-<tr><td><code id="ls_:_envir">envir</code></td>
+<tr><td><code id="envir">envir</code></td>
 <td>
 <p>an alternative argument to <code>name</code> for specifying the
 environment evaluation environment. Mostly there for back compatibility.</p>
 </td></tr>
-<tr><td><code id="ls_:_all.names">all.names</code></td>
+<tr><td><code id="all.names">all.names</code></td>
 <td>
 <p>a logical value.  If <code>TRUE</code>, all
 object names are returned.  If <code>FALSE</code>, names which begin with a
 &lsquo;<span class="samp">&#8288;.&#8288;</span>&rsquo; are omitted.</p>
 </td></tr>
-<tr><td><code id="ls_:_pattern">pattern</code></td>
+<tr><td><code id="pattern">pattern</code></td>
 <td>
 <p>an optional regular expression.  Only names
 matching <code>pattern</code> are returned.  <code>glob2rx</code> can be
@@ -132,6 +132,7 @@ myfunc &lt;- function() {y &lt;- 1; ls()}
 myfunc()                # shows "y"
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.7.1/00index.html'>Package <em>base</em> version 2.7.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.7.1/00index.html'>Package <em>base</em> version 2.7.1</a> ]</div></main>
+
 </div>
 </body></html>

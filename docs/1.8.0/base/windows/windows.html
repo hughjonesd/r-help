@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/windows.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/windows.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/windows.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/windows.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>windows {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='windows'>Windows graphics devices</h2>
+<h2>Windows graphics devices</h2>
 
 <h3>Description</h3>
 
@@ -46,8 +46,8 @@ win.print(width = 7, height = 7, pointsize = 12, printer = "")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="windows_:_filename">filename</code></td>
+<table role = "presentation">
+<tr><td><code id="filename">filename</code></td>
 <td>
 <p>the name of the output file: it will be an enhanced
 Windows metafile, usually given extension <code>.emf</code> or
@@ -57,39 +57,39 @@ in the character string. (The result must be less than 600
 characters long.)
 </p>
 </td></tr>
-<tr><td><code id="windows_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>the (nominal) width of the plotting window in inches.</p>
 </td></tr>
-<tr><td><code id="windows_:_height">height</code></td>
+<tr><td><code id="height">height</code></td>
 <td>
 <p>the (nominal) height of the plotting window in inches.</p>
 </td></tr>
-<tr><td><code id="windows_:_pointsize">pointsize</code></td>
+<tr><td><code id="pointsize">pointsize</code></td>
 <td>
 <p>the default pointsize of plotted text. The allowed
 range is <code>[6, 48]</code>: values outside that range are reset to 12.</p>
 </td></tr>
-<tr><td><code id="windows_:_record">record</code></td>
+<tr><td><code id="record">record</code></td>
 <td>
 <p>logical: sets the initial state of the flag for
 recording plots.</p>
 </td></tr>
-<tr><td><code id="windows_:_rescale">rescale</code></td>
+<tr><td><code id="rescale">rescale</code></td>
 <td>
 <p>controls the action for resizing plots.</p>
 </td></tr>
-<tr><td><code id="windows_:_xpinch">xpinch</code>, <code id="windows_:_ypinch">ypinch</code></td>
+<tr><td><code id="xpinch">xpinch</code>, <code id="ypinch">ypinch</code></td>
 <td>
 <p>double.  Pixels per inch, horizontally and
 vertically.</p>
 </td></tr>
-<tr><td><code id="windows_:_canvas">canvas</code></td>
+<tr><td><code id="canvas">canvas</code></td>
 <td>
 <p>color.  The color of the canvas which is visible
 when the background color is transparent.</p>
 </td></tr>
-<tr><td><code id="windows_:_gamma">gamma</code></td>
+<tr><td><code id="gamma">gamma</code></td>
 <td>
 <p>the gamma correction factor.  This value is used
 to ensure that the colors displayed are linearly related to
@@ -97,7 +97,7 @@ RGB values. By default this is taken from
 <code>options("gamma"</code>, or is 1 (no correction) if that is
 unset.  It sets <code>par("gamma")</code> for the device.</p>
 </td></tr>
-<tr><td><code id="windows_:_xpos">xpos</code>, <code id="windows_:_ypos">ypos</code></td>
+<tr><td><code id="xpos">xpos</code>, <code id="ypos">ypos</code></td>
 <td>
 <p>integer.  Position of the top left of the window, in
 pixels.  Negative values are taken from the opposite edge of the
@@ -106,11 +106,11 @@ monitor.  Missing values meant take the default from the
 <code>xpos=-25, ypos=0</code>: this puts the right edge of the windows 25
 pixels from the right edge of the monitor.</p>
 </td></tr>
-<tr><td><code id="windows_:_buffered">buffered</code></td>
+<tr><td><code id="buffered">buffered</code></td>
 <td>
 <p>logical.  Should the screen output be double-buffered?</p>
 </td></tr>
-<tr><td><code id="windows_:_printer">printer</code></td>
+<tr><td><code id="printer">printer</code></td>
 <td>
 <p>The name of a printer as known to Windows. The default
 causes a dialog box to come for the user to choose a printer.</p>
@@ -206,6 +206,7 @@ win.metafile("Rplot%02d.wmf", pointsize = 10)
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.8.0/00index.html'>Package <em>base</em> version 1.8.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.8.0/00index.html'>Package <em>base</em> version 1.8.0</a> ]</div></main>
+
 </div>
 </body></html>

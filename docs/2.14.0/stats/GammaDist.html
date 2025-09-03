@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/GammaDist.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/GammaDist.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/GammaDist.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/GammaDist.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>GammaDist {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='GammaDist'>The Gamma Distribution</h2>
+<h2>The Gamma Distribution</h2>
 
 <h3>Description</h3>
 
@@ -39,35 +39,35 @@ rgamma(n, shape, rate = 1, scale = 1/rate)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="GammaDist_:_x">x</code>, <code id="GammaDist_:_q">q</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="q">q</code></td>
 <td>
 <p>vector of quantiles.</p>
 </td></tr>
-<tr><td><code id="GammaDist_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>vector of probabilities.</p>
 </td></tr>
-<tr><td><code id="GammaDist_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>number of observations. If <code>length(n) &gt; 1</code>, the length
 is taken to be the number required.</p>
 </td></tr>
-<tr><td><code id="GammaDist_:_rate">rate</code></td>
+<tr><td><code id="rate">rate</code></td>
 <td>
 <p>an alternative way to specify the scale.</p>
 </td></tr>
-<tr><td><code id="GammaDist_:_shape">shape</code>, <code id="GammaDist_:_scale">scale</code></td>
+<tr><td><code id="shape">shape</code>, <code id="scale">scale</code></td>
 <td>
 <p>shape and scale parameters.  Must be positive,
 <code>scale</code> strictly.</p>
 </td></tr>
-<tr><td><code id="GammaDist_:_log">log</code>, <code id="GammaDist_:_log.p">log.p</code></td>
+<tr><td><code id="log">log</code>, <code id="log.p">log.p</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, probabilities/densities <code class="reqn">p</code>
 are returned as <code class="reqn">log(p)</code>.</p>
 </td></tr>
-<tr><td><code id="GammaDist_:_lower.tail">lower.tail</code></td>
+<tr><td><code id="lower.tail">lower.tail</code></td>
 <td>
 <p>logical; if TRUE (default), probabilities are
 <code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
@@ -215,6 +215,7 @@ pgamma(5e-324, 0.001)  # on most machines 5e-324 is the smallest
 table(rgamma(1e4, 0.001) == 0)/1e4
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.14.0/00index.html'>Package <em>stats</em> version 2.14.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.14.0/00index.html'>Package <em>stats</em> version 2.14.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.default.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.default.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.default.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.default.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>plot.default {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='plot.default'>The Default Scatterplot Function</h2>
+<h2>The Default Scatterplot Function</h2>
 
 <h3>Description</h3>
 
@@ -39,15 +39,15 @@ plot(x, y = NULL, type = "p",  xlim = NULL, ylim = NULL,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="plot.default_:_x">x</code>, <code id="plot.default_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>the <code>x</code> and <code>y</code> arguments provide the x and y
 coordinates for the plot.  Any reasonable way of defining the
 coordinates is acceptable.  See the function <code>xy.coords</code>
 for details.  If supplied separately, they must be of the same length.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>1-character string giving the type of plot desired.  The
 following values are possible, for details, see <code>plot</code>:
@@ -59,7 +59,7 @@ following values are possible, for details, see <code>plot</code>:
 <code>"h"</code> for histogram-like vertical lines.  Finally,
 <code>"n"</code> does not produce any points or lines.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_xlim">xlim</code></td>
+<tr><td><code id="xlim">xlim</code></td>
 <td>
 <p>the x limits (x1, x2) of the plot.  Note that <code>x1 &gt; x2</code>
 is allowed and leads to a &lsquo;reversed axis&rsquo;.
@@ -67,49 +67,49 @@ is allowed and leads to a &lsquo;reversed axis&rsquo;.
 <p>The default value, <code>NULL</code>, indicates that the range of the
 finite values to be plotted should be used.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_ylim">ylim</code></td>
+<tr><td><code id="ylim">ylim</code></td>
 <td>
 <p>the y limits of the plot.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_log">log</code></td>
+<tr><td><code id="log">log</code></td>
 <td>
 <p>a character string which contains <code>"x"</code> if the x axis
 is to be logarithmic, <code>"y"</code> if the y axis is to be logarithmic
 and <code>"xy"</code> or <code>"yx"</code> if both axes are to be logarithmic.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>a main title for the plot, see also <code>title</code>.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_sub">sub</code></td>
+<tr><td><code id="sub">sub</code></td>
 <td>
 <p>a subtitle for the plot.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_xlab">xlab</code></td>
+<tr><td><code id="xlab">xlab</code></td>
 <td>
 <p>a label for the x axis, defaults to a description of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_ylab">ylab</code></td>
+<tr><td><code id="ylab">ylab</code></td>
 <td>
 <p>a label for the y axis, defaults to a description of <code>y</code>.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_ann">ann</code></td>
+<tr><td><code id="ann">ann</code></td>
 <td>
 <p>a logical value indicating whether the default annotation
 (title and x and y axis labels) should appear on the plot.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_axes">axes</code></td>
+<tr><td><code id="axes">axes</code></td>
 <td>
 <p>a logical value indicating whether both axes should be drawn on
 the plot.  Use graphical parameter <code>"xaxt"</code> or <code>"yaxt"</code>
 to suppress just one of the axes.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_frame.plot">frame.plot</code></td>
+<tr><td><code id="frame.plot">frame.plot</code></td>
 <td>
 <p>a logical indicating whether a box should be drawn
 around the plot.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_panel.first">panel.first</code></td>
+<tr><td><code id="panel.first">panel.first</code></td>
 <td>
 <p>an &lsquo;expression&rsquo; to be evaluated after the
 plot axes are set up but before any plotting takes place.  This can
@@ -118,23 +118,23 @@ that this works by lazy evaluation: passing this argument from other
 <code>plot</code> methods may well not work since it may be evaluated too
 early.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_panel.last">panel.last</code></td>
+<tr><td><code id="panel.last">panel.last</code></td>
 <td>
 <p>an expression to be evaluated after plotting has
 taken place but before the axes, title and box are added.  See the
 comments about <code>panel.first</code>.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_asp">asp</code></td>
+<tr><td><code id="asp">asp</code></td>
 <td>
 <p>the <code class="reqn">y/x</code> aspect ratio, see <code>plot.window</code>.</p>
 </td></tr>
-<tr><td><code id="plot.default_:_xgap.axis">xgap.axis</code>, <code id="plot.default_:_ygap.axis">ygap.axis</code></td>
+<tr><td><code id="xgap.axis">xgap.axis</code>, <code id="ygap.axis">ygap.axis</code></td>
 <td>
 <p>the <code class="reqn">x/y</code> axis gap factors, passed as
 <code>gap.axis</code> to the two <code>axis()</code> calls (when
 <code>axes</code> is true, as per default).</p>
 </td></tr>
-<tr><td><code id="plot.default_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>other graphical parameters (see <code>par</code> and
 section &lsquo;Details&rsquo; below).</p>
@@ -260,6 +260,7 @@ axis(2, at = at.y, col.axis = "red", las = 1,
 par(op)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.3/00index.html'>Package <em>graphics</em> version 4.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.3/00index.html'>Package <em>graphics</em> version 4.2.3</a> ]</div></main>
+
 </div>
 </body></html>

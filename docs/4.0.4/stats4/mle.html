@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>mle {stats4}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='mle'>Maximum Likelihood Estimation</h2>
+<h2>Maximum Likelihood Estimation</h2>
 
 <h3>Description</h3>
 
@@ -35,39 +35,39 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="mle_:_minuslogl">minuslogl</code></td>
+<table role = "presentation">
+<tr><td><code id="minuslogl">minuslogl</code></td>
 <td>
 <p>Function to calculate negative log-likelihood.</p>
 </td></tr>
-<tr><td><code id="mle_:_start">start</code></td>
+<tr><td><code id="start">start</code></td>
 <td>
 <p>Named list of vectors or single vector. Initial values
 for optimizer. By default taken from the default arguments of <code>minuslogl</code></p>
 </td></tr>
-<tr><td><code id="mle_:_optim">optim</code></td>
+<tr><td><code id="optim">optim</code></td>
 <td>
 <p>Optimizer function. (Experimental)</p>
 </td></tr>
-<tr><td><code id="mle_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>Optimization method to use. See <code>optim</code>.</p>
 </td></tr>
-<tr><td><code id="mle_:_fixed">fixed</code></td>
+<tr><td><code id="fixed">fixed</code></td>
 <td>
 <p>Named list of vectors or single vector.  Parameter values to keep fixed during
 optimization.</p>
 </td></tr>
-<tr><td><code id="mle_:_nobs">nobs</code></td>
+<tr><td><code id="nobs">nobs</code></td>
 <td>
 <p>optional integer: the number of observations, to be used for
 e.g. computing <code>BIC</code>.</p>
 </td></tr>
-<tr><td><code id="mle_:_lower">lower</code>, <code id="mle_:_upper">upper</code></td>
+<tr><td><code id="lower">lower</code>, <code id="upper">upper</code></td>
 <td>
 <p>Named lists of vectors or single vectors. Bounds for <code>optim</code>, if relevant.</p>
 </td></tr>
-<tr><td><code id="mle_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further arguments to pass to <code>optim</code>.</p>
 </td></tr>
@@ -244,6 +244,7 @@ mle(mll, lower = 1e-16, upper = 1-1e-16, optim=optimx::optimr)
 options(od)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.4/00index.html'>Package <em>stats4</em> version 4.0.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.4/00index.html'>Package <em>stats4</em> version 4.0.4</a> ]</div></main>
+
 </div>
 </body></html>

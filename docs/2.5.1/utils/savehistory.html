@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/savehistory.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/savehistory.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/savehistory.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/savehistory.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>savehistory {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='savehistory'>Load or Save or Display the Commands History</h2>
+<h2>Load or Save or Display the Commands History</h2>
 
 <h3>Description</h3>
 
@@ -39,46 +39,46 @@ timestamp(stamp = date(),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="savehistory_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>The name of the file in which to save the history, or
 from which to load it. The path is relative to the current
 working directory.</p>
 </td></tr>
-<tr><td><code id="savehistory_:_max.show">max.show</code></td>
+<tr><td><code id="max.show">max.show</code></td>
 <td>
 <p>The maximum number of lines to show. <code>Inf</code> will
 give all of the currently available history.</p>
 </td></tr>
-<tr><td><code id="savehistory_:_reverse">reverse</code></td>
+<tr><td><code id="reverse">reverse</code></td>
 <td>
 <p>logical. If true, the lines are shown in reverse
 order. Note: this is not useful when there are continuation lines.</p>
 </td></tr>
-<tr><td><code id="savehistory_:_pattern">pattern</code></td>
+<tr><td><code id="pattern">pattern</code></td>
 <td>
 <p>A character string to be matched against the lines of
 the history</p>
 </td></tr>
-<tr><td><code id="savehistory_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Arguments to be passed to <code>grep</code> when doing
 the matching.</p>
 </td></tr>
-<tr><td><code id="savehistory_:_stamp">stamp</code></td>
+<tr><td><code id="stamp">stamp</code></td>
 <td>
 <p>A value or vector of values to be written into the history.</p>
 </td></tr>
-<tr><td><code id="savehistory_:_prefix">prefix</code></td>
+<tr><td><code id="prefix">prefix</code></td>
 <td>
 <p>A prefix to apply to each line.</p>
 </td></tr>
-<tr><td><code id="savehistory_:_suffix">suffix</code></td>
+<tr><td><code id="suffix">suffix</code></td>
 <td>
 <p>A suffix to apply to each line.</p>
 </td></tr>
-<tr><td><code id="savehistory_:_quiet">quiet</code></td>
+<tr><td><code id="quiet">quiet</code></td>
 <td>
 <p>If <code>TRUE</code>, suppress printing timestamp to the console.</p>
 </td></tr>
@@ -90,7 +90,8 @@ the matching.</p>
 <p>There are several history mechanisms available for the different <span class="rlang"><b>R</b></span>
 consoles, which work in similar but not identical ways.  Other uses of
 <span class="rlang"><b>R</b></span>, in particular embedded uses, may have no history.
-This works under the <code>readline</code> and GNOME and MacOS X consoles,
+</p>
+<p>This works under the <code>readline</code> and GNOME and MacOS X consoles,
 but not otherwise (for example, in batch use or in an embedded application).
 </p>
 <p>The <code>readline</code> history mechanism is controlled by two environment
@@ -130,6 +131,7 @@ call to <code>savehistory()</code> in <code>.Last</code>.  See the examples.
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.5.1/00index.html'>Package <em>utils</em> version 2.5.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.5.1/00index.html'>Package <em>utils</em> version 2.5.1</a> ]</div></main>
+
 </div>
 </body></html>

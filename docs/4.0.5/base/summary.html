@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/summary.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/summary.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/summary.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/summary.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>summary {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='summary'>Object Summaries</h2>
+<h2>Object Summaries</h2>
 
 <h3>Description</h3>
 
@@ -52,21 +52,21 @@ print(x, digits = max(3L, getOption("digits") - 3L), ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="summary_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an object for which a summary is desired.</p>
 </td></tr>
-<tr><td><code id="summary_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a result of the <em>default</em> method of <code>summary()</code>.</p>
 </td></tr>
-<tr><td><code id="summary_:_maxsum">maxsum</code></td>
+<tr><td><code id="maxsum">maxsum</code></td>
 <td>
 <p>integer, indicating how many levels should be shown for
 <code>factor</code>s.</p>
 </td></tr>
-<tr><td><code id="summary_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>integer, used for number formatting with
 <code>signif()</code> (for <code>summary.default</code>) or
@@ -76,12 +76,12 @@ print(x, digits = max(3L, getOption("digits") - 3L), ...)
 anymore (since <span class="rlang"><b>R</b></span> &gt;= 3.4.0, where the default has been changed to
 only round in the <code>print</code> and <code>format</code> methods).</p>
 </td></tr>
-<tr><td><code id="summary_:_quantile.type">quantile.type</code></td>
+<tr><td><code id="quantile.type">quantile.type</code></td>
 <td>
 <p>integer code used in <code>quantile(*, type=quantile.type)</code>
 for the default method.</p>
 </td></tr>
-<tr><td><code id="summary_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional arguments affecting the summary produced.</p>
 </td></tr>
@@ -145,6 +145,7 @@ summary(lst)
 summary(as.factor(lst))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>base</em> version 4.0.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>base</em> version 4.0.5</a> ]</div></main>
+
 </div>
 </body></html>

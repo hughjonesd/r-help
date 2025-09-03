@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/scan.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/scan.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/scan.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/scan.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>scan {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='scan'>Read Data Values</h2>
+<h2>Read Data Values</h2>
 
 <h3>Description</h3>
 
@@ -38,8 +38,8 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="scan_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>the name of a file to read data values from.  If the
 specified file is <code>""</code>, then input is taken from the keyboard
@@ -73,7 +73,7 @@ Latin-1 file in a UTF-8 locale or conversely) use a
 (or <code>scan</code>'s <code>fileEncoding</code> argument).
 </p>
 </td></tr>
-<tr><td><code id="scan_:_what">what</code></td>
+<tr><td><code id="what">what</code></td>
 <td>
 <p>the type of <code>what</code> gives the type of data to
 be read.  (Here &lsquo;type&rsquo; is used in the sense of
@@ -85,7 +85,7 @@ assumed that the lines of the data file are records each containing
 should have elements which are one of the first six (atomic)
 types listed or <code>NULL</code>, see section &lsquo;Details&rsquo; below.</p>
 </td></tr>
-<tr><td><code id="scan_:_nmax">nmax</code></td>
+<tr><td><code id="nmax">nmax</code></td>
 <td>
 <p>the maximum number of data values to be read, or if
 <code>what</code> is a list, the maximum number of records to be read.  If
@@ -93,12 +93,12 @@ omitted or not positive or an invalid value for an integer
 (and <code>nlines</code> is not set to a positive value), <code>scan</code> will
 read to the end of <code>file</code>.</p>
 </td></tr>
-<tr><td><code id="scan_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>integer: the maximum number of data values to be read, defaulting to
 no limit.  Invalid values will be ignored.</p>
 </td></tr>
-<tr><td><code id="scan_:_sep">sep</code></td>
+<tr><td><code id="sep">sep</code></td>
 <td>
 <p>by default, scan expects to read &lsquo;white-space&rsquo;
 delimited input fields.  Alternatively, <code>sep</code> can be used to
@@ -110,29 +110,29 @@ or <code>NULL</code> or a character string containing just one single-byte
 character.
 </p>
 </td></tr>
-<tr><td><code id="scan_:_quote">quote</code></td>
+<tr><td><code id="quote">quote</code></td>
 <td>
 <p>the set of quoting characters as a single character
 string or <code>NULL</code>.  In a multibyte locale the quoting characters
 must be ASCII (single-byte).</p>
 </td></tr>
-<tr><td><code id="scan_:_dec">dec</code></td>
+<tr><td><code id="dec">dec</code></td>
 <td>
 <p>decimal point character.  This should be a character string
 containing just one single-byte character.  (<code>NULL</code> and a
 zero-length character vector are also accepted, and taken as the
 default.)</p>
 </td></tr>
-<tr><td><code id="scan_:_skip">skip</code></td>
+<tr><td><code id="skip">skip</code></td>
 <td>
 <p>the number of  lines of the input file to skip before
 beginning to read data values.</p>
 </td></tr>
-<tr><td><code id="scan_:_nlines">nlines</code></td>
+<tr><td><code id="nlines">nlines</code></td>
 <td>
 <p>if positive, the maximum number of lines of data to be read.</p>
 </td></tr>
-<tr><td><code id="scan_:_na.strings">na.strings</code></td>
+<tr><td><code id="na.strings">na.strings</code></td>
 <td>
 <p>character vector.  Elements of this vector are to be
 interpreted as missing (<code>NA</code>) values.  Blank fields are
@@ -141,20 +141,20 @@ and complex fields.  Note that the test happens <em>after</em>
 white space is stripped from the input, so <code>na.strings</code> values 
 may need their own white space stripped in advance.</p>
 </td></tr>
-<tr><td><code id="scan_:_flush">flush</code></td>
+<tr><td><code id="flush">flush</code></td>
 <td>
 <p>logical: if <code>TRUE</code>, <code>scan</code> will flush to the
 end of the line after reading the last of the fields requested.
 This allows putting comments after the last field, but precludes
 putting more that one record on a line.</p>
 </td></tr>
-<tr><td><code id="scan_:_fill">fill</code></td>
+<tr><td><code id="fill">fill</code></td>
 <td>
 <p>logical: if <code>TRUE</code>, <code>scan</code> will implicitly add
 empty fields to any lines with fewer fields than implied by
 <code>what</code>.</p>
 </td></tr>
-<tr><td><code id="scan_:_strip.white">strip.white</code></td>
+<tr><td><code id="strip.white">strip.white</code></td>
 <td>
 <p>vector of logical value(s) corresponding to items
 in the <code>what</code> argument.  It is used only when <code>sep</code> has
@@ -170,30 +170,30 @@ then the leading and trailing unquoted white space from field <code>i</code> is
 stripped.
 </p>
 </td></tr>
-<tr><td><code id="scan_:_quiet">quiet</code></td>
+<tr><td><code id="quiet">quiet</code></td>
 <td>
 <p>logical: if <code>FALSE</code> (default), scan() will print a
 line, saying how many items have been read.</p>
 </td></tr>
-<tr><td><code id="scan_:_blank.lines.skip">blank.lines.skip</code></td>
+<tr><td><code id="blank.lines.skip">blank.lines.skip</code></td>
 <td>
 <p>logical: if <code>TRUE</code> blank lines in the
 input are ignored, except when counting <code>skip</code> and <code>nlines</code>.</p>
 </td></tr>
-<tr><td><code id="scan_:_multi.line">multi.line</code></td>
+<tr><td><code id="multi.line">multi.line</code></td>
 <td>
 <p>logical.  Only used if <code>what</code> is a list.  If
 <code>FALSE</code>, all of a record must appear on one line (but more than
 one record can appear on a single line).  Note that using <code>fill = TRUE</code>
 implies that a record will be terminated at the end of a line.</p>
 </td></tr>
-<tr><td><code id="scan_:_comment.char">comment.char</code></td>
+<tr><td><code id="comment.char">comment.char</code></td>
 <td>
 <p>character: a character vector of length one
 containing a single character or an empty string.  Use <code>""</code> to
 turn off the interpretation of comments altogether (the default).</p>
 </td></tr>
-<tr><td><code id="scan_:_allowEscapes">allowEscapes</code></td>
+<tr><td><code id="allowEscapes">allowEscapes</code></td>
 <td>
 <p>logical.  Should C-style escapes such as
 &lsquo;<span class="samp">&#8288;\n&#8288;</span>&rsquo; be processed (the default) or read verbatim?   Note that if
@@ -208,7 +208,7 @@ Note that Unicode escapes (starting &lsquo;<span class="samp">&#8288;\u&#8288;</
 Quotes) are never processed.
 </p>
 </td></tr>
-<tr><td><code id="scan_:_fileEncoding">fileEncoding</code></td>
+<tr><td><code id="fileEncoding">fileEncoding</code></td>
 <td>
 <p>character string: if non-empty declares the
 encoding used on a file (not a connection nor the keyboard) so the
@@ -217,7 +217,7 @@ of the help for <code>file</code>, and the &lsquo;R Data
 Import/Export Manual&rsquo;.
 </p>
 </td></tr>
-<tr><td><code id="scan_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>encoding to be assumed for input strings.  If the
 value is <code>"latin1"</code> or <code>"UTF-8"</code> it is used to mark
@@ -226,13 +226,13 @@ to re-encode the input (see <code>fileEncoding</code>).
 See also &lsquo;Details&rsquo;.
 </p>
 </td></tr>
-<tr><td><code id="scan_:_text">text</code></td>
+<tr><td><code id="text">text</code></td>
 <td>
 <p>character string: if <code>file</code> is not supplied and this is,
 then data are read from the value of <code>text</code> via a text connection.
 </p>
 </td></tr>
-<tr><td><code id="scan_:_skipNul">skipNul</code></td>
+<tr><td><code id="skipNul">skipNul</code></td>
 <td>
 <p>logical: should nuls be skipped when reading character
 fields?</p>
@@ -390,6 +390,7 @@ scan(text = "1 2 3")
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.3/00index.html'>Package <em>base</em> version 4.1.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.3/00index.html'>Package <em>base</em> version 4.1.3</a> ]</div></main>
+
 </div>
 </body></html>

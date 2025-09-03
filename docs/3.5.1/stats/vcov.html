@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/vcov.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/vcov.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/vcov.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/vcov.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>vcov {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='vcov'>Calculate Variance-Covariance Matrix for a Fitted Model Object</h2>
+<h2>Calculate Variance-Covariance Matrix for a Fitted Model Object</h2>
 
 <h3>Description</h3>
 
@@ -42,15 +42,15 @@ vcov(object, complete = FALSE, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="vcov_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 
 <p>a fitted model object, typically.  Sometimes also a
 <code>summary()</code> object of such a fitted model.
 </p>
 </td></tr>
-<tr><td><code id="vcov_:_complete">complete</code></td>
+<tr><td><code id="complete">complete</code></td>
 <td>
 <p>for the <code>aov</code>, <code>lm</code>, <code>glm</code>, <code>mlm</code>, and where
 applicable <code>summary.lm</code> etc methods: logical indicating if the
@@ -60,7 +60,7 @@ an over-determined system where some coefficients are undefined and
 <code>complete = TRUE</code>,  <code>vcov()</code> is compatible with
 <code>coef()</code> also in this singular case.</p>
 </td></tr>
-<tr><td><code id="vcov_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 
 <p>additional arguments for method functions.  For the
@@ -68,12 +68,12 @@ an over-determined system where some coefficients are undefined and
 <code>dispersion</code> parameter.</p>
 </td></tr>
 
-<tr><td><code id="vcov_:_aliased">aliased</code></td>
+<tr><td><code id="aliased">aliased</code></td>
 <td>
 <p>a <code>logical</code> vector typically identical to
 <code>is.na(coef(.))</code> indicating which coefficients are &lsquo;aliased&rsquo;.</p>
 </td></tr>
-<tr><td><code id="vcov_:_vc">vc</code></td>
+<tr><td><code id="vc">vc</code></td>
 <td>
 <p>a variance-covariance matrix, typically &ldquo;incomplete&rdquo;,
 i.e., with no rows and columns for aliased coefficients.</p>
@@ -123,6 +123,7 @@ columns of <code>NA</code>s, wherever <code>coef()</code> has always
 contained such <code>NA</code>s.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>stats</em> version 3.5.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>stats</em> version 3.5.1</a> ]</div></main>
+
 </div>
 </body></html>

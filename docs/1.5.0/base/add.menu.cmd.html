@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/add.menu.cmd.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/add.menu.cmd.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/add.menu.cmd.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/add.menu.cmd.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>add.menu.cmd {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='add.menu.cmd'>Adds a user menu item to the User's menu</h2>
+<h2>Adds a user menu item to the User's menu</h2>
 
 <h3>Description</h3>
 
@@ -37,8 +37,8 @@ can be added to the User's menu.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="add.menu.cmd_:_label">label</code></td>
+<table role = "presentation">
+<tr><td><code id="label">label</code></td>
 <td>
 <p>the string characterizing the menu entry in the User's menu.
 If the User's menu does not exist, the <span class="rlang"><b>R</b></span> will create it first and then
@@ -46,7 +46,7 @@ add the menu item. If an item with the same label is already present
 in the User's menu, then <span class="rlang"><b>R</b></span> simply substitute the command associated to
 it.</p>
 </td></tr>
-<tr><td><code id="add.menu.cmd_:_command">command</code></td>
+<tr><td><code id="command">command</code></td>
 <td>
 <p>is a string containing an <span class="rlang"><b>R</b></span> command. If the this argument
 is not passed to the routine, then <span class="rlang"><b>R</b></span> cannot add the menu item. This
@@ -71,6 +71,7 @@ a correct <span class="rlang"><b>R</b></span> command. See the example below.</p
 add.menu.cmd("Show tests dir","dir(\":tests\")")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.5.0/00index.html'>Package <em>base</em> version 1.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.5.0/00index.html'>Package <em>base</em> version 1.5.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/postscript.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/postscript.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/postscript.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/postscript.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>postscript {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='postscript'>PostScript Graphics</h2>
+<h2>PostScript Graphics</h2>
 
 <h3>Description</h3>
 
@@ -31,40 +31,37 @@ default values for the arguments to <code>postscript</code>.
 <h3>Usage</h3>
 
 <pre><code class='language-R'>postscript(file = "Rplots.ps", ...)
-
 ps.options(..., reset = FALSE, override.check = FALSE)
-
-
 .PostScript.Options
 </code></pre>
 
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="postscript_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>a character string giving the name of the file to print to.</p>
 </td></tr>
-<tr><td><code id="postscript_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further options for <code>postscript()</code>.</p>
 </td></tr>
-<tr><td><code id="postscript_:_paper">paper</code></td>
+<tr><td><code id="paper">paper</code></td>
 <td>
 <p>the size of paper in the printer.  The choices are
 <code>"a4"</code>, <code>"letter"</code>, <code>"legal"</code> and <code>"executive"</code>.</p>
 </td></tr>
-<tr><td><code id="postscript_:_horizontal">horizontal</code></td>
+<tr><td><code id="horizontal">horizontal</code></td>
 <td>
 <p>the orientation of the printed image, a logical.</p>
 </td></tr>
-<tr><td><code id="postscript_:_width">width</code>, <code id="postscript_:_height">height</code></td>
+<tr><td><code id="width">width</code>, <code id="height">height</code></td>
 <td>
 <p>the width, and height of the graphics region in inches.
 The default is to use the entire page.</p>
 </td></tr>
-<tr><td><code id="postscript_:_family">family</code></td>
+<tr><td><code id="family">family</code></td>
 <td>
 <p>the font family to be used.
 This must be one of <code>"AvantGarde"</code>,
@@ -72,19 +69,19 @@ This must be one of <code>"AvantGarde"</code>,
 <code>"Helvetica-Narrow"</code>, <code>"NewCenturySchoolbook"</code>,
 <code>"Palatino"</code> or <code>"Times"</code>.</p>
 </td></tr>
-<tr><td><code id="postscript_:_pointsize">pointsize</code></td>
+<tr><td><code id="pointsize">pointsize</code></td>
 <td>
 <p>the default point size to be used.</p>
 </td></tr>
-<tr><td><code id="postscript_:_bg">bg</code></td>
+<tr><td><code id="bg">bg</code></td>
 <td>
 <p>the default background color to be used.</p>
 </td></tr>
-<tr><td><code id="postscript_:_fg">fg</code></td>
+<tr><td><code id="fg">fg</code></td>
 <td>
 <p>the default foreground color to be used.</p>
 </td></tr>
-<tr><td><code id="postscript_:_onefile">onefile</code>, <code id="postscript_:_print.it">print.it</code>, <code id="postscript_:_append">append</code></td>
+<tr><td><code id="onefile">onefile</code>, <code id="print.it">print.it</code>, <code id="append">append</code></td>
 <td>
 <p>logical; are currently <b>all
 disregarded</b>; just there for compatibility reasons.</p>
@@ -134,6 +131,7 @@ ps.options(width=0:12, onefile=0, bg=pi)
 str(ps.options(width=0:12, onefile=1, bg=pi, override.check = c(F,T,F)))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.64.2/00index.html'>Package <em>base</em> version 0.64.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.64.2/00index.html'>Package <em>base</em> version 0.64.2</a> ]</div></main>
+
 </div>
 </body></html>

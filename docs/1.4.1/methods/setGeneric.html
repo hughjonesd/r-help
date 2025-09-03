@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>setGeneric {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='setGeneric'>Define a New Generic Function</h2>
+<h2>Define a New Generic Function</h2>
 
 <h3>Description</h3>
 
@@ -35,8 +35,8 @@ setGroupGeneric(name, def, group=NULL, valueClass=NULL, knownMembers, where=1)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="setGeneric_:_name">name</code></td>
+<table role = "presentation">
+<tr><td><code id="name">name</code></td>
 <td>
 <p> The character string name of the generic function.  In
 the simplest and most common case, a function of this name is
@@ -44,7 +44,7 @@ already defined.  The existing function may be non-generic or
 already a generic (see the details).
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_def">def</code></td>
+<tr><td><code id="def">def</code></td>
 <td>
 <p> An optional function object, defining the generic.  This
 argument is usually only needed (and is then required) if there is
@@ -53,7 +53,7 @@ and default values for the generic are taken from <code>def</code>.  See
 also argument <code>useAsDefault</code>.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_group">group</code></td>
+<tr><td><code id="group">group</code></td>
 <td>
 <p> Optionally, a character string giving the group of
 generic functions to which this function belongs.  Methods can be
@@ -63,7 +63,7 @@ been explicitly defined for the corresponding signature.  See the
 references for more discussion.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_valueClass">valueClass</code></td>
+<tr><td><code id="valueClass">valueClass</code></td>
 <td>
 <p> An optional character string defining the class to
 asserted to be given to the value returned by this generic
@@ -72,14 +72,14 @@ function. By default, the generic function can return any object.
 enforced or checked.)
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p> Where to store the resulting initial methods definition,
 and possibly the generic function; by
 default, stored into the global environment.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_doAssign">doAssign</code></td>
+<tr><td><code id="doAssign">doAssign</code></td>
 <td>
 <p> Should a new generic version of the function be
 assigned?  The default action depends on whether a generic version
@@ -96,7 +96,7 @@ generics for primitives cannot be overriden by setting
 <code>doAssign</code> to <code>TRUE</code>.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_knownMembers">knownMembers</code></td>
+<tr><td><code id="knownMembers">knownMembers</code></td>
 <td>
 
 <p>(For <code>setGroupGeneric</code> only)  The names of functions that are known to be
@@ -170,6 +170,7 @@ for further details and examples.
 specify and manipulate the methods of generic functions.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.4.1/00index.html'>Package <em>methods</em> version 1.4.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.4.1/00index.html'>Package <em>methods</em> version 1.4.1</a> ]</div></main>
+
 </div>
 </body></html>

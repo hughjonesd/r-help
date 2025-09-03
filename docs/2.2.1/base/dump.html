@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dump.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dump.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dump.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dump.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>dump {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='dump'>Text Representations of R Objects</h2>
+<h2>Text Representations of R Objects</h2>
 
 <h3>Description</h3>
 
@@ -36,32 +36,32 @@ A <code>dump</code> file can usually be <code>source</code>d into another
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="dump_:_list">list</code></td>
+<table role = "presentation">
+<tr><td><code id="list">list</code></td>
 <td>
 <p>character. The names of one or more <span class="rlang"><b>R</b></span> objects to be dumped.</p>
 </td></tr>
-<tr><td><code id="dump_:_file">file</code></td>
+<tr><td><code id="file">file</code></td>
 <td>
 <p>either a character string naming a file or a
 connection.  <code>""</code> indicates output to the console.</p>
 </td></tr>
-<tr><td><code id="dump_:_append">append</code></td>
+<tr><td><code id="append">append</code></td>
 <td>
 <p>if <code>TRUE</code>, output will be appended to
 <code>file</code>; otherwise, it will overwrite the contents of
 <code>file</code>.</p>
 </td></tr>
-<tr><td><code id="dump_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>character vector indicating deparsing options.
 See <code>.deparseOpts</code> for their description.</p>
 </td></tr>
-<tr><td><code id="dump_:_envir">envir</code></td>
+<tr><td><code id="envir">envir</code></td>
 <td>
 <p>the environment to search for objects.</p>
 </td></tr>
-<tr><td><code id="dump_:_evaluate">evaluate</code></td>
+<tr><td><code id="evaluate">evaluate</code></td>
 <td>
 <p>logical.  Should promises be evaluated?</p>
 </td></tr>
@@ -152,6 +152,7 @@ print(.Last.value)
 unlink("xyz.Rdmped")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.2.1/00index.html'>Package <em>base</em> version 2.2.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.2.1/00index.html'>Package <em>base</em> version 2.2.1</a> ]</div></main>
+
 </div>
 </body></html>

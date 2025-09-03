@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/clusterApply.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/clusterApply.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/clusterApply.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/clusterApply.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>clusterApply {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='clusterApply'>Apply Operations using Clusters</h2>
+<h2>Apply Operations using Clusters</h2>
 
 <h3>Description</h3>
 
@@ -52,73 +52,73 @@ parSapplyLB(cl = NULL, X, FUN, ..., simplify = TRUE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="clusterApply_:_cl">cl</code></td>
+<table role = "presentation">
+<tr><td><code id="cl">cl</code></td>
 <td>
 <p>a cluster object, created by this package or by package
 <a href="https://CRAN.R-project.org/package=snow"><span class="pkg">snow</span></a>.  If <code>NULL</code>, use the registered default cluster.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_fun">fun</code>, <code id="clusterApply_:_FUN">FUN</code></td>
+<tr><td><code id="fun">fun</code>, <code id="FUN">FUN</code></td>
 <td>
 <p>function or character string naming a function.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_expr">expr</code></td>
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p>expression to evaluate.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_seq">seq</code></td>
+<tr><td><code id="seq">seq</code></td>
 <td>
 <p>vector to split.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_varlist">varlist</code></td>
+<tr><td><code id="varlist">varlist</code></td>
 <td>
 <p>character vector of names of objects to export.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_envir">envir</code></td>
+<tr><td><code id="envir">envir</code></td>
 <td>
 <p>environment from which t export variables</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector for <code>clusterApply</code> and <code>clusterApplyLB</code>, a
 matrix for <code>parRapply</code> and <code>parCapply</code>.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional arguments to pass to <code>fun</code> or <code>FUN</code>:
 beware of partial matching to earlier arguments.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_MoreArgs">MoreArgs</code></td>
+<tr><td><code id="MoreArgs">MoreArgs</code></td>
 <td>
 <p>additional arguments for <code>fun</code>.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_RECYCLE">RECYCLE</code></td>
+<tr><td><code id="RECYCLE">RECYCLE</code></td>
 <td>
 <p>logical; if true shorter arguments are recycled.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_X">X</code></td>
+<tr><td><code id="X">X</code></td>
 <td>
 <p>A vector (atomic or list) for <code>parLapply</code> and
 <code>parSapply</code>, an array for <code>parApply</code>.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_chunk.size">chunk.size</code></td>
+<tr><td><code id="chunk.size">chunk.size</code></td>
 <td>
 <p>scalar number; number of invocations of <code>fun</code> or
 <code>FUN</code> in one chunk; a chunk is a unit for scheduling.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_MARGIN">MARGIN</code></td>
+<tr><td><code id="MARGIN">MARGIN</code></td>
 <td>
 <p>vector specifying the dimensions to use.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_simplify">simplify</code>, <code id="clusterApply_:_USE.NAMES">USE.NAMES</code></td>
+<tr><td><code id="simplify">simplify</code>, <code id="USE.NAMES">USE.NAMES</code></td>
 <td>
 <p>logical; see <code>sapply</code>.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_SIMPLIFY">SIMPLIFY</code></td>
+<tr><td><code id="SIMPLIFY">SIMPLIFY</code></td>
 <td>
 <p>logical; see <code>mapply</code>.</p>
 </td></tr>
-<tr><td><code id="clusterApply_:_.scheduling">.scheduling</code></td>
+<tr><td><code id=".scheduling">.scheduling</code></td>
 <td>
 <p>should tasks be statically allocated to nodes or
 dynamic load-balancing used?</p>
@@ -296,6 +296,7 @@ boot.ci(cd4.boot,  type = c("norm", "basic", "perc"),
 stopCluster(cl)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.2/00index.html'>Package <em>parallel</em> version 3.5.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.2/00index.html'>Package <em>parallel</em> version 3.5.2</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/stop.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/stop.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/stop.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/stop.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>stop {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='stop'>Stop Function Execution</h2>
+<h2>Stop Function Execution</h2>
 
 <h3>Description</h3>
 
@@ -36,19 +36,19 @@ geterrmessage()
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="stop_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="...">...</code></td>
 <td>
 <p>zero or more objects which can be coerced to character
 (and which are pasted together with no separator) or a single
 condition object.</p>
 </td></tr>
-<tr><td><code id="stop_:_call.">call.</code></td>
+<tr><td><code id="call.">call.</code></td>
 <td>
 <p>logical, indicating if the call should become part of the
 error message.</p>
 </td></tr>
-<tr><td><code id="stop_:_domain">domain</code></td>
+<tr><td><code id="domain">domain</code></td>
 <td>
 <p>see <code>gettext</code>.  If <code>NA</code>, messages will
 not be translated.</p>
@@ -127,6 +127,7 @@ tst2 &lt;- function(...) stop("dummy error", call. = FALSE)
 try(tst2(1:10, longcalling, expression, but.not.seen.in.Error))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.5/00index.html'>Package <em>base</em> version 3.2.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.5/00index.html'>Package <em>base</em> version 3.2.5</a> ]</div></main>
+
 </div>
 </body></html>

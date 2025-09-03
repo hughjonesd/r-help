@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/numericDeriv.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/numericDeriv.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/numericDeriv.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/numericDeriv.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>numericDeriv {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='numericDeriv'>Evaluate Derivatives Numerically</h2>
+<h2>Evaluate Derivatives Numerically</h2>
 
 <h3>Description</h3>
 
@@ -33,35 +33,35 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="numericDeriv_:_expr">expr</code></td>
+<table role = "presentation">
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p><code>expression</code> or <code>call</code> to be
 differentiated.  Should evaluate to a <code>numeric</code> vector.</p>
 </td></tr>
-<tr><td><code id="numericDeriv_:_theta">theta</code></td>
+<tr><td><code id="theta">theta</code></td>
 <td>
 <p><code>character</code> vector of names of numeric variables
 used in <code>expr</code>.</p>
 </td></tr>
-<tr><td><code id="numericDeriv_:_rho">rho</code></td>
+<tr><td><code id="rho">rho</code></td>
 <td>
 <p><code>environment</code> containing all the variables needed to
 evaluate <code>expr</code>.</p>
 </td></tr>
-<tr><td><code id="numericDeriv_:_dir">dir</code></td>
+<tr><td><code id="dir">dir</code></td>
 <td>
 <p>numeric vector of directions, typically with values in
 <code>-1, 1</code> to use for the finite differences;
 will be recycled to the length of <code>theta</code>.</p>
 </td></tr>
-<tr><td><code id="numericDeriv_:_eps">eps</code></td>
+<tr><td><code id="eps">eps</code></td>
 <td>
 <p>a positive number, to be used as unit step size <code class="reqn">h</code> for
 the approximate numerical derivative <code class="reqn"> (f(x+h)-f(x))/h </code> or the
 central version, see <code>central</code>.</p>
 </td></tr>
-<tr><td><code id="numericDeriv_:_central">central</code></td>
+<tr><td><code id="central">central</code></td>
 <td>
 <p>logical indicating if <em>central</em> divided differences
 should be computed, i.e., <code class="reqn"> (f(x+h) - f(x-h)) / 2h </code>.  These are
@@ -119,6 +119,7 @@ all.equal(attr(nD,"gradient"),
 ## IGNORE_RDIFF_END
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.3/00index.html'>Package <em>stats</em> version 4.1.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.3/00index.html'>Package <em>stats</em> version 4.1.3</a> ]</div></main>
+
 </div>
 </body></html>

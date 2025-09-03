@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/GenericFunctions.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/GenericFunctions.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/GenericFunctions.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/GenericFunctions.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>GenericFunctions {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='GenericFunctions'>Tools for Managing Generic Functions</h2>
+<h2>Tools for Managing Generic Functions</h2>
 
 <h3>Description</h3>
 
@@ -61,18 +61,18 @@ callGeneric(...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="GenericFunctions_:_f">f</code></td>
+<table role = "presentation">
+<tr><td><code id="f">f</code></td>
 <td>
 <p> The character string naming the function. </p>
 </td></tr>
-<tr><td><code id="GenericFunctions_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p> Where on the search list of attached packages to look
 for functions or methods.  By default, use the whole search list to
 find the relevant object(s).  </p>
 </td></tr>
-<tr><td><code id="GenericFunctions_:_signature">signature</code></td>
+<tr><td><code id="signature">signature</code></td>
 <td>
 <p> The class signature of the relevant method.  A
 signature is a named or unnamed vector of character strings.  If
@@ -81,37 +81,37 @@ function.  If <code>signature</code> is unnamed, the default is to use
 the first <code>length(signature)</code> formal arguments of the
 function. </p>
 </td></tr>
-<tr><td><code id="GenericFunctions_:_file">file</code></td>
+<tr><td><code id="file">file</code></td>
 <td>
 <p> The file on which to dump method definitions. </p>
 </td></tr>
-<tr><td><code id="GenericFunctions_:_def">def</code></td>
+<tr><td><code id="def">def</code></td>
 <td>
 <p> The function object defining the method; if omitted, the
 current method definition corresponding to the signature. </p>
 </td></tr>
-<tr><td><code id="GenericFunctions_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Named or unnamed arguments to form a signature.</p>
 </td></tr>
-<tr><td><code id="GenericFunctions_:_generic">generic</code></td>
+<tr><td><code id="generic">generic</code></td>
 <td>
 <p>In testing or finding functions, should generic
 functions be included.  Supply as <code>FALSE</code> to get only
 non-generic functions.</p>
 </td></tr>
-<tr><td><code id="GenericFunctions_:_fdef">fdef</code></td>
+<tr><td><code id="fdef">fdef</code></td>
 <td>
 <p>Optional, the generic function definition.
 </p>
 <p>Usually omitted in calls to <code>isGeneric</code></p>
 </td></tr>
-<tr><td><code id="GenericFunctions_:_getName">getName</code></td>
+<tr><td><code id="getName">getName</code></td>
 <td>
 <p>If <code>TRUE</code>, <code>isGeneric</code> returns the name of
 the generic.  By default, it returns <code>TRUE</code>. </p>
 </td></tr>
-<tr><td><code id="GenericFunctions_:_methods">methods</code></td>
+<tr><td><code id="methods">methods</code></td>
 <td>
 
 <p>The methods object containing the methods to be dumped.  By default,
@@ -316,6 +316,7 @@ for further details and examples.
 
 <p><code>setGeneric</code>, <code>setClass</code>, <code>showMethods</code></p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.4.1/00index.html'>Package <em>methods</em> version 1.4.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.4.1/00index.html'>Package <em>methods</em> version 1.4.1</a> ]</div></main>
+
 </div>
 </body></html>

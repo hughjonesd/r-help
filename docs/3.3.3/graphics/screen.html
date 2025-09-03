@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/screen.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/screen.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/screen.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/screen.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>screen {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='screen'>Creating and Controlling Multiple Screens on a Single Device</h2>
+<h2>Creating and Controlling Multiple Screens on a Single Device</h2>
 
 <h3>Description</h3>
 
@@ -46,8 +46,8 @@ close.screen(n, all.screens = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="screen_:_figs">figs</code></td>
+<table role = "presentation">
+<tr><td><code id="figs">figs</code></td>
 <td>
 <p>A two-element vector describing the number of rows and the
 number of columns in a screen matrix <em>or</em> a matrix with 4 columns.
@@ -56,28 +56,28 @@ right, bottom, and top of the screen (in that order) in NDC units,
 that is 0 at the lower left corner of the device surface, and 1 at
 the upper right corner.</p>
 </td></tr>
-<tr><td><code id="screen_:_screen">screen</code></td>
+<tr><td><code id="screen">screen</code></td>
 <td>
 <p>A number giving the screen to be split.  It defaults to
 the current screen if there is one, otherwise the whole device region.</p>
 </td></tr>
-<tr><td><code id="screen_:_erase">erase</code></td>
+<tr><td><code id="erase">erase</code></td>
 <td>
 <p>logical: should be selected screen be cleared?</p>
 </td></tr>
-<tr><td><code id="screen_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>A number indicating which screen to prepare for drawing
 (<code>screen</code>), erase (<code>erase.screen</code>), or close
 (<code>close.screen</code>).  (<code>close.screen</code> will accept a vector of
 screen numbers.)</p>
 </td></tr>
-<tr><td><code id="screen_:_new">new</code></td>
+<tr><td><code id="new">new</code></td>
 <td>
 <p>A logical value indicating whether the screen should be
 erased as part of the preparation for drawing in the screen.</p>
 </td></tr>
-<tr><td><code id="screen_:_all.screens">all.screens</code></td>
+<tr><td><code id="all.screens">all.screens</code></td>
 <td>
 <p>A logical value indicating whether all of the
 screens should be closed.</p>
@@ -182,6 +182,7 @@ close.screen(all = TRUE)    # exit split-screen mode
 }
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.3/00index.html'>Package <em>graphics</em> version 3.3.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.3/00index.html'>Package <em>graphics</em> version 3.3.3</a> ]</div></main>
+
 </div>
 </body></html>

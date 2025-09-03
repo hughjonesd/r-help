@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/lqs/html/lqs.html'>https://stat.ethz.ch/R-manual/R-patched/library/lqs/html/lqs.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/lqs/html/lqs.html'>https://stat.ethz.ch/R-manual/R-patched/library/lqs/html/lqs.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>lqs {lqs}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='lqs'>
+<h2>
 Resistant Regression
 </h2>
 
@@ -44,22 +44,22 @@ ltsreg(...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="lqs_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula of the form <code>y ~ x1 + x2 + ...</code>.</p>
 </td></tr>
-<tr><td><code id="lqs_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>data frame from which variables specified in
 <code>formula</code> are preferentially to be taken.</p>
 </td></tr>
-<tr><td><code id="lqs_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an index vector specifying the cases to be used in
 fitting. (NOTE: If given, this argument must be named exactly.)</p>
 </td></tr>
-<tr><td><code id="lqs_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>function to specify the action to be taken if
 <code>NA</code>s are found.  The default action is for the procedure to
@@ -69,28 +69,28 @@ cases with missing values on any required variable.  (NOTE: If
 given, this argument must be named exactly.)
 </p>
 </td></tr>
-<tr><td><code id="lqs_:_model">model</code></td>
+<tr><td><code id="model">model</code></td>
 <td>
 <p>logical. If <code>TRUE</code> the model frame is returned.</p>
 </td></tr>
-<tr><td><code id="lqs_:_contrasts">contrasts</code></td>
+<tr><td><code id="contrasts">contrasts</code></td>
 <td>
 <p>an optional list.  See the <code>contrasts.arg</code>
 of <code>model.matrix.default</code>.</p>
 </td></tr>
-<tr><td><code id="lqs_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a matrix or data frame containing the explanatory variables.</p>
 </td></tr>
-<tr><td><code id="lqs_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>the response: a vector of length the number of rows of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="lqs_:_intercept">intercept</code></td>
+<tr><td><code id="intercept">intercept</code></td>
 <td>
 <p>should the model include an intercept?</p>
 </td></tr>
-<tr><td><code id="lqs_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 
 <p>the method to be used. <code>model.frame</code> returns the model frame: for the
@@ -98,31 +98,31 @@ others see the <code>Details</code> section. Using <code>lmsreg</code> or
 <code>ltsreg</code> forces <code>"lms"</code> and <code>"lts"</code> respectively.
 </p>
 </td></tr>
-<tr><td><code id="lqs_:_quantile">quantile</code></td>
+<tr><td><code id="quantile">quantile</code></td>
 <td>
 
 <p>the quantile to be used: see <code>Details</code>. This is over-ridden if
 <code>method = "lms"</code>.
 </p>
 </td></tr>
-<tr><td><code id="lqs_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>additional control items: see <code>Details</code>.</p>
 </td></tr>
-<tr><td><code id="lqs_:_k0">k0</code></td>
+<tr><td><code id="k0">k0</code></td>
 <td>
 <p>the cutoff / tuning constant used for <code class="reqn">\chi()</code>
 and <code class="reqn">\psi()</code> functions when <code>method = "S"</code>, currently
 corresponding to Tukey's &ldquo;biweight&rdquo;.</p>
 </td></tr>
-<tr><td><code id="lqs_:_seed">seed</code></td>
+<tr><td><code id="seed">seed</code></td>
 <td>
 
 <p>the seed to be used for random sampling: see <code>.Random.seed</code>. The
 current value of <code>.Random.seed</code> will be preserved if it is set..
 </p>
 </td></tr>
-<tr><td><code id="lqs_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments to be passed to <code>lqs.default</code> or
 <code>lqs.control</code>, see <code>control</code> above and <code>Details</code>.</p>
@@ -172,7 +172,7 @@ sample?  Defaults to <code>TRUE</code>.</p>
 
 <p>An object of class <code>"lqs"</code>.  This is a list with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>crit</code></td>
 <td>
 <p>the value of the criterion for the best solution found, in
@@ -274,6 +274,7 @@ lqs(stack.loss ~ ., data = stackloss)
 lqs(stack.loss ~ ., data = stackloss, method = "S", nsamp = "exact")
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rep.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rep.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rep.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rep.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>rep {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='rep'>Replicate Elements of Vectors and Lists</h2>
+<h2>Replicate Elements of Vectors and Lists</h2>
 
 <h3>Description</h3>
 
@@ -40,29 +40,29 @@ rep.int(x, times)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="rep_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector (of any mode including a list) or a pairlist or a
 <code>POSIXct</code> or <code>POSIXlt</code> object.</p>
 </td></tr>
-<tr><td><code id="rep_:_times">times</code></td>
+<tr><td><code id="times">times</code></td>
 <td>
 <p>non-negative integer.  A vector giving the number of
 times to repeat each element if of length <code>length(x)</code>, or to
 repeat the whole vector if of length 1.</p>
 </td></tr>
-<tr><td><code id="rep_:_length.out">length.out</code></td>
+<tr><td><code id="length.out">length.out</code></td>
 <td>
 <p>integer.  (Optional.)  The desired length of the
 output vector.</p>
 </td></tr>
-<tr><td><code id="rep_:_each">each</code></td>
+<tr><td><code id="each">each</code></td>
 <td>
 <p>optional integer. Each element of <code>x</code> is
 repeated <code>each</code> times.</p>
 </td></tr>
-<tr><td><code id="rep_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to be passed to or from other methods.</p>
 </td></tr>
@@ -146,6 +146,7 @@ rep(x, 2)
 rep(as.POSIXlt(x), rep(2, 3))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.8.1/00index.html'>Package <em>base</em> version 1.8.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.8.1/00index.html'>Package <em>base</em> version 1.8.1</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/package.skeleton.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/package.skeleton.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/package.skeleton.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/package.skeleton.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>package.skeleton {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='package.skeleton'>Create a Skeleton for a New Source Package</h2>
+<h2>Create a Skeleton for a New Source Package</h2>
 
 <h3>Description</h3>
 
@@ -38,39 +38,39 @@ appropriate places, and creates skeleton help files and a
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="package.skeleton_:_name">name</code></td>
+<table role = "presentation">
+<tr><td><code id="name">name</code></td>
 <td>
 <p>character string: the package name and directory name for your package.</p>
 </td></tr>
-<tr><td><code id="package.skeleton_:_list">list</code></td>
+<tr><td><code id="list">list</code></td>
 <td>
 <p>character vector naming the <span class="rlang"><b>R</b></span> objects to put in the
 package.  Usually, at most one of <code>list</code>,
 <code>environment</code>, or <code>code_files</code> will be supplied.  See details.</p>
 </td></tr>
-<tr><td><code id="package.skeleton_:_environment">environment</code></td>
+<tr><td><code id="environment">environment</code></td>
 <td>
 <p>an environment where objects are looked for.
 See details.</p>
 </td></tr>
-<tr><td><code id="package.skeleton_:_path">path</code></td>
+<tr><td><code id="path">path</code></td>
 <td>
 <p>path to put the package directory in.</p>
 </td></tr>
-<tr><td><code id="package.skeleton_:_force">force</code></td>
+<tr><td><code id="force">force</code></td>
 <td>
 <p>If <code>FALSE</code> will not overwrite an existing
 directory.</p>
 </td></tr>
-<tr><td><code id="package.skeleton_:_namespace">namespace</code></td>
+<tr><td><code id="namespace">namespace</code></td>
 <td>
 <p>a logical indicating whether to add a name space for
 the package.  If <code>TRUE</code>, a <code>NAMESPACE</code> file is created
 to export all objects whose names begin with a letter, plus all S4
 methods and classes.</p>
 </td></tr>
-<tr><td><code id="package.skeleton_:_code_files">code_files</code></td>
+<tr><td><code id="code_files">code_files</code></td>
 <td>
 <p>a character vector with the paths to R code files to
 build the package around.  See details.</p>
@@ -149,6 +149,7 @@ package.skeleton(list=c("f","g","d","e"), name="mypkg")
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.7.1/00index.html'>Package <em>utils</em> version 2.7.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.7.1/00index.html'>Package <em>utils</em> version 2.7.1</a> ]</div></main>
+
 </div>
 </body></html>

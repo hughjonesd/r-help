@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/demo.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/demo.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/demo.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/demo.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>demo {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='demo'>Demonstrations of R Functionality</h2>
+<h2>Demonstrations of R Functionality</h2>
 
 <h3>Description</h3>
 
@@ -36,8 +36,8 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="demo_:_topic">topic</code></td>
+<table role = "presentation">
+<tr><td><code id="topic">topic</code></td>
 <td>
 <p>the topic which should be demonstrated, given as a
 name or literal character string, or a character string,
@@ -45,34 +45,34 @@ depending on whether <code>character.only</code> is <code>FALSE</code> (default)
 or <code>TRUE</code>.  If omitted, the list of available topics is
 displayed.</p>
 </td></tr>
-<tr><td><code id="demo_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p>a character vector giving the packages to look into for
 demos, or <code>NULL</code>.  By default, all packages in the search path
 are used.</p>
 </td></tr>
-<tr><td><code id="demo_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  If the default is used, the loaded
 packages are searched before the libraries.</p>
 </td></tr>
-<tr><td><code id="demo_:_character.only">character.only</code></td>
+<tr><td><code id="character.only">character.only</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, use <code>topic</code> as
 character string.</p>
 </td></tr>
-<tr><td><code id="demo_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, additional diagnostics are
 printed.</p>
 </td></tr>
-<tr><td><code id="demo_:_echo">echo</code></td>
+<tr><td><code id="echo">echo</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, show the <span class="rlang"><b>R</b></span> input when sourcing.</p>
 </td></tr>
-<tr><td><code id="demo_:_ask">ask</code></td>
+<tr><td><code id="ask">ask</code></td>
 <td>
 <p>a logical (or <code>"default"</code>) indicating if
 <code>devAskNewPage(ask = TRUE)</code> should be called before
@@ -84,7 +84,7 @@ device and to any devices opened by the demo code.  If this is
 evaluated to <code>TRUE</code> and the session is interactive, the
 user is asked to press RETURN to start.</p>
 </td></tr>
-<tr><td><code id="demo_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>See <code>source</code>.  If the package has a
 declared encoding, that takes preference.</p>
@@ -132,6 +132,7 @@ demo(lm.glm, package = "stats", ask = FALSE)
 system.file("demo", "lm.glm.R", package = "stats")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.2/00index.html'>Package <em>utils</em> version 3.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.2/00index.html'>Package <em>utils</em> version 3.2.2</a> ]</div></main>
+
 </div>
 </body></html>

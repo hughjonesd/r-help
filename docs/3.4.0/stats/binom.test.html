@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/binom.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/binom.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/binom.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/binom.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>binom.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='binom.test'>Exact Binomial Test</h2>
+<h2>Exact Binomial Test</h2>
 
 <h3>Description</h3>
 
@@ -35,27 +35,27 @@ probability of success in a Bernoulli experiment.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="binom.test_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>number of successes, or a vector of length 2 giving the
 numbers of successes and failures, respectively.</p>
 </td></tr>
-<tr><td><code id="binom.test_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>number of trials; ignored if <code>x</code> has length 2.</p>
 </td></tr>
-<tr><td><code id="binom.test_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>hypothesized probability of success.</p>
 </td></tr>
-<tr><td><code id="binom.test_:_alternative">alternative</code></td>
+<tr><td><code id="alternative">alternative</code></td>
 <td>
 <p>indicates the alternative hypothesis and must be
 one of <code>"two.sided"</code>, <code>"greater"</code> or <code>"less"</code>.
 You can specify just the initial letter.</p>
 </td></tr>
-<tr><td><code id="binom.test_:_conf.level">conf.level</code></td>
+<tr><td><code id="conf.level">conf.level</code></td>
 <td>
 <p>confidence level for the returned confidence
 interval.</p>
@@ -76,7 +76,7 @@ shortest-length confidence intervals.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>the number of successes.</p>
@@ -159,6 +159,7 @@ binom.test(682, 682 + 243, p = 3/4)   # The same.
 ## =&gt; Data are in agreement with the null hypothesis.
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.4.0/00index.html'>Package <em>stats</em> version 3.4.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.4.0/00index.html'>Package <em>stats</em> version 3.4.0</a> ]</div></main>
+
 </div>
 </body></html>

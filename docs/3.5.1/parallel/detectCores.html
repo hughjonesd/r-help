@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/detectCores.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/detectCores.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/detectCores.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/detectCores.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>detectCores {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='detectCores'>Detect the Number of CPU Cores</h2>
+<h2>Detect the Number of CPU Cores</h2>
 
 <h3>Description</h3>
 
@@ -32,12 +32,12 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="detectCores_:_all.tests">all.tests</code></td>
+<table role = "presentation">
+<tr><td><code id="all.tests">all.tests</code></td>
 <td>
 <p>Logical: if true apply all known tests.</p>
 </td></tr>
-<tr><td><code id="detectCores_:_logical">logical</code></td>
+<tr><td><code id="logical">logical</code></td>
 <td>
 <p>Logical: if possible, use the number of physical CPUs/cores
 (if <code>FALSE</code>) or logical CPUs (if <code>TRUE</code>).  Currently this
@@ -68,7 +68,6 @@ cores or packages.
 the current power management mode&rsquo; and &lsquo;could be available
 this boot&rsquo;, and this function returns the first.
 </p>
-
 <p>On Sparc Solaris <code>logical = FALSE</code> returns the number of physical
 cores and <code>logical = TRUE</code> returns the number of available
 hardware threads. (Some Sparc CPUs have multiple cores per CPU, others
@@ -107,6 +106,7 @@ to try to use all the logical CPUs at once.
 detectCores(logical = FALSE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>parallel</em> version 3.5.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>parallel</em> version 3.5.1</a> ]</div></main>
+
 </div>
 </body></html>

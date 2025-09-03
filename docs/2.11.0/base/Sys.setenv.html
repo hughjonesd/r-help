@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.setenv.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.setenv.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.setenv.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.setenv.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Sys.setenv {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Sys.setenv'>Set or Unset Environment Variables</h2>
+<h2>Set or Unset Environment Variables</h2>
 
 <h3>Description</h3>
 
@@ -38,12 +38,12 @@ Sys.unsetenv(x)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Sys.setenv_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="...">...</code></td>
 <td>
 <p>named arguments with values coercible to a character string.</p>
 </td></tr>
-<tr><td><code id="Sys.setenv_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a character vector, or an object coercible to character.</p>
 </td></tr>
@@ -78,7 +78,8 @@ includes attempting to remove a non-existent variable.)
 
 <p>Not all systems need support <code>Sys.setenv</code> (although all known
 current platforms do) nor <code>Sys.unsetenv</code>.
-If <code>Sys.unsetenv</code> is not supported, it will at least try to
+</p>
+<p>If <code>Sys.unsetenv</code> is not supported, it will at least try to
 set the value of the environment variable to <code>""</code>, with a 
 warning.
 </p>
@@ -104,6 +105,7 @@ Sys.unsetenv("R_TEST")  # may warn and not succeed
 Sys.getenv("R_TEST", unset=NA)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.11.0/00index.html'>Package <em>base</em> version 2.11.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.11.0/00index.html'>Package <em>base</em> version 2.11.0</a> ]</div></main>
+
 </div>
 </body></html>

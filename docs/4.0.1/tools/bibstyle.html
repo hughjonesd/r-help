@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/bibstyle.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/bibstyle.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/bibstyle.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/bibstyle.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>bibstyle {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='bibstyle'>Select or Define a Bibliography Style</h2>
+<h2>Select or Define a Bibliography Style</h2>
 
 <h3>Description</h3>
 
@@ -35,38 +35,38 @@ getBibstyle(all = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="bibstyle_:_style">style</code></td>
+<table role = "presentation">
+<tr><td><code id="style">style</code></td>
 <td>
 
 <p>A character string naming the style.
 </p>
 </td></tr>
-<tr><td><code id="bibstyle_:_envir">envir</code></td>
+<tr><td><code id="envir">envir</code></td>
 <td>
 
 <p>(optional) An environment holding the functions to implement the style.
 </p>
 </td></tr>
-<tr><td><code id="bibstyle_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 
 <p>Named arguments to add to the environment.
 </p>
 </td></tr>
-<tr><td><code id="bibstyle_:_.init">.init</code></td>
+<tr><td><code id=".init">.init</code></td>
 <td>
 
 <p>Whether to initialize the environment from the default style <code>"JSS"</code>.
 </p>
 </td></tr>
-<tr><td><code id="bibstyle_:_.default">.default</code></td>
+<tr><td><code id=".default">.default</code></td>
 <td>
 
 <p>Whether to set the specified style as the default style.
 </p>
 </td></tr>
-<tr><td><code id="bibstyle_:_all">all</code></td>
+<tr><td><code id="all">all</code></td>
 <td>
 
 <p>Whether to return the names of all registered styles.
@@ -175,6 +175,7 @@ bibstyle("unsorted", sortKeys = function(refs) seq_along(refs),
 print(refs, .bibstyle = "unsorted")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.1/00index.html'>Package <em>tools</em> version 4.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.1/00index.html'>Package <em>tools</em> version 4.0.1</a> ]</div></main>
+
 </div>
 </body></html>

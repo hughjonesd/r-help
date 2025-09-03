@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.ls.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.ls.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.ls.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.ls.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>grid.ls {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='grid.ls'> List the names of grobs or viewports </h2>
+<h2> List the names of grobs or viewports </h2>
 
 <h3>Description</h3>
 
@@ -40,8 +40,8 @@ grobPathListing(x, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="grid.ls_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A grob or viewport or <code>NULL</code>.  If <code>NULL</code>, the current
 grid display list is listed.
@@ -49,57 +49,57 @@ grid display list is listed.
 <p>For print functions, this should be the result of a call to
 <code>grid.ls</code>.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_grobs">grobs</code></td>
+<tr><td><code id="grobs">grobs</code></td>
 <td>
 <p>A logical value indicating whether to list grobs.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_viewports">viewports</code></td>
+<tr><td><code id="viewports">viewports</code></td>
 <td>
 <p>A logical value indicating whether to list
 viewports.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_fullNames">fullNames</code></td>
+<tr><td><code id="fullNames">fullNames</code></td>
 <td>
 <p>A logical value indicating whether to embellish
 object names with information about the object type.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_recursive">recursive</code></td>
+<tr><td><code id="recursive">recursive</code></td>
 <td>
 <p>A logical value indicating whether recursive
 structures should also list their children.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_print">print</code></td>
+<tr><td><code id="print">print</code></td>
 <td>
 <p>A logical indicating whether to print the listing
 or a function that will print the listing.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_flatten">flatten</code></td>
+<tr><td><code id="flatten">flatten</code></td>
 <td>
 <p>A logical value indicating whether to flatten
 the listing.  Otherwise a more complex hierarchical object is
 produced.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_gindent">gindent</code></td>
+<tr><td><code id="gindent">gindent</code></td>
 <td>
 <p>The indent used to show nesting in the output for
 grobs.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_vpindent">vpindent</code></td>
+<tr><td><code id="vpindent">vpindent</code></td>
 <td>
 <p>The indent used to show nesting in the output for
 viewports.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_gvpSep">gvpSep</code></td>
+<tr><td><code id="gvpSep">gvpSep</code></td>
 <td>
 <p>The string used to separate viewport paths from grob
 paths.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_gAlign">gAlign</code></td>
+<tr><td><code id="gAlign">gAlign</code></td>
 <td>
 <p>Logical indicating whether to align the left hand
 edge of all grob paths.</p>
 </td></tr>
-<tr><td><code id="grid.ls_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Arguments passed to the <code>print</code> function.</p>
 </td></tr>
@@ -191,6 +191,7 @@ grid.ls(sampleGTree, view=TRUE, grob=FALSE, print=pathListing)
 str(grid.ls(sampleGTree, view=TRUE, print=FALSE))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.3/00index.html'>Package <em>grid</em> version 2.15.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.3/00index.html'>Package <em>grid</em> version 2.15.3</a> ]</div></main>
+
 </div>
 </body></html>

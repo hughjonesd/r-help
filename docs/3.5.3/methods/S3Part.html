@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/S3Part.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/S3Part.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/S3Part.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/S3Part.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>S3Part {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='S3Part'> S4 Classes that Contain S3 Classes</h2>
+<h2> S4 Classes that Contain S3 Classes</h2>
 
 <h3>Description</h3>
 
@@ -61,8 +61,8 @@ S3Class(object) &lt;-  value
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="S3Part_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an object from some class that extends a registered
 S3 class, or a basic
@@ -72,7 +72,7 @@ vector, matrix or array object type.
 with the interpretation that it is its own S3 part.
 </p>
 </td></tr>
-<tr><td><code id="S3Part_:_strictS3">strictS3</code></td>
+<tr><td><code id="strictS3">strictS3</code></td>
 <td>
 <p>If <code>TRUE</code>, the value returned by
 <code>S3Part</code> will be an S3 object, with all the S4 slots
@@ -82,14 +82,14 @@ be returned; for example, from the S4 class created by
 the underlying S3 object.
 </p>
 </td></tr>
-<tr><td><code id="S3Part_:_S3Class">S3Class</code></td>
+<tr><td><code id="S3Class">S3Class</code></td>
 <td>
 <p>the <code>character</code> vector to be stored as the
 S3 class slot in the object.  Usually, and by default, retains
 the slot from <code>object</code>, but an S3 superclass is allowed.
 </p>
 </td></tr>
-<tr><td><code id="S3Part_:_classDef">classDef</code></td>
+<tr><td><code id="classDef">classDef</code></td>
 <td>
 <p>a class definition object, as returned by
 <code>getClass</code>.
@@ -98,12 +98,12 @@ the slot from <code>object</code>, but an S3 superclass is allowed.
 which are not recommended.</em>
 </p>
 </td></tr>
-<tr><td><code id="S3Part_:_needClass">needClass</code></td>
+<tr><td><code id="needClass">needClass</code></td>
 <td>
 <p>Require that the replacement value be this class or a
 subclass of it.</p>
 </td></tr>
-<tr><td><code id="S3Part_:_value">value</code></td>
+<tr><td><code id="value">value</code></td>
 <td>
 <p>For <code>S3Part&lt;-</code>, the replacement value for the
 S3 part of the object.
@@ -283,6 +283,7 @@ xfit@.S3Class # c("mlm", lm")
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>methods</em> version 3.5.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>methods</em> version 3.5.3</a> ]</div></main>
+
 </div>
 </body></html>

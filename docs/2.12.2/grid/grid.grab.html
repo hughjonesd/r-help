@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grab.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grab.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grab.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.grab.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>grid.grab {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='grid.grab'> Grab the current grid output </h2>
+<h2> Grab the current grid output </h2>
 
 <h3>Description</h3>
 
@@ -34,13 +34,13 @@ grid.grabExpr(expr, warn = 2, wrap = FALSE, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="grid.grab_:_expr">expr</code></td>
+<table role = "presentation">
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p> An expression to be evaluated.  Typically,
 some calls to grid drawing functions. </p>
 </td></tr>
-<tr><td><code id="grid.grab_:_warn">warn</code></td>
+<tr><td><code id="warn">warn</code></td>
 <td>
 <p> An integer specifying the amount of warnings
 to emit.  0 means no warnings, 1 means warn when it is
@@ -50,14 +50,14 @@ that the grab will not faithfully represent the
 original scene.
 </p>
 </td></tr>
-<tr><td><code id="grid.grab_:_wrap">wrap</code></td>
+<tr><td><code id="wrap">wrap</code></td>
 <td>
 <p> A logical indicating how the output should
 be captured. If <code>TRUE</code>, each non-grob element on the
 display list is captured by wrapping it in a grob.  
 </p>
 </td></tr>
-<tr><td><code id="grid.grab_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p> arguments passed to gTree, for example, a
 name and/or class for the gTree that is created.</p>
@@ -122,6 +122,7 @@ grid.newpage()
 grid.draw(grab)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.2/00index.html'>Package <em>grid</em> version 2.12.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.2/00index.html'>Package <em>grid</em> version 2.12.2</a> ]</div></main>
+
 </div>
 </body></html>

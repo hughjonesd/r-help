@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/segments.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/segments.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/segments.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/segments.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>segments {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='segments'>Add Line Segments to a Plot</h2>
+<h2>Add Line Segments to a Plot</h2>
 
 <h3>Description</h3>
 
@@ -34,23 +34,23 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="segments_:_x0">x0</code>, <code id="segments_:_y0">y0</code></td>
+<table role = "presentation">
+<tr><td><code id="x0">x0</code>, <code id="y0">y0</code></td>
 <td>
 <p>coordinates of points <b>from</b> which to draw.</p>
 </td></tr>
-<tr><td><code id="segments_:_x1">x1</code>, <code id="segments_:_y1">y1</code></td>
+<tr><td><code id="x1">x1</code>, <code id="y1">y1</code></td>
 <td>
 <p>coordinates of points <b>to</b> which to draw.  At least
 one must be supplied.</p>
 </td></tr>
-<tr><td><code id="segments_:_col">col</code>, <code id="segments_:_lty">lty</code>, <code id="segments_:_lwd">lwd</code></td>
+<tr><td><code id="col">col</code>, <code id="lty">lty</code>, <code id="lwd">lwd</code></td>
 <td>
 <p>graphical parameters as in
 <code>par</code>, possibly vectors.  <code>NA</code> values in <code>col</code>
 cause the segment to be omitted.</p>
 </td></tr>
-<tr><td><code id="segments_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further graphical parameters (from <code>par</code>),
 such as <code>xpd</code> and the line characteristics <code>lend</code>, <code>ljoin</code>
@@ -99,6 +99,7 @@ s &lt;- s[-length(s)]
 segments(x[s], y[s], x[s+2], y[s+2], col= 'pink')
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.11.0/00index.html'>Package <em>graphics</em> version 2.11.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.11.0/00index.html'>Package <em>graphics</em> version 2.11.0</a> ]</div></main>
+
 </div>
 </body></html>

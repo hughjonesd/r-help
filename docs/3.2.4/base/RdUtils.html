@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/RdUtils.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/RdUtils.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/RdUtils.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/RdUtils.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>RdUtils {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='RdUtils'>Utilities for Processing Rd Files</h2>
+<h2>Utilities for Processing Rd Files</h2>
 
 <h3>Description</h3>
 
@@ -35,18 +35,18 @@ R CMD Rd2pdf [options] files
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="RdUtils_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>the path to a file to be processed.</p>
 </td></tr>
-<tr><td><code id="RdUtils_:_files">files</code></td>
+<tr><td><code id="files">files</code></td>
 <td>
 <p>a list of file names specifying the R documentation
 sources to use, by either giving the paths to the files, or the path
 to a directory with the sources of a package.</p>
 </td></tr>
-<tr><td><code id="RdUtils_:_options">options</code></td>
+<tr><td><code id="options">options</code></td>
 <td>
 <p>further options to control the processing, or for
 obtaining information about usage and version of the utility.</p>
@@ -64,7 +64,8 @@ from Rd sources.  It will make use of the environment variables
 <span class="env">R_PAPERSIZE</span> (set by <code>R CMD</code>, with a default set when <span class="rlang"><b>R</b></span>
 was installed: values for <span class="env">R_PAPERSIZE</span> are <code>a4</code>,
 <code>letter</code>, <code>legal</code> and <code>executive</code>)
-and <span class="env">R_PDFVIEWER</span> (the PDF previewer).  Also,
+</p>
+<p>and <span class="env">R_PDFVIEWER</span> (the PDF previewer).  Also,
 <span class="env">RD2PDF_INPUTENC</span> can be set to <code>inputenx</code> to make use of the
 LaTeX package of that name rather than <code>inputenc</code>: this might be
 needed for better support of the UTF-8 encoding.
@@ -85,6 +86,7 @@ overridden by setting environment variable <span class="env">R_TEXI2DVICMD</span
 Extensions&rdquo; manual.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.4/00index.html'>Package <em>base</em> version 3.2.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.4/00index.html'>Package <em>base</em> version 3.2.4</a> ]</div></main>
+
 </div>
 </body></html>

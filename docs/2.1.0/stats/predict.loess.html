@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.loess.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.loess.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.loess.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.loess.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>predict.loess {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='predict.loess'>Predict Loess Curve or Surface</h2>
+<h2>Predict Loess Curve or Surface</h2>
 
 <h3>Description</h3>
 
@@ -33,21 +33,21 @@ predict(object, newdata = NULL, se = FALSE, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="predict.loess_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an object fitted by <code>loess</code>.</p>
 </td></tr>
-<tr><td><code id="predict.loess_:_newdata">newdata</code></td>
+<tr><td><code id="newdata">newdata</code></td>
 <td>
 <p>an optional data frame in which to look for variables with
 which to predict.  If missing, the original data points are used.</p>
 </td></tr>
-<tr><td><code id="predict.loess_:_se">se</code></td>
+<tr><td><code id="se">se</code></td>
 <td>
 <p>should standard errors be computed?</p>
 </td></tr>
-<tr><td><code id="predict.loess_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments passed to or from other methods.</p>
 </td></tr>
@@ -71,7 +71,7 @@ missing (<code>NA</code>) predictions and standard errors.
 <code>newdata</code> (or the original data). If <code>se = TRUE</code>, a list
 containing components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>fit</code></td>
 <td>
 <p>the predicted values.</p>
@@ -130,6 +130,7 @@ cars.lo2 &lt;- loess(dist ~ speed, cars,
 predict(cars.lo2, data.frame(speed=seq(5, 30, 1)), se=TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.1.0/00index.html'>Package <em>stats</em> version 2.1.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.1.0/00index.html'>Package <em>stats</em> version 2.1.0</a> ]</div></main>
+
 </div>
 </body></html>

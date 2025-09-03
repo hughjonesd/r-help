@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/bquote.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/bquote.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/bquote.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/bquote.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>bquote {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='bquote'>Partial substitution in expressions</h2>
+<h2>Partial substitution in expressions</h2>
 
 <h3>Description</h3>
 
@@ -35,16 +35,16 @@ terms wrapped in <code>..()</code> are evaluated and spliced into a call.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="bquote_:_expr">expr</code></td>
+<table role = "presentation">
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p>A language object.</p>
 </td></tr>
-<tr><td><code id="bquote_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p>An environment.</p>
 </td></tr>
-<tr><td><code id="bquote_:_splice">splice</code></td>
+<tr><td><code id="splice">splice</code></td>
 <td>
 <p>Logical; if <code>TRUE</code> splicing is enabled.</p>
 </td></tr>
@@ -85,6 +85,7 @@ exprs &lt;- expression(x &lt;- 1, y &lt;- 2, x + y)
 bquote(function() {..(exprs)}, splice = TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.1/00index.html'>Package <em>base</em> version 4.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.1/00index.html'>Package <em>base</em> version 4.0.1</a> ]</div></main>
+
 </div>
 </body></html>

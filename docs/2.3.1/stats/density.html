@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/density.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/density.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/density.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/density.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>density {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='density'>Kernel Density Estimation</h2>
+<h2>Kernel Density Estimation</h2>
 
 <h3>Description</h3>
 
@@ -41,12 +41,12 @@ density(x, bw = "nrd0", adjust = 1,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="density_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>the data from which the estimate is to be computed.</p>
 </td></tr>
-<tr><td><code id="density_:_bw">bw</code></td>
+<tr><td><code id="bw">bw</code></td>
 <td>
 <p>the smoothing bandwidth to be used.  The kernels are scaled
 such that this is the standard deviation of the smoothing kernel.
@@ -59,13 +59,13 @@ bandwidth.  See <code>bw.nrd</code>.
 <code>adjust</code>.
 </p>
 </td></tr>
-<tr><td><code id="density_:_adjust">adjust</code></td>
+<tr><td><code id="adjust">adjust</code></td>
 <td>
 <p>the bandwidth used is actually <code>adjust*bw</code>.
 This makes it easy to specify values like &ldquo;half the default&rdquo;
 bandwidth.</p>
 </td></tr>
-<tr><td><code id="density_:_kernel">kernel</code>, <code id="density_:_window">window</code></td>
+<tr><td><code id="kernel">kernel</code>, <code id="window">window</code></td>
 <td>
 <p>a character string giving the smoothing kernel
 to be used. This must be one of <code>"gaussian"</code>,
@@ -79,49 +79,49 @@ usual &ldquo;cosine&rdquo; kernel in the literature and almost MSE-efficient.
 However, <code>"cosine"</code> is the version used by S.
 </p>
 </td></tr>
-<tr><td><code id="density_:_weights">weights</code></td>
+<tr><td><code id="weights">weights</code></td>
 <td>
 <p>numeric vector of non-negative observation weights,
 hence of same length as <code>x</code>. The default <code>NULL</code> is
 equivalent to <code>weights = rep(1/nx, nx)</code> where <code>nx</code> is the
 length of (the finite entries of) <code>x[]</code>.</p>
 </td></tr>
-<tr><td><code id="density_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>this exists for compatibility with S; if given, and
 <code>bw</code> is not, will set <code>bw</code> to <code>width</code> if this is a
 character string, or to a kernel-dependent multiple of <code>width</code>
 if this is numeric.</p>
 </td></tr>
-<tr><td><code id="density_:_give.Rkern">give.Rkern</code></td>
+<tr><td><code id="give.Rkern">give.Rkern</code></td>
 <td>
 <p>logical; if true, <em>no</em> density is estimated, and
 the &ldquo;canonical bandwidth&rdquo; of the chosen <code>kernel</code> is returned
 instead.</p>
 </td></tr>
-<tr><td><code id="density_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>the number of equally spaced points at which the density
 is to be estimated.  When <code>n &gt; 512</code>, it is rounded up to the next
 power of 2 for efficiency reasons (<code>fft</code>).</p>
 </td></tr>
-<tr><td><code id="density_:_from">from</code>, <code id="density_:_to">to</code></td>
+<tr><td><code id="from">from</code>, <code id="to">to</code></td>
 <td>
 <p>the left and right-most points of the grid at which the
 density is to be estimated.</p>
 </td></tr>
-<tr><td><code id="density_:_cut">cut</code></td>
+<tr><td><code id="cut">cut</code></td>
 <td>
 <p>by default, the values of <code>left</code> and <code>right</code> are
 <code>cut</code> bandwidths beyond the extremes of the data. This allows the
 estimated density to drop to approximately zero at the extremes.</p>
 </td></tr>
-<tr><td><code id="density_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, missing values are removed
 from <code>x</code>. If <code>FALSE</code> any missing values cause an error.</p>
 </td></tr>
-<tr><td><code id="density_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments for (non-default) methods.</p>
 </td></tr>
@@ -159,7 +159,7 @@ bandwidths.
 an object with class <code>"density"</code> whose
 underlying structure is a list containing the following components.
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>x</code></td>
 <td>
 <p>the <code>n</code> coordinates of the points where the density is
@@ -269,7 +269,6 @@ legend(0.6, 1.0, legend = kernels, col = seq(kernels), lty = 1)
 
 ##-------- Semi-advanced theoretic from here on ---------------------------
 
-
 (RKs &lt;- cbind(sapply(kernels, function(k)density(kern = k, give.Rkern = TRUE))))
 100*round(RKs["epanechnikov",]/RKs, 4) ## Efficiencies
 
@@ -292,6 +291,7 @@ for(i in 2:length(kernels))
 legend(55, 0.035, legend = kernels, col = seq(kernels), lty = 1)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.3.1/00index.html'>Package <em>stats</em> version 2.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.3.1/00index.html'>Package <em>stats</em> version 2.3.1</a> ]</div></main>
+
 </div>
 </body></html>

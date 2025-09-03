@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/HoltWinters.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/HoltWinters.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/HoltWinters.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/HoltWinters.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>HoltWinters {ts}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='HoltWinters'>Holt-Winters Filtering</h2>
+<h2>Holt-Winters Filtering</h2>
 
 <h3>Description</h3>
 
@@ -36,44 +36,44 @@ prediction error.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="HoltWinters_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>An object of class <code>ts</code></p>
 </td></tr>
-<tr><td><code id="HoltWinters_:_alpha">alpha</code></td>
+<tr><td><code id="alpha">alpha</code></td>
 <td>
 <p><code class="reqn">alpha</code> parameter of Holt-Winters Filter</p>
 </td></tr>
-<tr><td><code id="HoltWinters_:_beta">beta</code></td>
+<tr><td><code id="beta">beta</code></td>
 <td>
 <p><code class="reqn">beta</code> parameter of Holt-Winters Filter. If set to 0,
 the function will do exponential smoothing.</p>
 </td></tr>
-<tr><td><code id="HoltWinters_:_gamma">gamma</code></td>
+<tr><td><code id="gamma">gamma</code></td>
 <td>
 <p><code class="reqn">gamma</code> parameter used for the seasonal component.
 If set to 0, an non-seasonal model is fitted.</p>
 </td></tr>
-<tr><td><code id="HoltWinters_:_seasonal">seasonal</code></td>
+<tr><td><code id="seasonal">seasonal</code></td>
 <td>
 <p>Selects an <code>"additive"</code> or <code>"multiplicative"</code>
 seasonal model. (Only takes effect if <code>gamma</code> is non-zero).</p>
 </td></tr>
-<tr><td><code id="HoltWinters_:_start.periods">start.periods</code></td>
+<tr><td><code id="start.periods">start.periods</code></td>
 <td>
 <p>Start periods used in the autodetection of start
 values. Must be at least 3.</p>
 </td></tr>
-<tr><td><code id="HoltWinters_:_l.start">l.start</code></td>
+<tr><td><code id="l.start">l.start</code></td>
 <td>
 <p>Start value for level (a[0]).</p>
 </td></tr>
-<tr><td><code id="HoltWinters_:_b.start">b.start</code></td>
+<tr><td><code id="b.start">b.start</code></td>
 <td>
 <p>Start value for trend (b[0]).</p>
 </td></tr>
-<tr><td><code id="HoltWinters_:_s.start">s.start</code></td>
+<tr><td><code id="s.start">s.start</code></td>
 <td>
 <p>Vector of start values for the seasonal component
 (<code class="reqn">s_1[0]...s_p[0]</code>)</p>
@@ -137,7 +137,7 @@ level-only models (ordinary exponential smoothing), the start value for
 
 <p>An object of class <code>"HoltWinters"</code>, a list with components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>fitted</code></td>
 <td>
 <p>The filtered time series</p>
@@ -194,7 +194,6 @@ Forecasting sales by exponentially weighted moving averages,
 <pre><code class='language-R'>library(ts)
 data(co2)
 
-
 (m &lt;- HoltWinters(co2))
 plot(m)
 
@@ -202,17 +201,16 @@ data(AirPassengers)
 (m &lt;- HoltWinters(AirPassengers, seasonal = "mult"))
 plot(m)
 
-
 data(uspop)
 x &lt;- uspop + rnorm(uspop, sd = 5)
 m &lt;- HoltWinters(x, gamma = 0)
 plot(m)
 
-
 m2 &lt;- HoltWinters(x, gamma = 0, beta = 0)
 lines(fitted(m2), col = 3)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>setGeneric {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='setGeneric'>Create a Generic Version of a Function</h2>
+<h2>Create a Generic Version of a Function</h2>
 
 <h3>Description</h3>
 
@@ -53,13 +53,13 @@ arguments and becomes the default method.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="setGeneric_:_name">name</code></td>
+<table role = "presentation">
+<tr><td><code id="name">name</code></td>
 <td>
 <p> The character string name of the generic function.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_def">def</code></td>
+<tr><td><code id="def">def</code></td>
 <td>
 <p>An optional function object, defining the non-generic
 version, to become the default method.  This is equivalent in
@@ -72,7 +72,7 @@ features. They should not be used when the non-generic is in
 another package.</em>
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_group">group</code></td>
+<tr><td><code id="group">group</code></td>
 <td>
 <p> The name of the group
 generic function to which this function belongs.  See
@@ -80,7 +80,7 @@ Methods_Details for details of group generic functions in method
 selection and S4groupGeneric for existing groups.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_valueClass">valueClass</code></td>
+<tr><td><code id="valueClass">valueClass</code></td>
 <td>
 <p> A character vector specifying one or more class
 names.  The value returned by the generic function must
@@ -88,7 +88,7 @@ have (or extend) this class, or one of the classes; otherwise,
 an error is generated.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_signature">signature</code></td>
+<tr><td><code id="signature">signature</code></td>
 <td>
 
 <p>The vector of names from among the formal arguments to
@@ -116,7 +116,7 @@ are what counts, and then only seriously on the first call to the
 function with that combination of classes.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_simpleInheritanceOnly">simpleInheritanceOnly</code></td>
+<tr><td><code id="simpleInheritanceOnly">simpleInheritanceOnly</code></td>
 <td>
 
 <p>Supply this argument as <code>TRUE</code> to require that methods selected
@@ -132,7 +132,7 @@ as its argument, and <code>show</code>, because it claims to give a
 full description of the object provided as its argument.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_useAsDefault">useAsDefault</code></td>
+<tr><td><code id="useAsDefault">useAsDefault</code></td>
 <td>
 
 <p>Override the usual default method mechanism.  Only relevant when
@@ -142,21 +142,21 @@ See the section &lsquo;Specialized Local Generics&rsquo;.
 <p><em>The remaining arguments are obsolete for normal applications.</em>
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p> The name of the package with which this function is
 associated.  Should be determined automatically from the
 non-generic version.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p> Where to store the resulting objects as side effects.
 The default, to store in the package's namespace, is the only
 safe choice.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_genericFunction">genericFunction</code></td>
+<tr><td><code id="genericFunction">genericFunction</code></td>
 <td>
 <p>Obsolete.</p>
 </td></tr>
@@ -409,6 +409,7 @@ setGeneric("asRObject", function(object, evaluator) {
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.3/00index.html'>Package <em>methods</em> version 3.3.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.3/00index.html'>Package <em>methods</em> version 3.3.3</a> ]</div></main>
+
 </div>
 </body></html>

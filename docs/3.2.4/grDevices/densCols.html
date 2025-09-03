@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/densCols.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/densCols.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/densCols.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/densCols.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>densCols {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='densCols'>Colors for Smooth Density Plots</h2>
+<h2>Colors for Smooth Density Plots</h2>
 
 <h3>Description</h3>
 
@@ -35,28 +35,28 @@ blues9
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="densCols_:_x">x</code>, <code id="densCols_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>the <code>x</code> and <code>y</code> arguments provide the x and y
 coordinates of the points.  Any reasonable way of defining the
 coordinates is acceptable.  See the function <code>xy.coords</code>
 for details.  If supplied separately, they must be of the same length.</p>
 </td></tr>
-<tr><td><code id="densCols_:_nbin">nbin</code></td>
+<tr><td><code id="nbin">nbin</code></td>
 <td>
 <p>numeric vector of length one (for both directions) or two
 (for x and y separately) specifying the number of equally spaced
 grid points for the density estimation; directly used as
 <code>gridsize</code> in <code>bkde2D()</code>.</p>
 </td></tr>
-<tr><td><code id="densCols_:_bandwidth">bandwidth</code></td>
+<tr><td><code id="bandwidth">bandwidth</code></td>
 <td>
 <p>numeric vector (length 1 or 2) of smoothing bandwidth(s).
 If missing, a more or less useful default is used. <code>bandwidth</code>
 is subsequently passed to function <code>bkde2D</code>.</p>
 </td></tr>
-<tr><td><code id="densCols_:_colramp">colramp</code></td>
+<tr><td><code id="colramp">colramp</code></td>
 <td>
 <p>function accepting an integer <code>n</code> as an argument and
 returning <code>n</code> colors.</p>
@@ -107,6 +107,7 @@ dcols &lt;- densCols(x)
 graphics::plot(x, col = dcols, pch = 20, main = "n = 1000")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.4/00index.html'>Package <em>grDevices</em> version 3.2.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.4/00index.html'>Package <em>grDevices</em> version 3.2.4</a> ]</div></main>
+
 </div>
 </body></html>

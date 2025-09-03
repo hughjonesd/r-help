@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60.ok. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sweep.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sweep.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.60.ok. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sweep.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sweep.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>sweep {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='sweep'>Sweep out Array Summaries</h2>
+<h2>Sweep out Array Summaries</h2>
 
 <h3>Usage</h3>
 
@@ -26,26 +26,26 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="sweep_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an array.</p>
 </td></tr>
-<tr><td><code id="sweep_:_MARGIN">MARGIN</code></td>
+<tr><td><code id="MARGIN">MARGIN</code></td>
 <td>
 <p>a giving the extents of <code>x</code> which correspond to <code>STATS</code>.</p>
 </td></tr>
-<tr><td><code id="sweep_:_STATS">STATS</code></td>
+<tr><td><code id="STATS">STATS</code></td>
 <td>
 <p>the summary statistic which is to be swept out.</p>
 </td></tr>
-<tr><td><code id="sweep_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>the function to be used to carry out the sweep.
 In the case of binary operators such as <code>"/"</code> etc.,
 the function name must be quoted.</p>
 </td></tr>
-<tr><td><code id="sweep_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>optional arguments to <code>FUN</code>.</p>
 </td></tr>
@@ -72,6 +72,7 @@ med.att &lt;- apply(attitude, 2, median)
 sweep(data.matrix(attitude), 2, med.att)# subtract the column medians
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.60.ok/00index.html'>Package <em>base</em> version 0.60.ok</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.60.ok/00index.html'>Package <em>base</em> version 0.60.ok</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/apropos.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/apropos.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/apropos.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/apropos.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>apropos {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='apropos'>Find Objects by (Partial) Name</h2>
+<h2>Find Objects by (Partial) Name</h2>
 
 <h3>Description</h3>
 
@@ -39,34 +39,34 @@ find(what, mode = "any", numeric = FALSE, simple.words = TRUE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="apropos_:_what">what</code></td>
+<table role = "presentation">
+<tr><td><code id="what">what</code></td>
 <td>
 <p>character string.  For <code>simple.words = FALSE</code>
 the name of an object; otherwise
 a regular expression to match object names against.</p>
 </td></tr>
-<tr><td><code id="apropos_:_where">where</code>, <code id="apropos_:_numeric">numeric</code></td>
+<tr><td><code id="where">where</code>, <code id="numeric">numeric</code></td>
 <td>
 <p>a logical indicating whether positions in the
 search list should also be returned</p>
 </td></tr>
-<tr><td><code id="apropos_:_ignore.case">ignore.case</code></td>
+<tr><td><code id="ignore.case">ignore.case</code></td>
 <td>
 <p>logical indicating if the search should be
 case-insensitive, <code>TRUE</code> by default.</p>
 </td></tr>
-<tr><td><code id="apropos_:_dot_internals">dot_internals</code></td>
+<tr><td><code id="dot_internals">dot_internals</code></td>
 <td>
 <p>logical indicating if the search result should show
 <span class="pkg">base</span> internal objects, <code>FALSE</code> by default.</p>
 </td></tr>
-<tr><td><code id="apropos_:_mode">mode</code></td>
+<tr><td><code id="mode">mode</code></td>
 <td>
 <p>character; if not <code>"any"</code>, only objects whose
 <code>mode</code> equals <code>mode</code> are searched.</p>
 </td></tr>
-<tr><td><code id="apropos_:_simple.words">simple.words</code></td>
+<tr><td><code id="simple.words">simple.words</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the <code>what</code> argument is
 only searched as a whole word.</p>
@@ -121,7 +121,6 @@ search path with names the names of the corresponding environments.
 
 <pre><code class='language-R'>require(stats)
 
-
 ## Not run: apropos("lm")
 apropos("GLM")                      # several
 apropos("GLM", ignore.case = FALSE) # not one
@@ -156,6 +155,7 @@ apropos("^.{8,}$")
 table(nchar(apropos("^.{8,}$")))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.3.0/00index.html'>Package <em>utils</em> version 4.3.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.0/00index.html'>Package <em>utils</em> version 4.3.0</a> ]</div></main>
+
 </div>
 </body></html>

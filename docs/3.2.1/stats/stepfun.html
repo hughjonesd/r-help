@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stepfun.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stepfun.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stepfun.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/stepfun.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>stepfun {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='stepfun'>Step Functions - Creation and Class</h2>
+<h2>Step Functions - Creation and Class</h2>
 
 <h3>Description</h3>
 
@@ -64,42 +64,42 @@ summary(object, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="stepfun_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric vector giving the knots or jump locations of the step
 function for <code>stepfun()</code>.  For the other functions, <code>x</code> is
 as <code>object</code> below.</p>
 </td></tr>
-<tr><td><code id="stepfun_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>numeric vector one longer than <code>x</code>, giving the heights of
 the function values <em>between</em> the x values.</p>
 </td></tr>
-<tr><td><code id="stepfun_:_f">f</code></td>
+<tr><td><code id="f">f</code></td>
 <td>
 <p>a number between 0 and 1, indicating how interpolation outside
 the given x values should happen.  See <code>approxfun</code>.</p>
 </td></tr>
-<tr><td><code id="stepfun_:_ties">ties</code></td>
+<tr><td><code id="ties">ties</code></td>
 <td>
 <p>Handling of tied <code>x</code> values. Either a function or
 the string <code>"ordered"</code>.  See  <code>approxfun</code>.</p>
 </td></tr>
-<tr><td><code id="stepfun_:_right">right</code></td>
+<tr><td><code id="right">right</code></td>
 <td>
 <p>logical, indicating if the intervals should be closed on
 the right (and open on the left) or vice versa.</p>
 </td></tr>
-<tr><td><code id="stepfun_:_Fn">Fn</code>, <code id="stepfun_:_object">object</code></td>
+<tr><td><code id="Fn">Fn</code>, <code id="object">object</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object inheriting from <code>"stepfun"</code>.</p>
 </td></tr>
-<tr><td><code id="stepfun_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>number of significant digits to use, see <code>print</code>.</p>
 </td></tr>
-<tr><td><code id="stepfun_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>potentially further arguments (required by the generic).</p>
 </td></tr>
@@ -117,7 +117,7 @@ representing (<code>"print(.)"</code>) and plotting  (<code>"plot(.)"</code>, se
 <p>The <code>environment</code> of <code>fn</code> contains all the
 information needed;
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>"x"</code>, <code>"y"</code></td>
 <td>
 <p>the original arguments</p>
@@ -195,6 +195,7 @@ stopifnot(identical(y0[-1], sfun0 (1:3)), # right = FALSE
           identical(y0[-4], sfun1c(1:3))) # right = TRUE
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.1/00index.html'>Package <em>stats</em> version 3.2.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.1/00index.html'>Package <em>stats</em> version 3.2.1</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/refClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/refClass.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/refClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/refClass.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ReferenceClasses {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ReferenceClasses'>Objects With Fields Treated by Reference (OOP-style)</h2>
+<h2>Objects With Fields Treated by Reference (OOP-style)</h2>
 
 <h3>Description</h3>
 
@@ -46,8 +46,8 @@ getRefClass(Class, where =)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ReferenceClasses_:_Class">Class</code></td>
+<table role = "presentation">
+<tr><td><code id="Class">Class</code></td>
 <td>
 
 <p>character string name for the class.
@@ -57,7 +57,7 @@ object from the relevant class;  note also the corresponding reference
 class methods documented in the section on &ldquo;Writing Reference Methods&rdquo;.
 </p>
 </td></tr>
-<tr><td><code id="ReferenceClasses_:_fields">fields</code></td>
+<tr><td><code id="fields">fields</code></td>
 <td>
 
 <p>either a character vector of field names or
@@ -87,14 +87,14 @@ classes and regular S4 classes.  See the comments in the
 &ldquo;Implementation&rdquo; section.
 </p>
 </td></tr>
-<tr><td><code id="ReferenceClasses_:_contains">contains</code></td>
+<tr><td><code id="contains">contains</code></td>
 <td>
 
 <p>optional vector of superclasses for this class.  If a superclass is
 also a reference class, the fields and class-based methods will be inherited.
 </p>
 </td></tr>
-<tr><td><code id="ReferenceClasses_:_methods">methods</code></td>
+<tr><td><code id="methods">methods</code></td>
 <td>
 
 <p>a named list of function definitions that can be invoked on objects
@@ -113,7 +113,7 @@ registered to invoke it before the environment
 in the object is discarded by the garbage collector. See the matrix
 viewer example for both initialize and finalize methods.</p>
 </td></tr>
-<tr><td><code id="ReferenceClasses_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 
 <p>the environment in which to store the class definition (or to begin the
@@ -124,7 +124,7 @@ package, and to the global environment for code sourced directly at
 the session top level.
 </p>
 </td></tr>
-<tr><td><code id="ReferenceClasses_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 
 <p>other arguments to be passed to <code>setClass</code>.
@@ -869,6 +869,7 @@ mEdit$trace(undo, browser)
  
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.3/00index.html'>Package <em>methods</em> version 3.0.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.3/00index.html'>Package <em>methods</em> version 3.0.3</a> ]</div></main>
+
 </div>
 </body></html>

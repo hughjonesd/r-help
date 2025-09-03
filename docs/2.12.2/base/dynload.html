@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dynload.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dynload.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dynload.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dynload.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>dyn.load {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='dyn.load'>Foreign Function Interface</h2>
+<h2>Foreign Function Interface</h2>
 
 <h3>Description</h3>
 
@@ -36,14 +36,14 @@ is.loaded(symbol, PACKAGE = "", type = "")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="dyn.load_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a character string giving the pathname to a DLL, also known
 as a dynamic shared object. (See &lsquo;Details&rsquo; for what these
 terms mean.)</p>
 </td></tr>
-<tr><td><code id="dyn.load_:_local">local</code></td>
+<tr><td><code id="local">local</code></td>
 <td>
 <p>a logical value controlling whether the symbols in the
 DLL are stored in their own local table and not shared
@@ -51,7 +51,7 @@ across DLLs, or added to the global symbol table.  Whether this has
 any effect is system-dependent.
 </p>
 </td></tr>
-<tr><td><code id="dyn.load_:_now">now</code></td>
+<tr><td><code id="now">now</code></td>
 <td>
 <p>a logical controlling whether all symbols are resolved (and
 relocated) immediately the library is loaded or deferred until they
@@ -60,16 +60,16 @@ library is complete and has all the necessary symbols, and for users
 to ignore missing symbols. Whether this has any effect is system-dependent.
 </p>
 </td></tr>
-<tr><td><code id="dyn.load_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>other arguments for future expansion.
 </p>
 </td></tr>
-<tr><td><code id="dyn.load_:_symbol">symbol</code></td>
+<tr><td><code id="symbol">symbol</code></td>
 <td>
 <p>a character string giving a symbol name.</p>
 </td></tr>
-<tr><td><code id="dyn.load_:_PACKAGE">PACKAGE</code></td>
+<tr><td><code id="PACKAGE">PACKAGE</code></td>
 <td>
 <p>if supplied, confine the search for the <code>name</code> to
 the DLL given by this argument (plus the conventional extension,
@@ -80,7 +80,7 @@ that no other package can override their external symbols.  Use
 same way as in <code>.C</code>, <code>.Call</code>,
 <code>.Fortran</code> and <code>.External</code> functions</p>
 </td></tr>
-<tr><td><code id="dyn.load_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>The type of symbol to look for: can be any (<code>""</code>, the
 default), <code>"Fortran"</code>, <code>"Call"</code> or <code>"External"</code>.</p>
@@ -229,6 +229,7 @@ is.loaded("supsmu", "stats", "Fortran")
 is.loaded("PDF", type = "External")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.2/00index.html'>Package <em>base</em> version 2.12.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.2/00index.html'>Package <em>base</em> version 2.12.2</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Weibull {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Weibull'>The Weibull Distribution</h2>
+<h2>The Weibull Distribution</h2>
 
 <h3>Description</h3>
 
@@ -37,29 +37,29 @@ rweibull(n, shape, scale = 1)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Weibull_:_x">x</code>, <code id="Weibull_:_q">q</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="q">q</code></td>
 <td>
 <p>vector of quantiles.</p>
 </td></tr>
-<tr><td><code id="Weibull_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>vector of probabilities.</p>
 </td></tr>
-<tr><td><code id="Weibull_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>number of observations. If <code>length(n) &gt; 1</code>, the length
 is taken to be the number required.</p>
 </td></tr>
-<tr><td><code id="Weibull_:_shape">shape</code>, <code id="Weibull_:_scale">scale</code></td>
+<tr><td><code id="shape">shape</code>, <code id="scale">scale</code></td>
 <td>
 <p>shape and scale parameters, the latter defaulting to 1.</p>
 </td></tr>
-<tr><td><code id="Weibull_:_log">log</code>, <code id="Weibull_:_log.p">log.p</code></td>
+<tr><td><code id="log">log</code>, <code id="log.p">log.p</code></td>
 <td>
 <p>logical; if TRUE, probabilities p are given as log(p).</p>
 </td></tr>
-<tr><td><code id="Weibull_:_lower.tail">lower.tail</code></td>
+<tr><td><code id="lower.tail">lower.tail</code></td>
 <td>
 <p>logical; if TRUE (default), probabilities are
 <code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
@@ -146,6 +146,7 @@ all.equal(pweibull(x, 2.5, pi, lower.tail = FALSE, log.p = TRUE),
 all.equal(qweibull(x/11, shape = 1, scale = pi), qexp(x/11, rate = 1/pi))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.3/00index.html'>Package <em>stats</em> version 3.3.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.3/00index.html'>Package <em>stats</em> version 3.3.3</a> ]</div></main>
+
 </div>
 </body></html>

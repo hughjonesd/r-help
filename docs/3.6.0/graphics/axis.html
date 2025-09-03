@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/axis.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/axis.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/axis.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/axis.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>axis {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='axis'>Add an Axis to a Plot</h2>
+<h2>Add an Axis to a Plot</h2>
 
 <h3>Description</h3>
 
@@ -36,21 +36,21 @@ specification of the side, position, labels, and other options.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="axis_:_side">side</code></td>
+<table role = "presentation">
+<tr><td><code id="side">side</code></td>
 <td>
 <p>an integer specifying which side of the plot the axis is
 to be drawn on.  The axis is placed as follows: 1=below,
 2=left, 3=above and 4=right.</p>
 </td></tr>
-<tr><td><code id="axis_:_at">at</code></td>
+<tr><td><code id="at">at</code></td>
 <td>
 <p>the points at which tick-marks are to be drawn.  Non-finite
 (infinite, <code>NaN</code> or <code>NA</code>) values are omitted.  By default
 (when <code>NULL</code>) tickmark locations are computed, see
 &lsquo;Details&rsquo; below.</p>
 </td></tr>
-<tr><td><code id="axis_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>this can either be a logical value specifying whether
 (numerical) annotations are to be made at the tickmarks, or a
@@ -60,48 +60,48 @@ If this is not logical, <code>at</code> should also be supplied and of the
 same length.  If <code>labels</code> is of length zero after coercion,
 it has the same effect as supplying <code>TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="axis_:_tick">tick</code></td>
+<tr><td><code id="tick">tick</code></td>
 <td>
 <p>a logical value specifying whether tickmarks and an axis line
 should be drawn.</p>
 </td></tr>
-<tr><td><code id="axis_:_line">line</code></td>
+<tr><td><code id="line">line</code></td>
 <td>
 <p>the number of lines into the margin at which the axis line
 will be drawn, if not <code>NA</code>.</p>
 </td></tr>
-<tr><td><code id="axis_:_pos">pos</code></td>
+<tr><td><code id="pos">pos</code></td>
 <td>
 <p>the coordinate at which the axis line is to be drawn:
 if not <code>NA</code> this overrides the value of <code>line</code>.</p>
 </td></tr>
-<tr><td><code id="axis_:_outer">outer</code></td>
+<tr><td><code id="outer">outer</code></td>
 <td>
 <p>a logical value indicating whether the axis should be
 drawn in the outer plot margin, rather than the standard plot
 margin.</p>
 </td></tr>
-<tr><td><code id="axis_:_font">font</code></td>
+<tr><td><code id="font">font</code></td>
 <td>
 <p>font for text.  Defaults to <code>par("font")</code>.</p>
 </td></tr>
-<tr><td><code id="axis_:_lty">lty</code></td>
+<tr><td><code id="lty">lty</code></td>
 <td>
 <p>line type for both the axis line and the tick marks.</p>
 </td></tr>
-<tr><td><code id="axis_:_lwd">lwd</code>, <code id="axis_:_lwd.ticks">lwd.ticks</code></td>
+<tr><td><code id="lwd">lwd</code>, <code id="lwd.ticks">lwd.ticks</code></td>
 <td>
 <p>line widths for the axis line and the tick
 marks.  Zero or negative values will suppress the line or ticks.</p>
 </td></tr>
-<tr><td><code id="axis_:_col">col</code>, <code id="axis_:_col.ticks">col.ticks</code></td>
+<tr><td><code id="col">col</code>, <code id="col.ticks">col.ticks</code></td>
 <td>
 <p>colors for the axis line and the tick marks
 respectively.  <code>col = NULL</code> means to use <code>par("fg")</code>,
 possibly specified inline, and <code>col.ticks = NULL</code> means to use
 whatever color <code>col</code> resolved to.</p>
 </td></tr>
-<tr><td><code id="axis_:_hadj">hadj</code></td>
+<tr><td><code id="hadj">hadj</code></td>
 <td>
 <p>adjustment (see <code>par("adj")</code>) for all labels
 <em>parallel</em> (&lsquo;horizontal&rsquo;) to the reading direction.  If
@@ -109,7 +109,7 @@ this is not a finite value, the default is used (centring for
 strings parallel to the axis, justification of the end nearest the
 axis otherwise).</p>
 </td></tr>
-<tr><td><code id="axis_:_padj">padj</code></td>
+<tr><td><code id="padj">padj</code></td>
 <td>
 <p>adjustment for each tick label <em>perpendicular</em> to the
 reading direction.  For labels parallel to the axes, <code>padj = 0</code>
@@ -121,7 +121,7 @@ will be recycled as necessary.
 <code>par("las")</code> determines the adjustment.  For strings plotted
 perpendicular to the axis the default is to centre the string.</p>
 </td></tr>
-<tr><td><code id="axis_:_gap.axis">gap.axis</code></td>
+<tr><td><code id="gap.axis">gap.axis</code></td>
 <td>
 <p>an optional (typically non-negative) numeric factor to
 be multiplied with the size of an &lsquo;m&rsquo; to determine the
@@ -139,7 +139,7 @@ default is equivalent to </p>
 tick-mark positions are specified explicitly.
 </p>
 </td></tr>
-<tr><td><code id="axis_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>other graphical parameters may also be passed as
 arguments to this function, particularly, <code>cex.axis</code>, <code>col.axis</code>
@@ -277,6 +277,7 @@ mtext(chG, side=1, padj=-1, line = linG -1/2, cex=3/4,
 ## now shrink the window (in x- and y-direction) and observe the axis labels drawn
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>graphics</em> version 3.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>graphics</em> version 3.6.0</a> ]</div></main>
+
 </div>
 </body></html>

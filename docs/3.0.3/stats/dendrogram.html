@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/dendrogram.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/dendrogram.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/dendrogram.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/dendrogram.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>dendrogram {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='dendrogram'>General Tree Structures</h2>
+<h2>General Tree Structures</h2>
 
 <h3>Description</h3>
 
@@ -71,37 +71,37 @@ is.leaf(object)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="dendrogram_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>any <span class="rlang"><b>R</b></span> object that can be made into one of class
 <code>"dendrogram"</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_x">x</code>, <code id="dendrogram_:_y">y</code></td>
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>object(s) of class <code>"dendrogram"</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_hang">hang</code></td>
+<tr><td><code id="hang">hang</code></td>
 <td>
 <p>numeric scalar indicating how the <em>height</em> of leaves
 should be computed from the heights of their parents; see
 <code>plot.hclust</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>type of plot.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_center">center</code></td>
+<tr><td><code id="center">center</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, nodes are plotted centered with
 respect to the leaves in the branch.  Otherwise (default), plot them
 in the middle of all direct child nodes.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_edge.root">edge.root</code></td>
+<tr><td><code id="edge.root">edge.root</code></td>
 <td>
 <p>logical; if true, draw an edge to the root node.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_nodePar">nodePar</code></td>
+<tr><td><code id="nodePar">nodePar</code></td>
 <td>
 <p>a <code>list</code> of plotting parameters to use for the
 nodes (see <code>points</code>) or <code>NULL</code> by default which
@@ -113,7 +113,7 @@ which can have length two for specifying separate attributes for
 <code>pch</code> is <code>1:2</code>, so you may want to use <code>pch = NA</code> if
 you specify <code>nodePar</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_edgePar">edgePar</code></td>
+<tr><td><code id="edgePar">edgePar</code></td>
 <td>
 <p>a <code>list</code> of plotting parameters to use for the
 edge <code>segments</code> and labels (if there's an
@@ -125,63 +125,63 @@ color.  As with <code>nodePar</code>, each can have length two for
 differentiating leaves and inner nodes.
 </p>
 </td></tr>
-<tr><td><code id="dendrogram_:_leaflab">leaflab</code></td>
+<tr><td><code id="leaflab">leaflab</code></td>
 <td>
 <p>a string specifying how leaves are labeled.  The
 default <code>"perpendicular"</code> write text vertically (by default).<br />
 <code>"textlike"</code> writes text horizontally (in a rectangle), and <br />
 <code>"none"</code> suppresses leaf labels.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_dLeaf">dLeaf</code></td>
+<tr><td><code id="dLeaf">dLeaf</code></td>
 <td>
 <p>a number specifying the <b>d</b>istance in user
 coordinates between the tip of a leaf and its label.  If <code>NULL</code>
 as per default, 3/4 of a letter width or height is used.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_horiz">horiz</code></td>
+<tr><td><code id="horiz">horiz</code></td>
 <td>
 <p>logical indicating if the dendrogram should be drawn
 <em>horizontally</em> or not.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_frame.plot">frame.plot</code></td>
+<tr><td><code id="frame.plot">frame.plot</code></td>
 <td>
 <p>logical indicating if a box around the plot should
 be drawn, see <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_h">h</code></td>
+<tr><td><code id="h">h</code></td>
 <td>
 <p>height at which the tree is cut.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_height">height</code></td>
+<tr><td><code id="height">height</code></td>
 <td>
 <p>height at which the two dendrogram should be merged.  If not
 specified (or <code>NULL</code>), the default is ten percent larger than
 the (larger of the) two component heights.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_xlim">xlim</code>, <code id="dendrogram_:_ylim">ylim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code></td>
 <td>
 <p>optional x- and y-limits of the plot, passed to
 <code>plot.default</code>.  The defaults for these show the full
 dendrogram.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_...">...</code>, <code id="dendrogram_:_xlab">xlab</code>, <code id="dendrogram_:_ylab">ylab</code>, <code id="dendrogram_:_xaxt">xaxt</code>, <code id="dendrogram_:_yaxt">yaxt</code></td>
+<tr><td><code id="...">...</code>, <code id="xlab">xlab</code>, <code id="ylab">ylab</code>, <code id="xaxt">xaxt</code>, <code id="yaxt">yaxt</code></td>
 <td>
 <p>graphical parameters, or arguments for
 other methods.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>integer specifying the precision for printing, see
 <code>print.default</code>.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_max.level">max.level</code>, <code id="dendrogram_:_digits.d">digits.d</code>, <code id="dendrogram_:_give.attr">give.attr</code>, <code id="dendrogram_:_wid">wid</code>, <code id="dendrogram_:_nest.lev">nest.lev</code>, <code id="dendrogram_:_indent.str">indent.str</code></td>
+<tr><td><code id="max.level">max.level</code>, <code id="digits.d">digits.d</code>, <code id="give.attr">give.attr</code>, <code id="wid">wid</code>, <code id="nest.lev">nest.lev</code>, <code id="indent.str">indent.str</code></td>
 <td>
 <p>arguments
 to <code>str</code>, see <code>str.default()</code>.  Note that
 <code>give.attr = FALSE</code> still shows <code>height</code> and <code>members</code>
 attributes for each node.</p>
 </td></tr>
-<tr><td><code id="dendrogram_:_last.str">last.str</code>, <code id="dendrogram_:_stem">stem</code></td>
+<tr><td><code id="last.str">last.str</code>, <code id="stem">stem</code></td>
 <td>
 <p>strings used for <code>str()</code> specifying how the
 last branch (at each level) should start and the <em>stem</em>
@@ -354,7 +354,6 @@ nP &lt;- list(col = 3:2, cex = c(2.0, 0.75), pch =  21:22,
            bg =  c("light blue", "pink"),
            lab.cex = 0.75, lab.col = "tomato")
 plot(d3, nodePar= nP, edgePar = list(col = "gray", lwd = 2), horiz = TRUE)
-
 addE &lt;- function(n) {
       if(!is.leaf(n)) {
         attr(n, "edgePar") &lt;- list(p.col = "plum")
@@ -366,10 +365,9 @@ d3e &lt;- dendrapply(d3, addE)
 plot(d3e, nodePar =  nP)
 plot(d3e, nodePar =  nP, leaflab = "textlike")
 
-
-
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.3/00index.html'>Package <em>stats</em> version 3.0.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.3/00index.html'>Package <em>stats</em> version 3.0.3</a> ]</div></main>
+
 </div>
 </body></html>

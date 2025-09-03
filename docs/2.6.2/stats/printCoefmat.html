@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/printCoefmat.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/printCoefmat.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/printCoefmat.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/printCoefmat.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>printCoefmat {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='printCoefmat'>Print Coefficient Matrices</h2>
+<h2>Print Coefficient Matrices</h2>
 
 <h3>Description</h3>
 
@@ -45,51 +45,51 @@ that often, only <code>x</code> needs to be specified.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="printCoefmat_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric matrix like object, to be printed.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>minimum number of significant digits to be used for
 most numbers.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_signif.stars">signif.stars</code></td>
+<tr><td><code id="signif.stars">signif.stars</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, P-values are additionally
 encoded visually as &lsquo;significance stars&rsquo; in order to help scanning
 of long coefficient tables.  It defaults to the
 <code>show.signif.stars</code> slot of <code>options</code>.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_signif.legend">signif.legend</code></td>
+<tr><td><code id="signif.legend">signif.legend</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, a legend for the 
 &lsquo;significance stars&rsquo; is printed provided <code>signif.stars=TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_dig.tst">dig.tst</code></td>
+<tr><td><code id="dig.tst">dig.tst</code></td>
 <td>
 <p>minimum number of significant digits for the test statistics,
 see <code>tst.ind</code>.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_cs.ind">cs.ind</code></td>
+<tr><td><code id="cs.ind">cs.ind</code></td>
 <td>
 <p>indices (integer) of column numbers which are (like)
 <b>c</b>oefficients and <b>s</b>tandard errors to be formatted
 together.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_tst.ind">tst.ind</code></td>
+<tr><td><code id="tst.ind">tst.ind</code></td>
 <td>
 <p>indices (integer) of column numbers for test
 statistics.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_zap.ind">zap.ind</code></td>
+<tr><td><code id="zap.ind">zap.ind</code></td>
 <td>
 <p>indices (integer) of column numbers which should be
 formatted by <code>zapsmall</code>, i.e., by &lsquo;zapping&rsquo; values
 close to 0.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_P.values">P.values</code></td>
+<tr><td><code id="P.values">P.values</code></td>
 <td>
 <p>logical or <code>NULL</code>; if <code>TRUE</code>, the last
 column of <code>x</code> is formatted by <code>format.pval</code> as P
@@ -98,22 +98,22 @@ values.  If <code>P.values = NULL</code>, the default, it is set to
 <code>TRUE</code> <em>and</em> <code>x</code> has at least 4 columns <em>and</em>
 the last column name of <code>x</code> starts with <code>"Pr("</code>.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_has.Pvalue">has.Pvalue</code></td>
+<tr><td><code id="has.Pvalue">has.Pvalue</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the last column of <code>x</code>
 contains P values; in that case, it is printed if and only if
 <code>P.values</code> (above) is true.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_eps.Pvalue">eps.Pvalue</code></td>
+<tr><td><code id="eps.Pvalue">eps.Pvalue</code></td>
 <td>
 <p>number,..</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_na.print">na.print</code></td>
+<tr><td><code id="na.print">na.print</code></td>
 <td>
 <p>a character string to code <code>NA</code> values in
 printed output.</p>
 </td></tr>
-<tr><td><code id="printCoefmat_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments for <code>print</code>.</p>
 </td></tr>
@@ -153,6 +153,7 @@ printCoefmat(cmat, digits=2, P.values = TRUE)
 options(show.coef.Pvalues = TRUE)# revert
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.2/00index.html'>Package <em>stats</em> version 2.6.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.2/00index.html'>Package <em>stats</em> version 2.6.2</a> ]</div></main>
+
 </div>
 </body></html>

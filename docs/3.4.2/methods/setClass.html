@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>setClass {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='setClass'>Create a Class Definition</h2>
+<h2>Create a Class Definition</h2>
 
 <h3>Description</h3>
 
@@ -47,12 +47,12 @@ not a requirement.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="setClass_:_Class">Class</code></td>
+<table role = "presentation">
+<tr><td><code id="Class">Class</code></td>
 <td>
 <p>character string name for the class.</p>
 </td></tr>
-<tr><td><code id="setClass_:_slots">slots</code></td>
+<tr><td><code id="slots">slots</code></td>
 <td>
 <p>  The names and classes for the slots in the new class.  This argument
 must be supplied by name, <code>slots=</code>, in the call, for back compatibility
@@ -71,7 +71,7 @@ vector;  the elements are  taken as slot names and all slots have
 the unrestricted class <code>"ANY"</code>. 
 </p>
 </td></tr>
-<tr><td><code id="setClass_:_contains">contains</code></td>
+<tr><td><code id="contains">contains</code></td>
 <td>
 <p> A vector specifying existing classes from which
 this class should inherit. The new class will have all the slots
@@ -84,7 +84,7 @@ with other arguments no longer recommended.
 superclass  <code>"VIRTUAL"</code>.
 </p>
 </td></tr>
-<tr><td><code id="setClass_:_prototype">prototype</code>, <code id="setClass_:_where">where</code>, <code id="setClass_:_validity">validity</code>, <code id="setClass_:_sealed">sealed</code>, <code id="setClass_:_package">package</code></td>
+<tr><td><code id="prototype">prototype</code>, <code id="where">where</code>, <code id="validity">validity</code>, <code id="sealed">sealed</code>, <code id="package">package</code></td>
 <td>
 
 <p><em>These arguments are currently allowed, but either they are unlikely to be
@@ -113,7 +113,7 @@ the class attribute should be  the package in which the class
 definition is assigned, as it is by default.
 </p>
 </td></tr>
-<tr><td><code id="setClass_:_representation">representation</code>, <code id="setClass_:_access">access</code>, <code id="setClass_:_version">version</code>, <code id="setClass_:_S3methods">S3methods</code></td>
+<tr><td><code id="representation">representation</code>, <code id="access">access</code>, <code id="version">version</code>, <code id="S3methods">S3methods</code></td>
 <td>
 <p><em>All these
 arguments are deprecated from version 3.0.0 of <span class="rlang"><b>R</b></span> and should be
@@ -402,6 +402,7 @@ e1[["noise"]] &lt;- rnorm(10)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.4.2/00index.html'>Package <em>methods</em> version 3.4.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.4.2/00index.html'>Package <em>methods</em> version 3.4.2</a> ]</div></main>
+
 </div>
 </body></html>

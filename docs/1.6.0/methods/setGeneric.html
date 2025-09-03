@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setGeneric.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>setGeneric {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='setGeneric'>Define a New Generic Function</h2>
+<h2>Define a New Generic Function</h2>
 
 <h3>Description</h3>
 
@@ -39,8 +39,8 @@ setGroupGeneric(name, def, group=NULL, valueClass=NULL, knownMembers,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="setGeneric_:_name">name</code></td>
+<table role = "presentation">
+<tr><td><code id="name">name</code></td>
 <td>
 <p> The character string name of the generic function.  In
 the simplest and most common case, a function of this name is
@@ -48,7 +48,7 @@ already defined.  The existing function may be non-generic or
 already a generic (see the details).
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_def">def</code></td>
+<tr><td><code id="def">def</code></td>
 <td>
 <p> An optional function object, defining the generic.  This
 argument is usually only needed (and is then required) if there is
@@ -62,7 +62,7 @@ best left alone unless you are sure you want it).
 <code>useAsDefault</code> if you want to specify the default separately.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_group">group</code></td>
+<tr><td><code id="group">group</code></td>
 <td>
 <p> Optionally, a character string giving the group of
 generic functions to which this function belongs.  Methods can be
@@ -72,7 +72,7 @@ been explicitly defined for the corresponding signature.  See the
 references for more discussion.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_valueClass">valueClass</code></td>
+<tr><td><code id="valueClass">valueClass</code></td>
 <td>
 <p> An optional character vector or unevaluated 
 expression.  The value returned by the generic function must
@@ -81,7 +81,7 @@ an error is generated.  See the
 details section for supplying an expression.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p> The name of the package with which this function is
 associated.  Usually determined automatically (as the package
@@ -89,14 +89,14 @@ containing the non-generic version if there is one, or else the
 package where this generic is to be saved).
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p> Where to store the resulting initial methods definition,
 and possibly the generic function; by
 default, stored into the top-level environment.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_signature">signature</code></td>
+<tr><td><code id="signature">signature</code></td>
 <td>
 
 <p>Optionally, the signature of arguments in the function that can
@@ -106,14 +106,14 @@ prohibit methods from using some arguments.  The argument, if
 provided, is a vector of formal argument names.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_genericFunction">genericFunction</code></td>
+<tr><td><code id="genericFunction">genericFunction</code></td>
 <td>
 <p> The object to be used as a (nonstandard)
 generic function definition. Supply this explicitly <em>only</em> if
 you know what you are doing!
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_useAsDefault">useAsDefault</code></td>
+<tr><td><code id="useAsDefault">useAsDefault</code></td>
 <td>
 
 <p>Override the usual choice of default argument (an existing
@@ -128,7 +128,7 @@ unconditionally (hardly ever needed as an explicit argument).
 See the section on details.
 </p>
 </td></tr>
-<tr><td><code id="setGeneric_:_knownMembers">knownMembers</code></td>
+<tr><td><code id="knownMembers">knownMembers</code></td>
 <td>
 
 <p>(For <code>setGroupGeneric</code> only)  The names of functions that are known to be
@@ -332,6 +332,7 @@ t1 - 100
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.6.0/00index.html'>Package <em>methods</em> version 1.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.6.0/00index.html'>Package <em>methods</em> version 1.6.0</a> ]</div></main>
+
 </div>
 </body></html>

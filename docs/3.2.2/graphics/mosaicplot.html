@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/mosaicplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/mosaicplot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/mosaicplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/mosaicplot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>mosaicplot {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='mosaicplot'>Mosaic Plots</h2>
+<h2>Mosaic Plots</h2>
 
 <h3>Description</h3>
 
@@ -44,33 +44,33 @@ mosaicplot(formula, data = NULL, ...,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="mosaicplot_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a contingency table in array form, with optional category
 labels specified in the <code>dimnames(x)</code> attribute.  The table is
 best created by the <code>table()</code> command.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>character string for the mosaic title.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_sub">sub</code></td>
+<tr><td><code id="sub">sub</code></td>
 <td>
 <p>character string for the mosaic sub-title (at bottom).</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_xlab">xlab</code>, <code id="mosaicplot_:_ylab">ylab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>x- and y-axis labels used for the plot; by default,
 the first and second element of <code>names(dimnames(X))</code> (i.e., the
 name of the first and second variable in <code>X</code>).</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_sort">sort</code></td>
+<tr><td><code id="sort">sort</code></td>
 <td>
 <p>vector ordering of the variables, containing a permutation
 of the integers <code>1:length(dim(x))</code> (the default).</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_off">off</code></td>
+<tr><td><code id="off">off</code></td>
 <td>
 <p>vector of offsets to determine percentage spacing at each
 level of the mosaic (appropriate values are between 0 and 20,
@@ -78,7 +78,7 @@ and the default is 20 times the number of splits for 2-dimensional
 tables, and 10 otherwise.  Rescaled to maximally 50, and recycled if
 necessary.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_dir">dir</code></td>
+<tr><td><code id="dir">dir</code></td>
 <td>
 <p>vector of split directions (<code>"v"</code> for vertical and
 <code>"h"</code> for horizontal) for each level of the mosaic, one
@@ -86,7 +86,7 @@ direction for each dimension of the contingency table.  The
 default consists of alternating directions, beginning with a
 vertical split.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_color">color</code></td>
+<tr><td><code id="color">color</code></td>
 <td>
 <p>logical or (recycling) vector of colors for color
 shading, used only when <code>shade</code> is <code>FALSE</code>, or <code>NULL</code>
@@ -94,7 +94,7 @@ shading, used only when <code>shade</code> is <code>FALSE</code>, or <code>NULL<
 uses a gamma-corrected grey palette.  <code>color = FALSE</code> gives empty
 boxes with no shading.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_shade">shade</code></td>
+<tr><td><code id="shade">shade</code></td>
 <td>
 <p>a logical indicating whether to produce extended mosaic
 plots, or a numeric vector of at most 5 distinct positive numbers
@@ -103,26 +103,26 @@ default, <code>shade</code> is <code>FALSE</code>, and simple mosaics are
 created.  Using <code>shade = TRUE</code> cuts absolute values at 2 and
 4.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_margin">margin</code></td>
+<tr><td><code id="margin">margin</code></td>
 <td>
 <p>a list of vectors with the marginal totals to be fit in
 the log-linear model.  By default, an independence model is fitted.
 See <code>loglin</code> for further information.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_cex.axis">cex.axis</code></td>
+<tr><td><code id="cex.axis">cex.axis</code></td>
 <td>
 <p>The magnification to be used for axis annotation,
 as a multiple of <code>par("cex")</code>.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_las">las</code></td>
+<tr><td><code id="las">las</code></td>
 <td>
 <p>numeric; the style of axis labels, see <code>par</code>.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p>colour of borders of cells: see <code>polygon</code>.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>a character string indicating the type of residual to be
 represented.  Must be one of <code>"pearson"</code> (giving components of
@@ -131,25 +131,25 @@ components of the likelihood ratio <code class="reqn">\chi^2</code>), or
 <code>"FT"</code> for the Freeman-Tukey residuals.  The value of this
 argument can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_formula">formula</code></td>
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula, such as <code>y ~ x</code>.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data frame (or list), or a contingency table from which
 the variables in <code>formula</code> should be taken.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to be passed to or from methods.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 in the data frame to be used for plotting.</p>
 </td></tr>
-<tr><td><code id="mosaicplot_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen
 when the data contains variables to be cross-tabulated, and these
@@ -271,6 +271,7 @@ mosaicplot(~ gear + carb, data = mtcars, color = TRUE, las = 1)
 mosaicplot(~ gear + carb, data = mtcars, color = 2:3, las = 1)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.2/00index.html'>Package <em>graphics</em> version 3.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.2/00index.html'>Package <em>graphics</em> version 3.2.2</a> ]</div></main>
+
 </div>
 </body></html>

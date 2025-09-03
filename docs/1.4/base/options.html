@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>options {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='options'>Options Settings</h2>
+<h2>Options Settings</h2>
 
 <h3>Description</h3>
 
@@ -36,8 +36,8 @@ getOption(x)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="options_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="...">...</code></td>
 <td>
 <p>any options can be defined, using <code>name = value</code>.
 </p>
@@ -46,17 +46,17 @@ getOption(x)
 <p>Further, <code>options('name') == options()['name']</code>, see the example.
 </p>
 </td></tr>
-<tr><td><code id="options_:_prompt">prompt</code></td>
+<tr><td><code id="prompt">prompt</code></td>
 <td>
 <p>a string, used for <span class="rlang"><b>R</b></span>'s prompt; should usually end in a
 blank (<code>" "</code>).</p>
 </td></tr>
-<tr><td><code id="options_:_continue">continue</code></td>
+<tr><td><code id="continue">continue</code></td>
 <td>
 <p>a string setting the prompt used for lines which continue
 over one line.</p>
 </td></tr>
-<tr><td><code id="options_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>controls the number of characters on a line.  You may
 want to change this if you re-size the window that <span class="rlang"><b>R</b></span> is running in.
@@ -64,36 +64,36 @@ Valid values are 10...10000 with default normally 80. (The valid
 values are in file &lsquo;<span class="file">Print.h</span>&rsquo; and can be changed by re-compiling
 <span class="rlang"><b>R</b></span>.)</p>
 </td></tr>
-<tr><td><code id="options_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>controls the number of digits to print when printing
 numeric values.  It is a suggestion only.  Valid values are 1...22
 with default 7.</p>
 </td></tr>
-<tr><td><code id="options_:_editor">editor</code></td>
+<tr><td><code id="editor">editor</code></td>
 <td>
 <p>sets the default text editor, e.g., for
 <code>edit</code>.  Set from the environment variable <code>VISUAL</code>
 on UNIX.</p>
 </td></tr>
-<tr><td><code id="options_:_pager">pager</code></td>
+<tr><td><code id="pager">pager</code></td>
 <td>
 <p>the (stand-alone) program used for displaying ASCII files on
 <span class="rlang"><b>R</b></span>'s console.
 Defaults to &lsquo;<span class="file">\$R\_HOME/bin/pager</span>&rsquo;.
 </p>
 </td></tr>
-<tr><td><code id="options_:_browser">browser</code></td>
+<tr><td><code id="browser">browser</code></td>
 <td>
 <p>default HTML browser used by <code>help.start()</code>
 on UNIX.</p>
 </td></tr>
-<tr><td><code id="options_:_mailer">mailer</code></td>
+<tr><td><code id="mailer">mailer</code></td>
 <td>
 <p>default mailer used by <code>bug.report()</code>. can
 be <code>"none"</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_contrasts">contrasts</code></td>
+<tr><td><code id="contrasts">contrasts</code></td>
 <td>
 <p>the default <code>contrasts</code> used in model
 fitting such as with <code>aov</code> or <code>lm</code>.  A
@@ -101,14 +101,14 @@ character vector of length two, the first giving the function to be
 used with unordered factors and the second the function to be used
 with ordered factors.</p>
 </td></tr>
-<tr><td><code id="options_:_expressions">expressions</code></td>
+<tr><td><code id="expressions">expressions</code></td>
 <td>
 <p>sets a limit on the number of nested expressions that
 will be evaluated.  This is especially important on the Macintosh
 since stack overflow is likely if this is set too high.
 Valid values are 25...100000 with default 500.</p>
 </td></tr>
-<tr><td><code id="options_:_keep.source">keep.source</code></td>
+<tr><td><code id="keep.source">keep.source</code></td>
 <td>
 <p>When <code>TRUE</code>, the source code for functions
 (newly defined or loaded) is stored in their <code>"source"</code>
@@ -118,25 +118,25 @@ the right places.
 <p>The default is <code>interactive()</code>, i.e., <code>TRUE</code> for
 interactive use.</p>
 </td></tr>
-<tr><td><code id="options_:_keep.source.pkgs">keep.source.pkgs</code></td>
+<tr><td><code id="keep.source.pkgs">keep.source.pkgs</code></td>
 <td>
 <p>As for <code>keep.source</code>, for functions in
 packages loaded by <code>library</code> or <code>require</code>.
 Defaults to <code>FALSE</code> unless the environment variable
 <code>R_KEEP_PKG_SOURCE</code> is set to <code>yes</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>the name of a function for treating missing values
 (<code>NA</code>'s) for certain situations.</p>
 </td></tr>
-<tr><td><code id="options_:_papersize">papersize</code></td>
+<tr><td><code id="papersize">papersize</code></td>
 <td>
 <p>the default paper format used by <code>postscript</code>;
 set by environment variable <code>R_PAPERSIZE</code> when <span class="rlang"><b>R</b></span> is started
 and defaulting to <code>"a4"</code> if that is unset or invalid.</p>
 </td></tr>
-<tr><td><code id="options_:_printcmd">printcmd</code></td>
+<tr><td><code id="printcmd">printcmd</code></td>
 <td>
 <p>the command used by <code>postscript</code> for
 printing; set by environment variable <code>R_PRINTCMD</code> when <span class="rlang"><b>R</b></span> is
@@ -144,22 +144,22 @@ started. This should be a command that expects either input to be piped
 to &lsquo;<span class="file">stdin</span>&rsquo; or to be given a single filename argument.
 </p>
 </td></tr>
-<tr><td><code id="options_:_latexcmd">latexcmd</code>, <code id="options_:_dvipscmd">dvipscmd</code></td>
+<tr><td><code id="latexcmd">latexcmd</code>, <code id="dvipscmd">dvipscmd</code></td>
 <td>
 <p>character strings giving commands to be used
 in off-line printing of help pages.</p>
 </td></tr>
-<tr><td><code id="options_:_show.signif.stars">show.signif.stars</code>, <code id="options_:_show.coef.Pvalues">show.coef.Pvalues</code></td>
+<tr><td><code id="show.signif.stars">show.signif.stars</code>, <code id="show.coef.Pvalues">show.coef.Pvalues</code></td>
 <td>
 <p>logical, affecting P value
 printing, see <code>print.coefmat</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_ts.eps">ts.eps</code></td>
+<tr><td><code id="ts.eps">ts.eps</code></td>
 <td>
 <p>the relative tolerance for certain time series
 (<code>ts</code>) computations.</p>
 </td></tr>
-<tr><td><code id="options_:_error">error</code></td>
+<tr><td><code id="error">error</code></td>
 <td>
 <p>either a function or an expression governing the handling
 of non-catastrophic errors such as those generated by
@@ -170,13 +170,13 @@ no arguments, is generated as the expression.  The default value is
 The function <code>dump.frames</code> provides one alternative that
 allows post-mortem debugging.</p>
 </td></tr>
-<tr><td><code id="options_:_show.error.messages">show.error.messages</code></td>
+<tr><td><code id="show.error.messages">show.error.messages</code></td>
 <td>
 <p>a logical. Should error messages be
 printed?  Intended for use with <code>try</code> or a
 user-installed error handler.</p>
 </td></tr>
-<tr><td><code id="options_:_warn">warn</code></td>
+<tr><td><code id="warn">warn</code></td>
 <td>
 <p>sets the handling of warning messages.  If <code>warn</code>
 is negative all warnings are ignored.  If <code>warn</code> is zero
@@ -188,78 +188,78 @@ viewed through the function <code>warnings</code>.  If <code>warn</code> is
 one, warnings are printed as they occur.  If <code>warn</code> is two or
 larger all warnings are turned into errors.</p>
 </td></tr>
-<tr><td><code id="options_:_check.bounds">check.bounds</code></td>
+<tr><td><code id="check.bounds">check.bounds</code></td>
 <td>
 <p>logical, defaulting to <code>FALSE</code>.  If true, a
 warning is produced whenever a &ldquo;generalized vector&rdquo;
 (atomic or <code>list</code>) is extended, by something like
 <code>x &lt;- 1:3; x[5] &lt;- 6</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_echo">echo</code></td>
+<tr><td><code id="echo">echo</code></td>
 <td>
 <p>logical.  Only used in non-interactive mode, when it
 controls whether input is echoed. Command-line option
 <code>--slave</code> sets this initially to <code>FALSE</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical.  Should <span class="rlang"><b>R</b></span> report extra information on
 progress? Set to <code>TRUE</code> by the command-line option
 <code>--verbose</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_device">device</code></td>
+<tr><td><code id="device">device</code></td>
 <td>
 <p>a character string giving the default device for that
 session. This defaults to the normal screen device (e.g. <code>x11</code>,
 <code>windows</code> or <code>gtk</code>) for an interactive session, and
 <code>postscript</code> in batch use or if a screen is not available.</p>
 </td></tr>
-<tr><td><code id="options_:_X11colortype">X11colortype</code></td>
+<tr><td><code id="X11colortype">X11colortype</code></td>
 <td>
 <p>The default colour type for <code>X11</code> devices.</p>
 </td></tr>
-<tr><td><code id="options_:_CRAN">CRAN</code></td>
+<tr><td><code id="CRAN">CRAN</code></td>
 <td>
 <p>The URL of the preferred CRAN node for use by
 <code>update.packages</code>. Defaults to
 <a href="http://cran.r-project.org">http://cran.r-project.org</a>.</p>
 </td></tr>
-<tr><td><code id="options_:_download.file.method">download.file.method</code></td>
+<tr><td><code id="download.file.method">download.file.method</code></td>
 <td>
 <p>Method to be used for <code>download.file</code>.
 Currently download methods <code>"internal"</code>, <code>"wget"</code> and
 <code>"lynx"</code> are available.  There is no default for this option,
 when <code>method = "auto"</code> is chosen: see <code>download.file</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_unzip">unzip</code></td>
+<tr><td><code id="unzip">unzip</code></td>
 <td>
 <p>the command used unzipping help files.
 </p>
 </td></tr>
-<tr><td><code id="options_:_de.cellwidth">de.cellwidth</code></td>
+<tr><td><code id="de.cellwidth">de.cellwidth</code></td>
 <td>
 <p>integer: the cell widths (number of  characters)
 to be used in the data editor <code>dataentry</code>.  If this is
 unset, 0, negative or <code>NA</code>, variable cell widths are used.</p>
 </td></tr>
-<tr><td><code id="options_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>An integer vector of length 256 holding an input
 encoding.  Defaults to <code>native.enc</code> (= <code>0:255</code>).
 See <code>connections</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_timeout">timeout</code></td>
+<tr><td><code id="timeout">timeout</code></td>
 <td>
 <p>Integer.  The timeout for Internet operations,
 in seconds.  Default 60 seconds.</p>
 </td></tr>
-<tr><td><code id="options_:_internet.info">internet.info</code></td>
+<tr><td><code id="internet.info">internet.info</code></td>
 <td>
 <p>The minimum level of information to be printed on
 url downloads etc. Default is 2, for failure causes.  Set to 1 or 0
 to get more information.</p>
 </td></tr>
-<tr><td><code id="options_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a character string holding one of the above option names.</p>
 </td></tr>
@@ -368,6 +368,7 @@ options(error=quote({dump.frames(to.file=TRUE); q()}))
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.4/00index.html'>Package <em>base</em> version 1.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.4/00index.html'>Package <em>base</em> version 1.4</a> ]</div></main>
+
 </div>
 </body></html>

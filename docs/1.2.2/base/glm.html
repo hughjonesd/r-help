@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/glm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/glm.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/glm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/glm.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>glm {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='glm'>Fitting Generalized Linear Models</h2>
+<h2>Fitting Generalized Linear Models</h2>
 
 <h3>Description</h3>
 
@@ -45,36 +45,36 @@ weights.glm(object, type = c("prior", "working"), ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="glm_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a symbolic description of the model to be fit.
 The details of model specification are given below.</p>
 </td></tr>
-<tr><td><code id="glm_:_family">family</code></td>
+<tr><td><code id="family">family</code></td>
 <td>
 <p>a description of the error distribution and link
 function to be used in the model.
 See <code>family</code> for details.</p>
 </td></tr>
-<tr><td><code id="glm_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional data frame containing the variables
 in the model.  By default the variables are taken from
 <code>environment(formula)</code>, typically the environment from which
 <code>glm</code> is called.</p>
 </td></tr>
-<tr><td><code id="glm_:_weights">weights</code></td>
+<tr><td><code id="weights">weights</code></td>
 <td>
 <p>an optional vector of weights to be used
 in the fitting process.</p>
 </td></tr>
-<tr><td><code id="glm_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used in the fitting process.</p>
 </td></tr>
-<tr><td><code id="glm_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen
 when the data contain <code>NA</code>s.  The default is set by
@@ -82,56 +82,56 @@ the <code>na.action</code> setting of <code>options</code>, and is
 <code>na.fail</code> if that is unset.  The &ldquo;factory-fresh&rdquo;
 default is <code>na.omit</code>.</p>
 </td></tr>
-<tr><td><code id="glm_:_start">start</code></td>
+<tr><td><code id="start">start</code></td>
 <td>
 <p>starting values for the parameters in the linear predictor.</p>
 </td></tr>
-<tr><td><code id="glm_:_etastart">etastart</code></td>
+<tr><td><code id="etastart">etastart</code></td>
 <td>
 <p>starting values for the linear predictor.</p>
 </td></tr>
-<tr><td><code id="glm_:_mustart">mustart</code></td>
+<tr><td><code id="mustart">mustart</code></td>
 <td>
 <p>starting values for the vector of means.</p>
 </td></tr>
-<tr><td><code id="glm_:_offset">offset</code></td>
+<tr><td><code id="offset">offset</code></td>
 <td>
 <p>this can be used to specify an <em>a priori</em>
 known component to be included in the linear predictor
 during fitting.</p>
 </td></tr>
-<tr><td><code id="glm_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>a list of parameters for controlling the fitting
 process.  See the documentation for <code>glm.control</code> for details.</p>
 </td></tr>
-<tr><td><code id="glm_:_model">model</code></td>
+<tr><td><code id="model">model</code></td>
 <td>
 <p>a logical value indicating whether <em>model frame</em>
 should be included as a component of the returned value.</p>
 </td></tr>
-<tr><td><code id="glm_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>the method to be used in fitting the model.
 The default (and presently only) method <code>glm.fit</code>
 uses iteratively reweighted least squares.</p>
 </td></tr>
-<tr><td><code id="glm_:_x">x</code>, <code id="glm_:_y">y</code></td>
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>logical values indicating whether the response
 vector and model matrix used in the fitting process
 should be returned as components of the returned value.</p>
 </td></tr>
-<tr><td><code id="glm_:_contrasts">contrasts</code></td>
+<tr><td><code id="contrasts">contrasts</code></td>
 <td>
 <p>an optional list. See the <code>contrasts.arg</code>
 of <code>model.matrix.default</code>.</p>
 </td></tr>
-<tr><td><code id="glm_:_object">object</code></td>
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an object inheriting from class <code>"glm"</code>.</p>
 </td></tr>
-<tr><td><code id="glm_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>character, partial matching allowed.  Type of weights to
 extract from the fitted model object.</p>
@@ -180,7 +180,7 @@ fit (after subsetting and <code>na.action</code>).
 <p>An object of class <code>"glm"</code> is a list containing at least the
 following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>coefficients</code></td>
 <td>
 <p>a named vector of coefficients</p>
@@ -353,7 +353,6 @@ summary(glm.D93)
 
 ## an example with offsets from Venables &amp; Ripley (1999, pp.217-8)
 
-
 ## Not run: 
 ## Need the anorexia data from a recent version of the package MASS:
 library(MASS)
@@ -375,6 +374,7 @@ summary(glm(lot2 ~ log(u), data=clotting, family=Gamma))
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.2.2/00index.html'>Package <em>base</em> version 1.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.2.2/00index.html'>Package <em>base</em> version 1.2.2</a> ]</div></main>
+
 </div>
 </body></html>

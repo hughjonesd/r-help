@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/agrep.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/agrep.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/agrep.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/agrep.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>agrep {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='agrep'>Approximate String Matching (Fuzzy Matching)</h2>
+<h2>Approximate String Matching (Fuzzy Matching)</h2>
 
 <h3>Description</h3>
 
@@ -38,21 +38,21 @@ transform one string into another).
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="agrep_:_pattern">pattern</code></td>
+<table role = "presentation">
+<tr><td><code id="pattern">pattern</code></td>
 <td>
 <p>a non-empty character string or a character string
 containing a regular expression (for <code>fixed = FALSE</code>) to be
 matched.
 Coerced by <code>as.character</code> to a string if possible.</p>
 </td></tr>
-<tr><td><code id="agrep_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>character vector where matches are sought.
 Coerced by <code>as.character</code> to a character vector if
 possible.</p>
 </td></tr>
-<tr><td><code id="agrep_:_max.distance">max.distance</code></td>
+<tr><td><code id="max.distance">max.distance</code></td>
 <td>
 <p>Maximum distance allowed for a match.  Expressed
 either as integer, or as a fraction of the <em>pattern</em> length
@@ -82,7 +82,7 @@ other transformation number bounds default to <code>all</code>.
 The component names can be abbreviated.
 </p>
 </td></tr>
-<tr><td><code id="agrep_:_costs">costs</code></td>
+<tr><td><code id="costs">costs</code></td>
 <td>
 <p>a numeric vector or list with names partially matching
 &lsquo;<span class="samp">&#8288;insertions&#8288;</span>&rsquo;, &lsquo;<span class="samp">&#8288;deletions&#8288;</span>&rsquo; and &lsquo;<span class="samp">&#8288;substitutions&#8288;</span>&rsquo; giving
@@ -91,24 +91,24 @@ distance, or <code>NULL</code> (default) indicating using unit cost for
 all three possible transformations.
 Coerced to integer via <code>as.integer</code> if possible.</p>
 </td></tr>
-<tr><td><code id="agrep_:_ignore.case">ignore.case</code></td>
+<tr><td><code id="ignore.case">ignore.case</code></td>
 <td>
 <p>if <code>FALSE</code>, the pattern matching is <em>case
 sensitive</em> and if <code>TRUE</code>, case is ignored during matching.</p>
 </td></tr>
-<tr><td><code id="agrep_:_value">value</code></td>
+<tr><td><code id="value">value</code></td>
 <td>
 <p>if <code>FALSE</code>, a vector containing the (integer)
 indices of the matches determined is returned and if <code>TRUE</code>, a
 vector containing the matching elements themselves is returned.</p>
 </td></tr>
-<tr><td><code id="agrep_:_fixed">fixed</code></td>
+<tr><td><code id="fixed">fixed</code></td>
 <td>
 <p>logical.  If <code>TRUE</code> (default), the pattern is
 matched literally (as is).  Otherwise, it is matched as a regular
 expression.</p>
 </td></tr>
-<tr><td><code id="agrep_:_useBytes">useBytes</code></td>
+<tr><td><code id="useBytes">useBytes</code></td>
 <td>
 <p>logical. in a multibyte locale, should the comparison
 be character-by-character (the default) or byte-by-byte.</p>
@@ -174,6 +174,7 @@ agrep("laysy", c("1 lazy", "1", "1 LAZY"), max = 2, value = TRUE)
 agrep("laysy", c("1 lazy", "1", "1 LAZY"), max = 2, ignore.case = TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.14.1/00index.html'>Package <em>base</em> version 2.14.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.14.1/00index.html'>Package <em>base</em> version 2.14.1</a> ]</div></main>
+
 </div>
 </body></html>

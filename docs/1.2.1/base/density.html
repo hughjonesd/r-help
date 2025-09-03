@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/density.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/density.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/density.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/density.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>density {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='density'>Kernel Density Estimation</h2>
+<h2>Kernel Density Estimation</h2>
 
 <h3>Description</h3>
 
@@ -44,12 +44,12 @@ plot(dobj, main = NULL, xlab = NULL, ylab = "Density", type = "l",
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="density_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>the data from which the estimate is to be computed.</p>
 </td></tr>
-<tr><td><code id="density_:_bw">bw</code></td>
+<tr><td><code id="bw">bw</code></td>
 <td>
 <p>the smoothing bandwidth to be used.  The kernels are scaled
 such that this is the standard deviation of the smoothing kernel.
@@ -62,12 +62,12 @@ The specified (or default) value of <code>bw</code> is multiplied by
 <code>adjust</code>.
 </p>
 </td></tr>
-<tr><td><code id="density_:_adjust">adjust</code></td>
+<tr><td><code id="adjust">adjust</code></td>
 <td>
 <p>the bandwidth used is actually <code>adjust*bw</code>.
 This makes it easy to specify values like &ldquo;half the default&rdquo; bandwidth.</p>
 </td></tr>
-<tr><td><code id="density_:_kernel">kernel</code>, <code id="density_:_window">window</code></td>
+<tr><td><code id="kernel">kernel</code>, <code id="window">window</code></td>
 <td>
 <p>a character string giving the smoothing kernel to be used.
 This must be one of <code>"gaussian"</code>, <code>"rectangular"</code>,
@@ -80,52 +80,51 @@ and may be abbreviated to a unique prefix (single letter).
 usual &ldquo;cosine&rdquo; kernel in the literature and almost MSE-efficient.
 </p>
 </td></tr>
-<tr><td><code id="density_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>this exists for compatibility with S; if given, and
 <code>bw</code> is not, will set <code>bw = width/4</code>.</p>
 </td></tr>
-<tr><td><code id="density_:_give.Rkern">give.Rkern</code></td>
+<tr><td><code id="give.Rkern">give.Rkern</code></td>
 <td>
 <p>logical; if true, <em>no</em> density is estimated, and
 the &ldquo;canonical bandwidth&rdquo; of the chosen <code>kernel</code> is returned instead.</p>
 </td></tr>
-<tr><td><code id="density_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>the number of equally spaced points at which the density
 is to be estimated.  When <code>n &gt; 512</code>, it is rounded up to the next
 power of 2 for efficiency reasons (<code>fft</code>).</p>
 </td></tr>
-<tr><td><code id="density_:_from">from</code>, <code id="density_:_to">to</code></td>
+<tr><td><code id="from">from</code>, <code id="to">to</code></td>
 <td>
 <p>the left and right-most points of the grid at which the
 density is to be estimated.</p>
 </td></tr>
-<tr><td><code id="density_:_cut">cut</code></td>
+<tr><td><code id="cut">cut</code></td>
 <td>
 <p>by default, the values of <code>left</code> and <code>right</code> are
 <code>cut</code> bandwidths beyond the extremes of the data. This allows the
 estimated density to drop to approximately zero at the extremes.</p>
 </td></tr>
-<tr><td><code id="density_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, missing values are removed
 from <code>x</code>. If <code>FALSE</code> any missing values cause an error.</p>
 </td></tr>
-
-<tr><td><code id="density_:_dobj">dobj</code></td>
+<tr><td><code id="dobj">dobj</code></td>
 <td>
 <p>a &ldquo;density&rdquo; object.</p>
 </td></tr>
-<tr><td><code id="density_:_main">main</code>, <code id="density_:_xlab">xlab</code>, <code id="density_:_ylab">ylab</code>, <code id="density_:_type">type</code></td>
+<tr><td><code id="main">main</code>, <code id="xlab">xlab</code>, <code id="ylab">ylab</code>, <code id="type">type</code></td>
 <td>
 <p>plotting parameters with useful defaults.</p>
 </td></tr>
-<tr><td><code id="density_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further plotting parameters.</p>
 </td></tr>
-<tr><td><code id="density_:_zero.line">zero.line</code></td>
+<tr><td><code id="zero.line">zero.line</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, add a base line at <code class="reqn">y = 0</code></p>
 </td></tr>
@@ -163,7 +162,7 @@ bandwidths.
 an object with class <code>"density"</code> whose
 underlying structure is a list containing the following components.
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>x</code></td>
 <td>
 <p>the <code>n</code> coordinates of the points where the density is
@@ -274,6 +273,7 @@ mtext(side = 3, "equivalent bandwidths, 7 different kernels")
 legend(55,.035, leg = kernels, col = seq(kernels), lty = 1)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.2.1/00index.html'>Package <em>base</em> version 1.2.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.2.1/00index.html'>Package <em>base</em> version 1.2.1</a> ]</div></main>
+
 </div>
 </body></html>

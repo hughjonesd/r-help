@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/Rd2HTML.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/Rd2HTML.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/Rd2HTML.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/Rd2HTML.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Rd2HTML {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Rd2HTML'> Rd Converters </h2>
+<h2> Rd Converters </h2>
 
 <h3>Description</h3>
 
@@ -50,74 +50,74 @@ Rd2ex(Rd, out = "", defines = .Platform$OS.type,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Rd2HTML_:_Rd">Rd</code></td>
+<table role = "presentation">
+<tr><td><code id="Rd">Rd</code></td>
 <td>
 <p> a filename or <code>Rd</code> object to use as input. </p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_out">out</code></td>
+<tr><td><code id="out">out</code></td>
 <td>
 <p> a filename or connection object to which to write the output. </p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p> the package to list in the output. </p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_defines">defines</code></td>
+<tr><td><code id="defines">defines</code></td>
 <td>
 <p> string(s) to use in <code style="white-space: pre;">&#8288;#ifdef&#8288;</code> tests. </p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_stages">stages</code></td>
+<tr><td><code id="stages">stages</code></td>
 <td>
 <p> at which stage (<code>"build"</code>, <code>"install"</code>, or
 <code>"render"</code>) should <code style="white-space: pre;">&#8288;\Sexpr&#8288;</code> macros be executed? See the
 notes below.</p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_outputEncoding">outputEncoding</code></td>
+<tr><td><code id="outputEncoding">outputEncoding</code></td>
 <td>
 <p> see the &lsquo;Encodings&rsquo; section below.</p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_dynamic">dynamic</code></td>
+<tr><td><code id="dynamic">dynamic</code></td>
 <td>
 <p>logical: set links for render-time resolution by
 dynamic help system.</p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_no_links">no_links</code></td>
+<tr><td><code id="no_links">no_links</code></td>
 <td>
 <p>logical: suppress hyperlinks to other help topics.
 Used by <code>R CMD Rdconv</code>.</p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_fragment">fragment</code></td>
+<tr><td><code id="fragment">fragment</code></td>
 <td>
 <p>logical:  should fragments of Rd files be accepted?  See the
 notes below.</p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_stylesheet">stylesheet</code></td>
+<tr><td><code id="stylesheet">stylesheet</code></td>
 <td>
 <p>character: a URL for a stylesheet to be used in the header
 of the HTML output page.</p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_Links">Links</code>, <code id="Rd2HTML_:_Links2">Links2</code></td>
+<tr><td><code id="Links">Links</code>, <code id="Links2">Links2</code></td>
 <td>
 <p><code>NULL</code> or a named (by topics) character vector of
 links, as returned by <code>findHTMLlinks</code>.</p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_options">options</code></td>
+<tr><td><code id="options">options</code></td>
 <td>
 <p>An optional named list of options to pass to
 <code>Rd2txt_options</code>.</p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p> additional parameters to pass to <code>parse_Rd</code> when
 <code>Rd</code> is a filename. </p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_writeEncoding">writeEncoding</code></td>
+<tr><td><code id="writeEncoding">writeEncoding</code></td>
 <td>
 <p>should <code style="white-space: pre;">&#8288;\inputencoding&#8288;</code> lines be written in
 the file for non-ASCII encodings?</p>
 </td></tr>
-<tr><td><code id="Rd2HTML_:_commentDontrun">commentDontrun</code></td>
+<tr><td><code id="commentDontrun">commentDontrun</code></td>
 <td>
 <p>should <code style="white-space: pre;">&#8288;\dontrun&#8288;</code> sections be commented
 out?</p>
@@ -219,7 +219,7 @@ page is converted to a readable format).
 </p>
 </li>
 <li><p> rendered on
-2023-07-01 at 15:26:58.
+2025-09-03 at 14:32:04.
 </p>
 </li></ol>
 
@@ -264,6 +264,7 @@ checkRd(Rd) # A stricter test than Rd2HTML uses
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>tools</em> version 3.1.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>tools</em> version 3.1.2</a> ]</div></main>
+
 </div>
 </body></html>

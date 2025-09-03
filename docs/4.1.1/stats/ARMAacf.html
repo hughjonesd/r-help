@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ARMAacf.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ARMAacf.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ARMAacf.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ARMAacf.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ARMAacf {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ARMAacf'>Compute Theoretical ACF for an ARMA Process</h2>
+<h2>Compute Theoretical ACF for an ARMA Process</h2>
 
 <h3>Description</h3>
 
@@ -33,22 +33,22 @@ autocorrelation function for an ARMA process.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ARMAacf_:_ar">ar</code></td>
+<table role = "presentation">
+<tr><td><code id="ar">ar</code></td>
 <td>
 <p>numeric vector of AR coefficients</p>
 </td></tr>
-<tr><td><code id="ARMAacf_:_ma">ma</code></td>
+<tr><td><code id="ma">ma</code></td>
 <td>
 <p>numeric vector of MA coefficients</p>
 </td></tr>
-<tr><td><code id="ARMAacf_:_lag.max">lag.max</code></td>
+<tr><td><code id="lag.max">lag.max</code></td>
 <td>
 <p>integer.  Maximum lag required.  Defaults to
 <code>max(p, q+1)</code>, where <code>p, q</code> are the numbers of AR and MA
 terms respectively.</p>
 </td></tr>
-<tr><td><code id="ARMAacf_:_pacf">pacf</code></td>
+<tr><td><code id="pacf">pacf</code></td>
 <td>
 <p>logical.  Should the partial autocorrelations be returned?</p>
 </td></tr>
@@ -103,6 +103,7 @@ zapsmall(ARMAacf(c(1.0, -0.25), lag.max = 10, pacf = TRUE))
 toeplitz(ARMAacf(0.8, lag.max = 7))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>stats</em> version 4.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>stats</em> version 4.1.1</a> ]</div></main>
+
 </div>
 </body></html>

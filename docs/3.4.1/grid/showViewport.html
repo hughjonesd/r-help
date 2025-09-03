@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/showViewport.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/showViewport.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/showViewport.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/showViewport.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>showViewport {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='showViewport'>
+<h2>
 Display grid viewports.
 </h2>
 
@@ -40,8 +40,8 @@ and the leaf viewports are labelled with the viewport name.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="showViewport_:_vp">vp</code></td>
+<table role = "presentation">
+<tr><td><code id="vp">vp</code></td>
 <td>
 
 <p>If <code>NULL</code>, the current viewport tree is displayed.
@@ -49,34 +49,34 @@ Otherwise, a viewport (or vpList, or vpStack, or vpTree) or
 a vpPath that specifies which viewport to display.
 </p>
 </td></tr>
-<tr><td><code id="showViewport_:_recurse">recurse</code></td>
+<tr><td><code id="recurse">recurse</code></td>
 <td>
 
 <p>Should the children of the specified viewport also be displayed?
 </p>
 </td></tr>
-<tr><td><code id="showViewport_:_depth">depth</code></td>
+<tr><td><code id="depth">depth</code></td>
 <td>
 
 <p>Only display viewports at the specified depth (may be a vector
 of depths).
 </p>
 </td></tr>
-<tr><td><code id="showViewport_:_newpage">newpage</code></td>
+<tr><td><code id="newpage">newpage</code></td>
 <td>
 
 <p>Start a new page for the display?  Otherwise, the viewports
 are displayed on top of the current plot.
 </p>
 </td></tr>
-<tr><td><code id="showViewport_:_leaves">leaves</code></td>
+<tr><td><code id="leaves">leaves</code></td>
 <td>
 
 <p>Produce a matrix of smaller displays, with each leaf viewport
 in its own display.
 </p>
 </td></tr>
-<tr><td><code id="showViewport_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 
 <p>The colour used to draw the border of the rectangle for each
@@ -86,20 +86,20 @@ top-level viewport, the second colour is used for its children,
 the third colour for their children, and so on.
 </p>
 </td></tr>
-<tr><td><code id="showViewport_:_fill">fill</code></td>
+<tr><td><code id="fill">fill</code></td>
 <td>
 
 <p>The colour used to fill each viewport.  May be a vector as per
 <code>col</code>.
 </p>
 </td></tr>
-<tr><td><code id="showViewport_:_label">label</code></td>
+<tr><td><code id="label">label</code></td>
 <td>
 
 <p>Should the viewports be labelled (with the viewport name)?
 </p>
 </td></tr>
-<tr><td><code id="showViewport_:_nrow">nrow</code>, <code id="showViewport_:_ncol">ncol</code></td>
+<tr><td><code id="nrow">nrow</code>, <code id="ncol">ncol</code></td>
 <td>
 
 <p>The number of rows and columns when <code>leaves</code> is <code>TRUE</code>.
@@ -135,6 +135,7 @@ showViewport(vpStack(viewport(width=.5, height=.5, name="vp1"),
              newpage=TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.4.1/00index.html'>Package <em>grid</em> version 3.4.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.4.1/00index.html'>Package <em>grid</em> version 3.4.1</a> ]</div></main>
+
 </div>
 </body></html>

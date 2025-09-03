@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/sunflowerplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/sunflowerplot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/sunflowerplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/sunflowerplot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>sunflowerplot {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='sunflowerplot'>Produce a Sunflower Scatter Plot</h2>
+<h2>Produce a Sunflower Scatter Plot</h2>
 
 <h3>Description</h3>
 
@@ -39,18 +39,18 @@ invisible.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="sunflowerplot_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric vector of <code>x</code>-coordinates of length <code>n</code>,
 say, or another valid plotting structure, as for
 <code>plot.default</code>, see also <code>xy.coords</code>.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>numeric vector of <code>y</code>-coordinates of length <code>n</code>.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_number">number</code></td>
+<tr><td><code id="number">number</code></td>
 <td>
 <p>integer vector of length <code>n</code>. <code>number[i]</code> = number
 of replicates for <code>(x[i],y[i])</code>, may be 0.<br />
@@ -58,73 +58,73 @@ Default (<code>missing(number)</code>): compute the exact multiplicity of
 the points <code>x[],y[]</code>, via
 <code>xyTable()</code>.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_log">log</code></td>
+<tr><td><code id="log">log</code></td>
 <td>
 <p>character indicating log coordinate scale, see
 <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>when <code>number</code> is computed (i.e., not specified),
 <code>x</code> and <code>y</code> are rounded to <code>digits</code> significant
 digits before multiplicities are computed.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_xlab">xlab</code>, <code id="sunflowerplot_:_ylab">ylab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>character label for x-, or y-axis, respectively.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_xlim">xlim</code>, <code id="sunflowerplot_:_ylim">ylim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code></td>
 <td>
 <p><code>numeric(2)</code> limiting the extents of the x-,
 or y-axis.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>logical; should the plot be added on a previous one ?
 Default is <code>FALSE</code>.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_rotate">rotate</code></td>
+<tr><td><code id="rotate">rotate</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, randomly rotate the
 sunflowers (preventing artefacts).</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_pch">pch</code></td>
+<tr><td><code id="pch">pch</code></td>
 <td>
 <p>plotting character to be used for points
 (<code>number[i]==1</code>) and center of sunflowers.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_cex">cex</code></td>
+<tr><td><code id="cex">cex</code></td>
 <td>
 <p>numeric; character size expansion of center points
 (s. <code>pch</code>).</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_cex.fact">cex.fact</code></td>
+<tr><td><code id="cex.fact">cex.fact</code></td>
 <td>
 <p>numeric <em>shrinking</em> factor to be used for the
 center points <em>when there are flower leaves</em>,
 i.e., <code>cex / cex.fact</code> is used for these.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_col">col</code>, <code id="sunflowerplot_:_bg">bg</code></td>
+<tr><td><code id="col">col</code>, <code id="bg">bg</code></td>
 <td>
 <p>colors for the plot symbols, passed to
 <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_size">size</code></td>
+<tr><td><code id="size">size</code></td>
 <td>
 <p>of sunflower leaves in inches, 1[in] := 2.54[cm].
 Default: 1/8\&quot;, approximately 3.2mm.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_seg.col">seg.col</code></td>
+<tr><td><code id="seg.col">seg.col</code></td>
 <td>
 <p>color to be used for the <b>seg</b>ments which make the
 sunflowers leaves, see <code>par(col=)</code>;
 <code>col = "gold"</code> reminds of real sunflowers.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_seg.lwd">seg.lwd</code></td>
+<tr><td><code id="seg.lwd">seg.lwd</code></td>
 <td>
 <p>numeric; the line width for the leaves' segments.</p>
 </td></tr>
-<tr><td><code id="sunflowerplot_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to <code>plot</code> [if
 <code>add=FALSE</code>].</p>
@@ -150,7 +150,7 @@ artefactual visual impressions.
 
 <p>A list with three components of same length,
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>x</code></td>
 <td>
 <p>x coordinates</p>
@@ -226,6 +226,7 @@ sunflowerplot(rnorm(100), rnorm(100), number = rpois(n=100,lambda=2),
               rotate=TRUE, col = "blue4")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.11.1/00index.html'>Package <em>graphics</em> version 2.11.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.11.1/00index.html'>Package <em>graphics</em> version 2.11.1</a> ]</div></main>
+
 </div>
 </body></html>

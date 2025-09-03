@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/taskCallback.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/taskCallback.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/taskCallback.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/taskCallback.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>taskCallback {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='taskCallback'>Add or Remove a Top-Level Task Callback</h2>
+<h2>Add or Remove a Top-Level Task Callback</h2>
 
 <h3>Description</h3>
 
@@ -45,8 +45,8 @@ removeTaskCallback(id)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="taskCallback_:_f">f</code></td>
+<table role = "presentation">
+<tr><td><code id="f">f</code></td>
 <td>
 <p>the function that is to be invoked each time a top-level task
 is successfully completed. This is called with 5 or 4 arguments
@@ -54,12 +54,12 @@ depending on whether <code>data</code> is specified or not, respectively.
 The return value should be a logical value indicating whether to
 keep the callback in the list of active callbacks or discard it.</p>
 </td></tr>
-<tr><td><code id="taskCallback_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>if specified, this is the 5-th argument in the call to the
 callback function <code>f</code>.</p>
 </td></tr>
-<tr><td><code id="taskCallback_:_id">id</code></td>
+<tr><td><code id="id">id</code></td>
 <td>
 <p>a string or an integer identifying the element in the
 internal callback list to be removed.
@@ -69,7 +69,7 @@ using <code>getTaskCallbackNames</code>
 and is also returned in a call to <code>addTaskCallback</code>.
 </p>
 </td></tr>
-<tr><td><code id="taskCallback_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>character: names to be used.</p>
 </td></tr>
@@ -170,6 +170,7 @@ to allow C routines rather than R functions be used.
 ## End(Not run)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>base</em> version 2.12.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>base</em> version 2.12.0</a> ]</div></main>
+
 </div>
 </body></html>

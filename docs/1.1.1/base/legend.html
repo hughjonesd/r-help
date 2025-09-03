@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/legend.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/legend.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/legend.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/legend.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>legend {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='legend'>Add Legends to Plots</h2>
+<h2>Add Legends to Plots</h2>
 
 <h3>Description</h3>
 
@@ -38,101 +38,96 @@ and <code>y</code> arguments.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="legend_:_x">x</code>, <code id="legend_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>the x and y location of the legend.
 <code>x</code> can be a list with <code>x</code> and <code>y</code> components.</p>
 </td></tr>
-
-
-
-
-
-<tr><td><code id="legend_:_legend">legend</code></td>
+<tr><td><code id="legend">legend</code></td>
 <td>
 <p>a vector of text values or an <code>expression</code>
 of length <code class="reqn">\ge 1</code> to appear in the legend.</p>
 </td></tr>
-<tr><td><code id="legend_:_fill">fill</code></td>
+<tr><td><code id="fill">fill</code></td>
 <td>
 <p>if specified, this argument will cause boxes filled
 with the specified colors to appear beside the legend text.</p>
 </td></tr>
-<tr><td><code id="legend_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>the color of points or lines appearing in the legend.</p>
 </td></tr>
-<tr><td><code id="legend_:_lty">lty</code>, <code id="legend_:_lwd">lwd</code></td>
+<tr><td><code id="lty">lty</code>, <code id="lwd">lwd</code></td>
 <td>
 <p>the line types and widths for lines appearing in the
 legend.  One of these two <em>must</em> be specified for line drawing.</p>
 </td></tr>
-<tr><td><code id="legend_:_pch">pch</code></td>
+<tr><td><code id="pch">pch</code></td>
 <td>
 <p>the plotting symbols appearing in the legend, either as
 vector of 1-character strings, or one (multi character)
 string. <em>Must</em> be specified for symbol drawing.</p>
 </td></tr>
-<tr><td><code id="legend_:_bty">bty</code></td>
+<tr><td><code id="bty">bty</code></td>
 <td>
 <p>the type of box to be drawn around the legend.</p>
 </td></tr>
-<tr><td><code id="legend_:_bg">bg</code></td>
+<tr><td><code id="bg">bg</code></td>
 <td>
 <p>the background color for the legend box.</p>
 </td></tr>
-<tr><td><code id="legend_:_cex">cex</code></td>
+<tr><td><code id="cex">cex</code></td>
 <td>
 <p>character expansion factor <b>relative</b> to current
 <code>par("cex")</code>.</p>
 </td></tr>
-<tr><td><code id="legend_:_xjust">xjust</code></td>
+<tr><td><code id="xjust">xjust</code></td>
 <td>
 <p>how the legend is to be justified relative to the legend
 x location.  A value of 0 means left justified, 0.5 means centered
 and 1 means right justified.</p>
 </td></tr>
-<tr><td><code id="legend_:_yjust">yjust</code></td>
+<tr><td><code id="yjust">yjust</code></td>
 <td>
 <p>the same as <code>xjust</code> for the legend y location.</p>
 </td></tr>
-<tr><td><code id="legend_:_x.intersp">x.intersp</code></td>
+<tr><td><code id="x.intersp">x.intersp</code></td>
 <td>
 <p>character interspacing factor for horizontal (x) spacing.</p>
 </td></tr>
-<tr><td><code id="legend_:_y.intersp">y.intersp</code></td>
+<tr><td><code id="y.intersp">y.intersp</code></td>
 <td>
 <p>the same for vertical (y) line distances.</p>
 </td></tr>
-<tr><td><code id="legend_:_adj">adj</code></td>
+<tr><td><code id="adj">adj</code></td>
 <td>
 <p>numeric of length 1 or 2; the string adjustment for legend
 text.  Useful for y-adjustment when <code>labels</code> are
 plotmath expressions.</p>
 </td></tr>
-<tr><td><code id="legend_:_text.width">text.width</code></td>
+<tr><td><code id="text.width">text.width</code></td>
 <td>
 <p>the width of the legend text in x (<code>"user"</code>)
 coordinates.
 Defaults to the proper value computed by <code>strwidth(legend)</code>.</p>
 </td></tr>
-<tr><td><code id="legend_:_merge">merge</code></td>
+<tr><td><code id="merge">merge</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, &ldquo;merge&rdquo; points and lines but
 not filled boxes.  Defaults to <code>TRUE</code> if there are points and lines.</p>
 </td></tr>
-<tr><td><code id="legend_:_trace">trace</code></td>
+<tr><td><code id="trace">trace</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, shows how <code>legend</code> does all
 its magical computations.</p>
 </td></tr>
-<tr><td><code id="legend_:_ncol">ncol</code></td>
+<tr><td><code id="ncol">ncol</code></td>
 <td>
 <p>the number of columns in which to set the legend items
 (default is 1, a vertical legend).</p>
 </td></tr>
-<tr><td><code id="legend_:_horiz">horiz</code></td>
+<tr><td><code id="horiz">horiz</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, set the legend horizontally rather than
 vertically (specifying <code>horiz</code> overrides the <code>ncol</code>
@@ -162,7 +157,7 @@ etc, are recycled if necessary.  <code>merge</code> is not.
 
 
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>rect</code></td>
 <td>
 <p>a list with components
@@ -266,6 +261,7 @@ legend(0, -.1, paste("sin(",1:4,"pi * x)"), col=1:4, lty=1:4, ncol=2, cex=.8)
 legend(0, -.7, paste("sin(",5:7,"pi * x)"), col=5:7, pch="*", ncol=2, cex=.8)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.1.1/00index.html'>Package <em>base</em> version 1.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.1.1/00index.html'>Package <em>base</em> version 1.1.1</a> ]</div></main>
+
 </div>
 </body></html>

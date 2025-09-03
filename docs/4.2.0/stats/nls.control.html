@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nls.control.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nls.control.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nls.control.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nls.control.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>nls.control {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='nls.control'>Control the Iterations in nls</h2>
+<h2>Control the Iterations in nls</h2>
 
 <h3>Description</h3>
 
@@ -35,18 +35,18 @@ nonlinear least squares algorithm.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="nls.control_:_maxiter">maxiter</code></td>
+<table role = "presentation">
+<tr><td><code id="maxiter">maxiter</code></td>
 <td>
 <p>A positive integer specifying the maximum number of
 iterations allowed.</p>
 </td></tr>
-<tr><td><code id="nls.control_:_tol">tol</code></td>
+<tr><td><code id="tol">tol</code></td>
 <td>
 <p>A positive numeric value specifying the tolerance level for
 the relative offset convergence criterion.</p>
 </td></tr>
-<tr><td><code id="nls.control_:_minFactor">minFactor</code></td>
+<tr><td><code id="minFactor">minFactor</code></td>
 <td>
 <p>A positive numeric value specifying the minimum
 step-size factor allowed on any step in the iteration.  The
@@ -55,12 +55,12 @@ successively halved until the residual sum of squares has been
 decreased or until the step-size factor has been reduced below this
 limit.</p>
 </td></tr>
-<tr><td><code id="nls.control_:_printEval">printEval</code></td>
+<tr><td><code id="printEval">printEval</code></td>
 <td>
 <p>a logical specifying whether the number of evaluations
 (steps in the gradient direction taken each iteration) is printed.</p>
 </td></tr>
-<tr><td><code id="nls.control_:_warnOnly">warnOnly</code></td>
+<tr><td><code id="warnOnly">warnOnly</code></td>
 <td>
 <p>a logical specifying whether <code>nls()</code> should
 return instead of signalling an error in the case of termination
@@ -69,7 +69,7 @@ Termination before convergence happens upon completion of <code>maxiter</code>
 iterations, in the case of a singular gradient, and in the case that the
 step-size factor is reduced below <code>minFactor</code>.</p>
 </td></tr>
-<tr><td><code id="nls.control_:_scaleOffset">scaleOffset</code></td>
+<tr><td><code id="scaleOffset">scaleOffset</code></td>
 <td>
 <p>a constant to be added to the denominator of the relative
 offset convergence criterion calculation to avoid a zero divide in the case
@@ -78,7 +78,7 @@ where the fit of a model to data is very close.  The default value of
 <code>1</code> seems to work for problems of reasonable scale with very small
 residuals.</p>
 </td></tr>
-<tr><td><code id="nls.control_:_nDcentral">nDcentral</code></td>
+<tr><td><code id="nDcentral">nDcentral</code></td>
 <td>
 <p>only when <em>numerical</em> derivatives are used:
 <code>logical</code> indicating if <em>central</em> differences
@@ -92,7 +92,7 @@ be used.</p>
 
 <p>A <code>list</code> with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>maxiter</code></td>
 <td>
 </td></tr>
@@ -143,6 +143,7 @@ be used.</p>
 <pre><code class='language-R'>nls.control(minFactor = 1/2048)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>stats</em> version 4.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>stats</em> version 4.2.0</a> ]</div></main>
+
 </div>
 </body></html>

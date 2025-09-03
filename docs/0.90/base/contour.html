@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/contour.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/contour.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/contour.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/contour.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>contour {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='contour'>Display Contours</h2>
+<h2>Display Contours</h2>
 
 <h3>Description</h3>
 
@@ -41,8 +41,8 @@ The source code is in &lsquo;<span class="file">\$R\_HOME/src/main/plot.c</span>
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="contour_:_x">x</code>, <code id="contour_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>locations of grid lines at which the values in <code>z</code> are
 measured.  These must be in ascending order.  By default, equally
@@ -51,43 +51,43 @@ its components <code>x$x</code> and <code>x$y</code> are used for <code>x</code>
 and <code>y</code>, respectively. If the list has component <code>z</code> this
 is used for <code>z</code>.</p>
 </td></tr>
-<tr><td><code id="contour_:_z">z</code></td>
+<tr><td><code id="z">z</code></td>
 <td>
 <p>a matrix containing the values to be plotted (<code>NA</code>s are
 allowed).  Note that <code>x</code> can be used instead of <code>z</code> for
 convenience.</p>
 </td></tr>
-<tr><td><code id="contour_:_nlevels">nlevels</code></td>
+<tr><td><code id="nlevels">nlevels</code></td>
 <td>
 <p>number of contour levels desired <b>iff</b>
 <code>levels</code> is not supplied.</p>
 </td></tr>
-<tr><td><code id="contour_:_levels">levels</code></td>
+<tr><td><code id="levels">levels</code></td>
 <td>
 <p>numeric vector of levels at which to draw contour
 lines.</p>
 </td></tr>
-<tr><td><code id="contour_:_labcex">labcex</code></td>
+<tr><td><code id="labcex">labcex</code></td>
 <td>
 <p><code>cex</code> for contour labelling. (not yet used)</p>
 </td></tr>
-<tr><td><code id="contour_:_xlim">xlim</code>, <code id="contour_:_ylim">ylim</code>, <code id="contour_:_zlim">zlim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code>, <code id="zlim">zlim</code></td>
 <td>
 <p>x-, y- and z-limits for the plot</p>
 </td></tr>
-<tr><td><code id="contour_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>color for the lines drawn</p>
 </td></tr>
-<tr><td><code id="contour_:_lty">lty</code></td>
+<tr><td><code id="lty">lty</code></td>
 <td>
 <p>line type for the lines drawn</p>
 </td></tr>
-<tr><td><code id="contour_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>logical. If <code>TRUE</code>, add to a current plot.</p>
 </td></tr>
-<tr><td><code id="contour_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional graphical parameters (see <code>par</code>)
 and the arguments to <code>title</code> may also be supplied.</p>
@@ -138,6 +138,7 @@ abline(h = 200*0:4, v = 200*0:4, col = "lightgray", lty = 2, lwd = 0.1)
 par(opar)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.90/00index.html'>Package <em>base</em> version 0.90</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.90/00index.html'>Package <em>base</em> version 0.90</a> ]</div></main>
+
 </div>
 </body></html>

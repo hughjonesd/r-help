@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/vector.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/vector.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/vector.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/vector.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>vector {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='vector'>Vectors</h2>
+<h2>Vectors</h2>
 
 <h3>Description</h3>
 
@@ -43,8 +43,8 @@ is.vector(x, mode = "any")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="vector_:_mode">mode</code></td>
+<table role = "presentation">
+<tr><td><code id="mode">mode</code></td>
 <td>
 <p>character string naming an atomic mode or
 <code>"list"</code> or <code>"expression"</code> or (except for <code>vector</code>)
@@ -53,14 +53,14 @@ is.vector(x, mode = "any")
 <code>"any"</code>, <code>is.vector(x, mode)</code> is almost the same as
 <code>typeof(x) == mode</code>.</p>
 </td></tr>
-<tr><td><code id="vector_:_length">length</code></td>
+<tr><td><code id="length">length</code></td>
 <td>
 <p>a non-negative integer specifying the desired length.  For
 a long vector, i.e., <code>length &gt; .Machine$integer.max</code>, it
 has to be of type <code>"double"</code>.  Supplying an argument of length
 other than one is an error.</p>
 </td></tr>
-<tr><td><code id="vector_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object.</p>
 </td></tr>
@@ -190,6 +190,7 @@ is.list(df)
 is.vector(list(), mode = "list")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>base</em> version 4.0.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>base</em> version 4.0.5</a> ]</div></main>
+
 </div>
 </body></html>

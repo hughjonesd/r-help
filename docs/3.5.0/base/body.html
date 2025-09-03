@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/body.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/body.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/body.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/body.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>body {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='body'>Access to and Manipulation of the Body of a Function</h2>
+<h2>Access to and Manipulation of the Body of a Function</h2>
 
 <h3>Description</h3>
 
@@ -33,16 +33,16 @@ body(fun, envir = environment(fun)) &lt;- value
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="body_:_fun">fun</code></td>
+<table role = "presentation">
+<tr><td><code id="fun">fun</code></td>
 <td>
 <p>a function object, or see &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="body_:_envir">envir</code></td>
+<tr><td><code id="envir">envir</code></td>
 <td>
 <p>environment in which the function should be defined.</p>
 </td></tr>
-<tr><td><code id="body_:_value">value</code></td>
+<tr><td><code id="value">value</code></td>
 <td>
 <p>an object, usually a language object: see section
 &lsquo;Value&rsquo;.</p>
@@ -100,11 +100,11 @@ e &lt;- expression(y &lt;- x^2, return(y)) # or a list
 body(f) &lt;- as.call(c(as.name("{"), e))
 f
 f(8)
-
 ## Using substitute() may be simpler than 'as.call(c(as.name("{",..)))':
 stopifnot(identical(body(f), substitute({ y &lt;- x^2; return(y) })))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>base</em> version 3.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>base</em> version 3.5.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Poisson.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Poisson.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Poisson.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Poisson.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Poisson {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Poisson'>The Poisson Distribution</h2>
+<h2>The Poisson Distribution</h2>
 
 <h3>Description</h3>
 
@@ -36,32 +36,32 @@ rpois(n, lambda)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Poisson_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>vector of (non-negative integer) quantiles.</p>
 </td></tr>
-<tr><td><code id="Poisson_:_q">q</code></td>
+<tr><td><code id="q">q</code></td>
 <td>
 <p>vector of quantiles.</p>
 </td></tr>
-<tr><td><code id="Poisson_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>vector of probabilities.</p>
 </td></tr>
-<tr><td><code id="Poisson_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>number of random values to return.</p>
 </td></tr>
-<tr><td><code id="Poisson_:_lambda">lambda</code></td>
+<tr><td><code id="lambda">lambda</code></td>
 <td>
 <p>vector of positive means.</p>
 </td></tr>
-<tr><td><code id="Poisson_:_log">log</code>, <code id="Poisson_:_log.p">log.p</code></td>
+<tr><td><code id="log">log</code>, <code id="log.p">log.p</code></td>
 <td>
 <p>logical; if TRUE, probabilities p are given as log(p).</p>
 </td></tr>
-<tr><td><code id="Poisson_:_lower.tail">lower.tail</code></td>
+<tr><td><code id="lower.tail">lower.tail</code></td>
 <td>
 <p>logical; if TRUE (default), probabilities are
 <code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
@@ -72,7 +72,6 @@ rpois(n, lambda)
 <h3>Details</h3>
 
 <p>The Poisson distribution has density
-
 </p>
 <p style="text-align: center;"><code class="reqn">p(x) = \frac{\lambda^x e^{-\lambda}}{x!}</code>
 </p>
@@ -125,6 +124,7 @@ plot(x, pbinom(x, 100, 0.01),type="s", ylab="F(x)",
      main="Binomial(100, 0.01) CDF")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>stats</em> version 2.0.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>stats</em> version 2.0.0</a> ]</div></main>
+
 </div>
 </body></html>

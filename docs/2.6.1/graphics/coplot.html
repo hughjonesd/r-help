@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/coplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/coplot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/coplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/coplot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>coplot {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='coplot'>Conditioning Plots</h2>
+<h2>Conditioning Plots</h2>
 
 <h3>Description</h3>
 
@@ -41,8 +41,8 @@ co.intervals(x, number = 6, overlap = 0.5)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="coplot_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula describing the form of conditioning plot.  A
 formula of the form <code>y ~ x | a</code> indicates that plots of
@@ -58,13 +58,13 @@ When <code>x</code> or <code>y</code> are factors, the result is almost as if
 <code>show.given</code> is true) are adapted.
 </p>
 </td></tr>
-<tr><td><code id="coplot_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data frame containing values for any variables in the
 formula.  By default the environment where <code>coplot</code> was called
 from is used.</p>
 </td></tr>
-<tr><td><code id="coplot_:_given.values">given.values</code></td>
+<tr><td><code id="given.values">given.values</code></td>
 <td>
 <p>a value or list of two values which determine how
 the conditioning on <code>a</code> and <code>b</code> is to take place.
@@ -78,23 +78,23 @@ the result of <code>co.intervals</code> can be used directly as
 <code>given.values</code> argument.
 </p>
 </td></tr>
-<tr><td><code id="coplot_:_panel">panel</code></td>
+<tr><td><code id="panel">panel</code></td>
 <td>
 <p>a <code>function(x, y, col, pch, ...)</code>
 which gives the action to be carried out in
 each panel of the display.  The default is <code>points</code>.</p>
 </td></tr>
-<tr><td><code id="coplot_:_rows">rows</code></td>
+<tr><td><code id="rows">rows</code></td>
 <td>
 <p>the panels of the plot are laid out in a <code>rows</code> by
 <code>columns</code> array.  <code>rows</code> gives the number of rows in the
 array.</p>
 </td></tr>
-<tr><td><code id="coplot_:_columns">columns</code></td>
+<tr><td><code id="columns">columns</code></td>
 <td>
 <p>the number of columns in the panel layout array.</p>
 </td></tr>
-<tr><td><code id="coplot_:_show.given">show.given</code></td>
+<tr><td><code id="show.given">show.given</code></td>
 <td>
 <p>logical (possibly of length 2 for 2 conditioning
 variables): should conditioning plots be shown for the
@@ -102,72 +102,72 @@ corresponding conditioning variables (default <code>TRUE</code>)</p>
 </td></tr></table>
 <p>.
 </p>
-<table>
-<tr><td><code id="coplot_:_col">col</code></td>
+<table role = "presentation">
+<tr><td><code id="col">col</code></td>
 <td>
 <p>a vector of colors to be used to plot the points.  If too
 short, the values are recycled.</p>
 </td></tr>
-<tr><td><code id="coplot_:_pch">pch</code></td>
+<tr><td><code id="pch">pch</code></td>
 <td>
 <p>a vector of plotting symbols or characters.  If too short,
 the values are recycled.</p>
 </td></tr>
-<tr><td><code id="coplot_:_bar.bg">bar.bg</code></td>
+<tr><td><code id="bar.bg">bar.bg</code></td>
 <td>
 <p>a named vector with components <code>"num"</code> and
 <code>"fac"</code> giving the background colors for the (shingle) bars,
 for <b>num</b>eric and <b>fac</b>tor conditioning variables respectively.</p>
 </td></tr>
-<tr><td><code id="coplot_:_xlab">xlab</code></td>
+<tr><td><code id="xlab">xlab</code></td>
 <td>
 <p>character; labels to use for the x axis and the
 first conditioning variable.  If only one label is given, it is used
 for the x axis and the default label is used for the conditioning
 variable.</p>
 </td></tr>
-<tr><td><code id="coplot_:_ylab">ylab</code></td>
+<tr><td><code id="ylab">ylab</code></td>
 <td>
 <p>character; labels to use for the y axis and any
 second conditioning variable.</p>
 </td></tr>
-<tr><td><code id="coplot_:_subscripts">subscripts</code></td>
+<tr><td><code id="subscripts">subscripts</code></td>
 <td>
 <p>logical: if true the panel function is given an
 additional (third) argument <code>subscripts</code> giving the subscripts
 of the data passed to that panel.</p>
 </td></tr>
-<tr><td><code id="coplot_:_axlabels">axlabels</code></td>
+<tr><td><code id="axlabels">axlabels</code></td>
 <td>
 <p>function for creating axis (tick) labels when x or y
 are factors.</p>
 </td></tr>
-<tr><td><code id="coplot_:_number">number</code></td>
+<tr><td><code id="number">number</code></td>
 <td>
 <p>integer; the number of conditioning intervals,
 for a and b, possibly of length 2.  It is only used if the
 corresponding conditioning variable is not a <code>factor</code>.</p>
 </td></tr>
-<tr><td><code id="coplot_:_overlap">overlap</code></td>
+<tr><td><code id="overlap">overlap</code></td>
 <td>
 <p>numeric &lt; 1; the fraction of overlap of the
 conditioning variables, possibly of length 2 for x and y
 direction.  When overlap &lt; 0, there will be <em>gaps</em> between
 the data slices.</p>
 </td></tr>
-<tr><td><code id="coplot_:_xlim">xlim</code></td>
+<tr><td><code id="xlim">xlim</code></td>
 <td>
 <p>the range for the x axis.</p>
 </td></tr>
-<tr><td><code id="coplot_:_ylim">ylim</code></td>
+<tr><td><code id="ylim">ylim</code></td>
 <td>
 <p>the range for the y axis.</p>
 </td></tr>
-<tr><td><code id="coplot_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional arguments to the panel function.</p>
 </td></tr>
-<tr><td><code id="coplot_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector.</p>
 </td></tr>
@@ -252,6 +252,7 @@ coplot(Life.Exp ~ state.region | Income * state.division,
 })
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>graphics</em> version 2.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>graphics</em> version 2.6.1</a> ]</div></main>
+
 </div>
 </body></html>

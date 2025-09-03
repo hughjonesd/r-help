@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.99. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/aov.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/aov.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.99. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/aov.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/aov.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>aov {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='aov'>Fit an Analysis of Variance Model</h2>
+<h2>Fit an Analysis of Variance Model</h2>
 
 <h3>Description</h3>
 
@@ -33,29 +33,29 @@ se.aov(object, n, type = "means")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="aov_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>A formula specifying the model.</p>
 </td></tr>
-<tr><td><code id="aov_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>A data frame in which the variables specified in the
 formula will be found. If missing, the variables are searched for in
 the standard way.</p>
 </td></tr>
-<tr><td><code id="aov_:_projections">projections</code></td>
+<tr><td><code id="projections">projections</code></td>
 <td>
 <p>Logical flag: should the projections be returned?</p>
 </td></tr>
-<tr><td><code id="aov_:_contrasts">contrasts</code></td>
+<tr><td><code id="contrasts">contrasts</code></td>
 <td>
 <p>A list of contrasts to be used for some of the factors
 in the formula. These are not used for any <code>Error</code> term, and
 supplying contrasts for factors only in the <code>Error</code> term will give
 a warning.</p>
 </td></tr>
-<tr><td><code id="aov_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Arguments to be passed to <code>lm</code>, such as <code>subset</code>
 or <code>na.action</code>.</p>
@@ -125,6 +125,7 @@ summary(npk.aovE)
 options(op)# reset to previous
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.99/00index.html'>Package <em>base</em> version 0.99</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.99/00index.html'>Package <em>base</em> version 0.99</a> ]</div></main>
+
 </div>
 </body></html>

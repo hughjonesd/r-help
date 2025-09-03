@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/TukeyHSD.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/TukeyHSD.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/TukeyHSD.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/TukeyHSD.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>TukeyHSD {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='TukeyHSD'>Compute Tukey Honest Significant Differences</h2>
+<h2>Compute Tukey Honest Significant Differences</h2>
 
 <h3>Description</h3>
 
@@ -36,17 +36,17 @@ There is a <code>plot</code> method.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="TukeyHSD_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A fitted model object, usually an <code>aov</code> fit.</p>
 </td></tr>
-<tr><td><code id="TukeyHSD_:_which">which</code></td>
+<tr><td><code id="which">which</code></td>
 <td>
 <p>A list of terms in the fitted model for which the
 intervals should be calculated.  Defaults to all the terms.</p>
 </td></tr>
-<tr><td><code id="TukeyHSD_:_ordered">ordered</code></td>
+<tr><td><code id="ordered">ordered</code></td>
 <td>
 <p>A logical value indicating if the levels of the factor
 should be ordered according to increasing average in the sample
@@ -55,12 +55,12 @@ the calculated differences in the means will all be positive.  The
 significant differences will be those for which the <code>lwr</code> end
 point is positive.</p>
 </td></tr>
-<tr><td><code id="TukeyHSD_:_conf.level">conf.level</code></td>
+<tr><td><code id="conf.level">conf.level</code></td>
 <td>
 <p>A numeric value between zero and one giving the
 family-wise confidence level to use.</p>
 </td></tr>
-<tr><td><code id="TukeyHSD_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Optional additional arguments.  None are used at present.</p>
 </td></tr>
@@ -130,6 +130,7 @@ TukeyHSD(fm1, "tension", ordered = TRUE)
 plot(TukeyHSD(fm1, "tension"))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.6.1/00index.html'>Package <em>base</em> version 1.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.6.1/00index.html'>Package <em>base</em> version 1.6.1</a> ]</div></main>
+
 </div>
 </body></html>

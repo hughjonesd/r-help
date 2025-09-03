@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/as.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/as.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/as.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/as.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>as {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='as'>Force an Object to Belong to a Class</h2>
+<h2>Force an Object to Belong to a Class</h2>
 
 <h3>Description</h3>
 
@@ -38,16 +38,16 @@ setAs(from, to, def, replace, where = 1)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="as_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p> Any object. </p>
 </td></tr>
-<tr><td><code id="as_:_Class">Class</code></td>
+<tr><td><code id="Class">Class</code></td>
 <td>
 <p> The name of the class to which <code>object</code> should be coerced. </p>
 </td></tr>
-<tr><td><code id="as_:_coerceFlag">coerceFlag</code></td>
+<tr><td><code id="coerceFlag">coerceFlag</code></td>
 <td>
 <p> A logical flag.  If <code>FALSE</code>,  only inheritance
 relations will be used; i.e., <code>is(object, Class)</code> must be
@@ -57,7 +57,7 @@ relations will be used; i.e., <code>is(object, Class)</code> must be
 inheritance is not true (and an error will result if coercion fails).
 </p>
 </td></tr>
-<tr><td><code id="as_:_value">value</code></td>
+<tr><td><code id="value">value</code></td>
 <td>
 <p>The value to use to modify <code>object</code> (see the
 discussion below).  You should supply an object with class
@@ -65,7 +65,7 @@ discussion below).  You should supply an object with class
 it.
 </p>
 </td></tr>
-<tr><td><code id="as_:_from">from</code>, <code id="as_:_to">to</code></td>
+<tr><td><code id="from">from</code>, <code id="to">to</code></td>
 <td>
 <p> The classes between which <code>def</code> performs coercion.
 </p>
@@ -73,7 +73,7 @@ it.
 classes, not the names of the classes, but you're not expected to call <code>coerce</code> directly.)
 </p>
 </td></tr>
-<tr><td><code id="as_:_def">def</code></td>
+<tr><td><code id="def">def</code></td>
 <td>
 <p> A function of one argument.  It will get an object from
 class <code>from</code> and had better return an object of class
@@ -81,13 +81,13 @@ class <code>from</code> and had better return an object of class
 the name of the argument <code>from</code>, but don't worry about it,
 <code>setAs</code> will do the conversion.) </p>
 </td></tr>
-<tr><td><code id="as_:_replace">replace</code></td>
+<tr><td><code id="replace">replace</code></td>
 <td>
 <p>If supplied, the function to use as a replacement
 method.
 </p>
 </td></tr>
-<tr><td><code id="as_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p> The database on which to store the resulting method for
 <code>coerce</code>; by default, the global environment. </p>
@@ -306,6 +306,7 @@ as(CB, "numeric")
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.4/00index.html'>Package <em>methods</em> version 1.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.4/00index.html'>Package <em>methods</em> version 1.4</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.force.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.force.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.force.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.force.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>grid.force {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='grid.force'> Force a grob into its components </h2>
+<h2> Force a grob into its components </h2>
 
 <h3>Description</h3>
 
@@ -48,8 +48,8 @@ grid.revert(x, draw = FALSE, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="grid.force_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 
 <p>For the default method, <code>x</code> should not be specified.
@@ -57,20 +57,20 @@ Otherwise, <code>x</code> should be a grob or a gPath.
 If <code>x</code> is character, it is assumed to be a gPath.
 </p>
 </td></tr>
-<tr><td><code id="grid.force_:_strict">strict</code></td>
+<tr><td><code id="strict">strict</code></td>
 <td>
 
 <p>A boolean indicating whether the <code>path</code> must be matched
 exactly.
 </p>
 </td></tr>
-<tr><td><code id="grid.force_:_grep">grep</code></td>
+<tr><td><code id="grep">grep</code></td>
 <td>
 
 <p>Whether the <code>path</code> should be treated as a regular expression.
 </p>
 </td></tr>
-<tr><td><code id="grid.force_:_global">global</code></td>
+<tr><td><code id="global">global</code></td>
 <td>
 
 <p>A boolean indicating whether the function should affect just the
@@ -78,19 +78,19 @@ first match of the <code>path</code>, or whether all matches should be
 affected.
 </p>
 </td></tr>
-<tr><td><code id="grid.force_:_draw">draw</code></td>
+<tr><td><code id="draw">draw</code></td>
 <td>
 <p>logical value indicating whether a grob should be
 drawn after it is forced.
 </p>
 </td></tr>
-<tr><td><code id="grid.force_:_redraw">redraw</code></td>
+<tr><td><code id="redraw">redraw</code></td>
 <td>
 <p>logical value indicating whether to redraw the
 <span class="pkg">grid</span> scene after the forcing operation.
 </p>
 </td></tr>
-<tr><td><code id="grid.force_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p> Further arguments for use by methods. </p>
 </td></tr>
@@ -180,6 +180,7 @@ grid.revert("xax")
 grid.ls()
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.4.2/00index.html'>Package <em>grid</em> version 3.4.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.4.2/00index.html'>Package <em>grid</em> version 3.4.2</a> ]</div></main>
+
 </div>
 </body></html>

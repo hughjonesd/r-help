@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/chisq.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/chisq.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/chisq.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/chisq.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>chisq.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='chisq.test'>Pearson's Chi-squared Test for Count Data</h2>
+<h2>Pearson's Chi-squared Test for Count Data</h2>
 
 <h3>Description</h3>
 
@@ -35,18 +35,18 @@ and goodness-of-fit tests.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="chisq.test_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector or matrix. <code>x</code> and <code>y</code> can also
 both be factors.</p>
 </td></tr>
-<tr><td><code id="chisq.test_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>a numeric vector; ignored if <code>x</code> is a matrix.  If
 <code>x</code> is a factor, <code>y</code> should be a factor of the same length.</p>
 </td></tr>
-<tr><td><code id="chisq.test_:_correct">correct</code></td>
+<tr><td><code id="correct">correct</code></td>
 <td>
 <p>a logical indicating whether to apply continuity
 correction when computing the test statistic for 2 by 2 tables: one
@@ -54,23 +54,23 @@ half is subtracted from all <code class="reqn">|O - E|</code> differences; howev
 correction will not be bigger than the differences themselves.  No correction
 is done if <code>simulate.p.value = TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="chisq.test_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>a vector of probabilities of the same length of <code>x</code>.
 An error is given if any entry of <code>p</code> is negative.</p>
 </td></tr>
-<tr><td><code id="chisq.test_:_rescale.p">rescale.p</code></td>
+<tr><td><code id="rescale.p">rescale.p</code></td>
 <td>
 <p>a logical scalar; if TRUE then <code>p</code> is rescaled
 (if necessary) to sum to 1.  If <code>rescale.p</code> is FALSE, and
 <code>p</code> does not sum to 1, an error is given.</p>
 </td></tr>
-<tr><td><code id="chisq.test_:_simulate.p.value">simulate.p.value</code></td>
+<tr><td><code id="simulate.p.value">simulate.p.value</code></td>
 <td>
 <p>a logical indicating whether to compute
 p-values by Monte Carlo simulation.</p>
 </td></tr>
-<tr><td><code id="chisq.test_:_B">B</code></td>
+<tr><td><code id="B">B</code></td>
 <td>
 <p>an integer specifying the number of replicates used in the
 Monte Carlo test.</p>
@@ -123,7 +123,7 @@ slow.
 <p>A list with class <code>"htest"</code> containing the following
 components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>the value the chi-squared test statistic.</p>
@@ -248,6 +248,7 @@ x &lt;- trunc(5 * runif(100))
 chisq.test(table(x))            # NOT 'chisq.test(x)'!
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.2/00index.html'>Package <em>stats</em> version 4.0.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.2/00index.html'>Package <em>stats</em> version 4.0.2</a> ]</div></main>
+
 </div>
 </body></html>

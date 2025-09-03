@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/layout.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/layout.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/layout.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/layout.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>layout {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='layout'>Specifying complex plot arrangements</h2>
+<h2>Specifying complex plot arrangements</h2>
 
 <h3>Description</h3>
 
@@ -43,8 +43,8 @@ layout.show(n = 1)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="layout_:_mat">mat</code></td>
+<table role = "presentation">
+<tr><td><code id="mat">mat</code></td>
 <td>
 <p>a matrix object specifying the location of the next <code class="reqn">N</code> figures
 on the output device.  Each value in the matrix must be <code>0</code> or a
@@ -52,19 +52,19 @@ positive integer.	If <code class="reqn">N</code> is the largest positive integer
 the matrix, then the integers <code class="reqn">\{1,\dots,N-1\}</code> must also appear
 at least once in the matrix.</p>
 </td></tr>
-<tr><td><code id="layout_:_widths">widths</code></td>
+<tr><td><code id="widths">widths</code></td>
 <td>
 <p>a vector of values for the widths of columns on the
 device.  Relative widths are specified with numeric values.	 Absolute
 widths (in centimetres) are specified with the <code>lcm()</code> function (see
 examples).</p>
 </td></tr>
-<tr><td><code id="layout_:_heights">heights</code></td>
+<tr><td><code id="heights">heights</code></td>
 <td>
 <p>a vector of values for the heights of rows on the device.
 Relative and absolute heights can be specified, see <code>widths</code> above.</p>
 </td></tr>
-<tr><td><code id="layout_:_respect">respect</code></td>
+<tr><td><code id="respect">respect</code></td>
 <td>
 <p>either a logical value or a matrix object.  If the
 latter, then it must have the same dimensions as <code>mat</code> and
@@ -140,6 +140,7 @@ each value in the matrix must be either <code>0</code> or <code>1</code>.</p>
  par(def.par)#- reset to default
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.62.2/00index.html'>Package <em>base</em> version 0.62.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.62.2/00index.html'>Package <em>base</em> version 0.62.2</a> ]</div></main>
+
 </div>
 </body></html>

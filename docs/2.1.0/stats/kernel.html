@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kernel.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kernel.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kernel.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kernel.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>kernel {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='kernel'>Smoothing Kernel Objects</h2>
+<h2>Smoothing Kernel Objects</h2>
 
 <h3>Description</h3>
 
@@ -33,41 +33,36 @@ smooth vectors, matrices, or time series objects.
 df.kernel(k)
 bandwidth.kernel(k)
 is.tskernel(k)
-
-
-
 </code></pre>
 
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="kernel_:_coef">coef</code></td>
+<table role = "presentation">
+<tr><td><code id="coef">coef</code></td>
 <td>
 <p>the upper half of the smoothing kernel coefficients
 (inclusive of coefficient zero) <em>or</em> the name of a kernel
 (currently <code>"daniell"</code>, <code>"dirichlet"</code>, <code>"fejer"</code> or
 <code>"modified.daniell"</code>.</p>
 </td></tr>
-<tr><td><code id="kernel_:_m">m</code></td>
+<tr><td><code id="m">m</code></td>
 <td>
 <p>the kernel dimension. The number of kernel coefficients is
 <code>2*m+1</code>.</p>
 </td></tr>
-<tr><td><code id="kernel_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>the name of the kernel.</p>
 </td></tr>
-<tr><td><code id="kernel_:_r">r</code></td>
+<tr><td><code id="r">r</code></td>
 <td>
 <p>the kernel order for a Fejer kernel.</p>
 </td></tr>
-
-<tr><td><code id="kernel_:_k">k</code></td>
+<tr><td><code id="k">k</code></td>
 <td>
 <p>a <code>"tskernel"</code> object.</p>
 </td></tr>
-
 </table>
 
 
@@ -132,6 +127,7 @@ lines(x2, col = "green")  # and go short otherwise
 spectrum(sunspot.year, kernel=kernel("daniell", c(11,7,3)), log="no")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.1.0/00index.html'>Package <em>stats</em> version 2.1.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.1.0/00index.html'>Package <em>stats</em> version 2.1.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/by.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/by.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/by.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/by.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>by {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='by'>Apply a Function to a Data Frame split by Factors</h2>
+<h2>Apply a Function to a Data Frame split by Factors</h2>
 
 <h3>Description</h3>
 
@@ -33,20 +33,20 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="by_:_data">data</code></td>
+<table role = "presentation">
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object, normally a data frame, possibly a matrix.</p>
 </td></tr>
-<tr><td><code id="by_:_INDICES">INDICES</code></td>
+<tr><td><code id="INDICES">INDICES</code></td>
 <td>
 <p>a factor or a list of factors, each of length <code>nrow(x)</code>.</p>
 </td></tr>
-<tr><td><code id="by_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>a function to be applied to data frame subsets of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="by_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to <code>FUN</code>.</p>
 </td></tr>
@@ -89,6 +89,7 @@ sapply(tmp, coef)
 detach("warpbreaks")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.7.0/00index.html'>Package <em>base</em> version 1.7.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.7.0/00index.html'>Package <em>base</em> version 1.7.0</a> ]</div></main>
+
 </div>
 </body></html>

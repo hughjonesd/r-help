@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/palette.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/palette.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/palette.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/palette.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>palette {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='palette'>Set or View the Graphics Palette</h2>
+<h2>Set or View the Graphics Palette</h2>
 
 <h3>Description</h3>
 
@@ -35,29 +35,29 @@ palette.colors(n = NULL, palette = "Okabe-Ito", alpha, recycle = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="palette_:_value">value</code></td>
+<table role = "presentation">
+<tr><td><code id="value">value</code></td>
 <td>
 <p>an optional character vector specifying a new palette
 (see Details).</p>
 </td></tr>
-<tr><td><code id="palette_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>the number of colors to select from a palette.  The default
 <code>NULL</code> selects all colors of the given palette.</p>
 </td></tr>
-<tr><td><code id="palette_:_palette">palette</code></td>
+<tr><td><code id="palette">palette</code></td>
 <td>
 <p>a valid palette name (one of <code>palette.pals()</code>).
 The name is matched to the list of available palettes, ignoring
 upper vs. lower case, spaces, dashes, etc. in the matching.</p>
 </td></tr>
-<tr><td><code id="palette_:_alpha">alpha</code></td>
+<tr><td><code id="alpha">alpha</code></td>
 <td>
 <p>an alpha-transparency level in the range [0,1]
 (0 means transparent and 1 means opaque).</p>
 </td></tr>
-<tr><td><code id="palette_:_recycle">recycle</code></td>
+<tr><td><code id="recycle">recycle</code></td>
 <td>
 <p>logical indicating what happens in case <code>n &gt;
       length(palette(.))</code>.  By default (<code>recycle = FALSE</code>), the
@@ -201,6 +201,7 @@ palette.swatch()
 palette.swatch(n = 26) # show full "Alphabet"; recycle most others
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.3/00index.html'>Package <em>grDevices</em> version 4.1.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.3/00index.html'>Package <em>grDevices</em> version 4.1.3</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/encodeString.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/encodeString.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/encodeString.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/encodeString.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>encodeString {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='encodeString'>
+<h2>
 Encode Character Vector as for Printing
 </h2>
 
@@ -37,27 +37,27 @@ strings within a field width.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="encodeString_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A character vector, or an object that can be coerced to one
 by <code>as.character</code>.</p>
 </td></tr>
-<tr><td><code id="encodeString_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>integer: the minimum field width.  If <code>NULL</code> or
 <code>NA</code>, this is taken to be the largest field width needed for
 any element of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="encodeString_:_quote">quote</code></td>
+<tr><td><code id="quote">quote</code></td>
 <td>
 <p>character: quoting character, if any.</p>
 </td></tr>
-<tr><td><code id="encodeString_:_na.encode">na.encode</code></td>
+<tr><td><code id="na.encode">na.encode</code></td>
 <td>
 <p>logical: should <code>NA</code> strings be encoded?</p>
 </td></tr>
-<tr><td><code id="encodeString_:_justify">justify</code></td>
+<tr><td><code id="justify">justify</code></td>
 <td>
 <p>character: partial matches are allowed.  If padding to
 the minimum field width is needed, how should spaces be inserted?
@@ -126,6 +126,7 @@ encodeString(x, width = NA, justify = "r")
 encodeString(x, width = NA, quote = "'", justify = "r")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.2/00index.html'>Package <em>base</em> version 2.15.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.2/00index.html'>Package <em>base</em> version 2.15.2</a> ]</div></main>
+
 </div>
 </body></html>

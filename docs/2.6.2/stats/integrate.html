@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/integrate.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/integrate.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/integrate.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/integrate.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>integrate {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='integrate'>Integration of One-Dimensional Functions</h2>
+<h2>Integration of One-Dimensional Functions</h2>
 
 <h3>Description</h3>
 
@@ -35,44 +35,44 @@ infinite interval.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="integrate_:_f">f</code></td>
+<table role = "presentation">
+<tr><td><code id="f">f</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> function taking a numeric first argument and returning
 a numeric vector of the same length.  Returning a non-finite element will
 generate an error.</p>
 </td></tr>
-<tr><td><code id="integrate_:_lower">lower</code>, <code id="integrate_:_upper">upper</code></td>
+<tr><td><code id="lower">lower</code>, <code id="upper">upper</code></td>
 <td>
 <p>the limits of integration.  Can be infinite.</p>
 </td></tr>
-<tr><td><code id="integrate_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional arguments to be passed to <code>f</code>.</p>
 </td></tr>
-<tr><td><code id="integrate_:_subdivisions">subdivisions</code></td>
+<tr><td><code id="subdivisions">subdivisions</code></td>
 <td>
 <p>the maximum number of subintervals.</p>
 </td></tr>
-<tr><td><code id="integrate_:_rel.tol">rel.tol</code></td>
+<tr><td><code id="rel.tol">rel.tol</code></td>
 <td>
 <p>relative accuracy requested.</p>
 </td></tr>
-<tr><td><code id="integrate_:_abs.tol">abs.tol</code></td>
+<tr><td><code id="abs.tol">abs.tol</code></td>
 <td>
 <p>absolute accuracy requested.</p>
 </td></tr>
-<tr><td><code id="integrate_:_stop.on.error">stop.on.error</code></td>
+<tr><td><code id="stop.on.error">stop.on.error</code></td>
 <td>
 <p>logical. If true (the default) an error stops the
 function.  If false some errors will give a result with a warning in
 the <code>message</code> component.</p>
 </td></tr>
-<tr><td><code id="integrate_:_keep.xy">keep.xy</code></td>
+<tr><td><code id="keep.xy">keep.xy</code></td>
 <td>
 <p>unused.  For compatibility with S.</p>
 </td></tr>
-<tr><td><code id="integrate_:_aux">aux</code></td>
+<tr><td><code id="aux">aux</code></td>
 <td>
 <p>unused.  For compatibility with S.</p>
 </td></tr>
@@ -98,7 +98,7 @@ in connection with extrapolation by the Epsilon algorithm.
 
 <p>A list of class <code>"integrate"</code> with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>value</code></td>
 <td>
 <p>the final estimate of the integral.</p>
@@ -189,6 +189,7 @@ integrate(dnorm,0,20000) ## fails on many systems
 integrate(dnorm,0,Inf)   ## works
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.2/00index.html'>Package <em>stats</em> version 2.6.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.2/00index.html'>Package <em>stats</em> version 2.6.2</a> ]</div></main>
+
 </div>
 </body></html>

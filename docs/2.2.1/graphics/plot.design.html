@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.design.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.design.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.design.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/plot.design.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>plot.design {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='plot.design'>Plot Univariate Effects of a &lsquo;Design&rsquo; or Model</h2>
+<h2>Plot Univariate Effects of a &lsquo;Design&rsquo; or Model</h2>
 
 <h3>Description</h3>
 
@@ -38,61 +38,61 @@ for <code>design</code> objects.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="plot.design_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>either a data frame containing the design factors and
 optionally the response, or a <code>formula</code> or
 <code>terms</code> object.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>the response, if not given in x.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_fun">fun</code></td>
+<tr><td><code id="fun">fun</code></td>
 <td>
 <p>a function (or name of one) to be applied to each
 subset.  It must return one number for a numeric (vector) input.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>data frame containing the variables referenced by <code>x</code>
 when that is formula like.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>graphical arguments such as <code>col</code>, see <code>par</code>.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_ylim">ylim</code></td>
+<tr><td><code id="ylim">ylim</code></td>
 <td>
 <p>range of y values, as in <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_xlab">xlab</code></td>
+<tr><td><code id="xlab">xlab</code></td>
 <td>
 <p>x axis label, see <code>title</code>.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_ylab">ylab</code></td>
+<tr><td><code id="ylab">ylab</code></td>
 <td>
 <p>y axis label with a &ldquo;smart&rdquo; default.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>main title, see <code>title</code>.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_ask">ask</code></td>
+<tr><td><code id="ask">ask</code></td>
 <td>
 <p>logical indicating if the user should be asked before a new
 page is started &ndash; in the case of multiple y's.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_xaxt">xaxt</code></td>
+<tr><td><code id="xaxt">xaxt</code></td>
 <td>
 <p>character giving the type of x axis.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_axes">axes</code></td>
+<tr><td><code id="axes">axes</code></td>
 <td>
 <p>logical indicating if axes should be drawn.</p>
 </td></tr>
-<tr><td><code id="plot.design_:_xtick">xtick</code></td>
+<tr><td><code id="xtick">xtick</code></td>
 <td>
 <p>logical indicating if &ldquo;ticks&rdquo; (one per factor) should
 be drawn on the x axis.</p>
@@ -166,6 +166,7 @@ plot.design(ncases/ncontrols ~ ., data = esoph, ylim = c(0, 0.8),
 par(op)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.2.1/00index.html'>Package <em>graphics</em> version 2.2.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.2.1/00index.html'>Package <em>graphics</em> version 2.2.1</a> ]</div></main>
+
 </div>
 </body></html>

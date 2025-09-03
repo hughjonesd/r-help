@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rowsum.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rowsum.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rowsum.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rowsum.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>rowsum {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='rowsum'>Give Column Sums of a Matrix or Data Frame, Based on a Grouping Variable</h2>
+<h2>Give Column Sums of a Matrix or Data Frame, Based on a Grouping Variable</h2>
 
 <h3>Description</h3>
 
@@ -40,30 +40,30 @@ rowsum(x, group, reorder = TRUE, na.rm = FALSE, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="rowsum_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a matrix, data frame or vector of numeric data.  Missing
 values are allowed.  A numeric vector will be treated as a column vector.</p>
 </td></tr>
-<tr><td><code id="rowsum_:_group">group</code></td>
+<tr><td><code id="group">group</code></td>
 <td>
 <p>a vector or factor giving the grouping, with one element
 per row of <code>x</code>.  Missing values will be treated as another
 group and a warning will be given.</p>
 </td></tr>
-<tr><td><code id="rowsum_:_reorder">reorder</code></td>
+<tr><td><code id="reorder">reorder</code></td>
 <td>
 <p>if <code>TRUE</code>, then the result will be in order of
 <code>sort(unique(group))</code>, if <code>FALSE</code>, it will be in the order
 that groups were encountered.</p>
 </td></tr>
-<tr><td><code id="rowsum_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>logical (<code>TRUE</code> or <code>FALSE</code>).  Should <code>NA</code>
 (including <code>NaN</code>) values be discarded?</p>
 </td></tr>
-<tr><td><code id="rowsum_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>other arguments to be passed to or from methods</p>
 </td></tr>
@@ -114,6 +114,7 @@ t(sapply(split(as.data.frame(x), group), colSums))
 aggregate(x, list(group), sum)[-1]
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.1/00index.html'>Package <em>base</em> version 3.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.1/00index.html'>Package <em>base</em> version 3.1.1</a> ]</div></main>
+
 </div>
 </body></html>

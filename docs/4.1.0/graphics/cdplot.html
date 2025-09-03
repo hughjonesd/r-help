@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/cdplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/cdplot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/cdplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/cdplot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cdplot {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cdplot'>Conditional Density Plots</h2>
+<h2>Conditional Density Plots</h2>
 
 <h3>Description</h3>
 
@@ -49,67 +49,67 @@ cdplot(formula, data = list(),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cdplot_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object, the default method expects a single numerical
 variable (or an object coercible to this).</p>
 </td></tr>
-<tr><td><code id="cdplot_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>a <code>"factor"</code> interpreted to be the dependent variable</p>
 </td></tr>
-<tr><td><code id="cdplot_:_formula">formula</code></td>
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a <code>"formula"</code> of type <code>y ~ x</code> with a single dependent
 <code>"factor"</code> and a single numerical explanatory variable.</p>
 </td></tr>
-<tr><td><code id="cdplot_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional data frame.</p>
 </td></tr>
-<tr><td><code id="cdplot_:_plot">plot</code></td>
+<tr><td><code id="plot">plot</code></td>
 <td>
 <p>logical. Should the computed conditional densities be plotted?</p>
 </td></tr>
-<tr><td><code id="cdplot_:_tol.ylab">tol.ylab</code></td>
+<tr><td><code id="tol.ylab">tol.ylab</code></td>
 <td>
 <p>convenience tolerance parameter for y-axis annotation.
 If the distance between two labels drops under this threshold, they are
 plotted equidistantly.</p>
 </td></tr>
-<tr><td><code id="cdplot_:_ylevels">ylevels</code></td>
+<tr><td><code id="ylevels">ylevels</code></td>
 <td>
 <p>a character or numeric vector specifying in which order
 the levels of the dependent variable should be plotted.</p>
 </td></tr>
-<tr><td><code id="cdplot_:_bw">bw</code>, <code id="cdplot_:_n">n</code>, <code id="cdplot_:_from">from</code>, <code id="cdplot_:_to">to</code>, <code id="cdplot_:_...">...</code></td>
+<tr><td><code id="bw">bw</code>, <code id="n">n</code>, <code id="from">from</code>, <code id="to">to</code>, <code id="...">...</code></td>
 <td>
 <p>arguments passed to <code>density</code></p>
 </td></tr>
-<tr><td><code id="cdplot_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>a vector of fill colors of the same length as <code>levels(y)</code>.
 The default is to call <code>gray.colors</code>.</p>
 </td></tr>
-<tr><td><code id="cdplot_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p>border color of shaded polygons.</p>
 </td></tr>
-<tr><td><code id="cdplot_:_main">main</code>, <code id="cdplot_:_xlab">xlab</code>, <code id="cdplot_:_ylab">ylab</code></td>
+<tr><td><code id="main">main</code>, <code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>character strings for annotation</p>
 </td></tr>
-<tr><td><code id="cdplot_:_yaxlabels">yaxlabels</code></td>
+<tr><td><code id="yaxlabels">yaxlabels</code></td>
 <td>
 <p>character vector for annotation of y axis, defaults to
 <code>levels(y)</code>.</p>
 </td></tr>
-<tr><td><code id="cdplot_:_xlim">xlim</code>, <code id="cdplot_:_ylim">ylim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code></td>
 <td>
 <p>the range of x and y values with sensible defaults.</p>
 </td></tr>
-<tr><td><code id="cdplot_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used for plotting.</p>
@@ -187,6 +187,7 @@ plot(I(as.numeric(fail) - 1) ~ jitter(temperature, factor = 2),
 lines(53:81, 1 - cdens[[1]](53:81), col = 2)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.0/00index.html'>Package <em>graphics</em> version 4.1.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.0/00index.html'>Package <em>graphics</em> version 4.1.0</a> ]</div></main>
+
 </div>
 </body></html>

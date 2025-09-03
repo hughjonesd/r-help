@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/available.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/available.packages.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/available.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/available.packages.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>available.packages {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='available.packages'>List Available Packages at CRAN-like Repositories</h2>
+<h2>List Available Packages at CRAN-like Repositories</h2>
 
 <h3>Description</h3>
 
@@ -39,8 +39,8 @@ from a local mirror).
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="available.packages_:_contriburl">contriburl</code></td>
+<table role = "presentation">
+<tr><td><code id="contriburl">contriburl</code></td>
 <td>
 
 <p>URL(s) of the &lsquo;<span class="file">contrib</span>&rsquo; sections of the repositories.
@@ -48,13 +48,13 @@ Specify this argument only if your repository mirror is incomplete,
 e.g., because you burned only the &lsquo;<span class="file">contrib</span>&rsquo; section on a CD.
 </p>
 </td></tr>
-<tr><td><code id="available.packages_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 
 <p>download method, see <code>download.file</code>.
 </p>
 </td></tr>
-<tr><td><code id="available.packages_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 
 <p>character string, indicate which type of packages: see
@@ -63,7 +63,7 @@ e.g., because you burned only the &lsquo;<span class="file">contrib</span>&rsquo
 <p>If <code>type = "both"</code> this will use the source repository.
 </p>
 </td></tr>
-<tr><td><code id="available.packages_:_fields">fields</code></td>
+<tr><td><code id="fields">fields</code></td>
 <td>
 
 <p>a character vector giving the fields to extract from
@@ -72,31 +72,31 @@ the &lsquo;<span class="file">PACKAGES</span>&rsquo; file(s) in addition to the 
 values.
 </p>
 </td></tr>
-<tr><td><code id="available.packages_:_filters">filters</code></td>
+<tr><td><code id="filters">filters</code></td>
 <td>
 
 <p>a character vector or list or <code>NULL</code> (default). See &lsquo;Details&rsquo;.
 </p>
 </td></tr>
-<tr><td><code id="available.packages_:_repos">repos</code></td>
+<tr><td><code id="repos">repos</code></td>
 <td>
 
 <p>character vector, the base URL(s) of the repositories to use.
 </p>
 </td></tr>
-<tr><td><code id="available.packages_:_ignore_repo_cache">ignore_repo_cache</code></td>
+<tr><td><code id="ignore_repo_cache">ignore_repo_cache</code></td>
 <td>
 <p>logical.  If true, the repository cache is
 never used (see &lsquo;Details&rsquo;).
 </p>
 </td></tr>
-<tr><td><code id="available.packages_:_max_repo_cache_age">max_repo_cache_age</code></td>
+<tr><td><code id="max_repo_cache_age">max_repo_cache_age</code></td>
 <td>
 <p>any cached values older than this in seconds
 will be ignored. See &lsquo;Details&rsquo;.
 </p>
 </td></tr>
-<tr><td><code id="available.packages_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 
 <p>allow additional arguments to be passed from callers (which might be
@@ -236,6 +236,7 @@ options(available_packages_filters =
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>utils</em> version 3.5.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>utils</em> version 3.5.3</a> ]</div></main>
+
 </div>
 </body></html>

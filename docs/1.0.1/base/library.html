@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/library.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>library {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='library'>Loading and Listing of Packages</h2>
+<h2>Loading and Listing of Packages</h2>
 
 <h3>Description</h3>
 
@@ -50,48 +50,48 @@ provide(package)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="library_:_package">package</code>, <code id="library_:_help">help</code></td>
+<table role = "presentation">
+<tr><td><code id="package">package</code>, <code id="help">help</code></td>
 <td>
 <p><code>name</code> or character string giving the
 name of a package.</p>
 </td></tr>
-<tr><td><code id="library_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector describing the location of <span class="rlang"><b>R</b></span>
 library trees to search through.</p>
 </td></tr>
-<tr><td><code id="library_:_character.only">character.only</code></td>
+<tr><td><code id="character.only">character.only</code></td>
 <td>
 <p>a logical indicating whether <code>package</code> or
 <code>help</code> can be assumed to be character strings.</p>
 </td></tr>
-<tr><td><code id="library_:_logical.return">logical.return</code></td>
+<tr><td><code id="logical.return">logical.return</code></td>
 <td>
 <p>logical.  If it is <code>TRUE</code>,  <code>FALSE</code> or
 <code>TRUE</code> is returned to indicate success.</p>
 </td></tr>
-<tr><td><code id="library_:_warn.conflicts">warn.conflicts</code></td>
+<tr><td><code id="warn.conflicts">warn.conflicts</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, warnings are
 printed about <code>conflicts</code> from attaching the new
 package, unless that package contains an object <code>.conflicts.OK</code>.</p>
 </td></tr>
-<tr><td><code id="library_:_quietly">quietly</code></td>
+<tr><td><code id="quietly">quietly</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code>, a warning will not be
 printed if the package cannot be found.</p>
 </td></tr>
-<tr><td><code id="library_:_libname">libname</code></td>
+<tr><td><code id="libname">libname</code></td>
 <td>
 <p>a character string giving the library directory where
 the package was found.</p>
 </td></tr>
-<tr><td><code id="library_:_pkgname">pkgname</code></td>
+<tr><td><code id="pkgname">pkgname</code></td>
 <td>
 <p>a character string giving the name of the package.</p>
 </td></tr>
-<tr><td><code id="library_:_all.available">all.available</code></td>
+<tr><td><code id="all.available">all.available</code></td>
 <td>
 <p>logical; if <code>TRUE</code> return <code>character</code>
 vector of all available packages in <code>lib.loc</code>.</p>
@@ -157,7 +157,8 @@ library trees that <span class="rlang"><b>R</b></span> should use.  It is initia
 the environment variable <code>R_LIBS</code> (<code>RLIBS</code> as used by older
 versions of <span class="rlang"><b>R</b></span> is no longer accepted) (which should be a
 colon-separated
-list of directories at which <span class="rlang"><b>R</b></span> library trees are rooted) followed by
+</p>
+<p>list of directories at which <span class="rlang"><b>R</b></span> library trees are rooted) followed by
 <code>.Library</code>.
 </p>
 
@@ -207,6 +208,7 @@ require(nonexistent)        # FALSE
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.0.1/00index.html'>Package <em>base</em> version 1.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.0.1/00index.html'>Package <em>base</em> version 1.0.1</a> ]</div></main>
+
 </div>
 </body></html>

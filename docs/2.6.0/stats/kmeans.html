@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kmeans.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kmeans.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kmeans.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/kmeans.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>kmeans {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='kmeans'>
+<h2>
 K-Means Clustering
 </h2>
 
@@ -35,29 +35,29 @@ K-Means Clustering
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="kmeans_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A numeric matrix of data, or an object that can be coerced to
 such a matrix (such as a numeric vector or a data frame with all
 numeric columns).</p>
 </td></tr>
-<tr><td><code id="kmeans_:_centers">centers</code></td>
+<tr><td><code id="centers">centers</code></td>
 <td>
 <p>Either the number of clusters or a set of initial
 (distinct) cluster centres.  If a number, a random set of (distinct)
 rows in <code>x</code> is chosen as the initial centres.</p>
 </td></tr>
-<tr><td><code id="kmeans_:_iter.max">iter.max</code></td>
+<tr><td><code id="iter.max">iter.max</code></td>
 <td>
 <p>The maximum number of iterations allowed.</p>
 </td></tr>
-<tr><td><code id="kmeans_:_nstart">nstart</code></td>
+<tr><td><code id="nstart">nstart</code></td>
 <td>
 <p>If <code>centers</code> is a number, how many random sets
 should be chosen?</p>
 </td></tr>
-<tr><td><code id="kmeans_:_algorithm">algorithm</code></td>
+<tr><td><code id="algorithm">algorithm</code></td>
 <td>
 <p>character: may be abbreviated.</p>
 </td></tr>
@@ -92,7 +92,7 @@ an error for the Hartigan&ndash;Wong method.
 
 <p>An object of class <code>"kmeans"</code> which is a list with components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>cluster</code></td>
 <td>
 
@@ -157,6 +157,7 @@ plot(x, col = cl$cluster)
 points(cl$centers, col = 1:5, pch = 8)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.0/00index.html'>Package <em>stats</em> version 2.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.0/00index.html'>Package <em>stats</em> version 2.6.0</a> ]</div></main>
+
 </div>
 </body></html>

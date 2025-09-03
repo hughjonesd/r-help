@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/print.ts.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/print.ts.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/print.ts.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/print.ts.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>print.ts {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='print.ts'>Printing and Formatting of Time-Series Objects</h2>
+<h2>Printing and Formatting of Time-Series Objects</h2>
 
 <h3>Description</h3>
 
@@ -36,18 +36,18 @@ print(x, calendar, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="print.ts_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a time series object.</p>
 </td></tr>
-<tr><td><code id="print.ts_:_calendar">calendar</code></td>
+<tr><td><code id="calendar">calendar</code></td>
 <td>
 <p>enable/disable the display of information about
 month names, quarter names or year when printing.  The default is
 <code>TRUE</code> for a frequency of 4 or 12, <code>FALSE</code> otherwise.</p>
 </td></tr>
-<tr><td><code id="print.ts_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional arguments to <code>print</code> (or
 <code>format</code> methods).</p>
@@ -80,6 +80,7 @@ print(sunsp.1 &lt;- window(sunspot.month, end=c(1756, 12)))
 m &lt;- .preformat.ts(sunsp.1) # a character matrix
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>stats</em> version 3.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>stats</em> version 3.3.1</a> ]</div></main>
+
 </div>
 </body></html>

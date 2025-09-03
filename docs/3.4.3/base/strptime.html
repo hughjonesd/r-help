@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/strptime.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/strptime.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/strptime.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/strptime.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>strptime {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='strptime'>Date-time Conversion Functions to and from Character</h2>
+<h2>Date-time Conversion Functions to and from Character</h2>
 
 <h3>Description</h3>
 
@@ -43,14 +43,14 @@ strptime(x, format, tz = "")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="strptime_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>An object to be converted: a character vector for
 <code>strptime</code>, an object which can be converted to
 <code>"POSIXlt"</code> for <code>strftime</code>.</p>
 </td></tr>
-<tr><td><code id="strptime_:_tz">tz</code></td>
+<tr><td><code id="tz">tz</code></td>
 <td>
 <p>A character string specifying the time zone to be used for
 the conversion.  System-specific (see <code>as.POSIXlt</code>), but
@@ -58,7 +58,7 @@ the conversion.  System-specific (see <code>as.POSIXlt</code>), but
 Invalid values are most commonly treated as UTC, on some platforms with
 a warning.</p>
 </td></tr>
-<tr><td><code id="strptime_:_format">format</code></td>
+<tr><td><code id="format">format</code></td>
 <td>
 <p>A character string.  The default for the <code>format</code>
 methods is
@@ -67,11 +67,11 @@ component which is not midnight, and <code>"%Y-%m-%d"</code>
 otherwise.  If <code>options("digits.secs")</code> is set, up to
 the specified number of digits will be printed for seconds.</p>
 </td></tr>
-<tr><td><code id="strptime_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further arguments to be passed from or to other methods.</p>
 </td></tr>
-<tr><td><code id="strptime_:_usetz">usetz</code></td>
+<tr><td><code id="usetz">usetz</code></td>
 <td>
 <p>logical.  Should the time zone abbreviation be appended
 to the output?  This is used in printing times, and more reliable
@@ -265,7 +265,6 @@ month abbreviations are not the same on any two of Linux, macOS, Solaris
 and Windows). Knowing what the abbreviations are is essential
 if you wish to use <code>%a</code>, <code>%b</code> or <code>%h</code> as part of an
 input format: see the examples for how to check.
-
 </p>
 <p>When <code>%z</code> or <code>%Z</code> is used for output with an
 object with an assigned time zone an attempt is made to use the values
@@ -482,6 +481,7 @@ format(seq.Date(as.Date('1978-01-01'), by = 'day', len = 7), "%a")
 format(seq.Date(as.Date('2000-01-01'), by = 'month', len = 12), "%b")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.4.3/00index.html'>Package <em>base</em> version 3.4.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.4.3/00index.html'>Package <em>base</em> version 3.4.3</a> ]</div></main>
+
 </div>
 </body></html>

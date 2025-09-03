@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/medpolish.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/medpolish.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/medpolish.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/medpolish.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>medpolish {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='medpolish'>Median Polish (Robust Twoway Decomposition) of a Matrix</h2>
+<h2>Median Polish (Robust Twoway Decomposition) of a Matrix</h2>
 
 <h3>Description</h3>
 
@@ -34,25 +34,25 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="medpolish_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric matrix.</p>
 </td></tr>
-<tr><td><code id="medpolish_:_eps">eps</code></td>
+<tr><td><code id="eps">eps</code></td>
 <td>
 <p>real number greater than 0. A tolerance for convergence:
 see &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="medpolish_:_maxiter">maxiter</code></td>
+<tr><td><code id="maxiter">maxiter</code></td>
 <td>
 <p>the maximum number of iterations</p>
 </td></tr>
-<tr><td><code id="medpolish_:_trace.iter">trace.iter</code></td>
+<tr><td><code id="trace.iter">trace.iter</code></td>
 <td>
 <p>logical. Should progress in convergence be reported?</p>
 </td></tr>
-<tr><td><code id="medpolish_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>logical. Should missing values be removed?</p>
 </td></tr>
@@ -82,7 +82,7 @@ class, which are invoked via by the generics
 
 <p>An object of class <code>medpolish</code> with the following named components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>overall</code></td>
 <td>
 <p>the fitted constant term.</p>
@@ -141,6 +141,7 @@ all(deaths ==
     med.d$overall + outer(med.d$row,med.d$col, "+") + med.d$residuals)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>stats</em> version 3.5.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>stats</em> version 3.5.3</a> ]</div></main>
+
 </div>
 </body></html>

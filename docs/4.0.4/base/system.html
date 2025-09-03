@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/system.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>system {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='system'>Invoke a System Command</h2>
+<h2>Invoke a System Command</h2>
 
 <h3>Description</h3>
 
@@ -35,23 +35,23 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="system_:_command">command</code></td>
+<table role = "presentation">
+<tr><td><code id="command">command</code></td>
 <td>
 <p>the system command to be invoked, as a character string.</p>
 </td></tr>
-<tr><td><code id="system_:_intern">intern</code></td>
+<tr><td><code id="intern">intern</code></td>
 <td>
 <p>a logical (not <code>NA</code>) which indicates whether to
 capture the output of the command as an <span class="rlang"><b>R</b></span> character vector.</p>
 </td></tr>
-<tr><td><code id="system_:_ignore.stdout">ignore.stdout</code>, <code id="system_:_ignore.stderr">ignore.stderr</code></td>
+<tr><td><code id="ignore.stdout">ignore.stdout</code>, <code id="ignore.stderr">ignore.stderr</code></td>
 <td>
 <p>a logical (not <code>NA</code>)
 indicating whether messages written to &lsquo;<span class="file">stdout</span>&rsquo; or
 &lsquo;<span class="file">stderr</span>&rsquo; should be ignored.</p>
 </td></tr>
-<tr><td><code id="system_:_wait">wait</code></td>
+<tr><td><code id="wait">wait</code></td>
 <td>
 <p>a logical (not <code>NA</code>) indicating whether the <span class="rlang"><b>R</b></span>
 interpreter should wait for the command to finish, or run it
@@ -60,19 +60,19 @@ always wait) if <code>intern = TRUE</code>. When running the command
 asynchronously, no output will be displayed on the <code>Rgui</code>
 console in Windows (it will be dropped, instead).</p>
 </td></tr>
-<tr><td><code id="system_:_input">input</code></td>
+<tr><td><code id="input">input</code></td>
 <td>
 <p>if a character vector is supplied, this is copied one
 string per line to a temporary file, and the standard input of
 <code>command</code> is redirected to the file.</p>
 </td></tr>
-<tr><td><code id="system_:_timeout">timeout</code></td>
+<tr><td><code id="timeout">timeout</code></td>
 <td>
 <p>timeout in seconds, ignored if 0.  This is a limit for the
 elapsed time running <code>command</code> in a separate process.  Fractions
 of seconds are ignored.</p>
 </td></tr>
-<tr><td><code id="system_:_show.output.on.console">show.output.on.console</code>, <code id="system_:_minimized">minimized</code>, <code id="system_:_invisible">invisible</code></td>
+<tr><td><code id="show.output.on.console">show.output.on.console</code>, <code id="minimized">minimized</code>, <code id="invisible">invisible</code></td>
 <td>
 <p>arguments
 that are accepted on Windows but ignored on this platform, with a
@@ -91,7 +91,8 @@ which is recommended for new code.
 spaces.  So if the path to the command (or a single argument such as a
 file path) contains spaces, it must be quoted e.g. by
 <code>shQuote</code>.
-Unix-alikes pass the command line to a shell (normally &lsquo;<span class="file">/bin/sh</span>&rsquo;,
+</p>
+<p>Unix-alikes pass the command line to a shell (normally &lsquo;<span class="file">/bin/sh</span>&rsquo;,
 and POSIX requires that shell), so <code>command</code> can be anything the
 shell regards as executable, including shell scripts, and it can
 contain multiple commands separated by <code>;</code>.
@@ -137,7 +138,8 @@ command can be run &mdash; <code>Sys.which</code> is more suitable.
 command, one line per character string.  (Output lines of more than
 8095 bytes will be split.)  If the command could not be run an <span class="rlang"><b>R</b></span>
 error is generated.
-If <code>command</code> runs but gives a non-zero exit status this will be
+</p>
+<p>If <code>command</code> runs but gives a non-zero exit status this will be
 reported with a warning and in the attribute <code>"status"</code> of the
 result: an attribute <code>"errmsg"</code> may also be available.
 </p>
@@ -241,6 +243,7 @@ try(system("ls fizzlipuzzli", intern = TRUE, ignore.stderr = TRUE))
 # zero-length result since file does not exist, and will give warning.
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.4/00index.html'>Package <em>base</em> version 4.0.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.4/00index.html'>Package <em>base</em> version 4.0.4</a> ]</div></main>
+
 </div>
 </body></html>

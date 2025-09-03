@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cor.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cor.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cor.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cor.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cor.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cor.test'>Test for Association/Correlation Between Paired Samples</h2>
+<h2>Test for Association/Correlation Between Paired Samples</h2>
 
 <h3>Description</h3>
 
@@ -43,61 +43,61 @@ cor.test(formula, data, subset, na.action, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cor.test_:_x">x</code>, <code id="cor.test_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>numeric vectors of data values.  <code>x</code> and <code>y</code>
 must have the same length.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_alternative">alternative</code></td>
+<tr><td><code id="alternative">alternative</code></td>
 <td>
 <p>indicates the alternative hypothesis and must be
 one of <code>"two.sided"</code>, <code>"greater"</code> or <code>"less"</code>.  You
 can specify just the initial letter.  <code>"greater"</code> corresponds
 to positive association, <code>"less"</code> to negative association.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>a character string indicating which correlation
 coefficient is to be  used for the test.  One of <code>"pearson"</code>,
 <code>"kendall"</code>, or <code>"spearman"</code>, can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_exact">exact</code></td>
+<tr><td><code id="exact">exact</code></td>
 <td>
 <p>a logical indicating whether an exact p-value should be
 computed.  Only used for Kendall's <code class="reqn">\tau</code>.
 See the Details for the meaning of <code>NULL</code> (the default).</p>
 </td></tr>
-<tr><td><code id="cor.test_:_conf.level">conf.level</code></td>
+<tr><td><code id="conf.level">conf.level</code></td>
 <td>
 <p>confidence level for the returned confidence
 interval.  Currently only used for the Pearson product moment
 correlation coefficient if there are at least 4 complete pairs of
 observations.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_formula">formula</code></td>
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula of the form <code>~ u + v</code>, where each of
 <code>u</code> and <code>v</code> are numeric variables giving the data values
 for one sample.  The samples must be of the same length.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional data frame containing the variables in the
 model formula.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen when
 the data contain <code>NA</code>s.  Defaults to
 <code>getOption("na.action")</code>.</p>
 </td></tr>
-<tr><td><code id="cor.test_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to be passed to or from methods.</p>
 </td></tr>
@@ -140,7 +140,7 @@ normally distributed.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>the value of the test statistic.</p>
@@ -232,6 +232,7 @@ pairs(USJudgeRatings)
 cor.test(~ CONT + INTG, data = USJudgeRatings)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.2.1/00index.html'>Package <em>stats</em> version 2.2.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.2.1/00index.html'>Package <em>stats</em> version 2.2.1</a> ]</div></main>
+
 </div>
 </body></html>

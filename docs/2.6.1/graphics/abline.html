@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/abline.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/abline.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/abline.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/abline.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>abline {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='abline'>Add Straight Lines to a Plot</h2>
+<h2>Add Straight Lines to a Plot</h2>
 
 <h3>Description</h3>
 
@@ -33,32 +33,32 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="abline_:_a">a</code>, <code id="abline_:_b">b</code></td>
+<table role = "presentation">
+<tr><td><code id="a">a</code>, <code id="b">b</code></td>
 <td>
 <p>the intercept and slope, single values.</p>
 </td></tr>
-<tr><td><code id="abline_:_untf">untf</code></td>
+<tr><td><code id="untf">untf</code></td>
 <td>
 <p>logical asking whether to <em>untransform</em>.  See Details.</p>
 </td></tr>
-<tr><td><code id="abline_:_h">h</code></td>
+<tr><td><code id="h">h</code></td>
 <td>
 <p>the y-value(s) for horizontal line(s).</p>
 </td></tr>
-<tr><td><code id="abline_:_v">v</code></td>
+<tr><td><code id="v">v</code></td>
 <td>
 <p>the x-value(s) for vertical line(s).</p>
 </td></tr>
-<tr><td><code id="abline_:_coef">coef</code></td>
+<tr><td><code id="coef">coef</code></td>
 <td>
 <p>a vector of length two giving the intercept and slope.</p>
 </td></tr>
-<tr><td><code id="abline_:_reg">reg</code></td>
+<tr><td><code id="reg">reg</code></td>
 <td>
 <p>an object with a <code>coef</code> method.  See Details.</p>
 </td></tr>
-<tr><td><code id="abline_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>graphical parameters such as
 <code>col</code>, <code>lty</code> and <code>lwd</code> (possibly as vectors: see
@@ -152,6 +152,7 @@ abline(mC &lt;- lm(dist ~ 1, data = cars)) ## the same as
 abline(a = coef(mC), b = 0, col = "blue")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>graphics</em> version 2.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>graphics</em> version 2.6.1</a> ]</div></main>
+
 </div>
 </body></html>

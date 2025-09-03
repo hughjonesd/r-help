@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.group.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.group.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.group.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.group.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>grid.group {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='grid.group'> Draw a Group </h2>
+<h2> Draw a Group </h2>
 
 <h3>Description</h3>
 
@@ -50,44 +50,44 @@ grid.use(group, transform=viewportTransform,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="grid.group_:_src">src</code></td>
+<table role = "presentation">
+<tr><td><code id="src">src</code></td>
 <td>
 <p>A grob.</p>
 </td></tr>
-<tr><td><code id="grid.group_:_op">op</code></td>
+<tr><td><code id="op">op</code></td>
 <td>
 <p>The name of a compositing operator (see Details).</p>
 </td></tr>
-<tr><td><code id="grid.group_:_dst">dst</code></td>
+<tr><td><code id="dst">dst</code></td>
 <td>
 <p>A grob.</p>
 </td></tr>
-<tr><td><code id="grid.group_:_coords">coords</code></td>
+<tr><td><code id="coords">coords</code></td>
 <td>
 <p>A logical indicating whether grob coordinates should be
 calculated for the group.</p>
 </td></tr>
-<tr><td><code id="grid.group_:_group">group</code></td>
+<tr><td><code id="group">group</code></td>
 <td>
 <p>A character identified referring to the name of a defined group.</p>
 </td></tr>
-<tr><td><code id="grid.group_:_transform">transform</code></td>
+<tr><td><code id="transform">transform</code></td>
 <td>
 <p>A function that returns an affine transformation
 matrix; see <code>viewportTransform</code>.</p>
 </td></tr>
-<tr><td><code id="grid.group_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p> A character identifier. </p>
 </td></tr>
-<tr><td><code id="grid.group_:_gp">gp</code></td>
+<tr><td><code id="gp">gp</code></td>
 <td>
 <p>An object of class <code>"gpar"</code>, typically the output
 from a call to the function <code>gpar</code>.  This is basically
 a list of graphical parameter settings.</p>
 </td></tr>
-<tr><td><code id="grid.group_:_vp">vp</code></td>
+<tr><td><code id="vp">vp</code></td>
 <td>
 <p>A Grid viewport object (or NULL).</p>
 </td></tr>
@@ -175,6 +175,7 @@ grid.group(circleGrob(1:2/3, r=.45, gp=gpar(fill=2:3)))
 popViewport()
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.3/00index.html'>Package <em>grid</em> version 4.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.3/00index.html'>Package <em>grid</em> version 4.2.3</a> ]</div></main>
+
 </div>
 </body></html>

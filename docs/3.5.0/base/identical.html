@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/identical.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/identical.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/identical.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/identical.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>identical {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='identical'>Test Objects for Exact Equality</h2>
+<h2>Test Objects for Exact Equality</h2>
 
 <h3>Description</h3>
 
@@ -36,12 +36,12 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="identical_:_x">x</code>, <code id="identical_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>any <span class="rlang"><b>R</b></span> objects.</p>
 </td></tr>
-<tr><td><code id="identical_:_num.eq">num.eq</code></td>
+<tr><td><code id="num.eq">num.eq</code></td>
 <td>
 <p>logical indicating if (<code>double</code> and
 <code>complex</code> non-<code>NA</code>) numbers should be
@@ -49,13 +49,13 @@ compared using <code>==</code> (&lsquo;equal&rsquo;), or by bitwise
 comparison.  The latter (non-default) differentiates between
 <code>-0</code> and <code>+0</code>.</p>
 </td></tr>
-<tr><td><code id="identical_:_single.NA">single.NA</code></td>
+<tr><td><code id="single.NA">single.NA</code></td>
 <td>
 <p>logical indicating if there is conceptually just one numeric
 <code>NA</code> and one <code>NaN</code>;  <code>single.NA = FALSE</code>
 differentiates bit patterns.</p>
 </td></tr>
-<tr><td><code id="identical_:_attrib.as.set">attrib.as.set</code></td>
+<tr><td><code id="attrib.as.set">attrib.as.set</code></td>
 <td>
 <p>logical indicating if <code>attributes</code> of
 <code>x</code> and <code>y</code> should be treated as <em>unordered</em> tagged
@@ -63,17 +63,17 @@ pairlists (&ldquo;sets&rdquo;); this currently also applies to
 <code>slot</code>s of S4 objects.  It may well be too strict to set
 <code>attrib.as.set = FALSE</code>.</p>
 </td></tr>
-<tr><td><code id="identical_:_ignore.bytecode">ignore.bytecode</code></td>
+<tr><td><code id="ignore.bytecode">ignore.bytecode</code></td>
 <td>
 <p>logical indicating if byte code should be
 ignored when comparing closures.</p>
 </td></tr>
-<tr><td><code id="identical_:_ignore.environment">ignore.environment</code></td>
+<tr><td><code id="ignore.environment">ignore.environment</code></td>
 <td>
 <p>logical indicating if their environments
 should be ignored when comparing closures.</p>
 </td></tr>
-<tr><td><code id="identical_:_ignore.srcref">ignore.srcref</code></td>
+<tr><td><code id="ignore.srcref">ignore.srcref</code></td>
 <td>
 <p>logical indicating if their <code>"srcref"</code>
 attributes should be ignored when comparing closures.</p>
@@ -218,6 +218,7 @@ options(op) # revert to previous state
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>base</em> version 3.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>base</em> version 3.5.0</a> ]</div></main>
+
 </div>
 </body></html>

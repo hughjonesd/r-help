@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/axisTicks.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/axisTicks.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/axisTicks.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/axisTicks.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>axisTicks {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='axisTicks'>Compute Pretty Axis Tick Scales</h2>
+<h2>Compute Pretty Axis Tick Scales</h2>
 
 <h3>Description</h3>
 
@@ -35,18 +35,18 @@ log scale axes.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="axisTicks_:_usr">usr</code></td>
+<table role = "presentation">
+<tr><td><code id="usr">usr</code></td>
 <td>
 <p>numeric vector of length 2, with <code>c(min, max)</code> axis
 extents.</p>
 </td></tr>
-<tr><td><code id="axisTicks_:_log">log</code></td>
+<tr><td><code id="log">log</code></td>
 <td>
 <p>logical indicating if a log scale is (thought to be) in
 use.</p>
 </td></tr>
-<tr><td><code id="axisTicks_:_axp">axp</code></td>
+<tr><td><code id="axp">axp</code></td>
 <td>
 <p>numeric vector of length 3, <code>c(mi, ma, n.)</code>, with
 identical meaning to <code>par("?axp")</code> (where <code>?</code> is
@@ -55,7 +55,7 @@ integer <em>code</em> <code>n.</code>.
 
 </p>
 </td></tr>
-<tr><td><code id="axisTicks_:_nint">nint</code>, <code id="axisTicks_:_nintLog">nintLog</code></td>
+<tr><td><code id="nint">nint</code>, <code id="nintLog">nintLog</code></td>
 <td>
 <p>positive integer value indicating
 (<em>approximately</em>) the desired number of intervals.
@@ -68,7 +68,6 @@ integer <em>code</em> <code>n.</code>.
 
 <p><code>axisTicks(usr, *)</code> calls <code>.axisPars(usr, ..)</code> when
 <code>axp</code> is missing (or <code>NULL</code>).
-
 </p>
 
 
@@ -79,7 +78,7 @@ locations, of length approximately <code>nint+1</code>.
 </p>
 <p><code>.axisPars()</code> returns a <code>list</code> with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>axp</code></td>
 <td>
 <p>numeric vector of length 2, <code>c(min., max.)</code>, of pretty
@@ -124,6 +123,7 @@ aX(2, print(ya &lt;- axisTicks(pu[3:4], log = TRUE)))  # y axis
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.2/00index.html'>Package <em>grDevices</em> version 3.3.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.2/00index.html'>Package <em>grDevices</em> version 3.3.2</a> ]</div></main>
+
 </div>
 </body></html>

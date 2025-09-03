@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/axis.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/axis.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/axis.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/axis.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>axis {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='axis'>Add an Axis to a Plot</h2>
+<h2>Add an Axis to a Plot</h2>
 
 <h3>Usage</h3>
 
@@ -26,17 +26,17 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="axis_:_which">which</code></td>
+<table role = "presentation">
+<tr><td><code id="which">which</code></td>
 <td>
 <p>an integer specifying which side of the plot
 the axis is to be drawn on.</p>
 </td></tr>
-<tr><td><code id="axis_:_at">at</code></td>
+<tr><td><code id="at">at</code></td>
 <td>
 <p>the points at which tick-marks are to be drawn.</p>
 </td></tr>
-<tr><td><code id="axis_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>this can either be a logical value specifying
 whether (numerical) annotations are to be made at
@@ -44,7 +44,7 @@ the tickmarks,
 or a vector of character strings to be placed
 at the tickpoints.</p>
 </td></tr>
-<tr><td><code id="axis_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>graphical parameters may also be passed as
 aruments to this function.</p>
@@ -73,6 +73,7 @@ plot(1:7, rnorm(7), type = 's', xaxt='n', col = 'red')
 axis(1, 1:7, LETTERS[1:7], col.axis = 'blue')
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.61/00index.html'>Package <em>base</em> version 0.61</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.61/00index.html'>Package <em>base</em> version 0.61</a> ]</div></main>
+
 </div>
 </body></html>

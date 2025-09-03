@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/bxp.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/bxp.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/bxp.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/bxp.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>bxp {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='bxp'>Box Plots from Summaries</h2>
+<h2>Box Plots from Summaries</h2>
 
 <h3>Description</h3>
 
@@ -37,41 +37,41 @@ invoked directly.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="bxp_:_z">z</code></td>
+<table role = "presentation">
+<tr><td><code id="z">z</code></td>
 <td>
 <p>a list containing data summaries to be used in constructing
 the plots.  These are usually the result of a call to
 <code>boxplot</code>, but can be generated in any fashion.</p>
 </td></tr>
-<tr><td><code id="bxp_:_notch">notch</code></td>
+<tr><td><code id="notch">notch</code></td>
 <td>
 <p>if <code>notch</code> is <code>TRUE</code>, a notch is drawn in each
 side of the boxes.  If the notches of two plots do not overlap then
 the medians are significantly different at the 5 percent level.</p>
 </td></tr>
-<tr><td><code id="bxp_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>a vector giving the relative widths of the boxes making
 up the plot.</p>
 </td></tr>
-<tr><td><code id="bxp_:_varwidth">varwidth</code></td>
+<tr><td><code id="varwidth">varwidth</code></td>
 <td>
 <p>if <code>varwidth</code> is <code>TRUE</code>, the boxes are drawn
 with widths proportional to the square-roots of the number of
 observations in the groups.</p>
 </td></tr>
-<tr><td><code id="bxp_:_outline">outline</code></td>
+<tr><td><code id="outline">outline</code></td>
 <td>
 <p>if <code>outline</code> is not true, the outliers are not
 drawn.</p>
 </td></tr>
-<tr><td><code id="bxp_:_notch.frac">notch.frac</code></td>
+<tr><td><code id="notch.frac">notch.frac</code></td>
 <td>
 <p>numeric in (0,1). When <code>notch=TRUE</code>, the
 fraction of the box width that the notches should use.</p>
 </td></tr>
-<tr><td><code id="bxp_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p>character or numeric (vector), the color of the box
 borders.  Is recycled for multiple boxes.  Is used as default for
@@ -79,44 +79,44 @@ the <code>boxcol</code>, <code>medcol</code>, <code>whiskcol</code>, <code>stapl
 and <code>outcol</code> options (see below).
 </p>
 </td></tr>
-<tr><td><code id="bxp_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>character or numeric; the color within the box; recycled for
 multiple boxes.  Is only used as default for <code>boxfill</code> and will
 be deprecated.</p>
 </td></tr>
-<tr><td><code id="bxp_:_log">log</code></td>
+<tr><td><code id="log">log</code></td>
 <td>
 <p>character, indicating if any axis should be drawn in
 logarithmic scale, as in <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="bxp_:_frame.plot">frame.plot</code></td>
+<tr><td><code id="frame.plot">frame.plot</code></td>
 <td>
 <p>logical, indicating if a &ldquo;frame&rdquo;
 (<code>box</code>) should be drawn; defaults to <code>TRUE</code>, unless
 <code>axes = FALSE</code> is specified.</p>
 </td></tr>
-<tr><td><code id="bxp_:_horizontal">horizontal</code></td>
+<tr><td><code id="horizontal">horizontal</code></td>
 <td>
 <p>logical indicating if the  boxplots should be
 horizontal; default <code>FALSE</code> means vertical boxes.</p>
 </td></tr>
-<tr><td><code id="bxp_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>logical, if true <em>add</em> boxplot to current plot.</p>
 </td></tr>
-<tr><td><code id="bxp_:_at">at</code></td>
+<tr><td><code id="at">at</code></td>
 <td>
 <p>numeric vector giving the locations where the boxplots
 should be drawn, particularly when <code>add = TRUE</code>; defaults to
 <code>1:n</code> where <code>n</code> is the number of boxes.</p>
 </td></tr>
-<tr><td><code id="bxp_:_show.names">show.names</code></td>
+<tr><td><code id="show.names">show.names</code></td>
 <td>
 <p>Set to <code>TRUE</code> or <code>FALSE</code> to override the
 defaults on whether an x-axis label is printed for each group.</p>
 </td></tr>
-<tr><td><code id="bxp_:_pars">pars</code>, <code id="bxp_:_...">...</code></td>
+<tr><td><code id="pars">pars</code>, <code id="...">...</code></td>
 <td>
 <p>graphical parameters can be passed as arguments to
 this function, either as a list (<code>pars</code>) or
@@ -214,7 +214,6 @@ bx &lt;- boxplot(weight ~ group, data = PlantGrowth,
 bxp(bx,show.names=TRUE)
 par(op)
 
-
 z &lt;- split(rnorm(1000), rpois(1000,2.2))
 boxplot(z, whisklty=3, main="boxplot(z, whisklty = 3)")
 
@@ -240,6 +239,7 @@ boxplot(z, boxfill= "light gray", outpch = 21:25, outlty = 2,
         bg = "pink", lwd = 2, medcol = "dark blue", medcex = 2, medpch=20)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.0.1/00index.html'>Package <em>graphics</em> version 2.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.0.1/00index.html'>Package <em>graphics</em> version 2.0.1</a> ]</div></main>
+
 </div>
 </body></html>

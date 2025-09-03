@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setMethod.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setMethod.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setMethod.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setMethod.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>setMethod {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='setMethod'> Create and Save a Method </h2>
+<h2> Create and Save a Method </h2>
 
 <h3>Description</h3>
 
@@ -36,12 +36,12 @@ removeMethod(f, signature, where)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="setMethod_:_f">f</code></td>
+<table role = "presentation">
+<tr><td><code id="f">f</code></td>
 <td>
 <p> A generic function or the character-string name of the function. </p>
 </td></tr>
-<tr><td><code id="setMethod_:_signature">signature</code></td>
+<tr><td><code id="signature">signature</code></td>
 <td>
 <p> A match of formal argument names for <code>f</code> with
 the character-string names of corresponding classes.  This
@@ -49,13 +49,13 @@ argument can also just be the vector of class names, in which case
 the first name corresponds to the first formal argument, the
 next to the second formal argument, etc.</p>
 </td></tr>
-<tr><td><code id="setMethod_:_definition">definition</code></td>
+<tr><td><code id="definition">definition</code></td>
 <td>
 <p> A function definition, which will become the method
 called when the arguments in a call to <code>f</code> match the
 classes in <code>signature</code>, directly or through inheritance. </p>
 </td></tr>
-<tr><td><code id="setMethod_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p>the database in which to store the definition of the
 method; 
@@ -63,13 +63,13 @@ method;
 <p>For <code>removeMethod</code>, the default is the location of the (first)
 instance of the method for this signature.</p>
 </td></tr>
-<tr><td><code id="setMethod_:_valueClass">valueClass</code></td>
+<tr><td><code id="valueClass">valueClass</code></td>
 <td>
 <p> If supplied, this argument asserts that the
 method will return a value of this class.  (At present this
 argument is stored but not explicitly used.) </p>
 </td></tr>
-<tr><td><code id="setMethod_:_sealed">sealed</code></td>
+<tr><td><code id="sealed">sealed</code></td>
 <td>
 <p> If <code>TRUE</code>, the method so defined cannot be
 redefined by another call to <code>setMethod</code> (although it can
@@ -254,6 +254,7 @@ setMethod("summary", "missing", function() "&lt;No Object&gt;")
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.5.1/00index.html'>Package <em>methods</em> version 2.5.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.5.1/00index.html'>Package <em>methods</em> version 2.5.1</a> ]</div></main>
+
 </div>
 </body></html>

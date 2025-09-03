@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/strsplit.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/strsplit.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/strsplit.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/strsplit.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>strsplit {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='strsplit'>Split the Strings in a Vector</h2>
+<h2>Split the Strings in a Vector</h2>
 
 <h3>Description</h3>
 
@@ -32,19 +32,19 @@ presence of substring <code>split</code> within them.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="strsplit_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>character vector, to be split.</p>
 </td></tr>
-<tr><td><code id="strsplit_:_split">split</code></td>
+<tr><td><code id="split">split</code></td>
 <td>
 <p>character string containing a regular expression to use
 as &ldquo;split&rdquo;.  If empty matches occur, in particular if <code>split</code>
 has length 0, <code>x</code> is split into single characters.  If
 <code>split</code> is a vector, it is re-cycled along <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="strsplit_:_extended">extended</code></td>
+<tr><td><code id="extended">extended</code></td>
 <td>
 <p>if <code>TRUE</code>, extended regular expression matching
 is used, and if <code>FALSE</code> basic regular expressions are used.</p>
@@ -83,6 +83,7 @@ unlist(strsplit("a.b.c", "\\."))
 ## [1] "a" "b" "c"
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.2/00index.html'>Package <em>base</em> version 1.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.2/00index.html'>Package <em>base</em> version 1.2</a> ]</div></main>
+
 </div>
 </body></html>

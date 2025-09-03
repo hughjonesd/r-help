@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/c.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/c.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/c.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/c.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>c {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='c'>Combine Values into a Vector or List</h2>
+<h2>Combine Values into a Vector or List</h2>
 
 <h3>Description</h3>
 
@@ -40,20 +40,20 @@ c(..., recursive = FALSE, use.names = TRUE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="c_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="...">...</code></td>
 <td>
 <p>objects to be concatenated.  All <code>NULL</code> entries
 are dropped before method dispatch unless at the very beginning of the
 argument list.</p>
 </td></tr>
-<tr><td><code id="c_:_recursive">recursive</code></td>
+<tr><td><code id="recursive">recursive</code></td>
 <td>
 <p>logical.  If <code>recursive = TRUE</code>, the function
 recursively descends through lists (and pairlists) combining all
 their elements into a vector.</p>
 </td></tr>
-<tr><td><code id="c_:_use.names">use.names</code></td>
+<tr><td><code id="use.names">use.names</code></td>
 <td>
 <p>logical indicating if <code>names</code> should be
 preserved.</p>
@@ -142,6 +142,7 @@ c(options(), recursive = TRUE)
 c(list(A = c(B = 1, C = 2), B = c(E = 7)), recursive = TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>base</em> version 4.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>base</em> version 4.1.1</a> ]</div></main>
+
 </div>
 </body></html>

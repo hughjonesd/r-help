@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/aggregate.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/aggregate.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/aggregate.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/aggregate.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>aggregate {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='aggregate'>Compute Summary Statistics of Data Subsets</h2>
+<h2>Compute Summary Statistics of Data Subsets</h2>
 
 <h3>Description</h3>
 
@@ -47,66 +47,66 @@ aggregate(x, nfrequency = 1, FUN = sum, ndeltat = 1,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="aggregate_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an R object.</p>
 </td></tr>
-<tr><td><code id="aggregate_:_by">by</code></td>
+<tr><td><code id="by">by</code></td>
 <td>
 <p>a list of grouping elements, each as long as the variables
 in <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="aggregate_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>a function to compute the summary statistics which can be
 applied to all data subsets.</p>
 </td></tr>
-<tr><td><code id="aggregate_:_simplify">simplify</code></td>
+<tr><td><code id="simplify">simplify</code></td>
 <td>
 <p>a logical indicating whether results should be
 simplified to a vector or matrix if possible.</p>
 </td></tr>
-<tr><td><code id="aggregate_:_formula">formula</code></td>
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula, such as <code>y ~ x</code> or
 <code>cbind(y1, y2) ~ x1 + x2</code>, where the <code>y</code> variables are
 numeric data to be split into groups according to the grouping
 <code>x</code> variables (usually factors).</p>
 </td></tr>
-<tr><td><code id="aggregate_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data frame (or list) from which the variables in formula
 should be taken.</p>
 </td></tr>
-<tr><td><code id="aggregate_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used.</p>
 </td></tr>
-<tr><td><code id="aggregate_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen when
 the data contain <code>NA</code> values. The default is to ignore missing
 values in the given variables.</p>
 </td></tr>
-<tr><td><code id="aggregate_:_nfrequency">nfrequency</code></td>
+<tr><td><code id="nfrequency">nfrequency</code></td>
 <td>
 <p>new number of observations per unit of time; must
 be a divisor of the frequency of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="aggregate_:_ndeltat">ndeltat</code></td>
+<tr><td><code id="ndeltat">ndeltat</code></td>
 <td>
 <p>new fraction of the sampling period between
 successive observations; must be a divisor of the sampling
 interval of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="aggregate_:_ts.eps">ts.eps</code></td>
+<tr><td><code id="ts.eps">ts.eps</code></td>
 <td>
 <p>tolerance used to decide if <code>nfrequency</code> is a
 sub-multiple of the original frequency.</p>
 </td></tr>
-<tr><td><code id="aggregate_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or used by methods.</p>
 </td></tr>
@@ -245,6 +245,7 @@ aggregate(presidents, nfrequency = 1,
           FUN = weighted.mean, w = c(1, 1, 0.5, 1))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.2/00index.html'>Package <em>stats</em> version 2.15.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.2/00index.html'>Package <em>stats</em> version 2.15.2</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/dotchart.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/dotchart.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/dotchart.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/dotchart.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>dotchart {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='dotchart'>Cleveland Dot Plots</h2>
+<h2>Cleveland Dot Plots</h2>
 
 <h3>Description</h3>
 
@@ -36,80 +36,80 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="dotchart_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>either a vector or matrix of numeric values (<code>NA</code>s are
 allowed).  If <code>x</code> is a matrix the overall plot consists of
 juxtaposed dotplots for each row.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>a vector of labels for each point.
 For vectors the default is to use <code>names(x)</code> and for matrices
 the row labels <code>dimnames(x)[[1]]</code>.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_groups">groups</code></td>
+<tr><td><code id="groups">groups</code></td>
 <td>
 <p>an optional factor indicating how the elements of
 <code>x</code> are grouped.
 If <code>x</code> is a matrix, <code>groups</code> will default to the columns
 of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_gdata">gdata</code></td>
+<tr><td><code id="gdata">gdata</code></td>
 <td>
 <p>data values for the groups.
 This is typically a summary such as the median or mean
 of each group.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_cex">cex</code></td>
+<tr><td><code id="cex">cex</code></td>
 <td>
 <p>the character size to be used.  Setting <code>cex</code>
 to a value smaller than one can be a useful way of avoiding label
 overlap.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_pch">pch</code></td>
+<tr><td><code id="pch">pch</code></td>
 <td>
 <p>the plotting character or symbol to be used.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_gpch">gpch</code></td>
+<tr><td><code id="gpch">gpch</code></td>
 <td>
 <p>the plotting character or symbol to be used for group
 values.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_bg">bg</code></td>
+<tr><td><code id="bg">bg</code></td>
 <td>
 <p>the background color of plotting characters or symbols to be
 used; use <code>par(bg= *)</code> to set the background color of
 the whole plot.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_color">color</code></td>
+<tr><td><code id="color">color</code></td>
 <td>
 <p>the color(s) to be used for points an labels.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_gcolor">gcolor</code></td>
+<tr><td><code id="gcolor">gcolor</code></td>
 <td>
 <p>the single color to be used for group labels and
 values.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_lcolor">lcolor</code></td>
+<tr><td><code id="lcolor">lcolor</code></td>
 <td>
 <p>the color(s) to be used for the horizontal lines.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_xlim">xlim</code></td>
+<tr><td><code id="xlim">xlim</code></td>
 <td>
 <p>horizontal range for the plot, see
 <code>plot.window</code>, e.g.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>overall title for the plot, see <code>title</code>.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_xlab">xlab</code>, <code id="dotchart_:_ylab">ylab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>axis annotations as in <code>title</code>.</p>
 </td></tr>
-<tr><td><code id="dotchart_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>graphical parameters can also be specified as arguments.</p>
 </td></tr>
@@ -146,6 +146,7 @@ dotchart(t(VADeaths), xlim = c(0,100),
 par(op)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.1.0/00index.html'>Package <em>graphics</em> version 2.1.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.1.0/00index.html'>Package <em>graphics</em> version 2.1.0</a> ]</div></main>
+
 </div>
 </body></html>

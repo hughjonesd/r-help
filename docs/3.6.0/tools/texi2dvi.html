@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/texi2dvi.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/texi2dvi.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/texi2dvi.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/texi2dvi.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>texi2dvi {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='texi2dvi'>Compile LaTeX Files</h2>
+<h2>Compile LaTeX Files</h2>
 
 <h3>Description</h3>
 
@@ -39,26 +39,26 @@ texi2pdf(file, clean = FALSE, quiet = TRUE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="texi2dvi_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>character string.  Name of the LaTeX source file.</p>
 </td></tr>
-<tr><td><code id="texi2dvi_:_pdf">pdf</code></td>
+<tr><td><code id="pdf">pdf</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, a PDF file is produced instead of
 the default dvi file (<code>texi2dvi</code> command line option <span class="option">--pdf</span>).</p>
 </td></tr>
-<tr><td><code id="texi2dvi_:_clean">clean</code></td>
+<tr><td><code id="clean">clean</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, all auxiliary files created
 during the conversion are removed.</p>
 </td></tr>
-<tr><td><code id="texi2dvi_:_quiet">quiet</code></td>
+<tr><td><code id="quiet">quiet</code></td>
 <td>
 <p>logical.  No output unless an error occurs.</p>
 </td></tr>
-<tr><td><code id="texi2dvi_:_texi2dvi">texi2dvi</code></td>
+<tr><td><code id="texi2dvi">texi2dvi</code></td>
 <td>
 <p>character string (or <code>NULL</code>).  Script or program
 used to compile a TeX file to dvi or PDF. The default (selected
@@ -68,12 +68,12 @@ otherwise emulate the script with <code>system2</code> calls (which
 can be selected by the value <code>"emulation"</code>).  See also
 &lsquo;Details&rsquo;.</p>
 </td></tr> 
-<tr><td><code id="texi2dvi_:_texinputs">texinputs</code></td>
+<tr><td><code id="texinputs">texinputs</code></td>
 <td>
 <p><code>NULL</code> or a character vector of paths to add to
 the LaTeX and bibtex input search paths.</p>
 </td></tr>
-<tr><td><code id="texi2dvi_:_index">index</code></td>
+<tr><td><code id="index">index</code></td>
 <td>
 <p>logical: should indices be prepared?</p>
 </td></tr>
@@ -164,6 +164,7 @@ full paths to the corresponding commands.
 <p>Originally Achim Zeileis but largely rewritten by R-core.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>tools</em> version 3.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>tools</em> version 3.6.0</a> ]</div></main>
+
 </div>
 </body></html>

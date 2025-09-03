@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rank.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rank.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rank.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rank.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>rank {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='rank'>Sample Ranks</h2>
+<h2>Sample Ranks</h2>
 
 <h3>Description</h3>
 
@@ -34,19 +34,19 @@ Ties, i.e., equal values, result in ranks being averaged, by default.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="rank_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric, complex, character or logical vector.</p>
 </td></tr>
-<tr><td><code id="rank_:_na.last">na.last</code></td>
+<tr><td><code id="na.last">na.last</code></td>
 <td>
 <p>for controlling the treatment of <code>NA</code>s.
 If <code>TRUE</code>, missing values in the data are put last; if
 <code>FALSE</code>, they are put first; if <code>NA</code>, they are removed; if
 <code>"keep"</code> they are kept.</p>
 </td></tr>
-<tr><td><code id="rank_:_ties.method">ties.method</code></td>
+<tr><td><code id="ties.method">ties.method</code></td>
 <td>
 <p>a character string specifying how ties are treated,
 see below; can be abbreviated.</p>
@@ -104,6 +104,7 @@ rank(x2, ties.method= "random") # and again
 stopifnot(rma + rmi == round(r2 + r2))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>base</em> version 2.4.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>base</em> version 2.4.0</a> ]</div></main>
+
 </div>
 </body></html>

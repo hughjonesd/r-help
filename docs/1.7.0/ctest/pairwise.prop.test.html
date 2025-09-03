@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/pairwise.prop.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/pairwise.prop.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/pairwise.prop.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/pairwise.prop.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>pairwise.prop.test {ctest}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='pairwise.prop.test'> Pairwise comparisons of proportions</h2>
+<h2> Pairwise comparisons of proportions</h2>
 
 <h3>Description</h3>
 
@@ -33,21 +33,21 @@ correction for multiple testing
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="pairwise.prop.test_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p> Vector of counts of successes or a matrix with 2 columns
 giving the counts of successes and failures, respectively. </p>
 </td></tr>
-<tr><td><code id="pairwise.prop.test_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p> Vector of counts of trials; ignored if <code>x</code> is a matrix.</p>
 </td></tr>
-<tr><td><code id="pairwise.prop.test_:_p.adjust.method">p.adjust.method</code></td>
+<tr><td><code id="p.adjust.method">p.adjust.method</code></td>
 <td>
 <p>Method for adjusting p values (see <code>p.adjust</code>) </p>
 </td></tr>
-<tr><td><code id="pairwise.prop.test_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p> Additional arguments to pass to <code>prop.test</code> </p>
 </td></tr>
@@ -72,6 +72,7 @@ patients &lt;- c( 86, 93, 136, 82 )
 pairwise.prop.test(smokers, patients)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

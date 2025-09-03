@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcparallel.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcparallel.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcparallel.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcparallel.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>mcparallel {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='mcparallel'>Evaluate an <span class="rlang"><b>R</b></span> Expression Asynchronously in a Separate Process</h2>
+<h2>Evaluate an <span class="rlang"><b>R</b></span> Expression Asynchronously in a Separate Process</h2>
 
 <h3>Description</h3>
 
@@ -41,64 +41,64 @@ mccollect(jobs, wait = TRUE, timeout = 0, intermediate = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="mcparallel_:_expr">expr</code></td>
+<table role = "presentation">
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p>expression to evaluate (do <em>not</em> use any on-screen
 devices or GUI elements in this code).</p>
 </td></tr>
-<tr><td><code id="mcparallel_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>an optional name (character vector of length one) that can
 be associated with the job.</p>
 </td></tr>
-<tr><td><code id="mcparallel_:_mc.set.seed">mc.set.seed</code></td>
+<tr><td><code id="mc.set.seed">mc.set.seed</code></td>
 <td>
 <p>logical: see section &lsquo;Random numbers&rsquo;.</p>
 </td></tr>
-<tr><td><code id="mcparallel_:_silent">silent</code></td>
+<tr><td><code id="silent">silent</code></td>
 <td>
 <p>if set to <code>TRUE</code> then all output on stdout will be
 suppressed (stderr is not affected).</p>
 </td></tr>
-<tr><td><code id="mcparallel_:_mc.affinity">mc.affinity</code></td>
+<tr><td><code id="mc.affinity">mc.affinity</code></td>
 <td>
 <p>either a numeric vector specifying CPUs to restrict
 the child process to (1-based) or <code>NULL</code> to not modify the CPU
 affinity</p>
 </td></tr>
-<tr><td><code id="mcparallel_:_mc.interactive">mc.interactive</code></td>
+<tr><td><code id="mc.interactive">mc.interactive</code></td>
 <td>
 <p>logical, if <code>TRUE</code> or <code>FALSE</code> then the
 child process will be set as interactive or non-interactive
 respectively. If <code>NA</code> then the child process will inherit the
 interactive flag from the parent.</p>
 </td></tr>
-<tr><td><code id="mcparallel_:_detached">detached</code></td>
+<tr><td><code id="detached">detached</code></td>
 <td>
 <p>logical, if <code>TRUE</code> then the job is detached from
 the current session and cannot deliver any results back - it is used
 for the code side-effect only.</p>
 </td></tr>
-<tr><td><code id="mcparallel_:_jobs">jobs</code></td>
+<tr><td><code id="jobs">jobs</code></td>
 <td>
 <p>list of jobs (or a single job) to collect results
 for.  Alternatively <code>jobs</code> can also be an integer vector of
 process IDs.  If omitted <code>collect</code> will wait for all currently
 existing children.</p>
 </td></tr>
-<tr><td><code id="mcparallel_:_wait">wait</code></td>
+<tr><td><code id="wait">wait</code></td>
 <td>
 <p>if set to <code>FALSE</code> it checks for any results that are
 available within <code>timeout</code> seconds from now, otherwise it waits
 for all specified jobs to finish.</p>
 </td></tr>
-<tr><td><code id="mcparallel_:_timeout">timeout</code></td>
+<tr><td><code id="timeout">timeout</code></td>
 <td>
 <p>timeout (in seconds) to check for job results &ndash; applies
 only if <code>wait</code> is <code>FALSE</code>.</p>
 </td></tr>
-<tr><td><code id="mcparallel_:_intermediate">intermediate</code></td>
+<tr><td><code id="intermediate">intermediate</code></td>
 <td>
 <p><code>FALSE</code> or a function which will be called while
 <code>collect</code> waits for results.  The function will be called with one
@@ -220,6 +220,7 @@ jobs &lt;- lapply(1:10, function(x) mcparallel(rnorm(x), name = x))
 mccollect(jobs)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.4/00index.html'>Package <em>parallel</em> version 3.2.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.4/00index.html'>Package <em>parallel</em> version 3.2.4</a> ]</div></main>
+
 </div>
 </body></html>

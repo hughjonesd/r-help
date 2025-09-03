@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/xy.coords.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/xy.coords.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/xy.coords.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/xy.coords.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>xy.coords {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='xy.coords'>Extracting Plotting Structures</h2>
+<h2>Extracting Plotting Structures</h2>
 
 <h3>Description</h3>
 
@@ -38,8 +38,8 @@ which use this mechanism.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="xy.coords_:_x">x</code>, <code id="xy.coords_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>the x and y coordinates of a set of points.
 Alternatively, a single argument <code>x</code> can be be provided.
@@ -56,7 +56,7 @@ is assumed to contain the x values and the second the
 y values; in any other case, the argument is coerced to a vector
 and the values plotted against their indices.</p>
 </td></tr>
-<tr><td><code id="xy.coords_:_xlab">xlab</code>, <code id="xy.coords_:_ylab">ylab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>names for the x and y variables to be extracted.</p>
 </td></tr>
@@ -67,7 +67,7 @@ and the values plotted against their indices.</p>
 
 <p>A list with the components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>x</code></td>
 <td>
 <p>numeric (i.e. <code>"double"</code>) vector of abscissa values.</p>
@@ -94,6 +94,7 @@ data(cars) ; attach(cars)
 xy.coords(dist ~ speed, NULL)$xlab # = "speed"
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.63/00index.html'>Package <em>base</em> version 0.63</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.63/00index.html'>Package <em>base</em> version 0.63</a> ]</div></main>
+
 </div>
 </body></html>

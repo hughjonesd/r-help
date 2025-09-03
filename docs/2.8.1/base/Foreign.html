@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Foreign.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Foreign.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Foreign.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Foreign.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Foreign {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Foreign'>Foreign Function Interface</h2>
+<h2>Foreign Function Interface</h2>
 
 <h3>Description</h3>
 
@@ -38,31 +38,31 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Foreign_:_name">name</code></td>
+<table role = "presentation">
+<tr><td><code id="name">name</code></td>
 <td>
 <p>a character string giving the name of a C function or
 Fortran subroutine, or an object of class
 <code>"NativeSymbolInfo"</code> or <code>"NativeSymbol"</code>
 referring to such a name.</p>
 </td></tr>
-<tr><td><code id="Foreign_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments to be passed to the foreign function.</p>
 </td></tr>
-<tr><td><code id="Foreign_:_NAOK">NAOK</code></td>
+<tr><td><code id="NAOK">NAOK</code></td>
 <td>
 <p>if <code>TRUE</code> then any <code>NA</code> or
 <code>NaN</code> or <code>Inf</code> values in the arguments are
 passed on to the foreign function.  If <code>FALSE</code>, the presence of
 <code>NA</code> or <code>NaN</code> or <code>Inf</code> values is regarded as an error.</p>
 </td></tr>
-<tr><td><code id="Foreign_:_DUP">DUP</code></td>
+<tr><td><code id="DUP">DUP</code></td>
 <td>
 <p>if <code>TRUE</code> then arguments are duplicated before
 their address is passed to C or Fortran.</p>
 </td></tr>
-<tr><td><code id="Foreign_:_PACKAGE">PACKAGE</code></td>
+<tr><td><code id="PACKAGE">PACKAGE</code></td>
 <td>
 <p>if supplied, confine the search for the <code>name</code> to
 the DLL given by this argument (plus the conventional extension,
@@ -71,7 +71,7 @@ add safety for packages, which can ensure by using this argument
 that no other package can override their external symbols.  Use
 <code>PACKAGE="base"</code> for symbols linked in to <span class="rlang"><b>R</b></span>.</p>
 </td></tr>
-<tr><td><code id="Foreign_:_ENCODING">ENCODING</code></td>
+<tr><td><code id="ENCODING">ENCODING</code></td>
 <td>
 <p>optional name for an encoding to be assumed for
 character vectors.  See &lsquo;Details&rsquo;.</p>
@@ -307,6 +307,7 @@ Springer. (<code>.Call</code>.)
 
 <p><code>dyn.load</code>.</p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.8.1/00index.html'>Package <em>base</em> version 2.8.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.8.1/00index.html'>Package <em>base</em> version 2.8.1</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cov.wt.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cov.wt.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cov.wt.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cov.wt.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cov.wt {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cov.wt'>Weighted Covariance Matrices</h2>
+<h2>Weighted Covariance Matrices</h2>
 
 <h3>Description</h3>
 
@@ -34,23 +34,23 @@ matrix.</p>
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cov.wt_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a matrix or data frame.  As usual, rows are observations and
 columns are variables.</p>
 </td></tr>
-<tr><td><code id="cov.wt_:_wt">wt</code></td>
+<tr><td><code id="wt">wt</code></td>
 <td>
 <p>a non-negative and non-zero vector of weights for each
 observation.  Its length must equal the number of rows of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="cov.wt_:_cor">cor</code></td>
+<tr><td><code id="cor">cor</code></td>
 <td>
 <p>a logical indicating whether the estimated correlation
 weighted matrix will be returned as well.</p>
 </td></tr>
-<tr><td><code id="cov.wt_:_center">center</code></td>
+<tr><td><code id="center">center</code></td>
 <td>
 <p>either a logical or a numeric vector specifying the
 centers to be used when computing covariances.  If <code>TRUE</code>, the
@@ -58,7 +58,7 @@ centers to be used when computing covariances.  If <code>TRUE</code>, the
 used.  If <code>center</code> is numeric, its length must equal the number
 of columns of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="cov.wt_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>string specifying how the result is scaled, see
 &lsquo;Details&rsquo; below.  Can be abbreviated.</p>
@@ -81,7 +81,7 @@ corresponds to <code>method = "ML"</code> and does not divide.
 
 <p>A list containing the following named components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>cov</code></td>
 <td>
 <p>the estimated (weighted) covariance matrix</p>
@@ -121,6 +121,7 @@ as an argument.</p>
  cov.wt(xy, wt = w1, method = "ML", cor = TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.0/00index.html'>Package <em>stats</em> version 3.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.0/00index.html'>Package <em>stats</em> version 3.2.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/factanal.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/factanal.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/factanal.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/factanal.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>factanal {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='factanal'>Factor Analysis</h2>
+<h2>Factor Analysis</h2>
 
 <h3>Description</h3>
 
@@ -36,63 +36,63 @@ data matrix.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="factanal_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A formula or a numeric matrix or an object that can be
 coerced to a numeric matrix.</p>
 </td></tr>
-<tr><td><code id="factanal_:_factors">factors</code></td>
+<tr><td><code id="factors">factors</code></td>
 <td>
 <p>The number of factors to be fitted.</p>
 </td></tr>
-<tr><td><code id="factanal_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>An optional data frame (or similar: see
 <code>model.frame</code>), used only if <code>x</code> is a formula.  By
 default the variables are taken from <code>environment(formula)</code>.</p>
 </td></tr>
-<tr><td><code id="factanal_:_covmat">covmat</code></td>
+<tr><td><code id="covmat">covmat</code></td>
 <td>
 <p>A covariance matrix, or a covariance list as returned by
 <code>cov.wt</code>.  Of course, correlation matrices are covariance
 matrices.</p>
 </td></tr>
-<tr><td><code id="factanal_:_n.obs">n.obs</code></td>
+<tr><td><code id="n.obs">n.obs</code></td>
 <td>
 <p>The number of observations, used if <code>covmat</code> is a
 covariance matrix.</p>
 </td></tr>
-<tr><td><code id="factanal_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>A specification of the cases to be used, if <code>x</code> is
 used as a matrix or formula.</p>
 </td></tr>
-<tr><td><code id="factanal_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>The <code>na.action</code> to be used if <code>x</code> is
 used as a formula.</p>
 </td></tr>
-<tr><td><code id="factanal_:_start">start</code></td>
+<tr><td><code id="start">start</code></td>
 <td>
 <p><code>NULL</code> or a matrix of starting values, each column
 giving an initial set of uniquenesses.</p>
 </td></tr>
-<tr><td><code id="factanal_:_scores">scores</code></td>
+<tr><td><code id="scores">scores</code></td>
 <td>
 <p>Type of scores to produce, if any.  The default is none,
 <code>"regression"</code> gives Thompson's scores, <code>"Bartlett"</code> given
 Bartlett's weighted least-squares scores. Partial matching allows
 these names to be abbreviated.</p>
 </td></tr>
-<tr><td><code id="factanal_:_rotation">rotation</code></td>
+<tr><td><code id="rotation">rotation</code></td>
 <td>
 <p>character. <code>"none"</code> or the name of a function
 to be used to rotate the factors: it will be called with first
 argument the loadings matrix, and should return a list with component
 <code>loadings</code> giving the rotated loadings, or just the rotated loadings.</p>
 </td></tr>
-<tr><td><code id="factanal_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>A list of control values,
 </p>
@@ -114,7 +114,7 @@ optimization. Should be &gt; 0. Default 0.005.</p>
 </dl>
 
 </td></tr>
-<tr><td><code id="factanal_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Components of <code>control</code> can also be supplied as
 named arguments to <code>factanal</code>.</p>
@@ -202,7 +202,7 @@ places, and small loadings are suppressed.
 
 <p>An object of class <code>"factanal"</code> with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>loadings</code></td>
 <td>
 <p>A matrix of loadings, one column for each factor.  The
@@ -335,6 +335,7 @@ factanal(~v1+v2+v3+v4+v5+v6, factors = 3,
 utils::example(ability.cov)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.13.2/00index.html'>Package <em>stats</em> version 2.13.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.13.2/00index.html'>Package <em>stats</em> version 2.13.2</a> ]</div></main>
+
 </div>
 </body></html>

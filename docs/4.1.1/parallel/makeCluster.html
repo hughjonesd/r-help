@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/makeCluster.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/makeCluster.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/makeCluster.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/makeCluster.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>makeCluster {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='makeCluster'>
+<h2>
 Create a Parallel Socket Cluster
 </h2>
 
@@ -42,31 +42,31 @@ getDefaultCluster()
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="makeCluster_:_spec">spec</code></td>
+<table role = "presentation">
+<tr><td><code id="spec">spec</code></td>
 <td>
 <p>A specification appropriate to the type of cluster.</p>
 </td></tr>
-<tr><td><code id="makeCluster_:_names">names</code></td>
+<tr><td><code id="names">names</code></td>
 <td>
 <p>Either a character vector of host names on which to run
 the worker copies of <span class="rlang"><b>R</b></span>, or a positive integer (in which case
 that number of copies is run on &lsquo;<span class="samp">&#8288;localhost&#8288;</span>&rsquo;).</p>
 </td></tr>
-<tr><td><code id="makeCluster_:_nnodes">nnodes</code></td>
+<tr><td><code id="nnodes">nnodes</code></td>
 <td>
 <p>The number of nodes to be forked.</p>
 </td></tr>
-<tr><td><code id="makeCluster_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>One of the supported types: see &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="makeCluster_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Options to be passed to the function spawning the workers.
 See &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="makeCluster_:_cl">cl</code></td>
+<tr><td><code id="cl">cl</code></td>
 <td>
 <p>an object of class <code>"cluster"</code>.</p>
 </td></tr>
@@ -223,6 +223,7 @@ single multi-core host, the default settings are the appropriate ones.
 <p>Derived from the <a href="https://CRAN.R-project.org/package=snow"><span class="pkg">snow</span></a> package.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>parallel</em> version 4.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.1/00index.html'>Package <em>parallel</em> version 4.1.1</a> ]</div></main>
+
 </div>
 </body></html>

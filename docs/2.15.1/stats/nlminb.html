@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nlminb.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nlminb.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nlminb.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nlminb.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>nlminb {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='nlminb'>Optimization using PORT routines </h2>
+<h2>Optimization using PORT routines </h2>
 
 <h3>Description</h3>
 
@@ -33,14 +33,14 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="nlminb_:_start">start</code></td>
+<table role = "presentation">
+<tr><td><code id="start">start</code></td>
 <td>
 
 <p>numeric vector, initial values for the parameters to be optimized.
 </p>
 </td></tr>
-<tr><td><code id="nlminb_:_objective">objective</code></td>
+<tr><td><code id="objective">objective</code></td>
 <td>
 
 <p>Function to be minimized.  Must return a scalar value (possibly
@@ -51,7 +51,7 @@ the optimization) to <code>objective</code> may be specified as well (see
 <code>...</code>).
 </p>
 </td></tr>
-<tr><td><code id="nlminb_:_gradient">gradient</code></td>
+<tr><td><code id="gradient">gradient</code></td>
 <td>
 
 <p>Optional function that takes the same arguments as <code>objective</code> and
@@ -59,7 +59,7 @@ evaluates the gradient of <code>objective</code> at its first argument.  Must
 return a vector as long as <code>start</code>.
 </p>
 </td></tr>
-<tr><td><code id="nlminb_:_hessian">hessian</code></td>
+<tr><td><code id="hessian">hessian</code></td>
 <td>
 
 <p>Optional function that takes the same arguments as <code>objective</code> and
@@ -68,19 +68,19 @@ return a square matrix of order <code>length(start)</code>.  Only the
 lower triangle is used.
 </p>
 </td></tr>
-<tr><td><code id="nlminb_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further arguments to be supplied to <code>objective</code>.</p>
 </td></tr>
-<tr><td><code id="nlminb_:_scale">scale</code></td>
+<tr><td><code id="scale">scale</code></td>
 <td>
 <p>See PORT documentation (or leave alone).</p>
 </td></tr>
-<tr><td><code id="nlminb_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>A list of control parameters. See below for details.</p>
 </td></tr>
-<tr><td><code id="nlminb_:_lower">lower</code>, <code id="nlminb_:_upper">upper</code></td>
+<tr><td><code id="lower">lower</code>, <code id="upper">upper</code></td>
 <td>
 
 <p>vectors of lower and upper bounds, replicated to be as long as
@@ -106,7 +106,7 @@ on to <code>objective</code> and where applicable, <code>gradient</code> and
 
 <p>A list with components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>par</code></td>
 <td>
 <p>The best set of parameters found.</p>
@@ -262,6 +262,7 @@ r &lt;- nlminb(rep(3, 25), flb, control = list(rel.tol=1e-16))
 stopifnot(grepl("rel.tol", r$message))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.1/00index.html'>Package <em>stats</em> version 2.15.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.1/00index.html'>Package <em>stats</em> version 2.15.1</a> ]</div></main>
+
 </div>
 </body></html>

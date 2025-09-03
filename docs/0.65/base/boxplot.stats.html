@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.stats.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.stats.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.stats.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/boxplot.stats.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>boxplot.stats {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='boxplot.stats'>Box Plot Statistics</h2>
+<h2>Box Plot Statistics</h2>
 
 <h3>Description</h3>
 
@@ -34,14 +34,14 @@ but may be invoked separately.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="boxplot.stats_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector for which the boxplot will
 be constructed (<code>NA</code>s and <code>NaN</code>s are allowed
 and omitted).</p>
 </td></tr>
-<tr><td><code id="boxplot.stats_:_coef">coef</code></td>
+<tr><td><code id="coef">coef</code></td>
 <td>
 <p>this determines how far the plot &ldquo;whiskers&rdquo; extend out
 from the box.  If <code>coef</code> is positive, the whiskers extend to the
@@ -49,7 +49,7 @@ most extreme data point which is no more than <code>coef</code> times the
 interquartile coef from the box.  A value of zero causes the whiskers
 to extend to the data extremes.</p>
 </td></tr>
-<tr><td><code id="boxplot.stats_:_do.conf">do.conf</code>, <code id="boxplot.stats_:_do.out">do.out</code></td>
+<tr><td><code id="do.conf">do.conf</code>, <code id="do.out">do.out</code></td>
 <td>
 <p>logicals; if <code>FALSE</code>, the <code>conf</code> or
 <code>out</code> component respectively will be empty in the result.</p>
@@ -61,7 +61,7 @@ to extend to the data extremes.</p>
 
 <p>List with named components as follows:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>stats</code></td>
 <td>
 <p>a vector of length 5, containing the extreme of the
@@ -106,6 +106,7 @@ str(boxplot.stats(c(x,NA)))
 str(boxplot.stats(c(x,-1:1/0)))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.65/00index.html'>Package <em>base</em> version 0.65</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.65/00index.html'>Package <em>base</em> version 0.65</a> ]</div></main>
+
 </div>
 </body></html>

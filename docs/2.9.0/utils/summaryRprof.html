@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/summaryRprof.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/summaryRprof.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/summaryRprof.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/summaryRprof.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>summaryRprof {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='summaryRprof'>Summarise Output of R Sampling Profiler</h2>
+<h2>Summarise Output of R Sampling Profiler</h2>
 
 <h3>Description</h3>
 
@@ -35,30 +35,30 @@ amount of time used by different <span class="rlang"><b>R</b></span> functions.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="summaryRprof_:_filename">filename</code></td>
+<table role = "presentation">
+<tr><td><code id="filename">filename</code></td>
 <td>
 <p>Name of a file produced by <code>Rprof()</code></p>
 </td></tr>
-<tr><td><code id="summaryRprof_:_chunksize">chunksize</code></td>
+<tr><td><code id="chunksize">chunksize</code></td>
 <td>
 <p>Number of lines to read at a time</p>
 </td></tr>
-<tr><td><code id="summaryRprof_:_memory">memory</code></td>
+<tr><td><code id="memory">memory</code></td>
 <td>
 <p>Summaries for memory information.  See &lsquo;Details&rsquo; below</p>
 </td></tr>
-<tr><td><code id="summaryRprof_:_index">index</code></td>
+<tr><td><code id="index">index</code></td>
 <td>
 <p>How to summarize the stack trace for memory
 information.  See &lsquo;Details&rsquo; below.</p>
 </td></tr>
-<tr><td><code id="summaryRprof_:_diff">diff</code></td>
+<tr><td><code id="diff">diff</code></td>
 <td>
 <p>If <code>TRUE</code> memory summaries use change in memory
 rather than current memory</p>
 </td></tr>
-<tr><td><code id="summaryRprof_:_exclude">exclude</code></td>
+<tr><td><code id="exclude">exclude</code></td>
 <td>
 <p>Functions to exclude when summarizing the stack trace
 for memory summaries</p>
@@ -107,7 +107,7 @@ the end of the interval.
 
 <p>If <code>memory="none"</code>,a  list with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>by.self</code></td>
 <td>
 <p>Timings sorted by &lsquo;self&rsquo; time</p>
@@ -161,6 +161,7 @@ unlink(tmp)
 ## End(Not run)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>utils</em> version 2.9.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>utils</em> version 2.9.0</a> ]</div></main>
+
 </div>
 </body></html>

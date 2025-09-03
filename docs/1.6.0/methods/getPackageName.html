@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getPackageName.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getPackageName.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getPackageName.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getPackageName.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>getPackageName {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='getPackageName'> The name associated with a given package </h2>
+<h2> The name associated with a given package </h2>
 
 <h3>Description</h3>
 
@@ -36,13 +36,13 @@ functionPackageName(name)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="getPackageName_:_where">where</code></td>
+<table role = "presentation">
+<tr><td><code id="where">where</code></td>
 <td>
 <p> The environment or position on the search list
 associated with the desired package. </p>
 </td></tr>
-<tr><td><code id="getPackageName_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>The name of a function:  <code>functionPackageName</code>
 finds the function and returns the package name corresponding.
@@ -50,7 +50,7 @@ Note that if there are multiple instances of the function,
 <em>all</em> the corresponding names are returned.
 </p>
 </td></tr>
-<tr><td><code id="getPackageName_:_pkg">pkg</code></td>
+<tr><td><code id="pkg">pkg</code></td>
 <td>
 <p> The name to be assigned to the package internally.
 </p>
@@ -87,6 +87,7 @@ getPackageName(length(search()))
 functionPackageName("rnorm")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.6.0/00index.html'>Package <em>methods</em> version 1.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.6.0/00index.html'>Package <em>methods</em> version 1.6.0</a> ]</div></main>
+
 </div>
 </body></html>

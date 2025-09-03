@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcfork.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcfork.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcfork.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcfork.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>mcfork {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='mcfork'>Fork a Copy of the Current R Process</h2>
+<h2>Fork a Copy of the Current R Process</h2>
 
 <h3>Description</h3>
 
@@ -40,19 +40,19 @@ mcexit(exit.code = 0L, send = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="mcfork_:_estranged">estranged</code></td>
+<table role = "presentation">
+<tr><td><code id="estranged">estranged</code></td>
 <td>
 <p>logical, if <code>TRUE</code> then the new process has
 no ties to the parent process, will not show in the list of
 children and will not be killed on exit.</p>
 </td></tr>
-<tr><td><code id="mcfork_:_exit.code">exit.code</code></td>
+<tr><td><code id="exit.code">exit.code</code></td>
 <td>
 <p>process exit code.  By convention <code>0L</code> signifies
 a clean exit, <code>1L</code> an error.</p>
 </td></tr>
-<tr><td><code id="mcfork_:_send">send</code></td>
+<tr><td><code id="send">send</code></td>
 <td>
 <p>if not <code>NULL</code> send this data before exiting
 (equivalent to using <code>sendMaster</code>).</p>
@@ -162,6 +162,7 @@ cat("I'm the master\n")
 unserialize(parallel:::readChildren(1.5))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.2/00index.html'>Package <em>parallel</em> version 3.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.2/00index.html'>Package <em>parallel</em> version 3.2.2</a> ]</div></main>
+
 </div>
 </body></html>

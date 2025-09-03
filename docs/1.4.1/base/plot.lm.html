@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/plot.lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/plot.lm.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/plot.lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/plot.lm.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>plot.lm {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='plot.lm'>Plot Diagnostics for an lm Object</h2>
+<h2>Plot Diagnostics for an lm Object</h2>
 
 <h3>Description</h3>
 
@@ -43,57 +43,57 @@ plot(x, which = 1:4,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="plot.lm_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p><code>lm</code> object, typically result of <code>lm</code> or
 <code>glm</code>.</p>
 </td></tr>
-<tr><td><code id="plot.lm_:_which">which</code></td>
+<tr><td><code id="which">which</code></td>
 <td>
 <p>If a subset of the plots is required, specify a subset of
 the numbers <code>1:4</code>.</p>
 </td></tr>
-<tr><td><code id="plot.lm_:_caption">caption</code></td>
+<tr><td><code id="caption">caption</code></td>
 <td>
 <p>Captions to appear above the plots</p>
 </td></tr>
-<tr><td><code id="plot.lm_:_panel">panel</code></td>
+<tr><td><code id="panel">panel</code></td>
 <td>
 <p>Panel function.  A useful alternative to
 <code>points</code> is <code>panel.smooth</code>.</p>
 </td></tr>
-<tr><td><code id="plot.lm_:_sub.caption">sub.caption</code></td>
+<tr><td><code id="sub.caption">sub.caption</code></td>
 <td>
 <p>common title&mdash;above figures if there are multiple;
 used as <code>sub</code> (s.<code>title</code>) otherwise.</p>
 </td></tr>
-<tr><td><code id="plot.lm_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>title to each plot&mdash;in addition to the above
 <code>caption</code>.</p>
 </td></tr>
-<tr><td><code id="plot.lm_:_ask">ask</code></td>
+<tr><td><code id="ask">ask</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the user is <em>ask</em>ed before
 each plot, see <code>par(ask=.)</code>.</p>
 </td></tr>
-<tr><td><code id="plot.lm_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>other parameters to be passed through to plotting
 functions.</p>
 </td></tr>
-<tr><td><code id="plot.lm_:_id.n">id.n</code></td>
+<tr><td><code id="id.n">id.n</code></td>
 <td>
 <p>number of points to be labelled in each plot, starting
 with the most extreme.</p>
 </td></tr>
-<tr><td><code id="plot.lm_:_labels.id">labels.id</code></td>
+<tr><td><code id="labels.id">labels.id</code></td>
 <td>
 <p>vector of labels, from which the labels for extreme
 points will be chosen.  <code>NULL</code> uses observation numbers.</p>
 </td></tr>
-<tr><td><code id="plot.lm_:_cex.id">cex.id</code></td>
+<tr><td><code id="cex.id">cex.id</code></td>
 <td>
 <p>magnification of point labels.</p>
 </td></tr>
@@ -116,7 +116,6 @@ than <code class="reqn">| E |</code> for Gaussian zero-mean <code class="reqn">E
 have identical variance (under the hypothesis).  They are given as
 <code class="reqn">R_i / (s \times \sqrt{1 - h_{ii}})</code>
 where <code class="reqn">h_{ii}</code> are the diagonal entries of the hat matrix,
-
 <code>lm.influence()</code><code>$hat</code>, see also <code>hat</code>.
 </p>
 
@@ -175,6 +174,7 @@ plot(lm.SR, which = 1:2, sub.caption = "Saving Rates, n=50, p=5")
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.4.1/00index.html'>Package <em>base</em> version 1.4.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.4.1/00index.html'>Package <em>base</em> version 1.4.1</a> ]</div></main>
+
 </div>
 </body></html>

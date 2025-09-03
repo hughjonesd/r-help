@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/eigen.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/eigen.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/eigen.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/eigen.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>eigen {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='eigen'>Spectral Decomposition of a Matrix</h2>
+<h2>Spectral Decomposition of a Matrix</h2>
 
 <h3>Description</h3>
 
@@ -33,18 +33,18 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="eigen_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a matrix whose spectral decomposition is to be computed.</p>
 </td></tr>
-<tr><td><code id="eigen_:_symmetric">symmetric</code></td>
+<tr><td><code id="symmetric">symmetric</code></td>
 <td>
 <p>if <code>TRUE</code>, the matrix is assumed to be symmetric
 (or Hermitian if complex) and only its lower triangle is used.
 If <code>symmetric</code> is not specified, the matrix is inspected for symmetry.</p>
 </td></tr>
-<tr><td><code id="eigen_:_only.values">only.values</code></td>
+<tr><td><code id="only.values">only.values</code></td>
 <td>
 <p>if <code>TRUE</code>, only the eigenvalues are computed
 and returned, otherwise both eigenvalues and eigenvectors are
@@ -58,7 +58,7 @@ returned.</p>
 <p>The spectral decomposition of <code>x</code> is returned
 as components of a list.
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>values</code></td>
 <td>
 <p>a vector containing the eigenvalues of <code>x</code>, sorted
@@ -105,6 +105,7 @@ all(c(    m     - V %*% diag(lam) %*% t(V)) &lt; 60*.Machine$double.eps)
 all(c(m %*% V - V %*% diag(lam))            &lt; 60*.Machine$double.eps)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.62.1/00index.html'>Package <em>base</em> version 0.62.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.62.1/00index.html'>Package <em>base</em> version 0.62.1</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.stepfun.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.stepfun.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.stepfun.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/plot.stepfun.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>plot.stepfun {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='plot.stepfun'>Plot Step Functions</h2>
+<h2>Plot Step Functions</h2>
 
 <h3>Description</h3>
 
@@ -43,73 +43,73 @@ lines(x, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="plot.stepfun_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object inheriting from <code>"stepfun"</code>.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_xval">xval</code></td>
+<tr><td><code id="xval">xval</code></td>
 <td>
 <p>numeric vector of abscissa values at which to evaluate
 <code>x</code>.  Defaults to <code>knots(x)</code> restricted to <code>xlim</code>.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_xlim">xlim</code>, <code id="plot.stepfun_:_ylim">ylim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code></td>
 <td>
 <p>limits for the plot region: see
 <code>plot.window</code>.  Both have sensible defaults if omitted.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_xlab">xlab</code>, <code id="plot.stepfun_:_ylab">ylab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>labels for x and y axis.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_main">main</code></td>
+<tr><td><code id="main">main</code></td>
 <td>
 <p>main title.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>logical; if <code>TRUE</code> only <em>add</em> to an existing plot.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_verticals">verticals</code></td>
+<tr><td><code id="verticals">verticals</code></td>
 <td>
 <p>logical;  if <code>TRUE</code>, draw vertical lines at steps.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_do.points">do.points</code></td>
+<tr><td><code id="do.points">do.points</code></td>
 <td>
 <p>logical;  if <code>TRUE</code>, also draw points at the
 (<code>xlim</code> restricted) knot locations.  Default is true, for
 sample size <code class="reqn">&lt; 10000</code>.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_pch">pch</code></td>
+<tr><td><code id="pch">pch</code></td>
 <td>
 <p>character; point character if <code>do.points</code>.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>default color of all points and lines.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_col.points">col.points</code></td>
+<tr><td><code id="col.points">col.points</code></td>
 <td>
 <p>character or integer code; color of points if
 <code>do.points</code>.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_cex.points">cex.points</code></td>
+<tr><td><code id="cex.points">cex.points</code></td>
 <td>
 <p>numeric; character expansion factor if <code>do.points</code>.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_col.hor">col.hor</code></td>
+<tr><td><code id="col.hor">col.hor</code></td>
 <td>
 <p>color of horizontal lines.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_col.vert">col.vert</code></td>
+<tr><td><code id="col.vert">col.vert</code></td>
 <td>
 <p>color of vertical lines.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_lty">lty</code>, <code id="plot.stepfun_:_lwd">lwd</code></td>
+<tr><td><code id="lty">lty</code>, <code id="lwd">lwd</code></td>
 <td>
 <p>line type and thickness for all lines.</p>
 </td></tr>
-<tr><td><code id="plot.stepfun_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments of <code>plot(.)</code>, or if<code>(add)</code>
 <code>segments(.)</code>.</p>
@@ -121,7 +121,7 @@ sample size <code class="reqn">&lt; 10000</code>.</p>
 
 <p>A list with two components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>t</code></td>
 <td>
 <p>abscissa (x) values, including the two outermost ones.</p>
@@ -177,6 +177,7 @@ plot(sfun0, xlim = c(0,5), ylim = c(0, 3.5),
 plot.stepfun(rt(50, df=3), col.vert = "gray20")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.13.0/00index.html'>Package <em>stats</em> version 2.13.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.13.0/00index.html'>Package <em>stats</em> version 2.13.0</a> ]</div></main>
+
 </div>
 </body></html>

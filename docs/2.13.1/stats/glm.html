@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/glm.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/glm.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/glm.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/glm.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>glm {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='glm'>Fitting Generalized Linear Models</h2>
+<h2>Fitting Generalized Linear Models</h2>
 
 <h3>Description</h3>
 
@@ -45,15 +45,15 @@ weights(object, type = c("prior", "working"), ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="glm_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>an object of class <code>"formula"</code> (or one that
 can be coerced to that class): a symbolic description of the
 model to be fitted.  The details of model specification are given
 under &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="glm_:_family">family</code></td>
+<tr><td><code id="family">family</code></td>
 <td>
 <p>a description of the error distribution and link
 function to be used in the model. This can be a character string
@@ -61,7 +61,7 @@ naming a family function, a family function or the result of a call
 to a family function.  (See <code>family</code> for details of
 family functions.)</p>
 </td></tr>
-<tr><td><code id="glm_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional data frame, list or environment (or object
 coercible by <code>as.data.frame</code> to a data frame) containing
@@ -69,17 +69,17 @@ the variables in the model.  If not found in <code>data</code>, the
 variables are taken from <code>environment(formula)</code>,
 typically the environment from which <code>glm</code> is called.</p>
 </td></tr>
-<tr><td><code id="glm_:_weights">weights</code></td>
+<tr><td><code id="weights">weights</code></td>
 <td>
 <p>an optional vector of &lsquo;prior weights&rsquo; to be used
 in the fitting process.  Should be <code>NULL</code> or a numeric vector.</p>
 </td></tr>
-<tr><td><code id="glm_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used in the fitting process.</p>
 </td></tr>
-<tr><td><code id="glm_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen
 when the data contain <code>NA</code>s.  The default is set by
@@ -88,19 +88,19 @@ the <code>na.action</code> setting of <code>options</code>, and is
 default is <code>na.omit</code>.  Another possible value is
 <code>NULL</code>, no action.  Value <code>na.exclude</code> can be useful.</p>
 </td></tr>
-<tr><td><code id="glm_:_start">start</code></td>
+<tr><td><code id="start">start</code></td>
 <td>
 <p>starting values for the parameters in the linear predictor.</p>
 </td></tr>
-<tr><td><code id="glm_:_etastart">etastart</code></td>
+<tr><td><code id="etastart">etastart</code></td>
 <td>
 <p>starting values for the linear predictor.</p>
 </td></tr>
-<tr><td><code id="glm_:_mustart">mustart</code></td>
+<tr><td><code id="mustart">mustart</code></td>
 <td>
 <p>starting values for the vector of means.</p>
 </td></tr>
-<tr><td><code id="glm_:_offset">offset</code></td>
+<tr><td><code id="offset">offset</code></td>
 <td>
 <p>this can be used to specify an <em>a priori</em> known
 component to be included in the linear predictor during fitting.
@@ -109,18 +109,18 @@ the number of cases.  One or more <code>offset</code> terms can be
 included in the formula instead or as well, and if more than one is
 specified their sum is used.  See <code>model.offset</code>.</p>
 </td></tr>
-<tr><td><code id="glm_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>a list of parameters for controlling the fitting
 process.  For <code>glm.fit</code> this is passed to
 <code>glm.control</code>.</p>
 </td></tr>
-<tr><td><code id="glm_:_model">model</code></td>
+<tr><td><code id="model">model</code></td>
 <td>
 <p>a logical value indicating whether <em>model frame</em>
 should be included as a component of the returned value.</p>
 </td></tr>
-<tr><td><code id="glm_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>the method to be used in fitting the model.  The default
 method <code>"glm.fit"</code> uses iteratively reweighted least squares
@@ -133,7 +133,7 @@ the same arguments as <code>glm.fit</code>.  If specified as a character
 string it is looked up from within the <span class="pkg">stats</span> namespace.
 </p>
 </td></tr>
-<tr><td><code id="glm_:_x">x</code>, <code id="glm_:_y">y</code></td>
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>For <code>glm</code>:
 logical values indicating whether the response vector and model
@@ -145,26 +145,26 @@ of the returned value.
 <code>n</code>.
 </p>
 </td></tr>
-<tr><td><code id="glm_:_contrasts">contrasts</code></td>
+<tr><td><code id="contrasts">contrasts</code></td>
 <td>
 <p>an optional list. See the <code>contrasts.arg</code>
 of <code>model.matrix.default</code>.</p>
 </td></tr>
-<tr><td><code id="glm_:_intercept">intercept</code></td>
+<tr><td><code id="intercept">intercept</code></td>
 <td>
 <p>logical. Should an intercept be included in the
 <em>null</em> model?</p>
 </td></tr>
-<tr><td><code id="glm_:_object">object</code></td>
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an object inheriting from class <code>"glm"</code>.</p>
 </td></tr>
-<tr><td><code id="glm_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>character, partial matching allowed.  Type of weights to
 extract from the fitted model object.</p>
 </td></tr>
-<tr><td><code id="glm_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 
 <p>For <code>glm</code>: arguments to be used to form the default
@@ -251,7 +251,7 @@ fit (after subsetting and <code>na.action</code>).
 <p>An object of class <code>"glm"</code> is a list containing at least the
 following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>coefficients</code></td>
 <td>
 <p>a named vector of coefficients</p>
@@ -516,6 +516,7 @@ demo(glm.vr)
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.13.1/00index.html'>Package <em>stats</em> version 2.13.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.13.1/00index.html'>Package <em>stats</em> version 2.13.1</a> ]</div></main>
+
 </div>
 </body></html>

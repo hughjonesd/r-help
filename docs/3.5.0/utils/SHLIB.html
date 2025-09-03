@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/SHLIB.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/SHLIB.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/SHLIB.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/SHLIB.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>SHLIB {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='SHLIB'>Build Shared Object/DLL for Dynamic Loading</h2>
+<h2>Build Shared Object/DLL for Dynamic Loading</h2>
 
 <h3>Description</h3>
 
@@ -34,8 +34,8 @@ files into a shared object aka DLL which can be loaded into <span class="rlang">
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="SHLIB_:_files">files</code></td>
+<table role = "presentation">
+<tr><td><code id="files">files</code></td>
 <td>
 <p>a list specifying the object files to be included in the
 shared object/DLL.  You can also include the name of source files (for
@@ -43,14 +43,14 @@ which the object files are automagically made from their sources)
 and library linking commands.
 </p>
 </td></tr>
-<tr><td><code id="SHLIB_:_dllname">dllname</code></td>
+<tr><td><code id="dllname">dllname</code></td>
 <td>
 <p>the full name of the shared object/DLL to be built,
 including the extension (typically &lsquo;<span class="file">.so</span>&rsquo; on Unix systems, and
 &lsquo;<span class="file">.dll</span>&rsquo; on Windows).  If not given, the basename of the object/DLL
 is taken from the basename of the first file.</p>
 </td></tr>
-<tr><td><code id="SHLIB_:_options">options</code></td>
+<tr><td><code id="options">options</code></td>
 <td>
 <p>Further options to control the processing.  Use
 <code>R CMD SHLIB --help</code> for a current list.
@@ -117,6 +117,7 @@ R CMD SHLIB -o mylib.so a.f b.f -L/opt/acml3.5.0/gnu64/lib -lacml
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>utils</em> version 3.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>utils</em> version 3.5.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/optim.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/optim.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/optim.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/optim.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>optim {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='optim'>General-purpose Optimization</h2>
+<h2>General-purpose Optimization</h2>
 
 <h3>Description</h3>
 
@@ -40,18 +40,18 @@ optimHess(par, fn, gr = NULL, ..., control = list())
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="optim_:_par">par</code></td>
+<table role = "presentation">
+<tr><td><code id="par">par</code></td>
 <td>
 <p>Initial values for the parameters to be optimized over.</p>
 </td></tr>
-<tr><td><code id="optim_:_fn">fn</code></td>
+<tr><td><code id="fn">fn</code></td>
 <td>
 <p>A function to be minimized (or maximized), with first
 argument the vector of parameters over which minimization is to take
 place.  It should return a scalar result.</p>
 </td></tr>
-<tr><td><code id="optim_:_gr">gr</code></td>
+<tr><td><code id="gr">gr</code></td>
 <td>
 <p>A function to return the gradient for the <code>"BFGS"</code>,
 <code>"CG"</code> and <code>"L-BFGS-B"</code> methods.  If it is <code>NULL</code>, a
@@ -61,24 +61,24 @@ finite-difference approximation will be used.
 candidate point.  If it is <code>NULL</code> a default Gaussian Markov
 kernel is used.</p>
 </td></tr>
-<tr><td><code id="optim_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further arguments to be passed to <code>fn</code> and <code>gr</code>.</p>
 </td></tr>
-<tr><td><code id="optim_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>The method to be used. See &lsquo;Details&rsquo;.  Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="optim_:_lower">lower</code>, <code id="optim_:_upper">upper</code></td>
+<tr><td><code id="lower">lower</code>, <code id="upper">upper</code></td>
 <td>
 <p>Bounds on the variables for the <code>"L-BFGS-B"</code>
 method, or bounds in which to <em>search</em> for method <code>"Brent"</code>.</p>
 </td></tr>
-<tr><td><code id="optim_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>a <code>list</code> of control parameters.  See &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="optim_:_hessian">hessian</code></td>
+<tr><td><code id="hessian">hessian</code></td>
 <td>
 <p>Logical. Should a numerically differentiated Hessian
 matrix be returned?</p>
@@ -253,7 +253,7 @@ be shared between calls: the function should not change or copy it.
 
 <p>For <code>optim</code>, a list with components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>par</code></td>
 <td>
 <p>The best set of parameters found.</p>
@@ -475,6 +475,7 @@ ro$par - pi     # ~= 1.9e-4    on one platform
 utils::str(ro)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.3/00index.html'>Package <em>stats</em> version 4.0.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.3/00index.html'>Package <em>stats</em> version 4.0.3</a> ]</div></main>
+
 </div>
 </body></html>

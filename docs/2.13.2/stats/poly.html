@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/poly.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/poly.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/poly.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/poly.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>poly {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='poly'>Compute Orthogonal Polynomials</h2>
+<h2>Compute Orthogonal Polynomials</h2>
 
 <h3>Description</h3>
 
@@ -39,32 +39,32 @@ predict(object, newdata, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="poly_:_x">x</code>, <code id="poly_:_newdata">newdata</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="newdata">newdata</code></td>
 <td>
 <p>a numeric vector at which to evaluate the
 polynomial. <code>x</code> can also be a matrix.  Missing values are not
 allowed in <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="poly_:_degree">degree</code></td>
+<tr><td><code id="degree">degree</code></td>
 <td>
 <p>the degree of the polynomial.  Must be less than the
 number of unique points.</p>
 </td></tr>
-<tr><td><code id="poly_:_coefs">coefs</code></td>
+<tr><td><code id="coefs">coefs</code></td>
 <td>
 <p>for prediction, coefficients from a previous fit.</p>
 </td></tr>
-<tr><td><code id="poly_:_raw">raw</code></td>
+<tr><td><code id="raw">raw</code></td>
 <td>
 <p>if true, use raw and not orthogonal polynomials.</p>
 </td></tr>
-<tr><td><code id="poly_:_object">object</code></td>
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an object inheriting from class <code>"poly"</code>, normally
 the result of a call to <code>poly</code> with a single vector argument.</p>
 </td></tr>
-<tr><td><code id="poly_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p><code>poly, polym</code>: further vectors.<br />
 <code>predict.poly</code>: arguments to be passed to or from other methods.
@@ -140,6 +140,7 @@ zapsmall(poly(cbind(1:4, c(1, 4:6)), degree=3))
 options(od)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.13.2/00index.html'>Package <em>stats</em> version 2.13.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.13.2/00index.html'>Package <em>stats</em> version 2.13.2</a> ]</div></main>
+
 </div>
 </body></html>

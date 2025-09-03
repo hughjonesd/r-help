@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/postscriptFonts.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/postscriptFonts.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/postscriptFonts.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/postscriptFonts.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>postscriptFonts {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='postscriptFonts'>PostScript Fonts</h2>
+<h2>PostScript Fonts</h2>
 
 <h3>Description</h3>
 
@@ -35,26 +35,27 @@ postscriptFonts(...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="postscriptFonts_:_family">family</code></td>
+<table role = "presentation">
+<tr><td><code id="family">family</code></td>
 <td>
 <p>a character string giving the name of an Adobe Type 1
 font family.</p>
 </td></tr>
-<tr><td><code id="postscriptFonts_:_metrics">metrics</code></td>
+<tr><td><code id="metrics">metrics</code></td>
 <td>
 <p>a vector of four or five strings giving paths
 to the afm (font metric) files for the Type 1 font.</p>
 </td></tr>
-<tr><td><code id="postscriptFonts_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>the name of an encoding file. Defaults to
 &quot;ISOLatin1.enc&quot;
-in the &lsquo;<span class="file">R\_HOME/afm</span>&rsquo; directory, which is used
+</p>
+<p>in the &lsquo;<span class="file">R\_HOME/afm</span>&rsquo; directory, which is used
 if the path does not contain a path separator.  An extension
 <code>".enc"</code> can be omitted.</p>
 </td></tr>
-<tr><td><code id="postscriptFonts_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>either character strings naming mappings to display,
 or new (named) mappings to define.</p>
@@ -134,6 +135,7 @@ CMitalic &lt;- postscriptFont("ComputerModern",
 postscriptFonts(CMitalic=CMitalic)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.0.1/00index.html'>Package <em>grDevices</em> version 2.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.0.1/00index.html'>Package <em>grDevices</em> version 2.0.1</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/rcompgen.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/rcompgen.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/rcompgen.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/rcompgen.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>rcompgen {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='rcompgen'>A Completion Generator for R</h2>
+<h2>A Completion Generator for R</h2>
 
 <h3>Description</h3>
 
@@ -58,27 +58,27 @@ findMatches(pattern, values, fuzzy)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="rcompgen_:_ops">ops</code></td>
+<table role = "presentation">
+<tr><td><code id="ops">ops</code></td>
 <td>
 <p> Logical flag. Activates completion after the <code>$</code> and
 <code>@</code> operators. </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_ns">ns</code></td>
+<tr><td><code id="ns">ns</code></td>
 <td>
 <p> Logical flag. Controls namespace related completions. </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_args">args</code></td>
+<tr><td><code id="args">args</code></td>
 <td>
 <p> Logical flag. Enables completion of function arguments. </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_dots">dots</code></td>
+<tr><td><code id="dots">dots</code></td>
 <td>
 <p> Logical flag. If disabled, drops <code>...</code> from list of
 function arguments. Relevant only if <code>args</code> is enabled.
 </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_func">func</code></td>
+<tr><td><code id="func">func</code></td>
 <td>
 <p> Logical flag. Enables detection of functions.  If
 enabled, a customizable extension (<code>"("</code> by default) is
@@ -89,28 +89,28 @@ because of potentially wasteful use of memory in addition to the
 time overhead associated with loading.  For this reason, this
 feature is disabled by default. </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_S3">S3</code></td>
+<tr><td><code id="S3">S3</code></td>
 <td>
 <p> Logical flag. When <code>args = TRUE</code>, activates completion on
 arguments of all S3 methods (otherwise just the generic, which
 usually has very few arguments). </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_ipck">ipck</code></td>
+<tr><td><code id="ipck">ipck</code></td>
 <td>
 <p> Logical flag. Enables completion of installed package names
 inside <code>library</code> and <code>require</code>. </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p> Logical flag. Enables completion of data sets (including
 those already visible) inside <code>data</code>. </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_help">help</code></td>
+<tr><td><code id="help">help</code></td>
 <td>
 <p> Logical flag. Enables completion of help requests starting
 with a question mark, by looking inside help index files. </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_argdb">argdb</code></td>
+<tr><td><code id="argdb">argdb</code></td>
 <td>
 <p> Logical flag. When <code>args = TRUE</code>, completion is
 attempted on function arguments.  Generally, the list of valid
@@ -126,7 +126,7 @@ the function of interest.  Some functions are already included, and
 more can be added by the user through the unexported function
 <code>.addFunctionInfo</code> (see below).  </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_fuzzy">fuzzy</code></td>
+<tr><td><code id="fuzzy">fuzzy</code></td>
 <td>
 <p> Logical flag. Enables fuzzy matching, where close but
 non-exact matches (e.g., with different case) are considered if no
@@ -134,7 +134,7 @@ exact matches are found.  This feature is experimental and the
 details can change. In <code>findMatches</code>, this argument defaults to
 the current setting. </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_quotes">quotes</code></td>
+<tr><td><code id="quotes">quotes</code></td>
 <td>
 <p> Logical flag. Enables completion in <span class="rlang"><b>R</b></span> code when inside
 quotes.  This normally leads to filename completion, but can be
@@ -144,11 +144,11 @@ preceded by <code>?</code>), help completion is invoked.  Setting this to
 front-end, which may do its own processing (for example,
 <code>readline</code> on Unix-alikes will do filename completion).  </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_files">files</code></td>
+<tr><td><code id="files">files</code></td>
 <td>
 <p> Logical flag. Deprecated. Use <code>quotes</code> instead.  </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_name">name</code>, <code id="rcompgen_:_...">...</code></td>
+<tr><td><code id="name">name</code>, <code id="...">...</code></td>
 <td>
 <p> user-settable options.  Currently valid names are
 </p>
@@ -165,19 +165,19 @@ front-end, which may do its own processing (for example,
 <p>Usage is similar to that of <code>options</code>.
 </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p> An R object for which valid names after <code>"$"</code>
 are computed and returned.
 </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_pattern">pattern</code></td>
+<tr><td><code id="pattern">pattern</code></td>
 <td>
 <p> A regular expression.  Only matching names are
 returned.
 </p>
 </td></tr>
-<tr><td><code id="rcompgen_:_values">values</code></td>
+<tr><td><code id="values">values</code></td>
 <td>
 <p> character string giving set of candidate values
 in which matches are to be found.
@@ -330,7 +330,7 @@ by the time the call is executed.
 </p>
 <p>The items of primary interest in the returned list are:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>comps</code></td>
 <td>
 <p> The possible completions generated by the last
@@ -486,6 +486,7 @@ parentheses) are not evaluated in this manner.  However, this
 
 <p> Deepayan Sarkar, <a href="mailto:deepayan.sarkar@r-project.org">deepayan.sarkar@r-project.org</a> </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.3.0/00index.html'>Package <em>utils</em> version 4.3.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.0/00index.html'>Package <em>utils</em> version 4.3.0</a> ]</div></main>
+
 </div>
 </body></html>

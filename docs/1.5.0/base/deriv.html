@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/deriv.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/deriv.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/deriv.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/deriv.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>deriv {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='deriv'>Symbolic and Algorithmic Derivatives of Simple Expressions</h2>
+<h2>Symbolic and Algorithmic Derivatives of Simple Expressions</h2>
 
 <h3>Description</h3>
 
@@ -34,31 +34,31 @@ deriv3(expr, namevec, function.arg, tag = ".expr", hessian = TRUE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="deriv_:_expr">expr</code></td>
+<table role = "presentation">
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p><code>expression</code> or <code>call</code> to
 be differentiated.</p>
 </td></tr>
-<tr><td><code id="deriv_:_name">name</code>, <code id="deriv_:_namevec">namevec</code></td>
+<tr><td><code id="name">name</code>, <code id="namevec">namevec</code></td>
 <td>
 <p>character vector, giving the variable names (only
 one for <code>D()</code>) with respect to which derivatives will be
 computed.</p>
 </td></tr>
-<tr><td><code id="deriv_:_function.arg">function.arg</code></td>
+<tr><td><code id="function.arg">function.arg</code></td>
 <td>
 <p>If specified, a character vector of arguments for
 a function return, or a function (with empty body) or <code>TRUE</code>,
 the latter indicating that a function with argument names
 <code>namevec</code> should be used.</p>
 </td></tr>
-<tr><td><code id="deriv_:_tag">tag</code></td>
+<tr><td><code id="tag">tag</code></td>
 <td>
 <p>character; the prefix to be used for the locally created
 variables in result.</p>
 </td></tr>
-<tr><td><code id="deriv_:_hessian">hessian</code></td>
+<tr><td><code id="hessian">hessian</code></td>
 <td>
 <p>a logical value indicating whether the second derivatives
 should be calculated and incorporated in the return value.</p>
@@ -176,6 +176,7 @@ DD(expression(sin(x^2)), "x", 3)
 ## End(Not run)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.5.0/00index.html'>Package <em>base</em> version 1.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.5.0/00index.html'>Package <em>base</em> version 1.5.0</a> ]</div></main>
+
 </div>
 </body></html>

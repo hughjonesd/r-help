@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/mtext.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/mtext.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/mtext.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/mtext.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>mtext {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='mtext'>Write Text into the Margins of a Plot</h2>
+<h2>Write Text into the Margins of a Plot</h2>
 
 <h3>Description</h3>
 
@@ -34,31 +34,31 @@ or one of the outer margins of the device region.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="mtext_:_text">text</code></td>
+<table role = "presentation">
+<tr><td><code id="text">text</code></td>
 <td>
 <p>a character or expression vector specifying
 the <em>text</em> to be written.  Other objects are coerced by
 <code>as.graphicsAnnot</code>.</p>
 </td></tr>
-<tr><td><code id="mtext_:_side">side</code></td>
+<tr><td><code id="side">side</code></td>
 <td>
 <p>on which side of the plot (1=bottom, 2=left, 3=top, 4=right).</p>
 </td></tr>
-<tr><td><code id="mtext_:_line">line</code></td>
+<tr><td><code id="line">line</code></td>
 <td>
 <p>on which MARgin line, starting at 0 counting outwards.</p>
 </td></tr>
-<tr><td><code id="mtext_:_outer">outer</code></td>
+<tr><td><code id="outer">outer</code></td>
 <td>
 <p>use outer margins if available.</p>
 </td></tr>
-<tr><td><code id="mtext_:_at">at</code></td>
+<tr><td><code id="at">at</code></td>
 <td>
 <p>give location in user coordinates.  If <code>length(at)==0</code>
 (the default), the location will be determined by <code>adj</code>.</p>
 </td></tr>
-<tr><td><code id="mtext_:_adj">adj</code></td>
+<tr><td><code id="adj">adj</code></td>
 <td>
 <p>adjustment for each string in reading direction.  For
 strings parallel to the axes, <code>adj = 0</code> means left or bottom
@@ -68,7 +68,7 @@ alignment, and <code>adj = 1</code> means right or top alignment.
 <code>par("las")</code> determines the adjustment.  For strings plotted
 parallel to the axis the default is to centre the string.</p>
 </td></tr>
-<tr><td><code id="mtext_:_padj">padj</code></td>
+<tr><td><code id="padj">padj</code></td>
 <td>
 <p>adjustment for each string perpendicular to the reading
 direction (which is controlled by <code>adj</code>).  For strings parallel
@@ -79,24 +79,24 @@ and <code>padj = 1</code> means left or bottom alignment.
 <code>par("las")</code> determines the adjustment.  For strings plotted
 perpendicular to the axis the default is to centre the string.</p>
 </td></tr>
-<tr><td><code id="mtext_:_cex">cex</code></td>
+<tr><td><code id="cex">cex</code></td>
 <td>
 <p>character expansion factor.  <code>NULL</code> and <code>NA</code>
 are equivalent to <code>1.0</code>.  This is an absolute measure, not
 scaled by <code>par("cex")</code> or by setting <code>par("mfrow")</code>
 or <code>par("mfcol")</code>.  Can be a vector.</p>
 </td></tr>
-<tr><td><code id="mtext_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>color to use.  Can be a vector.  <code>NA</code> values (the
 default) mean use <code>par("col")</code>.</p>
 </td></tr>
-<tr><td><code id="mtext_:_font">font</code></td>
+<tr><td><code id="font">font</code></td>
 <td>
 <p>font for text.  Can be a vector.  <code>NA</code> values (the
 default) mean use <code>par("font")</code>.</p>
 </td></tr>
-<tr><td><code id="mtext_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further graphical parameters (see <code>par</code>),
 including <code>family</code>, <code>las</code> and <code>xpd</code>. (The latter
@@ -168,6 +168,7 @@ plot(1:10, exp(1:10), log='y', main="log='y'", xlab="xlab")
 for(s in 1:4) mtext(paste("mtext(...,side=",s,")"), side=s)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>graphics</em> version 2.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>graphics</em> version 2.6.1</a> ]</div></main>
+
 </div>
 </body></html>

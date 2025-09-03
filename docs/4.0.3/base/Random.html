@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Random.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Random.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Random.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Random.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Random {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Random'>Random Number Generation</h2>
+<h2>Random Number Generation</h2>
 
 <h3>Description</h3>
 
@@ -46,43 +46,43 @@ set.seed(seed, kind = NULL, normal.kind = NULL, sample.kind = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Random_:_kind">kind</code></td>
+<table role = "presentation">
+<tr><td><code id="kind">kind</code></td>
 <td>
 <p>character or <code>NULL</code>.  If <code>kind</code> is a character
 string, set <span class="rlang"><b>R</b></span>'s RNG to the kind desired.  Use <code>"default"</code> to
 return to the <span class="rlang"><b>R</b></span> default.  See &lsquo;Details&rsquo; for the
 interpretation of <code>NULL</code>.</p>
 </td></tr>
-<tr><td><code id="Random_:_normal.kind">normal.kind</code></td>
+<tr><td><code id="normal.kind">normal.kind</code></td>
 <td>
 <p>character string or <code>NULL</code>.  If it is a character
 string, set the method of Normal generation.  Use <code>"default"</code>
 to return to the <span class="rlang"><b>R</b></span> default.  <code>NULL</code> makes no change.</p>
 </td></tr>
-<tr><td><code id="Random_:_sample.kind">sample.kind</code></td>
+<tr><td><code id="sample.kind">sample.kind</code></td>
 <td>
 <p>character string or <code>NULL</code>.  If it is a character
 string, set the method of discrete uniform generation (used in 
 <code>sample</code>, for instance).  Use <code>"default"</code> to return to 
 the <span class="rlang"><b>R</b></span> default.  <code>NULL</code> makes no change.</p>
 </td></tr>
-<tr><td><code id="Random_:_seed">seed</code></td>
+<tr><td><code id="seed">seed</code></td>
 <td>
 <p>a single value, interpreted as an integer, or <code>NULL</code>
 (see &lsquo;Details&rsquo;).</p>
 </td></tr>
-<tr><td><code id="Random_:_vstr">vstr</code></td>
+<tr><td><code id="vstr">vstr</code></td>
 <td>
 <p>a character string containing a version number,
 e.g., <code>"1.6.2"</code>.  The default RNG configuration of the current
 <span class="rlang"><b>R</b></span> version is used if <code>vstr</code> is greater than the current version.</p>
 </td></tr> 
-<tr><td><code id="Random_:_rng.kind">rng.kind</code></td>
+<tr><td><code id="rng.kind">rng.kind</code></td>
 <td>
 <p>integer code in <code>0:k</code> for the above <code>kind</code>.</p>
 </td></tr>
-<tr><td><code id="Random_:_n1">n1</code>, <code id="Random_:_n2">n2</code>, <code id="Random_:_...">...</code></td>
+<tr><td><code id="n1">n1</code>, <code id="n2">n2</code>, <code id="...">...</code></td>
 <td>
 <p>integers.  See the details for how many are required
 (which depends on <code>rng.kind</code>).</p>
@@ -423,6 +423,7 @@ sum(duplicated(runif(1e6))) # around 110 for default generator
 qbirthday(1 - 1e-6, classes = 2e9) # 235,000
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.3/00index.html'>Package <em>base</em> version 4.0.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.3/00index.html'>Package <em>base</em> version 4.0.3</a> ]</div></main>
+
 </div>
 </body></html>

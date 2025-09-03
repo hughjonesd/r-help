@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/hist.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/hist.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/hist.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/hist.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>hist {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='hist'>Histograms</h2>
+<h2>Histograms</h2>
 
 <h3>Description</h3>
 
@@ -46,12 +46,12 @@ hist(x, breaks = "Sturges",
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="hist_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector of values for which the histogram is desired.</p>
 </td></tr>
-<tr><td><code id="hist_:_breaks">breaks</code></td>
+<tr><td><code id="breaks">breaks</code></td>
 <td>
 <p>one of:
 </p>
@@ -82,7 +82,7 @@ as the only argument (and the number of breaks is only limited by
 the amount of available memory).
 </p>
 </td></tr>
-<tr><td><code id="hist_:_freq">freq</code></td>
+<tr><td><code id="freq">freq</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the histogram graphic is a
 representation of frequencies, the <code>counts</code> component of
@@ -91,86 +91,86 @@ the result; if <code>FALSE</code>, probability densities, component
 of one).  Defaults to <code>TRUE</code> <em>if and only if</em> <code>breaks</code> are
 equidistant (and <code>probability</code> is not specified).</p>
 </td></tr>
-<tr><td><code id="hist_:_probability">probability</code></td>
+<tr><td><code id="probability">probability</code></td>
 <td>
 <p>an <em>alias</em> for <code>!freq</code>, for S compatibility.</p>
 </td></tr>
-<tr><td><code id="hist_:_include.lowest">include.lowest</code></td>
+<tr><td><code id="include.lowest">include.lowest</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, an <code>x[i]</code> equal to
 the <code>breaks</code> value will be included in the first (or last, for
 <code>right = FALSE</code>) bar.  This will be ignored (with a warning)
 unless <code>breaks</code> is a vector.</p>
 </td></tr>
-<tr><td><code id="hist_:_right">right</code></td>
+<tr><td><code id="right">right</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the histogram cells are
 right-closed (left open) intervals.</p>
 </td></tr>
-<tr><td><code id="hist_:_density">density</code></td>
+<tr><td><code id="density">density</code></td>
 <td>
 <p>the density of shading lines, in lines per inch.
 The default value of <code>NULL</code> means that no shading lines
 are drawn. Non-positive values of <code>density</code> also inhibit the
 drawing of shading lines.</p>
 </td></tr>
-<tr><td><code id="hist_:_angle">angle</code></td>
+<tr><td><code id="angle">angle</code></td>
 <td>
 <p>the slope of shading lines, given as an angle in
 degrees (counter-clockwise).</p>
 </td></tr>
-<tr><td><code id="hist_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>a colour to be used to fill the bars.
 The default of <code>NULL</code> yields unfilled bars.</p>
 </td></tr>
-<tr><td><code id="hist_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p>the color of the border around the bars.  The default
 is to use the standard foreground color.</p>
 </td></tr>
-<tr><td><code id="hist_:_main">main</code>, <code id="hist_:_xlab">xlab</code>, <code id="hist_:_ylab">ylab</code></td>
+<tr><td><code id="main">main</code>, <code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>main title and axis labels: these arguments to
 <code>title()</code> get &ldquo;smart&rdquo; defaults here, e.g., the default
 <code>ylab</code> is <code>"Frequency"</code> iff <code>freq</code> is true.</p>
 </td></tr>
-<tr><td><code id="hist_:_xlim">xlim</code>, <code id="hist_:_ylim">ylim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code></td>
 <td>
 <p>the range of x and y values with sensible defaults.
 Note that <code>xlim</code> is <em>not</em> used to define the histogram (breaks),
 but only for plotting (when <code>plot = TRUE</code>).</p>
 </td></tr>
-<tr><td><code id="hist_:_axes">axes</code></td>
+<tr><td><code id="axes">axes</code></td>
 <td>
 <p>logical.  If <code>TRUE</code> (default), axes are draw if the
 plot is drawn.</p>
 </td></tr>
-<tr><td><code id="hist_:_plot">plot</code></td>
+<tr><td><code id="plot">plot</code></td>
 <td>
 <p>logical.  If <code>TRUE</code> (default), a histogram is
 plotted, otherwise a list of breaks and counts is returned.  In the
 latter case, a warning is used if (typically graphical) arguments
 are specified that only apply to the <code>plot = TRUE</code> case.</p>
 </td></tr>
-<tr><td><code id="hist_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>logical or character string.  Additionally draw labels on top
 of bars, if not <code>FALSE</code>; see <code>plot.histogram</code>.</p>
 </td></tr>
-<tr><td><code id="hist_:_nclass">nclass</code></td>
+<tr><td><code id="nclass">nclass</code></td>
 <td>
 <p>numeric (integer).  For S(-PLUS) compatibility only,
 <code>nclass</code> is equivalent to <code>breaks</code> for a scalar or
 character argument.</p>
 </td></tr>
-<tr><td><code id="hist_:_warn.unused">warn.unused</code></td>
+<tr><td><code id="warn.unused">warn.unused</code></td>
 <td>
 <p>logical.  If <code>plot = FALSE</code> and
 <code>warn.unused = TRUE</code>, a warning will be issued when graphical
 parameters are passed to <code>hist.default()</code>.</p>
 </td></tr>
-<tr><td><code id="hist_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments and graphical parameters passed to
 <code>plot.histogram</code> and thence to <code>title</code> and
@@ -222,7 +222,7 @@ as a function of <code>x</code>.
 
 <p>an object of class <code>"histogram"</code> which is a list with components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>breaks</code></td>
 <td>
 <p>the <code class="reqn">n+1</code> cell boundaries (= <code>breaks</code> if that
@@ -321,6 +321,7 @@ curve(dchisq(x, df = 4), col = 2, lty = 2, lwd = 2, add = TRUE)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.2/00index.html'>Package <em>graphics</em> version 4.0.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.2/00index.html'>Package <em>graphics</em> version 4.0.2</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/postscript.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/postscript.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/postscript.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/postscript.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>postscript {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='postscript'>PostScript Graphics</h2>
+<h2>PostScript Graphics</h2>
 
 <h3>Description</h3>
 
@@ -47,8 +47,8 @@ ps.options(paper, horizontal, width, height, family, encoding,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="postscript_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>a character string giving the name of the file.  If it is
 <code>""</code>, the output is piped to the command given by the argument
@@ -60,7 +60,7 @@ command given by &lsquo;<span class="file">cmd</span>&rsquo;.
 as <code>"Rplot%03d.ps"</code> (the default in that case).
 </p>
 </td></tr>
-<tr><td><code id="postscript_:_paper">paper</code></td>
+<tr><td><code id="paper">paper</code></td>
 <td>
 <p>the size of paper in the printer.  The choices are
 <code>"a4"</code>, <code>"letter"</code>, <code>"legal"</code> and
@@ -71,86 +71,87 @@ and <code>height</code> specify the paper size.  A further choice is
 papersize is taken from the option <code>"papersize"</code>
 if that is set and to <code>"a4"</code> if it is unset or empty.</p>
 </td></tr>
-<tr><td><code id="postscript_:_horizontal">horizontal</code></td>
+<tr><td><code id="horizontal">horizontal</code></td>
 <td>
 <p>the orientation of the printed image, a
 logical.  Defaults to true, that is landscape orientation on paper
 sizes with width less than height.</p>
 </td></tr>
-<tr><td><code id="postscript_:_width">width</code>, <code id="postscript_:_height">height</code></td>
+<tr><td><code id="width">width</code>, <code id="height">height</code></td>
 <td>
 <p>the width and height of the graphics region in
 inches.  The default is to use the entire page less a 0.25 inch
 border on each side.</p>
 </td></tr>
-<tr><td><code id="postscript_:_family">family</code></td>
+<tr><td><code id="family">family</code></td>
 <td>
 <p>the initial font family to be used, normally as a
 character string.  See the section &lsquo;Families&rsquo;.  This defaults
 to <code>"Helvetica"</code>.</p>
 </td></tr>
-<tr><td><code id="postscript_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>the name of an encoding file.  Defaults to
 &lsquo;<span class="file">&quot;ISOLatin1.enc&quot;</span>&rsquo; unless the locale is recognized as
 corresponding to a language using ISO 8859-5,7,13,15 or KOI8-R,U,
-in the &lsquo;<span class="file">enc</span>&rsquo; directory of package <span class="pkg">grDevices</span>, which is used
+</p>
+<p>in the &lsquo;<span class="file">enc</span>&rsquo; directory of package <span class="pkg">grDevices</span>, which is used
 if the path does not contain a path separator.  An extension
 <code>".enc"</code> can be omitted.
 </p>
 </td></tr>
-<tr><td><code id="postscript_:_pointsize">pointsize</code></td>
+<tr><td><code id="pointsize">pointsize</code></td>
 <td>
 <p>the default point size to be used.  Strictly
 speaking, in bp, that is 1/72 of an inch, but approximately in points.</p>
 </td></tr>
-<tr><td><code id="postscript_:_bg">bg</code></td>
+<tr><td><code id="bg">bg</code></td>
 <td>
 <p>the default background color to be used.
 If <code>"transparent"</code> (or an equivalent specification), no
 background is painted.</p>
 </td></tr>
-<tr><td><code id="postscript_:_fg">fg</code></td>
+<tr><td><code id="fg">fg</code></td>
 <td>
 <p>the default foreground color to be used.</p>
 </td></tr>
-<tr><td><code id="postscript_:_onefile">onefile</code></td>
+<tr><td><code id="onefile">onefile</code></td>
 <td>
 <p>logical: if true (the default) allow multiple figures
 in one file.  If false, generate a file name containing the page
 number and use an EPSF header and no <code>DocumentMedia</code> comment.</p>
 </td></tr>
-<tr><td><code id="postscript_:_pagecentre">pagecentre</code></td>
+<tr><td><code id="pagecentre">pagecentre</code></td>
 <td>
 <p>logical: should the device region be centred on the
 page? &ndash; defaults to true.</p>
 </td></tr>
-<tr><td><code id="postscript_:_print.it">print.it</code></td>
+<tr><td><code id="print.it">print.it</code></td>
 <td>
 <p>logical: should the file be printed when the device is
 closed?  (This only applies if <code>file</code> is a real file name.)</p>
 </td></tr>
-<tr><td><code id="postscript_:_command">command</code></td>
+<tr><td><code id="command">command</code></td>
 <td>
 <p>the command to be used for &ldquo;printing&rdquo;.  Defaults to
 option <code>"printcmd"</code>; this can also be selected as
 <code>"default"</code>.</p>
 </td></tr>
-<tr><td><code id="postscript_:_append">append</code></td>
+<tr><td><code id="append">append</code></td>
 <td>
 <p>logical; currently <b>disregarded</b>; just there for
 compatibility reasons.</p>
 </td></tr>
-<tr><td><code id="postscript_:_reset">reset</code>, <code id="postscript_:_override.check">override.check</code></td>
+<tr><td><code id="reset">reset</code>, <code id="override.check">override.check</code></td>
 <td>
 <p>logical arguments passed to
 <code>check.options</code>.  See the Examples.</p>
 </td></tr>
-<tr><td><code id="postscript_:_title">title</code></td>
+<tr><td><code id="title">title</code></td>
 <td>
 <p>title string to embed in the file.</p>
 </td></tr>
-<tr><td><code id="postscript_:_fonts">fonts</code></td>
+<tr><td><code id="fonts">fonts</code></td>
 <td>
 <p>a character vector specifying additional <span class="rlang"><b>R</b></span> graphics font
 family names for font families whose declarations will be included
@@ -420,6 +421,7 @@ utils::str(ps.options(width=0:12, onefile=1, bg=pi,
                       override.check = c(FALSE,TRUE,FALSE)))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.3.0/00index.html'>Package <em>grDevices</em> version 2.3.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.3.0/00index.html'>Package <em>grDevices</em> version 2.3.0</a> ]</div></main>
+
 </div>
 </body></html>

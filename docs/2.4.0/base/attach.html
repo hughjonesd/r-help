@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/attach.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/attach.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/attach.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/attach.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>attach {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='attach'>Attach Set of R Objects to Search Path</h2>
+<h2>Attach Set of R Objects to Search Path</h2>
 
 <h3>Description</h3>
 
@@ -34,23 +34,23 @@ the database can be accessed by simply giving their names.</p>
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="attach_:_what">what</code></td>
+<table role = "presentation">
+<tr><td><code id="what">what</code></td>
 <td>
 <p>&ldquo;database&rdquo;.  This may currently be a
 <code>data.frame</code> or a <code>list</code> or a <span class="rlang"><b>R</b></span> data file created with
 <code>save</code> or <code>NULL</code> or an environment.  See also Details.</p>
 </td></tr>
-<tr><td><code id="attach_:_pos">pos</code></td>
+<tr><td><code id="pos">pos</code></td>
 <td>
 <p>integer specifying position in <code>search()</code> where
 to attach.</p>
 </td></tr>
-<tr><td><code id="attach_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>alternative way to specify the database to be attached.</p>
 </td></tr>
-<tr><td><code id="attach_:_warn.conflicts">warn.conflicts</code></td>
+<tr><td><code id="warn.conflicts">warn.conflicts</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, warnings are
 printed about <code>conflicts</code> from attaching the database,
@@ -144,6 +144,7 @@ sys.source("myfuns.R", envir=attach(NULL, name="myfuns"))
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>base</em> version 2.4.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>base</em> version 2.4.0</a> ]</div></main>
+
 </div>
 </body></html>

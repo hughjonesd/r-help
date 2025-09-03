@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/backsolve.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/backsolve.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/backsolve.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/backsolve.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>backsolve {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='backsolve'>Solve an Upper or Lower Triangular System</h2>
+<h2>Solve an Upper or Lower Triangular System</h2>
 
 <h3>Description</h3>
 
@@ -35,28 +35,28 @@ forwardsolve(l, x, k = ncol(l), upper.tri = FALSE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="backsolve_:_r">r</code>, <code id="backsolve_:_l">l</code></td>
+<table role = "presentation">
+<tr><td><code id="r">r</code>, <code id="l">l</code></td>
 <td>
 <p>an upper (or lower) triangular matrix giving the
 coefficients for the system to be solved.  Values below (above)
 the diagonal are ignored.</p>
 </td></tr>
-<tr><td><code id="backsolve_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a matrix whose columns give the right-hand sides for
 the equations.</p>
 </td></tr>
-<tr><td><code id="backsolve_:_k">k</code></td>
+<tr><td><code id="k">k</code></td>
 <td>
 <p>The number of columns of <code>r</code> and rows of <code>x</code> to use.</p>
 </td></tr>
-<tr><td><code id="backsolve_:_upper.tri">upper.tri</code></td>
+<tr><td><code id="upper.tri">upper.tri</code></td>
 <td>
 <p>logical; if <code>TRUE</code> (default), the <em>upper</em>
 <em>tri</em>angular part of <code>r</code> is used.  Otherwise, the lower one.</p>
 </td></tr>
-<tr><td><code id="backsolve_:_transpose">transpose</code></td>
+<tr><td><code id="transpose">transpose</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, solve <code class="reqn">r' * y = x</code> for
 <code class="reqn">y</code>, i.e., <code>t(r) %*% y == x</code>.</p>
@@ -117,6 +117,7 @@ r %*% y # == x = (8,4,2)
 backsolve(r, x, transpose = TRUE) # 8 -12 -5
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.1/00index.html'>Package <em>base</em> version 3.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.1/00index.html'>Package <em>base</em> version 3.0.1</a> ]</div></main>
+
 </div>
 </body></html>

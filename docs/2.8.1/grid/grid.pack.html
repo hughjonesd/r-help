@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.pack.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.pack.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.pack.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.pack.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>grid.pack {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='grid.pack'> Pack an Object within a Frame </h2>
+<h2> Pack an Object within a Frame </h2>
 
 <h3>Description</h3>
 
@@ -49,90 +49,90 @@ packGrob(frame, grob, side = NULL,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="grid.pack_:_gPath">gPath</code></td>
+<table role = "presentation">
+<tr><td><code id="gPath">gPath</code></td>
 <td>
 <p> A gPath object, which specifies a frame on the
 display list.</p>
 </td></tr> 
-<tr><td><code id="grid.pack_:_frame">frame</code></td>
+<tr><td><code id="frame">frame</code></td>
 <td>
 <p> An object of class <code>frame</code>, typically the output
 from a call to <code>grid.frame</code>. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_grob">grob</code></td>
+<tr><td><code id="grob">grob</code></td>
 <td>
 <p> An object of class <code>grob</code>.  The object to be
 packed. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_redraw">redraw</code></td>
+<tr><td><code id="redraw">redraw</code></td>
 <td>
 <p> A boolean indicating whether the output should be updated. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_side">side</code></td>
+<tr><td><code id="side">side</code></td>
 <td>
 <p> One of <code>"left"</code>, <code>"top"</code>, <code>"right"</code>,
 <code>"bottom"</code> to indicate which side to pack the object on. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_row">row</code></td>
+<tr><td><code id="row">row</code></td>
 <td>
 <p> Which row to add the object to.  Must be between 1 and
 the-number-of-rows-currently-in-the-frame + 1, or <code>NULL</code> in
 which case the object occupies all rows. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_row.before">row.before</code></td>
+<tr><td><code id="row.before">row.before</code></td>
 <td>
 <p> Add the object to a new row just before this row. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_row.after">row.after</code></td>
+<tr><td><code id="row.after">row.after</code></td>
 <td>
 <p> Add the object to a new row just after this row. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p> Which col to add the object to.  Must be between 1 and
 the-number-of-cols-currently-in-the-frame + 1, or <code>NULL</code> in
 which case the object occupies all cols.  </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_col.before">col.before</code></td>
+<tr><td><code id="col.before">col.before</code></td>
 <td>
 <p>Add the object to a new col just before this col.</p>
 </td></tr>
-<tr><td><code id="grid.pack_:_col.after">col.after</code></td>
+<tr><td><code id="col.after">col.after</code></td>
 <td>
 <p> Add the object to a new col just after this col. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p> Specifies the width of the column that the object is
 added to (rather than allowing the width to be taken from the object). </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_height">height</code></td>
+<tr><td><code id="height">height</code></td>
 <td>
 <p> Specifies the height of the row that the object is
 added to (rather than allowing the height to be taken from the
 object). </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_force.width">force.width</code></td>
+<tr><td><code id="force.width">force.width</code></td>
 <td>
 <p> A logical value indicating whether the width of
 the column that the grob is being packed into should be EITHER the
 width specified in the call to <code>grid.pack</code> OR the maximum of
 that width and the pre-existing width. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_force.height">force.height</code></td>
+<tr><td><code id="force.height">force.height</code></td>
 <td>
 <p> A logical value indicating whether the height of
 the column that the grob is being packed into should be EITHER the
 height specified in the call to <code>grid.pack</code> OR the maximum of
 that height and the pre-existing height. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p> A <code>unit</code> object of length 4 indicating the borders
 around the object. </p>
 </td></tr>
-<tr><td><code id="grid.pack_:_dynamic">dynamic</code></td>
+<tr><td><code id="dynamic">dynamic</code></td>
 <td>
 <p> If the width/height is taken from the grob being
 packed, this boolean flag indicates whether the grobwidth/height
@@ -182,6 +182,7 @@ is specified.
 <code>grid.edit</code>, and <code>gPath</code>.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.8.1/00index.html'>Package <em>grid</em> version 2.8.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.8.1/00index.html'>Package <em>grid</em> version 2.8.1</a> ]</div></main>
+
 </div>
 </body></html>

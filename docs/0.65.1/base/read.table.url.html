@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/read.table.url.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/read.table.url.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/read.table.url.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/read.table.url.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>read.table.url {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='read.table.url'>Read data and code from web server</h2>
+<h2>Read data and code from web server</h2>
 
 <h3>Description</h3>
 
@@ -37,39 +37,39 @@ url.show(url,port=80,check.MIME.type=TRUE,file=tempfile(),delete.file=TRUE,...)<
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="read.table.url_:_url">url</code></td>
+<table role = "presentation">
+<tr><td><code id="url">url</code></td>
 <td>
 <p>URL beginning with <code>http://</code> </p>
 </td></tr>
-<tr><td><code id="read.table.url_:_port">port</code></td>
+<tr><td><code id="port">port</code></td>
 <td>
 <p> Port number for the HTTP server (usually 80) </p>
 </td></tr>
-<tr><td><code id="read.table.url_:_check.MIME.type">check.MIME.type</code></td>
+<tr><td><code id="check.MIME.type">check.MIME.type</code></td>
 <td>
 <p>Check that the document is of a type known to be 
 plain ASCII?</p>
 </td></tr>
-<tr><td><code id="read.table.url_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Arguments to pass to read.table,scan,
 source or file.show</p>
 </td></tr>
-<tr><td><code id="read.table.url_:_error.is.fatal">error.is.fatal</code></td>
+<tr><td><code id="error.is.fatal">error.is.fatal</code></td>
 <td>
 <p>An HTTP error causes an error instead of a
 warning?</p>
 </td></tr>
-<tr><td><code id="read.table.url_:_file">file</code></td>
+<tr><td><code id="file">file</code></td>
 <td>
 <p>File to copy to</p>
 </td></tr>
-<tr><td><code id="read.table.url_:_delete.file">delete.file</code></td>
+<tr><td><code id="delete.file">delete.file</code></td>
 <td>
 <p>Delete the file?</p>
 </td></tr>
-<tr><td><code id="read.table.url_:_drop.ctrl.z">drop.ctrl.z</code></td>
+<tr><td><code id="drop.ctrl.z">drop.ctrl.z</code></td>
 <td>
 <p>Filter out the EOF (control-Z) character?</p>
 </td></tr>  </table>
@@ -95,6 +95,7 @@ warning?</p>
 ## Not run: ozone&lt;-read.table.url("http://lib.stat.cmu.edu/datasets/csb/ch3a.dat",col.names=c("date","day.cts","day.passive","night.cts","night.passive"),na.strings=".")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.65.1/00index.html'>Package <em>base</em> version 0.65.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.65.1/00index.html'>Package <em>base</em> version 0.65.1</a> ]</div></main>
+
 </div>
 </body></html>

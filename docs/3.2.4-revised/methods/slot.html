@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4-revised. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/slot.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/slot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.4-revised. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/slot.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/slot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>slot {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='slot'>The Slots in an Object from a Formal Class</h2>
+<h2>The Slots in an Object from a Formal Class</h2>
 
 <h3>Description</h3>
 
@@ -41,12 +41,12 @@ getSlots(x)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="slot_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>An object from a formally defined class.</p>
 </td></tr>
-<tr><td><code id="slot_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>The name of the slot. The operator
 takes a fixed name, which can be unquoted if it is syntactically a
@@ -60,12 +60,12 @@ Generally, the only reason to use the functional form rather than
 the simpler operator is <em>because</em> the slot name has to be computed.
 </p>
 </td></tr>
-<tr><td><code id="slot_:_value">value</code></td>
+<tr><td><code id="value">value</code></td>
 <td>
 <p>A new value for the named slot.  The value must be
 valid for this slot in this object's class.</p>
 </td></tr>
-<tr><td><code id="slot_:_check">check</code></td>
+<tr><td><code id="check">check</code></td>
 <td>
 <p>In the replacement version of <code>slot</code>, a flag.  If
 <code>TRUE</code>, check the assigned value for validity
@@ -73,7 +73,7 @@ as the value of this slot.  User's coded should not set this to
 <code>FALSE</code> in normal use, since the resulting object can be invalid.
 </p>
 </td></tr>
-<tr><td><code id="slot_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>either the name of a class (as character string), or a class
 definition.  If given an argument that is neither a character string
@@ -182,6 +182,7 @@ slotNames(myTrack)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.4-revised/00index.html'>Package <em>methods</em> version 3.2.4-revised</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.4-revised/00index.html'>Package <em>methods</em> version 3.2.4-revised</a> ]</div></main>
+
 </div>
 </body></html>

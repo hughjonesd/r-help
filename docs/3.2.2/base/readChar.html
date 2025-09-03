@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/readChar.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/readChar.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/readChar.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/readChar.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>readChar {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='readChar'>Transfer Character Strings To and From Connections</h2>
+<h2>Transfer Character Strings To and From Connections</h2>
 
 <h3>Description</h3>
 
@@ -36,30 +36,30 @@ writeChar(object, con, nchars = nchar(object, type = "chars"),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="readChar_:_con">con</code></td>
+<table role = "presentation">
+<tr><td><code id="con">con</code></td>
 <td>
 <p>A connection object, or a character string naming a file,
 or a raw vector.</p>
 </td></tr>
-<tr><td><code id="readChar_:_nchars">nchars</code></td>
+<tr><td><code id="nchars">nchars</code></td>
 <td>
 <p>integer vector, giving the lengths in characters of
 (unterminated) character strings to be read or written.  Elements
 must be &gt;= 0 and not <code>NA</code>.</p>
 </td></tr>
-<tr><td><code id="readChar_:_useBytes">useBytes</code></td>
+<tr><td><code id="useBytes">useBytes</code></td>
 <td>
 <p>logical: For <code>readChar</code>, should <code>nchars</code> be
 regarded as a number of bytes not characters in a multi-byte
 locale?  For <code>writeChar</code>, see <code>writeLines</code>.</p>
 </td></tr>
-<tr><td><code id="readChar_:_object">object</code></td>
+<tr><td><code id="object">object</code></td>
 <td>
 <p>A character vector to be written to the connection, at
 least as long as <code>nchars</code>.</p>
 </td></tr>
-<tr><td><code id="readChar_:_eos">eos</code></td>
+<tr><td><code id="eos">eos</code></td>
 <td>
 <p>&lsquo;end of string&rsquo;: character string .  The terminator
 to be written after each string, followed by an ASCII <code>nul</code>;
@@ -160,6 +160,7 @@ close(zz)
 unlink("testchar")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.2/00index.html'>Package <em>base</em> version 3.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.2/00index.html'>Package <em>base</em> version 3.2.2</a> ]</div></main>
+
 </div>
 </body></html>

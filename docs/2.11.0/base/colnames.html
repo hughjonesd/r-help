@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/colnames.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/colnames.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.11.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/colnames.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/colnames.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>row/colnames {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='row+2Fcolnames'>Row and Column Names</h2>
+<h2>Row and Column Names</h2>
 
 <h3>Description</h3>
 
@@ -36,22 +36,22 @@ colnames(x) &lt;- value
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="row+2Fcolnames_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a matrix-like <span class="rlang"><b>R</b></span> object, with at least two dimensions for
 <code>colnames</code>.</p>
 </td></tr>
-<tr><td><code id="row+2Fcolnames_:_do.NULL">do.NULL</code></td>
+<tr><td><code id="do.NULL">do.NULL</code></td>
 <td>
 <p>logical.  Should this create names if they are
 <code>NULL</code>?</p>
 </td></tr>
-<tr><td><code id="row+2Fcolnames_:_prefix">prefix</code></td>
+<tr><td><code id="prefix">prefix</code></td>
 <td>
 <p>for created names.</p>
 </td></tr>
-<tr><td><code id="row+2Fcolnames_:_value">value</code></td>
+<tr><td><code id="value">value</code></td>
 <td>
 <p>a valid value for that component of
 <code>dimnames(x)</code>.  For a matrix or array this is either
@@ -108,6 +108,7 @@ rownames(m2) &lt;- rownames(m2, do.NULL = FALSE, prefix = "Obs.")
 m2
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.11.0/00index.html'>Package <em>base</em> version 2.11.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.11.0/00index.html'>Package <em>base</em> version 2.11.0</a> ]</div></main>
+
 </div>
 </body></html>

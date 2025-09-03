@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/svd.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/svd.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/svd.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/svd.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>svd {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='svd'>Singular Value Decomposition of a Matrix</h2>
+<h2>Singular Value Decomposition of a Matrix</h2>
 
 <h3>Description</h3>
 
@@ -34,23 +34,23 @@ La.svd(x, nu = min(n, p), nv = min(n, p))
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="svd_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric or complex matrix whose SVD decomposition
 is to be computed.  Logical matrices are coerced to numeric.</p>
 </td></tr>
-<tr><td><code id="svd_:_nu">nu</code></td>
+<tr><td><code id="nu">nu</code></td>
 <td>
 <p>the number of left  singular vectors to be computed.
 This must between <code>0</code> and <code>n = nrow(x)</code>.</p>
 </td></tr>
-<tr><td><code id="svd_:_nv">nv</code></td>
+<tr><td><code id="nv">nv</code></td>
 <td>
 <p>the number of right singular vectors to be computed.
 This must be between <code>0</code> and <code>p = ncol(x)</code>.</p>
 </td></tr>
-<tr><td><code id="svd_:_LINPACK">LINPACK</code></td>
+<tr><td><code id="LINPACK">LINPACK</code></td>
 <td>
 <p>logical.  Defunct and ignored.</p>
 </td></tr>
@@ -88,7 +88,7 @@ singular values <code class="reqn">D_{ii}</code>.  Equivalently, <code class="re
 </p>
 <p>The returned value is a list with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>d</code></td>
 <td>
 <p>a vector containing the singular values of <code>x</code>, of
@@ -154,6 +154,7 @@ s$u %*% D %*% t(s$v) #  X = U D V'
 t(s$u) %*% X %*% s$v #  D = U' X V
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.2/00index.html'>Package <em>base</em> version 3.3.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.2/00index.html'>Package <em>base</em> version 3.3.2</a> ]</div></main>
+
 </div>
 </body></html>

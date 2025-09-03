@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/stripplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/stripplot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/stripplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/stripplot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>stripplot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='stripplot'>1-D Scatter Plots</h2>
+<h2>1-D Scatter Plots</h2>
 
 <h3>Description</h3>
 
@@ -40,8 +40,8 @@ Box, Hunter and Hunter or Seber and Wild.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="stripplot_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>the data from which the plots are to be produced.
 The data can be specified as a single vector, or as
@@ -52,7 +52,7 @@ in the vector <code>x</code> are to be grouped according to
 the levels of the factor <code>g</code>.
 <code>NA</code>s are allowed in the data.</p>
 </td></tr>
-<tr><td><code id="stripplot_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>the method to be used to separate coincident points.
 The default method <code>"overplot"</code> causes such points to be overplotted,
@@ -60,27 +60,27 @@ but it is also possible to specify <code>"jitter"</code> to jitter the
 points, or <code>"stack"</code> have coincident points stacked.
 The last method only makes sense for very granular data.</p>
 </td></tr>
-<tr><td><code id="stripplot_:_jitter">jitter</code></td>
+<tr><td><code id="jitter">jitter</code></td>
 <td>
 <p>when jittering is used, <code>jitter</code> gives the
 amount of jittering applied.</p>
 </td></tr>
-<tr><td><code id="stripplot_:_offset">offset</code></td>
+<tr><td><code id="offset">offset</code></td>
 <td>
 <p>when stacking is used, points are stacked this many
 line-heights (symbol widths) apart.</p>
 </td></tr>
-<tr><td><code id="stripplot_:_vertical">vertical</code></td>
+<tr><td><code id="vertical">vertical</code></td>
 <td>
 <p>when vertical is <code>TRUE</code> the plots are
 drawn vertically rather than the default horizontal.</p>
 </td></tr>
-<tr><td><code id="stripplot_:_group.names">group.names</code></td>
+<tr><td><code id="group.names">group.names</code></td>
 <td>
 <p>group labels which will be printed alongside
 (or underneath) each plot.</p>
 </td></tr>
-<tr><td><code id="stripplot_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Graphical parameters can also be specified as arguments.</p>
 </td></tr>
@@ -93,6 +93,7 @@ drawn vertically rather than the default horizontal.</p>
 stripplot(x)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.62.4/00index.html'>Package <em>base</em> version 0.62.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.62.4/00index.html'>Package <em>base</em> version 0.62.4</a> ]</div></main>
+
 </div>
 </body></html>

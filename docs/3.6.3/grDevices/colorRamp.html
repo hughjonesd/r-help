@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/colorRamp.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/colorRamp.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/colorRamp.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/colorRamp.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>colorRamp {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='colorRamp'>Color interpolation</h2>
+<h2>Color interpolation</h2>
 
 <h3>Description</h3>
 
@@ -37,33 +37,33 @@ colorRampPalette(colors, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="colorRamp_:_colors">colors</code></td>
+<table role = "presentation">
+<tr><td><code id="colors">colors</code></td>
 <td>
 <p>colors to interpolate; must be a valid argument to
 <code>col2rgb()</code>.</p>
 </td></tr>
-<tr><td><code id="colorRamp_:_bias">bias</code></td>
+<tr><td><code id="bias">bias</code></td>
 <td>
 <p>a positive number.  Higher values give more widely spaced
 colors at the high end.</p>
 </td></tr>
-<tr><td><code id="colorRamp_:_space">space</code></td>
+<tr><td><code id="space">space</code></td>
 <td>
 <p>a character string; interpolation in RGB or CIE Lab
 color spaces.</p>
 </td></tr>
-<tr><td><code id="colorRamp_:_interpolate">interpolate</code></td>
+<tr><td><code id="interpolate">interpolate</code></td>
 <td>
 <p>use spline or linear interpolation.</p>
 </td></tr>
-<tr><td><code id="colorRamp_:_alpha">alpha</code></td>
+<tr><td><code id="alpha">alpha</code></td>
 <td>
 <p>logical: should alpha channel (opacity) values be
 returned?   It is an error to give a true value if
 <code>space</code> is specified.</p>
 </td></tr>
-<tr><td><code id="colorRamp_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments to pass to <code>colorRamp</code>.</p>
 </td></tr>
@@ -159,6 +159,7 @@ filled.contour(m, col = rgb.palette(20))
 filled.contour(m, col = Lab.palette(20))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>grDevices</em> version 3.6.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>grDevices</em> version 3.6.3</a> ]</div></main>
+
 </div>
 </body></html>

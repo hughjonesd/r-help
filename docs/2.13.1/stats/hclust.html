@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/hclust.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/hclust.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/hclust.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/hclust.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>hclust {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='hclust'>Hierarchical Clustering</h2>
+<h2>Hierarchical Clustering</h2>
 
 <h3>Description</h3>
 
@@ -44,12 +44,12 @@ plclust(tree, hang = 0.1, unit = FALSE, level = FALSE, hmin = 0,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="hclust_:_d">d</code></td>
+<table role = "presentation">
+<tr><td><code id="d">d</code></td>
 <td>
 <p>a dissimilarity structure as produced by <code>dist</code>.</p>
 </td></tr>
-<tr><td><code id="hclust_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>the agglomeration method to be used. This should
 be (an unambiguous abbreviation of) one of
@@ -57,53 +57,53 @@ be (an unambiguous abbreviation of) one of
 <code>"average"</code>, <code>"mcquitty"</code>, <code>"median"</code> or
 <code>"centroid"</code>.</p>
 </td></tr>
-<tr><td><code id="hclust_:_members">members</code></td>
+<tr><td><code id="members">members</code></td>
 <td>
 <p><code>NULL</code> or a vector with length size of
 <code>d</code>. See the &lsquo;Details&rsquo; section.</p>
 </td></tr>
-<tr><td><code id="hclust_:_x">x</code>, <code id="hclust_:_tree">tree</code></td>
+<tr><td><code id="x">x</code>, <code id="tree">tree</code></td>
 <td>
 <p>an object of the type produced by <code>hclust</code>.</p>
 </td></tr>
-<tr><td><code id="hclust_:_hang">hang</code></td>
+<tr><td><code id="hang">hang</code></td>
 <td>
 <p>The fraction of the plot height by which labels should hang
 below the rest of the plot.
 A negative value will cause the labels to hang down from 0.</p>
 </td></tr>
-<tr><td><code id="hclust_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>A character vector of labels for the leaves of the
 tree. By default the row names or row numbers of the original data are
 used. If <code>labels=FALSE</code> no labels at all are plotted.</p>
 </td></tr>
-<tr><td><code id="hclust_:_axes">axes</code>, <code id="hclust_:_frame.plot">frame.plot</code>, <code id="hclust_:_ann">ann</code></td>
+<tr><td><code id="axes">axes</code>, <code id="frame.plot">frame.plot</code>, <code id="ann">ann</code></td>
 <td>
 <p>logical flags as in <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="hclust_:_main">main</code>, <code id="hclust_:_sub">sub</code>, <code id="hclust_:_xlab">xlab</code>, <code id="hclust_:_ylab">ylab</code></td>
+<tr><td><code id="main">main</code>, <code id="sub">sub</code>, <code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>character strings for
 <code>title</code>.  <code>sub</code> and <code>xlab</code> have a non-NULL
 default when there's a <code>tree$call</code>.</p>
 </td></tr>
-<tr><td><code id="hclust_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further graphical arguments.</p>
 </td></tr>
-<tr><td><code id="hclust_:_unit">unit</code></td>
+<tr><td><code id="unit">unit</code></td>
 <td>
 <p>logical.  If true, the splits are plotted at
 equally-spaced heights rather than at the height in the object.</p>
 </td></tr>
-<tr><td><code id="hclust_:_hmin">hmin</code></td>
+<tr><td><code id="hmin">hmin</code></td>
 <td>
 <p>numeric.  All heights less than <code>hmin</code> are regarded
 as being <code>hmin</code>: this can be used to suppress detail at the
 bottom of the tree.</p>
 </td></tr>
-<tr><td><code id="hclust_:_level">level</code>, <code id="hclust_:_square">square</code>, <code id="hclust_:_plot.">plot.</code></td>
+<tr><td><code id="level">level</code>, <code id="square">square</code>, <code id="plot.">plot.</code></td>
 <td>
 <p>as yet unimplemented arguments of
 <code>plclust</code> for S-PLUS compatibility.</p>
@@ -169,7 +169,7 @@ observation sequence number.
 tree produced by the clustering process.
 The object is a list with components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>merge</code></td>
 <td>
 <p>an <code class="reqn">n-1</code> by 2 matrix.
@@ -307,6 +307,7 @@ plot(hc1, labels = FALSE, hang = -1, main = "Re-start from 10 clusters")
 par(opar)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.13.1/00index.html'>Package <em>stats</em> version 2.13.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.13.1/00index.html'>Package <em>stats</em> version 2.13.1</a> ]</div></main>
+
 </div>
 </body></html>

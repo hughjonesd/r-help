@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/reshape.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/reshape.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/reshape.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/reshape.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>reshape {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='reshape'>Reshape grouped data</h2>
+<h2>Reshape grouped data</h2>
 
 <h3>Description</h3>
 
@@ -38,60 +38,60 @@ with the repeated measurements in separate records.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="reshape_:_data">data</code></td>
+<table role = "presentation">
+<tr><td><code id="data">data</code></td>
 <td>
 <p>A data frame</p>
 </td></tr>
-<tr><td><code id="reshape_:_varying">varying</code></td>
+<tr><td><code id="varying">varying</code></td>
 <td>
 <p>Names of sets of variables in the wide format that correspond
 to single variables in long format (&lsquo;time-varying&rsquo;). A list of
 vectors (or optionally a matrix for <code>direction="wide"</code>). See below
 for more details and options</p>
 </td></tr>
-<tr><td><code id="reshape_:_v.names">v.names</code></td>
+<tr><td><code id="v.names">v.names</code></td>
 <td>
 <p>Names of variables in the long format that correspond
 to multiple variables in the wide format .</p>
 </td></tr>
-<tr><td><code id="reshape_:_timevar">timevar</code></td>
+<tr><td><code id="timevar">timevar</code></td>
 <td>
 <p>The  variable in long format that differentiates multiple
 records from the same group/individual</p>
 </td></tr>
-<tr><td><code id="reshape_:_idvar">idvar</code></td>
+<tr><td><code id="idvar">idvar</code></td>
 <td>
 <p>The  variable in long format that identifies multiple
 records from the same group/individual. This variable may also be
 present in wide format</p>
 </td></tr>
-<tr><td><code id="reshape_:_ids">ids</code></td>
+<tr><td><code id="ids">ids</code></td>
 <td>
 <p>The values to use for a newly created <code>idvar</code>
 variable in long format</p>
 </td></tr>
-<tr><td><code id="reshape_:_times">times</code></td>
+<tr><td><code id="times">times</code></td>
 <td>
 <p>The values to use for a newly created <code>timevar</code>
 variable in long format</p>
 </td></tr>
-<tr><td><code id="reshape_:_drop">drop</code></td>
+<tr><td><code id="drop">drop</code></td>
 <td>
 <p>A vector of names of variables to drop before reshaping</p>
 </td></tr>
-<tr><td><code id="reshape_:_direction">direction</code></td>
+<tr><td><code id="direction">direction</code></td>
 <td>
 <p><code>"wide" to reshape to wide format, "long" to
   reshape to long format</code></p>
 </td></tr>
-<tr><td><code id="reshape_:_fix.row.names">fix.row.names</code></td>
+<tr><td><code id="fix.row.names">fix.row.names</code></td>
 <td>
 <p>if <code>TRUE</code> and <code>direction="wide"</code>,
 create new row names in long format from the values of the id and time
 variables</p>
 </td></tr>
-<tr><td><code id="reshape_:_split">split</code></td>
+<tr><td><code id="split">split</code></td>
 <td>
 <p>information for guessing the <code>varying</code>,
 <code>v.names</code>, and <code>times</code> arguments. See below for details</p>
@@ -193,6 +193,7 @@ reshape(long,direction="wide",new.row.names=unique(long$state))
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.5.0/00index.html'>Package <em>base</em> version 1.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.5.0/00index.html'>Package <em>base</em> version 1.5.0</a> ]</div></main>
+
 </div>
 </body></html>

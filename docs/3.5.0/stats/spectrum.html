@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/spectrum.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/spectrum.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/spectrum.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/spectrum.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>spectrum {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='spectrum'>Spectral Density Estimation</h2>
+<h2>Spectral Density Estimation</h2>
 
 <h3>Description</h3>
 
@@ -33,18 +33,18 @@ time series.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="spectrum_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A univariate or multivariate time series.</p>
 </td></tr>
-<tr><td><code id="spectrum_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>String specifying the method used to estimate the
 spectral density.  Allowed methods are <code>"pgram"</code> (the default)
 and <code>"ar"</code>.  Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="spectrum_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Further arguments to specific spec methods or
 <code>plot.spec</code>.</p>
@@ -74,7 +74,7 @@ mark indicates the equivalent bandwidth.
 <p>An object of class <code>"spec"</code>, which is a list containing at
 least the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>freq</code></td>
 <td>
 <p>vector of frequencies at which the spectral
@@ -181,6 +181,7 @@ spectrum(lh, method = "ar")
 spectrum(ldeaths, method = "ar")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>stats</em> version 3.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>stats</em> version 3.5.0</a> ]</div></main>
+
 </div>
 </body></html>

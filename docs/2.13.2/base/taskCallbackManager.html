@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/taskCallbackManager.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/taskCallbackManager.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/taskCallbackManager.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/taskCallbackManager.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>taskCallbackManager {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='taskCallbackManager'>Create an R-level Task Callback Manager</h2>
+<h2>Create an R-level Task Callback Manager</h2>
 
 <h3>Description</h3>
 
@@ -41,8 +41,8 @@ variables to manage the list of user-level callbacks.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="taskCallbackManager_:_handlers">handlers</code></td>
+<table role = "presentation">
+<tr><td><code id="handlers">handlers</code></td>
 <td>
 <p>this can be a list of callbacks in which each element
 is a list with  an element  named <code>"f"</code>
@@ -52,7 +52,7 @@ supplied  to the callback when it is invoked.
 Typically this argument is not specified, and one uses <code>add</code> to
 register callbacks after the manager is created.</p>
 </td></tr>
-<tr><td><code id="taskCallbackManager_:_registered">registered</code></td>
+<tr><td><code id="registered">registered</code></td>
 <td>
 <p>a logical value indicating whether
 the <code>evaluate</code> function has already been registered
@@ -66,7 +66,7 @@ by specifying <code>TRUE</code> for this argument
 and calling <code>addTaskCallback</code> manually.
 </p>
 </td></tr>
-<tr><td><code id="taskCallbackManager_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>a logical value, which if <code>TRUE</code>,
 causes information to be printed to the console
@@ -82,7 +82,7 @@ itself.
 
 <p>A list containing 6 functions:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>add</code></td>
 <td>
 <p>register a callback with this manager, giving the
@@ -156,6 +156,7 @@ getTaskCallbackNames()
 removeTaskCallback("R-taskCallbackManager")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.13.2/00index.html'>Package <em>base</em> version 2.13.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.13.2/00index.html'>Package <em>base</em> version 2.13.2</a> ]</div></main>
+
 </div>
 </body></html>

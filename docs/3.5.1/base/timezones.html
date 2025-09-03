@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/timezones.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/timezones.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/timezones.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/timezones.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>timezones {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='timezones'>Time Zones</h2>
+<h2>Time Zones</h2>
 
 <h3>Description</h3>
 
@@ -35,12 +35,12 @@ OlsonNames(tzdir = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="timezones_:_location">location</code></td>
+<table role = "presentation">
+<tr><td><code id="location">location</code></td>
 <td>
 <p>logical: defunct: ignored, with a warning for false values.</p>
 </td></tr>
-<tr><td><code id="timezones_:_tzdir">tzdir</code></td>
+<tr><td><code id="tzdir">tzdir</code></td>
 <td>
 <p>The time-zone database to be used: the default is to try
 known locations until one is found.</p>
@@ -220,14 +220,6 @@ names.
 
 <h3>Warning</h3>
 
-
-
-
-
-
-
-
-
 <p>There is a system-specific upper limit on the number of bytes in
 (abbreviated) time-zone names which can be as low as 6 (as required by
 POSIX).  Some OSes allow the setting of time zones with names which
@@ -341,6 +333,7 @@ table(lengths(Osl))# most are pairs, some triplets
 str(Osl[lengths(Osl) &gt;= 3])# "America" South and North ...
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>base</em> version 3.5.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>base</em> version 3.5.1</a> ]</div></main>
+
 </div>
 </body></html>

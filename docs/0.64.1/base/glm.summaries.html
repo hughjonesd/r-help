@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/glm.summaries.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/glm.summaries.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/glm.summaries.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/glm.summaries.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>glm.summaries {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='glm.summaries'>Accessing Generalized Linear Model Fits</h2>
+<h2>Accessing Generalized Linear Model Fits</h2>
 
 <h3>Description</h3>
 
@@ -48,23 +48,23 @@ print.summary(summary.glm.obj, digits = max(3, .Options$digits - 3),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="glm.summaries_:_object">object</code>, <code id="glm.summaries_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code>, <code id="x">x</code></td>
 <td>
 <p>an object of class <code>glm</code>, typically the result of
 <code>glm(..)</code>.</p>
 </td></tr>
-<tr><td><code id="glm.summaries_:_dispersion">dispersion</code></td>
+<tr><td><code id="dispersion">dispersion</code></td>
 <td>
 <p>the dispersion parameter for the fitting family.
 By default it is obtained from <code>glm.obj</code>.</p>
 </td></tr>
-<tr><td><code id="glm.summaries_:_correlation">correlation</code></td>
+<tr><td><code id="correlation">correlation</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the correlation matrix of
 the estimated parameters is returned and printed.</p>
 </td></tr>
-<tr><td><code id="glm.summaries_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>the type of residuals which should be returned.  The
 alternatives are: <code>"deviance"</code>, <code>"pearson"</code>,
@@ -99,6 +99,7 @@ anova(glm.D93)
 anova(glm.D93, test = "Cp")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.64.1/00index.html'>Package <em>base</em> version 0.64.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.64.1/00index.html'>Package <em>base</em> version 0.64.1</a> ]</div></main>
+
 </div>
 </body></html>

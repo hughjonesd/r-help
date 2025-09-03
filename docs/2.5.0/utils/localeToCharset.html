@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/localeToCharset.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/localeToCharset.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/localeToCharset.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/localeToCharset.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>localeToCharset {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='localeToCharset'>
+<h2>
 Select a Suitable Encoding Name from a Locale Name
 </h2>
 
@@ -36,8 +36,8 @@ single-byte encoding.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="localeToCharset_:_locale">locale</code></td>
+<table role = "presentation">
+<tr><td><code id="locale">locale</code></td>
 <td>
 <p>character string naming a locale.</p>
 </td></tr>
@@ -47,7 +47,8 @@ single-byte encoding.
 <h3>Details</h3>
 
 <p>The operation differs by OS.
-Locale names are normaly like <code>es_MX.iso88591</code>.  If final
+</p>
+<p>Locale names are normaly like <code>es_MX.iso88591</code>.  If final
 component indicates an encoding and it is not <code>utf8</code> we just need
 to look up the equivalent encoding name.  Otherwise, the language
 (here <code>es</code>) is used to choose a primary or fallback encoding.
@@ -81,6 +82,7 @@ to work with <code>glibc</code> but maybe not with commercial Unixen.
 <pre><code class='language-R'>localeToCharset()
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.5.0/00index.html'>Package <em>utils</em> version 2.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.5.0/00index.html'>Package <em>utils</em> version 2.5.0</a> ]</div></main>
+
 </div>
 </body></html>

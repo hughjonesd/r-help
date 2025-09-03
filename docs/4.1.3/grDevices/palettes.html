@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/palettes.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/palettes.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/palettes.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/palettes.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Palettes {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Palettes'>Color Palettes</h2>
+<h2>Color Palettes</h2>
 
 <h3>Description</h3>
 
@@ -40,19 +40,19 @@ cm.colors(n, alpha, rev = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Palettes_:_n">n</code></td>
+<table role = "presentation">
+<tr><td><code id="n">n</code></td>
 <td>
 <p>the number of colors (<code class="reqn">\ge 1</code>) to be in the
 palette.</p>
 </td></tr>
-<tr><td><code id="Palettes_:_palette">palette</code></td>
+<tr><td><code id="palette">palette</code></td>
 <td>
 <p>a valid palette name (one of <code>hcl.pals()</code>).
 The name is matched to the list of available palettes, ignoring
 upper vs. lower case, spaces, dashes, etc. in the matching.</p>
 </td></tr>
-<tr><td><code id="Palettes_:_alpha">alpha</code></td>
+<tr><td><code id="alpha">alpha</code></td>
 <td>
 <p>an alpha-transparency level in the range [0,1]
 (0 means transparent and 1 means opaque), see argument
@@ -61,33 +61,33 @@ Since <span class="rlang"><b>R</b></span> 4.0.0, a <code>missing</code>, i.e., n
 <code>alpha</code> is equivalent to <code>alpha = NULL</code>, which does <em>not</em>
 add opacity codes (<code>"FF"</code>) to the individual color hex codes.</p>
 </td></tr>
-<tr><td><code id="Palettes_:_rev">rev</code></td>
+<tr><td><code id="rev">rev</code></td>
 <td>
 <p>logical indicating whether the ordering of the colors should
 be reversed.</p>
 </td></tr>
-<tr><td><code id="Palettes_:_fixup">fixup</code></td>
+<tr><td><code id="fixup">fixup</code></td>
 <td>
 <p>logical indicating whether the resulting color should be
 corrected to RGB coordinates in [0,1], see <code>hcl</code>.</p>
 </td></tr>
-<tr><td><code id="Palettes_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>the type of palettes to list: <code>"qualitative"</code>,
 <code>"sequential"</code>, <code>"diverging"</code>, or <code>"divergingx"</code>.
 <code>NULL</code> lists all palettes.</p>
 </td></tr>
-<tr><td><code id="Palettes_:_s">s</code>, <code id="Palettes_:_v">v</code></td>
+<tr><td><code id="s">s</code>, <code id="v">v</code></td>
 <td>
 <p>the &lsquo;saturation&rsquo; and &lsquo;value&rsquo; to be used
 to complete the HSV color descriptions.</p>
 </td></tr>
-<tr><td><code id="Palettes_:_start">start</code></td>
+<tr><td><code id="start">start</code></td>
 <td>
 <p>the (corrected) hue in [0,1] at which the rainbow
 begins.</p>
 </td></tr>
-<tr><td><code id="Palettes_:_end">end</code></td>
+<tr><td><code id="end">end</code></td>
 <td>
 <p>the (corrected) hue in [0,1] at which the rainbow ends.</p>
 </td></tr>
@@ -300,6 +300,7 @@ hcl.pals("diverging")
 hcl.pals("divergingx")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.3/00index.html'>Package <em>grDevices</em> version 4.1.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.3/00index.html'>Package <em>grDevices</em> version 4.1.3</a> ]</div></main>
+
 </div>
 </body></html>

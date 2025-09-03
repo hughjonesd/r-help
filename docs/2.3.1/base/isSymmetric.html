@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/isSymmetric.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/isSymmetric.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/isSymmetric.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/isSymmetric.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>isSymmetric {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='isSymmetric'>Test if a Matrix or other Object is Symmetric</h2>
+<h2>Test if a Matrix or other Object is Symmetric</h2>
 
 <h3>Description</h3>
 
@@ -35,17 +35,17 @@ isSymmetric(object, tol = 100 * .Machine$double.eps, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="isSymmetric_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>any <span class="rlang"><b>R</b></span> object; a <code>matrix</code> for the matrix method.</p>
 </td></tr>
-<tr><td><code id="isSymmetric_:_tol">tol</code></td>
+<tr><td><code id="tol">tol</code></td>
 <td>
 <p>numeric scalar &gt;= 0.  Smaller differences are not
 considered, see <code>all.equal.numeric</code>.</p>
 </td></tr>
-<tr><td><code id="isSymmetric_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to methods; the matrix method
 passes these to <code>all.equal</code>.</p>
@@ -85,6 +85,7 @@ isSymmetric(D3) # TRUE
 isSymmetric(D3, tol = 0) # FALSE for zero-tolerance
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.3.1/00index.html'>Package <em>base</em> version 2.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.3.1/00index.html'>Package <em>base</em> version 2.3.1</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lm.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lm.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/lm.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>lm {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='lm'>Fitting Linear Models</h2>
+<h2>Fitting Linear Models</h2>
 
 <h3>Description</h3>
 
@@ -38,15 +38,15 @@ convenient interface for these).
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="lm_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>an object of class <code>"formula"</code> (or one that
 can be coerced to that class): a symbolic description of the
 model to be fitted.  The details of model specification are given
 under &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="lm_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional data frame, list or environment (or object
 coercible by <code>as.data.frame</code> to a data frame) containing
@@ -54,12 +54,12 @@ the variables in the model.  If not found in <code>data</code>, the
 variables are taken from <code>environment(formula)</code>,
 typically the environment from which <code>lm</code> is called.</p>
 </td></tr>
-<tr><td><code id="lm_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used in the fitting process.</p>
 </td></tr>
-<tr><td><code id="lm_:_weights">weights</code></td>
+<tr><td><code id="weights">weights</code></td>
 <td>
 <p>an optional vector of weights to be used in the fitting
 process.  Should be <code>NULL</code> or a numeric vector.
@@ -67,7 +67,7 @@ If non-NULL, weighted least squares is used with weights
 <code>weights</code> (that is, minimizing <code>sum(w*e^2)</code>); otherwise
 ordinary least squares is used.  See also &lsquo;Details&rsquo;,</p>
 </td></tr>
-<tr><td><code id="lm_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen
 when the data contain <code>NA</code>s.  The default is set by
@@ -76,30 +76,30 @@ the <code>na.action</code> setting of <code>options</code>, and is
 default is <code>na.omit</code>.  Another possible value is
 <code>NULL</code>, no action.  Value <code>na.exclude</code> can be useful.</p>
 </td></tr>
-<tr><td><code id="lm_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>the method to be used; for fitting, currently only
 <code>method = "qr"</code> is supported; <code>method = "model.frame"</code> returns
 the model frame (the same as with <code>model = TRUE</code>, see below).</p>
 </td></tr>
-<tr><td><code id="lm_:_model">model</code>, <code id="lm_:_x">x</code>, <code id="lm_:_y">y</code>, <code id="lm_:_qr">qr</code></td>
+<tr><td><code id="model">model</code>, <code id="x">x</code>, <code id="y">y</code>, <code id="qr">qr</code></td>
 <td>
 <p>logicals.  If <code>TRUE</code> the corresponding
 components of the fit (the model frame, the model matrix, the
 response, the QR decomposition) are returned.
 </p>
 </td></tr>
-<tr><td><code id="lm_:_singular.ok">singular.ok</code></td>
+<tr><td><code id="singular.ok">singular.ok</code></td>
 <td>
 <p>logical. If <code>FALSE</code> (the default in S but
 not in <span class="rlang"><b>R</b></span>) a singular fit is an error.</p>
 </td></tr>
-<tr><td><code id="lm_:_contrasts">contrasts</code></td>
+<tr><td><code id="contrasts">contrasts</code></td>
 <td>
 <p>an optional list. See the <code>contrasts.arg</code>
 of <code>model.matrix.default</code>.</p>
 </td></tr>
-<tr><td><code id="lm_:_offset">offset</code></td>
+<tr><td><code id="offset">offset</code></td>
 <td>
 <p>this can be used to specify an <em>a priori</em> known
 component to be included in the linear predictor during fitting.
@@ -108,7 +108,7 @@ the number of cases.  One or more <code>offset</code> terms can be
 included in the formula instead or as well, and if more than one are
 specified their sum is used.  See <code>model.offset</code>.</p>
 </td></tr>
-<tr><td><code id="lm_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional arguments to be passed to the low level
 regression fitting functions (see below).</p>
@@ -179,7 +179,7 @@ various useful features of the value returned by <code>lm</code>.
 <p>An object of class <code>"lm"</code> is a list containing at least the
 following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>coefficients</code></td>
 <td>
 <p>a named vector of coefficients</p>
@@ -352,6 +352,7 @@ par(opar)
 ### less simple examples in "See Also" above
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.1/00index.html'>Package <em>stats</em> version 2.12.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.1/00index.html'>Package <em>stats</em> version 2.12.1</a> ]</div></main>
+
 </div>
 </body></html>

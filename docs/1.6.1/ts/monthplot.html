@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/monthplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/monthplot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ts/html/monthplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/ts/html/monthplot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>monthplot {ts}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='monthplot'>
+<h2>
 Plot a Seasonal or other Subseries
 </h2>
 
@@ -35,32 +35,32 @@ For each season (or other category), a time series is plotted.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="monthplot_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>Time series or related object.</p>
 </td></tr>
-<tr><td><code id="monthplot_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>Labels to use for each &ldquo;season&rdquo;.</p>
 </td></tr>
-<tr><td><code id="monthplot_:_times">times</code></td>
+<tr><td><code id="times">times</code></td>
 <td>
 <p>Time of each observation.</p>
 </td></tr>
-<tr><td><code id="monthplot_:_phase">phase</code></td>
+<tr><td><code id="phase">phase</code></td>
 <td>
 <p>Indicator for each &ldquo;season&rdquo;.</p>
 </td></tr>
-<tr><td><code id="monthplot_:_base">base</code></td>
+<tr><td><code id="base">base</code></td>
 <td>
 <p>Function to use for reference line for subseries.</p>
 </td></tr>
-<tr><td><code id="monthplot_:_choice">choice</code></td>
+<tr><td><code id="choice">choice</code></td>
 <td>
 <p>Which series of an <code>stl</code> or <code>StructTS</code> object?</p>
 </td></tr>
-<tr><td><code id="monthplot_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Graphical parameters.</p>
 </td></tr>
@@ -123,6 +123,7 @@ monthplot(co2, phase = quarter)
 ## see also JohnsonJohnson
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

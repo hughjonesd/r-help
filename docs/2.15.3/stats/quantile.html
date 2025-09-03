@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/quantile.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/quantile.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/quantile.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/quantile.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>quantile {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='quantile'>Sample Quantiles</h2>
+<h2>Sample Quantiles</h2>
 
 <h3>Description</h3>
 
@@ -39,36 +39,36 @@ quantile(x, probs = seq(0, 1, 0.25), na.rm = FALSE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="quantile_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric vector whose sample quantiles are wanted, or an
 object of a class for which a method has been defined (see also
 &lsquo;details&rsquo;). <code>NA</code> and <code>NaN</code> values are not
 allowed in numeric vectors unless <code>na.rm</code> is <code>TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="quantile_:_probs">probs</code></td>
+<tr><td><code id="probs">probs</code></td>
 <td>
 <p>numeric vector of probabilities with values in
 <code class="reqn">[0,1]</code>.  (Values up to &lsquo;<span class="samp">&#8288;2e-14&#8288;</span>&rsquo; outside that
 range are accepted and moved to the nearby endpoint.)</p>
 </td></tr>
-<tr><td><code id="quantile_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>logical; if true, any <code>NA</code> and <code>NaN</code>'s
 are removed from <code>x</code> before the quantiles are computed.</p>
 </td></tr>
-<tr><td><code id="quantile_:_names">names</code></td>
+<tr><td><code id="names">names</code></td>
 <td>
 <p>logical; if true, the result has a <code>names</code>
 attribute.  Set to <code>FALSE</code> for speedup with many <code>probs</code>.</p>
 </td></tr>
-<tr><td><code id="quantile_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>an integer between 1 and 9 selecting one of the
 nine quantile algorithms detailed below to be used.</p>
 </td></tr>
-<tr><td><code id="quantile_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td></tr>
@@ -232,6 +232,7 @@ dimnames(res) &lt;- list(1:9, names(y))
 round(res, 3)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.3/00index.html'>Package <em>stats</em> version 2.15.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.3/00index.html'>Package <em>stats</em> version 2.15.3</a> ]</div></main>
+
 </div>
 </body></html>

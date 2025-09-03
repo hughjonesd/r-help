@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/splines/html/interpSpline.html'>https://stat.ethz.ch/R-manual/R-patched/library/splines/html/interpSpline.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/splines/html/interpSpline.html'>https://stat.ethz.ch/R-manual/R-patched/library/splines/html/interpSpline.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>interpSpline {splines}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='interpSpline'>Create an Interpolation Spline</h2>
+<h2>Create an Interpolation Spline</h2>
 
 <h3>Description</h3>
 
@@ -34,29 +34,29 @@ vectors, or from a formula/data.frame combination.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="interpSpline_:_obj1">obj1</code></td>
+<table role = "presentation">
+<tr><td><code id="obj1">obj1</code></td>
 <td>
 <p>Either a numeric vector of <code>x</code> values or a formula.</p>
 </td></tr>
-<tr><td><code id="interpSpline_:_obj2">obj2</code></td>
+<tr><td><code id="obj2">obj2</code></td>
 <td>
 <p>If <code>obj1</code> is numeric this should be a numeric vector
 of the same length.  If <code>obj1</code> is a formula this can be an
 optional data frame in which to evaluate the names in the formula.</p>
 </td></tr>
-<tr><td><code id="interpSpline_:_bSpline">bSpline</code></td>
+<tr><td><code id="bSpline">bSpline</code></td>
 <td>
 <p>If <code>TRUE</code> the b-spline representation is returned,
 otherwise the piecewise polynomial representation is returned.
 Defaults to <code>FALSE</code>.</p>
 </td></tr>
-<tr><td><code id="interpSpline_:_period">period</code></td>
+<tr><td><code id="period">period</code></td>
 <td>
 <p>An optional positive numeric value giving a period for a
 periodic interpolation spline.</p>
 </td></tr>
-<tr><td><code id="interpSpline_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a optional function which indicates what should happen
 when the data contain <code>NA</code>s.  The default action
@@ -103,6 +103,7 @@ points( women$height, women$weight )
 splineKnots( ispl )
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>splines</em> version 2.9.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>splines</em> version 2.9.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/anova.mlm.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/anova.mlm.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/anova.mlm.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/anova.mlm.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>anova.mlm {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='anova.mlm'>Comparisons between Multivariate Linear Models</h2>
+<h2>Comparisons between Multivariate Linear Models</h2>
 
 <h3>Description</h3>
 
@@ -39,43 +39,43 @@ anova(object, ...,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="anova.mlm_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an object of class <code>"mlm"</code>.</p>
 </td></tr>
-<tr><td><code id="anova.mlm_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further objects of class <code>"mlm"</code>.</p>
 </td></tr>
-<tr><td><code id="anova.mlm_:_test">test</code></td>
+<tr><td><code id="test">test</code></td>
 <td>
 <p>choice of test statistic (see below).  Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="anova.mlm_:_Sigma">Sigma</code></td>
+<tr><td><code id="Sigma">Sigma</code></td>
 <td>
 <p>(only relevant if  <code>test == "Spherical"</code>).  Covariance
 matrix assumed proportional to <code>Sigma</code>.</p>
 </td></tr>
-<tr><td><code id="anova.mlm_:_T">T</code></td>
+<tr><td><code id="T">T</code></td>
 <td>
 <p>transformation matrix.  By default computed from <code>M</code> and
 <code>X</code>.</p>
 </td></tr>
-<tr><td><code id="anova.mlm_:_M">M</code></td>
+<tr><td><code id="M">M</code></td>
 <td>
 <p>formula or matrix describing the outer projection (see below).</p>
 </td></tr>
-<tr><td><code id="anova.mlm_:_X">X</code></td>
+<tr><td><code id="X">X</code></td>
 <td>
 <p>formula or matrix describing the inner projection (see below).</p>
 </td></tr>
-<tr><td><code id="anova.mlm_:_idata">idata</code></td>
+<tr><td><code id="idata">idata</code></td>
 <td>
 <p>data frame describing intra-block design.</p>
 </td></tr>
 
-<tr><td><code id="anova.mlm_:_tol">tol</code></td>
+<tr><td><code id="tol">tol</code></td>
 <td>
 <p>tolerance to be used in deciding if the residuals are
 rank-deficient: see <code>qr</code>.</p>
@@ -185,6 +185,7 @@ anova(mlmfit2, X = ~1, test = "Spherical")
 plot(colMeans(reacttime))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.3.1/00index.html'>Package <em>stats</em> version 4.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.1/00index.html'>Package <em>stats</em> version 4.3.1</a> ]</div></main>
+
 </div>
 </body></html>

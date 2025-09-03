@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/make.names.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/make.names.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/make.names.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/make.names.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>make.names {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='make.names'>Make Legal R Names Out of Strings</h2>
+<h2>Make Legal R Names Out of Strings</h2>
 
 <h3>Description</h3>
 
@@ -33,12 +33,12 @@ Invalid characters are translated to <code>"."</code>.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="make.names_:_names">names</code></td>
+<table role = "presentation">
+<tr><td><code id="names">names</code></td>
 <td>
 <p>character (vector) to be coerced to proper names.</p>
 </td></tr>
-<tr><td><code id="make.names_:_unique">unique</code></td>
+<tr><td><code id="unique">unique</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the resulting strings are
 unique.  This may be desired for, e.g., column names.</p>
@@ -69,6 +69,7 @@ data(state)
 state.name[make.names(state.name) != state.name]# those 10 with a space
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.65.1/00index.html'>Package <em>base</em> version 0.65.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.65.1/00index.html'>Package <em>base</em> version 0.65.1</a> ]</div></main>
+
 </div>
 </body></html>

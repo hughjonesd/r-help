@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/se.contrast.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/se.contrast.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/se.contrast.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/se.contrast.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>se.contrast {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='se.contrast'>Standard Errors for Contrasts in Model Terms</h2>
+<h2>Standard Errors for Contrasts in Model Terms</h2>
 
 <h3>Description</h3>
 
@@ -37,12 +37,12 @@ se.contrast(object, contrast.obj,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="se.contrast_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>A suitable fit, usually from <code>aov</code>.</p>
 </td></tr>
-<tr><td><code id="se.contrast_:_contrast.obj">contrast.obj</code></td>
+<tr><td><code id="contrast.obj">contrast.obj</code></td>
 <td>
 <p>The contrasts for which standard errors are
 requested.  This can be specified via a list or via a matrix.  A
@@ -52,18 +52,18 @@ by a matrix, each column of which is a numerical contrast vector
 (summing to zero).
 </p>
 </td></tr>
-<tr><td><code id="se.contrast_:_coef">coef</code></td>
+<tr><td><code id="coef">coef</code></td>
 <td>
 <p>used when <code>contrast.obj</code> is a list; it should be a
 vector of the same length as the list with zero sum.  The default
 value is the first Helmert contrast, which contrasts the first and
 second cell means specified by the list.</p>
 </td></tr>
-<tr><td><code id="se.contrast_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>The data frame used to evaluate <code>contrast.obj</code>.</p>
 </td></tr>
-<tr><td><code id="se.contrast_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td></tr>
@@ -160,6 +160,7 @@ summary(fit2)$tTable # same estimates, similar (but smaller) se's.
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.8.0/00index.html'>Package <em>stats</em> version 2.8.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.8.0/00index.html'>Package <em>stats</em> version 2.8.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/reshape.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/reshape.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/reshape.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/reshape.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>reshape {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='reshape'>Reshape Grouped Data</h2>
+<h2>Reshape Grouped Data</h2>
 
 <h3>Description</h3>
 
@@ -45,12 +45,12 @@ records.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="reshape_:_data">data</code></td>
+<table role = "presentation">
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data frame</p>
 </td></tr>
-<tr><td><code id="reshape_:_varying">varying</code></td>
+<tr><td><code id="varying">varying</code></td>
 <td>
 <p>names of sets of variables in the wide format that
 correspond to single variables in long format
@@ -60,49 +60,49 @@ single vector of names.  In each case, the names can be replaced by
 indices which are interpreted as referring to <code>names(data)</code>.
 See &lsquo;Details&rsquo; for more details and options.</p>
 </td></tr>
-<tr><td><code id="reshape_:_v.names">v.names</code></td>
+<tr><td><code id="v.names">v.names</code></td>
 <td>
 <p>names of variables in the long format that correspond
 to multiple variables in the wide format.  See &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="reshape_:_timevar">timevar</code></td>
+<tr><td><code id="timevar">timevar</code></td>
 <td>
 <p>the variable in long format that differentiates multiple
 records from the same group or individual.  If more than one record
 matches, the first will be taken (with a warning). </p>
 </td></tr>
-<tr><td><code id="reshape_:_idvar">idvar</code></td>
+<tr><td><code id="idvar">idvar</code></td>
 <td>
 <p>Names of one or more variables in long format that
 identify multiple records from the same group/individual.  These
 variables may also be present in wide format.</p>
 </td></tr>
-<tr><td><code id="reshape_:_ids">ids</code></td>
+<tr><td><code id="ids">ids</code></td>
 <td>
 <p>the values to use for a newly created <code>idvar</code>
 variable in long format.</p>
 </td></tr>
-<tr><td><code id="reshape_:_times">times</code></td>
+<tr><td><code id="times">times</code></td>
 <td>
 <p>the values to use for a newly created <code>timevar</code>
 variable in long format.  See &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="reshape_:_drop">drop</code></td>
+<tr><td><code id="drop">drop</code></td>
 <td>
 <p>a vector of names of variables to drop before reshaping.</p>
 </td></tr>
-<tr><td><code id="reshape_:_direction">direction</code></td>
+<tr><td><code id="direction">direction</code></td>
 <td>
 <p>character string, partially matched to either
 <code>"wide"</code> to reshape to wide format, or <code>"long"</code> to reshape
 to long format.</p>
 </td></tr>
-<tr><td><code id="reshape_:_new.row.names">new.row.names</code></td>
+<tr><td><code id="new.row.names">new.row.names</code></td>
 <td>
 <p>character or <code>NULL</code>: a non-null value will be
 used for the row names of the result.</p>
 </td></tr>
-<tr><td><code id="reshape_:_sep">sep</code></td>
+<tr><td><code id="sep">sep</code></td>
 <td>
 <p>A character vector of length 1, indicating a separating
 character in the variable names in the wide format.  This is used for
@@ -111,7 +111,7 @@ names in <code>varying</code>.  If <code>sep == ""</code>, the split is just bef
 the first numeral that follows an alphabetic character.  This is
 also used to create variable names when reshaping to wide format.</p>
 </td></tr>
-<tr><td><code id="reshape_:_split">split</code></td>
+<tr><td><code id="split">split</code></td>
 <td>
 <p>A list with three components, <code>regexp</code>,
 <code>include</code>, and (optionally) <code>fixed</code>.  This allows an
@@ -238,6 +238,7 @@ reshape(wide)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.2/00index.html'>Package <em>stats</em> version 4.0.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.2/00index.html'>Package <em>stats</em> version 4.0.2</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/download.file.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/download.file.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/download.file.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/download.file.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>download.file {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='download.file'>Download File from the Internet</h2>
+<h2>Download File from the Internet</h2>
 
 <h3>Description</h3>
 
@@ -34,18 +34,18 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="download.file_:_url">url</code></td>
+<table role = "presentation">
+<tr><td><code id="url">url</code></td>
 <td>
 <p>A character string naming the URL of a resource to be
 downloaded.</p>
 </td></tr>
-<tr><td><code id="download.file_:_destfile">destfile</code></td>
+<tr><td><code id="destfile">destfile</code></td>
 <td>
 <p>A character string with the name where the downloaded
 file is saved.  Tilde-expansion is performed.</p>
 </td></tr>
-<tr><td><code id="download.file_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>Method to be used for downloading files.  Current
 download methods are <code>"internal"</code>, <code>"wininet"</code> (Windows
@@ -56,28 +56,28 @@ is a value <code>"auto"</code>: see &lsquo;Details&rsquo; and &lsquo;Note&rsquo;
 <code>"download.file.method"</code>: see <code>options()</code>.
 </p>
 </td></tr>
-<tr><td><code id="download.file_:_quiet">quiet</code></td>
+<tr><td><code id="quiet">quiet</code></td>
 <td>
 <p>If <code>TRUE</code>, suppress status messages (if any), and
 the progress bar.</p>
 </td></tr>
-<tr><td><code id="download.file_:_mode">mode</code></td>
+<tr><td><code id="mode">mode</code></td>
 <td>
 <p>character.  The mode with which to write the file.  Useful
 values are <code>"w"</code>, <code>"wb"</code> (binary), <code>"a"</code> (append) and
 <code>"ab"</code>.  Not used for methods <code>"wget"</code> and <code>"curl"</code>.
 </p>
 </td></tr>
-<tr><td><code id="download.file_:_cacheOK">cacheOK</code></td>
+<tr><td><code id="cacheOK">cacheOK</code></td>
 <td>
 <p>logical.  Is a server-side cached value acceptable?</p>
 </td></tr>
-<tr><td><code id="download.file_:_extra">extra</code></td>
+<tr><td><code id="extra">extra</code></td>
 <td>
 <p>character vector of additional command-line arguments for
 the <code>"wget"</code> and <code>"curl"</code> methods.</p>
 </td></tr>
-<tr><td><code id="download.file_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>allow additional arguments to be passed, unused.</p>
 </td></tr>
@@ -95,12 +95,12 @@ The <code>url</code> must start with a scheme such as
 <p>If <code>method = "auto"</code> is chosen (the default), on a Unix-alike
 method <code>"libcurl"</code> is used except <code>"internal"</code> for
 &lsquo;<span class="samp">&#8288;file://&#8288;</span>&rsquo; URLs.
-
 </p>
 <p>Method <code>"libcurl"</code> uses the library of that name
 (<a href="http://curl.haxx.se/libcurl/">http://curl.haxx.se/libcurl/</a>).
 It provides
-(non-blocking) access to &lsquo;<span class="samp">&#8288;https://&#8288;</span>&rsquo; and (usually) &lsquo;<span class="samp">&#8288;ftps://&#8288;</span>&rsquo;
+</p>
+<p>(non-blocking) access to &lsquo;<span class="samp">&#8288;https://&#8288;</span>&rsquo; and (usually) &lsquo;<span class="samp">&#8288;ftps://&#8288;</span>&rsquo;
 URLs.  There is support for simultaneous downloads, so <code>url</code> and
 <code>destfile</code> can be character vectors of the same length greater
 than one (but the method has to be specified explicitly and not
@@ -311,6 +311,7 @@ and <code>internet.info</code> options used by some of the methods.
 facilities to download from URLs.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>utils</em> version 3.5.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>utils</em> version 3.5.3</a> ]</div></main>
+
 </div>
 </body></html>

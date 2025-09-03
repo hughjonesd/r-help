@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.nls.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.nls.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>summary.nls {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='summary.nls'>Summarizing Non-Linear Least-Squares Model Fits</h2>
+<h2>Summarizing Non-Linear Least-Squares Model Fits</h2>
 
 <h3>Description</h3>
 
@@ -38,36 +38,36 @@ print(x, digits = max(3, getOption("digits") - 3),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="summary.nls_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an object of class <code>"nls"</code>.</p>
 </td></tr>
-<tr><td><code id="summary.nls_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object of class <code>"summary.nls"</code>, usually the result of a
 call to <code>summary.nls</code>.</p>
 </td></tr>
-<tr><td><code id="summary.nls_:_correlation">correlation</code></td>
+<tr><td><code id="correlation">correlation</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the correlation matrix of
 the estimated parameters is returned and printed.</p>
 </td></tr>
-<tr><td><code id="summary.nls_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>the number of significant digits to use when printing.</p>
 </td></tr>
-<tr><td><code id="summary.nls_:_symbolic.cor">symbolic.cor</code></td>
+<tr><td><code id="symbolic.cor">symbolic.cor</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, print the correlations in
 a symbolic form (see <code>symnum</code>) rather than as numbers.</p>
 </td></tr>
-<tr><td><code id="summary.nls_:_signif.stars">signif.stars</code></td>
+<tr><td><code id="signif.stars">signif.stars</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, &ldquo;significance stars&rdquo;
 are printed for each coefficient.</p>
 </td></tr>
-<tr><td><code id="summary.nls_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td></tr>
@@ -96,7 +96,7 @@ directly.
 statistics of the fitted model given in <code>object</code>, using
 the component  <code>"formula"</code> from its argument, plus
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>residuals</code></td>
 <td>
 <p>the <em>weighted</em> residuals, the usual residuals
@@ -151,6 +151,7 @@ of the argument <code>symbolic.cor</code>.</p>
 with standard errors, t-statistics and p-values.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>stats</em> version 2.4.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>stats</em> version 2.4.0</a> ]</div></main>
+
 </div>
 </body></html>

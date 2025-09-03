@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.xspline.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.xspline.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.xspline.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.xspline.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>grid.xspline {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='grid.xspline'> Draw an Xspline </h2>
+<h2> Draw an Xspline </h2>
 
 <h3>Description</h3>
 
@@ -38,71 +38,71 @@ xsplineGrob(x = c(0, 0.5, 1, 0.5), y = c(0.5, 1, 0.5, 0),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="grid.xspline_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>A numeric vector or unit object specifying x-locations of
 spline control points.</p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>A numeric vector or unit object specifying y-locations of
 spline control points.</p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_id">id</code></td>
+<tr><td><code id="id">id</code></td>
 <td>
 <p>A numeric vector used to separate locations in <code>x</code> and
 <code>y</code> into multiple xsplines.  All locations with the same
 <code>id</code> belong to the same xspline.</p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_id.lengths">id.lengths</code></td>
+<tr><td><code id="id.lengths">id.lengths</code></td>
 <td>
 <p>A numeric vector used to separate locations in <code>x</code> and
 <code>y</code> into multiple xspline.  Specifies consecutive blocks of
 locations which make up separate xsplines.</p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_default.units">default.units</code></td>
+<tr><td><code id="default.units">default.units</code></td>
 <td>
 <p>A string indicating the default units to use
 if <code>x</code> or <code>y</code>
 are only given as numeric vectors.</p>
 </td></tr>  
-<tr><td><code id="grid.xspline_:_shape">shape</code></td>
+<tr><td><code id="shape">shape</code></td>
 <td>
 <p>A numeric vector of values between -1 and 1, which
 control the shape of the spline relative to the control points.</p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_open">open</code></td>
+<tr><td><code id="open">open</code></td>
 <td>
 <p>A logical value indicating whether the spline is 
 a line or a closed shape.</p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_arrow">arrow</code></td>
+<tr><td><code id="arrow">arrow</code></td>
 <td>
 <p>A list describing arrow heads to place at either end
 of the xspline, as produced by the <code>arrow</code> function.</p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_repEnds">repEnds</code></td>
+<tr><td><code id="repEnds">repEnds</code></td>
 <td>
 <p>A logical value indicating whether the first and
 last control points should be replicated for drawing the curve
 (see Details below).</p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p> A character identifier. </p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_gp">gp</code></td>
+<tr><td><code id="gp">gp</code></td>
 <td>
 <p>An object of class <code>gpar</code>, typically the output
 from a call to the function <code>gpar</code>.  This is basically
 a list of graphical parameter settings.</p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_vp">vp</code></td>
+<tr><td><code id="vp">vp</code></td>
 <td>
 <p>A Grid viewport object (or NULL).</p>
 </td></tr>
-<tr><td><code id="grid.xspline_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Arguments to be passed to <code>xsplineGrob</code>.</p>
 </td></tr>
@@ -230,6 +230,7 @@ xsplineTest(c( 1,  1,  1,  1), 3, 3, FALSE)
 popViewport()
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.7.2/00index.html'>Package <em>grid</em> version 2.7.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.7.2/00index.html'>Package <em>grid</em> version 2.7.2</a> ]</div></main>
+
 </div>
 </body></html>

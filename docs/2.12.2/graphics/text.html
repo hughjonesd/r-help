@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/text.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/text.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/text.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/text.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>text {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='text'>Add Text to a Plot</h2>
+<h2>Add Text to a Plot</h2>
 
 <h3>Description</h3>
 
@@ -40,14 +40,14 @@ construction of the coordinates.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="text_:_x">x</code>, <code id="text_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>numeric vectors of coordinates where the text
 <code>labels</code> should be written.  If the length of <code>x</code> and
 <code>y</code> differs, the shorter one is recycled.</p>
 </td></tr>
-<tr><td><code id="text_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>a character vector or expression specifying
 the <em>text</em> to be written.  An attempt is made to coerce other
@@ -56,13 +56,13 @@ other classed objects to character vectors by <code>as.character</code>.
 If <code>labels</code> is longer than <code>x</code> and
 <code>y</code>, the coordinates are recycled to the length of <code>labels</code>.</p>
 </td></tr>
-<tr><td><code id="text_:_adj">adj</code></td>
+<tr><td><code id="adj">adj</code></td>
 <td>
 <p>one or two values in <code class="reqn">[0, 1]</code> which specify the x
 (and optionally y) adjustment of the labels.  On most devices values
 outside that interval will also work.</p>
 </td></tr>
-<tr><td><code id="text_:_pos">pos</code></td>
+<tr><td><code id="pos">pos</code></td>
 <td>
 <p>a position specifier for the text.  If specified this
 overrides any <code>adj</code> value given.  Values of <code>1</code>,
@@ -70,32 +70,32 @@ overrides any <code>adj</code> value given.  Values of <code>1</code>,
 positions below, to the left of, above and to the right of
 the specified coordinates.</p>
 </td></tr>
-<tr><td><code id="text_:_offset">offset</code></td>
+<tr><td><code id="offset">offset</code></td>
 <td>
 <p>when <code>pos</code> is specified, this value gives the
 offset of the label from the specified coordinate in fractions
 of a character width.</p>
 </td></tr>
-<tr><td><code id="text_:_vfont">vfont</code></td>
+<tr><td><code id="vfont">vfont</code></td>
 <td>
 <p><code>NULL</code> for the current font family, or a character
 vector of length 2 for Hershey vector fonts.  The first element of
 the vector selects a typeface and the second element selects a
 style.  Ignored if <code>labels</code> is an expression.</p>
 </td></tr>
-<tr><td><code id="text_:_cex">cex</code></td>
+<tr><td><code id="cex">cex</code></td>
 <td>
 <p>numeric <b>c</b>haracter <b>ex</b>pansion factor; multiplied
 by <code>par("cex")</code> yields the final character size.
 <code>NULL</code> and <code>NA</code> are equivalent to <code>1.0</code>.</p>
 </td></tr>
-<tr><td><code id="text_:_col">col</code>, <code id="text_:_font">font</code></td>
+<tr><td><code id="col">col</code>, <code id="font">font</code></td>
 <td>
 <p>the color and (if <code>vfont = NULL</code>) font to be
 used, possibly vectors. These default to the values of the global
 graphical parameters in <code>par()</code>.</p>
 </td></tr>
-<tr><td><code id="text_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further graphical parameters (from <code>par</code>),
 such as <code>srt</code>, <code>family</code> and <code>xpd</code>.</p>
@@ -208,6 +208,7 @@ text(5,9.8,
      "Jetz no chli züritüütsch: (noch ein bißchen Zürcher deutsch)")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.2/00index.html'>Package <em>graphics</em> version 2.12.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.2/00index.html'>Package <em>graphics</em> version 2.12.2</a> ]</div></main>
+
 </div>
 </body></html>

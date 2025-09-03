@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/power.prop.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/power.prop.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/power.prop.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/power.prop.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>power.prop.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='power.prop.test'>Power Calculations for Two-Sample Test for Proportions</h2>
+<h2>Power Calculations for Two-Sample Test for Proportions</h2>
 
 <h3>Description</h3>
 
@@ -36,36 +36,36 @@ parameters to obtain a target power.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="power.prop.test_:_n">n</code></td>
+<table role = "presentation">
+<tr><td><code id="n">n</code></td>
 <td>
 <p>number of observations (per group)</p>
 </td></tr>
-<tr><td><code id="power.prop.test_:_p1">p1</code></td>
+<tr><td><code id="p1">p1</code></td>
 <td>
 <p>probability in one group</p>
 </td></tr>
-<tr><td><code id="power.prop.test_:_p2">p2</code></td>
+<tr><td><code id="p2">p2</code></td>
 <td>
 <p>probability in other group</p>
 </td></tr>
-<tr><td><code id="power.prop.test_:_sig.level">sig.level</code></td>
+<tr><td><code id="sig.level">sig.level</code></td>
 <td>
 <p>significance level (Type I error probability)</p>
 </td></tr>
-<tr><td><code id="power.prop.test_:_power">power</code></td>
+<tr><td><code id="power">power</code></td>
 <td>
 <p>power of test (1 minus Type II error probability)</p>
 </td></tr>
-<tr><td><code id="power.prop.test_:_alternative">alternative</code></td>
+<tr><td><code id="alternative">alternative</code></td>
 <td>
 <p>one- or two-sided test.  Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="power.prop.test_:_strict">strict</code></td>
+<tr><td><code id="strict">strict</code></td>
 <td>
 <p>use strict interpretation in two-sided case</p>
 </td></tr>
-<tr><td><code id="power.prop.test_:_tol">tol</code></td>
+<tr><td><code id="tol">tol</code></td>
 <td>
 <p>numerical tolerance used in root finding, the default
 providing (at least) four significant digits.</p>
@@ -143,6 +143,7 @@ try(
 power.prop.test(      p1=0.90, p2= 1.0, power=0.8) ##-&gt; n = 73.37
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>stats</em> version 3.6.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>stats</em> version 3.6.3</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/family.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/family.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/family.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/family.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>family {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='family'>Family Objects for Models</h2>
+<h2>Family Objects for Models</h2>
 
 <h3>Description</h3>
 
@@ -44,8 +44,8 @@ quasipoisson(link = "log")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="family_:_link">link</code></td>
+<table role = "presentation">
+<tr><td><code id="link">link</code></td>
 <td>
 <p>a specification for the model link function.
 The <code>binomial</code> family admits the links <code>"logit"</code>,
@@ -65,7 +65,7 @@ power link function for the <code>quasi</code> family.
 <code>"identity"</code> for the <code>gaussian</code> family, and
 <code>"1/mu^2"</code> for the <code>inverse.gaussian</code> family.</p>
 </td></tr>
-<tr><td><code id="family_:_variance">variance</code></td>
+<tr><td><code id="variance">variance</code></td>
 <td>
 <p>for all families, other than <code>quasi</code>, the
 variance function is determined by the family.  The <code>quasi</code>
@@ -73,13 +73,13 @@ family will accept the specifications <code>"constant"</code>,
 <code>"mu(1-mu)"</code>, <code>"mu"</code>, <code>"mu^2"</code> and <code>"mu^3"</code> for
 the variance function.</p>
 </td></tr>
-<tr><td><code id="family_:_object">object</code></td>
+<tr><td><code id="object">object</code></td>
 <td>
 <p>the function <code>family</code> accesses the <code>family</code>
 objects which are stored within objects created by modelling
 functions (e.g. <code>glm</code>).</p>
 </td></tr>
-<tr><td><code id="family_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to methods.</p>
 </td></tr>
@@ -162,6 +162,7 @@ y &lt;- rbinom(100, 1, plogis(x))
 glm(y ~x, family=quasi(var="mu(1-mu)", link="logit"), start=c(0,1))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.6.1/00index.html'>Package <em>base</em> version 1.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.6.1/00index.html'>Package <em>base</em> version 1.6.1</a> ]</div></main>
+
 </div>
 </body></html>

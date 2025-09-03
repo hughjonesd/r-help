@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/tapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/tapply.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/tapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/tapply.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>tapply {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='tapply'>Apply a Function Over a Ragged Array</h2>
+<h2>Apply a Function Over a Ragged Array</h2>
 
 <h3>Description</h3>
 
@@ -34,20 +34,20 @@ levels of certain factors.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="tapply_:_X">X</code></td>
+<table role = "presentation">
+<tr><td><code id="X">X</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object for which a <code>split</code> method
 exists.  Typically vector-like, allowing subsetting with
 <code>[</code>.</p>
 </td></tr>
-<tr><td><code id="tapply_:_INDEX">INDEX</code></td>
+<tr><td><code id="INDEX">INDEX</code></td>
 <td>
 <p>a <code>list</code> of one or more <code>factor</code>s,
 each of same length as <code>X</code>.  The elements are coerced to
 factors by <code>as.factor</code>.</p>
 </td></tr>
-<tr><td><code id="tapply_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>a function (or name of a function) to be applied, or <code>NULL</code>.
 In the case of functions like <code>+</code>, <code>%*%</code>, etc.,
@@ -55,11 +55,11 @@ the function name must be backquoted or quoted.  If <code>FUN</code> is
 <code>NULL</code>, tapply returns a vector which can be used to subscript
 the multi-way array <code>tapply</code> normally produces.</p>
 </td></tr>
-<tr><td><code id="tapply_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>optional arguments to <code>FUN</code>: the Note section.</p>
 </td></tr>
-<tr><td><code id="tapply_:_default">default</code></td>
+<tr><td><code id="default">default</code></td>
 <td>
 <p>(only in the case of simplification to an array) the
 value with which the array is initialized as
@@ -71,7 +71,7 @@ e.g. <code>NA_real_</code>, is chosen (<code>as.raw(0)</code> for
 <code>FUN(integer(0))</code>, e.g., in the case of <code>FUN = sum</code> to
 <code>0</code> or <code>0L</code>.</p>
 </td></tr>
-<tr><td><code id="tapply_:_simplify">simplify</code></td>
+<tr><td><code id="simplify">simplify</code></td>
 <td>
 <p>logical; if <code>FALSE</code>, <code>tapply</code> always returns
 an array of mode <code>"list"</code>; in other words, a <code>list</code>
@@ -187,6 +187,7 @@ stopifnot(
                  `4` = NULL, `5` = NULL), dim=4, dimnames=list(as.character(2:5)))))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>base</em> version 4.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>base</em> version 4.2.0</a> ]</div></main>
+
 </div>
 </body></html>

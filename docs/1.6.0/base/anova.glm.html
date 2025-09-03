@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/anova.glm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/anova.glm.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/anova.glm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/anova.glm.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>anova.glm {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='anova.glm'>Analysis of Deviance for Generalized Linear Model Fits</h2>
+<h2>Analysis of Deviance for Generalized Linear Model Fits</h2>
 
 <h3>Description</h3>
 
@@ -34,19 +34,19 @@ anova(object, ..., dispersion = NULL, test = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="anova.glm_:_object">object</code>, <code id="anova.glm_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code>, <code id="...">...</code></td>
 <td>
 <p>objects of class <code>glm</code>, typically
 the result of a call to <code>glm</code>, or a list of
 <code>objects</code> for the <code>"glmlist"</code> method.</p>
 </td></tr>
-<tr><td><code id="anova.glm_:_dispersion">dispersion</code></td>
+<tr><td><code id="dispersion">dispersion</code></td>
 <td>
 <p>the dispersion parameter for the fitting family.
 By default it is obtained from <code>glm.obj</code>.</p>
 </td></tr>
-<tr><td><code id="anova.glm_:_test">test</code></td>
+<tr><td><code id="test">test</code></td>
 <td>
 <p>a character string, (partially) matching one of <code>"Chisq"</code>,
 <code>"F"</code> or <code>"Cp"</code>. See <code>stat.anova</code>.</p>
@@ -112,6 +112,7 @@ anova(glm.D93, test = "Cp")
 anova(glm.D93, test = "Chisq")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.6.0/00index.html'>Package <em>base</em> version 1.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.6.0/00index.html'>Package <em>base</em> version 1.6.0</a> ]</div></main>
+
 </div>
 </body></html>

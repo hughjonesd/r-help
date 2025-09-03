@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/create.post.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/create.post.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/create.post.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/create.post.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>create.post {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='create.post'>
+<h2>
 Ancillary Function for Preparing Emails and Postings
 </h2>
 
@@ -41,46 +41,46 @@ maintainers or to <span class="rlang"><b>R</b></span> mailing lists.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="create.post_:_instructions">instructions</code></td>
+<table role = "presentation">
+<tr><td><code id="instructions">instructions</code></td>
 <td>
 <p>Character vector of instructions to put at the top
 of the template email.</p>
 </td></tr>
-<tr><td><code id="create.post_:_description">description</code></td>
+<tr><td><code id="description">description</code></td>
 <td>
 <p>Character string: a description to be incorporated
 into messages.</p>
 </td></tr>
-<tr><td><code id="create.post_:_subject">subject</code></td>
+<tr><td><code id="subject">subject</code></td>
 <td>
 <p>Subject of the email. Optional except for the
 <code>"mailx"</code> method.</p>
 </td></tr>
-<tr><td><code id="create.post_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>Submission method, one of <code>"none"</code>, <code>"mailto"</code>,
 <code>"gnudoit"</code>, <code>"ess"</code> or (Unix only) <code>"mailx"</code>.
 See &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="create.post_:_address">address</code></td>
+<tr><td><code id="address">address</code></td>
 <td>
 <p>Recipient's email address, where applicable: for
 package bug reports sent by email this defaults to the address of
 the package maintainer (the first if more than one is listed).</p>
 </td></tr>
-<tr><td><code id="create.post_:_ccaddress">ccaddress</code></td>
+<tr><td><code id="ccaddress">ccaddress</code></td>
 <td>
 <p>Optional email address for copies with the
 <code>"mailx"</code> and <code>"mailto"</code> methods.
 Use <code>ccaddress = ""</code> for no copy.</p>
 </td></tr>
-<tr><td><code id="create.post_:_filename">filename</code></td>
+<tr><td><code id="filename">filename</code></td>
 <td>
 <p>Filename to use for setting up the email (or storing it when
 method is <code>"none"</code> or sending mail fails).</p>
 </td></tr>
-<tr><td><code id="create.post_:_info">info</code></td>
+<tr><td><code id="info">info</code></td>
 <td>
 <p>character vector of information to include in the template
 email below the &lsquo;please do not edit the information below&rsquo; line.</p>
@@ -143,6 +143,7 @@ available.  Currently <code>subject</code> is ignored.</p>
 <p><code>bug.report</code>, <code>help.request</code>.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>utils</em> version 4.0.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>utils</em> version 4.0.5</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xyz.coords.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xyz.coords.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.7.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xyz.coords.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/xyz.coords.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>xyz.coords {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='xyz.coords'>Extracting Plotting Structures</h2>
+<h2>Extracting Plotting Structures</h2>
 
 <h3>Description</h3>
 
@@ -35,8 +35,8 @@ for three dimensional (3D) plots.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="xyz.coords_:_x">x</code>, <code id="xyz.coords_:_y">y</code>, <code id="xyz.coords_:_z">z</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code>, <code id="z">z</code></td>
 <td>
 <p>the x, y and z coordinates of a set of points.
 Both <code>y</code> and <code>z</code> can be left at <code>NULL</code>.  In this
@@ -59,16 +59,16 @@ in any other case, the arguments are coerced to vectors
 and the values plotted against their indices.
 </p>
 </td></tr>
-<tr><td><code id="xyz.coords_:_xlab">xlab</code>, <code id="xyz.coords_:_ylab">ylab</code>, <code id="xyz.coords_:_zlab">zlab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code>, <code id="zlab">zlab</code></td>
 <td>
 <p>names for the x, y and z variables to be extracted.</p>
 </td></tr>
-<tr><td><code id="xyz.coords_:_log">log</code></td>
+<tr><td><code id="log">log</code></td>
 <td>
 <p>character, <code>"x"</code>, <code>"y"</code>, <code>"z"</code> or combinations.
 Sets negative values to <code>NA</code> and gives a warning.</p>
 </td></tr>
-<tr><td><code id="xyz.coords_:_recycle">recycle</code></td>
+<tr><td><code id="recycle">recycle</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, recycle (<code>rep</code>) the
 shorter ones of <code>x</code>, <code>y</code> or <code>z</code> if their lengths differ.</p>
@@ -80,7 +80,7 @@ shorter ones of <code>x</code>, <code>y</code> or <code>z</code> if their length
 
 <p>A list with the components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>x</code></td>
 <td>
 <p>numeric (i.e., <code>double</code>) vector of abscissa values.</p>
@@ -132,6 +132,7 @@ xyz.coords(data.frame(x = -1:9, y = 2:12, z = 3:13), y = NULL, z = NULL,
 ##&gt; Warning message: 2 x values &lt;= 0 omitted ...
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.7.0/00index.html'>Package <em>grDevices</em> version 2.7.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.7.0/00index.html'>Package <em>grDevices</em> version 2.7.0</a> ]</div></main>
+
 </div>
 </body></html>

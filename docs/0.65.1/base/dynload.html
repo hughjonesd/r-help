@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dynload.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dynload.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.65.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dynload.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dynload.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>dynload {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='dynload'>Foreign Function Interface</h2>
+<h2>Foreign Function Interface</h2>
 
 <h3>Usage</h3>
 
@@ -31,19 +31,19 @@ symbol.For(name)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="dynload_:_libname">libname</code></td>
+<table role = "presentation">
+<tr><td><code id="libname">libname</code></td>
 <td>
 <p>a character string giving the pathname to a DLL.</p>
 </td></tr>
-<tr><td><code id="dynload_:_local">local</code></td>
+<tr><td><code id="local">local</code></td>
 <td>
 <p>a logical value controlling whether the symbols in the DLL are stored
 in their own local table and not shared across DLLs,
 or added to the global symbol table. Whether this has any
 effect is system-dependent.</p>
 </td></tr>
-<tr><td><code id="dynload_:_now">now</code></td>
+<tr><td><code id="now">now</code></td>
 <td>
 <p>a logical controlling whether all symbols are resolved (and relocated)
 immediately the library is loaded or deferred until they
@@ -51,11 +51,11 @@ are used. This control is useful for developers testing
 whether a library is complete and has all the necessary
 symbols and for users to ignore missing symbols.</p>
 </td></tr>
-<tr><td><code id="dynload_:_symbol">symbol</code></td>
+<tr><td><code id="symbol">symbol</code></td>
 <td>
 <p>a character string giving a symbol name.</p>
 </td></tr>
-<tr><td><code id="dynload_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>a character string giving either the name of a C
 function or Fortran subroutine. Fortran names probably need to be given
@@ -157,6 +157,7 @@ library(mva)
 is.loaded(symbol.For("hcass2")) #-&gt; TRUE
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.65.1/00index.html'>Package <em>base</em> version 0.65.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.65.1/00index.html'>Package <em>base</em> version 0.65.1</a> ]</div></main>
+
 </div>
 </body></html>

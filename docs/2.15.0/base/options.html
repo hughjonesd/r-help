@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>options {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='options'>Options Settings</h2>
+<h2>Options Settings</h2>
 
 <h3>Description</h3>
 
@@ -37,8 +37,8 @@ getOption(x, default = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="options_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="...">...</code></td>
 <td>
 <p>any options can be defined, using <code>name = value</code> or
 by passing a list of such tagged values.  However, only the ones
@@ -46,11 +46,11 @@ below are used in base <span class="rlang"><b>R</b></span>.
 Further, <code>options('name') == options()['name']</code>, see the example.
 </p>
 </td></tr>
-<tr><td><code id="options_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a character string holding an option name.</p>
 </td></tr>
-<tr><td><code id="options_:_default">default</code></td>
+<tr><td><code id="default">default</code></td>
 <td>
 <p>if the specified option is not set in the options list,
 this value is returned.  This facilitates retrieving an option and
@@ -203,7 +203,8 @@ but not deparsing.</p>
 Defaults to &lsquo;<span class="file"><var>R_HOME</var>/bin/pager</span>&rsquo;,
 which selects a pager via the <span class="env">\link{PAGER}</span> environment variable
 (and that usually defaults to <code>less</code>).
-Can be a character string or an <span class="rlang"><b>R</b></span> function, in which case it
+</p>
+<p>Can be a character string or an <span class="rlang"><b>R</b></span> function, in which case it
 needs to accept the arguments <code>(files, header,
 	title, delete.file)</code> corresponding to the first four arguments of
 <code>file.show</code>.</p>
@@ -606,7 +607,8 @@ help files in <code>help</code>.</p>
 </dd>
 <dt><code>pkgType</code>:</dt><dd><p>The default type of packages to be downloaded
 and installed &ndash; see <code>install.packages</code>.
-Possible values are <code>"source"</code> (the default except under the
+</p>
+<p>Possible values are <code>"source"</code> (the default except under the
 CRAN Mac OS X build) and <code>"mac.binary.leopard"</code>.  Windows
 uses  <code>"win.binary"</code>.  (<code>"mac.binary"</code> and
 <code>"mac.binary.universal"</code> are no longer in use.)
@@ -747,6 +749,7 @@ if(tmp)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.0/00index.html'>Package <em>base</em> version 2.15.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.0/00index.html'>Package <em>base</em> version 2.15.0</a> ]</div></main>
+
 </div>
 </body></html>

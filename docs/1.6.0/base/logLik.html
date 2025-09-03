@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/logLik.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/logLik.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/logLik.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/logLik.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>logLik {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='logLik'>Extract Log-Likelihood</h2>
+<h2>Extract Log-Likelihood</h2>
 
 <h3>Description</h3>
 
@@ -24,8 +24,6 @@ function processMathHTML() {
 specific classes of objects.  Classes which already have methods for
 this function include: <code>lm</code>, <code>nls</code> in package <b>nls</b>,
 and <code>gls</code>, <code>lme</code> and others in package <b>nlme</b>.
-
-
 </p>
 
 
@@ -35,29 +33,27 @@ and <code>gls</code>, <code>lme</code> and others in package <b>nlme</b>.
 
 ## S3 method for class 'logLik'
 as.data.frame(x, row.names = NULL, optional = FALSE)
-
-
 </code></pre>
 
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="logLik_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>any object from which a log-likelihood value, or a
 contribution to a log-likelihood value, can be extracted.</p>
 </td></tr>
-<tr><td><code id="logLik_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>some methods for this generic function require additional
 arguments.</p>
 </td></tr>
-<tr><td><code id="logLik_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object of class <code>logLik</code>.</p>
 </td></tr>
-<tr><td><code id="logLik_:_row.names">row.names</code>, <code id="logLik_:_optional">optional</code></td>
+<tr><td><code id="row.names">row.names</code>, <code id="optional">optional</code></td>
 <td>
 <p>arguments to the <code>as.data.frame</code>
 method; see its documentation.</p>
@@ -97,6 +93,7 @@ logLik(lmx) # using print.logLik() method
 str(logLik(lmx))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.6.0/00index.html'>Package <em>base</em> version 1.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.6.0/00index.html'>Package <em>base</em> version 1.6.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/read.DIF.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/read.DIF.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/read.DIF.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/read.DIF.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>read.DIF {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='read.DIF'>Data Input from Spreadsheet</h2>
+<h2>Data Input from Spreadsheet</h2>
 
 <h3>Description</h3>
 
@@ -40,8 +40,8 @@ from it.  DIF is a format for data matrices such as single spreadsheets.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="read.DIF_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>the name of the file which the data are to be read from,
 or a connection, or a complete URL.
@@ -51,7 +51,7 @@ case <code>read.DIF("clipboard")</code> will look for a DIF format entry
 in the Windows clipboard.
 </p>
 </td></tr>
-<tr><td><code id="read.DIF_:_header">header</code></td>
+<tr><td><code id="header">header</code></td>
 <td>
 <p>a logical value indicating whether the spreadsheet contains the
 names of the variables as its first line.  If missing, the value is
@@ -59,11 +59,11 @@ determined from the file format: <code>header</code> is set to <code>TRUE</code>
 if and only if the first row contains only character values and
 the top left cell is empty.</p>
 </td></tr>
-<tr><td><code id="read.DIF_:_dec">dec</code></td>
+<tr><td><code id="dec">dec</code></td>
 <td>
 <p>the character used in the file for decimal points.</p>
 </td></tr>
-<tr><td><code id="read.DIF_:_row.names">row.names</code></td>
+<tr><td><code id="row.names">row.names</code></td>
 <td>
 <p>a vector of row names.  This can be a vector giving
 the actual row names, or a single number giving the column of the
@@ -78,12 +78,12 @@ numbered.
 <p>Using <code>row.names = NULL</code> forces row numbering.
 </p>
 </td></tr>
-<tr><td><code id="read.DIF_:_col.names">col.names</code></td>
+<tr><td><code id="col.names">col.names</code></td>
 <td>
 <p>a vector of optional names for the variables.
 The default is to use <code>"V"</code> followed by the column number.</p>
 </td></tr>
-<tr><td><code id="read.DIF_:_as.is">as.is</code></td>
+<tr><td><code id="as.is">as.is</code></td>
 <td>
 <p>the default behavior of <code>read.DIF</code> is to convert
 character variables to factors.  The variable <code>as.is</code> controls the
@@ -104,14 +104,14 @@ variable) and so includes the column of row names (if any) and any
 columns to be skipped.
 </p>
 </td></tr>
-<tr><td><code id="read.DIF_:_na.strings">na.strings</code></td>
+<tr><td><code id="na.strings">na.strings</code></td>
 <td>
 <p>a character vector of strings which are to be
 interpreted as <code>NA</code> values.  Blank fields are also
 considered to be missing values in logical, integer, numeric and
 complex fields.</p>
 </td></tr>
-<tr><td><code id="read.DIF_:_colClasses">colClasses</code></td>
+<tr><td><code id="colClasses">colClasses</code></td>
 <td>
 <p>character.  A vector of classes to be assumed for
 the columns.  Recycled as necessary, or if the character vector is
@@ -129,17 +129,17 @@ class.
 variable) and so includes the column of row names (if any).
 </p>
 </td></tr>
-<tr><td><code id="read.DIF_:_nrows">nrows</code></td>
+<tr><td><code id="nrows">nrows</code></td>
 <td>
 <p>the maximum number of rows to read in.  Negative values
 are ignored.</p>
 </td></tr>
-<tr><td><code id="read.DIF_:_skip">skip</code></td>
+<tr><td><code id="skip">skip</code></td>
 <td>
 <p>the number of lines of the data file to skip before
 beginning to read data.</p>
 </td></tr>
-<tr><td><code id="read.DIF_:_check.names">check.names</code></td>
+<tr><td><code id="check.names">check.names</code></td>
 <td>
 <p>logical.  If <code>TRUE</code> then the names of the
 variables in the data frame are checked to ensure that they are
@@ -147,17 +147,17 @@ syntactically valid variable names.  If necessary they are adjusted
 (by <code>make.names</code>) so that they are, and also to ensure
 that there are no duplicates.</p>
 </td></tr>
-<tr><td><code id="read.DIF_:_blank.lines.skip">blank.lines.skip</code></td>
+<tr><td><code id="blank.lines.skip">blank.lines.skip</code></td>
 <td>
 <p>logical: if <code>TRUE</code> blank lines in the
 input are ignored.</p>
 </td></tr>
-<tr><td><code id="read.DIF_:_stringsAsFactors">stringsAsFactors</code></td>
+<tr><td><code id="stringsAsFactors">stringsAsFactors</code></td>
 <td>
 <p>logical: should character vectors be converted
 to factors?</p>
 </td></tr>
-<tr><td><code id="read.DIF_:_transpose">transpose</code></td>
+<tr><td><code id="transpose">transpose</code></td>
 <td>
 <p>logical, indicating if the row and column
 interpretation should be transposed.  Microsoft's Excel has been
@@ -226,6 +226,7 @@ dc &lt;- read.csv(file.path(udir, "exDIF.csv"), header= TRUE)
 stopifnot(identical(dd,dc), dim(dd) == c(4,2))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.14.0/00index.html'>Package <em>utils</em> version 2.14.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.14.0/00index.html'>Package <em>utils</em> version 2.14.0</a> ]</div></main>
+
 </div>
 </body></html>

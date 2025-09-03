@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/StructTS.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/StructTS.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/StructTS.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/StructTS.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>StructTS {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='StructTS'>Fit Structural Time Series</h2>
+<h2>Fit Structural Time Series</h2>
 
 <h3>Description</h3>
 
@@ -33,29 +33,29 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="StructTS_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a univariate numeric time series. Missing values are allowed.</p>
 </td></tr>
-<tr><td><code id="StructTS_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>the class of structural model.  If omitted, a BSM is used
 for a time series with <code>frequency(x) &gt; 1</code>, and a local trend
 model otherwise.  Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="StructTS_:_init">init</code></td>
+<tr><td><code id="init">init</code></td>
 <td>
 <p>initial values of the variance parameters.</p>
 </td></tr>
-<tr><td><code id="StructTS_:_fixed">fixed</code></td>
+<tr><td><code id="fixed">fixed</code></td>
 <td>
 <p>optional numeric vector of the same length as the total
 number of parameters.  If supplied, only <code>NA</code> entries in
 <code>fixed</code> will be varied.  Probably most useful for setting
 variances to zero.</p>
 </td></tr>
-<tr><td><code id="StructTS_:_optim.control">optim.control</code></td>
+<tr><td><code id="optim.control">optim.control</code></td>
 <td>
 <p>List of control parameters for
 <code>optim</code>.  Method <code>"L-BFGS-B"</code> is used.</p>
@@ -130,7 +130,7 @@ sometimes known as the &lsquo;dummy variable&rsquo; version of the BSM.)
 
 <p>A list of class <code>"StructTS"</code> with components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>coef</code></td>
 <td>
 <p>the estimated variances of the components.</p>
@@ -244,6 +244,7 @@ StructTS(log10(UKgas), type = "BSM", fixed = c(0.1,0.001,NA,NA),
          optim.control = list(trace = TRUE))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.0/00index.html'>Package <em>stats</em> version 4.0.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.0/00index.html'>Package <em>stats</em> version 4.0.0</a> ]</div></main>
+
 </div>
 </body></html>

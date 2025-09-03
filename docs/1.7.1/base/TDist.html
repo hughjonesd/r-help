@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/TDist.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/TDist.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.7.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/TDist.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/TDist.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>TDist {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='TDist'>The Student t Distribution</h2>
+<h2>The Student t Distribution</h2>
 
 <h3>Description</h3>
 
@@ -37,34 +37,34 @@ rt(n, df)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="TDist_:_x">x</code>, <code id="TDist_:_q">q</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="q">q</code></td>
 <td>
 <p>vector of quantiles.</p>
 </td></tr>
-<tr><td><code id="TDist_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>vector of probabilities.</p>
 </td></tr>
-<tr><td><code id="TDist_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>number of observations. If <code>length(n) &gt; 1</code>, the length
 is taken to be the number required.</p>
 </td></tr>
-<tr><td><code id="TDist_:_df">df</code></td>
+<tr><td><code id="df">df</code></td>
 <td>
 <p>degrees of freedom (<code class="reqn">&gt; 0</code>, maybe non-integer).</p>
 </td></tr>
-<tr><td><code id="TDist_:_ncp">ncp</code></td>
+<tr><td><code id="ncp">ncp</code></td>
 <td>
 <p>non-centrality parameter <code class="reqn">\delta</code>;
 currently only for <code>pt()</code> and <code>ncp &lt;= 37.62</code>.</p>
 </td></tr>
-<tr><td><code id="TDist_:_log">log</code>, <code id="TDist_:_log.p">log.p</code></td>
+<tr><td><code id="log">log</code>, <code id="log.p">log.p</code></td>
 <td>
 <p>logical; if TRUE, probabilities p are given as log(p).</p>
 </td></tr>
-<tr><td><code id="TDist_:_lower.tail">lower.tail</code></td>
+<tr><td><code id="lower.tail">lower.tail</code></td>
 <td>
 <p>logical; if TRUE (default), probabilities are
 <code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
@@ -93,7 +93,6 @@ is defined as a the distribution of
 <code class="reqn">T_{\nu}(\delta) := \frac{U + \delta}{\chi_{\nu}/\sqrt{\nu}}</code>
 where <code class="reqn">U</code> and <code class="reqn">\chi_{\nu}</code>  are independent random
 variables, <code class="reqn">U \sim {\cal N}(0,1)</code>, and
-
 <code class="reqn">\chi^2_\nu</code>
 is chi-squared, see <code>pchisq</code>.
 </p>
@@ -102,7 +101,6 @@ Let <code class="reqn">T= \frac{\bar{X} - \mu_0}{S/\sqrt{n}}</code>
 where
 <code class="reqn">\bar{X}</code> is the <code>mean</code> and <code class="reqn">S</code> the sample standard
 deviation (<code>sd</code>) of <code class="reqn">X_1,X_2,\dots,X_n</code> which are i.i.d.
-
 <code class="reqn">       N(\mu,\sigma^2)</code>.
 Then <code class="reqn">T</code> is distributed as non-centrally <code class="reqn">t</code> with
 <code>df</code><code class="reqn">= n-1</code>
@@ -150,6 +148,7 @@ persp(tt,ncp,ptn, zlim=0:1, r=2, phi=20, theta=200, main=t.tit,
       xlab = "t", ylab = "noncentrality parameter", zlab = "Pr(T &lt;= t)")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.7.1/00index.html'>Package <em>base</em> version 1.7.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.7.1/00index.html'>Package <em>base</em> version 1.7.1</a> ]</div></main>
+
 </div>
 </body></html>

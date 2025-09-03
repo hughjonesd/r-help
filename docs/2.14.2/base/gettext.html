@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/gettext.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/gettext.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/gettext.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/gettext.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>gettext {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='gettext'>Translate Text Messages</h2>
+<h2>Translate Text Messages</h2>
 
 <h3>Description</h3>
 
@@ -37,28 +37,28 @@ bindtextdomain(domain, dirname = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="gettext_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="...">...</code></td>
 <td>
 <p>One or more character vectors.</p>
 </td></tr>
-<tr><td><code id="gettext_:_domain">domain</code></td>
+<tr><td><code id="domain">domain</code></td>
 <td>
 <p>The &lsquo;domain&rsquo; for the translation.</p>
 </td></tr>
-<tr><td><code id="gettext_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>a non-negative integer.</p>
 </td></tr>
-<tr><td><code id="gettext_:_msg1">msg1</code></td>
+<tr><td><code id="msg1">msg1</code></td>
 <td>
 <p>the message to be used in English for <code>n = 1</code>.</p>
 </td></tr>
-<tr><td><code id="gettext_:_msg2">msg2</code></td>
+<tr><td><code id="msg2">msg2</code></td>
 <td>
 <p>the message to be used in English for <code>n = 0, 2, 3,...</code>.</p>
 </td></tr>
-<tr><td><code id="gettext_:_dirname">dirname</code></td>
+<tr><td><code id="dirname">dirname</code></td>
 <td>
 <p>The directory in which to find translated message
 catalogs for the domain.</p>
@@ -143,6 +143,7 @@ cat(sprintf(ngettext(length(miss),
             paste(sQuote(miss), collapse=", ")))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.14.2/00index.html'>Package <em>base</em> version 2.14.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.14.2/00index.html'>Package <em>base</em> version 2.14.2</a> ]</div></main>
+
 </div>
 </body></html>

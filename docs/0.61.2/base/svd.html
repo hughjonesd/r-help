@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/svd.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/svd.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.61.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/svd.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/svd.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>svd {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='svd'>Singular Value Decomposition of a Matrix</h2>
+<h2>Singular Value Decomposition of a Matrix</h2>
 
 <h3>Description</h3>
 
@@ -34,17 +34,17 @@ statistical techniques.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="svd_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a matrix whose SVD decomposition is to be computed.</p>
 </td></tr>
-<tr><td><code id="svd_:_nu">nu</code></td>
+<tr><td><code id="nu">nu</code></td>
 <td>
 <p>the number of left eigenvectors to be computed.
 This must be one of <code>0</code>, <code>nrow(x)</code> and <code>ncol(x)</code>.</p>
 </td></tr>
-<tr><td><code id="svd_:_nv">nv</code></td>
+<tr><td><code id="nv">nv</code></td>
 <td>
 <p>the number of right eigenvectors to be computed.
 This must be one of <code>0</code>, and <code>ncol(x)</code>.</p>
@@ -59,7 +59,7 @@ as computed by LINPACK.
 The components in the returned value correspond directly
 to the values returned by DSVDC. 
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>d</code></td>
 <td>
 <p>a vector containing the singular values of <code>x</code>.</p>
@@ -86,6 +86,7 @@ to the values returned by DSVDC.
 
 <p><code>eigen</code>, <code>qr</code>.</p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.61.2/00index.html'>Package <em>base</em> version 0.61.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.61.2/00index.html'>Package <em>base</em> version 0.61.2</a> ]</div></main>
+
 </div>
 </body></html>

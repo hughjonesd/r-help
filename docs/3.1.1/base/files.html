@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/files.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/files.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/files.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/files.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>files {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='files'>File Manipulation</h2>
+<h2>File Manipulation</h2>
 
 <h3>Description</h3>
 
@@ -41,37 +41,38 @@ file.link(from, to)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="files_:_...">...</code>, <code id="files_:_file1">file1</code>, <code id="files_:_file2">file2</code></td>
+<table role = "presentation">
+<tr><td><code id="...">...</code>, <code id="file1">file1</code>, <code id="file2">file2</code></td>
 <td>
 <p>character vectors, containing file names or paths.</p>
 </td></tr>
-<tr><td><code id="files_:_from">from</code>, <code id="files_:_to">to</code></td>
+<tr><td><code id="from">from</code>, <code id="to">to</code></td>
 <td>
 <p>character vectors, containing file names or paths.
 For <code>file.copy</code> and <code>file.symlink</code>
-<code>to</code> can alternatively be the path to a single existing directory.</p>
+</p>
+<p><code>to</code> can alternatively be the path to a single existing directory.</p>
 </td></tr>
-<tr><td><code id="files_:_overwrite">overwrite</code></td>
+<tr><td><code id="overwrite">overwrite</code></td>
 <td>
 <p>logical; should existing destination files be overwritten?</p>
 </td></tr>
-<tr><td><code id="files_:_showWarnings">showWarnings</code></td>
+<tr><td><code id="showWarnings">showWarnings</code></td>
 <td>
 <p>logical; should the warnings on failure be shown?</p>
 </td></tr>
-<tr><td><code id="files_:_recursive">recursive</code></td>
+<tr><td><code id="recursive">recursive</code></td>
 <td>
 <p>logical.  If <code>to</code> is a directory, should
 directories in <code>from</code> be copied (and their contents)?  (Like
 <code>cp -R</code> on POSIX OSes.)</p>
 </td></tr>
-<tr><td><code id="files_:_copy.mode">copy.mode</code></td>
+<tr><td><code id="copy.mode">copy.mode</code></td>
 <td>
 <p>logical:  should file permission bits be copied where
 possible?</p>
 </td></tr>
-<tr><td><code id="files_:_copy.date">copy.date</code></td>
+<tr><td><code id="copy.date">copy.date</code></td>
 <td>
 <p>logical:  should file dates be preserved where
 possible? See <code>Sys.setFileTime</code>.</p>
@@ -218,6 +219,7 @@ unlink("tmp", recursive = TRUE)
 file.remove("A", "B", "C")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.1/00index.html'>Package <em>base</em> version 3.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.1/00index.html'>Package <em>base</em> version 3.1.1</a> ]</div></main>
+
 </div>
 </body></html>

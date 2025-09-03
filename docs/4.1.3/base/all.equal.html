@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/all.equal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/all.equal.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/all.equal.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/all.equal.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>all.equal {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='all.equal'>Test if Two Objects are (Nearly) Equal</h2>
+<h2>Test if Two Objects are (Nearly) Equal</h2>
 
 <h3>Description</h3>
 
@@ -63,32 +63,32 @@ attr.all.equal(target, current, ...,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="all.equal_:_target">target</code></td>
+<table role = "presentation">
+<tr><td><code id="target">target</code></td>
 <td>
 <p><span class="rlang"><b>R</b></span> object.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_current">current</code></td>
+<tr><td><code id="current">current</code></td>
 <td>
 <p>other <span class="rlang"><b>R</b></span> object, to be compared with <code>target</code>.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments for different methods, notably the
 following two, for numerical comparison:</p>
 </td></tr>
-<tr><td><code id="all.equal_:_tolerance">tolerance</code></td>
+<tr><td><code id="tolerance">tolerance</code></td>
 <td>
 <p>numeric <code class="reqn">\ge</code> 0.  Differences smaller than
 <code>tolerance</code> are not reported.  The default value is close to
 <code>1.5e-8</code>.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_scale">scale</code></td>
+<tr><td><code id="scale">scale</code></td>
 <td>
 <p><code>NULL</code> or numeric &gt; 0, typically of length 1 or
 <code>length(target)</code>.  See &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_countEQ">countEQ</code></td>
+<tr><td><code id="countEQ">countEQ</code></td>
 <td>
 <p>logical indicating if the <code>target == current</code>
 cases should be counted when computing the mean (absolute or
@@ -96,51 +96,51 @@ relative) differences.  The default, <code>FALSE</code> may seem
 misleading in cases where <code>target</code> and <code>current</code> only
 differ in a few places; see the extensive example.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_formatFUN">formatFUN</code></td>
+<tr><td><code id="formatFUN">formatFUN</code></td>
 <td>
 <p>a <code>function</code> of two arguments,
 <code>err</code>, the relative, absolute or scaled error, and
 <code>what</code>, a character string indicating the <em>kind</em> of error;
 may be used, e.g., to format relative and absolute errors differently.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_check.attributes">check.attributes</code></td>
+<tr><td><code id="check.attributes">check.attributes</code></td>
 <td>
 <p>logical indicating if the
 <code>attributes</code> of <code>target</code> and <code>current</code>
 (other than the names) should be compared.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_use.names">use.names</code></td>
+<tr><td><code id="use.names">use.names</code></td>
 <td>
 <p>logical indicating if <code>list</code> comparison
 should report differing components by name (if matching) instead of
 integer index.  Note that this comes after <code>...</code> and so must
 be specified by its full name.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_all.names">all.names</code></td>
+<tr><td><code id="all.names">all.names</code></td>
 <td>
 <p>logical passed to <code>ls</code> indicating if
 &ldquo;hidden&rdquo; objects should also be considered in the environments.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_evaluate">evaluate</code></td>
+<tr><td><code id="evaluate">evaluate</code></td>
 <td>
 <p>for the <code>environment</code> method: <code>logical</code> indicating if
 &ldquo;promises should be forced&rdquo;, i.e., typically formal function arguments
 be evaluated for comparison.  If false, only the <code>names</code> of
 the objects in the two environments are checked for equality.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_check.environment">check.environment</code></td>
+<tr><td><code id="check.environment">check.environment</code></td>
 <td>
 <p>logical requiring that the
 <code>environment()</code>s of functions should be compared, too.
 You may need to set <code>check.environment=FALSE</code> in unexpected
 cases, such as when comparing two <code>nls()</code> fits.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_check.tzone">check.tzone</code></td>
+<tr><td><code id="check.tzone">check.tzone</code></td>
 <td>
 <p>logical indicating if the <code>"tzone"</code> attributes
 of <code>target</code> and <code>current</code> should be compared.</p>
 </td></tr>
-<tr><td><code id="all.equal_:_check.names">check.names</code></td>
+<tr><td><code id="check.names">check.names</code></td>
 <td>
 <p>logical indicating if the <code>names(.)</code>
 of <code>target</code> and <code>current</code> should be compared.</p>
@@ -276,6 +276,7 @@ all.equal(now, as.POSIXlt(now, "UTC"), check.tzone = FALSE)  # TRUE
 )
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.1.3/00index.html'>Package <em>base</em> version 4.1.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.1.3/00index.html'>Package <em>base</em> version 4.1.3</a> ]</div></main>
+
 </div>
 </body></html>

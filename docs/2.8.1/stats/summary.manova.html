@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.manova.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.manova.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.manova.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/summary.manova.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>summary.manova {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='summary.manova'>Summary Method for Multivariate Analysis of Variance</h2>
+<h2>Summary Method for Multivariate Analysis of Variance</h2>
 
 <h3>Description</h3>
 
@@ -35,28 +35,28 @@ summary(object,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="summary.manova_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>An object of class <code>"manova"</code> or an <code>aov</code>
 object with multiple responses.</p>
 </td></tr>
-<tr><td><code id="summary.manova_:_test">test</code></td>
+<tr><td><code id="test">test</code></td>
 <td>
 <p>The name of the test statistic to be used.  Partial
 matching is used so the name can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="summary.manova_:_intercept">intercept</code></td>
+<tr><td><code id="intercept">intercept</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, the intercept term is
 included in the table.</p>
 </td></tr>
-<tr><td><code id="summary.manova_:_tol">tol</code></td>
+<tr><td><code id="tol">tol</code></td>
 <td>
 <p>tolerance to be used in deciding if the residuals are
 rank-deficient: see <code>qr</code>.</p>
 </td></tr>
-<tr><td><code id="summary.manova_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td></tr>
@@ -93,7 +93,7 @@ to transform the responses to remove the high correlation.
 <p>An object of class <code>"summary.manova"</code>.  If there is a positive
 residual degrees of freedom, this is a list with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>row.names</code></td>
 <td>
 <p>The names of the terms, the row names of the
@@ -160,6 +160,7 @@ summary(fit, test="Wilks") # ANOVA table of Wilks' lambda
 summary(fit)               # same F statistics as single-df terms
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.8.1/00index.html'>Package <em>stats</em> version 2.8.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.8.1/00index.html'>Package <em>stats</em> version 2.8.1</a> ]</div></main>
+
 </div>
 </body></html>

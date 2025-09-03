@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/backsolve.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/backsolve.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.62.4. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/backsolve.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/backsolve.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>backsolve {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='backsolve'>Solve an Upper Triangular System</h2>
+<h2>Solve an Upper Triangular System</h2>
 
 <h3>Usage</h3>
 
@@ -26,17 +26,17 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="backsolve_:_r">r</code></td>
+<table role = "presentation">
+<tr><td><code id="r">r</code></td>
 <td>
 <p>an upper triangular matrix giving the coefficients for
 the system to be solved.  Values below the diagonal are ignored.</p>
 </td></tr>
-<tr><td><code id="backsolve_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a matrix whose columns give &ldquo;right-hand sides&rdquo; for the equations.</p>
 </td></tr>
-<tr><td><code id="backsolve_:_k">k</code></td>
+<tr><td><code id="k">k</code></td>
 <td>
 <p>The number or columns of <code>r</code> and rows of <code>x</code> to use.</p>
 </td></tr>
@@ -75,6 +75,7 @@ r &lt;- rbind(c(1,2,3),
 r %*% y # == x = (8,4,2)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.62.4/00index.html'>Package <em>base</em> version 0.62.4</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.62.4/00index.html'>Package <em>base</em> version 0.62.4</a> ]</div></main>
+
 </div>
 </body></html>

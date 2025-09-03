@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/arrows.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/arrows.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/arrows.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/arrows.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>arrows {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='arrows'>Add Arrows to a Plot</h2>
+<h2>Add Arrows to a Plot</h2>
 
 <h3>Description</h3>
 
@@ -33,28 +33,28 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="arrows_:_x0">x0</code>, <code id="arrows_:_y0">y0</code></td>
+<table role = "presentation">
+<tr><td><code id="x0">x0</code>, <code id="y0">y0</code></td>
 <td>
 <p>coordinates of points <b>from</b> which to draw.</p>
 </td></tr>
-<tr><td><code id="arrows_:_x1">x1</code>, <code id="arrows_:_y1">y1</code></td>
+<tr><td><code id="x1">x1</code>, <code id="y1">y1</code></td>
 <td>
 <p>coordinates of points <b>to</b> which to draw.</p>
 </td></tr>
-<tr><td><code id="arrows_:_length">length</code></td>
+<tr><td><code id="length">length</code></td>
 <td>
 <p>length of the edges of the arrow head (in inches).</p>
 </td></tr>
-<tr><td><code id="arrows_:_angle">angle</code></td>
+<tr><td><code id="angle">angle</code></td>
 <td>
 <p>angle from the shaft of the arrow to the edge of the arrow head.</p>
 </td></tr>
-<tr><td><code id="arrows_:_code">code</code></td>
+<tr><td><code id="code">code</code></td>
 <td>
 <p>integer code, determining <em>kind</em> of arrows to be drawn.</p>
 </td></tr>
-<tr><td><code id="arrows_:_col">col</code>, <code id="arrows_:_lty">lty</code>, <code id="arrows_:_xpd">xpd</code></td>
+<tr><td><code id="col">col</code>, <code id="lty">lty</code>, <code id="xpd">xpd</code></td>
 <td>
 <p>usual graphical parameters as in <code>par</code>.</p>
 </td></tr>
@@ -94,6 +94,7 @@ s &lt;- s[-length(s)]
 segments(x[s], y[s], x[s+2], y[s+2], col= 'pink')
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.0.1/00index.html'>Package <em>base</em> version 1.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.0.1/00index.html'>Package <em>base</em> version 1.0.1</a> ]</div></main>
+
 </div>
 </body></html>

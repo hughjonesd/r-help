@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/friedman.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/friedman.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/friedman.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/friedman.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>friedman.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='friedman.test'>Friedman Rank Sum Test</h2>
+<h2>Friedman Rank Sum Test</h2>
 
 <h3>Description</h3>
 
@@ -38,48 +38,48 @@ friedman.test(formula, data, subset, na.action, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="friedman.test_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="y">y</code></td>
 <td>
 <p>either a numeric vector of data values, or a data matrix.</p>
 </td></tr>
-<tr><td><code id="friedman.test_:_groups">groups</code></td>
+<tr><td><code id="groups">groups</code></td>
 <td>
 <p>a vector giving the group for the corresponding
 elements of <code>y</code> if this is a vector;  ignored if <code>y</code>
 is a matrix.  If not a factor object, it is coerced to one.</p>
 </td></tr>
-<tr><td><code id="friedman.test_:_blocks">blocks</code></td>
+<tr><td><code id="blocks">blocks</code></td>
 <td>
 <p>a vector giving the block for the corresponding
 elements of <code>y</code> if this is a vector;  ignored if <code>y</code>
 is a matrix.  If not a factor object, it is coerced to one.</p>
 </td></tr>
-<tr><td><code id="friedman.test_:_formula">formula</code></td>
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula of the form <code>a ~ b | c</code>, where <code>a</code>,
 <code>b</code> and <code>c</code> give the data values and corresponding groups
 and blocks, respectively.</p>
 </td></tr>
-<tr><td><code id="friedman.test_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional matrix or data frame (or similar: see
 <code>model.frame</code>) containing the variables in the
 formula <code>formula</code>.  By default the variables are taken from
 <code>environment(formula)</code>.</p>
 </td></tr>
-<tr><td><code id="friedman.test_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used.</p>
 </td></tr>
-<tr><td><code id="friedman.test_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen when
 the data contain <code>NA</code>s.  Defaults to
 <code>getOption("na.action")</code>.</p>
 </td></tr>
-<tr><td><code id="friedman.test_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to be passed to or from methods.</p>
 </td></tr>
@@ -108,7 +108,7 @@ contains <code>NA</code>'s, corresponding blocks are removed.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>the value of Friedman's chi-squared statistic.</p>
@@ -196,6 +196,7 @@ friedman.test(wb$x, wb$w, wb$t)
 friedman.test(x ~ w | t, data = wb)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.3.1/00index.html'>Package <em>stats</em> version 4.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.1/00index.html'>Package <em>stats</em> version 4.3.1</a> ]</div></main>
+
 </div>
 </body></html>

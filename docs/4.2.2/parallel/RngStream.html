@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/RngStream.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/RngStream.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/RngStream.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/RngStream.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>RNGstreams {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='RNGstreams'>Implementation of Pierre L'Ecuyer's RngStreams</h2>
+<h2>Implementation of Pierre L'Ecuyer's RngStreams</h2>
 
 <h3>Description</h3>
 
@@ -37,19 +37,19 @@ mc.reset.stream()
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="RNGstreams_:_seed">seed</code></td>
+<table role = "presentation">
+<tr><td><code id="seed">seed</code></td>
 <td>
 <p>An integer vector of length 7 as given by
 <code>.Random.seed</code> when the &lsquo;<span class="samp">&#8288;"L'Ecuyer-CMRG"&#8288;</span>&rsquo; RNG is in use.
 See <code>RNG</code> for the valid values.</p>
 </td></tr>
-<tr><td><code id="RNGstreams_:_cl">cl</code></td>
+<tr><td><code id="cl">cl</code></td>
 <td>
 <p>A cluster from this package or package <a href="https://CRAN.R-project.org/package=snow"><span class="pkg">snow</span></a>, or (if
 <code>NULL</code>) the registered cluster.</p>
 </td></tr>
-<tr><td><code id="RNGstreams_:_iseed">iseed</code></td>
+<tr><td><code id="iseed">iseed</code></td>
 <td>
 <p>An integer to be supplied to <code>set.seed</code>, or
 <code>NULL</code> not to set reproducible seeds.</p>
@@ -87,7 +87,8 @@ selecting the L'Ecuyer generator).
 </p>
 <p>When not on Windows, Calling <code>mc.reset.stream()</code> after setting
 the L'Ecuyer random number generator and seed makes runs from
-<code>mcparallel(mc.set.seed = TRUE)</code>
+</p>
+<p><code>mcparallel(mc.set.seed = TRUE)</code>
 reproducible.  This is
 done internally in <code>mclapply</code> and <code>pvec</code>.
 (Note that it does not set the seed in the master process, so does not
@@ -150,6 +151,7 @@ nextRNGStream(s)
 nextRNGSubStream(s)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>parallel</em> version 4.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.2/00index.html'>Package <em>parallel</em> version 4.2.2</a> ]</div></main>
+
 </div>
 </body></html>

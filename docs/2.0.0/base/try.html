@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/try.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/try.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/try.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/try.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>try {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='try'>Try an Expression Allowing Error Recovery</h2>
+<h2>Try an Expression Allowing Error Recovery</h2>
 
 <h3>Description</h3>
 
@@ -33,12 +33,12 @@ the user's code to handle error-recovery.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="try_:_expr">expr</code></td>
+<table role = "presentation">
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> expression to try.</p>
 </td></tr>
-<tr><td><code id="try_:_silent">silent</code></td>
+<tr><td><code id="silent">silent</code></td>
 <td>
 <p>logical: should the report of error messages be suppressed?</p>
 </td></tr>
@@ -105,6 +105,7 @@ for(i in 1:100) res[[i]] &lt;- try(doit(x), TRUE)
 unlist(res[sapply(res, function(x) !inherits(x, "try-error"))])
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>base</em> version 2.0.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>base</em> version 2.0.0</a> ]</div></main>
+
 </div>
 </body></html>

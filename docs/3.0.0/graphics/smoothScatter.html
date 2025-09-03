@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/smoothScatter.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/smoothScatter.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/smoothScatter.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/smoothScatter.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>smoothScatter {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='smoothScatter'>Scatterplots with Smoothed Densities Color Representation</h2>
+<h2>Scatterplots with Smoothed Densities Color Representation</h2>
 
 <h3>Description</h3>
 
@@ -42,34 +42,34 @@ scatterplot.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="smoothScatter_:_x">x</code>, <code id="smoothScatter_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>the <code>x</code> and <code>y</code> arguments provide the x and y
 coordinates for the plot.  Any reasonable way of defining the
 coordinates is acceptable.  See the function <code>xy.coords</code>
 for details.  If supplied separately, they must be of the same length.</p>
 </td></tr>
-<tr><td><code id="smoothScatter_:_nbin">nbin</code></td>
+<tr><td><code id="nbin">nbin</code></td>
 <td>
 <p>numeric vector of length one (for both directions) or two
 (for x and y separately) specifying the number of equally spaced
 grid points for the density estimation; directly used as
 <code>gridsize</code> in <code>bkde2D()</code>.</p>
 </td></tr>
-<tr><td><code id="smoothScatter_:_bandwidth">bandwidth</code></td>
+<tr><td><code id="bandwidth">bandwidth</code></td>
 <td>
 <p>numeric vector (length 1 or 2) of smoothing bandwidth(s).
 If missing, a more or less useful default is used. <code>bandwidth</code>
 is subsequently passed to function
 <code>bkde2D</code>.</p>
 </td></tr>
-<tr><td><code id="smoothScatter_:_colramp">colramp</code></td>
+<tr><td><code id="colramp">colramp</code></td>
 <td>
 <p>function accepting an integer <code>n</code> as an argument and
 returning <code>n</code> colors.</p>
 </td></tr>
-<tr><td><code id="smoothScatter_:_nrpoints">nrpoints</code></td>
+<tr><td><code id="nrpoints">nrpoints</code></td>
 <td>
 <p>number of points to be superimposed on the density
 image.  The first <code>nrpoints</code> points from those areas of lowest
@@ -77,31 +77,31 @@ regional densities will be plotted.  Adding points to the plot
 allows for the identification of outliers.  If all points are to be
 plotted, choose <code>nrpoints = Inf</code>.</p>
 </td></tr>
-<tr><td><code id="smoothScatter_:_pch">pch</code>, <code id="smoothScatter_:_cex">cex</code>, <code id="smoothScatter_:_col">col</code></td>
+<tr><td><code id="pch">pch</code>, <code id="cex">cex</code>, <code id="col">col</code></td>
 <td>
 <p>arguments passed to <code>points</code>,
 when <code>nrpoints &gt; 0</code>: point symbol, character expansion factor
 and color, see also <code>par</code>.</p>
 </td></tr>
-<tr><td><code id="smoothScatter_:_transformation">transformation</code></td>
+<tr><td><code id="transformation">transformation</code></td>
 <td>
 <p>function mapping the density scale to the color scale.</p>
 </td></tr>
-<tr><td><code id="smoothScatter_:_postPlotHook">postPlotHook</code></td>
+<tr><td><code id="postPlotHook">postPlotHook</code></td>
 <td>
 <p>either <code>NULL</code> or a function which will be
 called (with no arguments) after <code>image</code>.</p>
 </td></tr>
-<tr><td><code id="smoothScatter_:_xlab">xlab</code>, <code id="smoothScatter_:_ylab">ylab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>character strings to be used as axis labels, passed
 to <code>image</code>.</p>
 </td></tr>
-<tr><td><code id="smoothScatter_:_xlim">xlim</code>, <code id="smoothScatter_:_ylim">ylim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code></td>
 <td>
 <p>numeric vectors of length 2 specifying axis limits.</p>
 </td></tr>
-<tr><td><code id="smoothScatter_:_xaxs">xaxs</code>, <code id="smoothScatter_:_yaxs">yaxs</code>, <code id="smoothScatter_:_...">...</code></td>
+<tr><td><code id="xaxs">xaxs</code>, <code id="yaxs">yaxs</code>, <code id="...">...</code></td>
 <td>
 <p>further arguments, passed to <code>image</code>.</p>
 </td></tr>
@@ -163,6 +163,7 @@ pairs(y, panel = function(...) smoothScatter(..., nrpoints = 0, add = TRUE))
 par(oldpar)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.0/00index.html'>Package <em>graphics</em> version 3.0.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.0/00index.html'>Package <em>graphics</em> version 3.0.0</a> ]</div></main>
+
 </div>
 </body></html>

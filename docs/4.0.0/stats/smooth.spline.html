@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/smooth.spline.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/smooth.spline.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/smooth.spline.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/smooth.spline.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>smooth.spline {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='smooth.spline'>Fit a Smoothing Spline</h2>
+<h2>Fit a Smoothing Spline</h2>
 
 <h3>Description</h3>
 
@@ -35,30 +35,30 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="smooth.spline_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector giving the values of the predictor variable, or  a
 list or a two-column matrix specifying x and y. </p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>responses. If <code>y</code> is missing or <code>NULL</code>, the responses
 are assumed to be specified by <code>x</code>, with <code>x</code> the index
 vector.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_w">w</code></td>
+<tr><td><code id="w">w</code></td>
 <td>
 <p>optional vector of weights of the same length as <code>x</code>;
 defaults to all 1.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_df">df</code></td>
+<tr><td><code id="df">df</code></td>
 <td>
 <p>the desired equivalent number of degrees of freedom (trace of
 the smoother matrix).  Must be in <code class="reqn">(1,n_x]</code>,
 <code class="reqn">n_x</code> the number of unique x values, see below.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_spar">spar</code></td>
+<tr><td><code id="spar">spar</code></td>
 <td>
 <p>smoothing parameter, typically (but not necessarily) in
 <code class="reqn">(0,1]</code>.  When <code>spar</code> is specified, the coefficient
@@ -67,14 +67,14 @@ fit (penalized log likelihood) criterion is a monotone function of
 <code>spar</code>, see the details below.  Alternatively <code>lambda</code> may
 be specified instead of the <em>scale free</em> <code>spar</code>=<code class="reqn">s</code>.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_lambda">lambda</code></td>
+<tr><td><code id="lambda">lambda</code></td>
 <td>
 <p>if desired, the internal (design-dependent) smoothing
 parameter <code class="reqn">\lambda</code> can be specified instead of <code>spar</code>.
 This may be desirable for resampling algorithms such as cross
 validation or the bootstrap.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_cv">cv</code></td>
+<tr><td><code id="cv">cv</code></td>
 <td>
 <p>ordinary leave-one-out (<code>TRUE</code>) or &lsquo;generalized&rsquo;
 cross-validation (GCV) when <code>FALSE</code>; is used for smoothing
@@ -83,7 +83,7 @@ not specified; it is used however to determine <code>cv.crit</code> in the
 result.  Setting it to <code>NA</code> for speedup skips the evaluation of
 leverages and any score.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_all.knots">all.knots</code></td>
+<tr><td><code id="all.knots">all.knots</code></td>
 <td>
 <p>if <code>TRUE</code>, all distinct points in <code>x</code> are used
 as knots.  If <code>FALSE</code> (default), a subset of <code>x[]</code> is used,
@@ -96,7 +96,7 @@ to <code class="reqn">[0, 1]</code> already such that it corresponds to the
 <code>ans $ fit$knots</code> sequence returned, not repeating the boundary
 knots.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_nknots">nknots</code></td>
+<tr><td><code id="nknots">nknots</code></td>
 <td>
 <p>integer or <code>function</code> giving the number of
 knots to use when <code>all.knots = FALSE</code>.  If a function (as by
@@ -104,23 +104,23 @@ default), the number of knots is <code>nknots(nx)</code>.  By default for
 <code class="reqn">n_x &gt; 49</code> this is less than <code class="reqn">n_x</code>, the number
 of unique <code>x</code> values, see the Note.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_keep.data">keep.data</code></td>
+<tr><td><code id="keep.data">keep.data</code></td>
 <td>
 <p>logical specifying if the input data should be kept
 in the result.  If <code>TRUE</code> (as per default), fitted values and
 residuals are available from the result.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_df.offset">df.offset</code></td>
+<tr><td><code id="df.offset">df.offset</code></td>
 <td>
 <p>allows the degrees of freedom to be increased by
 <code>df.offset</code> in the GCV criterion.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_penalty">penalty</code></td>
+<tr><td><code id="penalty">penalty</code></td>
 <td>
 <p>the coefficient of the penalty for degrees of freedom
 in the GCV criterion.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_control.spar">control.spar</code></td>
+<tr><td><code id="control.spar">control.spar</code></td>
 <td>
 <p>optional list with named components controlling the
 root finding when the smoothing parameter <code>spar</code> is computed,
@@ -153,14 +153,14 @@ defaults to 500.</p>
 <code class="reqn">[low, high]</code>.
 </p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_tol">tol</code></td>
+<tr><td><code id="tol">tol</code></td>
 <td>
 <p>a tolerance for same-ness or uniqueness of the <code>x</code>
 values.  The values are binned into bins of size <code>tol</code> and
 values which fall into the same bin are regarded as the same.  Must
 be strictly positive (and finite).</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_keep.stuff">keep.stuff</code></td>
+<tr><td><code id="keep.stuff">keep.stuff</code></td>
 <td>
 <p>an experimental <code>logical</code> indicating if
 the result should keep extras from the internal computations.  Should
@@ -206,13 +206,6 @@ or &lsquo;generalized&rsquo; as determined by <code>cv</code>) is used to
 determine <code class="reqn">\lambda</code>.
 </p>
 <p>Note that from the above relation,
-
-
-
-
-
-
-
 <code>spar</code> is <code class="reqn">s = s0 + 0.0601 * \bold{\log}\lambda</code>,
 which is intentionally <em>different</em> from the S-PLUS implementation
 of <code>smooth.spline</code> (where <code>spar</code> is proportional to
@@ -240,7 +233,7 @@ of duplicated points.  <code>cv = TRUE</code> is best avoided in that case.
 
 <p>An object of class <code>"smooth.spline"</code> with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>x</code></td>
 <td>
 <p>the <em>distinct</em> <code>x</code> values in increasing order, see
@@ -482,6 +475,7 @@ lines(predict(s02, xx), col = 3); mtext(deparse(s02$call), col = 3)
 ## both above do quite similarly (Df = 8.5 +- 0.2)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.0/00index.html'>Package <em>stats</em> version 4.0.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.0/00index.html'>Package <em>stats</em> version 4.0.0</a> ]</div></main>
+
 </div>
 </body></html>

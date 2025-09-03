@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/getInitial.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/getInitial.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/nls/html/getInitial.html'>https://stat.ethz.ch/R-manual/R-patched/library/nls/html/getInitial.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>getInitial {nls}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='getInitial'>Get Initial Parameter Estimates</h2>
+<h2>Get Initial Parameter Estimates</h2>
 
 <h3>Description</h3>
 
@@ -37,18 +37,18 @@ evaluated.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="getInitial_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>a formula or a <code>selfStart</code> model that defines a
 nonlinear regression model</p>
 </td></tr>
-<tr><td><code id="getInitial_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data frame in which the expressions in the formula or
 arguments to the <code>selfStart</code> model can be evaluated</p>
 </td></tr>
-<tr><td><code id="getInitial_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>optional additional arguments</p>
 </td></tr>
@@ -84,6 +84,7 @@ PurTrt &lt;- Puromycin[ Puromycin$state == "treated", ]
 getInitial( rate ~ SSmicmen( conc, Vm, K ), PurTrt )
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

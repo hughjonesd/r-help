@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/uniroot.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/uniroot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/uniroot.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/uniroot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>uniroot {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='uniroot'>One Dimensional Root (Zero) Finding</h2>
+<h2>One Dimensional Root (Zero) Finding</h2>
 
 <h3>Description</h3>
 
@@ -43,34 +43,34 @@ does not satisfy the requirements at the interval end points; see the
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="uniroot_:_f">f</code></td>
+<table role = "presentation">
+<tr><td><code id="f">f</code></td>
 <td>
 <p>the function for which the root is sought.</p>
 </td></tr>
-<tr><td><code id="uniroot_:_interval">interval</code></td>
+<tr><td><code id="interval">interval</code></td>
 <td>
 <p>a vector containing the end-points of the interval
 to be searched for the root.</p>
 </td></tr>
-<tr><td><code id="uniroot_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional named or unnamed arguments to be passed
 to <code>f</code></p>
 </td></tr>
-<tr><td><code id="uniroot_:_lower">lower</code>, <code id="uniroot_:_upper">upper</code></td>
+<tr><td><code id="lower">lower</code>, <code id="upper">upper</code></td>
 <td>
 <p>the lower and upper end points of the interval to
 be searched.</p>
 </td></tr>
-<tr><td><code id="uniroot_:_f.lower">f.lower</code>, <code id="uniroot_:_f.upper">f.upper</code></td>
+<tr><td><code id="f.lower">f.lower</code>, <code id="f.upper">f.upper</code></td>
 <td>
 <p>the same as <code>f(upper)</code> and
 <code>f(lower)</code>, respectively.  Passing these values from the caller
 where they are often known is more economical as soon as <code>f()</code>
 contains non-trivial computations.</p>
 </td></tr>
-<tr><td><code id="uniroot_:_extendInt">extendInt</code></td>
+<tr><td><code id="extendInt">extendInt</code></td>
 <td>
 <p>character string specifying if the interval
 <code>c(lower,upper)</code> should be extended or directly produce an error
@@ -78,22 +78,22 @@ when <code>f()</code> does not have differing signs at the endpoints.  The
 default, <code>"no"</code>, keeps the search interval and hence produces
 an error.  Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="uniroot_:_check.conv">check.conv</code></td>
+<tr><td><code id="check.conv">check.conv</code></td>
 <td>
 <p>logical indicating whether a convergence warning of the
 underlying <code>uniroot</code> should be caught as an error and if
 non-convergence in <code>maxiter</code> iterations should be an error
 instead of a warning.</p>
 </td></tr>
-<tr><td><code id="uniroot_:_tol">tol</code></td>
+<tr><td><code id="tol">tol</code></td>
 <td>
 <p>the desired accuracy (convergence tolerance).</p>
 </td></tr>
-<tr><td><code id="uniroot_:_maxiter">maxiter</code></td>
+<tr><td><code id="maxiter">maxiter</code></td>
 <td>
 <p>the maximum number of iterations.</p>
 </td></tr>
-<tr><td><code id="uniroot_:_trace">trace</code></td>
+<tr><td><code id="trace">trace</code></td>
 <td>
 <p>integer number; if positive, tracing information is
 produced.  Higher values giving more details.</p>
@@ -267,6 +267,7 @@ uniroot(froot, u= 0.99, a=a, b=b, interval= c(0.1, 10), extendInt="down")
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>stats</em> version 3.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.1/00index.html'>Package <em>stats</em> version 3.3.1</a> ]</div></main>
+
 </div>
 </body></html>

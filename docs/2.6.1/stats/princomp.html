@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/princomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/princomp.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/princomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/princomp.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>princomp {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='princomp'>Principal Components Analysis</h2>
+<h2>Principal Components Analysis</h2>
 
 <h3>Description</h3>
 
@@ -44,25 +44,25 @@ predict(object, newdata, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="princomp_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula with no response variable, referring only to
 numeric variables.</p>
 </td></tr>
-<tr><td><code id="princomp_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional data frame (or similar: see
 <code>model.frame</code>) containing the variables in the
 formula <code>formula</code>.  By default the variables are taken from
 <code>environment(formula)</code>.</p>
 </td></tr>
-<tr><td><code id="princomp_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector used to select rows (observations) of the
 data matrix <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="princomp_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen
 when the data contain <code>NA</code>s.  The default is set by
@@ -70,23 +70,23 @@ the <code>na.action</code> setting of <code>options</code>, and is
 <code>na.fail</code> if that is unset. The &lsquo;factory-fresh&rsquo;
 default is <code>na.omit</code>.</p>
 </td></tr>
-<tr><td><code id="princomp_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric matrix or data frame which provides the data for the
 principal components analysis.</p>
 </td></tr>
-<tr><td><code id="princomp_:_cor">cor</code></td>
+<tr><td><code id="cor">cor</code></td>
 <td>
 <p>a logical value indicating whether the calculation should
 use the correlation matrix or the covariance matrix.  (The
 correlation matrix can only be used if there are no constant variables.)</p>
 </td></tr>
-<tr><td><code id="princomp_:_scores">scores</code></td>
+<tr><td><code id="scores">scores</code></td>
 <td>
 <p>a logical value indicating whether the score on each
 principal component should be calculated.</p>
 </td></tr>
-<tr><td><code id="princomp_:_covmat">covmat</code></td>
+<tr><td><code id="covmat">covmat</code></td>
 <td>
 <p>a covariance matrix, or a covariance list as returned by
 <code>cov.wt</code> (and <code>cov.mve</code> or
@@ -94,16 +94,16 @@ principal component should be calculated.</p>
 If supplied, this is used rather than the covariance matrix of
 <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="princomp_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments passed to or from other methods. If <code>x</code> is
 a formula one might specify <code>cor</code> or <code>scores</code>.</p>
 </td></tr>
-<tr><td><code id="princomp_:_object">object</code></td>
+<tr><td><code id="object">object</code></td>
 <td>
 <p>Object of class inheriting from <code>"princomp"</code></p>
 </td></tr>
-<tr><td><code id="princomp_:_newdata">newdata</code></td>
+<tr><td><code id="newdata">newdata</code></td>
 <td>
 <p>An optional data frame or matrix in which to look for
 variables with which to predict.  If omitted, the scores are used.
@@ -150,7 +150,7 @@ variables.  For Q-mode PCA use <code>prcomp</code>.
 <p><code>princomp</code> returns a list with class <code>"princomp"</code>
 containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>sdev</code></td>
 <td>
 <p>the standard deviations of the principal components.</p>
@@ -245,6 +245,7 @@ pc.cr &lt;- princomp(~ Murder + Assault + UrbanPop,
 pc.cr$scores
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>stats</em> version 2.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>stats</em> version 2.6.1</a> ]</div></main>
+
 </div>
 </body></html>

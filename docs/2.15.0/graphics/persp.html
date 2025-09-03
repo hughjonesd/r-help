@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/persp.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/persp.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.15.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/persp.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/persp.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>persp {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='persp'>Perspective Plots</h2>
+<h2>Perspective Plots</h2>
 
 <h3>Description</h3>
 
@@ -46,8 +46,8 @@ persp(x = seq(0, 1, length.out = nrow(z)),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="persp_:_x">x</code>, <code id="persp_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>locations of grid lines at which the values in <code>z</code> are
 measured.  These must be in ascending order.  By default, equally
@@ -55,45 +55,45 @@ spaced values from 0 to 1 are used.  If <code>x</code> is a <code>list</code>,
 its components <code>x$x</code> and <code>x$y</code> are used for <code>x</code>
 and <code>y</code>, respectively.</p>
 </td></tr>
-<tr><td><code id="persp_:_z">z</code></td>
+<tr><td><code id="z">z</code></td>
 <td>
 <p>a matrix containing the values to be plotted (<code>NA</code>s are
 allowed).  Note that <code>x</code> can be used instead of <code>z</code> for
 convenience.</p>
 </td></tr>
-<tr><td><code id="persp_:_xlim">xlim</code>, <code id="persp_:_ylim">ylim</code>, <code id="persp_:_zlim">zlim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code>, <code id="zlim">zlim</code></td>
 <td>
 <p>x-, y-  and z-limits.  These should be chosen
 to cover the range of values of the surface: see &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="persp_:_xlab">xlab</code>, <code id="persp_:_ylab">ylab</code>, <code id="persp_:_zlab">zlab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code>, <code id="zlab">zlab</code></td>
 <td>
 <p>titles for the axes.  N.B. These must be
 character strings; expressions are not accepted.  Numbers will be
 coerced to character strings.</p>
 </td></tr>
-<tr><td><code id="persp_:_main">main</code>, <code id="persp_:_sub">sub</code></td>
+<tr><td><code id="main">main</code>, <code id="sub">sub</code></td>
 <td>
 <p>main and sub title, as for <code>title</code>.</p>
 </td></tr>
-<tr><td><code id="persp_:_theta">theta</code>, <code id="persp_:_phi">phi</code></td>
+<tr><td><code id="theta">theta</code>, <code id="phi">phi</code></td>
 <td>
 <p>angles defining the viewing direction.
 <code>theta</code> gives the azimuthal direction and <code>phi</code>
 the colatitude.</p>
 </td></tr>
-<tr><td><code id="persp_:_r">r</code></td>
+<tr><td><code id="r">r</code></td>
 <td>
 <p>the distance of the eyepoint from the centre of the plotting box.</p>
 </td></tr>
-<tr><td><code id="persp_:_d">d</code></td>
+<tr><td><code id="d">d</code></td>
 <td>
 <p>a value which can be used to vary the strength of
 the perspective transformation.  Values of <code>d</code> greater
 than 1 will lessen the perspective effect and values less
 and 1 will exaggerate it.</p>
 </td></tr>
-<tr><td><code id="persp_:_scale">scale</code></td>
+<tr><td><code id="scale">scale</code></td>
 <td>
 <p>before viewing the x, y and z coordinates of the
 points defining the surface are transformed to the interval
@@ -102,32 +102,32 @@ are transformed separately.  If <code>scale</code> is <code>FALSE</code>
 the coordinates are scaled so that aspect ratios are retained.
 This is useful for rendering things like DEM information.</p>
 </td></tr>
-<tr><td><code id="persp_:_expand">expand</code></td>
+<tr><td><code id="expand">expand</code></td>
 <td>
 <p>a expansion factor applied to the <code>z</code>
 coordinates. Often used with <code>0 &lt; expand &lt; 1</code> to shrink the
 plotting box in the <code>z</code> direction.</p>
 </td></tr>
-<tr><td><code id="persp_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>the color(s) of the surface facets.  Transparent colours are
 ignored.  This is recycled to the <code class="reqn">(nx-1)(ny-1)</code> facets.</p>
 </td></tr>
-<tr><td><code id="persp_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p>the color of the line drawn around the surface facets.
 The default, <code>NULL</code>, corresponds to <code>par("fg")</code>.
 A value of <code>NA</code> will disable the drawing of borders: this is
 sometimes useful when the surface is shaded.</p>
 </td></tr>
-<tr><td><code id="persp_:_ltheta">ltheta</code>, <code id="persp_:_lphi">lphi</code></td>
+<tr><td><code id="ltheta">ltheta</code>, <code id="lphi">lphi</code></td>
 <td>
 <p>if finite values are specified for <code>ltheta</code>
 and <code>lphi</code>, the surface is shaded as though it was being
 illuminated from the direction specified by azimuth <code>ltheta</code>
 and colatitude <code>lphi</code>.</p>
 </td></tr>
-<tr><td><code id="persp_:_shade">shade</code></td>
+<tr><td><code id="shade">shade</code></td>
 <td>
 <p>the shade at a surface facet is computed as
 <code>((1+d)/2)^shade</code>, where <code>d</code> is the dot product of
@@ -138,29 +138,29 @@ and values close to zero produce no shading.  Values in the
 range 0.5 to 0.75 provide an approximation to daylight
 illumination.</p>
 </td></tr>
-<tr><td><code id="persp_:_box">box</code></td>
+<tr><td><code id="box">box</code></td>
 <td>
 <p>should the bounding box for the surface be displayed.
 The default is <code>TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="persp_:_axes">axes</code></td>
+<tr><td><code id="axes">axes</code></td>
 <td>
 <p>should ticks and labels be added to the box.  The
 default is <code>TRUE</code>.  If <code>box</code> is <code>FALSE</code> then no
 ticks or labels are drawn.</p>
 </td></tr>
-<tr><td><code id="persp_:_ticktype">ticktype</code></td>
+<tr><td><code id="ticktype">ticktype</code></td>
 <td>
 <p>character: <code>"simple"</code> draws just an arrow
 parallel to the axis to indicate direction of increase;
 <code>"detailed"</code> draws normal ticks as per 2D plots.</p>
 </td></tr>
-<tr><td><code id="persp_:_nticks">nticks</code></td>
+<tr><td><code id="nticks">nticks</code></td>
 <td>
 <p>the (approximate) number of tick marks to draw on the
 axes.  Has no effect if <code>ticktype</code> is <code>"simple"</code>.</p>
 </td></tr>
-<tr><td><code id="persp_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional graphical parameters (see <code>par</code>).</p>
 </td></tr>
@@ -299,6 +299,7 @@ persp(x, y, z, col=color[facetcol], phi=30, theta=-30)
 par(op)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.15.0/00index.html'>Package <em>graphics</em> version 2.15.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.15.0/00index.html'>Package <em>graphics</em> version 2.15.0</a> ]</div></main>
+
 </div>
 </body></html>

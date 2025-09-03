@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/trace.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/trace.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/trace.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/trace.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>trace {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='trace'> Interactive Tracing and Debugging of Calls to a Function or
+<h2> Interactive Tracing and Debugging of Calls to a Function or
 Method</h2>
 
 <h3>Description</h3>
@@ -39,14 +39,14 @@ untrace(what)
 <h3>Arguments</h3>
 
  
-<table>
-<tr><td><code id="trace_:_what">what</code></td>
+<table role = "presentation">
+<tr><td><code id="what">what</code></td>
 <td>
 <p> The name (quoted or not) of a function to be traced or
 untraced.  More than one name can be given in the quoted form, and
 the same action will be applied to each one. </p>
 </td></tr>
-<tr><td><code id="trace_:_tracer">tracer</code></td>
+<tr><td><code id="tracer">tracer</code></td>
 <td>
 <p>Either a function or an unevaluated expression.  The
 function will be called or the expression will be evaluated either
@@ -54,26 +54,26 @@ at the beginning of the call, or before those steps in the call
 specified by the argument <code>at</code>.
 See the details section.</p>
 </td></tr>
-<tr><td><code id="trace_:_exit">exit</code></td>
+<tr><td><code id="exit">exit</code></td>
 <td>
 <p> Either a function or an unevaluated expression.  The
 function will be called or the expression will be evaluated on
 exiting the function.
 See the details section. </p>
 </td></tr>
-<tr><td><code id="trace_:_at">at</code></td>
+<tr><td><code id="at">at</code></td>
 <td>
 <p> An optional numeric vector.  If supplied, <code>tracer</code>
 will be called just before the corresponding step in the body of the
 function.
 See the details section. </p>
 </td></tr>
-<tr><td><code id="trace_:_print">print</code></td>
+<tr><td><code id="print">print</code></td>
 <td>
 <p> If <code>TRUE</code>, a descriptive line is printed before any
 trace expression is evaluated.</p>
 </td></tr>
-<tr><td><code id="trace_:_signature">signature</code></td>
+<tr><td><code id="signature">signature</code></td>
 <td>
 <p> If this argument is supplied, it should be a
 signature for a method for function <code>what</code>.  In this case, the
@@ -227,6 +227,7 @@ untrace(c("f", "as.matrix"))
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.5.0/00index.html'>Package <em>base</em> version 1.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.5.0/00index.html'>Package <em>base</em> version 1.5.0</a> ]</div></main>
+
 </div>
 </body></html>

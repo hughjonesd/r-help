@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/make.packages.html.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/make.packages.html.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/make.packages.html.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/make.packages.html.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>make.packages.html {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='make.packages.html'>Update HTML Package List</h2>
+<h2>Update HTML Package List</h2>
 
 <h3>Description</h3>
 
@@ -33,22 +33,22 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="make.packages.html_:_lib.loc">lib.loc</code></td>
+<table role = "presentation">
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>character vector.  List of libraries to be included.</p>
 </td></tr>
-<tr><td><code id="make.packages.html_:_temp">temp</code></td>
+<tr><td><code id="temp">temp</code></td>
 <td>
 <p>logical: should the package indices be created in a
 temporary location for use by the HTTP server?</p>
 </td></tr>
-<tr><td><code id="make.packages.html_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical.  If true, print out a message.
 </p>
 </td></tr>
-<tr><td><code id="make.packages.html_:_docdir">docdir</code></td>
+<tr><td><code id="docdir">docdir</code></td>
 <td>
 <p>If <code>temp</code> is false, directory in whose &lsquo;<span class="file">html</span>&rsquo;
 directory the &lsquo;<span class="file">packages.html</span>&rsquo; file is to be created/updated.</p>
@@ -61,7 +61,8 @@ directory the &lsquo;<span class="file">packages.html</span>&rsquo; file is to b
 <p>This creates the &lsquo;<span class="file">packages.html</span>&rsquo; file, either a temporary copy
 for use by <code>help.start</code>, or the copy in
 &lsquo;<span class="file">R.home(&quot;doc&quot;)/html</span>&rsquo;
-(for which you will need write permission).
+</p>
+<p>(for which you will need write permission).
 </p>
 <p>It can be very slow, as all the package &lsquo;<span class="file">DESCRIPTION</span>&rsquo; files in
 all the library trees are read.
@@ -93,6 +94,7 @@ make.packages.html()
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.5/00index.html'>Package <em>utils</em> version 3.2.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.5/00index.html'>Package <em>utils</em> version 3.2.5</a> ]</div></main>
+
 </div>
 </body></html>

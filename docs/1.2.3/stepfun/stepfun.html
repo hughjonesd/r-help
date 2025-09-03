@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stepfun/html/stepfun.html'>https://stat.ethz.ch/R-manual/R-patched/library/stepfun/html/stepfun.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stepfun/html/stepfun.html'>https://stat.ethz.ch/R-manual/R-patched/library/stepfun/html/stepfun.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>stepfun {stepfun}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='stepfun'>Step Functions</h2>
+<h2>Step Functions</h2>
 
 <h3>Description</h3>
 
@@ -53,23 +53,23 @@ summary.stepfun(Fn)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="stepfun_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric vector giving the &ldquo;knots&rdquo; or jump locations of the
 step function.</p>
 </td></tr>
-<tr><td><code id="stepfun_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>numeric vector one longer than <code>x</code>, giving the heights of
 the function values <em>between</em> the x values.</p>
 </td></tr>
-<tr><td><code id="stepfun_:_f">f</code></td>
+<tr><td><code id="f">f</code></td>
 <td>
 <p>a number between 0 and 1, indicating how interpolation outside
 the given x values should happen.  See  <code>approxfun</code>.</p>
 </td></tr>
-<tr><td><code id="stepfun_:_fn">fn</code></td>
+<tr><td><code id="fn">fn</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object inheriting from <code>"stepfun"</code>.</p>
 </td></tr>
@@ -79,7 +79,6 @@ the given x values should happen.  See  <code>approxfun</code>.</p>
 <h3>Value</h3>
 
 <p>A function of class <code>"stepfun"</code>, say <code>fn</code>.
-
 There are methods available for summarizing (<code>"summary(.)"</code>),
 representing (<code>"print(.)"</code>) and plotting  (<code>"plot(.)"</code>, see
 <code>plot.stepfun</code>) <code>"stepfun"</code> objects.
@@ -141,6 +140,7 @@ x0 &lt;- seq(0.5,3.5, by = 0.25)
 rbind(x=x0, f.f0 = sfun0(x0), f.f02= sfun.2(x0), f.f1 = sfun1(x0))
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

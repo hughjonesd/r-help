@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/prcomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/prcomp.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/prcomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/prcomp.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>prcomp {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='prcomp'>Principal Components Analysis</h2>
+<h2>Principal Components Analysis</h2>
 
 <h3>Description</h3>
 
@@ -32,25 +32,25 @@ and returns the results as an object of class <code>prcomp</code>.</p>
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="prcomp_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a matrix (or data frame) which provides the data for the
 principal components analysis.</p>
 </td></tr>
-<tr><td><code id="prcomp_:_retx">retx</code></td>
+<tr><td><code id="retx">retx</code></td>
 <td>
 <p>a logical value indicating whether the rotated variables
 should be returned.</p>
 </td></tr>
-<tr><td><code id="prcomp_:_center">center</code></td>
+<tr><td><code id="center">center</code></td>
 <td>
 <p>a logical value indicating whether the variables
 should be shifted to be zero centered. Alternately, a vector of
 length equal the number of columns of <code>x</code> can be supplied.
 The value is passed to <code>scale</code>.</p>
 </td></tr>
-<tr><td><code id="prcomp_:_scale">scale</code></td>
+<tr><td><code id="scale">scale</code></td>
 <td>
 <p>a logical value indicating whether the variables should
 be scaled to have unit variance before the analysis takes
@@ -59,7 +59,7 @@ in general scaling is advisable. Alternately, a vector of length
 equal the number of columns of <code>x</code> can be supplied.  The
 value is passed to <code>scale</code>.</p>
 </td></tr>
-<tr><td><code id="prcomp_:_tol">tol</code></td>
+<tr><td><code id="tol">tol</code></td>
 <td>
 <p>a value indicating the magnitude below which components
 should be omitted. (Components are omitted if their
@@ -89,7 +89,7 @@ format and the <code>plot</code> method produces a scree plot.
 <p><code>prcomp</code> returns an list with class <code>"prcomp"</code>
 containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>sdev</code></td>
 <td>
 <p>the standard deviations of the principal components
@@ -139,6 +139,7 @@ plot(prcomp(USArrests))
 summary(prcomp(USArrests, scale = TRUE))
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

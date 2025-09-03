@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/files2.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/files2.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/files2.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/files2.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>files2 {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='files2'>Manipulaton of Directories and file Permissions</h2>
+<h2>Manipulaton of Directories and file Permissions</h2>
 
 <h3>Description</h3>
 
@@ -35,25 +35,25 @@ Sys.umask(mode = "0000")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="files2_:_path">path</code></td>
+<table role = "presentation">
+<tr><td><code id="path">path</code></td>
 <td>
 <p>a character vector containing a single path name.</p>
 </td></tr>
-<tr><td><code id="files2_:_paths">paths</code></td>
+<tr><td><code id="paths">paths</code></td>
 <td>
 <p>character vectors containing file or directory paths.</p>
 </td></tr>
-<tr><td><code id="files2_:_showWarnings">showWarnings</code></td>
+<tr><td><code id="showWarnings">showWarnings</code></td>
 <td>
 <p>logical; should the warnings on failure be shown?</p>
 </td></tr>
-<tr><td><code id="files2_:_recursive">recursive</code></td>
+<tr><td><code id="recursive">recursive</code></td>
 <td>
 <p>logical. Should elements of the path other than the
 last be created?  If true, like Unix's <code>mkdir -p</code>.</p>
 </td></tr>
-<tr><td><code id="files2_:_mode">mode</code></td>
+<tr><td><code id="mode">mode</code></td>
 <td>
 <p>the file mode to be used on Unix-alikes: it will be
 coerced by <code>as.octmode</code>.  For <code>Sys.chmod</code> it is
@@ -66,7 +66,8 @@ recycled along <code>paths</code>.</p>
 
 <p><code>dir.create</code> creates the last element of the path, unless
 <code>recursive = TRUE</code>.  Trailing path separators are removed.
-The mode will be modified by the <code>umask</code> setting in the same way
+</p>
+<p>The mode will be modified by the <code>umask</code> setting in the same way
 as for the system function <code>mkdir</code>.  What modes can be set is
 OS-dependent, and it is unsafe to assume that more than three octal
 digits will be used.  For more details see your OS's documentation on the
@@ -116,6 +117,7 @@ invisibly, as a length-one object of class <code>"octmode"</code>.
 <code>basename</code>, <code>path.expand</code>.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>base</em> version 2.12.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>base</em> version 2.12.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/ls_str.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/ls_str.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/ls_str.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/ls_str.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ls.str {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ls.str'>List Objects and their Structure</h2>
+<h2>List Objects and their Structure</h2>
 
 <h3>Description</h3>
 
@@ -40,59 +40,59 @@ print(x, max.level = 1, give.attr = FALSE, ...,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ls.str_:_pos">pos</code></td>
+<table role = "presentation">
+<tr><td><code id="pos">pos</code></td>
 <td>
 <p>integer indicating <code>search</code> path position, or
 <code>-1</code> for the current environment.</p>
 </td></tr>
-<tr><td><code id="ls.str_:_name">name</code></td>
+<tr><td><code id="name">name</code></td>
 <td>
 <p>optional name indicating <code>search</code> path
 position, see <code>ls</code>.</p>
 </td></tr>
-<tr><td><code id="ls.str_:_envir">envir</code></td>
+<tr><td><code id="envir">envir</code></td>
 <td>
 <p>environment to use, see <code>ls</code>.</p>
 </td></tr>
-<tr><td><code id="ls.str_:_all.names">all.names</code></td>
+<tr><td><code id="all.names">all.names</code></td>
 <td>
 <p>logical indicating if names which begin with a
 <code>.</code> are omitted; see <code>ls</code>.</p>
 </td></tr>
-<tr><td><code id="ls.str_:_pattern">pattern</code></td>
+<tr><td><code id="pattern">pattern</code></td>
 <td>
 <p>a regular expression passed to <code>ls</code>.
 Only names matching <code>pattern</code> are considered.</p>
 </td></tr>
-<tr><td><code id="ls.str_:_max.level">max.level</code></td>
+<tr><td><code id="max.level">max.level</code></td>
 <td>
 <p>maximal level of nesting which is applied for
 displaying nested structures, e.g., a list containing sub lists.
 Default 1: Display only the first nested level.</p>
 </td></tr>
-<tr><td><code id="ls.str_:_give.attr">give.attr</code></td>
+<tr><td><code id="give.attr">give.attr</code></td>
 <td>
 <p>logical; if <code>TRUE</code> (default), show attributes
 as sub structures.</p>
 </td></tr>
-<tr><td><code id="ls.str_:_mode">mode</code></td>
+<tr><td><code id="mode">mode</code></td>
 <td>
 <p>character specifying the <code>mode</code> of objects to
 consider.  Passed to <code>exists</code> and <code>get</code>.</p>
 </td></tr>
-<tr><td><code id="ls.str_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object of class <code>"ls_str"</code>.</p>
 </td></tr>
-<tr><td><code id="ls.str_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to pass.  <code>lsf.str</code> passes them to
 <code>ls.str</code> which passes them on to <code>ls</code>.  The
 (non-exported) print method <code>print.ls_str</code> passes them to
 <code>str</code>.</p>
 </td></tr>
-<tr><td><code id="ls.str_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>the number of significant digits to use for printing.</p>
 </td></tr>
@@ -142,6 +142,7 @@ tt &lt;- function(x, y = 1) { aa &lt;- 7; r &lt;- x + y; ls.str() }
 stopifnot(nms == c("aa", "r","x","y"))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>utils</em> version 3.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>utils</em> version 3.2.3</a> ]</div></main>
+
 </div>
 </body></html>

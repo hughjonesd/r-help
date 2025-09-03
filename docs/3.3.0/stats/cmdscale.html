@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cmdscale.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cmdscale.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cmdscale.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cmdscale.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cmdscale {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cmdscale'>Classical (Metric) Multidimensional Scaling</h2>
+<h2>Classical (Metric) Multidimensional Scaling</h2>
 
 <h3>Description</h3>
 
@@ -34,33 +34,33 @@ Also known as <em>principal coordinates analysis</em> (Gower, 1966).
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cmdscale_:_d">d</code></td>
+<table role = "presentation">
+<tr><td><code id="d">d</code></td>
 <td>
 <p>a distance structure such as that returned by <code>dist</code>
 or a full symmetric matrix containing the dissimilarities.</p>
 </td></tr>
-<tr><td><code id="cmdscale_:_k">k</code></td>
+<tr><td><code id="k">k</code></td>
 <td>
 <p>the maximum dimension of the space which the data are to be
 represented in; must be in <code class="reqn">\{1, 2, \ldots, n-1\}</code>.</p>
 </td></tr>
-<tr><td><code id="cmdscale_:_eig">eig</code></td>
+<tr><td><code id="eig">eig</code></td>
 <td>
 <p>indicates whether eigenvalues should be returned.</p>
 </td></tr>
-<tr><td><code id="cmdscale_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>logical indicating if an additive constant <code class="reqn">c*</code> should
 be computed, and added to the non-diagonal dissimilarities such that
 the modified dissimilarities are Euclidean.</p>
 </td></tr>
-<tr><td><code id="cmdscale_:_x.ret">x.ret</code></td>
+<tr><td><code id="x.ret">x.ret</code></td>
 <td>
 <p>indicates whether the doubly centred symmetric distance
 matrix should be returned.</p>
 </td></tr>
-<tr><td><code id="cmdscale_:_list.">list.</code></td>
+<tr><td><code id="list.">list.</code></td>
 <td>
 <p>logical indicating if a <code>list</code> should be
 returned or just the <code class="reqn">n \times k</code> matrix, see &lsquo;Value:&rsquo;.</p>
@@ -106,7 +106,7 @@ represent the dissimilarities.
 </p>
 <p>Otherwise, a <code>list</code> containing the following components.
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>points</code></td>
 <td>
 <p>a matrix with up to <code>k</code> columns whose rows give the
@@ -204,6 +204,7 @@ plot(x, y, type = "n", xlab = "", ylab = "", asp = 1, axes = FALSE,
 text(x, y, rownames(loc), cex = 0.6)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.0/00index.html'>Package <em>stats</em> version 3.3.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.0/00index.html'>Package <em>stats</em> version 3.3.0</a> ]</div></main>
+
 </div>
 </body></html>

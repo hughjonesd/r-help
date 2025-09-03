@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ftable.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ftable.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ftable.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/ftable.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>ftable {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='ftable'>Flat Contingency Tables</h2>
+<h2>Flat Contingency Tables</h2>
 
 <h3>Description</h3>
 
@@ -35,26 +35,26 @@ ftable(..., exclude = c(NA, NaN), row.vars = NULL,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="ftable_:_x">x</code>, <code id="ftable_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="...">...</code></td>
 <td>
 <p><span class="rlang"><b>R</b></span> objects which can be interpreted as factors (including
 character strings), or a list (or data frame) whose components can
 be so interpreted, or a contingency table object of class
 <code>"table"</code> or <code>"ftable"</code>.</p>
 </td></tr>
-<tr><td><code id="ftable_:_exclude">exclude</code></td>
+<tr><td><code id="exclude">exclude</code></td>
 <td>
 <p>values to use in the exclude argument of <code>factor</code>
 when interpreting non-factor objects.</p>
 </td></tr>
-<tr><td><code id="ftable_:_row.vars">row.vars</code></td>
+<tr><td><code id="row.vars">row.vars</code></td>
 <td>
 <p>a vector of integers giving the numbers of the
 variables, or a character vector giving the names of the variables
 to be used for the rows of the flat contingency table.</p>
 </td></tr>
-<tr><td><code id="ftable_:_col.vars">col.vars</code></td>
+<tr><td><code id="col.vars">col.vars</code></td>
 <td>
 <p>a vector of integers giving the numbers of the
 variables, or a character vector giving the names of the variables
@@ -143,6 +143,7 @@ ftable(mtcars$cyl, mtcars$vs, mtcars$am, mtcars$gear, row.vars = c(2, 4),
        dnn = c("Cylinders", "V/S", "Transmission", "Gears"))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.4.3/00index.html'>Package <em>stats</em> version 3.4.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.4.3/00index.html'>Package <em>stats</em> version 3.4.3</a> ]</div></main>
+
 </div>
 </body></html>

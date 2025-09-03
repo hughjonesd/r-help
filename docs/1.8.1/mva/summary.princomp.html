@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/summary.princomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/summary.princomp.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/summary.princomp.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/summary.princomp.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>summary.princomp {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='summary.princomp'>Summary method for Principal Components Analysis</h2>
+<h2>Summary method for Principal Components Analysis</h2>
 
 <h3>Description</h3>
 
@@ -37,31 +37,31 @@ print(x, digits = 3, loadings = x$print.loadings,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="summary.princomp_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an object of class <code>"princomp"</code>, as
 from <code>princomp()</code>.</p>
 </td></tr>
-<tr><td><code id="summary.princomp_:_loadings">loadings</code></td>
+<tr><td><code id="loadings">loadings</code></td>
 <td>
 <p>logical. Should loadings be included?</p>
 </td></tr>
-<tr><td><code id="summary.princomp_:_cutoff">cutoff</code></td>
+<tr><td><code id="cutoff">cutoff</code></td>
 <td>
 <p>numeric. Loadings below this cutoff in absolute value
 are shown as blank in the output.</p>
 </td></tr>
-<tr><td><code id="summary.princomp_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object of class &quot;summary.princomp&quot;.</p>
 </td></tr>
-<tr><td><code id="summary.princomp_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>the number of significant digits to be used in listing
 loadings.</p>
 </td></tr>
-<tr><td><code id="summary.princomp_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>arguments to be passed to or from other methods.</p>
 </td></tr>
@@ -89,6 +89,7 @@ print(summary(princomp(USArrests, cor=TRUE),
               loadings = TRUE, cutoff = 0.2), digits = 2)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

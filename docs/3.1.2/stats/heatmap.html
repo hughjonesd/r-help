@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/heatmap.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/heatmap.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/heatmap.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/heatmap.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>heatmap {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='heatmap'> Draw a Heat Map </h2>
+<h2> Draw a Heat Map </h2>
 
 <h3>Description</h3>
 
@@ -45,12 +45,12 @@ restrictions imposed by the dendrogram is carried out.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="heatmap_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric matrix of the values to be plotted. </p>
 </td></tr>
-<tr><td><code id="heatmap_:_Rowv">Rowv</code></td>
+<tr><td><code id="Rowv">Rowv</code></td>
 <td>
 <p>determines if and how the <em>row</em> dendrogram should be
 computed and reordered.  Either a <code>dendrogram</code> or a
@@ -58,7 +58,7 @@ vector of values used to reorder the row dendrogram or
 <code>NA</code> to suppress any row dendrogram (and reordering) or
 by default, <code>NULL</code>, see &lsquo;Details&rsquo; below.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_Colv">Colv</code></td>
+<tr><td><code id="Colv">Colv</code></td>
 <td>
 <p>determines if and how the <em>column</em> dendrogram should be
 reordered.  Has the same options as the <code>Rowv</code> argument above and
@@ -67,95 +67,95 @@ reordered.  Has the same options as the <code>Rowv</code> argument above and
 rows (and so if there is to be no row dendrogram there will not be a
 column one either).</p>
 </td></tr>
-<tr><td><code id="heatmap_:_distfun">distfun</code></td>
+<tr><td><code id="distfun">distfun</code></td>
 <td>
 <p>function used to compute the distance (dissimilarity)
 between both rows and columns.  Defaults to <code>dist</code>.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_hclustfun">hclustfun</code></td>
+<tr><td><code id="hclustfun">hclustfun</code></td>
 <td>
 <p>function used to compute the hierarchical clustering
 when <code>Rowv</code> or <code>Colv</code> are not dendrograms.  Defaults to
 <code>hclust</code>. Should take as argument a result of <code>distfun</code>
 and return an object to which <code>as.dendrogram</code> can be applied.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_reorderfun">reorderfun</code></td>
+<tr><td><code id="reorderfun">reorderfun</code></td>
 <td>
 <p><code>function(d, w)</code> of dendrogram and weights for
 reordering the row and column dendrograms.  The default uses
 <code>reorder.dendrogram</code>.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_add.expr">add.expr</code></td>
+<tr><td><code id="add.expr">add.expr</code></td>
 <td>
 <p>expression that will be evaluated after the call to
 <code>image</code>.  Can be used to add components to the plot.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_symm">symm</code></td>
+<tr><td><code id="symm">symm</code></td>
 <td>
 <p>logical indicating if <code>x</code> should be treated
 <b>symm</b>etrically; can only be true when <code>x</code> is a square matrix.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_revC">revC</code></td>
+<tr><td><code id="revC">revC</code></td>
 <td>
 <p>logical indicating if the column order should be
 <code>rev</code>ersed for plotting, such that e.g., for the
 symmetric case, the symmetry axis is as usual.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_scale">scale</code></td>
+<tr><td><code id="scale">scale</code></td>
 <td>
 <p>character indicating if the values should be centered and
 scaled in either the row direction or the column direction, or
 none.  The default is <code>"row"</code> if <code>symm</code> false, and
 <code>"none"</code> otherwise.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>logical indicating whether <code>NA</code>'s should be removed.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_margins">margins</code></td>
+<tr><td><code id="margins">margins</code></td>
 <td>
 <p>numeric vector of length 2 containing the margins
 (see <code>par(mar = *)</code>) for column and row names, respectively.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_ColSideColors">ColSideColors</code></td>
+<tr><td><code id="ColSideColors">ColSideColors</code></td>
 <td>
 <p>(optional) character vector of length <code>ncol(x)</code>
 containing the color names for a horizontal side bar that may be used to
 annotate the columns of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_RowSideColors">RowSideColors</code></td>
+<tr><td><code id="RowSideColors">RowSideColors</code></td>
 <td>
 <p>(optional) character vector of length <code>nrow(x)</code>
 containing the color names for a vertical side bar that may be used to
 annotate the rows of <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_cexRow">cexRow</code>, <code id="heatmap_:_cexCol">cexCol</code></td>
+<tr><td><code id="cexRow">cexRow</code>, <code id="cexCol">cexCol</code></td>
 <td>
 <p>positive numbers, used as <code>cex.axis</code> in
 for the row or column axis labeling.  The defaults currently only
 use number of rows or columns, respectively.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_labRow">labRow</code>, <code id="heatmap_:_labCol">labCol</code></td>
+<tr><td><code id="labRow">labRow</code>, <code id="labCol">labCol</code></td>
 <td>
 <p>character vectors with row and column labels to
 use; these default to <code>rownames(x)</code> or <code>colnames(x)</code>,
 respectively.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_main">main</code>, <code id="heatmap_:_xlab">xlab</code>, <code id="heatmap_:_ylab">ylab</code></td>
+<tr><td><code id="main">main</code>, <code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>main, x- and y-axis titles; defaults to none.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_keep.dendro">keep.dendro</code></td>
+<tr><td><code id="keep.dendro">keep.dendro</code></td>
 <td>
 <p>logical indicating if the dendrogram(s) should be
 kept as part of the result (when <code>Rowv</code> and/or <code>Colv</code> are
 not NA).</p>
 </td></tr>
-<tr><td><code id="heatmap_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical indicating if information should be printed.</p>
 </td></tr>
-<tr><td><code id="heatmap_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional arguments passed on to <code>image</code>,
 e.g., <code>col</code> specifying the colors.</p>
@@ -193,7 +193,7 @@ as the <a href="http://CRAN.R-project.org/package=RColorBrewer"><span class="pkg
 
 <p>Invisibly, a list with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>rowInd</code></td>
 <td>
 <p><b>r</b>ow index permutation vector as returned by
@@ -264,7 +264,6 @@ heatmap(x, Colv = NA, col = cm.colors(256), scale = "column",
 heatmap(x, Rowv = NA, Colv = NA, scale = "column",
         main = "heatmap(*, NA, NA) ~= image(t(x))")
 
-
 round(Ca &lt;- cor(attitude), 2)
 symnum(Ca) # simple graphic
 heatmap(Ca,               symm = TRUE, margins = c(6,6)) # with reorder()
@@ -287,6 +286,7 @@ round(100 * cU[hU[[1]], hU[[2]]])
 utils::str(hU$Colv)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>stats</em> version 3.1.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>stats</em> version 3.1.2</a> ]</div></main>
+
 </div>
 </body></html>

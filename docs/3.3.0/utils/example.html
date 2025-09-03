@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/example.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/example.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/example.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/example.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>example {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='example'>Run an Examples Section from the Online Help</h2>
+<h2>Run an Examples Section from the Online Help</h2>
 
 <h3>Description</h3>
 
@@ -39,50 +39,50 @@ topic <code>topic</code> with possible exceptions <code>dontrun</code>,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="example_:_topic">topic</code></td>
+<table role = "presentation">
+<tr><td><code id="topic">topic</code></td>
 <td>
 <p>name or literal character string: the online
 <code>help</code> topic the examples of which should be run.</p>
 </td></tr>
-<tr><td><code id="example_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p>a character vector giving the package names to look
 into for the topic, or <code>NULL</code> (the default), when all packages on
 the search path are used.</p>
 </td></tr>
-<tr><td><code id="example_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
 or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
 libraries currently known.  If the default is used, the loaded
 packages are searched before the libraries.</p>
 </td></tr>
-<tr><td><code id="example_:_character.only">character.only</code></td>
+<tr><td><code id="character.only">character.only</code></td>
 <td>
 <p>a logical indicating whether <code>topic</code> can be
 assumed to be a character string.</p>
 </td></tr>
-<tr><td><code id="example_:_give.lines">give.lines</code></td>
+<tr><td><code id="give.lines">give.lines</code></td>
 <td>
 <p>logical: if true, the <em>lines</em> of the example
 source code are returned as a character vector.</p>
 </td></tr>
-<tr><td><code id="example_:_local">local</code></td>
+<tr><td><code id="local">local</code></td>
 <td>
 <p>logical: if <code>TRUE</code> evaluate locally, if <code>FALSE</code>
 evaluate in the workspace.</p>
 </td></tr>
-<tr><td><code id="example_:_echo">echo</code></td>
+<tr><td><code id="echo">echo</code></td>
 <td>
 <p>logical;  if <code>TRUE</code>, show the <span class="rlang"><b>R</b></span> input when sourcing.</p>
 </td></tr>
-<tr><td><code id="example_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical;  if <code>TRUE</code>, show even more when running
 example code.</p>
 </td></tr>
-<tr><td><code id="example_:_setRNG">setRNG</code></td>
+<tr><td><code id="setRNG">setRNG</code></td>
 <td>
 <p>logical or expression;  if not <code>FALSE</code>, the random
 number generator state is saved, then initialized to a specified state,
@@ -92,7 +92,7 @@ the example is run and the (saved) state is restored.
 running a package's examples.  This is currently equivalent to
 <code>setRNG = {RNGkind("default", "default"); set.seed(1)}</code>.</p>
 </td></tr>
-<tr><td><code id="example_:_ask">ask</code></td>
+<tr><td><code id="ask">ask</code></td>
 <td>
 <p>logical (or <code>"default"</code>) indicating if
 <code>devAskNewPage(ask = TRUE)</code> should be called
@@ -102,17 +102,17 @@ before graphical output happens from the example code.  The value
 interactive.  This parameter applies both to any currently opened
 device and to any devices opened by the example code.</p>
 </td></tr>
-<tr><td><code id="example_:_prompt.prefix">prompt.prefix</code></td>
+<tr><td><code id="prompt.prefix">prompt.prefix</code></td>
 <td>
 <p>character; prefixes the prompt to be used if
 <code>echo = TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="example_:_run.dontrun">run.dontrun</code></td>
+<tr><td><code id="run.dontrun">run.dontrun</code></td>
 <td>
 <p>logical indicating that <code style="white-space: pre;">&#8288;\dontrun&#8288;</code>
 should be ignored.</p>
 </td></tr>
-<tr><td><code id="example_:_run.donttest">run.donttest</code></td>
+<tr><td><code id="run.donttest">run.donttest</code></td>
 <td>
 <p>logical indicating that <code style="white-space: pre;">&#8288;\donttest&#8288;</code>
 should be ignored.</p>
@@ -201,6 +201,7 @@ lmex &lt;- sapply(apropos("^lm", mode = "function"),
 sapply(lmex, length)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.3.0/00index.html'>Package <em>utils</em> version 3.3.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.3.0/00index.html'>Package <em>utils</em> version 3.3.0</a> ]</div></main>
+
 </div>
 </body></html>

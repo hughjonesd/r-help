@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/quantile.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/quantile.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/quantile.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/quantile.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>quantile {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='quantile'>Sample Quantiles</h2>
+<h2>Sample Quantiles</h2>
 
 <h3>Description</h3>
 
@@ -36,21 +36,21 @@ quantile(x, probs = seq(0, 1, 0.25), na.rm = FALSE, names = TRUE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="quantile_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric vectors whose sample quantiles are wanted.</p>
 </td></tr>
-<tr><td><code id="quantile_:_probs">probs</code></td>
+<tr><td><code id="probs">probs</code></td>
 <td>
 <p>numeric vector with values in <code class="reqn">[0,1]</code>.</p>
 </td></tr>
-<tr><td><code id="quantile_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>logical; if true, any <code>NA</code> and <code>NaN</code>'s
 are removed from <code>x</code> before the quantiles are computed.</p>
 </td></tr>
-<tr><td><code id="quantile_:_names">names</code></td>
+<tr><td><code id="names">names</code></td>
 <td>
 <p>logical; if true, the result has a <code>names</code>
 attribute.  Set to <code>FALSE</code> for speedup with many <code>probs</code>.
@@ -101,6 +101,7 @@ f &lt;- r - i
 all(abs(quantile(x,p) - ((1-f)*ox[i] + f*ox[i+1])) &lt; 20*.Machine$double.eps)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.2.2/00index.html'>Package <em>base</em> version 1.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.2.2/00index.html'>Package <em>base</em> version 1.2.2</a> ]</div></main>
+
 </div>
 </body></html>

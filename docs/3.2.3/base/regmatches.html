@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/regmatches.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/regmatches.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/regmatches.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/regmatches.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>regmatches {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='regmatches'>Extract or Replace Matched Substrings</h2>
+<h2>Extract or Replace Matched Substrings</h2>
 
 <h3>Description</h3>
 
@@ -35,21 +35,21 @@ regmatches(x, m, invert = FALSE) &lt;- value
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="regmatches_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a character vector</p>
 </td></tr>
-<tr><td><code id="regmatches_:_m">m</code></td>
+<tr><td><code id="m">m</code></td>
 <td>
 <p>an object with match data</p>
 </td></tr>
-<tr><td><code id="regmatches_:_invert">invert</code></td>
+<tr><td><code id="invert">invert</code></td>
 <td>
 <p>a logical: if <code>TRUE</code>, extract or replace the
 non-matched substrings.</p>
 </td></tr>
-<tr><td><code id="regmatches_:_value">value</code></td>
+<tr><td><code id="value">value</code></td>
 <td>
 <p>an object with suitable replacement values for the
 matched or non-matched substrings (see <code>Details</code>).</p>
@@ -134,6 +134,7 @@ m &lt;- gregexpr(", *", s)
 regmatches(x, m, invert = TRUE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>base</em> version 3.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>base</em> version 3.2.3</a> ]</div></main>
+
 </div>
 </body></html>

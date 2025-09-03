@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/update.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/update.packages.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/update.packages.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/update.packages.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>update.packages {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='update.packages'>Download Packages from CRAN</h2>
+<h2>Download Packages from CRAN</h2>
 
 <h3>Description</h3>
 
@@ -54,13 +54,13 @@ install.packages(pkgs, lib, CRAN = getOption("CRAN"),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="update.packages_:_lib.loc">lib.loc</code></td>
+<table role = "presentation">
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>character vector describing the location of R
 library trees to search through (and update packages therein).</p>
 </td></tr>
-<tr><td><code id="update.packages_:_CRAN">CRAN</code></td>
+<tr><td><code id="CRAN">CRAN</code></td>
 <td>
 <p>character, the base URL of the CRAN mirror to use, i.e.,
 the URL of a CRAN root such as <code>"http://cran.r-project.org"</code>
@@ -68,53 +68,53 @@ the URL of a CRAN root such as <code>"http://cran.r-project.org"</code>
 <code>"http://lib.stat.cmu.edu/R/CRAN"</code>.
 </p>
 </td></tr>
-<tr><td><code id="update.packages_:_contriburl">contriburl</code></td>
+<tr><td><code id="contriburl">contriburl</code></td>
 <td>
 <p>URL of the contrib section of CRAN. Use this argument
 only if your CRAN mirror is incomplete, e.g., because you burned
 only the contrib section on a CD.  Overrides argument <code>CRAN</code>.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>Download method, see <code>download.file</code>.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_pkgs">pkgs</code></td>
+<tr><td><code id="pkgs">pkgs</code></td>
 <td>
 <p>character vector of the short names of
 packages whose current versions should be downloaded from
 <code>CRAN</code>.
 </p>
 </td></tr>
-<tr><td><code id="update.packages_:_destdir">destdir</code></td>
+<tr><td><code id="destdir">destdir</code></td>
 <td>
 <p>directory where downloaded packages are stored.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_available">available</code></td>
+<tr><td><code id="available">available</code></td>
 <td>
 <p>list of packages available at CRAN as returned by
 <code>CRAN.packages</code>.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_lib">lib</code></td>
+<tr><td><code id="lib">lib</code></td>
 <td>
 <p>character vector giving the library directories where to
 install the packages.  Recycled as needed.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_ask">ask</code></td>
+<tr><td><code id="ask">ask</code></td>
 <td>
 <p>logical indicating to ask before packages are actually
 downloaded and installed.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_installWithVers">installWithVers</code></td>
+<tr><td><code id="installWithVers">installWithVers</code></td>
 <td>
 <p>If <code>TRUE</code>, will invoke the install the
 package such that it can be referenced by package version</p>
 </td></tr>
-<tr><td><code id="update.packages_:_instlib">instlib</code></td>
+<tr><td><code id="instlib">instlib</code></td>
 <td>
 <p>character string giving the library directory where to
 install the packages.</p>
 </td></tr>
-<tr><td><code id="update.packages_:_dependencies">dependencies</code></td>
+<tr><td><code id="dependencies">dependencies</code></td>
 <td>
 <p>logical indicating to also install uninstalled
 packages on which these packages depend/suggest/import
@@ -157,9 +157,8 @@ takes a vector of package names and a destination library, downloads
 the packages from CRAN and installs them. If the library
 is omitted it defaults to the first directory in <code>.libPaths()</code>, with
 a warning if there is more than one.
-
-
-An attempt is made to install the packages in an order that respects
+</p>
+<p>An attempt is made to install the packages in an order that respects
 their dependencies.  This does assume that all the entries in
 <code>lib</code> are on the default library path for installs (set by
 <code>R_LIBS</code>). 
@@ -204,6 +203,7 @@ other options to monitor file transfers.
 <code>library</code>, <code>.packages</code>, <code>read.dcf</code>
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>utils</em> version 2.0.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>utils</em> version 2.0.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/funprog.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/funprog.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/funprog.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/funprog.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>funprog {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='funprog'>Common Higher-Order Functions in Functional Programming Languages</h2>
+<h2>Common Higher-Order Functions in Functional Programming Languages</h2>
 
 <h3>Description</h3>
 
@@ -44,8 +44,8 @@ Position(f, x, right = FALSE, nomatch = NA_integer_)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="funprog_:_f">f</code></td>
+<table role = "presentation">
+<tr><td><code id="f">f</code></td>
 <td>
 <p>a function of the appropriate arity (binary for
 <code>Reduce</code>, unary for <code>Filter</code>, <code>Find</code> and
@@ -53,32 +53,32 @@ Position(f, x, right = FALSE, nomatch = NA_integer_)
 <code class="reqn">k</code> arguments).  An arbitrary predicate function for
 <code>Negate</code>.</p>
 </td></tr>
-<tr><td><code id="funprog_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector.</p>
 </td></tr>
-<tr><td><code id="funprog_:_init">init</code></td>
+<tr><td><code id="init">init</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object of the same kind as the elements of
 <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="funprog_:_right">right</code></td>
+<tr><td><code id="right">right</code></td>
 <td>
 <p>a logical indicating whether to proceed from left to
 right (default) or from right to left.</p>
 </td></tr>
-<tr><td><code id="funprog_:_accumulate">accumulate</code></td>
+<tr><td><code id="accumulate">accumulate</code></td>
 <td>
 <p>a logical indicating whether the successive reduce
 combinations should be accumulated.  By default, only the final
 combination is used.</p>
 </td></tr>
-<tr><td><code id="funprog_:_nomatch">nomatch</code></td>
+<tr><td><code id="nomatch">nomatch</code></td>
 <td>
 <p>the value to be returned in the case when
 &ldquo;no match&rdquo; (no element satisfying the predicate) is found.</p>
 </td></tr>
-<tr><td><code id="funprog_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>vectors.</p>
 </td></tr>
@@ -198,6 +198,7 @@ length(Filter(function(f)
 Filter(Negate(is.function),  sapply(ls(baseenv()), get, baseenv()))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.4.1/00index.html'>Package <em>base</em> version 3.4.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.4.1/00index.html'>Package <em>base</em> version 3.4.1</a> ]</div></main>
+
 </div>
 </body></html>

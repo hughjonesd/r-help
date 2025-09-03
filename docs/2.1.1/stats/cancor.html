@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cancor.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cancor.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cancor.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cancor.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cancor {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cancor'>Canonical Correlations</h2>
+<h2>Canonical Correlations</h2>
 
 <h3>Description</h3>
 
@@ -32,18 +32,18 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cancor_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric matrix (<code class="reqn">n \times p_1</code>), containing the
 x coordinates.</p>
 </td></tr>
-<tr><td><code id="cancor_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>numeric matrix (<code class="reqn">n \times p_2</code>), containing the
 y coordinates.</p>
 </td></tr>
-<tr><td><code id="cancor_:_xcenter">xcenter</code></td>
+<tr><td><code id="xcenter">xcenter</code></td>
 <td>
 <p>logical or numeric vector of length <code class="reqn">p_1</code>,
 describing any centering to be done on the x values before the
@@ -51,7 +51,7 @@ analysis.  If <code>TRUE</code> (default), subtract the column means.
 If <code>FALSE</code>, do not adjust the columns.  Otherwise, a vector
 of values to be subtracted from the columns.</p>
 </td></tr> 
-<tr><td><code id="cancor_:_ycenter">ycenter</code></td>
+<tr><td><code id="ycenter">ycenter</code></td>
 <td>
 <p>analogous to <code>xcenter</code>, but for the y values.</p>
 </td></tr>
@@ -71,7 +71,7 @@ of the <code>x</code> variables. The relationship is symmetric as
 
 <p>A list containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>cor</code></td>
 <td>
 <p>correlations.</p>
@@ -132,6 +132,7 @@ all(abs(cor(x %*% cxy$xcoef) - diag(3)) &lt; 1e-15)
 all(abs(cor(y %*% cxy$ycoef) - diag(5)) &lt; 1e-15)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.1.1/00index.html'>Package <em>stats</em> version 2.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.1.1/00index.html'>Package <em>stats</em> version 2.1.1</a> ]</div></main>
+
 </div>
 </body></html>

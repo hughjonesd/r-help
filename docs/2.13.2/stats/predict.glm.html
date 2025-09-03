@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.glm.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.glm.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.13.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.glm.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/predict.glm.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>predict.glm {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='predict.glm'>Predict Method for GLM Fits</h2>
+<h2>Predict Method for GLM Fits</h2>
 
 <h3>Description</h3>
 
@@ -37,17 +37,17 @@ predict(object, newdata = NULL,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="predict.glm_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>a fitted object of class inheriting from <code>"glm"</code>.</p>
 </td></tr>
-<tr><td><code id="predict.glm_:_newdata">newdata</code></td>
+<tr><td><code id="newdata">newdata</code></td>
 <td>
 <p>optionally, a data frame in which to look for variables with
 which to predict.  If omitted, the fitted linear predictors are used.</p>
 </td></tr>
-<tr><td><code id="predict.glm_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>the type of prediction required.  The default is on the
 scale of the linear predictors; the alternative <code>"response"</code>
@@ -61,27 +61,27 @@ scale.
 <p>The value of this argument can be abbreviated.
 </p>
 </td></tr>
-<tr><td><code id="predict.glm_:_se.fit">se.fit</code></td>
+<tr><td><code id="se.fit">se.fit</code></td>
 <td>
 <p>logical switch indicating if standard errors are required.</p>
 </td></tr>
-<tr><td><code id="predict.glm_:_dispersion">dispersion</code></td>
+<tr><td><code id="dispersion">dispersion</code></td>
 <td>
 <p>the dispersion of the GLM fit to be assumed in
 computing the standard errors.  If omitted, that returned by
 <code>summary</code> applied to the object is used.</p>
 </td></tr>
-<tr><td><code id="predict.glm_:_terms">terms</code></td>
+<tr><td><code id="terms">terms</code></td>
 <td>
 <p>with <code>type="terms"</code> by default all terms are returned.
 A character vector specifies which terms are to be returned</p>
 </td></tr>
-<tr><td><code id="predict.glm_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>function determining what should be done with missing
 values in <code>newdata</code>.  The default is to predict <code>NA</code>.</p>
 </td></tr>
-<tr><td><code id="predict.glm_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td></tr>
@@ -105,7 +105,7 @@ appear (in predictions and standard errors), with residual value
 <p>If <code>se = FALSE</code>, a vector or matrix of predictions.
 If <code>se = TRUE</code>, a list with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>fit</code></td>
 <td>
 <p>Predictions</p>
@@ -162,6 +162,7 @@ lines(2^ld, predict(budworm.lg, data.frame(ldose=ld,
    type = "response"))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.13.2/00index.html'>Package <em>stats</em> version 2.13.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.13.2/00index.html'>Package <em>stats</em> version 2.13.2</a> ]</div></main>
+
 </div>
 </body></html>

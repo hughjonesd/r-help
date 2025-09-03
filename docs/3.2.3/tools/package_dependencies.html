@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/package_dependencies.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/package_dependencies.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/package_dependencies.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/package_dependencies.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>package_dependencies {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='package_dependencies'>Computations on the Dependency Hierarchy of Packages</h2>
+<h2>Computations on the Dependency Hierarchy of Packages</h2>
 
 <h3>Description</h3>
 
@@ -34,12 +34,12 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="package_dependencies_:_packages">packages</code></td>
+<table role = "presentation">
+<tr><td><code id="packages">packages</code></td>
 <td>
 <p>a character vector of package names.</p>
 </td></tr>
-<tr><td><code id="package_dependencies_:_db">db</code></td>
+<tr><td><code id="db">db</code></td>
 <td>
 <p>character matrix as from <code>available.packages()</code>,
 or data frame variants thereof.  Alternatively, a package database
@@ -47,7 +47,7 @@ like the one available from
 <a href="https://cran.r-project.org/web/packages/packages.rds">https://cran.r-project.org/web/packages/packages.rds</a>.
 </p>
 </td></tr>
-<tr><td><code id="package_dependencies_:_which">which</code></td>
+<tr><td><code id="which">which</code></td>
 <td>
 <p>a character vector listing the types of
 dependencies, a subset of
@@ -57,17 +57,17 @@ character string <code>"most"</code> for the same vector without
 <code>"Enhances"</code>.
 </p>
 </td></tr>
-<tr><td><code id="package_dependencies_:_recursive">recursive</code></td>
+<tr><td><code id="recursive">recursive</code></td>
 <td>
 <p>logical: should (reverse) dependencies of (reverse)
 dependencies (and so on) be included?</p>
 </td></tr>
-<tr><td><code id="package_dependencies_:_reverse">reverse</code></td>
+<tr><td><code id="reverse">reverse</code></td>
 <td>
 <p>logical: if <code>FALSE</code> (default), regular
 dependencies are calculated, otherwise reverse dependencies.</p>
 </td></tr>
-<tr><td><code id="package_dependencies_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical indicating if output should monitor the package
 search cycles.</p>
@@ -105,6 +105,7 @@ length(deps$MASS)
 ## End(Not run)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>tools</em> version 3.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>tools</em> version 3.2.3</a> ]</div></main>
+
 </div>
 </body></html>

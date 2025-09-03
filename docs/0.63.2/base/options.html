@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.63.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/options.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>options {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='options'>Options Settings</h2>
+<h2>Options Settings</h2>
 
 <h3>Description</h3>
 
@@ -35,8 +35,8 @@ its results.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="options_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="...">...</code></td>
 <td>
 <p>any options can be defined, using <code>name = value</code>.
 However, only the ones below are used in &ldquo;base <span class="rlang"><b>R</b></span>&rdquo;.
@@ -44,73 +44,73 @@ However, only the ones below are used in &ldquo;base <span class="rlang"><b>R</b
 <p>Further, <code>options('name') == options()['name']</code>, see the example.
 </p>
 </td></tr>
-<tr><td><code id="options_:_prompt">prompt</code></td>
+<tr><td><code id="prompt">prompt</code></td>
 <td>
 <p>a string, used for <span class="rlang"><b>R</b></span>'s prompt; should usually end in a
 blank (<code>" "</code>).</p>
 </td></tr>
-<tr><td><code id="options_:_continue">continue</code></td>
+<tr><td><code id="continue">continue</code></td>
 <td>
 <p>a string setting the prompt used for lines which continue
 over one line.</p>
 </td></tr>
-<tr><td><code id="options_:_width">width</code></td>
+<tr><td><code id="width">width</code></td>
 <td>
 <p>controls the number of characters on a line. You may
 want to change this if you resize the window that <span class="rlang"><b>R</b></span> is running in.</p>
 </td></tr>
-<tr><td><code id="options_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>controls the number of digits to print when printing
 numeric values. It is a suggestion only.</p>
 </td></tr>
-<tr><td><code id="options_:_editor">editor</code></td>
+<tr><td><code id="editor">editor</code></td>
 <td>
 <p>sets the default text editor, e.g., for <code>edit</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_browser">browser</code></td>
+<tr><td><code id="browser">browser</code></td>
 <td>
 <p>default HTML browser used by <code>help.start()</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_contrasts">contrasts</code></td>
+<tr><td><code id="contrasts">contrasts</code></td>
 <td>
 <p>the default contrasts used in model fitting such as
 <code>lm</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_expressions">expressions</code></td>
+<tr><td><code id="expressions">expressions</code></td>
 <td>
 <p>sets a limit on the number of nested expressions that
 will be evaluated.   This is especially important on the Macintosh
 since stack overflow is likely if this is set too high.</p>
 </td></tr>
-<tr><td><code id="options_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>the name of a function for treating missing values
 (<code>NA</code>'s) for certain situations.</p>
 </td></tr>
-<tr><td><code id="options_:_pager">pager</code></td>
+<tr><td><code id="pager">pager</code></td>
 <td>
 <p>the (standalone) program used for displaying ASCII files on
 <span class="rlang"><b>R</b></span>'s console.  Defaults to &lsquo;<span class="file">\$RHOME/bin/pager</span>&rsquo;.</p>
 </td></tr>
-<tr><td><code id="options_:_papersize">papersize</code></td>
+<tr><td><code id="papersize">papersize</code></td>
 <td>
 <p>the paper format used for graphics printing; currently
 <b>read-only</b>, set by environment variable R\_PAPERSIZE, or in
 &lsquo;<span class="file">config.site</span>&rsquo;.</p>
 </td></tr>
-<tr><td><code id="options_:_printcmd">printcmd</code></td>
+<tr><td><code id="printcmd">printcmd</code></td>
 <td>
 <p>the command used for graphics printing; currently
 <b>read-only</b>, set by environment variable R\_PRINTCMD, or in
 &lsquo;<span class="file">config.site</span>&rsquo;.</p>
 </td></tr>
-<tr><td><code id="options_:_show.signif.stars">show.signif.stars</code>, <code id="options_:_show.coef.Pvalues">show.coef.Pvalues</code></td>
+<tr><td><code id="show.signif.stars">show.signif.stars</code>, <code id="show.coef.Pvalues">show.coef.Pvalues</code></td>
 <td>
 <p>logical, affecting P value
 printing, see <code>print.coefmat</code>.</p>
 </td></tr>
-<tr><td><code id="options_:_ts.eps">ts.eps</code></td>
+<tr><td><code id="ts.eps">ts.eps</code></td>
 <td>
 <p>the relative tolerance for certain time series
 (<code>ts</code>) computations.</p>
@@ -157,6 +157,7 @@ options(op)	# reset (all) initial options
 options('digits')
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.63.2/00index.html'>Package <em>base</em> version 0.63.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.63.2/00index.html'>Package <em>base</em> version 0.63.2</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Hypergeometric.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Hypergeometric.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Hypergeometric.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Hypergeometric.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Hypergeometric {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Hypergeometric'>The Hypergeometric Distribution</h2>
+<h2>The Hypergeometric Distribution</h2>
 
 <h3>Description</h3>
 
@@ -36,38 +36,38 @@ rhyper(nn, m, n, k)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Hypergeometric_:_x">x</code>, <code id="Hypergeometric_:_q">q</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="q">q</code></td>
 <td>
 <p>vector of quantiles representing the number of white balls
 drawn without replacement from an urn which contains both black and
 white balls.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_m">m</code></td>
+<tr><td><code id="m">m</code></td>
 <td>
 <p>the number of white balls in the urn.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>the number of black balls in the urn.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_k">k</code></td>
+<tr><td><code id="k">k</code></td>
 <td>
 <p>the number of balls drawn from the urn.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>probability, it must be between 0 and 1.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_nn">nn</code></td>
+<tr><td><code id="nn">nn</code></td>
 <td>
 <p>the number of observations to be generated.</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_log">log</code>, <code id="Hypergeometric_:_log.p">log.p</code></td>
+<tr><td><code id="log">log</code>, <code id="log.p">log.p</code></td>
 <td>
 <p>logical; if TRUE, probabilities p are given as log(p).</p>
 </td></tr>
-<tr><td><code id="Hypergeometric_:_lower.tail">lower.tail</code></td>
+<tr><td><code id="lower.tail">lower.tail</code></td>
 <td>
 <p>logical; if TRUE (default), probabilities are
 <code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
@@ -118,6 +118,7 @@ all(phyper(x, m, n, k) == cumsum(dhyper(x, m, n, k)))# FALSE
 signif(phyper(x, m, n, k) - cumsum(dhyper(x, m, n, k)), dig=3)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.2/00index.html'>Package <em>base</em> version 1.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.2/00index.html'>Package <em>base</em> version 1.2</a> ]</div></main>
+
 </div>
 </body></html>

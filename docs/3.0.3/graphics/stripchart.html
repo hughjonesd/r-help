@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/stripchart.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/stripchart.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/stripchart.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/stripchart.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>stripchart {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='stripchart'>1-D Scatter Plots</h2>
+<h2>1-D Scatter Plots</h2>
 
 <h3>Description</h3>
 
@@ -47,8 +47,8 @@ stripchart(x, method = "overplot", jitter = 0.1, offset = 1/3,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="stripchart_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>the data from which the plots are to be produced.  In the
 default method the data can be specified as a single numeric
@@ -59,30 +59,30 @@ indicating the observations in the vector <code>y</code> are to be
 grouped according to the levels of the factor
 <code>g</code>.  <code>NA</code>s are allowed in the data.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>a data.frame (or list) from which the variables in
 <code>x</code> should be taken.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used for plotting.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen
 when the data contain <code>NA</code>s.  The default is to ignore missing
 values in either the response or the group.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>additional parameters passed to the default method, or by
 it to <code>plot.default</code>, <code>points</code>,
 <code>axis</code> and <code>title</code> to control the appearance
 of the plot.</p>
 </td></tr> 
-<tr><td><code id="stripchart_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>the method to be used to separate coincident points.
 The default method <code>"overplot"</code> causes such points to be
@@ -90,58 +90,58 @@ overplotted, but it is also possible to specify <code>"jitter"</code> to
 jitter the points, or <code>"stack"</code> have coincident points
 stacked.  The last method only makes sense for very granular data.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_jitter">jitter</code></td>
+<tr><td><code id="jitter">jitter</code></td>
 <td>
 <p>when <code>method = "jitter"</code> is used, <code>jitter</code>
 gives the amount of jittering applied.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_offset">offset</code></td>
+<tr><td><code id="offset">offset</code></td>
 <td>
 <p>when stacking is used, points are stacked this many
 line-heights (symbol widths) apart.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_vertical">vertical</code></td>
+<tr><td><code id="vertical">vertical</code></td>
 <td>
 <p>when vertical is <code>TRUE</code> the plots are drawn
 vertically rather than the default horizontal.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_group.names">group.names</code></td>
+<tr><td><code id="group.names">group.names</code></td>
 <td>
 <p>group labels which will be printed alongside
 (or underneath) each plot.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>logical, if true <em>add</em> the chart to the current plot.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_at">at</code></td>
+<tr><td><code id="at">at</code></td>
 <td>
 <p>numeric vector giving the locations where the charts should
 be drawn, particularly when <code>add = TRUE</code>;
 defaults to <code>1:n</code> where <code>n</code> is the number of boxes.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_ylab">ylab</code>, <code id="stripchart_:_xlab">xlab</code></td>
+<tr><td><code id="ylab">ylab</code>, <code id="xlab">xlab</code></td>
 <td>
 <p>labels: see <code>title</code>.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_dlab">dlab</code>, <code id="stripchart_:_glab">glab</code></td>
+<tr><td><code id="dlab">dlab</code>, <code id="glab">glab</code></td>
 <td>
 <p>alternate way to specify axis labels: see &lsquo;Details&rsquo;.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_xlim">xlim</code>, <code id="stripchart_:_ylim">ylim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code></td>
 <td>
 <p>plot limits: see <code>plot.window</code>.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_log">log</code></td>
+<tr><td><code id="log">log</code></td>
 <td>
 <p>on which axes to use a log scale:  see
 <code>plot.default</code></p>
 </td></tr>
-<tr><td><code id="stripchart_:_pch">pch</code>, <code id="stripchart_:_col">col</code>, <code id="stripchart_:_cex">cex</code></td>
+<tr><td><code id="pch">pch</code>, <code id="col">col</code>, <code id="cex">cex</code></td>
 <td>
 <p>Graphical parameters: see <code>par</code>.</p>
 </td></tr>
-<tr><td><code id="stripchart_:_axes">axes</code>, <code id="stripchart_:_frame.plot">frame.plot</code></td>
+<tr><td><code id="axes">axes</code>, <code id="frame.plot">frame.plot</code></td>
 <td>
 <p>Axis control:  see <code>plot.default</code>.</p>
 </td></tr>
@@ -180,6 +180,7 @@ stripchart(decrease ~ treatment, at = c(1:8)^2,
     vertical = TRUE, log = "y", data = OrchardSprays)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.3/00index.html'>Package <em>graphics</em> version 3.0.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.3/00index.html'>Package <em>graphics</em> version 3.0.3</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/se.contrast.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/se.contrast.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/se.contrast.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/se.contrast.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>se.contrast {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='se.contrast'>Standard Errors for Contrasts in Model Terms</h2>
+<h2>Standard Errors for Contrasts in Model Terms</h2>
 
 <h3>Description</h3>
 
@@ -36,12 +36,12 @@ se.contrast.aovlist(...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="se.contrast_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>A suitable fit, usually from <code>aov</code>.</p>
 </td></tr>
-<tr><td><code id="se.contrast_:_contrast.obj">contrast.obj</code></td>
+<tr><td><code id="contrast.obj">contrast.obj</code></td>
 <td>
 <p>The contrasts for which standard errors are
 requested. This can be specified via a list or via a matrix. A single
@@ -49,14 +49,14 @@ contrast can be specified by a list of logical vectors giving the
 cells to be contrasted. Multiple contrasts should be specified by a
 matrix as returned by <code>contrasts</code>.</p>
 </td></tr>
-<tr><td><code id="se.contrast_:_coef">coef</code></td>
+<tr><td><code id="coef">coef</code></td>
 <td>
 <p>Used when <code>{contrast.obj}</code> is a list; it should be a
 vector of the same length as the list with zero sum. The default
 value is the first Helmert contrast, which contrasts the first and
 second cell means specified by the list.</p>
 </td></tr>
-<tr><td><code id="se.contrast_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>The data frame used to evaluate <code>contrast.obj</code>.</p>
 </td></tr>
@@ -107,6 +107,7 @@ se.contrast(npk.aov1, list(N==&quot;0&quot;, N==&quot;1&quot;), data=npk)
 models
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.64/00index.html'>Package <em>base</em> version 0.64</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.64/00index.html'>Package <em>base</em> version 0.64</a> ]</div></main>
+
 </div>
 </body></html>

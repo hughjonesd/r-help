@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/loess.html'>https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/loess.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/loess.html'>https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/loess.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>loess {modreg}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='loess'>Local Polynomial Regression Fitting</h2>
+<h2>Local Polynomial Regression Fitting</h2>
 
 <h3>Description</h3>
 
@@ -38,85 +38,85 @@ predictors, using local fitting.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="loess_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula specifying the response and one or more
 numeric predictors (best specified via an interaction, but can also
 be specified additively).</p>
 </td></tr>
-<tr><td><code id="loess_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional data frame within which to look first for the
 response, predictors and weights.</p>
 </td></tr>
-<tr><td><code id="loess_:_weights">weights</code></td>
+<tr><td><code id="weights">weights</code></td>
 <td>
 <p>optional weights for each case.</p>
 </td></tr>
-<tr><td><code id="loess_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional specification of a subset of the data to be
 used.</p>
 </td></tr>
-<tr><td><code id="loess_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>the action to be taken with missing values in the
 response or predictors.  The default is to stop.</p>
 </td></tr>
-<tr><td><code id="loess_:_model">model</code></td>
+<tr><td><code id="model">model</code></td>
 <td>
 <p>should the model frame be returned?</p>
 </td></tr>
-<tr><td><code id="loess_:_span">span</code></td>
+<tr><td><code id="span">span</code></td>
 <td>
 <p>the parameter <code class="reqn">\alpha</code> which controls the degree of
 smoothing.</p>
 </td></tr>
-<tr><td><code id="loess_:_enp.target">enp.target</code></td>
+<tr><td><code id="enp.target">enp.target</code></td>
 <td>
 <p>an alternative way to specify <code>span</code>, as the
 approximate equivalent number of parameters to be used.</p>
 </td></tr>
-<tr><td><code id="loess_:_degree">degree</code></td>
+<tr><td><code id="degree">degree</code></td>
 <td>
 <p>the degree of the polynomials to be used, up to 2.</p>
 </td></tr>
-<tr><td><code id="loess_:_parametric">parametric</code></td>
+<tr><td><code id="parametric">parametric</code></td>
 <td>
 <p>should any terms be fitted globally rather than
 locally?  Terms can be specified by name, number or as a logical
 vector of the same length as the number of predictors.</p>
 </td></tr>
-<tr><td><code id="loess_:_drop.square">drop.square</code></td>
+<tr><td><code id="drop.square">drop.square</code></td>
 <td>
 <p>for fits with more than one predictor and
 <code>degree=2</code>, should the quadratic term (and cross-terms) be
 dropped for particular predictors?  Terms are specified in the same
 way as for <code>parametric</code>.</p>
 </td></tr>
-<tr><td><code id="loess_:_normalize">normalize</code></td>
+<tr><td><code id="normalize">normalize</code></td>
 <td>
 <p>should the predictors be normalized to a common scale
 if there is more than one?  The normalization used is to set the
 10% trimmed standard deviation to one.  Set to false for spatial
 coordinate predictors and others know to be a common scale.</p>
 </td></tr>
-<tr><td><code id="loess_:_family">family</code></td>
+<tr><td><code id="family">family</code></td>
 <td>
 <p>if <code>"gaussian"</code> fitting is by least-squares, and if
 <code>"symmetric"</code> a re-descending M estimator is used with Tukey's
 biweight function.</p>
 </td></tr>
-<tr><td><code id="loess_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>fit the model or just extract the model frame.</p>
 </td></tr>
-<tr><td><code id="loess_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>control parameters: see <code>loess.control</code>.</p>
 </td></tr>
-<tr><td><code id="loess_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>control parameters can also be supplied directly.</p>
 </td></tr>
@@ -198,6 +198,7 @@ cars.lo2 &lt;- loess(dist ~ speed, cars,
 predict(cars.lo2, data.frame(speed = seq(5, 30, 1)), se = TRUE)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

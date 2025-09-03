@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 
 library(gert)
 options(nwarnings = 1e5)

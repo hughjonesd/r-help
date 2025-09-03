@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nls.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nls.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/nls.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>nls {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='nls'>Nonlinear Least Squares</h2>
+<h2>Nonlinear Least Squares</h2>
 
 <h3>Description</h3>
 
@@ -35,19 +35,19 @@ parameters of a nonlinear model.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="nls_:_formula">formula</code></td>
+<table role = "presentation">
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a nonlinear model formula including variables and
 parameters.  Will be coerced to a formula if necessary.</p>
 </td></tr>
-<tr><td><code id="nls_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional data frame in which to evaluate the variables in
 <code>formula</code> and <code>weights</code>.  Can also be a list or an
 environment, but not a matrix.</p>
 </td></tr>
-<tr><td><code id="nls_:_start">start</code></td>
+<tr><td><code id="start">start</code></td>
 <td>
 <p>a named list or named numeric vector of starting
 estimates.  When <code>start</code> is missing (and <code>formula</code> is not
@@ -55,13 +55,13 @@ a self-starting model, see <code>selfStart</code>), a very cheap
 guess for <code>start</code> is tried (if <code>algorithm != "plinear"</code>).
 </p>
 </td></tr>
-<tr><td><code id="nls_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>an optional list of control settings.  See
 <code>nls.control</code> for the names of the settable control
 values and their effect.</p>
 </td></tr>
-<tr><td><code id="nls_:_algorithm">algorithm</code></td>
+<tr><td><code id="algorithm">algorithm</code></td>
 <td>
 <p>character string specifying the algorithm to use.
 The default algorithm is a Gauss-Newton algorithm.  Other possible
@@ -70,7 +70,7 @@ partially linear least-squares models and <code>"port"</code> for the
 &lsquo;nl2sol&rsquo; algorithm from the Port library &ndash; see the
 references.  Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="nls_:_trace">trace</code></td>
+<tr><td><code id="trace">trace</code></td>
 <td>
 <p>logical value indicating if a trace of the iteration
 progress should be printed.  Default is <code>FALSE</code>.  If
@@ -82,17 +82,17 @@ parameters.  When the <code>"port"</code> algorithm is used the
 objective function value printed is half the residual (weighted)
 sum-of-squares.</p>
 </td></tr>
-<tr><td><code id="nls_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used in the fitting process.</p>
 </td></tr>
-<tr><td><code id="nls_:_weights">weights</code></td>
+<tr><td><code id="weights">weights</code></td>
 <td>
 <p>an optional numeric vector of (fixed) weights.  When
 present, the objective function is weighted least squares.</p>
 </td></tr>
-<tr><td><code id="nls_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen
 when the data contain <code>NA</code>s.  The default is set by
@@ -101,12 +101,12 @@ the <code>na.action</code> setting of <code>options</code>, and is
 default is <code>na.omit</code>.  Value <code>na.exclude</code>
 can be useful.</p>
 </td></tr>
-<tr><td><code id="nls_:_model">model</code></td>
+<tr><td><code id="model">model</code></td>
 <td>
 <p>logical.  If true, the model frame is returned as part of
 the object. Default is <code>FALSE</code>.</p>
 </td></tr>
-<tr><td><code id="nls_:_lower">lower</code>, <code id="nls_:_upper">upper</code></td>
+<tr><td><code id="lower">lower</code>, <code id="upper">upper</code></td>
 <td>
 <p>vectors of lower and upper bounds, replicated to
 be as long as <code>start</code>.  If unspecified, all parameters are
@@ -114,7 +114,7 @@ assumed to be unconstrained.  Bounds can only be used with the
 <code>"port"</code> algorithm.  They are ignored, with a warning, if given
 for other algorithms.</p>
 </td></tr>
-<tr><td><code id="nls_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Additional optional arguments.  None are used at present.</p>
 </td></tr>
@@ -151,7 +151,7 @@ with care.
 
 <p>A list of
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>m</code></td>
 <td>
 <p>an <code>nlsModel</code> object incorporating the model.</p>
@@ -425,6 +425,7 @@ summary(musc.2)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>stats</em> version 3.5.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>stats</em> version 3.5.1</a> ]</div></main>
+
 </div>
 </body></html>

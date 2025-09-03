@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sys.source.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sys.source.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sys.source.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sys.source.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>sys.source {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='sys.source'>Parse and Evaluate Expressions from a File</h2>
+<h2>Parse and Evaluate Expressions from a File</h2>
 
 <h3>Description</h3>
 
@@ -34,12 +34,12 @@ them in the specified environment.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="sys.source_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>a character string naming the file to be read from</p>
 </td></tr>
-<tr><td><code id="sys.source_:_envir">envir</code></td>
+<tr><td><code id="envir">envir</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object specifying the environment in which the
 expressions are to be evaluated.  May also be a list or an integer.
@@ -47,12 +47,12 @@ The default value <code>NULL</code> corresponds to evaluation in the base
 environment.  This is probably not what you want; you should
 typically supply an explicit <code>envir</code> argument.</p>
 </td></tr>
-<tr><td><code id="sys.source_:_chdir">chdir</code></td>
+<tr><td><code id="chdir">chdir</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the <span class="rlang"><b>R</b></span> working directory is
 changed to the directory containing <code>file</code> for evaluating.</p>
 </td></tr>
-<tr><td><code id="sys.source_:_keep.source">keep.source</code></td>
+<tr><td><code id="keep.source">keep.source</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, functions &ldquo;keep
 their source&rdquo; including comments, see
@@ -65,7 +65,6 @@ their source&rdquo; including comments, see
 
 <p>For large files, <code>keep.source = FALSE</code> may save quite a bit of
 memory.
-
 In order for the code being evaluated to use the correct environment
 (for example, in global assignments), source code in packages should
 call 
@@ -81,6 +80,7 @@ if a saved image is being used.
 <code>sys.source</code>.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.0.1/00index.html'>Package <em>base</em> version 2.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.0.1/00index.html'>Package <em>base</em> version 2.0.1</a> ]</div></main>
+
 </div>
 </body></html>

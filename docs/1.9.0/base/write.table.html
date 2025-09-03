@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/write.table.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/write.table.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/write.table.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/write.table.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>write.table {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='write.table'>Data Output</h2>
+<h2>Data Output</h2>
 
 <h3>Description</h3>
 
@@ -37,23 +37,23 @@ value of <code>sep</code>.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="write.table_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>the object to be written, typically a data frame.  If not, it
 is attempted to coerce <code>x</code> to a data frame.</p>
 </td></tr>
-<tr><td><code id="write.table_:_file">file</code></td>
+<tr><td><code id="file">file</code></td>
 <td>
 <p>either a character string naming a file or a connection.
 <code>""</code> indicates output to the console.</p>
 </td></tr>
-<tr><td><code id="write.table_:_append">append</code></td>
+<tr><td><code id="append">append</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, the output is appended to the
 file.  If <code>FALSE</code>, any existing file of the name is destroyed.</p>
 </td></tr>
-<tr><td><code id="write.table_:_quote">quote</code></td>
+<tr><td><code id="quote">quote</code></td>
 <td>
 <p>a logical value or a numeric vector.  If <code>TRUE</code>, any
 character or factor columns will be surrounded by double quotes.  If
@@ -61,36 +61,36 @@ a numeric vector, its elements are taken as the indices of the
 columns to quote.  In both cases, row and column names
 are quoted if they are written. If <code>FALSE</code>, nothing is quoted.</p>
 </td></tr>
-<tr><td><code id="write.table_:_sep">sep</code></td>
+<tr><td><code id="sep">sep</code></td>
 <td>
 <p>the field separator string.  Values within each row of
 <code>x</code> are separated by this string.</p>
 </td></tr>
-<tr><td><code id="write.table_:_eol">eol</code></td>
+<tr><td><code id="eol">eol</code></td>
 <td>
 <p>the character(s) to print at the end of each line (row).</p>
 </td></tr>
-<tr><td><code id="write.table_:_na">na</code></td>
+<tr><td><code id="na">na</code></td>
 <td>
 <p>the string to use for missing values in the data.</p>
 </td></tr>
-<tr><td><code id="write.table_:_dec">dec</code></td>
+<tr><td><code id="dec">dec</code></td>
 <td>
 <p>the string to use for decimal points.</p>
 </td></tr>
-<tr><td><code id="write.table_:_row.names">row.names</code></td>
+<tr><td><code id="row.names">row.names</code></td>
 <td>
 <p>either a logical value indicating whether the row
 names of <code>x</code> are to be written along with <code>x</code>, or a
 character vector of row names to be written.</p>
 </td></tr>
-<tr><td><code id="write.table_:_col.names">col.names</code></td>
+<tr><td><code id="col.names">col.names</code></td>
 <td>
 <p>either a logical value indicating whether the column
 names of <code>x</code> are to be written along with <code>x</code>, or a
 character vector of column names to be written.</p>
 </td></tr>
-<tr><td><code id="write.table_:_qmethod">qmethod</code></td>
+<tr><td><code id="qmethod">qmethod</code></td>
 <td>
 <p>a character string specifying how to deal with embedded
 double quote characters when quoting strings.  Must be one of
@@ -136,6 +136,7 @@ read.table("file.csv", header = TRUE, sep = ",", row.names=1)
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.9.0/00index.html'>Package <em>base</em> version 1.9.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.9.0/00index.html'>Package <em>base</em> version 1.9.0</a> ]</div></main>
+
 </div>
 </body></html>

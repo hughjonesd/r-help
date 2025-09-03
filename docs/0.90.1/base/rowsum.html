@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rowsum.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rowsum.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.90.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/rowsum.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/rowsum.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>rowsum {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='rowsum'>
+<h2>
 Give Row Sums of a Matrix, Based on a Grouping Variable
 </h2>
 
@@ -28,21 +28,21 @@ Give Row Sums of a Matrix, Based on a Grouping Variable
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="rowsum_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 
 <p>a matrix or vector of numeric data.  Missing values are allowed.
 </p>
 </td></tr>
-<tr><td><code id="rowsum_:_group">group</code></td>
+<tr><td><code id="group">group</code></td>
 <td>
 
 <p>a vector giving the grouping, with one element per row of <code>x</code>.
 Missing values are not allowed.
 </p>
 </td></tr>
-<tr><td><code id="rowsum_:_reorder">reorder</code></td>
+<tr><td><code id="reorder">reorder</code></td>
 <td>
 
 <p>if True, then the result will be in order of sort(unique(group)),
@@ -90,6 +90,7 @@ xsum3 &lt;- tapply(x, list(group[row(x)], col(x)), sum)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/0.90.1/00index.html'>Package <em>base</em> version 0.90.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/0.90.1/00index.html'>Package <em>base</em> version 0.90.1</a> ]</div></main>
+
 </div>
 </body></html>

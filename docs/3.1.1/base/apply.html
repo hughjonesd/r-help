@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/apply.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/apply.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/apply.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/apply.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>apply {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='apply'>Apply Functions Over Array Margins</h2>
+<h2>Apply Functions Over Array Margins</h2>
 
 <h3>Description</h3>
 
@@ -33,12 +33,12 @@ function to margins of an array or matrix.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="apply_:_X">X</code></td>
+<table role = "presentation">
+<tr><td><code id="X">X</code></td>
 <td>
 <p>an array, including a matrix.</p>
 </td></tr>
-<tr><td><code id="apply_:_MARGIN">MARGIN</code></td>
+<tr><td><code id="MARGIN">MARGIN</code></td>
 <td>
 <p>a vector giving the subscripts which the function will
 be applied over.  E.g., for a matrix <code>1</code> indicates rows,
@@ -46,13 +46,13 @@ be applied over.  E.g., for a matrix <code>1</code> indicates rows,
 columns. Where <code>X</code> has named dimnames, it can be a character
 vector selecting dimension names.</p>
 </td></tr>
-<tr><td><code id="apply_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>the function to be applied: see &lsquo;Details&rsquo;.
 In the case of functions like <code>+</code>, <code>%*%</code>, etc., the
 function name must be backquoted or quoted.</p>
 </td></tr>
-<tr><td><code id="apply_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>optional arguments to <code>FUN</code>.</p>
 </td></tr>
@@ -155,6 +155,7 @@ apply(z, 3, function(x) seq_len(max(x)))
 # a list without a dim attribute
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.1/00index.html'>Package <em>base</em> version 3.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.1/00index.html'>Package <em>base</em> version 3.1.1</a> ]</div></main>
+
 </div>
 </body></html>

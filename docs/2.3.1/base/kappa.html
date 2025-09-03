@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/kappa.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/kappa.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/kappa.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/kappa.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>kappa {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='kappa'>Estimate the Condition Number</h2>
+<h2>Estimate the Condition Number</h2>
 
 <h3>Description</h3>
 
@@ -43,17 +43,17 @@ kappa.tri(z, exact = FALSE, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="kappa_:_z">z</code></td>
+<table role = "presentation">
+<tr><td><code id="z">z</code></td>
 <td>
 <p>A matrix or a the result of <code>qr</code> or a fit from a class
 inheriting from <code>"lm"</code>.</p>
 </td></tr>
-<tr><td><code id="kappa_:_exact">exact</code></td>
+<tr><td><code id="exact">exact</code></td>
 <td>
 <p>logical. Should the result be exact?</p>
 </td></tr>
-<tr><td><code id="kappa_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to or from other methods.</p>
 </td></tr>
@@ -114,6 +114,7 @@ kappa(h9, exact = TRUE) == max(sv9) / min(sv9)
 kappa(h9, exact = TRUE) / kappa(h9) # .677 (i.e., rel.error = 32%)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.3.1/00index.html'>Package <em>base</em> version 2.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.3.1/00index.html'>Package <em>base</em> version 2.3.1</a> ]</div></main>
+
 </div>
 </body></html>

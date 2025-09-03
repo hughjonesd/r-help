@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/assertCondition.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/assertCondition.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/assertCondition.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/assertCondition.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>assertCondition {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='assertCondition'>Asserting Error Conditions</h2>
+<h2>Asserting Error Conditions</h2>
 
 <h3>Description</h3>
 
@@ -40,20 +40,20 @@ assertCondition(expr, ..., .exprString = , verbose = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="assertCondition_:_expr">expr</code></td>
+<table role = "presentation">
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p>an unevaluated <span class="rlang"><b>R</b></span> expression which will be evaluated via
 <code>tryCatch(expr, ..)</code>.</p>
 </td></tr>
-<tr><td><code id="assertCondition_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p><code>character</code> strings corresponding to the
 classes of the conditions that would satisfy the assertion; e.g., <code>"error"</code> or
 <code>"warning"</code>. If none are specified, any condition will
 satisfy the assertion.  See the details section. </p>
 </td></tr>
-<tr><td><code id="assertCondition_:_.exprString">.exprString</code></td>
+<tr><td><code id=".exprString">.exprString</code></td>
 <td>
 <p>The string to be printed corresponding to
 <code>expr</code>. By default, the actual <code>expr</code> will be
@@ -62,7 +62,7 @@ actual expression to be tested.  If <code>assertCondition()</code> is
 called from another function, with the actual expression passed as
 an argument to that function, supply the deparsed version.</p>
 </td></tr>
-<tr><td><code id="assertCondition_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>If <code>TRUE</code>, a message is printed when the
 condition is satisfied.</p>
@@ -145,6 +145,7 @@ assertCondition( assertCondition(matrix(1:8, 4,3), "error"),
                 "error")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>tools</em> version 3.6.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>tools</em> version 3.6.3</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/untar.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/untar.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/untar.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/untar.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>untar {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='untar'>
+<h2>
 Extract or List Tar Archives
 </h2>
 
@@ -36,30 +36,30 @@ Extract or List Tar Archives
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="untar_:_tarfile">tarfile</code></td>
+<table role = "presentation">
+<tr><td><code id="tarfile">tarfile</code></td>
 <td>
 <p>The pathname of the tar file: tilde expansion (see
 <code>path.expand</code>) will be performed.  Alternatively, a
 connection that can be used for binary reads.</p>
 </td></tr>
-<tr><td><code id="untar_:_files">files</code></td>
+<tr><td><code id="files">files</code></td>
 <td>
 <p>A character vector of recorded filepaths to be extracted:
 the default is to extract all files.</p>
 </td></tr>
-<tr><td><code id="untar_:_list">list</code></td>
+<tr><td><code id="list">list</code></td>
 <td>
 <p>If <code>TRUE</code>, list the files (the equivalent of
 <code>tar -tf</code>).  Otherwise extract the files (the equivalent of
 <code>tar -xf</code>).</p>
 </td></tr>
-<tr><td><code id="untar_:_exdir">exdir</code></td>
+<tr><td><code id="exdir">exdir</code></td>
 <td>
 <p>The directory to extract files to (the equivalent of
 <code>tar -C</code>).  It will be created if necessary.</p>
 </td></tr>
-<tr><td><code id="untar_:_compressed">compressed</code></td>
+<tr><td><code id="compressed">compressed</code></td>
 <td>
 <p>logical or character string, used only for an
 external <code>tar</code> command.  Values <code>"gzip"</code>,
@@ -74,18 +74,18 @@ is inferred from the file header.
 detect a type automagically.
 </p>
 </td></tr>
-<tr><td><code id="untar_:_extras">extras</code></td>
+<tr><td><code id="extras">extras</code></td>
 <td>
 <p><code>NULL</code> or a character string: further command-line
 flags such as <span class="option">-p</span> to be passed to an external <code>tar</code>
 program.</p>
 </td></tr>
-<tr><td><code id="untar_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical: if true echo the command used for an external
 <code>tar</code> program.</p>
 </td></tr>
-<tr><td><code id="untar_:_restore_times">restore_times</code></td>
+<tr><td><code id="restore_times">restore_times</code></td>
 <td>
 <p>logical.  If true (default) restore file
 modification times.  If false, the equivalent of the <span class="option">-m</span>
@@ -98,7 +98,7 @@ second, and can only be restored to the resolution supported by the
 file system (which on a FAT system is 2 seconds).
 </p>
 </td></tr>
-<tr><td><code id="untar_:_tar">tar</code></td>
+<tr><td><code id="tar">tar</code></td>
 <td>
 <p>character string: the path to the command to be used or
 <code>"internal"</code>.  If the command itself contains spaces it needs
@@ -199,6 +199,7 @@ paths of files contained in the tar archive.
 <p><code>tar</code>, <code>unzip</code>.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>utils</em> version 3.5.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.3/00index.html'>Package <em>utils</em> version 3.5.3</a> ]</div></main>
+
 </div>
 </body></html>

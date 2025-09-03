@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/smooth.spline.html'>https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/smooth.spline.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 0.64. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/smooth.spline.html'>https://stat.ethz.ch/R-manual/R-patched/library/modreg/html/smooth.spline.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>smooth.spline {modreg}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='smooth.spline'>Fit a Smoothing Spline</h2>
+<h2>Fit a Smoothing Spline</h2>
 
 <h3>Description</h3>
 
@@ -33,46 +33,46 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="smooth.spline_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector giving the values of the predictor variable, or  a
 list or a two-column matrix specifying x and y. </p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>responses. If <code>y</code> is missing, the responses are assumed
 to be specified by <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_w">w</code></td>
+<tr><td><code id="w">w</code></td>
 <td>
 <p>optional vector of weights</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_df">df</code></td>
+<tr><td><code id="df">df</code></td>
 <td>
 <p>the desired equivalent number of degrees of freedom (trace of
 the smoother matrix).</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_spar">spar</code></td>
+<tr><td><code id="spar">spar</code></td>
 <td>
 <p>the coefficient <code class="reqn">\lambda</code> of the integral of the squared
 second derivative in the fit (penalized log lik.) criterion.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_cv">cv</code></td>
+<tr><td><code id="cv">cv</code></td>
 <td>
 <p>ordinary (TRUE) or &lsquo;generalized&rsquo; (FALSE) cross-validation.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_all.knots">all.knots</code></td>
+<tr><td><code id="all.knots">all.knots</code></td>
 <td>
 <p>if TRUE, all points in <code>x</code> are uses as knots. If
 FAlSE, a suitably fine grid of knots is used.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_df.offset">df.offset</code></td>
+<tr><td><code id="df.offset">df.offset</code></td>
 <td>
 <p>allows the degrees of freedom to be increased by
 <code>df.offset</code> in the GCV criterion.</p>
 </td></tr>
-<tr><td><code id="smooth.spline_:_penalty">penalty</code></td>
+<tr><td><code id="penalty">penalty</code></td>
 <td>
 <p>the coefficient of the penalty for degrees of freedom
 in the GCV criterion.</p>
@@ -94,7 +94,7 @@ cross-validation is used to determine <code class="reqn">\lambda</code>.
 
 <p>An object of class <code>"smooth.spline"</code> with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>x</code></td>
 <td>
 <p>the distinct <code>x</code> values in increasing order.</p>
@@ -168,6 +168,7 @@ legend(5,120,c(paste("default [C.V.] =&gt; df =",round(cars.spl$df,1)),
 detach()
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

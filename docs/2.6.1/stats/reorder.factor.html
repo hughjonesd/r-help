@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/reorder.factor.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/reorder.factor.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/reorder.factor.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/reorder.factor.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>reorder.factor {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='reorder.factor'>Reorder Levels of a Factor</h2>
+<h2>Reorder Levels of a Factor</h2>
 
 <h3>Description</h3>
 
@@ -38,32 +38,32 @@ reorder(x, X, FUN = mean, ...,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="reorder.factor_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 
 <p>a factor (possibly ordered) whose levels will be reordered.
 </p>
 </td></tr>
-<tr><td><code id="reorder.factor_:_X">X</code></td>
+<tr><td><code id="X">X</code></td>
 <td>
 <p> a vector of the same length as <code>x</code>, whose subset
 of values for each unique level of <code>x</code> determines the
 eventual order of that level.
 </p>
 </td></tr>
-<tr><td><code id="reorder.factor_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p> a function whose first argument is a vector and
 returns a scalar, to be applied to each subset of <code>X</code>
 determined by the levels of <code>x</code>.
 </p>
 </td></tr>
-<tr><td><code id="reorder.factor_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p> optional: extra arguments supplied to <code>FUN</code></p>
 </td></tr>
-<tr><td><code id="reorder.factor_:_order">order</code></td>
+<tr><td><code id="order">order</code></td>
 <td>
 <p> logical, whether return value will be an ordered factor
 rather than a factor.
@@ -109,6 +109,7 @@ boxplot(count ~ bymedian, data = InsectSprays,
         col = "lightgray")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>stats</em> version 2.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>stats</em> version 2.6.1</a> ]</div></main>
+
 </div>
 </body></html>

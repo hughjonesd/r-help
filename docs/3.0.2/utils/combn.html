@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/combn.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/combn.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/combn.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/combn.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>combn {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='combn'>Generate All Combinations of n Elements, Taken m at a Time</h2>
+<h2>Generate All Combinations of n Elements, Taken m at a Time</h2>
 
 <h3>Description</h3>
 
@@ -39,23 +39,23 @@ a list; otherwise returns an <code>array</code>, typically a
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="combn_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>vector source for combinations, or integer <code>n</code> for
 <code>x &lt;- seq_len(n)</code>.</p>
 </td></tr>
-<tr><td><code id="combn_:_m">m</code></td>
+<tr><td><code id="m">m</code></td>
 <td>
 <p>number of elements to choose.</p>
 </td></tr>
-<tr><td><code id="combn_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>function to be applied to each combination; default
 <code>NULL</code> means the identity, i.e., to return the combination
 (vector of length <code>m</code>).</p>
 </td></tr>
-<tr><td><code id="combn_:_simplify">simplify</code></td>
+<tr><td><code id="simplify">simplify</code></td>
 <td>
 <p>logical indicating if the result should be simplified
 to an <code>array</code> (typically a <code>matrix</code>); if
@@ -65,7 +65,7 @@ simply determined from <code>FUN(<var>1st combination</var>)</code> (for
 efficiency reasons).  This will badly fail if <code>FUN(u)</code> is not of
 constant length.</p>
 </td></tr>
-<tr><td><code id="combn_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>optionally, further arguments to <code>FUN</code>.</p>
 </td></tr>
@@ -127,6 +127,7 @@ for(n in 1:7)
                          dim(cc) == c(m, choose(n, m)))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.2/00index.html'>Package <em>utils</em> version 3.0.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.2/00index.html'>Package <em>utils</em> version 3.0.2</a> ]</div></main>
+
 </div>
 </body></html>

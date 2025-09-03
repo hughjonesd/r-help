@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/cbind.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/cbind.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/cbind.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/cbind.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cbind {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cbind'>Combine R Objects by Rows or Columns</h2>
+<h2>Combine R Objects by Rows or Columns</h2>
 
 <h3>Description</h3>
 
@@ -38,8 +38,8 @@ rbind(..., deparse.level = 1, make.row.names = TRUE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cbind_:_...">...</code></td>
+<table role = "presentation">
+<tr><td><code id="...">...</code></td>
 <td>
 <p>(generalized) vectors or matrices.  These can be given as named
 arguments.  Other <span class="rlang"><b>R</b></span> objects may be coerced as appropriate, or S4
@@ -48,7 +48,7 @@ methods may be used: see sections &lsquo;Details&rsquo; and
 these can be further arguments to <code>data.frame</code> such as
 <code>stringsAsFactors</code>.)</p>
 </td></tr>
-<tr><td><code id="cbind_:_deparse.level">deparse.level</code></td>
+<tr><td><code id="deparse.level">deparse.level</code></td>
 <td>
 <p>integer controlling the construction of labels in
 the case of non-matrix-like arguments (for the default method):<br />
@@ -56,19 +56,19 @@ the case of non-matrix-like arguments (for the default method):<br />
 <code>deparse.level = 1 or 2</code> constructs labels from the argument
 names, see the &lsquo;Value&rsquo; section below.</p>
 </td></tr>
-<tr><td><code id="cbind_:_make.row.names">make.row.names</code></td>
+<tr><td><code id="make.row.names">make.row.names</code></td>
 <td>
 <p>(only for data frame method:) logical
 indicating if unique and valid <code>row.names</code> should be
 constructed from the arguments.</p>
 </td></tr>
-<tr><td><code id="cbind_:_stringsAsFactors">stringsAsFactors</code></td>
+<tr><td><code id="stringsAsFactors">stringsAsFactors</code></td>
 <td>
 <p>logical, passed to <code>as.data.frame</code>;
 only has an effect when the <code>...</code> arguments contain a
 (non-<code>data.frame</code>) <code>character</code>.</p>
 </td></tr>
-<tr><td><code id="cbind_:_factor.exclude">factor.exclude</code></td>
+<tr><td><code id="factor.exclude">factor.exclude</code></td>
 <td>
 <p>if the data frames contain factors,
 <code>TRUE</code> ensures that <code>NA</code> levels of factors are kept, see
@@ -267,6 +267,7 @@ stopifnot(identical(df1, rbind(df,  new, make.row.names=FALSE)),
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.1/00index.html'>Package <em>base</em> version 3.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.1/00index.html'>Package <em>base</em> version 3.6.1</a> ]</div></main>
+
 </div>
 </body></html>

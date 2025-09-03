@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/dist.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/dist.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/dist.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/dist.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>dist {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='dist'>Distance Matrix Computation</h2>
+<h2>Distance Matrix Computation</h2>
 
 <h3>Description</h3>
 
@@ -38,35 +38,35 @@ as.dist(m, diag = FALSE, upper = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="dist_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric matrix or (data frame).  Distances between the rows of
 <code>x</code> will be computed.</p>
 </td></tr>
-<tr><td><code id="dist_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>the distance measure to be used. This must be one of
 <code>"euclidean"</code>, <code>"maximum"</code>, <code>"manhattan"</code>,
 <code>"canberra"</code> or <code>"binary"</code>.
 Any unambiguous substring can be given.</p>
 </td></tr>
-<tr><td><code id="dist_:_diag">diag</code></td>
+<tr><td><code id="diag">diag</code></td>
 <td>
 <p>logical value indicating whether the diagonal of the
 distance matrix should be printed by <code>print.dist</code>.</p>
 </td></tr>
-<tr><td><code id="dist_:_upper">upper</code></td>
+<tr><td><code id="upper">upper</code></td>
 <td>
 <p>logical value indicating whether the upper triangle of the
 distance matrix should be printed by <code>print.dist</code>.</p>
 </td></tr>
-<tr><td><code id="dist_:_m">m</code></td>
+<tr><td><code id="m">m</code></td>
 <td>
 <p>A matrix of distances to be converted to a <code>"dist"</code>
 object (only the lower triangle is used, the rest is ignored).</p>
 </td></tr>
-<tr><td><code id="dist_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments, passed to the (next) <code>print</code> method.</p>
 </td></tr>
@@ -128,7 +128,7 @@ The length of the vector is <code class="reqn">n*(n-1)/2</code>, i.e., of order 
 <p>The object has the following attributes (besides <code>"class"</code> equal
 to <code>"dist"</code>):
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>Size</code></td>
 <td>
 <p>integer, the number of observations in the dataset.</p>
@@ -194,6 +194,7 @@ dist(rbind(x,y), method="canberra")
 ## answer 2 * (6/5)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

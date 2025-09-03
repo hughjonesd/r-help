@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/deparse.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/deparse.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.0.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/deparse.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/deparse.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>deparse {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='deparse'>Expression Deparsing</h2>
+<h2>Expression Deparsing</h2>
 
 <h3>Description</h3>
 
@@ -34,22 +34,22 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="deparse_:_expr">expr</code></td>
+<table role = "presentation">
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p>any <span class="rlang"><b>R</b></span> expression.</p>
 </td></tr>
-<tr><td><code id="deparse_:_width.cutoff">width.cutoff</code></td>
+<tr><td><code id="width.cutoff">width.cutoff</code></td>
 <td>
 <p>integer in <code class="reqn">[20, 500]</code> determining the cutoff
 at which line-breaking is tried.</p>
 </td></tr>
-<tr><td><code id="deparse_:_backtick">backtick</code></td>
+<tr><td><code id="backtick">backtick</code></td>
 <td>
 <p>logical indicating whether symbolic names should be
 enclosed in backticks if they don't follow the standard syntax.</p>
 </td></tr>
-<tr><td><code id="deparse_:_control">control</code></td>
+<tr><td><code id="control">control</code></td>
 <td>
 <p>character vector of deparsing options.  See
 <code>.deparseOpts</code>.</p>
@@ -123,6 +123,7 @@ deparse(e)
 deparse(e, control = "all")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>base</em> version 2.0.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.0.0/00index.html'>Package <em>base</em> version 2.0.0</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.glob.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.glob.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.glob.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.glob.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Sys.glob {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Sys.glob'>Wildcard Expansion on File Paths</h2>
+<h2>Wildcard Expansion on File Paths</h2>
 
 <h3>Description</h3>
 
@@ -33,17 +33,18 @@ file paths.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Sys.glob_:_paths">paths</code></td>
+<table role = "presentation">
+<tr><td><code id="paths">paths</code></td>
 <td>
 <p>character vector of patterns for relative or absolute
 filepaths.  Missing values will be ignored.</p>
 </td></tr>
-<tr><td><code id="Sys.glob_:_dirmark">dirmark</code></td>
+<tr><td><code id="dirmark">dirmark</code></td>
 <td>
 <p>logical: should matches to directories from patterns
 that do not already end in <code>/</code>
-have a slash appended?  May not be supported on all platforms.</p>
+</p>
+<p>have a slash appended?  May not be supported on all platforms.</p>
 </td></tr>
 </table>
 
@@ -122,6 +123,7 @@ accessible file paths (but not necessarily accessible files).
 Sys.glob(file.path(R.home(), "library", "*", "R", "*.rdx"))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>base</em> version 3.2.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.3/00index.html'>Package <em>base</em> version 3.2.3</a> ]</div></main>
+
 </div>
 </body></html>

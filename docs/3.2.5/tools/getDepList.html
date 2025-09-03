@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/getDepList.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/getDepList.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/getDepList.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/getDepList.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>getDepList {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='getDepList'>Functions to Retrieve Dependency Information</h2>
+<h2>Functions to Retrieve Dependency Information</h2>
 
 <h3>Description</h3>
 
@@ -39,34 +39,34 @@ pkgDepends(pkg, recursive = TRUE, local = TRUE, reduce = TRUE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="getDepList_:_depMtrx">depMtrx</code></td>
+<table role = "presentation">
+<tr><td><code id="depMtrx">depMtrx</code></td>
 <td>
 <p>A dependency matrix as from <code>package.dependencies</code></p>
 </td></tr>
-<tr><td><code id="getDepList_:_pkg">pkg</code></td>
+<tr><td><code id="pkg">pkg</code></td>
 <td>
 <p>The name of the package</p>
 </td></tr>
-<tr><td><code id="getDepList_:_instPkgs">instPkgs</code></td>
+<tr><td><code id="instPkgs">instPkgs</code></td>
 <td>
 <p>A matrix specifying all packages installed on the
 local system, as from <code>installed.packages</code></p>
 </td></tr>
-<tr><td><code id="getDepList_:_recursive">recursive</code></td>
+<tr><td><code id="recursive">recursive</code></td>
 <td>
 <p>Whether or not to include indirect dependencies</p>
 </td></tr>
-<tr><td><code id="getDepList_:_local">local</code></td>
+<tr><td><code id="local">local</code></td>
 <td>
 <p>Whether or not to search only locally</p>
 </td></tr>
-<tr><td><code id="getDepList_:_reduce">reduce</code></td>
+<tr><td><code id="reduce">reduce</code></td>
 <td>
 <p>Whether or not to collapse all sets of dependencies to a
 minimal value</p>
 </td></tr>
-<tr><td><code id="getDepList_:_lib.loc">lib.loc</code></td>
+<tr><td><code id="lib.loc">lib.loc</code></td>
 <td>
 <p>What libraries to use when looking for installed
 packages.  <code>NULL</code> indicates all library directories in the
@@ -144,6 +144,7 @@ are specified (for instance if there was
 <pre><code class='language-R'>pkgDepends("tools", local = FALSE)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.5/00index.html'>Package <em>tools</em> version 3.2.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.5/00index.html'>Package <em>tools</em> version 3.2.5</a> ]</div></main>
+
 </div>
 </body></html>

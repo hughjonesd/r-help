@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/sigma.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/sigma.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/sigma.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/sigma.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>sigma {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='sigma'>Extract Residual Standard Deviation 'Sigma'</h2>
+<h2>Extract Residual Standard Deviation 'Sigma'</h2>
 
 <h3>Description</h3>
 
@@ -44,17 +44,17 @@ sigma(object, use.fallback = TRUE, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="sigma_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>an <span class="rlang"><b>R</b></span> object, typically resulting from a model fitting
 function such as <code>lm</code>.</p>
 </td></tr>
-<tr><td><code id="sigma_:_use.fallback">use.fallback</code></td>
+<tr><td><code id="use.fallback">use.fallback</code></td>
 <td>
 <p>logical, passed to <code>nobs</code>.</p>
 </td></tr>
-<tr><td><code id="sigma_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>potentially further arguments passed to and from
 methods.  Passed to <code>deviance(*, ...)</code> for the default method.</p>
@@ -121,7 +121,6 @@ fm.DN1 &lt;- nls(density ~ SSlogis(log(conc), Asym, xmid, scal), DNase1)
 sigma(fm.DN1) # ~= 0.01919  as from summary(..)
 stopifnot(all.equal(sigma(fm.DN1), summary(fm.DN1)$sigma, tol=1e-15))
 
-
 ## -- glm() -----------------------------
 ## -- a) Binomial -- Example from MASS
 ldose &lt;- rep(0:5, 2)
@@ -150,6 +149,7 @@ sqrt(diag(estVar(mlmfit)))
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.4.1/00index.html'>Package <em>stats</em> version 3.4.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.4.1/00index.html'>Package <em>stats</em> version 3.4.1</a> ]</div></main>
+
 </div>
 </body></html>

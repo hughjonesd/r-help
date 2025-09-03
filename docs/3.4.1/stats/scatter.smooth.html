@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/scatter.smooth.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/scatter.smooth.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/scatter.smooth.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/scatter.smooth.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>scatter.smooth {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='scatter.smooth'>Scatter Plot with Smooth Curve Fitted by Loess</h2>
+<h2>Scatter Plot with Smooth Curve Fitted by Loess</h2>
 
 <h3>Description</h3>
 
@@ -39,52 +39,52 @@ loess.smooth(x, y, span = 2/3, degree = 1,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="scatter.smooth_:_x">x</code>, <code id="scatter.smooth_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>the <code>x</code> and <code>y</code> arguments provide the x and y
 coordinates for the plot.  Any reasonable way of defining the
 coordinates is acceptable.  See the function <code>xy.coords</code>
 for details.</p>
 </td></tr>
-<tr><td><code id="scatter.smooth_:_span">span</code></td>
+<tr><td><code id="span">span</code></td>
 <td>
 <p>smoothness parameter for <code>loess</code>.</p>
 </td></tr>
-<tr><td><code id="scatter.smooth_:_degree">degree</code></td>
+<tr><td><code id="degree">degree</code></td>
 <td>
 <p>degree of local polynomial used.</p>
 </td></tr>
-<tr><td><code id="scatter.smooth_:_family">family</code></td>
+<tr><td><code id="family">family</code></td>
 <td>
 <p>if <code>"gaussian"</code> fitting is by least-squares, and if
 <code>family = "symmetric"</code> a re-descending M estimator is used.
 Can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="scatter.smooth_:_xlab">xlab</code></td>
+<tr><td><code id="xlab">xlab</code></td>
 <td>
 <p>label for x axis.</p>
 </td></tr>
-<tr><td><code id="scatter.smooth_:_ylab">ylab</code></td>
+<tr><td><code id="ylab">ylab</code></td>
 <td>
 <p>label for y axis.</p>
 </td></tr>
-<tr><td><code id="scatter.smooth_:_ylim">ylim</code></td>
+<tr><td><code id="ylim">ylim</code></td>
 <td>
 <p>the y limits of the plot.</p>
 </td></tr>
-<tr><td><code id="scatter.smooth_:_evaluation">evaluation</code></td>
+<tr><td><code id="evaluation">evaluation</code></td>
 <td>
 <p>number of points at which to evaluate the smooth
 curve.</p>
 </td></tr>
-<tr><td><code id="scatter.smooth_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>For <code>scatter.smooth()</code>, graphical parameters, passed
 to <code>plot()</code> only.  For <code>loess.smooth</code>, control parameters
 passed to <code>loess.control</code>.</p>
 </td></tr>
-<tr><td><code id="scatter.smooth_:_lpars">lpars</code></td>
+<tr><td><code id="lpars">lpars</code></td>
 <td>
 <p>a <code>list</code> of arguments to be passed to
 <code>lines()</code>.</p>
@@ -127,6 +127,7 @@ with(cars, scatter.smooth(speed, dist, lpars =
                     list(col = "red", lwd = 3, lty = 3)))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.4.1/00index.html'>Package <em>stats</em> version 3.4.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.4.1/00index.html'>Package <em>stats</em> version 3.4.1</a> ]</div></main>
+
 </div>
 </body></html>

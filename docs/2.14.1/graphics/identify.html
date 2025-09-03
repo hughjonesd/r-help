@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/identify.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/identify.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/identify.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/identify.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>identify {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='identify'>Identify Points in a Scatter Plot</h2>
+<h2>Identify Points in a Scatter Plot</h2>
 
 <h3>Description</h3>
 
@@ -41,54 +41,54 @@ identify(x, y = NULL, labels = seq_along(x), pos = FALSE,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="identify_:_x">x</code>, <code id="identify_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>coordinates of points in a scatter plot.  Alternatively, any
 object which defines coordinates (a plotting structure, time
 series etc: see <code>xy.coords</code>) can be given as <code>x</code>,
 and <code>y</code> left missing.</p>
 </td></tr>
-<tr><td><code id="identify_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>an optional character vector giving labels for the
 points.  Will be coerced using <code>as.character</code>, and
 recycled if necessary to the length of <code>x</code>.  Excess labels will
 be discarded, with a warning.</p>
 </td></tr>
-<tr><td><code id="identify_:_pos">pos</code></td>
+<tr><td><code id="pos">pos</code></td>
 <td>
 <p>if <code>pos</code> is <code>TRUE</code>, a component is added to the
 return value which indicates where text was plotted relative to each
 identified point: see Value.</p>
 </td></tr>
-<tr><td><code id="identify_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>the maximum number of points to be identified.</p>
 </td></tr>
-<tr><td><code id="identify_:_plot">plot</code></td>
+<tr><td><code id="plot">plot</code></td>
 <td>
 <p>logical: if <code>plot</code> is <code>TRUE</code>, the labels are
 printed near the points and if <code>FALSE</code> they are omitted.</p>
 </td></tr>
-<tr><td><code id="identify_:_atpen">atpen</code></td>
+<tr><td><code id="atpen">atpen</code></td>
 <td>
 <p>logical: if <code>TRUE</code> and <code>plot = TRUE</code>, the
 lower-left corners of the labels are plotted at the points clicked
 rather than relative to the points.</p>
 </td></tr>
-<tr><td><code id="identify_:_offset">offset</code></td>
+<tr><td><code id="offset">offset</code></td>
 <td>
 <p>the distance (in character widths) which separates the
 label from identified points.  Negative values are allowed.  Not
 used if <code>atpen = TRUE</code>.</p>
 </td></tr>
-<tr><td><code id="identify_:_tolerance">tolerance</code></td>
+<tr><td><code id="tolerance">tolerance</code></td>
 <td>
 <p>the maximal distance (in inches) for the pointer to be
 &lsquo;close enough&rsquo; to a point.</p>
 </td></tr>
-<tr><td><code id="identify_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to <code>par</code> such as
 <code>cex</code>, <code>col</code> and <code>font</code>.</p>
@@ -140,7 +140,8 @@ terminated.
 <p>If you interrupt the <code>identify</code> call this leaves the graphics
 device in an undefined state, with points labelled but labels not
 recorded in the display list.  Copying a device in that state
-will give unpredictable results.
+</p>
+<p>will give unpredictable results.
 </p>
 
 
@@ -215,6 +216,7 @@ identifyPch &lt;- function(x, y=NULL, n=length(x), pch=19, ...)
 }
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.14.1/00index.html'>Package <em>graphics</em> version 2.14.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.14.1/00index.html'>Package <em>graphics</em> version 2.14.1</a> ]</div></main>
+
 </div>
 </body></html>

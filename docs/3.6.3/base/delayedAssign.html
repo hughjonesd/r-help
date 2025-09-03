@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/delayedAssign.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/delayedAssign.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/delayedAssign.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/delayedAssign.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>delayedAssign {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='delayedAssign'>Delay Evaluation</h2>
+<h2>Delay Evaluation</h2>
 
 <h3>Description</h3>
 
@@ -36,20 +36,20 @@ of (interpreted) functions.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="delayedAssign_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a variable name (given as a quoted string in the function call)</p>
 </td></tr>
-<tr><td><code id="delayedAssign_:_value">value</code></td>
+<tr><td><code id="value">value</code></td>
 <td>
 <p>an expression to be assigned to <code>x</code></p>
 </td></tr>
-<tr><td><code id="delayedAssign_:_eval.env">eval.env</code></td>
+<tr><td><code id="eval.env">eval.env</code></td>
 <td>
 <p>an environment in which to evaluate <code>value</code></p>
 </td></tr>
-<tr><td><code id="delayedAssign_:_assign.env">assign.env</code></td>
+<tr><td><code id="assign.env">assign.env</code></td>
 <td>
 <p>an environment in which to assign <code>x</code></p>
 </td></tr>
@@ -124,6 +124,7 @@ sapply(exps, typeof)
 stopifnot(identical(unname(le), lapply(exps, eval))) # and another "Ho!"
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>base</em> version 3.6.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>base</em> version 3.6.3</a> ]</div></main>
+
 </div>
 </body></html>

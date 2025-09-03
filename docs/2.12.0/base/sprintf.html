@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sprintf.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sprintf.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.12.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sprintf.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sprintf.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>sprintf {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='sprintf'>Use C-style String Formatting Commands</h2>
+<h2>Use C-style String Formatting Commands</h2>
 
 <h3>Description</h3>
 
@@ -34,18 +34,18 @@ gettextf(fmt, ..., domain = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="sprintf_:_fmt">fmt</code></td>
+<table role = "presentation">
+<tr><td><code id="fmt">fmt</code></td>
 <td>
 <p>a character vector of format strings, each of up to 8192 bytes.</p>
 </td></tr>
-<tr><td><code id="sprintf_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>values to be passed into <code>fmt</code>.  Only logical,
 integer, real and character vectors are supported, but some coercion
 will be done: see the &lsquo;Details&rsquo; section.</p>
 </td></tr>
-<tr><td><code id="sprintf_:_domain">domain</code></td>
+<tr><td><code id="domain">domain</code></td>
 <td>
 <p>see <code>gettext</code>.</p>
 </td></tr>
@@ -308,6 +308,7 @@ x &lt;- seq(0, 1.0, 0.1); y &lt;- c(0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1)
 cbind(x, sprintf("%a", x), sprintf("%a", y))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>base</em> version 2.12.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.12.0/00index.html'>Package <em>base</em> version 2.12.0</a> ]</div></main>
+
 </div>
 </body></html>

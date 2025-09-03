@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mclapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mclapply.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mclapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mclapply.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>mclapply {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='mclapply'>Parallel Versions of <code>lapply</code> and <code>mapply</code> using Forking</h2>
+<h2>Parallel Versions of <code>lapply</code> and <code>mapply</code> using Forking</h2>
 
 <h3>Description</h3>
 
@@ -52,33 +52,33 @@ mcMap(f, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="mclapply_:_X">X</code></td>
+<table role = "presentation">
+<tr><td><code id="X">X</code></td>
 <td>
 <p>a vector (atomic or list) or an expressions vector.  Other
 objects (including classed objects) will be coerced by
 <code>as.list</code>.</p>
 </td></tr>
-<tr><td><code id="mclapply_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>the function to be applied to (<code>mclapply</code>) each
 element of <code>X</code> or (<code>mcmapply</code>) in parallel to <code>...</code>.</p>
 </td></tr>
-<tr><td><code id="mclapply_:_f">f</code></td>
+<tr><td><code id="f">f</code></td>
 <td>
 <p>the function to be applied in parallel to <code>...</code>.</p>
 </td></tr>
-<tr><td><code id="mclapply_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>For <code>mclapply</code>, optional arguments to <code>FUN</code>.
 For <code>mcmapply</code> and <code>mcMap</code>, vector or list inputs: see
 <code>mapply</code>.</p>
 </td></tr>
-<tr><td><code id="mclapply_:_MoreArgs">MoreArgs</code>, <code id="mclapply_:_SIMPLIFY">SIMPLIFY</code>, <code id="mclapply_:_USE.NAMES">USE.NAMES</code></td>
+<tr><td><code id="MoreArgs">MoreArgs</code>, <code id="SIMPLIFY">SIMPLIFY</code>, <code id="USE.NAMES">USE.NAMES</code></td>
 <td>
 <p>see <code>mapply</code>.</p>
 </td></tr>
-<tr><td><code id="mclapply_:_mc.preschedule">mc.preschedule</code></td>
+<tr><td><code id="mc.preschedule">mc.preschedule</code></td>
 <td>
 <p>if set to <code>TRUE</code> then the computation is
 first divided to (at most) as many jobs are there are cores and then
@@ -89,24 +89,24 @@ number of values in <code>X</code>, the latter is better for jobs that
 have high variance of completion time and not too many values of
 <code>X</code> compared to <code>mc.cores</code>.</p>
 </td></tr>
-<tr><td><code id="mclapply_:_mc.set.seed">mc.set.seed</code></td>
+<tr><td><code id="mc.set.seed">mc.set.seed</code></td>
 <td>
 <p>See <code>mcparallel</code>.</p>
 </td></tr>
-<tr><td><code id="mclapply_:_mc.silent">mc.silent</code></td>
+<tr><td><code id="mc.silent">mc.silent</code></td>
 <td>
 <p>if set to <code>TRUE</code> then all output on
 &lsquo;<span class="file">stdout</span>&rsquo; will be suppressed for all parallel processes forked
 (&lsquo;<span class="file">stderr</span>&rsquo; is not affected).</p>
 </td></tr>
-<tr><td><code id="mclapply_:_mc.cores">mc.cores</code></td>
+<tr><td><code id="mc.cores">mc.cores</code></td>
 <td>
 <p>The number of cores to use, i.e. at most how many
 child processes will be run simultaneously.   The option is
 initialized from environment variable <span class="env">MC_CORES</span> if set.  Must
 be at least one, and parallelization requires at least two cores.</p>
 </td></tr>
-<tr><td><code id="mclapply_:_mc.cleanup">mc.cleanup</code></td>
+<tr><td><code id="mc.cleanup">mc.cleanup</code></td>
 <td>
 <p>if set to <code>TRUE</code> then all children that have
 been forked by this function will be killed (by sending
@@ -118,7 +118,7 @@ collected, but not forcefully terminated.  As a special case this
 argument can be set to the number of the signal that should be used
 to kill the children instead of <code>SIGTERM</code>.</p>
 </td></tr>
-<tr><td><code id="mclapply_:_mc.allow.recursive">mc.allow.recursive</code></td>
+<tr><td><code id="mc.allow.recursive">mc.allow.recursive</code></td>
 <td>
 <p>Unless true, calling <code>mclapply</code> in a
 child process will use the child and not fork again.</p>
@@ -238,6 +238,7 @@ boot.ci(cd4.boot,  type = c("norm", "basic", "perc"),
         conf = 0.9, h = atanh, hinv = tanh)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.2/00index.html'>Package <em>parallel</em> version 3.0.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.2/00index.html'>Package <em>parallel</em> version 3.0.2</a> ]</div></main>
+
 </div>
 </body></html>

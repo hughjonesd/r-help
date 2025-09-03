@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/matplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/matplot.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/matplot.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/matplot.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>matplot {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='matplot'>Plot Columns of Matrices</h2>
+<h2>Plot Columns of Matrices</h2>
 
 <h3>Description</h3>
 
@@ -42,15 +42,15 @@ matlines (x, y, type = "l", lty = 1:5, lwd = 1, pch = NULL,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="matplot_:_x">x</code>, <code id="matplot_:_y">y</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
 <td>
 <p>vectors or matrices of data for plotting.  The number of
 rows should match.  If one of them are missing, the other is taken
 as <code>y</code> and an <code>x</code> vector of <code>1:n</code> is used.
 Missing values (<code>NA</code>s) are allowed.</p>
 </td></tr>
-<tr><td><code id="matplot_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>character string (length 1 vector) or vector of 1-character
 strings indicating the type of plot for each
@@ -60,7 +60,7 @@ defines the first plot, the second character the second, etc.
 Characters in <code>type</code> are cycled through; e.g., <code>"pl"</code>
 alternately plots points and lines.</p>
 </td></tr>
-<tr><td><code id="matplot_:_lty">lty</code>, <code id="matplot_:_lwd">lwd</code>, <code id="matplot_:_lend">lend</code></td>
+<tr><td><code id="lty">lty</code>, <code id="lwd">lwd</code>, <code id="lend">lend</code></td>
 <td>
 <p>vector of line types, widths, and end styles.
 The first element is for the first column, the second element for
@@ -68,46 +68,41 @@ the second column, etc., even if lines are not plotted for all
 columns. Line types will be used cyclically until all plots are
 drawn.</p>
 </td></tr>
-<tr><td><code id="matplot_:_pch">pch</code></td>
+<tr><td><code id="pch">pch</code></td>
 <td>
 <p>character string or vector of 1-characters or integers for
 plotting characters, see <code>points</code>.
 The first character is the plotting-character for the first plot,
 the second for the second, etc.  The default is the digits (1
 through 9, 0) then the lowercase and uppercase letters.
-
-
-
-
-
 </p>
 </td></tr>
-<tr><td><code id="matplot_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>vector of colors.  Colors are used cyclically.</p>
 </td></tr>
-<tr><td><code id="matplot_:_cex">cex</code></td>
+<tr><td><code id="cex">cex</code></td>
 <td>
 <p>vector of character expansion sizes, used cyclically.
 This works as a multiple of <code>par("cex")</code>.  <code>NULL</code> is
 equivalent to <code>1.0</code>. </p>
 </td></tr>
-<tr><td><code id="matplot_:_bg">bg</code></td>
+<tr><td><code id="bg">bg</code></td>
 <td>
 <p>vector of background (fill) colors for the open plot
 symbols given by <code>pch=21:25</code> as in <code>points</code>.  The
 default <code>NA</code> corresponds to the one of the underlying function
 <code>plot.xy</code>.</p>
 </td></tr>
-<tr><td><code id="matplot_:_xlab">xlab</code>, <code id="matplot_:_ylab">ylab</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>titles for x and y axes, as in <code>plot</code>.</p>
 </td></tr>
-<tr><td><code id="matplot_:_xlim">xlim</code>, <code id="matplot_:_ylim">ylim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code></td>
 <td>
 <p>ranges of x and y axes, as in <code>plot</code>.</p>
 </td></tr>
-<tr><td><code id="matplot_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>Graphical parameters (see <code>par</code>) and any further
 arguments of <code>plot</code>, typically <code>plot.default</code>, may also be
@@ -115,12 +110,12 @@ supplied as arguments to this function.  Hence, the high-level
 graphics control arguments described under <code>par</code> and the
 arguments to <code>title</code> may be supplied to this function.</p>
 </td></tr>
-<tr><td><code id="matplot_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, plots are added to current one,
 using <code>points</code> and <code>lines</code>.</p>
 </td></tr>
-<tr><td><code id="matplot_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical.  If <code>TRUE</code>, write one line of what is
 done.</p>
@@ -216,6 +211,7 @@ matplot(iris.S[,"Petal.Length",], iris.S[,"Petal.Width",], pch="SCV",
 par(op)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.14.0/00index.html'>Package <em>graphics</em> version 2.14.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.14.0/00index.html'>Package <em>graphics</em> version 2.14.0</a> ]</div></main>
+
 </div>
 </body></html>

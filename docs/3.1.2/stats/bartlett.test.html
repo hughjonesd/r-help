@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/bartlett.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/bartlett.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.1.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/bartlett.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/bartlett.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>bartlett.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='bartlett.test'>Bartlett Test of Homogeneity of Variances</h2>
+<h2>Bartlett Test of Homogeneity of Variances</h2>
 
 <h3>Description</h3>
 
@@ -39,43 +39,43 @@ bartlett.test(formula, data, subset, na.action, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="bartlett.test_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector of data values, or a list of numeric data
 vectors representing the respective samples, or fitted linear model
 objects (inheriting from class <code>"lm"</code>).</p>
 </td></tr>
-<tr><td><code id="bartlett.test_:_g">g</code></td>
+<tr><td><code id="g">g</code></td>
 <td>
 <p>a vector or factor object giving the group for the
 corresponding elements of <code>x</code>.
 Ignored if <code>x</code> is a list.</p>
 </td></tr>
-<tr><td><code id="bartlett.test_:_formula">formula</code></td>
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula of the form <code>lhs ~ rhs</code> where <code>lhs</code>
 gives the data values and <code>rhs</code> the corresponding groups.</p>
 </td></tr>
-<tr><td><code id="bartlett.test_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional matrix or data frame (or similar: see
 <code>model.frame</code>) containing the variables in the
 formula <code>formula</code>.  By default the variables are taken from
 <code>environment(formula)</code>.</p>
 </td></tr>
-<tr><td><code id="bartlett.test_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used.</p>
 </td></tr>
-<tr><td><code id="bartlett.test_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen when
 the data contain <code>NA</code>s.  Defaults to
 <code>getOption("na.action")</code>.</p>
 </td></tr>
-<tr><td><code id="bartlett.test_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to be passed to or from methods.</p>
 </td></tr>
@@ -101,7 +101,7 @@ group for the corresponding elements of <code>x</code>.
 
 <p>A list of class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>Bartlett's K-squared test statistic.</p>
@@ -156,6 +156,7 @@ bartlett.test(InsectSprays$count, InsectSprays$spray)
 bartlett.test(count ~ spray, data = InsectSprays)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>stats</em> version 3.1.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.1.2/00index.html'>Package <em>stats</em> version 3.1.2</a> ]</div></main>
+
 </div>
 </body></html>

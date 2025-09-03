@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/mantelhaen.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/mantelhaen.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/mantelhaen.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/ctest/html/mantelhaen.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>mantelhaen.test {ctest}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='mantelhaen.test'>Mantel-Haenszel Chi-Square Test for Count Data</h2>
+<h2>Mantel-Haenszel Chi-Square Test for Count Data</h2>
 
 <h3>Description</h3>
 
@@ -34,23 +34,23 @@ each stratum.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="mantelhaen.test_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>either an array of dimension 2 by 2 by s, where s is the
 number of strata, or a dichotomous factor object.</p>
 </td></tr>
-<tr><td><code id="mantelhaen.test_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>a dichotomous factor object;  ignored if x is an array.</p>
 </td></tr>
-<tr><td><code id="mantelhaen.test_:_z">z</code></td>
+<tr><td><code id="z">z</code></td>
 <td>
 <p>a factor object idenitifying to which stratum the
 corresponding elements in <code>x</code> and <code>y</code> belong;
 ignored if <code>x</code> is an array.</p>
 </td></tr>
-<tr><td><code id="mantelhaen.test_:_correct">correct</code></td>
+<tr><td><code id="correct">correct</code></td>
 <td>
 <p>a logical indicating whether to apply continuity
 correction when computing the test statistic.</p>
@@ -72,7 +72,7 @@ same length.  Triples containing <code>NA</code>'s are removed.  Both
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>the Mantel-Haenszel chi-square statistic.</p>
@@ -115,6 +115,7 @@ mantelhaen.test(UCBAdmissions)
 ## when adjusted for department
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

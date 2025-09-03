@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/read.ftable.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/read.ftable.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.9.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/read.ftable.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/read.ftable.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>read.ftable {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='read.ftable'>Manipulate Flat Contingency Tables</h2>
+<h2>Manipulate Flat Contingency Tables</h2>
 
 <h3>Description</h3>
 
@@ -38,58 +38,58 @@ format(x, quote = TRUE, digits = getOption("digits"), ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="read.ftable_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>either a character string naming a file or a connection
 which the data are to be read from or written to.  <code>""</code>
 indicates input from the console for reading and output to the
 console for writing.</p>
 </td></tr>
-<tr><td><code id="read.ftable_:_sep">sep</code></td>
+<tr><td><code id="sep">sep</code></td>
 <td>
 <p>the field separator string.  Values on each line of the file
 are separated by this string.</p>
 </td></tr>
-<tr><td><code id="read.ftable_:_quote">quote</code></td>
+<tr><td><code id="quote">quote</code></td>
 <td>
 <p>a character string giving the set of quoting characters
 for <code>read.ftable</code>; to disable quoting altogether, use
 <code>quote=""</code>.  For <code>write.table</code>, a logical indicating
 whether strings in the data will be surrounded by double quotes.</p>
 </td></tr>
-<tr><td><code id="read.ftable_:_row.var.names">row.var.names</code></td>
+<tr><td><code id="row.var.names">row.var.names</code></td>
 <td>
 <p>a character vector with the names of the row
 variables, in case these cannot be determined automatically.</p>
 </td></tr>
-<tr><td><code id="read.ftable_:_col.vars">col.vars</code></td>
+<tr><td><code id="col.vars">col.vars</code></td>
 <td>
 <p>a list giving the names and levels of the column
 variables, in case these cannot be determined automatically.</p>
 </td></tr>
-<tr><td><code id="read.ftable_:_skip">skip</code></td>
+<tr><td><code id="skip">skip</code></td>
 <td>
 <p>the number of lines of the data file to skip before
 beginning to read data.</p>
 </td></tr>
-<tr><td><code id="read.ftable_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>an object of class <code>"ftable"</code>.</p>
 </td></tr>
-<tr><td><code id="read.ftable_:_append">append</code></td>
+<tr><td><code id="append">append</code></td>
 <td>
 <p>logical.  If <code>TRUE</code> and <code>file</code> is the name of
 a file (and not a connection or <code>"|cmd"</code>), the output from
 <code>write.ftable</code> is appended to the file.  If <code>FALSE</code>,
 the contents of <code>file</code> will be overwritten.</p>
 </td></tr>
-<tr><td><code id="read.ftable_:_digits">digits</code></td>
+<tr><td><code id="digits">digits</code></td>
 <td>
 <p>an integer giving the number of significant digits to
 use for (the cell entries of) <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="read.ftable_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to be passed to or from methods.</p>
 </td></tr>
@@ -173,6 +173,7 @@ write.ftable(ft22, quote = FALSE)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>stats</em> version 2.9.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.9.0/00index.html'>Package <em>stats</em> version 2.9.0</a> ]</div></main>
+
 </div>
 </body></html>

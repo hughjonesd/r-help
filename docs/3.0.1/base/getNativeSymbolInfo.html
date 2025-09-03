@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/getNativeSymbolInfo.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/getNativeSymbolInfo.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/getNativeSymbolInfo.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/getNativeSymbolInfo.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>getNativeSymbolInfo {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='getNativeSymbolInfo'>
+<h2>
 Obtain a Description of one or more Native (C/Fortran) Symbols
 </h2>
 
@@ -46,18 +46,18 @@ behavior associated with dynamic resolution.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="getNativeSymbolInfo_:_name">name</code></td>
+<table role = "presentation">
+<tr><td><code id="name">name</code></td>
 <td>
 <p>the name(s) of the native symbol(s).</p>
 </td></tr>
-<tr><td><code id="getNativeSymbolInfo_:_PACKAGE">PACKAGE</code></td>
+<tr><td><code id="PACKAGE">PACKAGE</code></td>
 <td>
 <p>an optional argument that specifies to which
 DLL to restrict the search for this symbol.  If this is
 <code>"base"</code>, we search in the <span class="rlang"><b>R</b></span> executable itself.</p>
 </td></tr>
-<tr><td><code id="getNativeSymbolInfo_:_unlist">unlist</code></td>
+<tr><td><code id="unlist">unlist</code></td>
 <td>
 <p>a logical value which controls how the result is
 returned if the function is called with the name of a single symbol.
@@ -71,7 +71,7 @@ To be compatible with earlier versions of this function, this
 defaults to <code>TRUE</code>.
 </p>
 </td></tr>
-<tr><td><code id="getNativeSymbolInfo_:_withRegistrationInfo">withRegistrationInfo</code></td>
+<tr><td><code id="withRegistrationInfo">withRegistrationInfo</code></td>
 <td>
 <p>a logical value indicating whether, if
 <code>TRUE</code>, to return information that was registered with <span class="rlang"><b>R</b></span> about
@@ -100,7 +100,7 @@ can be indexed by the elements of <code>name</code>  in the call.  Each
 <code>NativeSymbolInfo</code> object is a list containing the following
 elements:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>name</code></td>
 <td>
 <p>the name of the symbol, as given by the
@@ -145,7 +145,7 @@ or only registered routines can be located.</p>
 <p>If the routine was explicitly registered by the dynamically loaded
 library, the list contains a fourth field
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>numParameters</code></td>
 <td>
 <p>the number of arguments that should be passed in
@@ -203,6 +203,7 @@ R-News, volume 1, number 3, 2001, p20&ndash;23
 <code>dyn.load</code>.
 </p>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.1/00index.html'>Package <em>base</em> version 3.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.1/00index.html'>Package <em>base</em> version 3.0.1</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/family.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/family.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/family.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/family.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>family {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='family'>Family Objects for Models</h2>
+<h2>Family Objects for Models</h2>
 
 <h3>Description</h3>
 
@@ -44,8 +44,8 @@ quasipoisson(link = "log")
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="family_:_link">link</code></td>
+<table role = "presentation">
+<tr><td><code id="link">link</code></td>
 <td>
 <p>a specification for the model link function.  This can be
 a name/expression, a literal character string, a length-one character
@@ -74,7 +74,7 @@ the function <code>power</code> can be used to create a
 power link function.
 </p>
 </td></tr>
-<tr><td><code id="family_:_variance">variance</code></td>
+<tr><td><code id="variance">variance</code></td>
 <td>
 <p>for all families other than <code>quasi</code>, the variance
 function is determined by the family.  The <code>quasi</code> family will
@@ -86,13 +86,13 @@ taking one of those values, or a list containing components
 and <code>name</code>.
 </p>
 </td></tr>
-<tr><td><code id="family_:_object">object</code></td>
+<tr><td><code id="object">object</code></td>
 <td>
 <p>the function <code>family</code> accesses the <code>family</code>
 objects which are stored within objects created by modelling
 functions (e.g., <code>glm</code>).</p>
 </td></tr>
-<tr><td><code id="family_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments passed to methods.</p>
 </td></tr>
@@ -140,7 +140,7 @@ model.  The behaviour of S is closer to the quasi- variants.
 <p>An object of class <code>"family"</code> (which has a concise print method).
 This is a list with elements
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>family</code></td>
 <td>
 <p>character: the family name.</p>
@@ -368,6 +368,7 @@ y &lt;- rbinom(100, 1, plogis(x))
 glm(y ~ x, family = quasi(variance = "mu(1-mu)", link = "logit"), start = c(0,1))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.3.0/00index.html'>Package <em>stats</em> version 4.3.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.0/00index.html'>Package <em>stats</em> version 4.3.0</a> ]</div></main>
+
 </div>
 </body></html>

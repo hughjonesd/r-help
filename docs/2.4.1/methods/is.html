@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/is.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/is.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/is.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/is.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>is {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='is'>Is an Object from a Class</h2>
+<h2>Is an Object from a Class</h2>
 
 <h3>Description</h3>
 
@@ -49,18 +49,18 @@ setIs(class1, class2, test=NULL, coerce=NULL, replace=NULL,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="is_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p>any <span class="rlang"><b>R</b></span> object.</p>
 </td></tr>
-<tr><td><code id="is_:_class1">class1</code>, <code id="is_:_class2">class2</code></td>
+<tr><td><code id="class1">class1</code>, <code id="class2">class2</code></td>
 <td>
 
 <p>the names of the classes between which <code>is</code> relations are to be
 defined.</p>
 </td></tr>
-<tr><td><code id="is_:_maybe">maybe</code>, <code id="is_:_fullInfo">fullInfo</code></td>
+<tr><td><code id="maybe">maybe</code>, <code id="fullInfo">fullInfo</code></td>
 <td>
 
 <p>In a call to <code>extends</code>, <code>maybe</code> is a flag to
@@ -70,19 +70,19 @@ flag, which if <code>TRUE</code> causes object(s) of class
 names of the classes or a logical value.  See the details
 below.</p>
 </td></tr>
-<tr><td><code id="is_:_extensionObject">extensionObject</code></td>
+<tr><td><code id="extensionObject">extensionObject</code></td>
 <td>
 <p> alternative to the <code>test, coerce,
     replace, by</code> arguments; an object from class
 <code>SClassExtension</code> describing the relation.  (Used in internal calls.)
 </p>
 </td></tr>
-<tr><td><code id="is_:_doComplete">doComplete</code></td>
+<tr><td><code id="doComplete">doComplete</code></td>
 <td>
 <p>when <code>TRUE</code>, the class definitions will be
 augmented with indirect relations as well.  (Used in internal calls.)</p>
 </td></tr>
-<tr><td><code id="is_:_test">test</code>, <code id="is_:_coerce">coerce</code>, <code id="is_:_replace">replace</code></td>
+<tr><td><code id="test">test</code>, <code id="coerce">coerce</code>, <code id="replace">replace</code></td>
 <td>
 
 <p>In a call to <code>setIs</code>, functions optionally supplied to test whether the relation is
@@ -90,20 +90,20 @@ defined, to coerce the object to <code>class2</code>, and to alter the
 object so that <code>is(object, class2)</code> is identical to
 <code>value</code>.</p>
 </td></tr>
-<tr><td><code id="is_:_by">by</code></td>
+<tr><td><code id="by">by</code></td>
 <td>
 
 <p>In a call to <code>setIs</code>, the name of an intermediary class.  Coercion will proceed by first
 coercing to this class and from there to the target class.  (The
 intermediate coercions have to be valid.)</p>
 </td></tr>
-<tr><td><code id="is_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 
 <p>In a call to <code>setIs</code>, where to store the metadata defining the relationship. Default is
 the global environment.</p>
 </td></tr>
-<tr><td><code id="is_:_classDef">classDef</code></td>
+<tr><td><code id="classDef">classDef</code></td>
 <td>
 
 <p>Optional class definition for <code>class</code> , required internally
@@ -260,6 +260,7 @@ setIs("trackMultiCurve",
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.4.1/00index.html'>Package <em>methods</em> version 2.4.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.4.1/00index.html'>Package <em>methods</em> version 2.4.1</a> ]</div></main>
+
 </div>
 </body></html>

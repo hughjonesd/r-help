@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/findInterval.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/findInterval.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.0.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/findInterval.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/findInterval.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>findInterval {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='findInterval'>Find Interval Numbers or Indices</h2>
+<h2>Find Interval Numbers or Indices</h2>
 
 <h3>Description</h3>
 
@@ -40,28 +40,28 @@ on the optional arguments <code>rightmost.closed</code> and <code>all.inside</co
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="findInterval_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric.</p>
 </td></tr>
-<tr><td><code id="findInterval_:_vec">vec</code></td>
+<tr><td><code id="vec">vec</code></td>
 <td>
 <p>numeric, sorted (weakly) increasingly, of length <code>N</code>,
 say.</p>
 </td></tr>
-<tr><td><code id="findInterval_:_rightmost.closed">rightmost.closed</code></td>
+<tr><td><code id="rightmost.closed">rightmost.closed</code></td>
 <td>
 <p>logical; if true, the rightmost interval,
 <code>vec[N-1] .. vec[N]</code> is treated as <em>closed</em>, see below.</p>
 </td></tr>
-<tr><td><code id="findInterval_:_all.inside">all.inside</code></td>
+<tr><td><code id="all.inside">all.inside</code></td>
 <td>
 <p>logical; if true, the returned indices are coerced
 into <code>1,...,N-1</code>, i.e., <code>0</code> is mapped to <code>1</code>
 and <code>N</code> to <code>N-1</code>.</p>
 </td></tr>
-<tr><td><code id="findInterval_:_left.open">left.open</code></td>
+<tr><td><code id="left.open">left.open</code></td>
 <td>
 <p>logical; if true all the intervals are open at left
 and closed at right; in the formulas below, <code class="reqn">\le</code> should be
@@ -148,6 +148,7 @@ stopifnot(identical(
               N - findInterval(-x, -v[N:1])))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>base</em> version 4.0.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.0.5/00index.html'>Package <em>base</em> version 4.0.5</a> ]</div></main>
+
 </div>
 </body></html>

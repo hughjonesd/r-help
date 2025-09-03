@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.14.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/setClass.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>setClass {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='setClass'>Create a Class Definition</h2>
+<h2>Create a Class Definition</h2>
 
 <h3>Description</h3>
 
@@ -34,12 +34,12 @@ function processMathHTML() {
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="setClass_:_Class">Class</code></td>
+<table role = "presentation">
+<tr><td><code id="Class">Class</code></td>
 <td>
 <p>character string name for the class.</p>
 </td></tr>
-<tr><td><code id="setClass_:_representation">representation</code></td>
+<tr><td><code id="representation">representation</code></td>
 <td>
 <p> a named list of the slots that the new class should have, the names giving the names of the slots and the corresponding elements being the character string names of  the corresponding classes.
 Usually a call to
@@ -49,20 +49,20 @@ the <code>representation</code> function.
 elements for superclasses, but the recommended style is to use the
 <code>contains=</code> argument instead.</p>
 </td></tr>
-<tr><td><code id="setClass_:_prototype">prototype</code></td>
+<tr><td><code id="prototype">prototype</code></td>
 <td>
 <p> an object providing the default
 data for the slots in this class.  Usually and preferably the
 result of a call to <code>prototype</code>. </p>
 </td></tr>
-<tr><td><code id="setClass_:_contains">contains</code></td>
+<tr><td><code id="contains">contains</code></td>
 <td>
 <p> what classes does this class extend?  (These are
 called <em>superclasses</em> in some languages.)  When these classes
 have slots, all their slots will be contained in the new class as
 well. </p>
 </td></tr>
-<tr><td><code id="setClass_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p> the
 environment in which to store or remove the
@@ -71,7 +71,7 @@ definition.  Defaults to the top-level environment of the calling function
 environment or namespace of a package in the source code for that package).
 </p>
 </td></tr>
-<tr><td><code id="setClass_:_validity">validity</code></td>
+<tr><td><code id="validity">validity</code></td>
 <td>
 <p> if supplied, should be a validity-checking method
 for objects from this class (a function that returns <code>TRUE</code> if
@@ -79,24 +79,24 @@ its argument is a valid object of this class and one or more strings
 describing the failures otherwise).  See <code>validObject</code>
 for details.</p>
 </td></tr>
-<tr><td><code id="setClass_:_access">access</code>, <code id="setClass_:_version">version</code></td>
+<tr><td><code id="access">access</code>, <code id="version">version</code></td>
 <td>
 <p>access and version, included for
 compatibility with S-Plus, but currently ignored.</p>
 </td></tr>
-<tr><td><code id="setClass_:_sealed">sealed</code></td>
+<tr><td><code id="sealed">sealed</code></td>
 <td>
 <p> if <code>TRUE</code>, the class definition will be sealed,
 so that another call to <code>setClass</code> will fail on this class name.
 </p>
 </td></tr>
-<tr><td><code id="setClass_:_package">package</code></td>
+<tr><td><code id="package">package</code></td>
 <td>
 <p> an optional package name for the class.  By default
 (and usually) the name of the package in which the class definition is assigned.
 </p>
 </td></tr>
-<tr><td><code id="setClass_:_S3methods">S3methods</code></td>
+<tr><td><code id="S3methods">S3methods</code></td>
 <td>
 <p>if <code>TRUE</code>, S3 methods may be written for this
 class.  S3 generic functions and primitives will
@@ -343,6 +343,7 @@ e1[["noise"]] &lt;- rnorm(10)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.14.2/00index.html'>Package <em>methods</em> version 2.14.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.14.2/00index.html'>Package <em>methods</em> version 2.14.2</a> ]</div></main>
+
 </div>
 </body></html>

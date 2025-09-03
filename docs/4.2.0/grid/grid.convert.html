@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.convert.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.convert.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.convert.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.convert.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>grid.convert {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='grid.convert'> Convert Between Different grid Coordinate Systems </h2>
+<h2> Convert Between Different grid Coordinate Systems </h2>
 
 <h3>Description</h3>
 
@@ -41,39 +41,39 @@ convertUnit(x, unitTo,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="grid.convert_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p> A unit object. </p>
 </td></tr>
-<tr><td><code id="grid.convert_:_unitTo">unitTo</code></td>
+<tr><td><code id="unitTo">unitTo</code></td>
 <td>
 <p> The coordinate system to convert the unit to.
 See the <code>unit</code> function for valid coordinate systems.</p>
 </td></tr>
-<tr><td><code id="grid.convert_:_axisFrom">axisFrom</code></td>
+<tr><td><code id="axisFrom">axisFrom</code></td>
 <td>
 <p> Either <code>"x"</code> or <code>"y"</code> to indicate
 whether the unit object represents a value in the x- or
 y-direction. </p>
 </td></tr>
-<tr><td><code id="grid.convert_:_typeFrom">typeFrom</code></td>
+<tr><td><code id="typeFrom">typeFrom</code></td>
 <td>
 <p> Either <code>"location"</code> or <code>"dimension"</code>
 to indicate whether the unit object represents a location or a
 length. </p>
 </td></tr>
-<tr><td><code id="grid.convert_:_axisTo">axisTo</code></td>
+<tr><td><code id="axisTo">axisTo</code></td>
 <td>
 <p> Same as <code>axisFrom</code>, but applies to the unit object
 that is to be created. </p>
 </td></tr>
-<tr><td><code id="grid.convert_:_typeTo">typeTo</code></td>
+<tr><td><code id="typeTo">typeTo</code></td>
 <td>
 <p> Same as <code>typeFrom</code>, but applies to the unit object
 that is to be created. </p>
 </td></tr>
-<tr><td><code id="grid.convert_:_valueOnly">valueOnly</code></td>
+<tr><td><code id="valueOnly">valueOnly</code></td>
 <td>
 <p> A logical indicating.  If <code>TRUE</code> then
 the function does not return a unit object, but rather only the
@@ -175,6 +175,7 @@ popViewport()
 convertX(unit(1, "strwidth", "Hello"), "native")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>grid</em> version 4.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>grid</em> version 4.2.0</a> ]</div></main>
+
 </div>
 </body></html>

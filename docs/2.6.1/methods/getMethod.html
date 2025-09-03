@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getMethod.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getMethod.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.6.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getMethod.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/getMethod.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>getMethod {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='getMethod'> Get or Test for the Definition of a Method </h2>
+<h2> Get or Test for the Definition of a Method </h2>
 
 <h3>Description</h3>
 
@@ -58,12 +58,12 @@ MethodsListSelect(f, env, mlist, fEnv, finalDefault, evalArgs,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="getMethod_:_f">f</code></td>
+<table role = "presentation">
+<tr><td><code id="f">f</code></td>
 <td>
 <p>The character-string name of the generic function.</p>
 </td></tr>
-<tr><td><code id="getMethod_:_signature">signature</code></td>
+<tr><td><code id="signature">signature</code></td>
 <td>
 <p>the signature of classes to match to the arguments
 of <code>f</code>.  See the details below.
@@ -76,12 +76,12 @@ are not likely to find this approach convenient, but it is used
 internally and is marginally more efficient.)
 </p>
 </td></tr>
-<tr><td><code id="getMethod_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p>The position or environment in which to look for the
 method(s):  by default, anywhere in the current search list.</p>
 </td></tr>
-<tr><td><code id="getMethod_:_optional">optional</code></td>
+<tr><td><code id="optional">optional</code></td>
 <td>
 <p> If the selection does not produce a unique result,
 an error is generated, unless this argument is <code>TRUE</code>.  In that
@@ -89,7 +89,7 @@ case, the value returned is either a <code>MethodsList</code> object, if
 more than one method matches this signature, or <code>NULL</code> if no
 method matches.</p>
 </td></tr>
-<tr><td><code id="getMethod_:_mlist">mlist</code></td>
+<tr><td><code id="mlist">mlist</code></td>
 <td>
 <p>Optionally, the list of methods in which to search.  By
 default, the function finds the methods for the corresponding
@@ -99,25 +99,25 @@ or environment, e.g., supply this argument as
 the discussion of argument <code>fdef</code>.
 </p>
 </td></tr>
-<tr><td><code id="getMethod_:_fdef">fdef</code></td>
+<tr><td><code id="fdef">fdef</code></td>
 <td>
 <p>Optionally, the generic function from which the method is
 to be retrieved.
 (Unlikely to be used, except internally in the package source.)</p>
 </td></tr>
-<tr><td><code id="getMethod_:_verbose">verbose</code></td>
+<tr><td><code id="verbose">verbose</code></td>
 <td>
 <p>logical indicating if method selection should print
 some info about its progress.</p>
 </td></tr>
-<tr><td><code id="getMethod_:_env">env</code></td>
+<tr><td><code id="env">env</code></td>
 <td>
 <p>The environment in which argument evaluations are done in
 <code>MethodsListSelect</code>.  Currently must be supplied, but should
 usually be <code>sys.frame(sys.parent())</code> when calling the function
 explicitly for debugging purposes.</p>
 </td></tr>
-<tr><td><code id="getMethod_:_fEnv">fEnv</code>, <code id="getMethod_:_finalDefault">finalDefault</code>, <code id="getMethod_:_evalArgs">evalArgs</code>, <code id="getMethod_:_useInherited">useInherited</code>, <code id="getMethod_:_resetAllowed">resetAllowed</code></td>
+<tr><td><code id="fEnv">fEnv</code>, <code id="finalDefault">finalDefault</code>, <code id="evalArgs">evalArgs</code>, <code id="useInherited">useInherited</code>, <code id="resetAllowed">resetAllowed</code></td>
 <td>
 <p> Internal-use
 arguments for the function's environment, the method to use as
@@ -264,6 +264,7 @@ hasMethod("testFun", "ANY")
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>methods</em> version 2.6.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.6.1/00index.html'>Package <em>methods</em> version 2.6.1</a> ]</div></main>
+
 </div>
 </body></html>

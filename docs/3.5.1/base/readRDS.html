@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/readRDS.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/readRDS.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/readRDS.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/readRDS.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>readRDS {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='readRDS'>Serialization Interface for Single Objects</h2>
+<h2>Serialization Interface for Single Objects</h2>
 
 <h3>Description</h3>
 
@@ -35,37 +35,37 @@ readRDS(file, refhook = NULL)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="readRDS_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p><span class="rlang"><b>R</b></span> object to serialize.</p>
 </td></tr>
-<tr><td><code id="readRDS_:_file">file</code></td>
+<tr><td><code id="file">file</code></td>
 <td>
 <p>a connection or the name of the file where the <span class="rlang"><b>R</b></span> object
 is saved to or read from.</p>
 </td></tr>
-<tr><td><code id="readRDS_:_ascii">ascii</code></td>
+<tr><td><code id="ascii">ascii</code></td>
 <td>
 <p>a logical.  If <code>TRUE</code> or <code>NA</code>, an ASCII
 representation is written; otherwise (default), a binary one is used.
 See the comments in the help for <code>save</code>.</p>
 </td></tr>
-<tr><td><code id="readRDS_:_version">version</code></td>
+<tr><td><code id="version">version</code></td>
 <td>
 <p>the workspace format version to use.  <code>NULL</code>
 specifies the current default version (2), which has been the default
 since <span class="rlang"><b>R</b></span> 1.4.0. The only other supported value is 3, introduced in
 <span class="rlang"><b>R</b></span> 3.5.0.</p>
 </td></tr>
-<tr><td><code id="readRDS_:_compress">compress</code></td>
+<tr><td><code id="compress">compress</code></td>
 <td>
 <p>a logical specifying whether saving to a named file is
 to use <code>"gzip"</code> compression, or one of <code>"gzip"</code>,
 <code>"bzip2"</code> or <code>"xz"</code> to indicate the type of compression to
 be used.  Ignored if <code>file</code> is a connection.</p>
 </td></tr>
-<tr><td><code id="readRDS_:_refhook">refhook</code></td>
+<tr><td><code id="refhook">refhook</code></td>
 <td>
 <p>a hook function for handling reference objects.</p>
 </td></tr>
@@ -161,6 +161,7 @@ identical(women, readRDS(fil3))
 unlink(c(fil, fil2, fil3))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>base</em> version 3.5.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.1/00index.html'>Package <em>base</em> version 3.5.1</a> ]</div></main>
+
 </div>
 </body></html>

@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/contrasts.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/contrasts.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/contrasts.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/contrasts.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>contrasts {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='contrasts'>Get and Set Contrast Matrices</h2>
+<h2>Get and Set Contrast Matrices</h2>
 
 <h3>Description</h3>
 
@@ -33,22 +33,22 @@ contrasts(x, how.many) &lt;- value
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="contrasts_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a factor or a logical variable.</p>
 </td></tr>
-<tr><td><code id="contrasts_:_contrasts">contrasts</code></td>
+<tr><td><code id="contrasts">contrasts</code></td>
 <td>
 <p>logical. See Details.</p>
 </td></tr>
-<tr><td><code id="contrasts_:_how.many">how.many</code></td>
+<tr><td><code id="how.many">how.many</code></td>
 <td>
 <p>How many contrasts should be made. Defaults to one
 less than the number of levels of <code>x</code>.  This need not be the
 same as the number of columns of <code>ctr</code>.</p>
 </td></tr>
-<tr><td><code id="contrasts_:_value">value</code></td>
+<tr><td><code id="value">value</code></td>
 <td>
 <p>either a numeric matrix whose columns give coefficients for
 contrasts in the levels of <code>x</code>, or the (quoted) name of a
@@ -110,6 +110,7 @@ contrasts(fff, 2) &lt;- contr.sum(5); contrasts(fff)  # set 2 contrasts
 contrasts(fff) &lt;- contr.sum(5)[,1:2]; contrasts(fff)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>stats</em> version 2.4.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.4.0/00index.html'>Package <em>stats</em> version 2.4.0</a> ]</div></main>
+
 </div>
 </body></html>

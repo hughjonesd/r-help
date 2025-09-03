@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cor.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cor.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cor.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/cor.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>cor {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='cor'>Correlation, Variance and Covariance (Matrices)</h2>
+<h2>Correlation, Variance and Covariance (Matrices)</h2>
 
 <h3>Description</h3>
 
@@ -47,22 +47,22 @@ cov2cor(V)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="cor_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector, matrix or data frame.</p>
 </td></tr>
-<tr><td><code id="cor_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p><code>NULL</code> (default) or a vector, matrix or data frame with
 compatible dimensions to <code>x</code>.   The default is equivalent to
 <code>y = x</code> (but more efficient).</p>
 </td></tr>
-<tr><td><code id="cor_:_na.rm">na.rm</code></td>
+<tr><td><code id="na.rm">na.rm</code></td>
 <td>
 <p>logical. Should missing values be removed?</p>
 </td></tr>
-<tr><td><code id="cor_:_use">use</code></td>
+<tr><td><code id="use">use</code></td>
 <td>
 <p>an optional character string giving a
 method for computing covariances in the presence
@@ -70,14 +70,14 @@ of missing values.  This must be (an abbreviation of) one of the strings
 <code>"everything"</code>, <code>"all.obs"</code>, <code>"complete.obs"</code>,
 <code>"na.or.complete"</code>, or <code>"pairwise.complete.obs"</code>.</p>
 </td></tr>
-<tr><td><code id="cor_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>a character string indicating which correlation
 coefficient (or covariance) is to be computed.  One of
 <code>"pearson"</code> (default), <code>"kendall"</code>, or <code>"spearman"</code>:
 can be abbreviated.</p>
 </td></tr>
-<tr><td><code id="cor_:_V">V</code></td>
+<tr><td><code id="V">V</code></td>
 <td>
 <p>symmetric numeric matrix, usually positive definite such as a
 covariance matrix.</p>
@@ -216,7 +216,6 @@ stopifnot(all.equal(Cl, cov2cor(cov(longley))),
             cov2cor(cov(longley, method = "kendall"))))
 
 ##--- Missing value treatment:
-
 C1 &lt;- cov(swiss)
 range(eigen(C1, only.values = TRUE)$values) # 6.19        1921
 
@@ -248,6 +247,7 @@ EV &lt;- function(m) eigen(m, only.values=TRUE)$values
 summary(abs(1 - EV(Rp)/EV(R.)) / abs(1 - EV(Rc)/EV(R.)))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.2/00index.html'>Package <em>stats</em> version 3.2.2</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.2/00index.html'>Package <em>stats</em> version 3.2.2</a> ]</div></main>
+
 </div>
 </body></html>

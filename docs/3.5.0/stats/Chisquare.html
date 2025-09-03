@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Chisquare.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Chisquare.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Chisquare.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Chisquare.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>Chisquare {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='Chisquare'>The (non-central) Chi-Squared Distribution</h2>
+<h2>The (non-central) Chi-Squared Distribution</h2>
 
 <h3>Description</h3>
 
@@ -38,33 +38,33 @@ rchisq(n, df, ncp = 0)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="Chisquare_:_x">x</code>, <code id="Chisquare_:_q">q</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="q">q</code></td>
 <td>
 <p>vector of quantiles.</p>
 </td></tr>
-<tr><td><code id="Chisquare_:_p">p</code></td>
+<tr><td><code id="p">p</code></td>
 <td>
 <p>vector of probabilities.</p>
 </td></tr>
-<tr><td><code id="Chisquare_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>number of observations. If <code>length(n) &gt; 1</code>, the length
 is taken to be the number required.</p>
 </td></tr>
-<tr><td><code id="Chisquare_:_df">df</code></td>
+<tr><td><code id="df">df</code></td>
 <td>
 <p>degrees of freedom (non-negative, but can be non-integer).</p>
 </td></tr>
-<tr><td><code id="Chisquare_:_ncp">ncp</code></td>
+<tr><td><code id="ncp">ncp</code></td>
 <td>
 <p>non-centrality parameter (non-negative).</p>
 </td></tr>
-<tr><td><code id="Chisquare_:_log">log</code>, <code id="Chisquare_:_log.p">log.p</code></td>
+<tr><td><code id="log">log</code>, <code id="log.p">log.p</code></td>
 <td>
 <p>logical; if TRUE, probabilities p are given as log(p).</p>
 </td></tr>
-<tr><td><code id="Chisquare_:_lower.tail">lower.tail</code></td>
+<tr><td><code id="lower.tail">lower.tail</code></td>
 <td>
 <p>logical; if TRUE (default), probabilities are
 <code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
@@ -231,6 +231,7 @@ stopifnot(all.equal(p00, exp(-lam/2)),
           all.equal(p.0, exp(-lam/2)))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>stats</em> version 3.5.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.5.0/00index.html'>Package <em>stats</em> version 3.5.0</a> ]</div></main>
+
 </div>
 </body></html>

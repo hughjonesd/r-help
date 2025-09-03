@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/rect.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/rect.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.0.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/rect.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/rect.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>rect {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='rect'>Draw One or More Rectangles</h2>
+<h2>Draw One or More Rectangles</h2>
 
 <h3>Description</h3>
 
@@ -35,24 +35,24 @@ given coordinates, fill and border colors.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="rect_:_xleft">xleft</code></td>
+<table role = "presentation">
+<tr><td><code id="xleft">xleft</code></td>
 <td>
 <p>a vector (or scalar) of left x positions.</p>
 </td></tr>
-<tr><td><code id="rect_:_ybottom">ybottom</code></td>
+<tr><td><code id="ybottom">ybottom</code></td>
 <td>
 <p>a vector (or scalar) of bottom y positions.</p>
 </td></tr>
-<tr><td><code id="rect_:_xright">xright</code></td>
+<tr><td><code id="xright">xright</code></td>
 <td>
 <p>a vector (or scalar) of right x positions.</p>
 </td></tr>
-<tr><td><code id="rect_:_ytop">ytop</code></td>
+<tr><td><code id="ytop">ytop</code></td>
 <td>
 <p>a vector (or scalar) of top y positions.</p>
 </td></tr>
-<tr><td><code id="rect_:_density">density</code></td>
+<tr><td><code id="density">density</code></td>
 <td>
 <p>the density of shading lines, in lines per inch.
 The default value of <code>NULL</code> means that no shading lines are drawn.
@@ -60,17 +60,17 @@ A zero value of <code>density</code> means no shading lines whereas
 negative values (and <code>NA</code>) suppress shading (and so allow
 color filling).</p>
 </td></tr>
-<tr><td><code id="rect_:_angle">angle</code></td>
+<tr><td><code id="angle">angle</code></td>
 <td>
 <p>angle (in degrees) of the shading lines.</p>
 </td></tr>
-<tr><td><code id="rect_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>color(s) to fill or shade the rectangle(s) with.
 The default <code>NA</code> (or also <code>NULL</code>) means do not fill,
 i.e., draw transparent rectangles, unless <code>density</code> is specified.</p>
 </td></tr>
-<tr><td><code id="rect_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p>color for rectangle border(s).  The default means
 <code>par("fg")</code>.  Use <code>border = NA</code> to omit borders.
@@ -78,16 +78,16 @@ If there are shading
 lines, <code>border = TRUE</code> means use the same colour for
 the border as for the shading lines.</p>
 </td></tr>
-<tr><td><code id="rect_:_lty">lty</code></td>
+<tr><td><code id="lty">lty</code></td>
 <td>
 <p>line type for borders and shading; defaults to <code>"solid"</code>.</p>
 </td></tr>
-<tr><td><code id="rect_:_lwd">lwd</code></td>
+<tr><td><code id="lwd">lwd</code></td>
 <td>
 <p>line width for borders and shading.  Note that the use of
 <code>lwd = 0</code> (as in the examples) is device-dependent.</p>
 </td></tr>
-<tr><td><code id="rect_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>graphical parameters such as <code>xpd</code>, <code>lend</code>,
 <code>ljoin</code> and <code>lmitre</code> can be given as
@@ -153,6 +153,7 @@ legend(180, 450, legend = 1:4, fill = c(NA, "green", par("fg"), "blue"),
 par(op)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.0.1/00index.html'>Package <em>graphics</em> version 3.0.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.0.1/00index.html'>Package <em>graphics</em> version 3.0.1</a> ]</div></main>
+
 </div>
 </body></html>

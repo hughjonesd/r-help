@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/qqnorm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/qqnorm.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.8.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/qqnorm.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/qqnorm.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>qqnorm {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='qqnorm'>Quantile-Quantile Plots</h2>
+<h2>Quantile-Quantile Plots</h2>
 
 <h3>Description</h3>
 
@@ -48,28 +48,28 @@ qqplot(x, y, plot.it = TRUE, xlab = deparse(substitute(x)),
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="qqnorm_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>The first sample for <code>qqplot</code>.</p>
 </td></tr>
-<tr><td><code id="qqnorm_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>The second or only data sample.</p>
 </td></tr>
-<tr><td><code id="qqnorm_:_xlab">xlab</code>, <code id="qqnorm_:_ylab">ylab</code>, <code id="qqnorm_:_main">main</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code>, <code id="main">main</code></td>
 <td>
 <p>plot labels.</p>
 </td></tr>
-<tr><td><code id="qqnorm_:_plot.it">plot.it</code></td>
+<tr><td><code id="plot.it">plot.it</code></td>
 <td>
 <p>logical. Should the result be plotted?</p>
 </td></tr>
-<tr><td><code id="qqnorm_:_datax">datax</code></td>
+<tr><td><code id="datax">datax</code></td>
 <td>
 <p>logical. Should data values be on the x-axis?</p>
 </td></tr>
-<tr><td><code id="qqnorm_:_ylim">ylim</code>, <code id="qqnorm_:_...">...</code></td>
+<tr><td><code id="ylim">ylim</code>, <code id="...">...</code></td>
 <td>
 <p>graphical parameters.</p>
 </td></tr>
@@ -80,7 +80,7 @@ qqplot(x, y, plot.it = TRUE, xlab = deparse(substitute(x)),
 
 <p>For <code>qqnorm</code> and <code>qqplot</code>, a list with components
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>x</code></td>
 <td>
 <p>The x coordinates of the points that were/would be plotted</p>
@@ -116,6 +116,7 @@ data(precip)
 qqnorm(precip, ylab = "Precipitation [in/yr] for 70 US cities")
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.8.1/00index.html'>Package <em>base</em> version 1.8.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.8.1/00index.html'>Package <em>base</em> version 1.8.1</a> ]</div></main>
+
 </div>
 </body></html>

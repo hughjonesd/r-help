@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/t.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/t.test.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.1.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/t.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/t.test.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>t.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='t.test'>Student's t-Test</h2>
+<h2>Student's t-Test</h2>
 
 <h3>Description</h3>
 
@@ -41,66 +41,66 @@ t.test(formula, data, subset, na.action, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="t.test_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a numeric vector of data values.</p>
 </td></tr>
-<tr><td><code id="t.test_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>an optional numeric vector data values.</p>
 </td></tr>
-<tr><td><code id="t.test_:_alternative">alternative</code></td>
+<tr><td><code id="alternative">alternative</code></td>
 <td>
 <p>a character string specifying the alternative
 hypothesis, must be one of <code>"two.sided"</code> (default),
 <code>"greater"</code> or <code>"less"</code>.  You can specify just the initial
 letter.</p>
 </td></tr>
-<tr><td><code id="t.test_:_mu">mu</code></td>
+<tr><td><code id="mu">mu</code></td>
 <td>
 <p>a number indicating the true value of the mean (or
 difference in means if you are performing a two sample test).</p>
 </td></tr>
-<tr><td><code id="t.test_:_paired">paired</code></td>
+<tr><td><code id="paired">paired</code></td>
 <td>
 <p>a logical indicating whether you want a paired
 t-test.</p>
 </td></tr>
-<tr><td><code id="t.test_:_var.equal">var.equal</code></td>
+<tr><td><code id="var.equal">var.equal</code></td>
 <td>
 <p>a logical variable indicating whether to treat the
 two variances as being equal. If <code>TRUE</code> then the pooled
 variance is used to estimate the variance otherwise the Welch
 (or Satterthwaite) approximation to the degrees of freedom is used.</p>
 </td></tr>
-<tr><td><code id="t.test_:_conf.level">conf.level</code></td>
+<tr><td><code id="conf.level">conf.level</code></td>
 <td>
 <p>confidence level of the interval.</p>
 </td></tr>
-<tr><td><code id="t.test_:_formula">formula</code></td>
+<tr><td><code id="formula">formula</code></td>
 <td>
 <p>a formula of the form <code>lhs ~ rhs</code> where <code>lhs</code>
 is a numeric variable giving the data values and <code>rhs</code> a factor
 with two levels giving the corresponding groups.</p>
 </td></tr>
-<tr><td><code id="t.test_:_data">data</code></td>
+<tr><td><code id="data">data</code></td>
 <td>
 <p>an optional data frame containing the variables in the
 model formula.</p>
 </td></tr>
-<tr><td><code id="t.test_:_subset">subset</code></td>
+<tr><td><code id="subset">subset</code></td>
 <td>
 <p>an optional vector specifying a subset of observations
 to be used.</p>
 </td></tr>
-<tr><td><code id="t.test_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>a function which indicates what should happen when
 the data contain <code>NA</code>s.  Defaults to
 <code>getOption("na.action")</code>.</p>
 </td></tr>
-<tr><td><code id="t.test_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to be passed to or from methods.</p>
 </td></tr>
@@ -128,7 +128,7 @@ two means) an error is generated.
 
 <p>A list with class <code>"htest"</code> containing the following components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>statistic</code></td>
 <td>
 <p>the value of the t-statistic.</p>
@@ -193,6 +193,7 @@ with(sleep, t.test(extra[group == 1], extra[group == 2]))
 t.test(extra ~ group, data = sleep)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.1.1/00index.html'>Package <em>stats</em> version 2.1.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.1.1/00index.html'>Package <em>stats</em> version 2.1.1</a> ]</div></main>
+
 </div>
 </body></html>

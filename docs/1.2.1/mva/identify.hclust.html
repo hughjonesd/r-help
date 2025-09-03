@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/identify.hclust.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/identify.hclust.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.2.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/mva/html/identify.hclust.html'>https://stat.ethz.ch/R-manual/R-patched/library/mva/html/identify.hclust.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>identify.hclust {mva}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='identify.hclust'>Identify Clusters in a Dendrogram</h2>
+<h2>Identify Clusters in a Dendrogram</h2>
 
 <h3>Description</h3>
 
@@ -36,32 +36,32 @@ applied to the index of data points contained in the cluster.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="identify.hclust_:_HCOBJ">HCOBJ</code></td>
+<table role = "presentation">
+<tr><td><code id="HCOBJ">HCOBJ</code></td>
 <td>
 <p>an object of the type produced by <code>hclust</code>.</p>
 </td></tr>
-<tr><td><code id="identify.hclust_:_FUN">FUN</code></td>
+<tr><td><code id="FUN">FUN</code></td>
 <td>
 <p>(optional) function to be applied to the index numbers of
 the data points in a cluster (see Details below).</p>
 </td></tr>
-<tr><td><code id="identify.hclust_:_N">N</code></td>
+<tr><td><code id="N">N</code></td>
 <td>
 <p>the maximum number of clusters to be identified.</p>
 </td></tr>
-<tr><td><code id="identify.hclust_:_MAXCLUSTER">MAXCLUSTER</code></td>
+<tr><td><code id="MAXCLUSTER">MAXCLUSTER</code></td>
 <td>
 <p>The maximum number of clusters that can be produced
 by a cut (limits the effective vertical range of the pointer). </p>
 </td></tr>
-<tr><td><code id="identify.hclust_:_DEV.FUN">DEV.FUN</code></td>
+<tr><td><code id="DEV.FUN">DEV.FUN</code></td>
 <td>
 <p>(optional) integer scalar. If specified, the
 corresponding graphics device is amde active before <code>FUN</code> is
 applied.</p>
 </td></tr>
-<tr><td><code id="identify.hclust_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further arguments to <code>FUN</code>.</p>
 </td></tr>
@@ -122,6 +122,7 @@ identify.hclust(hci, function(k) barplot(table(iris[k,5])), DEV.FUN=3)
 ## End(Not run)
 </code></pre>
 
+</main>
 
 </div>
 </body></html>

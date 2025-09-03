@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/chartr.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/chartr.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/chartr.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/chartr.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>chartr {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='chartr'>Character Translation and Casefolding</h2>
+<h2>Character Translation and Casefolding</h2>
 
 <h3>Description</h3>
 
@@ -36,25 +36,25 @@ casefold(x, upper = FALSE)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="chartr_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a character vector, or an object that can be coerced to
 character by <code>as.character</code>.</p>
 </td></tr>
-<tr><td><code id="chartr_:_old">old</code></td>
+<tr><td><code id="old">old</code></td>
 <td>
 <p>a character string specifying the characters to be
 translated.  If a character vector of length 2 or more is supplied,
 the first element is used with a warning.</p>
 </td></tr>
-<tr><td><code id="chartr_:_new">new</code></td>
+<tr><td><code id="new">new</code></td>
 <td>
 <p>a character string specifying the translations. If a
 character vector of length 2 or more is supplied, the first element
 is used with a warning.</p>
 </td></tr>
-<tr><td><code id="chartr_:_upper">upper</code></td>
+<tr><td><code id="upper">upper</code></td>
 <td>
 <p>logical: translate to upper or lower case?.</p>
 </td></tr>
@@ -147,6 +147,7 @@ rot(crypw, 54 - 13) # -&gt; the original:
 stopifnot(identical(pw, rot(crypw, 54 - 13)))
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>base</em> version 3.6.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.0/00index.html'>Package <em>base</em> version 3.6.0</a> ]</div></main>
+
 </div>
 </body></html>

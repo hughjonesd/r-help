@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/hist.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/hist.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 1.3.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/hist.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/hist.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>hist {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='hist'>Histograms</h2>
+<h2>Histograms</h2>
 
 <h3>Description</h3>
 
@@ -43,18 +43,18 @@ hist.default(x, breaks, freq = NULL, probability = !freq,
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="hist_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a vector of values for which the histogram is desired.</p>
 </td></tr>
-<tr><td><code id="hist_:_breaks">breaks</code></td>
+<tr><td><code id="breaks">breaks</code></td>
 <td>
 <p>either a single number giving the approximate number of
 cells for the histogram or a vector giving the breakpoints between
 histogram cells.</p>
 </td></tr>
-<tr><td><code id="hist_:_freq">freq</code></td>
+<tr><td><code id="freq">freq</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the
 histogram graphic is to present a representation of frequencies, i.e,
@@ -63,60 +63,60 @@ the <code>counts</code> component of the result; if <code>FALSE</code>,
 are plotted.   Defaults to <code>TRUE</code> <em>iff</em> <code>breaks</code> are
 equidistant (and <code>probability</code> is not specified).</p>
 </td></tr>
-<tr><td><code id="hist_:_probability">probability</code></td>
+<tr><td><code id="probability">probability</code></td>
 <td>
 <p>an <em>alias</em> for <code>!freq</code>, for S compatibility.</p>
 </td></tr>
-<tr><td><code id="hist_:_include.lowest">include.lowest</code></td>
+<tr><td><code id="include.lowest">include.lowest</code></td>
 <td>
 <p>logical; if <code>TRUE</code>,
 an &lsquo;x[i]&rsquo; equal to the &lsquo;breaks&rsquo; value will be included in the first
 (or last, for <code>right = FALSE</code>) bar.</p>
 </td></tr>
-<tr><td><code id="hist_:_right">right</code></td>
+<tr><td><code id="right">right</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, the histograms cells are
 right-closed (left open) intervals.</p>
 </td></tr>
-<tr><td><code id="hist_:_col">col</code></td>
+<tr><td><code id="col">col</code></td>
 <td>
 <p>a colour to be used to fill the bars.
 The default of <code>NULL</code> yields unfilled bars.</p>
 </td></tr>
-<tr><td><code id="hist_:_border">border</code></td>
+<tr><td><code id="border">border</code></td>
 <td>
 <p>the color of the border around the bars.</p>
 </td></tr>
-<tr><td><code id="hist_:_main">main</code>, <code id="hist_:_xlab">xlab</code>, <code id="hist_:_ylab">ylab</code></td>
+<tr><td><code id="main">main</code>, <code id="xlab">xlab</code>, <code id="ylab">ylab</code></td>
 <td>
 <p>these arguments to <code>title</code> have useful
 defaults here.</p>
 </td></tr>
-<tr><td><code id="hist_:_xlim">xlim</code>, <code id="hist_:_ylim">ylim</code></td>
+<tr><td><code id="xlim">xlim</code>, <code id="ylim">ylim</code></td>
 <td>
 <p>the range of x and y values with sensible defaults.</p>
 </td></tr>
-<tr><td><code id="hist_:_axes">axes</code></td>
+<tr><td><code id="axes">axes</code></td>
 <td>
 <p>logical.  If <code>TRUE</code> (default), axes are draw if the
 plot is drawn.</p>
 </td></tr>
-<tr><td><code id="hist_:_plot">plot</code></td>
+<tr><td><code id="plot">plot</code></td>
 <td>
 <p>logical.  If <code>TRUE</code> (default), a histogram is
 plotted, otherwise a list of breaks and counts is returned.</p>
 </td></tr>
-<tr><td><code id="hist_:_labels">labels</code></td>
+<tr><td><code id="labels">labels</code></td>
 <td>
 <p>logical or character.  Additionally draw labels on top of bars,
 if not <code>FALSE</code>; see <code>plot.histogram</code>.</p>
 </td></tr>
-<tr><td><code id="hist_:_nclass">nclass</code></td>
+<tr><td><code id="nclass">nclass</code></td>
 <td>
 <p>numeric (integer).  For S compatibility only,
 <code>nclass=n</code> is equivalent to <code>breaks=n</code> (n scalar).</p>
 </td></tr>
-<tr><td><code id="hist_:_...">...</code></td>
+<tr><td><code id="...">...</code></td>
 <td>
 <p>further graphical parameters to <code>title</code> and <code>axis</code>.</p>
 </td></tr>
@@ -140,7 +140,7 @@ and <code>include.lowest</code> really has the meaning of
 
 <p>an object of class <code>"histogram"</code> which is a list with components:
 </p>
-<table>
+<table role = "presentation">
 <tr><td><code>breaks</code></td>
 <td>
 <p>the <code class="reqn">n+1</code> cell boundaries (= <code>breaks</code> if that
@@ -215,6 +215,7 @@ str(hist(islands, br=c(12,20,36,80,200,1000,17000), plot = FALSE))
          main = "WRONG histogram") # and warning
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/1.3.1/00index.html'>Package <em>base</em> version 1.3.1</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/1.3.1/00index.html'>Package <em>base</em> version 1.3.1</a> ]</div></main>
+
 </div>
 </body></html>

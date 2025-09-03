@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/validObject.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/validObject.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/validObject.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/validObject.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>validObject {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='validObject'> Test the Validity of an Object </h2>
+<h2> Test the Validity of an Object </h2>
 
 <h3>Description</h3>
 
@@ -59,35 +59,35 @@ getValidity(ClassDef)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="validObject_:_object">object</code></td>
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
 <td>
 <p> any object, but not much will happen unless the
 object's class has a formal definition.</p>
 </td></tr>
-<tr><td><code id="validObject_:_test">test</code></td>
+<tr><td><code id="test">test</code></td>
 <td>
 <p>logical; if <code>TRUE</code> and validity fails, the
 function returns a vector of strings describing the problems.  If
 <code>test</code> is <code>FALSE</code> (the default) validity failure generates
 an error.</p>
 </td></tr>
-<tr><td><code id="validObject_:_complete">complete</code></td>
+<tr><td><code id="complete">complete</code></td>
 <td>
 <p>logical; if <code>TRUE</code>, <code>validObject</code> is
 called recursively for each of the slots.  The default is <code>FALSE</code>.</p>
 </td></tr>
-<tr><td><code id="validObject_:_Class">Class</code></td>
+<tr><td><code id="Class">Class</code></td>
 <td>
 <p>the name or class definition of the class whose validity
 method is to be set.</p>
 </td></tr>
-<tr><td><code id="validObject_:_ClassDef">ClassDef</code></td>
+<tr><td><code id="ClassDef">ClassDef</code></td>
 <td>
 <p>a class definition object, as from
 <code>getClassDef</code>.</p>
 </td></tr>
-<tr><td><code id="validObject_:_method">method</code></td>
+<tr><td><code id="method">method</code></td>
 <td>
 <p>a validity method;  that is, either <code>NULL</code> or a
 function of one argument (<code>object</code>).  Like
@@ -97,7 +97,7 @@ are found.  Unlike <code>validObject</code>, it should never generate an
 error.
 </p>
 </td></tr>
-<tr><td><code id="validObject_:_where">where</code></td>
+<tr><td><code id="where">where</code></td>
 <td>
 <p>an environment to store the modified class
 definition. Should be omitted, specifically  for calls from a package that defines the class.
@@ -213,6 +213,7 @@ tT  &lt;- new("twoTrack", tr2 = t2)
 
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>methods</em> version 4.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/4.2.0/00index.html'>Package <em>methods</em> version 4.2.0</a> ]</div></main>
+
 </div>
 </body></html>

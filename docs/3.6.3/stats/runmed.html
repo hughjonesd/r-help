@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/runmed.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/runmed.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.6.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/runmed.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/runmed.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>runmed {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='runmed'>Running Medians &ndash; Robust Scatter Plot Smoothing</h2>
+<h2>Running Medians &ndash; Robust Scatter Plot Smoothing</h2>
 
 <h3>Description</h3>
 
@@ -38,20 +38,20 @@ results.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="runmed_:_x">x</code></td>
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
 <td>
 <p>numeric vector, the &lsquo;dependent&rsquo; variable to be
 smoothed.</p>
 </td></tr>
-<tr><td><code id="runmed_:_k">k</code></td>
+<tr><td><code id="k">k</code></td>
 <td>
 <p>integer width of median window; must be odd.  Turlach had a
 default of <code>k &lt;- 1 + 2 * min((n-1)%/% 2, ceiling(0.1*n))</code>.
 Use <code>k = 3</code> for &lsquo;minimal&rsquo; robust smoothing eliminating
 isolated outliers.</p>
 </td></tr>
-<tr><td><code id="runmed_:_endrule">endrule</code></td>
+<tr><td><code id="endrule">endrule</code></td>
 <td>
 <p>character string indicating how the values at the
 beginning and the end (of the data) should be treated.
@@ -77,14 +77,14 @@ rule is applied, see <code>smoothEnds</code>.</p>
 </dl>
 
 </td></tr>
-<tr><td><code id="runmed_:_algorithm">algorithm</code></td>
+<tr><td><code id="algorithm">algorithm</code></td>
 <td>
 <p>character string (partially matching <code>"Turlach"</code> or
 <code>"Stuetzle"</code>) or the default <code>NULL</code>, specifying which algorithm
 should be applied.  The default choice depends on <code>n = length(x)</code>
 and <code>k</code> where <code>"Turlach"</code> will be used for larger problems.</p>
 </td></tr>
-<tr><td><code id="runmed_:_na.action">na.action</code></td>
+<tr><td><code id="na.action">na.action</code></td>
 <td>
 <p>character string determining the behavior in the case of
 <code>NA</code> or <code>NaN</code> in <code>x</code>, (partially matching)
@@ -110,7 +110,7 @@ i.e. start with <code>"+"</code>.</p>
 </dl>
 
 </td></tr>
-<tr><td><code id="runmed_:_print.level">print.level</code></td>
+<tr><td><code id="print.level">print.level</code></td>
 <td>
 <p>integer, indicating verboseness of algorithm;
 should rarely be changed by average users.</p>
@@ -189,10 +189,6 @@ Algorithm AS 296: Optimal median smoothing,
 <p>Jerome H. Friedman and Werner Stuetzle (1982)
 <em>Smoothing of Scatterplots</em>;
 Report, Dep. Statistics, Stanford U., Project Orion 003.
-
-
-
-
 </p>
 
 
@@ -220,7 +216,6 @@ plot(cars, main = "'cars' data and runmed(dist, 3)")
 lines(cars, col = "light gray", type = "c")
 with(cars, lines(speed, runmed(dist, k = 3), col = 2))
 
-
 ## nice quadratic with a few outliers
 y &lt;- ys &lt;- (-20:20)^2
 y [c(1,10,21,41)] &lt;- c(150, 30, 400, 450)
@@ -235,8 +230,6 @@ y &lt;- ys ; y[21] &lt;- 6666 ; x &lt;- seq(y)
 col &lt;- c("black", "brown","blue")
 plot(y, col = col[1])
 lines(lowess(x, y, f = 0.3), col = col[2])
-
-
 lines(runmed(y, 7),      lwd = 2, col = col[3])
 legend(length(y),max(y), c("data", "lowess(y, f = 0.3)", "runmed(y, 7)"),
        xjust = 1, col = col, lty = c(0, 1, 1), pch = c(1,NA,NA))
@@ -261,6 +254,7 @@ legend("bottomleft", legend=c("data", paste("k = ", c(3,7,9,11))),
        bty="n", col=1:5, lty=1:5, pch=1:5)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>stats</em> version 3.6.3</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.6.3/00index.html'>Package <em>stats</em> version 3.6.3</a> ]</div></main>
+
 </div>
 </body></html>

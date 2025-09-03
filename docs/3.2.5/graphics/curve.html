@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/curve.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/curve.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 3.2.5. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/curve.html'>https://stat.ethz.ch/R-manual/R-patched/library/graphics/html/curve.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>curve {graphics}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='curve'>Draw Function Plots</h2>
+<h2>Draw Function Plots</h2>
 
 <h3>Description</h3>
 
@@ -39,30 +39,30 @@ plot(x, y = 0, to = 1, from = y, xlim = NULL, ylab = NULL, ...)
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="curve_:_expr">expr</code></td>
+<table role = "presentation">
+<tr><td><code id="expr">expr</code></td>
 <td>
 <p>The name of a function, or a call or an
 expression written as a function of <code>x</code> which will
 evaluate to an object of the same length as <code>x</code>.</p>
 </td></tr>
-<tr><td><code id="curve_:_x">x</code></td>
+<tr><td><code id="x">x</code></td>
 <td>
 <p>a &lsquo;vectorizing&rsquo; numeric <span class="rlang"><b>R</b></span> function.</p>
 </td></tr>
-<tr><td><code id="curve_:_y">y</code></td>
+<tr><td><code id="y">y</code></td>
 <td>
 <p>alias for <code>from</code> for compatibility with <code>plot</code></p>
 </td></tr>
-<tr><td><code id="curve_:_from">from</code>, <code id="curve_:_to">to</code></td>
+<tr><td><code id="from">from</code>, <code id="to">to</code></td>
 <td>
 <p>the range over which the function will be plotted.</p>
 </td></tr>
-<tr><td><code id="curve_:_n">n</code></td>
+<tr><td><code id="n">n</code></td>
 <td>
 <p>integer; the number of x values at which to evaluate.</p>
 </td></tr>
-<tr><td><code id="curve_:_add">add</code></td>
+<tr><td><code id="add">add</code></td>
 <td>
 <p>logical; if <code>TRUE</code> add to an already existing plot; if
 <code>NA</code> start a new plot taking the defaults for the limits and
@@ -70,22 +70,22 @@ log-scaling of the x-axis from the previous plot.  Taken as
 <code>FALSE</code> (with a warning if a different value is supplied) if no
 graphics device is open.</p>
 </td></tr>
-<tr><td><code id="curve_:_xlim">xlim</code></td>
+<tr><td><code id="xlim">xlim</code></td>
 <td>
 <p><code>NULL</code> or a numeric vector of length 2;
 if non-<code>NULL</code> it provides the defaults for <code>c(from, to)</code>
 and, unless <code>add = TRUE</code>, selects the x-limits of the plot &ndash; see
 <code>plot.window</code>.</p>
 </td></tr>
-<tr><td><code id="curve_:_type">type</code></td>
+<tr><td><code id="type">type</code></td>
 <td>
 <p>plot type: see <code>plot.default</code>.</p>
 </td></tr>
-<tr><td><code id="curve_:_xname">xname</code></td>
+<tr><td><code id="xname">xname</code></td>
 <td>
 <p>character string giving the name to be used for the x axis.</p>
 </td></tr>
-<tr><td><code id="curve_:_xlab">xlab</code>, <code id="curve_:_ylab">ylab</code>, <code id="curve_:_log">log</code>, <code id="curve_:_...">...</code></td>
+<tr><td><code id="xlab">xlab</code>, <code id="ylab">ylab</code>, <code id="log">log</code>, <code id="...">...</code></td>
 <td>
 <p>labels and graphical parameters
 can also be specified as arguments.  See &lsquo;Details&rsquo; for the
@@ -198,6 +198,7 @@ for(ll in c("", "x", "y", "xy"))
 par(op)
 </code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/3.2.5/00index.html'>Package <em>graphics</em> version 3.2.5</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/3.2.5/00index.html'>Package <em>graphics</em> version 3.2.5</a> ]</div></main>
+
 </div>
 </body></html>

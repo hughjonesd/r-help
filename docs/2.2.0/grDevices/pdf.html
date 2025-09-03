@@ -12,11 +12,11 @@ function processMathHTML() {
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
     onload="processMathHTML();"></script>
 <link rel="stylesheet" type="text/css" href="R.css" />
-</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/pdf.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/pdf.html</a></b></div><div class="container">
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 2.2.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/pdf.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/pdf.html</a></b></div><div class="container"><main>
 
 <table style="width: 100%;"><tr><td>pdf {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-<h2 id='pdf'>PDF Graphics Device</h2>
+<h2>PDF Graphics Device</h2>
 
 <h3>Description</h3>
 
@@ -36,26 +36,26 @@ graphics.
 
 <h3>Arguments</h3>
 
-<table>
-<tr><td><code id="pdf_:_file">file</code></td>
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
 <td>
 <p>a character string giving the name of the file.
 For use with <code>onefile=FALSE</code> give a <code>printf</code> format such
 as <code>"Rplot%03d.pdf"</code> (the default in that case).
 </p>
 </td></tr>
-<tr><td><code id="pdf_:_width">width</code>, <code id="pdf_:_height">height</code></td>
+<tr><td><code id="width">width</code>, <code id="height">height</code></td>
 <td>
 <p>the width and height of the graphics region in
 inches.</p>
 </td></tr>
-<tr><td><code id="pdf_:_onefile">onefile</code></td>
+<tr><td><code id="onefile">onefile</code></td>
 <td>
 <p>logical: if true (the default) allow multiple figures
 in one file.  If false, generate a file name containing the page
 number.</p>
 </td></tr>
-<tr><td><code id="pdf_:_family">family</code></td>
+<tr><td><code id="family">family</code></td>
 <td>
 <p>the font family to be used, one of <code>"AvantGarde"</code>,
 <code>"Bookman"</code>, <code>"Courier"</code>, <code>"Helvetica"</code>,
@@ -64,11 +64,11 @@ number.</p>
 specifications allowed for <code>postscript</code> are <b>not</b>
 available.</p>
 </td></tr>
-<tr><td><code id="pdf_:_title">title</code></td>
+<tr><td><code id="title">title</code></td>
 <td>
 <p>title string to embed in the file.</p>
 </td></tr>
-<tr><td><code id="pdf_:_paper">paper</code></td>
+<tr><td><code id="paper">paper</code></td>
 <td>
 <p>the size of paper in the printer.  The choices are
 <code>"a4"</code>, <code>"letter"</code>, <code>"legal"</code> and
@@ -79,35 +79,36 @@ and <code>height</code> specify the paper size.  A further choice is
 papersize is taken from the option <code>"papersize"</code>
 if that is set and to <code>"a4"</code> if it is unset or empty.</p>
 </td></tr>
-<tr><td><code id="pdf_:_encoding">encoding</code></td>
+<tr><td><code id="encoding">encoding</code></td>
 <td>
 <p>the name of an encoding file.  Defaults to
 <code>"ISOLatin1.enc"</code>
-in the &lsquo;<span class="file">R\_HOME/afm</span>&rsquo; directory, which is used if the path does
+</p>
+<p>in the &lsquo;<span class="file">R\_HOME/afm</span>&rsquo; directory, which is used if the path does
 not contain a path separator.  An extension <code>".enc"</code> can be
 omitted.
 In a UTF-8 locale only <code>"ISOLatin1.enc"</code> is allowed.
 </p>
 </td></tr>
-<tr><td><code id="pdf_:_pointsize">pointsize</code></td>
+<tr><td><code id="pointsize">pointsize</code></td>
 <td>
 <p>the default point size to be used.</p>
 </td></tr>
-<tr><td><code id="pdf_:_bg">bg</code></td>
+<tr><td><code id="bg">bg</code></td>
 <td>
 <p>the default background color to be used.</p>
 </td></tr>
-<tr><td><code id="pdf_:_fg">fg</code></td>
+<tr><td><code id="fg">fg</code></td>
 <td>
 <p>the default foreground color to be used.</p>
 </td></tr>
-<tr><td><code id="pdf_:_fonts">fonts</code></td>
+<tr><td><code id="fonts">fonts</code></td>
 <td>
 <p>a character vector specifying device-independent
 R graphics font family names for fonts
 which will be included in the PDF file.</p>
 </td></tr>
-<tr><td><code id="pdf_:_version">version</code></td>
+<tr><td><code id="version">version</code></td>
 <td>
 <p>a string describing the PDF version that will be
 used to produce output.</p>
@@ -215,6 +216,7 @@ TestChars("ISOLatin2")
 
 ## End(Not run)</code></pre>
 
-<hr /><div style="text-align: center;">[<a href='/r-help/2.2.0/00index.html'>Package <em>grDevices</em> version 2.2.0</a> ]</div>
+<hr /><div style="text-align: center;">[<a href='/r-help/2.2.0/00index.html'>Package <em>grDevices</em> version 2.2.0</a> ]</div></main>
+
 </div>
 </body></html>
