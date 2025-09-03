@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: R User Directories</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/userdir.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/userdir.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>userdir {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>R User Directories</h2>
+
+<h3>Description</h3>
+
+<p>Directories for storing R-related user-specific data, configuration
+and cache files.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R_user_dir(package, which = c("data", "config", "cache"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="package">package</code></td>
+<td>
+<p>a character string giving the name of an <span class="rlang"><b>R</b></span> package</p>
+</td></tr>
+<tr><td><code id="which">which</code></td>
+<td>
+<p>a character string indicating the kind of file(s) of
+interest.  Can be abbreviated.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For desktop environments using X Windows, the freedesktop.org project
+(formerly X Desktop Group, <abbr>XDG</abbr>) developed the <abbr>XDG</abbr> Base Directory
+Specification
+(<a href="https://specifications.freedesktop.org/basedir-spec">https://specifications.freedesktop.org/basedir-spec</a>) for
+standardizing the location where certain files should be placed.  CRAN
+package <a href="https://CRAN.R-project.org/package=rappdirs"><span class="pkg">rappdirs</span></a> provides these general locations with
+appropriate values for all platforms for which <span class="rlang"><b>R</b></span> is available.
+</p>
+<p><code>R_user_dir</code> specializes the general mechanism to R package
+specific locations for user files, by providing package specific
+subdirectories inside a &lsquo;<span class="file">R</span>&rsquo; subdirectory inside the &ldquo;base&rdquo;
+directories appropriate for user-specific data, configuration and
+cache files (see the examples), with the intent that packages will not
+interfere if they work within their respective subdirectories.
+</p>
+<p>The locations of these base directories can be customized via the
+specific environment variables
+<span class="env">R_USER_DATA_DIR</span>,
+<span class="env">R_USER_CONFIG_DIR</span> and
+<span class="env">R_USER_CACHE_DIR</span>.
+If these are not set, the general <abbr>XDG</abbr>-style environment variables
+<span class="env">XDG_DATA_HOME</span>,
+<span class="env">XDG_CONFIG_HOME</span> and
+<span class="env">XDG_CACHE_HOME</span>
+are used if set, and otherwise, defaults appropriate for the <span class="rlang"><b>R</b></span>
+platform in use are employed.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+R_user_dir("FOO", "cache")
+
+## Create one, platform agnostically, must work if &lt;normal&gt; :
+(Rdb &lt;- R_user_dir("base"))
+if(newD &lt;- !dir.exists(Rdb)) # should work user specifically:
+    newD &lt;- dir.create(Rdb, recursive=TRUE)
+dir(Rdb) # typically empty
+if(newD) unlink(Rdb) # cleaning up
+
+list.files(R_user_dir("grid"), full.names = TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.2/00index.html'>Package <em>tools</em> version 4.4.2</a> ]</div></main>
+
+</div>
+</body></html>

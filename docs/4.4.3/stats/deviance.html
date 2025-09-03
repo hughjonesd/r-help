@@ -1,0 +1,80 @@
+<!DOCTYPE html><html><head><title>R: Model Deviance</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/deviance.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/deviance.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>deviance {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Model Deviance</h2>
+
+<h3>Description</h3>
+
+<p>Returns the deviance of a fitted model object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>deviance(object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
+<td>
+<p>an object for which the deviance is desired.</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>additional optional argument.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is a generic function which can be used to extract deviances for
+fitted models.  Consult the individual modeling functions for details
+on how to use this function.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The value of the deviance extracted from the object <code>object</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. and Hastie, T. J. (1992)
+<em>Statistical Models in S.</em>
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>df.residual</code>,
+<code>extractAIC</code>,
+<code>glm</code>,
+<code>lm</code>.
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.3/00index.html'>Package <em>stats</em> version 4.4.3</a> ]</div></main>
+
+</div>
+</body></html>

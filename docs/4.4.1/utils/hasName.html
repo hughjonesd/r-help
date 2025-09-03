@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><title>R: Check for Name</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/hasName.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/hasName.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>hasName {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Check for Name</h2>
+
+<h3>Description</h3>
+
+<p><code>hasName</code> is a convenient way to test for one or more names
+in an R object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>hasName(x, name)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>Any object.</p>
+</td></tr>
+<tr><td><code id="name">name</code></td>
+<td>
+<p>One or more character values to look for.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>hasName(x, name)</code> is defined to be equivalent to 
+<code>name %in% names(x)</code>, though it will evaluate slightly more
+quickly.  It is intended to replace the common idiom
+<code>!is.null(x$name)</code>.  The latter can be unreliable due to partial
+name matching; see the example below.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A logical vector of the same length as <code>name</code> containing
+<code>TRUE</code> if the corresponding entry is in <code>names(x)</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>%in%</code>, <code>exists</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- list(abc = 1, def = 2)
+!is.null(x$abc) # correct
+!is.null(x$a)   # this is the wrong test!
+hasName(x, "abc")
+hasName(x, "a")
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.1/00index.html'>Package <em>utils</em> version 4.4.1</a> ]</div></main>
+
+</div>
+</body></html>

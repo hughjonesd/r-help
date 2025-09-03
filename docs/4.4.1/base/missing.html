@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><title>R: Does a Formal Argument have a Value?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/missing.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/missing.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>missing {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Does a Formal Argument have a Value?</h2>
+
+<h3>Description</h3>
+
+<p><code>missing</code> can be used to test whether a value was specified
+as an argument to a function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>missing(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>a formal argument.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>missing(x)</code> is only reliable if <code>x</code> has not been altered
+since entering the function: in particular it will <em>always</em>
+be false after <code>x &lt;- match.arg(x)</code>.
+</p>
+<p>The example shows how a plotting function can be written to work with
+either a pair of vectors giving x and y coordinates of points to be
+plotted or a single vector giving y values to be plotted against their
+indices.
+</p>
+<p>Currently <code>missing</code> can only be used in the immediate body of
+the function that defines the argument, not in the body of a nested
+function or a <code>local</code> call.  This may change in the future.
+</p>
+<p>This is a &lsquo;special&rsquo; primitive function: it must not
+evaluate its argument.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Chambers, J. M. (1998)
+<em>Programming with Data.  A Guide to the S Language</em>.
+Springer.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>substitute</code> for argument expression;
+<code>NA</code> for missing values in data.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>myplot &lt;- function(x, y) {
+                if(missing(y)) {
+                        y &lt;- x
+                        x &lt;- 1:length(y)
+                }
+                plot(x, y)
+        }
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.1/00index.html'>Package <em>base</em> version 4.4.1</a> ]</div></main>
+
+</div>
+</body></html>

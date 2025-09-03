@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><title>R: Data Frame Auxiliary Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/dataframeHelpers.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/dataframeHelpers.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>dataframeHelpers {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Data Frame Auxiliary Functions</h2>
+
+<h3>Description</h3>
+
+<p>Internal auxiliary functions for use with data frames.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>xpdrows.data.frame(x, old.rows, new.rows)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>object of class <code>data.frame</code>.</p>
+</td></tr>
+<tr><td><code id="old.rows">old.rows</code>, <code id="new.rows">new.rows</code></td>
+<td>
+<p>row names for old and new rows.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>xpdrows.data.frame</code> is an auxiliary function which expands the
+rows of a data frame.  It is used by the data frame methods of
+<code>[&lt;-</code> and <code>[[&lt;-</code> (which perform subscripted assignments on a
+data frame), and not intended to be called directly.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>[.data.frame</code>
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>base</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

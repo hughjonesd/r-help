@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>R: Capture a raster image</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.cap.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.cap.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>grid.cap {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>
+Capture a raster image
+</h2>
+
+<h3>Description</h3>
+
+<p>Capture the current contents of a graphics device as a raster
+(bitmap) image.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.cap()
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>This function is only implemented for on-screen graphics devices.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A matrix of R colour names, or <code>NULL</code> if not available.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>grid.raster</code>
+</p>
+<p><code>dev.capabilities</code> to see if it is supported.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+dev.new(width=0.5, height=0.5)
+grid.rect()
+grid.text("hi")
+cap &lt;- grid.cap()
+dev.off()
+
+if(!is.null(cap))
+    grid.raster(cap, width=0.5, height=0.5, interpolate=FALSE)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.3/00index.html'>Package <em>grid</em> version 4.4.3</a> ]</div></main>
+
+</div>
+</body></html>

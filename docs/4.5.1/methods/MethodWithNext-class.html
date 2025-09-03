@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>R: Class '&quot;MethodWithNext&quot;'</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/MethodWithNext-class.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/MethodWithNext-class.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>MethodWithNext-class {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Class <code>"MethodWithNext"</code> </h2>
+
+<h3>Description</h3>
+
+<p> Class of method definitions set up for <code>callNextMethod</code> </p>
+
+
+<h3>Objects from the Class</h3>
+
+<p>Objects from this class are generated as a side-effect of calls to
+<code>callNextMethod</code>.
+</p>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt><code>.Data</code>:</dt><dd><p>Object of class <code>"function"</code>; the actual
+function definition.</p>
+</dd>
+<dt><code>nextMethod</code>:</dt><dd><p>Object of class <code>"PossibleMethod"</code>
+the method to use in response to a <code>callNextMethod()</code>
+call.</p>
+</dd>
+<dt><code>excluded</code>:</dt><dd><p>Object of class <code>"list"</code>; one or more
+signatures excluded in finding the next method. </p>
+</dd>
+<dt><code>target</code>:</dt><dd><p>Object of class <code>"signature"</code>, from class
+<code>"MethodDefinition"</code></p>
+</dd>
+<dt><code>defined</code>:</dt><dd><p>Object of class <code>"signature"</code>, from
+class <code>"MethodDefinition"</code></p>
+</dd>
+<dt><code>generic</code>:</dt><dd><p>Object of class <code>"character"</code>; the function
+for which the method was created. </p>
+</dd>
+</dl>
+
+
+
+<h3>Extends</h3>
+
+<p>Class <code>"MethodDefinition"</code>, directly.<br />
+Class <code>"function"</code>, from data part.<br />
+Class <code>"PossibleMethod"</code>, by class <code>"MethodDefinition"</code>.<br />
+Class <code>"optionalMethod"</code>, by class <code>"MethodDefinition"</code>.
+</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt>findNextMethod</dt><dd><p><code>signature(method = "MethodWithNext")</code>:
+used internally by method dispatch. </p>
+</dd>
+<dt>show</dt><dd><p><code>signature(object = "MethodWithNext")</code> </p>
+</dd>
+</dl>
+
+
+
+<h3>See Also</h3>
+
+  <p><code>callNextMethod</code>, and
+class <code>MethodDefinition</code>.
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>methods</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>

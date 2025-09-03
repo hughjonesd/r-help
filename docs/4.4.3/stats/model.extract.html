@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>R: Extract Components from a Model Frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/model.extract.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/model.extract.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>model.extract {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Extract Components from a Model Frame</h2>
+
+<h3>Description</h3>
+
+<p>Returns the response, offset, subset, weights or other
+special components of a model frame passed as optional arguments to
+<code>model.frame</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>model.extract(frame, component)
+model.offset(x)
+model.response(data, type = "any")
+model.weights(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="frame">frame</code>, <code id="x">x</code>, <code id="data">data</code></td>
+<td>
+<p>a model frame, see <code>model.frame</code>.</p>
+</td></tr>
+<tr><td><code id="component">component</code></td>
+<td>
+<p>literal character string or name.  The name of a
+component to extract, such as <code>"weights"</code> or <code>"subset"</code>.</p>
+</td></tr>
+<tr><td><code id="type">type</code></td>
+<td>
+<p>One of <code>"any"</code>, <code>"numeric"</code> or <code>"double"</code>.
+Using either of latter two coerces the result to have storage mode
+<code>"double"</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>model.extract</code> is provided for compatibility with S, which does
+not have the more specific functions.  It is also useful to extract
+e.g. the <code>etastart</code> and <code>mustart</code> components of a
+<code>glm</code> fit.
+</p>
+<p><code>model.extract(m, "offset")</code> and <code>model.extract(m, "response")</code>
+are equivalent to <code>model.offset(m)</code> and <code>model.response(m)</code>
+respectively.  <code>model.offset</code> sums any terms specified by
+<code>offset</code> terms in the formula or by <code>offset</code> arguments
+in the call producing the model frame: it does check that the offset
+is numeric.
+</p>
+<p><code>model.weights</code> is slightly different from
+<code>model.extract(, "weights")</code> in not naming the vector it returns.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The specified component of the model frame, usually a vector.
+<code>model.response()</code> now <em>drops</em> a possible <code>"Asis"</code> class
+(stemming from <code>I(.)</code>).
+</p>
+<p><code>model.offset</code> returns <code>NULL</code> if no offset was specified.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>model.frame</code>, <code>offset</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>a &lt;- model.frame(cbind(ncases,ncontrols) ~ agegp + tobgp + alcgp, data = esoph)
+model.extract(a, "response")
+stopifnot(model.extract(a, "response") == model.response(a))
+
+a &lt;- model.frame(ncases/(ncases+ncontrols) ~ agegp + tobgp + alcgp,
+                 data = esoph, weights = ncases+ncontrols)
+model.response(a)
+(mw &lt;- model.extract(a, "weights"))
+stopifnot(identical(unname(mw), model.weights(a)))
+
+a &lt;- model.frame(cbind(ncases,ncontrols) ~ agegp,
+                 something = tobgp, data = esoph)
+names(a)
+stopifnot(model.extract(a, "something") == esoph$tobgp)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.3/00index.html'>Package <em>stats</em> version 4.4.3</a> ]</div></main>
+
+</div>
+</body></html>

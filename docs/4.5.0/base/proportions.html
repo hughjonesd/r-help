@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>R: Express Table Entries as Fraction of Marginal Table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/proportions.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/proportions.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>proportions {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Express Table Entries as Fraction of Marginal Table</h2>
+
+<h3>Description</h3>
+
+<p>Returns conditional proportions given <code>margins</code>, i.e.,
+entries of <code>x</code>, divided by the appropriate marginal sums.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>proportions(x, margin = NULL)
+prop.table(x, margin = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>an array, usually a <code>table</code>.</p>
+</td></tr>
+<tr><td><code id="margin">margin</code></td>
+<td>
+<p>a vector giving the margins to split by.
+E.g., for a matrix <code>1</code> indicates rows, <code>2</code> indicates
+columns, <code>c(1, 2)</code> indicates rows and columns.
+When <code>x</code> has named <code>dimnames</code>, it can be a character vector
+selecting dimension names.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A table or array like <code>x</code>, expressed relative to <code>margin</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p><code>prop.table</code> is an earlier name, retained for back-compatibility.</p>
+
+
+<h3>Author(s)</h3>
+
+<p> Peter Dalgaard </p>
+
+
+<h3>See Also</h3>
+
+<p><code>marginSums</code>.
+</p>
+<p><code>apply</code> and <code>sweep</code> are more general
+mechanisms for sweeping out marginal statistics.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>m &lt;- matrix(1:4, 2)
+m
+proportions(m, 1)
+
+DF &lt;- as.data.frame(UCBAdmissions)
+tbl &lt;- xtabs(Freq ~ Gender + Admit, DF)
+tbl
+proportions(tbl, "Gender")
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>base</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

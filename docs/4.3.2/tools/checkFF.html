@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><title>R: Check Foreign Function Calls</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkFF.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/checkFF.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>checkFF {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Check Foreign Function Calls</h2>
+
+<h3>Description</h3>
+
+<p>Performs checks on calls to compiled code from R code.  Currently only
+checks whether the interface functions such as <code>.C</code> and
+<code>.Fortran</code> are called with a <code>"NativeSymbolInfo"</code>
+first argument or with argument <code>PACKAGE</code> specified, which is
+highly recommended to avoid name clashes in foreign function calls.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>checkFF(package, dir, file, lib.loc = NULL,
+        registration = FALSE, check_DUP = FALSE,
+        verbose = getOption("verbose"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="package">package</code></td>
+<td>
+<p>a character string naming an installed package.  If
+given, the installed R code of the package is checked.</p>
+</td></tr>
+<tr><td><code id="dir">dir</code></td>
+<td>
+<p>a character string specifying the path to a package's root
+source directory.  This should contain the subdirectory &lsquo;<span class="file">R</span>&rsquo;
+(for R code).  Only used if <code>package</code> is not given.</p>
+</td></tr>
+<tr><td><code id="file">file</code></td>
+<td>
+<p>the name of a file containing R code to be checked.  Used
+if neither <code>package</code> nor <code>dir</code> are given.</p>
+</td></tr>
+<tr><td><code id="lib.loc">lib.loc</code></td>
+<td>
+<p>a character vector of directory names of <span class="rlang"><b>R</b></span> libraries,
+or <code>NULL</code>.  The default value of <code>NULL</code> corresponds to all
+libraries currently known.  The specified library trees are used to
+search for <code>package</code>.</p>
+</td></tr>
+<tr><td><code id="registration">registration</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, checks
+the registration information on the call (if available).</p>
+</td></tr>
+<tr><td><code id="check_DUP">check_DUP</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, <code>.C</code> and
+<code>.Fortran</code> calls with <code>DUP = FALSE</code> are reported.</p>
+</td></tr>
+<tr><td><code id="verbose">verbose</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, additional diagnostics are
+printed (and the result is returned invisibly).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note that we can only check if the <code>name</code> argument is a symbol or
+a character string, not what class of object the symbol resolves to
+at run-time.
+</p>
+<p>If the package has a namespace which contains a <code>useDynLib</code>
+directive, calls in top-level functions in the package are not
+reported as their symbols will be preferentially looked up in the DLL
+named in the first <code>useDynLib</code> directive.
+</p>
+<p>This checks that calls with <code>PACKAGE</code> specified are to the
+same package, and reports separately those which are in base packages
+and those which are in other packages (and if those packages are
+specified in the &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file).
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"checkFF"</code>.
+</p>
+<p>There are <code>format</code> and <code>print</code> methods to display the
+information contained in such objects.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>.C</code>,
+<code>.Fortran</code>;
+<code>Foreign</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'> # order is pretty much random
+checkFF(package = "stats", verbose = TRUE)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.2/00index.html'>Package <em>tools</em> version 4.3.2</a> ]</div></main>
+
+</div>
+</body></html>

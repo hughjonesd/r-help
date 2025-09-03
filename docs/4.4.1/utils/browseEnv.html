@@ -1,0 +1,130 @@
+<!DOCTYPE html><html><head><title>R: Browse Objects in Environment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/browseEnv.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/browseEnv.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>browseEnv {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Browse Objects in Environment</h2>
+
+<h3>Description</h3>
+
+<p>The <code>browseEnv</code> function opens a browser with list of objects
+currently in <code>sys.frame()</code> environment.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>browseEnv(envir = .GlobalEnv, pattern,
+          excludepatt = "^last\\.warning",
+          html = .Platform$GUI != "AQUA",
+          expanded = TRUE, properties = NULL,
+          main = NULL, debugMe = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="envir">envir</code></td>
+<td>
+<p>an <code>environment</code> the objects of which are to
+be browsed.</p>
+</td></tr>
+<tr><td><code id="pattern">pattern</code></td>
+<td>
+<p>a regular expression for object subselection
+is passed to the internal <code>ls()</code> call.</p>
+</td></tr>
+<tr><td><code id="excludepatt">excludepatt</code></td>
+<td>
+<p>a regular expression for <em>dropping</em> objects
+with matching names.</p>
+</td></tr>
+<tr><td><code id="html">html</code></td>
+<td>
+<p>is used to display the workspace
+on a HTML page in your favorite browser.  The default except when
+running from <code>R.app</code> on macOS.</p>
+</td></tr>
+<tr><td><code id="expanded">expanded</code></td>
+<td>
+<p>whether to show one level of recursion.  It can be useful
+to switch it to <code>FALSE</code> if your workspace is large.  This
+option is ignored if <code>html</code> is set to <code>FALSE</code>.</p>
+</td></tr>
+<tr><td><code id="properties">properties</code></td>
+<td>
+<p>a named list of global properties (of the objects chosen)
+to be showed in the browser;  when <code>NULL</code> (as per default),
+user, date, and machine information is used.</p>
+</td></tr>
+<tr><td><code id="main">main</code></td>
+<td>
+<p>a title string to be used in the browser; when <code>NULL</code>
+(as per default) a title is constructed.</p>
+</td></tr>
+<tr><td><code id="debugMe">debugMe</code></td>
+<td>
+<p>logical switch; if true, some diagnostic output is produced.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Very experimental code: displays a static HTML page on all platforms
+except <code>R.app</code> on macOS.
+</p>
+<p>Only allows one level of recursion into object structures.
+</p>
+<p>It can be generalized.  See sources for details.
+Most probably, this should rather work through using the <span class="pkg">tkWidget</span>
+package (from <a href="https://www.bioconductor.org">https://www.bioconductor.org</a>).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>str</code>, <code>ls</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>if(interactive()) {
+   ## create some interesting objects :
+   ofa &lt;- ordered(4:1)
+   ex1 &lt;- expression(1+ 0:9)
+   ex3 &lt;- expression(u, v, 1+ 0:9)
+   example(factor, echo = FALSE)
+   example(table, echo = FALSE)
+   example(ftable, echo = FALSE)
+   example(lm, echo = FALSE, ask = FALSE)
+   example(str, echo = FALSE)
+
+   ## and browse them:
+   browseEnv()
+
+   ## a (simple) function's environment:
+   af12 &lt;- approxfun(1:2, 1:2, method = "const")
+   browseEnv(envir = environment(af12))
+ }
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.1/00index.html'>Package <em>utils</em> version 4.4.1</a> ]</div></main>
+
+</div>
+</body></html>

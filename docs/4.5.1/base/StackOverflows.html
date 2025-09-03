@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><title>R: Stack Overflow Errors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/StackOverflows.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/StackOverflows.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>StackOverflows {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Stack Overflow Errors</h2>
+
+<h3>Description</h3>
+
+<p>Errors signaled by <span class="rlang"><b>R</b></span> when stacks used in evaluation overflow.
+</p>
+
+
+<h3>Details</h3>
+
+<p><span class="rlang"><b>R</b></span> uses several stacks in evaluating expressions: the C stack, the
+pointer protection stack, and the node stack used by the byte code
+engine. In addition, the number of nested <span class="rlang"><b>R</b></span> expressions currently
+under evaluation is limited by the value set as
+<code>options("expressions")</code>.  Overflowing these stacks or
+limits signals an error that inherits from classes
+<code>stackOverflowError</code>, <code>error</code>, and <code>condition</code>.
+</p>
+<p>The specific classes signaled are:
+</p>
+
+<ul>
+<li> <p><code>CStackOverflowError</code>: Signaled when the C stack
+overflows. The <code>usage</code> field of the error object contains the
+current stack usage.
+</p>
+</li>
+<li> <p><code>protectStackOverflowError</code>: Signaled when the pointer
+protection stack overflows.
+</p>
+</li>
+<li> <p><code>nodeStackOverflowError</code>: Signaled when the node stack
+used by the byte code engine overflows.
+</p>
+</li>
+<li> <p><code>expressionStackOverflowError</code>: Signaled when the the
+evaluation depth, the number of nested <span class="rlang"><b>R</b></span> expressions currently
+under evaluation, exceeds the limit set by
+<code>options("expressions")</code>
+</p>
+</li></ul>
+
+<p>Stack overflow errors can be caught and handled by exiting handlers
+established with <code>tryCatch()</code>. Calling handlers established
+by <code>withCallingHandlers()</code> may fail since there may not be
+enough stack space to run the handler. In this case the next available
+exiting handler will be run, or error handling will fall back to the
+default handler. Default handlers set by
+<code>tryCatch("error")</code> may also fail to run in a stack
+overflow situation.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Cstack_info</code> for information on the environment and the
+evaluation depth limit.
+</p>
+<p><code>Memory</code> and <code>options</code> for information on the
+protection stack.
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>base</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>

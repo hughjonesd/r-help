@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>R: Get or Set CPU Affinity Mask of the Current Process</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcaffinity.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/mcaffinity.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>mcaffinity {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get or Set CPU Affinity Mask of the Current Process</h2>
+
+<h3>Description</h3>
+
+<p><code>mcaffinity</code> retrieves or sets the CPU affinity mask of the
+current process, i.e., the set of CPUs the process is allowed to be
+run on. (CPU here means logical CPU which can be CPU, core or
+hyperthread unit.)
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>mcaffinity(affinity = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="affinity">affinity</code></td>
+<td>
+<p>specification of the CPUs to lock this process to
+(numeric vector) or <code>NULL</code> if no change is requested</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>mcaffinity</code> can be used to obtain (<code>affinity = NULL</code>)
+or set the CPU affinity mask of the current process. The affinity mask
+is a list of integer CPU identifiers (starting from 1) that this
+process is allowed to run on. Not all systems provide user access to
+the process CPU affinity, in cases where no support is present at all
+<code>mcaffinity()</code> will return <code>NULL</code>. Some systems may take
+into account only the number of CPUs present in the mask.
+</p>
+<p>Typically, it is legal to specify larger set than the number of
+logical CPUs (but at most as many as the OS can handle) and the system
+will return back the actually present set.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>NULL</code> if CPU affinity is not supported by the system or an
+integer vector with the set of CPUs in the active affinity mask for
+this process (this may be different than <code>affinity</code>).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Simon Urbanek.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>mcparallel</code>
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>parallel</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

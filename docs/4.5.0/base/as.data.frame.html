@@ -1,0 +1,220 @@
+<!DOCTYPE html><html><head><title>R: Coerce to a Data Frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/as.data.frame.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/as.data.frame.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>as.data.frame {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Coerce to a Data Frame</h2>
+
+<h3>Description</h3>
+
+<p>Functions to check if an object is a data frame, or coerce it if possible.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>as.data.frame(x, row.names = NULL, optional = FALSE, ...)
+
+## S3 method for class 'character'
+as.data.frame(x, ...,
+              stringsAsFactors = FALSE)
+
+## S3 method for class 'list'
+as.data.frame(x, row.names = NULL, optional = FALSE, ...,
+              cut.names = FALSE, col.names = names(x), fix.empty.names = TRUE,
+              new.names = !missing(col.names),
+              check.names = !optional,
+              stringsAsFactors = FALSE)
+
+## S3 method for class 'matrix'
+as.data.frame(x, row.names = NULL, optional = FALSE,
+              make.names = TRUE, ...,
+              stringsAsFactors = FALSE)
+
+as.data.frame.vector(x, row.names = NULL, optional = FALSE, ...,
+                     nm = deparse1(substitute(x)))
+
+is.data.frame(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>any <span class="rlang"><b>R</b></span> object.</p>
+</td></tr>
+<tr><td><code id="row.names">row.names</code></td>
+<td>
+<p><code>NULL</code> or a character vector giving the row
+names for the data frame.  Missing values are not allowed.</p>
+</td></tr>
+<tr><td><code id="optional">optional</code></td>
+<td>
+<p>logical. If <code>TRUE</code>, setting row names and
+converting column names (to syntactic names: see
+<code>make.names</code>) is optional.  Note that all of <span class="rlang"><b>R</b></span>'s
+<span class="pkg">base</span> package <code>as.data.frame()</code> methods use
+<code>optional</code> only for column names treatment, basically with the
+meaning of <code>data.frame(*, check.names = !optional)</code>.
+See also the <code>make.names</code> argument of the <code>matrix</code> method.</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>additional arguments to be passed to or from methods.</p>
+</td></tr>
+<tr><td><code id="stringsAsFactors">stringsAsFactors</code></td>
+<td>
+<p>logical: should the character vector be converted
+to a factor?</p>
+</td></tr>
+
+<tr><td><code id="cut.names">cut.names</code></td>
+<td>
+<p>logical or integer; indicating if column names with
+more than 256 (or <code>cut.names</code> if that is numeric) characters
+should be shortened (and the last 6 characters replaced by <code>" ..."</code>).</p>
+</td></tr>
+<tr><td><code id="col.names">col.names</code></td>
+<td>
+<p>(optional) character vector of column names.</p>
+</td></tr>
+<tr><td><code id="fix.empty.names">fix.empty.names</code></td>
+<td>
+<p>logical indicating if empty column names, i.e.,
+<code>""</code> should be fixed up (in <code>data.frame</code>) or not.</p>
+</td></tr>
+<tr><td><code id="new.names">new.names</code></td>
+<td>
+<p>logical indicating that <code>col.names</code> should be used
+(and possibly reset to <code>NA</code>) explicitly.</p>
+</td></tr>
+<tr><td><code id="check.names">check.names</code></td>
+<td>
+<p>logical; passed to the <code>data.frame()</code> call.</p>
+</td></tr>
+
+<tr><td><code id="make.names">make.names</code></td>
+<td>
+<p>a <code>logical</code>, i.e., one of <code>FALSE, NA, TRUE</code>,
+indicating what should happen if the row names (of the matrix
+<code>x</code>) are invalid.  If they are invalid, the default,
+<code>TRUE</code>, calls <code>make.names(*, unique=TRUE)</code>;
+<code>make.names=NA</code> will use &ldquo;automatic&rdquo; row names and a
+<code>FALSE</code> value will signal an error for invalid row names.</p>
+</td></tr>
+
+<tr><td><code id="nm">nm</code></td>
+<td>
+<p>a <code>character</code> string to be used as column name.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>as.data.frame</code> is a generic function with many methods, and
+users and packages can supply further methods.  For classes that act
+as vectors, often a copy of <code>as.data.frame.vector</code> will work
+as the method.
+</p>
+<p>Since <span class="rlang"><b>R</b></span> 4.3.0, the <em>default</em> method will call
+<code>as.data.frame.vector</code> for atomic (as by <code>is.atomic</code>) <code>x</code>.
+</p>
+<p>Direct calls of <code>as.data.frame.<var>class</var></code> are still possible (base package!),
+for 12 atomic base classes, but are deprecated
+where calling <code>as.data.frame.vector</code> instead is recommended.
+</p>
+<p>If a list is supplied, each element is converted to a column in the
+data frame.  Similarly, each column of a matrix is converted separately.
+This can be overridden if the object has a class which has
+a method for <code>as.data.frame</code>: two examples are
+matrices of class <code>"model.matrix"</code> (which are
+included as a single column) and list objects of class
+<code>"POSIXlt"</code> which are coerced to class
+<code>"POSIXct"</code>.
+</p>
+<p>Arrays can be converted to data frames.  One-dimensional arrays are
+treated like vectors and two-dimensional arrays like matrices.  Arrays
+with more than two dimensions are converted to matrices by
+&lsquo;flattening&rsquo; all dimensions after the first and creating
+suitable column labels.
+</p>
+<p>Character variables are converted to factor columns unless protected
+by <code>I</code>.
+</p>
+<p>If a data frame is supplied, all classes preceding <code>"data.frame"</code>
+are stripped, and the row names are changed if that argument is supplied.
+</p>
+<p>If <code>row.names = NULL</code>, row names are constructed from the names
+or dimnames of <code>x</code>, otherwise are the integer sequence
+starting at one.  Few of the methods check for duplicated row names.
+Names are removed from vector columns unless <code>I</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>as.data.frame</code> returns a data frame, normally with all row names
+<code>""</code> if <code>optional = TRUE</code>.
+</p>
+<p><code>is.data.frame</code> returns <code>TRUE</code> if its argument is a data
+frame (that is, has <code>"data.frame"</code> amongst its classes)
+and <code>FALSE</code> otherwise.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, J. M. (1992)
+<em>Data for models.</em>
+Chapter 3 of <em>Statistical Models in S</em>
+eds J. M. Chambers and T. J. Hastie, Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>data.frame</code> and  <code>make.names</code>;
+<code>as.data.frame.table</code> for the <code>table</code> method (which has
+additional arguments).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>L0 &lt;- list(LETTERS[1:7], c(4L, 2:3, 5:7, 1L))
+L &lt;- L0; names(L) &lt;- nms &lt;- c("nam", "age")
+ d0 &lt;- as.data.frame(L0, col.names = nms)
+(d1 &lt;- as.data.frame(L))
+stopifnot(identical(d0, d1))
+
+## showing possibilities  on how NA names are handled:
+L &lt;- list(A = 1:4); names(L) &lt;- NA
+names(dL  &lt;- as.data.frame(L))                                          # "NA."
+names(dL1 &lt;- as.data.frame(L, col.names = names(L)))                    # "NA."
+##
+names(dL1.&lt;- as.data.frame(L,                       check.names=FALSE)) # "NA"
+##
+names(dL2 &lt;- as.data.frame(L, col.names = names(L), check.names=FALSE)) #  NA
+names(dLn &lt;- as.data.frame(L, new.names = TRUE,     check.names=FALSE)) #  NA
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>base</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

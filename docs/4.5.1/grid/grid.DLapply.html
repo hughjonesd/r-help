@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>R: Modify the Grid Display List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.DLapply.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.DLapply.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>grid.DLapply {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2> Modify the Grid Display List </h2>
+
+<h3>Description</h3>
+
+<p>Call a function on each element of the current display list.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.DLapply(FUN, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="FUN">FUN</code></td>
+<td>
+<p>A function;  the first argument to this function
+is passed each element of the display list. 
+</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>Further arguments to pass to <code>FUN</code> .</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is insanely dangerous (for the grid display list).
+</p>
+<p>Two token efforts are made to try to avoid ending up with complete
+garbage on the display list:
+</p>
+
+<ol>
+<li><p> The display list is only replaced once all new elements have
+been generated (so an error during generation does not result in a
+half-finished display list).
+</p>
+</li>
+<li><p> All new elements must be either <code>NULL</code> or inherit from
+the class of the element that they are replacing.
+</p>
+</li></ol>
+
+
+
+<h3>Value</h3>
+
+<p>The side effect of these functions
+is usually to modify the grid display list.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Grid.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>grid.newpage()
+grid.rect(width=.4, height=.4, x=.25, y=.75, gp=gpar(fill="black"), name="r1")
+grid.rect(width=.4, height=.4, x=.5, y=.5, gp=gpar(fill="grey"), name="r2")
+grid.rect(width=.4, height=.4, x=.75, y=.25, gp=gpar(fill="white"), name="r3")
+grid.DLapply(function(x) { if (is.grob(x)) x$gp &lt;- gpar(); x })
+grid.refresh()
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>grid</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>

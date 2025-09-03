@@ -1,0 +1,133 @@
+<!DOCTYPE html><html><head><title>R: Scatter Plot with Smooth Curve Fitted by 'loess'</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/scatter.smooth.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/scatter.smooth.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>scatter.smooth {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Scatter Plot with Smooth Curve Fitted by <code>loess</code></h2>
+
+<h3>Description</h3>
+
+<p>Plot and add a smooth curve computed by <code>loess</code> to a scatter plot.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>scatter.smooth(x, y = NULL, span = 2/3, degree = 1,
+    family = c("symmetric", "gaussian"),
+    xlab = NULL, ylab = NULL,
+    ylim = range(y, pred$y, na.rm = TRUE),
+    evaluation = 50, ..., lpars = list())
+
+loess.smooth(x, y, span = 2/3, degree = 1,
+    family = c("symmetric", "gaussian"), evaluation = 50, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
+<td>
+<p>the <code>x</code> and <code>y</code> arguments provide the x and y
+coordinates for the plot.  Any reasonable way of defining the
+coordinates is acceptable.  See the function <code>xy.coords</code>
+for details.</p>
+</td></tr>
+<tr><td><code id="span">span</code></td>
+<td>
+<p>smoothness parameter for <code>loess</code>.</p>
+</td></tr>
+<tr><td><code id="degree">degree</code></td>
+<td>
+<p>degree of local polynomial used.</p>
+</td></tr>
+<tr><td><code id="family">family</code></td>
+<td>
+<p>if <code>"gaussian"</code> fitting is by least-squares, and if
+<code>family = "symmetric"</code> a re-descending M estimator is used.
+Can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="xlab">xlab</code></td>
+<td>
+<p>label for x axis.</p>
+</td></tr>
+<tr><td><code id="ylab">ylab</code></td>
+<td>
+<p>label for y axis.</p>
+</td></tr>
+<tr><td><code id="ylim">ylim</code></td>
+<td>
+<p>the y limits of the plot.</p>
+</td></tr>
+<tr><td><code id="evaluation">evaluation</code></td>
+<td>
+<p>number of points at which to evaluate the smooth
+curve.</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>For <code>scatter.smooth()</code>, graphical parameters, passed
+to <code>plot()</code> only.  For <code>loess.smooth</code>, control parameters
+passed to <code>loess.control</code>.</p>
+</td></tr>
+<tr><td><code id="lpars">lpars</code></td>
+<td>
+<p>a <code>list</code> of arguments to be passed to
+<code>lines()</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>loess.smooth</code> is an auxiliary function which evaluates the
+<code>loess</code> smooth at <code>evaluation</code> equally spaced points
+covering the range of <code>x</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>scatter.smooth</code>, none.
+</p>
+<p>For <code>loess.smooth</code>, a list with two components, <code>x</code> (the
+grid of evaluation points) and <code>y</code> (the smoothed values at the
+grid points).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>loess</code>; <code>smoothScatter</code> for scatter plots
+with smoothed <em>density</em> color representation.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+with(cars, scatter.smooth(speed, dist))
+## or with dotted thick smoothed line results :
+with(cars, scatter.smooth(speed, dist, lpars =
+                    list(col = "red", lwd = 3, lty = 3)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.2/00index.html'>Package <em>stats</em> version 4.4.2</a> ]</div></main>
+
+</div>
+</body></html>

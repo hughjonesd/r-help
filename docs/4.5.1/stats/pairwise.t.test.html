@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><title>R: Pairwise t tests</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/pairwise.t.test.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/pairwise.t.test.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>pairwise.t.test {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2> Pairwise t tests</h2>
+
+<h3>Description</h3>
+
+<p>Calculate pairwise comparisons between group levels with corrections
+for multiple testing
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>pairwise.t.test(x, g, p.adjust.method = p.adjust.methods,
+                pool.sd = !paired, paired = FALSE,
+                alternative = c("two.sided", "less", "greater"),
+                ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p> response vector. </p>
+</td></tr>
+<tr><td><code id="g">g</code></td>
+<td>
+<p> grouping vector or factor. </p>
+</td></tr>
+<tr><td><code id="p.adjust.method">p.adjust.method</code></td>
+<td>
+<p> Method for adjusting p values (see <code>p.adjust</code>). </p>
+</td></tr>
+<tr><td><code id="pool.sd">pool.sd</code></td>
+<td>
+<p> switch to allow/disallow the use of a pooled SD </p>
+</td></tr>
+<tr><td><code id="paired">paired</code></td>
+<td>
+<p> a logical indicating whether you want paired
+t-tests. </p>
+</td></tr>
+<tr><td><code id="alternative">alternative</code></td>
+<td>
+<p> a character string specifying the alternative
+hypothesis, must be one of <code>"two.sided"</code> (default),
+<code>"greater"</code> or <code>"less"</code>.  Can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p> additional arguments to pass to <code>t.test</code>. </p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p> The <code>pool.sd</code> switch calculates a common SD for all
+groups and uses that for all comparisons (this can be useful if some
+groups are small). This method does not actually call <code>t.test</code>,
+so extra arguments are ignored. Pooling does not generalize to paired tests
+so <code>pool.sd</code> and <code>paired</code> cannot both be <code>TRUE</code>.
+</p>
+<p>Only the lower triangle of the matrix of possible comparisons is being
+calculated, so setting <code>alternative</code> to anything other than
+<code>"two.sided"</code> requires that the levels of <code>g</code> are ordered
+sensibly.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Object of class <code>"pairwise.htest"</code>
+</p>
+
+
+<h3>See Also</h3>
+
+ <p><code>t.test</code>, <code>p.adjust</code></p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>attach(airquality)
+Month &lt;- factor(Month, labels = month.abb[5:9])
+pairwise.t.test(Ozone, Month)
+pairwise.t.test(Ozone, Month, p.adjust.method = "bonf")
+pairwise.t.test(Ozone, Month, pool.sd = FALSE)
+detach()
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>stats</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>

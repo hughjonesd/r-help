@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><title>R: Namespace Reflection Support</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-reflect.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/ns-reflect.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>ns-reflect {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Namespace Reflection Support</h2>
+
+<h3>Description</h3>
+
+<p>Internal functions to support reflection on namespace objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getExportedValue(ns, name)
+getNamespace(name)
+getNamespaceExports(ns)
+getNamespaceImports(ns)
+getNamespaceName(ns)
+getNamespaceUsers(ns)
+getNamespaceVersion(ns)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="ns">ns</code></td>
+<td>
+<p>string or namespace object.</p>
+</td></tr>
+<tr><td><code id="name">name</code></td>
+<td>
+<p>string or name.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>getExportedValue</code> returns the value of the exported variable
+<code>name</code> in namespace <code>ns</code>.
+</p>
+<p><code>getNamespace</code> returns the environment representing the name
+space <code>name</code>.  The namespace is loaded if necessary.
+</p>
+<p><code>getNamespaceExports</code> returns a character vector of the names
+exported by <code>ns</code>.
+</p>
+<p><code>getNamespaceImports</code> returns a representation of the imports
+used by namespace <code>ns</code>.  This representation is experimental
+and subject to change.
+</p>
+<p><code>getNamespaceName</code> and <code>getNamespaceVersion</code> return the name
+and version of the namespace <code>ns</code>.
+</p>
+<p><code>getNamespaceUsers</code> returns a character vector of the names of
+the namespaces that import namespace <code>ns</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Luke Tierney</p>
+
+
+<h3>See Also</h3>
+
+<p><code>loadNamespace</code> for more about namespaces.
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.0/00index.html'>Package <em>base</em> version 4.4.0</a> ]</div></main>
+
+</div>
+</body></html>

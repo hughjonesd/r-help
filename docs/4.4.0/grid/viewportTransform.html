@@ -1,0 +1,166 @@
+<!DOCTYPE html><html><head><title>R: Define a Group Transformation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/viewportTransform.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/viewportTransform.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>viewportTransform {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2> Define a Group Transformation </h2>
+
+<h3>Description</h3>
+
+<p>These functions define the transformation that will be applied
+when a <code>grid.define()</code>d group is <code>grid.use()</code>d.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>viewportTransform(group, shear=groupShear(), flip=groupFlip(), device=TRUE) 
+viewportTranslate(group, device=TRUE)
+viewportScale(group, device=TRUE)
+viewportRotate(group, device=TRUE)
+defnTranslate(group, inverse=FALSE, device=TRUE)
+defnScale(group, inverse=FALSE)
+defnRotate(group, inverse=FALSE, device=TRUE)
+useTranslate(inverse=FALSE, device=TRUE)
+useScale(inverse=FALSE)
+useRotate(inverse=FALSE, device=TRUE)
+groupTranslate(dx=0, dy=0)
+groupRotate(r=0, device=TRUE)
+groupScale(sx=1, sy=1)
+groupShear(sx=0, sy=0)
+groupFlip(flipX=FALSE, flipY=FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="group">group</code></td>
+<td>
+<p>The group that is being transformed.</p>
+</td></tr>
+<tr><td><code id="inverse">inverse</code></td>
+<td>
+<p>A logical indicating whether we want the
+forward or backward transformation.</p>
+</td></tr>
+<tr><td><code id="shear">shear</code></td>
+<td>
+<p>An affine transformation matrix that describes
+a shear transformation.</p>
+</td></tr>
+<tr><td><code id="flip">flip</code></td>
+<td>
+<p>An affine transformation matrix that describes
+a scaling inversion.</p>
+</td></tr>
+<tr><td><code id="dx">dx</code>, <code id="dy">dy</code></td>
+<td>
+<p>The translation to apply.</p>
+</td></tr>
+<tr><td><code id="r">r</code></td>
+<td>
+<p>The rotation to apply.</p>
+</td></tr>
+<tr><td><code id="sx">sx</code>, <code id="sy">sy</code></td>
+<td>
+<p>The scaling (or shear) to apply.</p>
+</td></tr>
+<tr><td><code id="flipX">flipX</code>, <code id="flipY">flipY</code></td>
+<td>
+<p>Whether to negate the x-scaling or y-scaling
+(logical).</p>
+</td></tr>
+<tr><td><code id="device">device</code></td>
+<td>
+<p>A logical indicating whether transformation should be
+relative to the device or relative to the current viewport.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>viewport*()</code> functions are not called directly.  They
+are passed as the <code>transform</code> argument to
+<code>grid.use</code>.
+</p>
+<p>The <code>defn*()</code> and <code>use*()</code> functions are also not called
+directly, but can be useful to create custom transformation
+functions.  For example, see the source code for
+<code>viewportTransform</code>.
+</p>
+<p>The <code>group*()</code> functions generate basic affine transformation
+matrices and may also be useful to create custom transformation
+functions.  For example, the <code>groupShear()</code> function can be
+used to specify a shear transform to <code>viewportTransform()</code>.
+</p>
+<p>It is also possible to define any function that returns a 3x3 matrix
+(as long as the last column contains 0, 0, and 1)
+and use it as the <code>transform</code> argument to
+<code>grid.use</code>, but the results will probably be
+device-dependent, and may be <em>very</em> difficult
+to predict.  The function will be called with two arguments:
+<code>group</code> and <code>device</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An affine transformation matrix.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+
+<h3>See Also</h3>
+
+<p>Grid
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## NOTE: on devices without support for groups nothing will be drawn
+grid.newpage()
+## Define and use group in same viewport
+pushViewport(viewport(width=.2, height=.2))
+grid.define(circleGrob(gp=gpar(lwd=5)), name="circle")
+grid.use("circle")
+popViewport()
+## Use group in viewport that is translated and scaled
+pushViewport(viewport(x=.2, y=.2, width=.1, height=.1))
+grid.use("circle")
+popViewport()
+## Use group in viewport that is translated and scaled
+## BUT only make use of the translation
+pushViewport(viewport(x=.2, y=.8, width=.1, height=.1))
+grid.use("circle", transform=viewportTranslate)
+popViewport()
+## Use group in viewport that is translated and scaled
+## unevenly (distorted)
+pushViewport(viewport(x=.8, y=.7, width=.2, height=.4))
+grid.use("circle")
+popViewport()
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.0/00index.html'>Package <em>grid</em> version 4.4.0</a> ]</div></main>
+
+</div>
+</body></html>

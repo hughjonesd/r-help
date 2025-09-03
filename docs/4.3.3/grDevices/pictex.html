@@ -1,0 +1,184 @@
+<!DOCTYPE html><html><head><title>R: A PicTeX Graphics Driver</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/pictex.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/pictex.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>pictex {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>A PicTeX Graphics Driver</h2>
+
+<h3>Description</h3>
+
+<p>This function produces simple graphics suitable for inclusion in TeX
+and LaTeX documents.  It dates from the very early days of <span class="rlang"><b>R</b></span> and is
+for historical interest only.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>pictex(file = "Rplots.tex", width = 5, height = 4, debug = FALSE,
+       bg = "white", fg = "black")
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
+<td>
+<p>the file path where output will appear.
+Tilde expansion (see <code>path.expand</code>) is done. An input with
+a marked encoding is converted to the native encoding or an error is given.
+</p>
+</td></tr>
+<tr><td><code id="width">width</code></td>
+<td>
+<p>The width of the plot in inches.</p>
+</td></tr>
+<tr><td><code id="height">height</code></td>
+<td>
+<p>the height of the plot in inches.</p>
+</td></tr>
+<tr><td><code id="debug">debug</code></td>
+<td>
+<p>should debugging information be printed.</p>
+</td></tr>
+<tr><td><code id="bg">bg</code></td>
+<td>
+<p>the background color for the plot.  Ignored.</p>
+</td></tr>
+<tr><td><code id="fg">fg</code></td>
+<td>
+<p>the foreground color for the plot.  Ignored.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This driver is much more basic than the other graphics drivers
+included in <span class="rlang"><b>R</b></span>.  It does not have any font metric information, so the
+use of <code>plotmath</code> is not supported.
+</p>
+<p>Line widths are ignored except when setting the spacing of line textures.
+<code>pch = "."</code> corresponds to a square of side 1pt.
+</p>
+<p>This device does not support colour (nor does the PicTeX package),
+and all colour settings are ignored.
+</p>
+<p>Note that text is recorded in the file as-is, so annotations involving
+TeX special characters (such as ampersand and underscore) need to be
+quoted as they would be when entering TeX.
+</p>
+<p>Multiple plots will be placed as separate environments in the output file.
+</p>
+
+
+<h3>Conventions</h3>
+
+<p>This section describes the implementation of the conventions for
+graphics devices set out in the &lsquo;R Internals&rsquo; manual.
+</p>
+
+<ul>
+<li><p> The default device size is 5 inches by 4 inches.
+</p>
+</li>
+<li><p> There is no <code>pointsize</code> argument: the default size is
+interpreted as 10 point.
+</p>
+</li>
+<li><p> The only font family is <code>cmss10</code>.
+</p>
+</li>
+<li><p> Line widths are only used when setting the spacing on line textures.
+</p>
+</li>
+<li><p> Circle of any radius are allowed.
+</p>
+</li>
+<li><p> Colour is not supported.
+</p>
+</li></ul>
+
+
+
+<h3>Author(s)</h3>
+
+<p>This driver was provided around 1996&ndash;7 by Valerio Aimale
+of the Department of Internal Medicine, University of Genoa, Italy.
+</p>
+
+
+<h3>References</h3>
+
+<p>Knuth, D. E. (1984)
+<em>The TeXbook.</em>
+Reading, MA: Addison-Wesley.
+</p>
+<p>Lamport, L. (1994)
+<em>LATEX: A Document Preparation System.</em>
+Reading, MA: Addison-Wesley.
+</p>
+<p>Goossens, M., Mittelbach, F. and Samarin, A. (1994)
+<em>The LATEX Companion.</em>
+Reading, MA: Addison-Wesley.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>postscript</code>, <code>pdf</code>, <code>Devices</code>.
+</p>
+<p>The <code>tikzDevice</code> in the CRAN package of that name for more modern
+TeX-based graphics (<a href="https://pgf.sourceforge.net/">https://pgf.sourceforge.net/</a>, although
+including PDF figures <em>via</em> <code>pdftex</code> is most common
+in (La)TeX documents).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(graphics)
+
+
+pictex()
+plot(1:11, (-5:5)^2, type = "b", main = "Simple Example Plot")
+dev.off()
+##--------------------
+## Not run: 
+%% LaTeX Example
+\documentclass{article}
+\usepackage{pictex}
+\usepackage{graphics} % for \rotatebox
+\begin{document}
+%...
+\begin{figure}[h]
+  \centerline{\input{Rplots.tex}}
+  \caption{}
+\end{figure}
+%...
+\end{document}
+
+## End(Not run)
+##--------------------
+unlink("Rplots.tex")
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.3/00index.html'>Package <em>grDevices</em> version 4.3.3</a> ]</div></main>
+
+</div>
+</body></html>

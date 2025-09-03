@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><title>R: Is an Object 'internally classed'?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/is.object.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/is.object.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>is.object {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Is an Object &lsquo;internally classed&rsquo;?</h2>
+
+<h3>Description</h3>
+
+<p>A function mostly for internal use.  It returns <code>TRUE</code> if the
+object <code>x</code> has the <span class="rlang"><b>R</b></span> internal <code>OBJECT</code> bit set, and
+<code>FALSE</code> otherwise.  The <code>OBJECT</code> bit is set when a
+<code>"class"</code> attribute is added and removed when that attribute is
+removed, so this is a very efficient way to check if an object has a
+class attribute.  (S4 objects always should.)
+</p>
+<p>Note that typical basic (&lsquo;atomic&rsquo;, see <code>is.atomic</code>)
+<span class="rlang"><b>R</b></span> vectors and arrays <code>x</code> are <em>not</em> objects in the above
+sense as <code>attributes(x)</code> does <em>not</em> contain <code>"class"</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>is.object(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>object to be tested.</p>
+</td></tr>
+</table>
+
+
+<h3>Note</h3>
+
+<p>This is a primitive function.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>class</code>, and <code>methods</code>.
+</p>
+<p><code>isS4</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>is.object(1) # FALSE
+is.object(as.factor(1:3)) # TRUE
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.2/00index.html'>Package <em>base</em> version 4.4.2</a> ]</div></main>
+
+</div>
+</body></html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html><html><head><title>R: Compactly Display the Structure of an Arbitrary R Object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/str.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/str.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>str {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compactly Display the Structure of an Arbitrary R Object</h2>
+
+<h3>Description</h3>
+
+<p>Compactly display the internal <b>str</b>ucture of an <span class="rlang"><b>R</b></span> object, a
+diagnostic function and an alternative to <code>summary</code>
+(and to some extent, <code>dput</code>).  Ideally, only one line for
+each &lsquo;basic&rsquo; structure is displayed.  It is especially well suited
+to compactly display the (abbreviated) contents of (possibly nested)
+lists.  The idea is to give reasonable output for <b>any</b> <span class="rlang"><b>R</b></span>
+object.  It calls <code>args</code> for (non-primitive) function objects.
+</p>
+<p><code>strOptions()</code> is a convenience function for setting
+<code>options(str = .)</code>, see the examples.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>str(object, ...)
+
+## S3 method for class 'data.frame'
+str(object, ...)
+
+## Default S3 method:
+str(object, max.level = NA,
+    vec.len  = strO$vec.len, digits.d = strO$digits.d,
+    nchar.max = 128, give.attr = TRUE,
+    drop.deparse.attr = strO$drop.deparse.attr,
+    give.head = TRUE, give.length = give.head,
+    width = getOption("width"), nest.lev = 0,
+    indent.str = paste(rep.int(" ", max(0, nest.lev + 1)),
+                       collapse = ".."),
+    comp.str = "$ ", no.list = FALSE, envir = baseenv(),
+    strict.width = strO$strict.width,
+    formatNum = strO$formatNum, list.len = strO$list.len,
+    deparse.lines = strO$deparse.lines, ...)
+
+strOptions(strict.width = "no", digits.d = 3, vec.len = 4,
+           list.len = 99, deparse.lines = NULL,
+           drop.deparse.attr = TRUE,
+           formatNum = function(x, ...)
+                       format(x, trim = TRUE, drop0trailing = TRUE, ...))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
+<td>
+<p>any <span class="rlang"><b>R</b></span> object about which you want to have some
+information.</p>
+</td></tr>
+<tr><td><code id="max.level">max.level</code></td>
+<td>
+<p>maximal level of nesting which is applied for
+displaying nested structures, e.g., a list containing sub lists.
+Default NA: Display all nesting levels.</p>
+</td></tr>
+<tr><td><code id="vec.len">vec.len</code></td>
+<td>
+<p>numeric (&gt;= 0) indicating how many &lsquo;first few&rsquo; elements
+are displayed of each vector.  The number is multiplied by different
+factors (from .5 to 3) depending on the kind of vector.  Defaults to
+the <code>vec.len</code> component of option <code>"str"</code> (see
+<code>options</code>) which defaults to 4.</p>
+</td></tr>
+<tr><td><code id="digits.d">digits.d</code></td>
+<td>
+<p>number of digits for numerical components (as for
+<code>print</code>).  Defaults to the <code>digits.d</code> component of
+option <code>"str"</code> which defaults to 3.</p>
+</td></tr>
+<tr><td><code id="nchar.max">nchar.max</code></td>
+<td>
+<p>maximal number of characters to show for
+<code>character</code> strings.  Longer strings are truncated, see
+<code>longch</code> example below.</p>
+</td></tr>
+<tr><td><code id="give.attr">give.attr</code></td>
+<td>
+<p>logical; if <code>TRUE</code> (default), show attributes
+as sub structures.</p>
+</td></tr>
+<tr><td><code id="drop.deparse.attr">drop.deparse.attr</code></td>
+<td>
+<p>logical; if <code>TRUE</code> (default),
+<code>deparse(control = <var>control</var>)</code> will not have
+<code>"showAttributes"</code> in <var>control</var>.  Used to be hard coded to
+<code>FALSE</code> and hence can be set via <code>strOptions()</code> for back
+compatibility.</p>
+</td></tr>
+<tr><td><code id="give.length">give.length</code></td>
+<td>
+<p>logical; if <code>TRUE</code> (default), indicate
+length (as <code>[1:...]</code>).</p>
+</td></tr>
+<tr><td><code id="give.head">give.head</code></td>
+<td>
+<p>logical; if <code>TRUE</code> (default), give (possibly
+abbreviated) mode/class and length (as <code><var>type</var>[1:...]</code>).</p>
+</td></tr>
+<tr><td><code id="width">width</code></td>
+<td>
+<p>the page width to be used.  The default is the currently
+active <code>options("width")</code>; note that this has only a
+weak effect, unless <code>strict.width</code> is not <code>"no"</code>.</p>
+</td></tr>
+<tr><td><code id="nest.lev">nest.lev</code></td>
+<td>
+<p>current nesting level in the recursive calls to
+<code>str</code>.</p>
+</td></tr>
+<tr><td><code id="indent.str">indent.str</code></td>
+<td>
+<p>the indentation string to use.</p>
+</td></tr>
+<tr><td><code id="comp.str">comp.str</code></td>
+<td>
+<p>string to be used for separating list components.</p>
+</td></tr>
+<tr><td><code id="no.list">no.list</code></td>
+<td>
+<p>logical; if true, no &lsquo;list of ...&rsquo; nor the
+class are printed.</p>
+</td></tr>
+<tr><td><code id="envir">envir</code></td>
+<td>
+<p>the environment to be used for <em>promise</em> (see
+<code>delayedAssign</code>) objects only.</p>
+</td></tr>
+<tr><td><code id="strict.width">strict.width</code></td>
+<td>
+<p>string indicating if the <code>width</code> argument's
+specification should be followed strictly, one of the values
+<code>c("no", "cut", "wrap")</code>, which can be abbreviated.
+Defaults to the <code>strict.width</code> component of option <code>"str"</code>
+(see <code>options</code>) which defaults to <code>"no"</code> for back
+compatibility reasons; <code>"wrap"</code> uses
+<code>strwrap(*, width = width)</code> whereas <code>"cut"</code> cuts
+directly to <code>width</code>.  Note that a small <code>vec.length</code>
+may be better than setting <code>strict.width = "wrap"</code>.</p>
+</td></tr>
+<tr><td><code id="formatNum">formatNum</code></td>
+<td>
+<p>a function such as <code>format</code> for
+formatting numeric vectors.  It defaults to the <code>formatNum</code>
+component of option <code>"str"</code>, see &ldquo;Usage&rdquo; of
+<code>strOptions()</code> above, which is almost back compatible to <span class="rlang"><b>R</b></span>
+&lt;= 2.7.x, however, using <code>formatC</code> may be slightly better.</p>
+</td></tr>
+<tr><td><code id="list.len">list.len</code></td>
+<td>
+<p>numeric; maximum number of list elements to display
+within a level.</p>
+</td></tr>
+<tr><td><code id="deparse.lines">deparse.lines</code></td>
+<td>
+<p>numeric or <code>NULL</code> as by default, determining the
+<code>nlines</code> argument to <code>deparse()</code> when <code>object</code> is
+a <code>call</code>.  When <code>NULL</code>, the <code>nchar.max</code> and
+<code>width</code> arguments are used to determine a smart default.</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>potential further arguments (required for Method/Generic
+reasons).</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>str</code> does not return anything, for efficiency reasons.
+The obvious side effect is output to the terminal.
+</p>
+
+
+<h3>Note</h3>
+
+<p>See the extensive annotated &lsquo;Examples&rsquo; below.
+</p>
+<p>The default method tries to &ldquo;work always&rdquo;, but needs to make some
+assumptions for the case when <code>object</code> has a <code>class</code> but
+no own <code>str()</code> method which is <em>the typical</em> case: There it
+relies on <code>"["</code> and <code>"[["</code> subsetting methods to
+be compatible with <code>length()</code>.  When this is not the case, or
+when <code>is.list(object)</code> is <code>TRUE</code>, but <code>length(object)</code>
+differs from <code>length(unclass(object))</code> it treats it as
+&ldquo;irregular&rdquo; and reports the contents of <code>unclass(object)</code>
+as &ldquo;hidden list&rdquo;.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Martin Maechler <a href="mailto:maechler@stat.math.ethz.ch">maechler@stat.math.ethz.ch</a> since 1990.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>ls.str</code> for <em>listing</em> objects with their structure;
+<code>summary</code>, <code>args</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(stats); require(grDevices); require(graphics)
+## The following examples show some of 'str' capabilities
+str(1:12)
+str(ls)
+str(args) #- more useful than  args(args) !
+str(freeny)
+str(str)
+str(.Machine, digits.d = 20) # extra digits for identification of binary numbers
+str( lsfit(1:9, 1:9))
+str( lsfit(1:9, 1:9), max.level = 1)
+str( lsfit(1:9, 1:9), width = 60, strict.width = "cut")
+str( lsfit(1:9, 1:9), width = 60, strict.width = "wrap")
+op &lt;- options(); str(op)   # save first;
+                           # otherwise internal options() is used.
+need.dev &lt;-
+  !exists(".Device") || is.null(.Device) || .Device == "null device"
+{ if(need.dev) pdf()
+  str(par())
+  if(need.dev) graphics.off()
+}
+ch &lt;- letters[1:12]; is.na(ch) &lt;- 3:5
+str(ch) # character NA's
+
+str(list(a = "A", L = as.list(1:100)), list.len = 9)
+##                                     ------------
+## " .. [list output truncated] "
+
+## Long strings,   'nchar.max'; 'strict.width' :
+nchar(longch &lt;- paste(rep(letters,100), collapse = ""))
+str(longch)
+str(longch, nchar.max = 52)
+str(longch, strict.width = "wrap")
+
+## Multibyte characters in strings:
+## Truncation behavior (&lt;-&gt; correct width measurement) for "long" non-ASCII:
+idx &lt;- c(65313:65338, 65345:65350)
+fwch &lt;- intToUtf8(idx) # full width character string: each has width 2
+ch &lt;- strtrim(paste(LETTERS, collapse="._"), 64)
+(ncc &lt;- c(c.ch = nchar(ch),   w.ch = nchar(ch,   "w"),
+          c.fw = nchar(fwch), w.fw = nchar(fwch, "w")))
+stopifnot(unname(ncc) == c(64,64, 32, 64))
+## nchar.max: 1st line needs an increase of  2  in order to see  1  (in UTF-8!):
+invisible(lapply(60:66, function(N) str(fwch, nchar.max = N)))
+invisible(lapply(60:66, function(N) str( ch , nchar.max = N))) # "1 is 1" here
+
+
+## Settings for narrow transcript :
+op &lt;- options(width = 60,
+              str = strOptions(strict.width = "wrap"))
+str(lsfit(1:9,1:9))
+str(options())
+## reset to previous:
+options(op)
+
+
+
+str(quote( { A+B; list(C, D) } ))
+
+
+## S4 classes :
+require(stats4)
+x &lt;- 0:10; y &lt;- c(26, 17, 13, 12, 20, 5, 9, 8, 5, 4, 8)
+ll &lt;- function(ymax = 15, xh = 6)
+      -sum(dpois(y, lambda=ymax/(1+x/xh), log=TRUE))
+fit &lt;- mle(ll)
+str(fit)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.0/00index.html'>Package <em>utils</em> version 4.4.0</a> ]</div></main>
+
+</div>
+</body></html>

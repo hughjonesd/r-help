@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>R: Construct Path to File</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/file.path.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/file.path.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>file.path {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Construct Path to File</h2>
+
+<h3>Description</h3>
+
+<p>Construct the path to a file from components in a platform-independent
+way.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>file.path(..., fsep = .Platform$file.sep)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="...">...</code></td>
+<td>
+<p>character vectors.  Long vectors are not supported.</p>
+</td></tr>
+<tr><td><code id="fsep">fsep</code></td>
+<td>
+<p>the path separator to use (assumed to be ASCII).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The implementation is designed to be fast (faster than
+<code>paste</code>) as this function is used extensively in <span class="rlang"><b>R</b></span> itself.
+</p>
+<p>It can also be used for environment paths such as <span class="env">PATH</span> and
+<span class="env">R_LIBS</span> with <code>fsep = .Platform$path.sep</code>.
+</p>
+<p>Trailing path separators are invalid for Windows file paths apart from
+&lsquo;<span class="file">/</span>&rsquo; and &lsquo;<span class="file">d:/</span>&rsquo; (although some functions/utilities do accept
+them), so a trailing <code>/</code> or <code>\</code> is removed there.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of the arguments concatenated term-by-term and
+separated by <code>fsep</code> if all arguments have positive length;
+otherwise, an empty character vector (unlike <code>paste</code>).
+</p>
+<p>An element of the result will be marked (see <code>Encoding</code>) as
+UTF-8 if run in a UTF-8 locale (when marked inputs are converted to
+UTF-8) or if a component of the result is marked as UTF-8, or as
+Latin-1 in a non-Latin-1 locale.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The components are by default separated by <code>/</code>
+(not <code>\</code>) on Windows.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>basename</code>, <code>normalizePath</code>, <code>path.expand</code>.
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>base</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

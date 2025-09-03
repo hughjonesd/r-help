@@ -1,0 +1,202 @@
+<!DOCTYPE html><html><head><title>R: Relational Operators</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Comparison.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Comparison.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>Comparison {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Relational Operators</h2>
+
+<h3>Description</h3>
+
+<p>Binary operators which allow the comparison of values in atomic vectors.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>x &lt; y
+x &gt; y
+x &lt;= y
+x &gt;= y
+x == y
+x != y
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
+<td>
+<p>atomic vectors, symbols, calls, or other objects for which
+methods have been written.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The binary comparison operators are generic functions: methods can be
+written for them individually or via the
+<code>Ops</code> group generic function.  (See
+<code>Ops</code> for how dispatch is computed.)
+</p>
+<p>Comparison of strings in character vectors is lexicographic within the
+strings using the collating sequence of the locale in use: see
+<code>locales</code>.  The collating sequence of locales such as
+&lsquo;<span class="samp">&#8288;en_US&#8288;</span>&rsquo; is normally different from &lsquo;<span class="samp">&#8288;C&#8288;</span>&rsquo; (which should use
+ASCII) and can be surprising.  Beware of making <em>any</em> assumptions
+about the collation order: e.g. in Estonian <code>Z</code> comes between
+<code>S</code> and <code>T</code>, and collation is not necessarily
+character-by-character &ndash; in Danish <code>aa</code> sorts as a single
+letter, after <code>z</code>.  In Welsh <code>ng</code> may or may not be a single
+sorting unit: if it is it follows <code>g</code>.  Some platforms may
+not respect the locale and always sort in numerical order of the bytes
+in an 8-bit locale, or in Unicode code-point order for a UTF-8 locale (and
+may not sort in the same order for the same language in different
+character sets).  Collation of non-letters (spaces, punctuation signs,
+hyphens, fractions and so on) is even more problematic.
+</p>
+<p>Character strings can be compared  with different marked encodings
+(see <code>Encoding</code>): they are translated to UTF-8 before
+comparison.
+</p>
+<p>Raw vectors should not really be considered to have an order, but the
+numeric order of the byte representation is used.
+</p>
+<p>At least one of <code>x</code> and <code>y</code> must be an atomic vector, but if
+the other is a list <span class="rlang"><b>R</b></span> attempts to coerce it to the type of the atomic
+vector: this will succeed if the list is made up of elements of length
+one that can be coerced to the correct type.
+</p>
+<p>If the two arguments are atomic vectors of different types, one is
+coerced to the type of the other, the (decreasing) order of precedence
+being character, complex, numeric, integer, logical and raw.
+</p>
+<p>Missing values (<code>NA</code>) and <code>NaN</code> values are
+regarded as non-comparable even to themselves, so comparisons
+involving them will always result in <code>NA</code>.  Missing values can
+also result when character strings are compared and one is not valid
+in the current collation locale.
+</p>
+<p>Language objects such as symbols and calls can only be used as
+operands for <code>==</code> and <code>!=</code>; the other comparisons signal an
+error when one of the operands is a language object.  Currently
+language objects are deparsed to character strings before
+comparison. This can be inefficient and may not be what is really
+wanted. For equality comparisons <code>identical</code> is usually a
+better choice.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A logical vector indicating the result of the element by element
+comparison.  The elements of shorter vectors are recycled as
+necessary.
+</p>
+<p>Objects such as arrays or time-series can be compared this way
+provided they are conformable.
+</p>
+
+
+<h3>S4 methods</h3>
+
+<p>These operators are members of the S4 <code>Compare</code> group generic,
+and so methods can be written for them individually as well as for the
+group generic (or the <code>Ops</code> group generic), with arguments
+<code>c(e1, e2)</code>.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Do not use <code>==</code> and <code>!=</code> for tests, such as in <code>if</code>
+expressions, where you must get a single <code>TRUE</code> or
+<code>FALSE</code>.  Unless you are absolutely sure that nothing unusual
+can happen, you should use the <code>identical</code> function
+instead.
+</p>
+<p>For numerical and complex values, remember <code>==</code> and <code>!=</code> do
+not allow for the finite representation of fractions, nor for rounding
+error.  Using <code>all.equal</code> with <code>identical</code> or
+<code>isTRUE</code> is almost always preferable; see the examples.
+(This also applies to the other comparison operators.)
+</p>
+<p>These operators are sometimes called as functions as
+e.g. <code>`&lt;`(x, y)</code>: see the description of how
+argument-matching is done in <code>Ops</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Collation of character strings is a complex topic.  For an
+introduction see
+<a href="https://en.wikipedia.org/wiki/Collating_sequence">https://en.wikipedia.org/wiki/Collating_sequence</a>.  The
+<em>Unicode Collation Algorithm</em>
+(<a href="https://unicode.org/reports/tr10/">https://unicode.org/reports/tr10/</a>) is likely to be increasingly
+influential.  Where available <span class="rlang"><b>R</b></span> by default makes use of ICU
+(<a href="https://icu.unicode.org/">https://icu.unicode.org/</a>) for collation (except in a C
+locale).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>Logic</code> on how to <em>combine</em> results of comparisons,
+i.e., logical vectors.
+</p>
+<p><code>factor</code> for the behaviour with factor arguments.
+</p>
+<p><code>Syntax</code> for operator precedence.
+</p>
+<p><code>capabilities</code> for whether ICU is available, and
+<code>icuSetCollate</code> to tune the string collation algorithm
+when it is.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- stats::rnorm(20)
+x &lt; 1
+x[x &gt; 0]
+
+x1 &lt;- 0.5 - 0.3
+x2 &lt;- 0.3 - 0.1
+x1 == x2                   # FALSE on most machines
+isTRUE(all.equal(x1, x2))  # TRUE everywhere
+
+
+# range of most 8-bit charsets, as well as of Latin-1 in Unicode
+z &lt;- c(32:126, 160:255)
+x &lt;- if(l10n_info()$MBCS) {
+    intToUtf8(z, multiple = TRUE)
+} else rawToChar(as.raw(z), multiple = TRUE)
+## by number
+writeLines(strwrap(paste(x, collapse=" "), width = 60))
+## by locale collation
+writeLines(strwrap(paste(sort(x), collapse=" "), width = 60))
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.1/00index.html'>Package <em>base</em> version 4.4.1</a> ]</div></main>
+
+</div>
+</body></html>

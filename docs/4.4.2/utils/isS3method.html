@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>R: Is 'method' the Name of an S3 Method?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/isS3method.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/isS3method.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>isS3method {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Is 'method' the Name of an S3 Method?</h2>
+
+<h3>Description</h3>
+
+<p>Checks if <code>method</code> is the name of a valid / registered S3
+method.  Alternatively, when <code>f</code> and <code>class</code> are specified,
+it is checked if <code>f</code> is the name of an S3 generic function and
+<code>paste(f, class, sep=".")</code> is a valid S3 method.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>isS3method(method, f, class, envir = parent.frame())
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="method">method</code></td>
+<td>
+<p>a character string, typically of the form
+<code>"<var>fn</var>.<var>class</var>"</code>.  If omitted, <code>f</code> and <code>class</code> have
+to be specified instead.</p>
+</td></tr>
+<tr><td><code id="f">f</code></td>
+<td>
+<p>optional character string, typically specifying an S3 generic
+function.  Used, when <code>method</code> is not specified.</p>
+</td></tr>
+<tr><td><code id="class">class</code></td>
+<td>
+<p>optional character string, typically specifying an S3
+class name.  Used, when <code>method</code> is not specified.</p>
+</td></tr>
+<tr><td><code id="envir">envir</code></td>
+<td>
+<p>the <code>environment</code> in which the method and its
+generic are searched first, as in <code>getS3method()</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>logical</code> <code>TRUE</code> or <code>FALSE</code>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>methods</code>, <code>getS3method</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>isS3method("t")           # FALSE - it is an S3 generic
+isS3method("t.default")   # TRUE
+isS3method("t.ts")        # TRUE
+isS3method("t.test")      # FALSE
+isS3method("t.data.frame")# TRUE
+isS3method("t.lm")        # FALSE - not existing
+isS3method("t.foo.bar")   # FALSE - not existing
+
+## S3 methods with "4 parts" in their name:
+ff &lt;- c("as.list", "as.matrix", "is.na", "row.names", "row.names&lt;-")
+for(m in ff) if(isS3method(m)) stop("wrongly declared an S3 method: ", m)
+(m4 &lt;- paste(ff, "data.frame", sep="."))
+for(m in m4) if(!isS3method(m)) stop("not an S3 method: ", m)
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.2/00index.html'>Package <em>utils</em> version 4.4.2</a> ]</div></main>
+
+</div>
+</body></html>

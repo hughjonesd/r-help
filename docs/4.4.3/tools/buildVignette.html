@@ -1,0 +1,144 @@
+<!DOCTYPE html><html><head><title>R: Build One Vignette</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/buildVignette.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/buildVignette.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>buildVignette {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Build One Vignette</h2>
+
+<h3>Description</h3>
+
+<p>Run <code>Sweave</code> (or other custom weave function),
+<code>texi2pdf</code>, and/or <code>Stangle</code> 
+(or other custom tangle function) on one vignette.
+</p>
+<p>This is the workhorse of <code>R CMD Sweave</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>buildVignette(file, dir = ".", weave = TRUE, latex = TRUE, tangle = TRUE, 
+              quiet = TRUE, clean = TRUE, keep = character(),
+              engine = NULL, buildPkg = NULL, encoding, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
+<td>
+<p>character; the vignette source file.</p>
+</td></tr>
+<tr><td><code id="dir">dir</code></td>
+<td>
+<p>character; the working directory in which the intermediate and 
+output files will be produced.</p>
+</td></tr>
+<tr><td><code id="weave">weave</code></td>
+<td>
+<p>logical; should weave be run?</p>
+</td></tr>
+<tr><td><code id="latex">latex</code></td>
+<td>
+<p>logical; should texi2pdf be run if weaving produces a &lsquo;<span class="file">.tex</span>&rsquo; file?</p>
+</td></tr>
+<tr><td><code id="tangle">tangle</code></td>
+<td>
+<p>logical; should tangle be run?</p>
+</td></tr>
+<tr><td><code id="quiet">quiet</code></td>
+<td>
+<p>logical; run in quiet mode?</p>
+</td></tr>
+<tr><td><code id="clean">clean</code></td>
+<td>
+<p>logical; whether to remove some newly created, often
+intermediate, files.  See details below.</p>
+</td></tr>
+<tr><td><code id="keep">keep</code></td>
+<td>
+<p>a list of file names to keep in any case when cleaning.  Note
+that &ldquo;target&rdquo; files are kept anyway.</p>
+</td></tr>
+<tr><td><code id="engine">engine</code></td>
+<td>
+<p><code>NULL</code> or character; name of vignette engine to
+use.  Overrides any &lsquo;<span class="samp">&#8288;\VignetteEngine{}&#8288;</span>&rsquo; markup in the vignette.</p>
+</td></tr>
+<tr><td><code id="buildPkg">buildPkg</code></td>
+<td>
+<p><code>NULL</code> or a character vector; optional packages
+in which to find the vignette engine.</p>
+</td></tr>
+<tr><td><code id="encoding">encoding</code></td>
+<td>
+<p>the encoding to assume for the file.  If not
+specified, it will be read if possible from the file's contents.
+Note that if the vignette is part of a package,
+<code>buildVignettes</code> reads the package's encoding from the
+&lsquo;<span class="file">DESCRIPTION</span>&rsquo; file but this function does not.</p>
+</td></tr> 
+<tr><td><code id="...">...</code></td>
+<td>
+<p>Additional arguments passed to weave and tangle.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function determines the vignette engine for the vignette (default
+<code>utils::Sweave</code>), then weaves and/or tangles the vignette using
+that engine.  Finally, if <code>clean</code> is <code>TRUE</code>, newly created
+intermediate files (non &ldquo;targets&rdquo;, where these depend on the engine,
+etc, and not any in <code>keep</code>) will be deleted.  If <code>clean</code> is
+<code>NA</code>, and <code>weave</code> is true, newly created intermediate output
+files (e.g., &lsquo;<span class="file">.tex</span>&rsquo;) will not be deleted even if a &lsquo;<span class="file">.pdf</span>&rsquo;
+file has been produced from them.  
+</p>
+<p>If <code>buildPkg</code> is specified, those packages will be loaded before
+the vignette is processed and will be used as the default packages in
+the search for a vignette engine, but an explicitly specified package
+in the vignette source (e.g., using
+&lsquo;<span class="samp">&#8288;\VignetteEngine{utils::Sweave}&#8288;</span>&rsquo; to specify the <code>Sweave</code>
+engine in the <span class="pkg">utils</span> package) will override it.  In contrast, if
+the <code>engine</code> argument is given, it will override the vignette
+source.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector naming the files that have been produced.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Henrik Bengtsson and Duncan Murdoch
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>buildVignettes</code> for building all vignettes in a package.
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.3/00index.html'>Package <em>tools</em> version 4.4.3</a> ]</div></main>
+
+</div>
+</body></html>

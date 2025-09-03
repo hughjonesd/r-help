@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><title>R: Base Package Tools</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/basetools.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/basetools.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>basetools {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Base Package Tools</h2>
+
+<h3>Description</h3>
+
+<p>Tools for obtaining information about base packages.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>base_aliases_db(verbose = FALSE, Ncpus = getOption("Ncpus", 1L))
+base_rdxrefs_db(verbose = FALSE, Ncpus = getOption("Ncpus", 1L))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="verbose">verbose</code></td>
+<td>
+<p>logical.  Should packages be listed as they are
+processed?</p>
+</td></tr>
+<tr><td><code id="Ncpus">Ncpus</code></td>
+<td>
+<p>the number of parallel processes to use for processing.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>base_aliases_db()</code> returns the Rd aliases in the base
+packages, as a nested per-package named list of per-Rd-file named
+lists with the aliases.
+</p>
+<p><code>base_rdxrefs_db()</code> returns the Rd cross-references in the
+base packages, as a per-package list of matrices with columns 
+<code>"Target"</code>, <code>"Anchor"</code> and <code>"Source"</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>CRAN_aliases_db()</code> and <code>CRAN_rdxrefs_db()</code>
+for getting the Rd aliases and cross-references in the current CRAN
+packages.
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>tools</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

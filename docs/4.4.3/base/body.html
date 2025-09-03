@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>R: Access to and Manipulation of the Body of a Function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/body.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/body.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>body {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Access to and Manipulation of the Body of a Function</h2>
+
+<h3>Description</h3>
+
+<p>Get or set the <em>body</em> of a function which is basically all of
+the function definition but its formal arguments (<code>formals</code>),
+see the &lsquo;Details&rsquo;.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>body(fun = sys.function(sys.parent()))
+body(fun, envir = environment(fun)) &lt;- value
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="fun">fun</code></td>
+<td>
+<p>a function object, or see &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="envir">envir</code></td>
+<td>
+<p>environment in which the function should be defined.</p>
+</td></tr>
+<tr><td><code id="value">value</code></td>
+<td>
+<p>an object, usually a language object: see section
+&lsquo;Value&rsquo;.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For the first form, <code>fun</code> can be a character string
+naming the function to be manipulated, which is searched for from the
+parent frame.  If it is not specified, the function calling
+<code>body</code> is used.
+</p>
+<p>The bodies of all but the simplest are braced expressions, that is
+calls to <code>{</code>: see the &lsquo;Examples&rsquo; section for how to
+create such a call.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>body</code> returns the body of the function specified.  This is
+normally a language object, most often a call to <code>{</code>, but
+it can also be a <code>symbol</code> such as <code>pi</code> or a constant
+(e.g., <code>3</code> or <code>"R"</code>) to be the return value of the function.
+</p>
+<p>The replacement form sets the body of a function to the
+object on the right hand side, and (potentially) resets the
+<code>environment</code> of the function, and drops
+<code>attributes</code>.  If <code>value</code> is of class
+<code>"expression"</code> the first element is used as the body:  any
+additional elements are ignored, with a warning.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>The three parts of a (non-primitive) function are its
+<code>formals</code>, <code>body</code>, and <code>environment</code>.
+</p>
+<p>Further, see
+<code>alist</code>,
+<code>args</code>,
+<code>function</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>body(body)
+f &lt;- function(x) x^5
+body(f) &lt;- quote(5^x)
+## or equivalently  body(f) &lt;- expression(5^x)
+f(3) # = 125
+body(f)
+
+## creating a multi-expression body
+e &lt;- expression(y &lt;- x^2, return(y)) # or a list
+body(f) &lt;- as.call(c(as.name("{"), e))
+f
+f(8)
+## Using substitute() may be simpler than 'as.call(c(as.name("{",..)))':
+stopifnot(identical(body(f), substitute({ y &lt;- x^2; return(y) })))
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.3/00index.html'>Package <em>base</em> version 4.4.3</a> ]</div></main>
+
+</div>
+</body></html>

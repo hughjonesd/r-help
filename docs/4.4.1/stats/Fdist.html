@@ -1,0 +1,207 @@
+<!DOCTYPE html><html><head><title>R: The F Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Fdist.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Fdist.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>FDist {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>The F Distribution</h2>
+
+<h3>Description</h3>
+
+<p>Density, distribution function, quantile function and random
+generation for the F distribution with <code>df1</code> and <code>df2</code>
+degrees of freedom (and optional non-centrality parameter <code>ncp</code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>df(x, df1, df2, ncp, log = FALSE)
+pf(q, df1, df2, ncp, lower.tail = TRUE, log.p = FALSE)
+qf(p, df1, df2, ncp, lower.tail = TRUE, log.p = FALSE)
+rf(n, df1, df2, ncp)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="n">n</code></td>
+<td>
+<p>number of observations. If <code>length(n) &gt; 1</code>, the length
+is taken to be the number required.</p>
+</td></tr>
+<tr><td><code id="df1">df1</code>, <code id="df2">df2</code></td>
+<td>
+<p>degrees of freedom.  <code>Inf</code> is allowed.</p>
+</td></tr>
+<tr><td><code id="ncp">ncp</code></td>
+<td>
+<p>non-centrality parameter. If omitted the central F is assumed.</p>
+</td></tr>
+<tr><td><code id="log">log</code>, <code id="log.p">log.p</code></td>
+<td>
+<p>logical; if TRUE, probabilities p are given as log(p).</p>
+</td></tr>
+<tr><td><code id="lower.tail">lower.tail</code></td>
+<td>
+<p>logical; if TRUE (default), probabilities are
+<code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The F distribution with <code>df1 =</code> <code class="reqn">\nu_1</code> and <code>df2 =</code>
+<code class="reqn">\nu_2</code> degrees of freedom has density
+</p>
+<p style="text-align: center;"><code class="reqn">
+    f(x) = \frac{\Gamma(\nu_1/2 + \nu_2/2)}{\Gamma(\nu_1/2)\Gamma(\nu_2/2)}
+    \left(\frac{\nu_1}{\nu_2}\right)^{\nu_1/2} x^{\nu_1/2 -1}
+    \left(1 + \frac{\nu_1 x}{\nu_2}\right)^{-(\nu_1 + \nu_2) / 2}%
+  </code>
+</p>
+
+<p>for <code class="reqn">x &gt; 0</code>.
+</p>
+<p>The F distribution's cumulative distribution function (<abbr>cdf</abbr>),
+<code class="reqn">F_{\nu_1,\nu_2}</code> fulfills (Abramowitz &amp; Stegun 26.6.2, p.946)
+<code class="reqn">F_{\nu_1,\nu_2}(qF) = 1 - I_x(\nu_2/2, \nu_1/2) = I_{1-x}(\nu_1/2, \nu_2/2),</code>  where
+<code class="reqn">x := \frac{\nu_2}{\nu_2 + \nu_1*qF}</code>,  and
+<code class="reqn">I_x(a,b)</code> is the incomplete beta function; in <span class="rlang"><b>R</b></span>, <code class="reqn">=</code> <code>pbeta(x, a,b)</code>.
+</p>
+<p>It is the distribution of the ratio of the mean squares of
+<code class="reqn">\nu_1</code> and <code class="reqn">\nu_2</code> independent standard normals, and hence
+of the ratio of two independent chi-squared variates each divided by its
+degrees of freedom.  Since the ratio of a normal and the root
+mean-square of <code class="reqn">m</code> independent normals has a Student's <code class="reqn">t_m</code>
+distribution, the square of a <code class="reqn">t_m</code> variate has a F distribution on
+1 and <code class="reqn">m</code> degrees of freedom.
+</p>
+<p>The non-central F distribution is again the ratio of mean squares of
+independent normals of unit variance, but those in the numerator are
+allowed to have non-zero means and <code>ncp</code> is the sum of squares of
+the means.  See Chisquare for further details on
+non-central distributions.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>df</code> gives the density,
+<code>pf</code> gives the distribution function
+<code>qf</code> gives the quantile function, and
+<code>rf</code> generates random deviates.
+</p>
+<p>Invalid arguments will result in return value <code>NaN</code>, with a warning.
+</p>
+<p>The length of the result is determined by <code>n</code> for
+<code>rf</code>, and is the maximum of the lengths of the
+numerical arguments for the other functions.
+</p>
+<p>The numerical arguments other than <code>n</code> are recycled to the
+length of the result.  Only the first elements of the logical
+arguments are used.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Supplying <code>ncp = 0</code> uses the algorithm for the non-central
+distribution, which is not the same algorithm used if <code>ncp</code> is
+omitted.  This is to give consistent behaviour in extreme cases with
+values of <code>ncp</code> very near zero.
+</p>
+<p>The code for non-zero <code>ncp</code> is principally intended to be used
+for moderate values of <code>ncp</code>: it will not be highly accurate,
+especially in the tails, for large values.
+</p>
+
+
+<h3>Source</h3>
+
+<p>For the central case of <code>df</code>, computed <em>via</em> a binomial
+probability, code contributed by Catherine Loader (see
+<code>dbinom</code>); for the non-central case computed <em>via</em>
+<code>dbeta</code>, code contributed by Peter Ruckdeschel.
+</p>
+<p>For <code>pf</code>, <em>via</em> <code>pbeta</code> (or for large
+<code>df2</code>, <em>via</em> <code>pchisq</code>).
+</p>
+<p>For <code>qf</code>, <em>via</em> <code>qchisq</code> for large <code>df2</code>,
+else <em>via</em> <code>qbeta</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Johnson, N. L., Kotz, S. and Balakrishnan, N. (1995)
+<em>Continuous Univariate Distributions</em>, volume 2, chapters 27 and 30.
+Wiley, New York.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Distributions for other standard distributions, including
+<code>dchisq</code> for chi-squared and <code>dt</code> for Student's
+t distributions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Equivalence of pt(.,nu) with pf(.^2, 1,nu):
+x &lt;- seq(0.001, 5, length.out = 100)
+nu &lt;- 4
+stopifnot(all.equal(2*pt(x,nu) - 1, pf(x^2, 1,nu)),
+          ## upper tails:
+ 	  all.equal(2*pt(x,     nu, lower.tail=FALSE),
+		      pf(x^2, 1,nu, lower.tail=FALSE)))
+
+## the density of the square of a t_m is 2*dt(x, m)/(2*x)
+# check this is the same as the density of F_{1,m}
+all.equal(df(x^2, 1, 5), dt(x, 5)/x)
+
+## Identity (F &lt;-&gt; t):  qf(2*p - 1, 1, df) == qt(p, df)^2  for  p &gt;= 1/2
+p &lt;- seq(1/2, .99, length.out = 50); df &lt;- 10
+rel.err &lt;- function(x, y) ifelse(x == y, 0, abs(x-y)/mean(abs(c(x,y))))
+stopifnot(all.equal(qf(2*p - 1, df1 = 1, df2 = df),
+                    qt(p, df)^2))
+
+## Identity (F &lt;-&gt; Beta &lt;-&gt; incompl.beta):
+n1 &lt;- 7 ; n2 &lt;- 12; qF &lt;- c((0:4)/4, 1.5, 2:16)
+x &lt;- n2/(n2 + n1*qF)
+stopifnot(all.equal(pf(qF, n1, n2, lower.tail=FALSE),
+                    pbeta(x, n2/2, n1/2)))
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.1/00index.html'>Package <em>stats</em> version 4.4.1</a> ]</div></main>
+
+</div>
+</body></html>

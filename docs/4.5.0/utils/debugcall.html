@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>R: Debug a Call</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/debugcall.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/debugcall.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>debugcall {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Debug a Call</h2>
+
+<h3>Description</h3>
+
+<p>Set or unset debugging flags based on a call to a function. Takes into
+account S3/S4 method dispatch based on the classes of the arguments in
+the call.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>debugcall(call, once = FALSE)
+undebugcall(call)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="call">call</code></td>
+<td>
+<p>An R expression calling a function. The called function
+will be debugged. See Details.</p>
+</td></tr>
+<tr><td><code id="once">once</code></td>
+<td>
+<p>logical; if <code>TRUE</code>, debugging only occurs once, as via
+<code>debugonce</code>. Defaults to <code>FALSE</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>debugcall</code> debugs the non-generic function, S3 method or S4
+method that would be called by evaluating <code>call</code>. Thus, the user
+does not need to specify the signature when debugging
+methods. Although the call is actually to the generic, it is the
+method that is debugged, not the generic, except for non-standard S3
+generics (see <code>isS3stdGeneric</code>).
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>debugcall</code> invisibly returns the debugged call expression.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Non-standard evaluation is used to retrieve the <code>call</code> (via
+<code>substitute</code>). For this reason, passing a variable
+containing a call expression, rather than the call expression itself,
+will not work.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>debug</code> for the primary debugging interface
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## Evaluate call after setting debugging
+## 
+f &lt;- factor(1:10)
+res &lt;- eval(debugcall(summary(f))) 
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>utils</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

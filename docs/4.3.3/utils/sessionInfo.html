@@ -1,0 +1,212 @@
+<!DOCTYPE html><html><head><title>R: Collect Information About the Current R Session</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/sessionInfo.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/sessionInfo.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>sessionInfo {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Collect Information About the Current R Session</h2>
+
+<h3>Description</h3>
+
+<p>Get and report version information about <span class="rlang"><b>R</b></span>, the OS and attached or
+loaded packages.
+</p>
+<p>The <code>print()</code> and <code>toLatex()</code> methods (for a
+<code>"sessionInfo"</code> object) show the locale and timezone information by
+default, when <code>locale</code> or <code>tzone</code> are true.
+The <code>system.codepage</code> is only shown when it is not empty, i.e., only
+on Windows, <em>and</em> if it differs from <code>code.page</code>, see below or
+<code>l10n_info()</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>sessionInfo(package = NULL)
+## S3 method for class 'sessionInfo'
+print(x, locale = TRUE, tzone = locale,
+      RNG = !identical(x$RNGkind, .RNGdefaults), ...)
+## S3 method for class 'sessionInfo'
+toLatex(object, locale = TRUE, tzone = locale,
+        RNG = !identical(object$RNGkind, .RNGdefaults), ...)
+osVersion
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="package">package</code></td>
+<td>
+<p>a character vector naming installed packages, or <code>NULL</code>
+(the default) meaning all attached packages.</p>
+</td></tr>
+<tr><td><code id="x">x</code></td>
+<td>
+<p>an object of class <code>"sessionInfo"</code>.</p>
+</td></tr>
+<tr><td><code id="object">object</code></td>
+<td>
+<p>an object of class <code>"sessionInfo"</code>.</p>
+</td></tr>
+<tr><td><code id="locale">locale</code></td>
+<td>
+<p>show locale, by default <code>tzone</code>, and (on Windows) code page information?</p>
+</td></tr>
+<tr><td><code id="tzone">tzone</code></td>
+<td>
+<p>show time zone information?</p>
+</td></tr>
+<tr><td><code id="RNG">RNG</code></td>
+<td>
+<p>show information on <code>RNGkind()</code>?  Defaults to true
+iff it differs from the <span class="rlang"><b>R</b></span> version's default, i.e., <code>RNGversion(*)</code>.</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>currently not used.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>sessionInfo()</code> returns an object of class <code>"sessionInfo"</code>
+which has <code>print</code> and
+<code>toLatex</code> methods.  This is a list with components
+</p>
+<table role = "presentation">
+<tr><td><code>R.version</code></td>
+<td>
+<p>a list, the result of calling <code>R.Version()</code>.</p>
+</td></tr>
+<tr><td><code>platform</code></td>
+<td>
+<p>a character string describing the platform <span class="rlang"><b>R</b></span> was
+built under.  Where sub-architectures are in use this is of the form
+&lsquo;<span class="samp">&#8288;platform/sub-arch (nn-bit)&#8288;</span>&rsquo;.</p>
+</td></tr>
+<tr><td><code>running</code></td>
+<td>
+<p>a character string (or possibly <code>NULL</code>), the same
+as <code>osVersion</code>, see below.</p>
+</td></tr>
+<tr><td><code>RNGkind</code></td>
+<td>
+<p>a character vector, the result of calling <code>RNGkind()</code>.</p>
+</td></tr>
+<tr><td><code>matprod</code></td>
+<td>
+<p>a character string, the result of calling
+<code>getOption("matprod")</code>.</p>
+</td></tr>
+<tr><td><code>BLAS</code></td>
+<td>
+<p>a character string, the result of calling
+<code>extSoftVersion()["BLAS"]</code>.</p>
+</td></tr>
+<tr><td><code>LAPACK</code></td>
+<td>
+<p>a character string, the result of calling <code>La_library()</code>.</p>
+</td></tr>
+<tr><td><code>LA_version</code></td>
+<td>
+<p>a character string, the result of calling <code>La_version()</code>.</p>
+</td></tr>
+<tr><td><code>locale</code></td>
+<td>
+<p>a character string, the result of calling <code>Sys.getlocale()</code>.</p>
+</td></tr>
+<tr><td><code>tzone</code></td>
+<td>
+<p>a character string, the result of calling <code>Sys.timezone()</code>.</p>
+</td></tr>
+<tr><td><code>tzcode_type</code></td>
+<td>
+<p>a character string indicating source
+(system/internal) of the date-time conversion and printing functions.</p>
+</td></tr>
+<tr><td><code>basePkgs</code></td>
+<td>
+<p>a character vector of base packages which are attached.</p>
+</td></tr>
+<tr><td><code>otherPkgs</code></td>
+<td>
+<p>(not always present): a named list of the results of
+calling <code>packageDescription</code> on other
+attached packages.</p>
+</td></tr>
+<tr><td><code>loadedOnly</code></td>
+<td>
+<p>(not always present): a named list of the results of
+calling <code>packageDescription</code> on packages whose
+namespaces are loaded but are not attached.</p>
+</td></tr>
+</table>
+
+
+<h3><code>osVersion</code></h3>
+
+<p><code>osVersion</code> is a character string (or possibly <code>NULL</code> on
+bizarre platforms) describing the OS and version which it is running
+under (as distinct from built under).  This attempts to name a Linux
+distribution and give the OS name on an Apple Mac.
+</p>
+<p>It is the same as <code>sessionInfo()$running</code>
+and created when loading the <span class="pkg">utils</span> package.
+</p>
+<p>Windows may report unexpected versions: see the help for
+<code>win.version</code>.
+</p>
+<p>How OSes identify themselves and their versions can be arcane: where
+possible <code>osVersion</code> (and hence <code>sessionInfo()$running</code>) uses
+a human-readable form.
+</p>
+<p>Where <span class="rlang"><b>R</b></span> was compiled under macOS 10.x (as the <abbr><span class="acronym">CRAN</span></abbr> Intel
+distributions were prior to <span class="rlang"><b>R</b></span> 4.3.0) but running under &lsquo;Big
+Sur&rsquo; or later, macOS reports itself as &lsquo;<span class="samp">&#8288;10.16&#8288;</span>&rsquo; (which <span class="rlang"><b>R</b></span>
+recognizes as &lsquo;Big Sur ...&rsquo;) and not &lsquo;<span class="samp">&#8288;11&#8288;</span>&rsquo;, &lsquo;<span class="samp">&#8288;12&#8288;</span>&rsquo;, ....
+</p>
+
+
+<h3>Note</h3>
+
+<p>The information on &lsquo;loaded&rsquo; packages and namespaces is the
+<em>current</em> version installed at the location the package was
+loaded from: it can be wrong if another process has been changing
+packages during the session.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>R.version</code>, <code>R_compiled_by</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+sI &lt;- sessionInfo()
+sI
+# The same, showing the RNGkind, but not the locale :
+  print(sI, RNG = TRUE, locale = FALSE)
+toLatex(sI, locale = FALSE) # shortest; possibly desirable at end of report
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.3/00index.html'>Package <em>utils</em> version 4.3.3</a> ]</div></main>
+
+</div>
+</body></html>

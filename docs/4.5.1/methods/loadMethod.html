@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>R: Load an S4 Method</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/methods/html/loadMethod.html'>https://stat.ethz.ch/R-manual/R-patched/library/methods/html/loadMethod.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>loadMethod {methods}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Load an S4 Method</h2>
+
+<h3>Description</h3>
+
+<p>Internal generic function with methods; only for internal use of methods initialization.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>loadMethod(method, fname, envir)
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>Called, if necessary, just before a call to <code>method</code> is
+dispatched in the frame <code>envir</code>.  The function exists so that
+methods can be defined for special classes of objects.  Usually
+the point is to assign or modify information in the frame
+environment to be used evaluation.  For example, the standard
+class <code>MethodDefinition</code> has a method that stores the target
+and defined signatures in the environment.  Class
+<code>MethodWithNext</code> has a method taking account of the
+mechanism for storing the method to be used in a call to
+<code>callNextMethod</code>.
+</p>
+<p>Any methods defined for <code>loadMethod</code> must return the function
+definition to be used for this call; typically, this is just the
+<code>method</code> argument.
+</p>
+
+
+<h3>References</h3>
+
+<p>Chambers, John M. (2008)
+<em>Software for Data Analysis: Programming with R</em>
+Springer.  (For the R version.)
+</p>
+<p>Chambers, John M. (1998)
+<em>Programming with Data</em>
+Springer (For the original S4 version.)
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>methods</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>

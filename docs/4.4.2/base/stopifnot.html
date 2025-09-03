@@ -1,0 +1,202 @@
+<!DOCTYPE html><html><head><title>R: Ensure the Truth of R Expressions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/stopifnot.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/stopifnot.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>stopifnot {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Ensure the Truth of R Expressions</h2>
+
+<h3>Description</h3>
+
+<p>If any of the expressions (in <code>...</code> or <code>exprs</code>) are not
+<code>all</code> <code>TRUE</code>, <code>stop</code> is called, producing
+an error message indicating the <em>first</em> expression which was not
+(<code>all</code>) true.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>stopifnot(..., exprs, exprObject, local = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="...">...</code>, <code id="exprs">exprs</code></td>
+<td>
+<p>any number of <span class="rlang"><b>R</b></span> expressions, which should each
+evaluate to (a logical vector of all) <code>TRUE</code>.  Use
+<em>either</em> <code>...</code> <em>or</em>
+<code>exprs</code>, the latter typically an unevaluated expression of the
+form </p>
+<pre>{
+   expr1
+   expr2
+   ....
+}</pre>
+<p>Note that e.g., positive numbers are <em>not</em> <code>TRUE</code>, even when
+they are coerced to <code>TRUE</code>, e.g., inside <code>if(.)</code> or in
+arithmetic computations in <span class="rlang"><b>R</b></span>.
+</p>
+<p>If names are provided to <code>...</code>, they will be used in lieu of
+the default error message.
+</p>
+</td></tr>
+<tr><td><code id="exprObject">exprObject</code></td>
+<td>
+<p>alternative to <code>exprs</code> or <code>...</code>:
+an &lsquo;expression-like&rsquo; object, typically an
+<code>expression</code>, but also a <code>call</code>, a
+<code>name</code>, or atomic constant such as <code>TRUE</code>.
+</p>
+</td></tr>
+<tr><td><code id="local">local</code></td>
+<td>
+<p>(only when <code>exprs</code> is used:) indicates the
+<code>environment</code> in which the expressions should be
+evaluated; by default the one from where <code>stopifnot()</code> has been
+called.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is intended for use in regression tests or also argument
+checking of functions, in particular to make them easier to read.
+</p>
+<p><code>stopifnot(A, B)</code> or equivalently <code>stopifnot(exprs= {A ;
+      B})</code> are conceptually equivalent to </p>
+<pre> { if(any(is.na(A)) || !all(A)) stop(...);
+   if(any(is.na(B)) || !all(B)) stop(...) }</pre>
+<p>Since <span class="rlang"><b>R</b></span> version 3.6.0, <code>stopifnot()</code> no longer handles potential
+errors or warnings (by <code>tryCatch()</code> etc) for each single
+expression
+and may use <code>sys.call(<var>n</var>)</code> to get a meaningful and short
+error message in case an expression did not evaluate to all TRUE.  This
+provides considerably less overhead.
+</p>
+<p>Since <span class="rlang"><b>R</b></span> version 3.5.0, expressions <em>are</em> evaluated sequentially,
+and hence evaluation stops as soon as there is a &ldquo;non-TRUE&rdquo;, as
+indicated by the above conceptual equivalence statement.
+
+
+
+
+
+</p>
+<p>Also, since <span class="rlang"><b>R</b></span> version 3.5.0, <code>stopifnot(exprs = { ... })</code> can be used
+alternatively and may be preferable in the case of several
+expressions, as they are more conveniently evaluated interactively
+(&ldquo;no extraneous <code>,</code> &rdquo;).
+</p>
+<p>Since <span class="rlang"><b>R</b></span> version 3.4.0, when an expression (from <code>...</code>) is not
+true <em>and</em> is a call to <code>all.equal</code>, the error
+message will report the (first part of the) differences reported by
+<code>all.equal(*)</code>; since <span class="rlang"><b>R</b></span> 4.3.0, this happens for all calls
+where <code>"all.equal"</code> <code>pmatch()</code>es the function called,
+e.g., when that is called <code>all.equalShow</code>, see the example in
+<code>all.equal</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>(<code>NULL</code> if all statements in <code>...</code> are <code>TRUE</code>.)
+</p>
+
+
+<h3>Note</h3>
+
+<p>Trying to use the <code>stopifnot(exprs = ..)</code> version via a shortcut,
+say, </p>
+<pre> assertWRONG &lt;- function(exprs) stopifnot(exprs = exprs) </pre>
+<p>is delicate and the above is <em>not a good idea</em>.  Contrary to <code>stopifnot()</code>
+which takes care to evaluate the parts of <code>exprs</code> one by one and
+stop at the first non-TRUE, the above short cut would typically evaluate
+all parts of <code>exprs</code> and pass the result, i.e., typically of the
+<em>last</em> entry of <code>exprs</code> to <code>stopifnot()</code>.
+</p>
+<p>However, a more careful version, </p>
+<pre> assert &lt;- function(exprs) eval.parent(substitute(stopifnot(exprs = exprs))) </pre>
+<p>may be a nice short cut for <code>stopifnot(exprs = *)</code> calls using the
+more commonly known verb as function name.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>stop</code>, <code>warning</code>;
+<code>assertCondition</code> in package <span class="pkg">tools</span> complements
+<code>stopifnot()</code> for testing warnings and errors.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## NB: Some of these examples are expected to produce an error. To
+##     prevent them from terminating a run with example() they are
+##     piped into a call to try().
+
+stopifnot(1 == 1, all.equal(pi, 3.14159265), 1 &lt; 2) # all TRUE
+
+m &lt;- matrix(c(1,3,3,1), 2, 2)
+stopifnot(m == t(m), diag(m) == rep(1, 2)) # all(.) |=&gt;  TRUE
+
+stopifnot(length(10)) |&gt; try() # gives an error: '1' is *not* TRUE
+## even when   if(1) "ok"   works
+
+stopifnot(all.equal(pi, 3.141593),  2 &lt; 2, (1:10 &lt; 12), "a" &lt; "b") |&gt; try()
+## More convenient for interactive "line by line" evaluation:
+stopifnot(exprs = {
+  all.equal(pi, 3.1415927)
+  2 &lt; 2
+  1:10 &lt; 12
+  "a" &lt; "b"
+}) |&gt; try()
+
+eObj &lt;- expression(2 &lt; 3, 3 &lt;= 3:6, 1:10 &lt; 2)
+stopifnot(exprObject = eObj) |&gt; try()
+stopifnot(exprObject = quote(3 == 3))
+stopifnot(exprObject = TRUE)
+
+
+# long all.equal() error messages are abbreviated:
+stopifnot(all.equal(rep(list(pi),4), list(3.1, 3.14, 3.141, 3.1415))) |&gt; try()
+
+# The default error message can be overridden to be more informative:
+m[1,2] &lt;- 12
+stopifnot("m must be symmetric"= m == t(m)) |&gt; try()
+#=&gt; Error: m must be symmetric
+
+##' warnifnot(): a "only-warning" version of stopifnot()
+##'   {Yes, learn how to use do.call(substitute, ...) in a powerful manner !!}
+warnifnot &lt;- stopifnot ; N &lt;- length(bdy &lt;- body(warnifnot))
+bdy        &lt;- do.call(substitute, list(bdy,   list(stopifnot = quote(warnifnot))))
+bdy[[N-1]] &lt;- do.call(substitute, list(bdy[[N-1]], list(stop = quote(warning))))
+body(warnifnot) &lt;- bdy
+warnifnot(1 == 1, 1 &lt; 2, 2 &lt; 2) # =&gt; warns " 2 &lt; 2 is not TRUE  "
+warnifnot(exprs = {
+    1 == 1
+    3 &lt; 3  # =&gt; warns "3 &lt; 3 is not TRUE"
+})
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.2/00index.html'>Package <em>base</em> version 4.4.2</a> ]</div></main>
+
+</div>
+</body></html>

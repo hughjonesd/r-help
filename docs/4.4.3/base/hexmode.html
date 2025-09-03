@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head><title>R: Integer Numbers Displayed in Hexadecimal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/hexmode.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/hexmode.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>hexmode {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Integer Numbers Displayed in Hexadecimal</h2>
+
+<h3>Description</h3>
+
+<p>Integers which are displayed in hexadecimal (short &lsquo;hex&rsquo;) format,
+with as many digits as are needed to display the largest, using leading
+zeroes as necessary.
+</p>
+<p>Arithmetic works as for integers, and non-integer valued mathematical
+functions typically work by truncating the result to integer.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>as.hexmode(x)
+
+## S3 method for class 'hexmode'
+as.character(x, keepStr = FALSE, ...)
+
+## S3 method for class 'hexmode'
+format(x, width = NULL, upper.case = FALSE, ...)
+
+## S3 method for class 'hexmode'
+print(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>an object, for the methods inheriting from class <code>"hexmode"</code>.</p>
+</td></tr>
+<tr><td><code id="keepStr">keepStr</code></td>
+<td>
+<p>a <code>logical</code> indicating that names and
+dimensions should be kept; set <code>TRUE</code> for back compatibility, if needed.</p>
+</td></tr>
+<tr><td><code id="width">width</code></td>
+<td>
+<p><code>NULL</code> or a positive integer specifying the minimum
+field width to be used, with padding by leading zeroes.</p>
+</td></tr>
+<tr><td><code id="upper.case">upper.case</code></td>
+<td>
+<p>a logical indicating whether to use upper-case
+letters or lower-case letters (default).</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>further arguments passed to or from other methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Class <code>"hexmode"</code> consists of integer vectors with that class
+attribute, used primarily to ensure that they are printed in hex.
+Subsetting (<code>[</code>) works too, as do arithmetic or
+other mathematical operations, albeit truncated to integer.
+</p>
+<p><code>as.character(x)</code> drops all <code>attributes</code> (unless when
+<code>keepStr=TRUE</code> where it keeps, <code>dim</code>, <code>dimnames</code> and
+<code>names</code> for back compatibility) and converts each entry individually, hence with no
+leading zeroes, whereas in <code>format()</code>, when <code>width = NULL</code> (the
+default), the output is padded with leading zeroes to the smallest width
+needed for all the non-missing elements.
+</p>
+<p><code>as.hexmode</code> can convert integers (of type <code>"integer"</code> or
+<code>"double"</code>) and character vectors whose elements contain only
+<code>0-9</code>, <code>a-f</code>, <code>A-F</code> (or are <code>NA</code>) to class
+<code>"hexmode"</code>.
+</p>
+<p>There is a <code>!</code> method and methods for <code>|</code> and
+<code>&amp;</code>:
+
+
+these recycle their arguments to the length of the longer and then
+apply the operators bitwise to each element.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>octmode</code>, <code>sprintf</code> for other options in
+converting integers to hex, <code>strtoi</code> to convert hex
+strings to integers.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>i &lt;- as.hexmode("7fffffff")
+i; class(i)
+identical(as.integer(i), .Machine$integer.max)
+
+hm &lt;- as.hexmode(c(NA, 1)); hm
+as.integer(hm)
+
+Xm &lt;- as.hexmode(1:16)
+Xm # print()s via format()
+stopifnot(nchar(format(Xm)) == 2)
+Xm[-16] # *no* leading zeroes!
+stopifnot(format(Xm[-16]) == c(1:9, letters[1:6]))
+
+## Integer arithmetic (remaining "hexmode"):
+16*Xm
+Xm^2
+-Xm
+(fac &lt;- factorial(Xm[1:12])) # !1, !2, !3, !4 .. in hexadecimals
+as.integer(fac) # indeed the same as  factorial(1:12)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.3/00index.html'>Package <em>base</em> version 4.4.3</a> ]</div></main>
+
+</div>
+</body></html>

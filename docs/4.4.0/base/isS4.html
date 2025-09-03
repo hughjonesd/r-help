@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><title>R: Test for an S4 object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/isS4.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/isS4.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>isS4 {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2> Test for an S4 object </h2>
+
+<h3>Description</h3>
+
+<p>Tests whether the object is an instance of an S4 class.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>isS4(object)
+
+asS4(object, flag = TRUE, complete = TRUE)
+asS3(object, flag = TRUE, complete = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
+<td>
+<p>Any R object.</p>
+</td></tr>
+<tr><td><code id="flag">flag</code></td>
+<td>
+<p>Optional, logical: indicate direction of conversion.</p>
+</td></tr>
+<tr><td><code id="complete">complete</code></td>
+<td>
+<p>Optional, logical: whether conversion to S3 is
+completed.  Not usually needed, but see the details section.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note that <code>isS4</code> does not rely on the <span class="pkg">methods</span>
+package, so in particular it can be used to detect the need to
+<code>require</code> that package.
+</p>
+<p><code>asS3</code> uses the value of
+<code>complete</code> to control whether an attempt is made to transform
+<code>object</code> into a valid object of the implied S3 class.  If
+<code>complete</code> is <code>TRUE</code>,
+then an object from an S4 class extending an S3 class will be
+transformed into an S3 object with the corresponding S3 class (see
+<code>S3Part</code>).  This includes classes extending the
+pseudo-classes <code>array</code> and <code>matrix</code>: such objects will have
+their class attribute set to <code>NULL</code>.
+</p>
+<p><code>isS4</code> is primitive.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>isS4</code> always returns <code>TRUE</code> or <code>FALSE</code> according to
+whether the internal flag marking an S4 object has been turned on for
+this object.
+</p>
+<p><code>asS4</code> and <code>asS3</code> will turn this flag on or off,
+and <code>asS3</code> will set the class from the objects <code>.S3Class</code>
+slot if one exists.  Note that <code>asS3</code> will <em>not</em>  turn
+the object into an S3 object
+unless there is a valid conversion; that is, an object of type other
+than <code>"S4"</code> for which the S4 object is an extension, unless
+argument <code>complete</code> is <code>FALSE</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>is.object</code> for a more general test; Introduction
+for general information on S4; Classes_Details for more on S4
+class definitions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+isS4(pi) # FALSE
+isS4(getClass("MethodDefinition")) # TRUE
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.0/00index.html'>Package <em>base</em> version 4.4.0</a> ]</div></main>
+
+</div>
+</body></html>

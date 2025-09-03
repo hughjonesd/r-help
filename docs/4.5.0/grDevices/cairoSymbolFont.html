@@ -1,0 +1,94 @@
+<!DOCTYPE html><html><head><title>R: Specify a Symbol Font</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/cairoSymbolFont.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/cairoSymbolFont.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>cairoSymbolFont {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Specify a Symbol Font</h2>
+
+<h3>Description</h3>
+
+<p>Specify a symbol font for a Cairo-based graphics device.
+This function provides the opportunity to specify whether the font
+supports Private Use Area code points.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>cairoSymbolFont(family, usePUA = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="family">family</code></td>
+<td>
+<p>A character vector giving the symbol font family name. </p>
+</td></tr>
+<tr><td><code id="usePUA">usePUA</code></td>
+<td>
+<p>Does the font support Private Use Area code points?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>On Cairo-based graphics devices, when drawing with a symbol font
+(e.g., plotmath),
+Adobe Symbol Encoding characters are converted to UTF-8 code points.
+This conversion can use Private Use Area code points or not.
+It is useful to be able to specify this option because some fonts
+(e.g., the OpenSymbol font that is included in LibreOffice)
+have glyphs mapped to the Private Use Area and some fonts 
+(e.g., Nimbus Sans L, the URW Fonts equivalent of Helvetica) do not.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>"CairoSymbolFont"</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>cairo_pdf</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+## If a font uses PUA, we can just specify the font name ...
+cairo_pdf(symbolfamily="OpenSymbol")
+dev.off()
+## ... or equivalently ...
+cairo_pdf(symbolfamily=cairoSymbolFont("OpenSymbol"))
+dev.off()
+
+## If a font does not use PUA, we must indicate that ...
+cairo_pdf(symbolfamily=cairoSymbolFont("Nimbus Sans", usePUA=FALSE))
+dev.off()
+
+## End(Not run)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>grDevices</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

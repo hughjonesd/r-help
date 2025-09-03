@@ -1,0 +1,223 @@
+<!DOCTYPE html><html><head><title>R: Install Add-on Packages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/INSTALL.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/INSTALL.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>INSTALL {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Install Add-on Packages</h2>
+
+<h3>Description</h3>
+
+<p>Utility for installing add-on packages.</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>R CMD INSTALL [options] [-l lib] pkgs
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="pkgs">pkgs</code></td>
+<td>
+<p>a space-separated list with the path names of the packages to be
+installed.  See &lsquo;Details&rsquo;.</p>
+</td></tr>
+<tr><td><code id="lib">lib</code></td>
+<td>
+<p>the path name of the <span class="rlang"><b>R</b></span> library tree to install to.  Also
+accepted in the form &lsquo;<span class="samp">&#8288;--library=lib&#8288;</span>&rsquo;.  Paths including spaces should
+be quoted, using the conventions for the shell in use.</p>
+</td></tr>
+<tr><td><code id="options">options</code></td>
+<td>
+<p>a space-separated list of options through which in
+particular the process for building the help files can be controlled.
+Use <code>R CMD INSTALL --help</code> for the full current list of options.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This will stop at the first error, so if you want all the <code>pkgs</code>
+to be tried, call this via a shell loop.
+</p>
+<p>If used as <code>R CMD INSTALL pkgs</code> without explicitly specifying
+<code>lib</code>, packages are installed into the library tree rooted at the
+first directory in the library path which would be used by <span class="rlang"><b>R</b></span> run in
+the current environment.
+</p>
+<p>To install into the library tree <code><var>lib</var></code>, use
+<code>R CMD INSTALL -l <var>lib</var> <var>pkgs</var></code>.
+This prepends <code>lib</code> to the library path for
+duration of the install, so required packages in the installation
+directory will be found (and used in preference to those in other
+libraries).
+</p>
+<p>Both <code>lib</code> and the elements of <code>pkgs</code> may be absolute or
+relative path names of directories.  <code>pkgs</code> may also contain
+names of package archive files: these are then extracted to a
+temporary directory.  These are tarballs containing a single
+directory, optionally compressed by <code>gzip</code>, <code>bzip2</code>,
+<code>xz</code> or <code>compress</code>.
+Finally, binary package archive files (as created by
+<code>R CMD INSTALL --build</code>) can be supplied.
+</p>
+<p>Tarballs are by default unpackaged by the internal <code>untar</code>
+function: if needed an external <code>tar</code> command can be specified
+by the environment variable <span class="env">R_INSTALL_TAR</span>: please ensure that it
+can handle the type of compression used on the tarball.  (This is
+sometimes needed for tarballs containing invalid or unsupported
+sections, and can be faster on very large tarballs.   Setting
+<span class="env">R_INSTALL_TAR</span> to &lsquo;<span class="samp">&#8288;tar.exe&#8288;</span>&rsquo; has been needed to overcome
+permissions issues on some Windows systems.)
+</p>
+<p>The package sources can be cleaned up prior to installation by
+<span class="option">--preclean</span> or after by <span class="option">--clean</span>: cleaning is
+essential if the sources are to be used with more than one
+architecture or platform.
+</p>
+<p>Some package sources contain a &lsquo;<span class="file">configure</span>&rsquo; script that can be
+passed arguments or variables via the option <span class="option">--configure-args</span>
+and <span class="option">--configure-vars</span>, respectively, if necessary.  The latter
+is useful in particular if libraries or header files needed for the
+package are in non-system directories.  In this case, one can use the
+configure variables <code>LIBS</code> and <code>CPPFLAGS</code> to specify these
+locations (and set these via <span class="option">--configure-vars</span>), see section
+&lsquo;Configuration variables&rsquo; in
+&lsquo;R Installation and Administration&rsquo; for more information.
+(If these are used more than
+once on the command line they are concatenated.)  The configure
+mechanism can be bypassed using the option <span class="option">--no-configure</span>.
+</p>
+<p>If the attempt to install the package fails, leftovers are removed.
+If the package was already installed, the old version is restored.
+This happens either if a command encounters an error or if the
+install is interrupted from the keyboard: after cleaning up the script
+terminates.
+</p>
+<p>For details of the locking which is done, see the section
+&lsquo;Locking&rsquo; in the help for <code>install.packages</code>.
+</p>
+<p>Option <span class="option">--build</span> can be used to tar up the installed package
+for distribution as a binary package (as used on macOS).  This is done
+by <code>utils::tar</code> unless environment variable <span class="env">R_INSTALL_TAR</span>
+is set.
+</p>
+<p>By default a package is installed with static HTML help pages if and
+only if <span class="rlang"><b>R</b></span> was: use options <span class="option">--html</span> and <span class="option">--no-html</span> to
+override this.
+</p>
+<p>Packages are not by default installed keeping the source formatting
+(see the <code>keep.source</code> argument to <code>source</code>): this
+can be enabled by the option <span class="option">--with-keep.source</span> or by setting
+environment variable <span class="env">R_KEEP_PKG_SOURCE</span> to <code>yes</code>.
+</p>
+<p>Specifying the <span class="option">--install-tests</span> option copies the contents
+of the &lsquo;<span class="file">tests</span>&rsquo; directory into the package installation. If the
+<span class="env">R_ALWAYS_INSTALL_TESTS</span> environment variable is set to a true
+value, the tests will be installed even if <span class="option">--install-tests</span> is
+omitted.
+</p>
+<p>Use <code>R CMD INSTALL --help</code> for concise usage information,
+including all the available options.
+</p>
+
+
+<h3>Sub-architectures</h3>
+
+<p>An <span class="rlang"><b>R</b></span> installation can support more than one sub-architecture:
+currently this is most commonly used for 32- and 64-bit builds on
+Windows.
+</p>
+<p>For such installations, the default behaviour is to try to install
+source packages for all installed sub-architectures unless the package
+has a configure script or a &lsquo;<span class="file">src/Makefile</span>&rsquo; (or
+&lsquo;<span class="file">src/Makefile.win</span>&rsquo; on Windows), when only compiled code for the
+sub-architecture running <code>R CMD INSTALL</code> is installed.
+</p>
+<p>To install a source package with compiled code only for the
+sub-architecture used by <code>R CMD INSTALL</code>, use
+<span class="option">--no-multiarch</span>.  To install just the compiled code for
+another sub-architecture, use <span class="option">--libs-only</span>.
+</p>
+<p>There are two ways to install for all available sub-architectures.  If
+the configure script is known to work for both Windows architectures,
+use flag <span class="option">--force-biarch</span> (and packages can specify this
+<em>via</em> a &lsquo;<span class="samp">&#8288;Biarch: yes&#8288;</span>&rsquo; field in their <code>DESCRIPTION</code> files).
+Second, a single tarball can be installed with
+</p>
+<pre>R CMD INSTALL --merge-multiarch mypkg_version.tar.gz</pre>
+
+
+<h3>Staged installation</h3>
+
+<p>The default way to install source packages changed in <span class="rlang"><b>R</b></span> 3.6.0, so
+packages are first installed to a temporary location and then (if
+successful) moved to the destination library directory.  Some older
+packages were written in ways that assume direct installation to the
+destination library.
+</p>
+<p>Staged installation can currently be overridden by having a line
+&lsquo;<span class="samp">&#8288;StagedInstall: no&#8288;</span>&rsquo; in the package's &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file,
+<em>via</em> flag <span class="option">--no-staged-install</span> or by setting environment
+variable <span class="env">R_INSTALL_STAGED</span> to a false value
+(e.g. &lsquo;<span class="samp">&#8288;false&#8288;</span>&rsquo; or &lsquo;<span class="samp">&#8288;no&#8288;</span>&rsquo;).
+</p>
+<p>Staged installation requires either <span class="option">--pkglock</span> or
+<span class="option">--lock</span>, one of which is used by default.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The options do not have to precede &lsquo;<span class="samp">&#8288;pkgs&#8288;</span>&rsquo; on the command line,
+although it will be more legible if they do.  All the options are
+processed before any packages, and where options have conflicting
+effects the last one will win.
+</p>
+<p>Some parts of the operation of <code>INSTALL</code> depend on the <span class="rlang"><b>R</b></span>
+temporary directory (see <code>tempdir</code>, usually under
+&lsquo;<span class="file">/tmp</span>&rsquo;) having both write and execution access to the account
+running <span class="rlang"><b>R</b></span>.  This is usually the case, but if &lsquo;<span class="file">/tmp</span>&rsquo; has been
+mounted as <code>noexec</code>, environment variable <span class="env">TMPDIR</span> may need
+to be set to a directory from which execution is allowed.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>REMOVE</code>;
+<code>.libPaths</code> for information on using several library trees;
+<code>install.packages</code> for <span class="rlang"><b>R</b></span>-level installation of packages;
+<code>update.packages</code> for automatic update of packages using
+the Internet or a local repository.
+</p>
+<p>The chapter on &lsquo;Add-on packages&rsquo; in
+&lsquo;R Installation and Administration&rsquo;
+and the chapter on &lsquo;Creating R packages&rsquo; in
+&lsquo;Writing R Extensions&rsquo;
+</p>
+<p><em>via</em> <code>RShowDoc</code> or in the &lsquo;<span class="file">doc/manual</span>&rsquo;
+subdirectory of the <span class="rlang"><b>R</b></span> source tree.
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>utils</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>

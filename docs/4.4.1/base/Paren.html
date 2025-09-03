@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Parentheses and Braces</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Paren.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Paren.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>Paren {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Parentheses and Braces</h2>
+
+<h3>Description</h3>
+
+<p>Open parenthesis, <code>(</code>, and open brace, <code>{</code>, are
+<code>.Primitive</code> functions in <span class="rlang"><b>R</b></span>.
+</p>
+<p>Effectively, <code>(</code> is semantically equivalent to the identity
+<code>function(x) x</code>, whereas <code>{</code> is slightly more interesting,
+see examples.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>( ... )
+
+{ ... }
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>For <code>(</code>, the result of evaluating the argument.  This has
+visibility set, so will auto-print if used at top-level.
+</p>
+<p>For <code>{</code>, the result of the last expression evaluated.  This has
+the visibility of the last evaluation.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>if</code>, <code>return</code>, etc for other objects used in
+the <span class="rlang"><b>R</b></span> language itself.
+</p>
+<p><code>Syntax</code> for operator precedence.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>f &lt;- get("(")
+e &lt;- expression(3 + 2 * 4)
+identical(f(e), e)
+
+do &lt;- get("{")
+do(x &lt;- 3, y &lt;- 2*x-3, 6-x-y); x; y
+
+## note the differences
+(2+3)
+{2+3; 4+5}
+(invisible(2+3))
+{invisible(2+3)}
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.1/00index.html'>Package <em>base</em> version 4.4.1</a> ]</div></main>
+
+</div>
+</body></html>

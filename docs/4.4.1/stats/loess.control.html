@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><title>R: Set Parameters for 'loess'</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/loess.control.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/loess.control.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>loess.control {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Set Parameters for <code>loess</code></h2>
+
+<h3>Description</h3>
+
+<p>Set control parameters for <code>loess</code> fits.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>loess.control(surface = c("interpolate", "direct"),
+              statistics = c("approximate", "exact", "none"),
+              trace.hat = c("exact", "approximate"),
+              cell = 0.2, iterations = 4, iterTrace = FALSE, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="surface">surface</code></td>
+<td>
+<p>should the fitted surface be computed exactly
+(<code>"direct"</code>) or via interpolation from a k-d tree?  Can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="statistics">statistics</code></td>
+<td>
+<p>should the statistics be computed exactly,
+approximately or not at all?  Exact computation can be very slow.
+Can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="trace.hat">trace.hat</code></td>
+<td>
+<p>Only for the (default) case <code>(surface =
+     "interpolate", statistics = "approximate")</code>: should the trace of
+the smoother matrix be computed exactly or approximately?  It is recommended to use the approximation
+for more than about 1000 data points.  Can be abbreviated.</p>
+</td></tr>
+<tr><td><code id="cell">cell</code></td>
+<td>
+<p>if interpolation is used this controls the accuracy of the
+approximation via the maximum number of points in a  cell in the k-d
+tree. Cells with more than <code>floor(n*span*cell)</code> points are subdivided.</p>
+</td></tr>
+<tr><td><code id="iterations">iterations</code></td>
+<td>
+<p>the number of iterations used in robust fitting,
+i.e. only if <code>family</code> is <code>"symmetric"</code>.</p>
+</td></tr>
+<tr><td><code id="iterTrace">iterTrace</code></td>
+<td>
+<p>logical (or integer) determining if tracing
+information during the robust iterations (<code>iterations</code><code class="reqn">\ge
+     2</code>) is produced.</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>further arguments which are ignored.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list with components
+</p>
+<table role = "presentation">
+<tr><td><code>surface</code></td>
+<td>
+</td></tr>
+<tr><td><code>statistics</code></td>
+<td>
+</td></tr>
+<tr><td><code>trace.hat</code></td>
+<td>
+</td></tr>
+<tr><td><code>cell</code></td>
+<td>
+</td></tr>
+<tr><td><code>iterations</code></td>
+<td>
+</td></tr>
+<tr><td><code>iterTrace</code></td>
+<td>
+</td></tr>
+</table>
+<p>with meanings as explained under &lsquo;Arguments&rsquo;.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>loess</code></p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.1/00index.html'>Package <em>stats</em> version 4.4.1</a> ]</div></main>
+
+</div>
+</body></html>

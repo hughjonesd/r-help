@@ -1,0 +1,147 @@
+<!DOCTYPE html><html><head><title>R: Express File Paths in Canonical Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/normalizePath.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/normalizePath.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>normalizePath {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Express File Paths in Canonical Form</h2>
+
+<h3>Description</h3>
+
+<p>Convert file paths to canonical form for the platform, to display them
+in a user-understandable form and so that relative and absolute paths can
+be compared.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>normalizePath(path, winslash = "\\", mustWork = NA)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="path">path</code></td>
+<td>
+<p>character vector of file paths.</p>
+</td></tr>
+<tr><td><code id="winslash">winslash</code></td>
+<td>
+<p>the separator to be used on Windows &ndash; ignored
+elsewhere.  Must be one of <code>c("/", "\\")</code>.</p>
+</td></tr>
+<tr><td><code id="mustWork">mustWork</code></td>
+<td>
+<p>logical: if <code>TRUE</code> then an error is given if the result
+cannot be determined; if <code>NA</code> then a warning.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Tilde-expansion (see <code>path.expand</code>) is first done on
+<code>paths</code>.
+</p>
+<p>Where the Unix-alike platform supports it attempts to turn paths into
+absolute paths in their canonical form (no &lsquo;<span class="samp">&#8288;./&#8288;</span>&rsquo;, &lsquo;<span class="samp">&#8288;../&#8288;</span>&rsquo; nor
+symbolic links).  It relies on the POSIX system function
+<code>realpath</code>: if the platform does not have that (we know of no
+current example) then the result will be an absolute path but might
+not be canonical.  Even where <code>realpath</code> is used the canonical
+path need not be unique, for example <em>via</em> hard links or
+multiple mounts.
+</p>
+<p>On Windows it converts relative paths to absolute paths, resolves symbolic
+links, converts short names for path elements to long names and ensures the
+separator is that specified by <code>winslash</code>.  It will match each path
+element case-insensitively or case-sensitively as during the usual name
+lookup and return the canonical case. It relies on Windows API function
+<code>GetFinalPathNameByHandle</code> and in case of an error (such as
+insufficient permissions) it currently falls back to the <span class="rlang"><b>R</b></span> 3.6 (and
+older) implementation, which relies on <code>GetFullPathName</code> and
+<code>GetLongPathName</code> with limitations described in the Notes section.
+An attempt is made not to introduce <abbr>UNC</abbr> paths in presence of mapped drives
+or symbolic links: if <code>GetFinalPathNameByHandle</code> returns a <abbr>UNC</abbr> path,
+but <code>GetLongPathName</code> returns a path starting with a drive letter, R
+falls back to the <span class="rlang"><b>R</b></span> 3.6 (and older) implementation.
+UTF-8-encoded paths not valid in the current locale can be used.
+</p>
+<p><code>mustWork = FALSE</code> is useful for expressing paths for use in
+messages.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector.
+</p>
+<p>If an input is not a real path the result is system-dependent (unless
+<code>mustWork = TRUE</code>, when this should be an error).  It will be
+either the corresponding input element or a transformation of it into
+an absolute path.
+</p>
+<p>Converting to an absolute file path can fail for a large number of
+reasons.  The most common are
+</p>
+
+<ul>
+<li><p> One of more components of the file path does not exist.
+</p>
+</li>
+<li><p> A component before the last is not a directory, or there is
+insufficient permission to read the directory.
+</p>
+</li>
+<li><p> For a relative path, the current directory cannot be
+determined.
+</p>
+</li>
+<li><p> A symbolic link points to a non-existent place or links form a
+loop.
+</p>
+</li>
+<li><p> The canonicalized path would be exceed the maximum supported
+length of a file path.
+</p>
+</li></ul>
+
+
+
+<h3>Note</h3>
+
+<p>The canonical form of paths may not be what you expect.  For example,
+on macOS absolute paths such as &lsquo;<span class="file">/tmp</span>&rsquo; and &lsquo;<span class="file">/var</span>&rsquo; are
+symbolic links. On Linux, a path produced by bash process substitution is
+a symbolic link (such as &lsquo;<span class="file">/proc/fd/63</span>&rsquo;) to a pipe and there is no
+canonical form of such path. In <span class="rlang"><b>R</b></span> 3.6 and older on Windows, symlinks will
+not be resolved and the long names for path elements will be returned with
+the case in which they are in <code>path</code>, which may not be canonical in
+case-insensitive folders.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+cat(normalizePath(c(R.home(), tempdir())), sep = "\n")
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.3/00index.html'>Package <em>base</em> version 4.4.3</a> ]</div></main>
+
+</div>
+</body></html>

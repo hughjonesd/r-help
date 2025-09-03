@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><title>R: Approximate String Match Positions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/aregexec.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/aregexec.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>aregexec {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Approximate String Match Positions</h2>
+
+<h3>Description</h3>
+
+<p>Determine positions of approximate string matches.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>aregexec(pattern, text, max.distance = 0.1, costs = NULL,
+         ignore.case = FALSE, fixed = FALSE, useBytes = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="pattern">pattern</code></td>
+<td>
+<p>a non-empty character string or a character string
+containing a regular expression (for <code>fixed = FALSE</code>) to be
+matched.
+Coerced by <code>as.character</code> to a string if possible.</p>
+</td></tr>
+<tr><td><code id="text">text</code></td>
+<td>
+<p>character vector where matches are sought.
+Coerced by <code>as.character</code> to a character vector if
+possible.</p>
+</td></tr>
+<tr><td><code id="max.distance">max.distance</code></td>
+<td>
+<p>maximum distance allowed for a match.
+See <code>agrep</code>.</p>
+</td></tr>
+<tr><td><code id="costs">costs</code></td>
+<td>
+<p>cost of transformations.
+See <code>agrep</code>.</p>
+</td></tr>
+<tr><td><code id="ignore.case">ignore.case</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, case is ignored for
+computing the distances.</p>
+</td></tr>
+<tr><td><code id="fixed">fixed</code></td>
+<td>
+<p>If <code>TRUE</code>, the pattern is matched literally (as is).
+Otherwise (default), it is matched as a regular expression.</p>
+</td></tr>
+<tr><td><code id="useBytes">useBytes</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code> comparisons are
+byte-by-byte rather than character-by-character.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>aregexec</code> provides a different interface to approximate string
+matching than <code>agrep</code> (along the lines of the interfaces
+to exact string matching provided by <code>regexec</code> and
+<code>grep</code>).
+</p>
+<p>Note that by default, <code>agrep</code> performs literal matches,
+whereas <code>aregexec</code> performs regular expression matches.
+</p>
+<p>See <code>agrep</code> and <code>adist</code> for more information
+about approximate string matching and distances.
+</p>
+<p>Comparisons are byte-by-byte if <code>pattern</code> or any element of
+<code>text</code> is marked as <code>"bytes"</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list of the same length as <code>text</code>, each element of which is
+either <code class="reqn">-1</code> if there is no match, or a sequence of integers with
+the starting positions of the match and all substrings corresponding
+to parenthesized subexpressions of <code>pattern</code>, with attribute
+<code>"match.length"</code> an integer vector giving the lengths of the
+matches (or <code class="reqn">-1</code> for no match).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>regmatches</code> for extracting the matched substrings.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Cf. the examples for agrep.
+x &lt;- c("1 lazy", "1", "1 LAZY")
+aregexec("laysy", x, max.distance = 2)
+aregexec("(lay)(sy)", x, max.distance = 2)
+aregexec("(lay)(sy)", x, max.distance = 2, ignore.case = TRUE)
+m &lt;- aregexec("(lay)(sy)", x, max.distance = 2)
+regmatches(x, m)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>utils</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>

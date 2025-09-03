@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><title>R: Translate non-ASCII Text to LaTeX Escapes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/encoded.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/encoded.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>encoded_text_to_latex {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Translate non-ASCII Text to LaTeX Escapes</h2>
+
+<h3>Description</h3>
+
+<p>Translate non-ASCII characters in text to LaTeX escape sequences.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>encoded_text_to_latex(x,
+                      encoding = c("latin1", "latin2", "latin9",
+                                   "UTF-8", "utf8"))
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>a character vector.</p>
+</td></tr>
+<tr><td><code id="encoding">encoding</code></td>
+<td>
+<p>the encoding to be assumed.  <code>"latin9"</code> is
+officially ISO-8859-15 or Latin-9, but known as latin9 to LaTeX's
+<code>inputenc</code> package.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Non-ASCII characters in <code>x</code> are replaced by an appropriate LaTeX
+escape sequence, or &lsquo;<span class="samp">&#8288;?&#8288;</span>&rsquo; if there is no appropriate sequence.
+</p>
+<p>Even if there is an appropriate sequence, it may not be supported by
+the font in use.  Hyphen is mapped to &lsquo;<span class="samp">&#8288;\-&#8288;</span>&rsquo;.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of the same length as <code>x</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>iconv</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>x &lt;- "fran\xE7ais"
+encoded_text_to_latex(x, "latin1")
+## Not run: 
+## create a tex file to show the upper half of 8-bit charsets
+x &lt;- rawToChar(as.raw(160:255), multiple = TRUE)
+(x &lt;- matrix(x, ncol = 16, byrow = TRUE))
+xx &lt;- x
+xx[] &lt;- encoded_text_to_latex(x, "latin1") # or latin2 or latin9
+xx &lt;- apply(xx, 1, paste, collapse = "&amp;")
+con &lt;- file("test-encoding.tex", "w")
+header &lt;- c(
+"\\documentclass{article}",
+"\\usepackage[T1]{fontenc}",
+"\\usepackage{Rd}",
+"\\begin{document}",
+"\\HeaderA{test}{}{test}",
+"\\begin{Details}\\relax",
+"\\Tabular{cccccccccccccccc}{")
+trailer &lt;- c("}", "\\end{Details}", "\\end{document}")
+writeLines(header, con)
+writeLines(paste0(xx, "\\\\"), con)
+writeLines(trailer, con)
+close(con)
+## and some UTF_8 chars
+x &lt;- intToUtf8(as.integer(
+    c(160:383,0x0192,0x02C6,0x02C7,0x02CA,0x02D8,
+      0x02D9, 0x02DD, 0x200C, 0x2018, 0x2019, 0x201C,
+      0x201D, 0x2020, 0x2022, 0x2026, 0x20AC)),
+               multiple = TRUE)
+x &lt;- matrix(x, ncol = 16, byrow = TRUE)
+xx &lt;- x
+xx[] &lt;- encoded_text_to_latex(x, "UTF-8")
+xx &lt;- apply(xx, 1, paste, collapse = "&amp;")
+con &lt;- file("test-utf8.tex", "w")
+writeLines(header, con)
+writeLines(paste(xx, "\\\\", sep = ""), con)
+writeLines(trailer, con)
+close(con)
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>tools</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

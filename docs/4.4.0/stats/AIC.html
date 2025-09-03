@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head><title>R: Akaike's An Information Criterion</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/AIC.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/AIC.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>AIC {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Akaike's An Information Criterion</h2>
+
+<h3>Description</h3>
+
+<p>Generic function calculating Akaike's &lsquo;An Information Criterion&rsquo; for
+one or several fitted model objects for which a log-likelihood value
+can be obtained, according to the formula
+<code class="reqn">-2 \mbox{log-likelihood} + k n_{par}</code>,
+where <code class="reqn">n_{par}</code> represents the number of parameters in the
+fitted model, and <code class="reqn">k = 2</code> for the usual AIC, or
+<code class="reqn">k = \log(n)</code>
+(<code class="reqn">n</code> being the number of observations) for the so-called BIC or <abbr>SBC</abbr>
+(Schwarz's Bayesian criterion).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>AIC(object, ..., k = 2)
+
+BIC(object, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="object">object</code></td>
+<td>
+<p>a fitted model object for which there exists a
+<code>logLik</code> method to extract the corresponding log-likelihood, or
+an object inheriting from class <code>logLik</code>.</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>optionally more fitted model objects.</p>
+</td></tr>
+<tr><td><code id="k">k</code></td>
+<td>
+<p>numeric, the <em>penalty</em> per parameter to be used; the
+default <code>k = 2</code> is the classical AIC.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>When comparing models fitted by maximum likelihood to the same data,
+the smaller the AIC or BIC, the better the fit.
+</p>
+<p>The theory of AIC requires that the log-likelihood has been maximized:
+whereas AIC can be computed for models not fitted by maximum
+likelihood, their AIC values should not be compared.
+</p>
+<p>Examples of models not &lsquo;fitted to the same data&rsquo; are where the
+response is transformed (accelerated-life models are fitted to
+log-times) and where contingency tables have been used to summarize
+data.
+</p>
+<p>These are generic functions (with S4 generics defined in package
+<span class="pkg">stats4</span>): however methods should be defined for the
+log-likelihood function <code>logLik</code> rather than these
+functions: the action of their default methods is to call <code>logLik</code>
+on all the supplied objects and assemble the results.  Note that in
+several common cases <code>logLik</code> does not return the value at
+the MLE: see its help page.
+</p>
+<p>The log-likelihood and hence the AIC/BIC is only defined up to an
+additive constant.  Different constants have conventionally been used
+for different purposes and so <code>extractAIC</code> and <code>AIC</code>
+may give different values (and do for models of class <code>"lm"</code>: see
+the help for <code>extractAIC</code>).  Particular care is needed
+when comparing fits of different classes (with, for example, a
+comparison of a Poisson and gamma GLM being meaningless since one has
+a discrete response, the other continuous).
+</p>
+<p><code>BIC</code> is defined as
+<code>AIC(object, ..., k = log(nobs(object)))</code>.
+This needs the number of observations to be known: the default method
+looks first for a <code>"nobs"</code> attribute on the return value from the
+<code>logLik</code> method, then tries the <code>nobs</code>
+generic, and if neither succeed returns BIC as <code>NA</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>If just one object is provided, a numeric value with the corresponding
+AIC (or BIC, or ..., depending on <code>k</code>).
+</p>
+<p>If multiple objects are provided, a <code>data.frame</code> with rows
+corresponding to the objects and columns representing the number of
+parameters in the model (<code>df</code>) and the AIC or BIC.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Originally by José Pinheiro and Douglas Bates,
+more recent revisions by R-core.
+</p>
+
+
+<h3>References</h3>
+
+<p>Sakamoto, Y., Ishiguro, M., and Kitagawa G. (1986).
+<em>Akaike Information Criterion Statistics</em>.
+D. Reidel Publishing Company.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>extractAIC</code>, <code>logLik</code>, <code>nobs</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>lm1 &lt;- lm(Fertility ~ . , data = swiss)
+AIC(lm1)
+stopifnot(all.equal(AIC(lm1),
+                    AIC(logLik(lm1))))
+BIC(lm1)
+
+lm2 &lt;- update(lm1, . ~ . -Examination)
+AIC(lm1, lm2)
+BIC(lm1, lm2)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.0/00index.html'>Package <em>stats</em> version 4.4.0</a> ]</div></main>
+
+</div>
+</body></html>

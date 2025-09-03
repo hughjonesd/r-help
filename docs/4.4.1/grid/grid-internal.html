@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>R: Internal Grid Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid-internal.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid-internal.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>grid-internal {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Internal Grid Functions</h2>
+
+<h3>Description</h3>
+
+<p>Internal Grid functions
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>current.rotation() 
+grid.multipanel(x = stats::runif(90), y = stats::runif(90),
+                z = stats::runif(90), nplots = 9, nrow = 5, ncol = 2,
+                newpage = TRUE, vp = NULL) 
+grid.panel(x = stats::runif(10), y = stats::runif(10),
+           zrange = c(0, 1), zbin = stats::runif(2),
+           xscale = extendrange(x), yscale = extendrange(y), 
+           axis.left = TRUE, axis.left.label = TRUE, axis.right = FALSE, 
+           axis.right.label = TRUE, axis.bottom = TRUE,
+           axis.bottom.label = TRUE, axis.top = FALSE,
+           axis.top.label = TRUE, vp = NULL) 
+grid.strip(label = "whatever", range.full = c(0, 1),
+           range.thumb = c(0.3, 0.6), fill = "#FFBF00",
+           thumb = "#FF8000", vp = NULL) 
+layout.heights(lay) 
+layout.torture() 
+layout.widths(lay) 
+layoutRegion(layout.pos.row = 1, layout.pos.col = 1) 
+viewport.layout(vp)
+</code></pre>
+
+
+<h3>Details</h3>
+
+<p>These are not to be called by the user (or in some cases are just
+waiting for proper documentation to be written :).
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.1/00index.html'>Package <em>grid</em> version 4.4.1</a> ]</div></main>
+
+</div>
+</body></html>

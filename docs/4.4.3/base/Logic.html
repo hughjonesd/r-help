@@ -1,0 +1,184 @@
+<!DOCTYPE html><html><head><title>R: Logical Operators</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Logic.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Logic.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>Logic {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Logical Operators</h2>
+
+<h3>Description</h3>
+
+<p>These operators act on raw, logical and number-like vectors.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>! x
+x &amp; y
+x &amp;&amp; y
+x | y
+x || y
+xor(x, y)
+
+isTRUE (x)
+isFALSE(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code></td>
+<td>
+<p><code>raw</code>, <code>logical</code> or &lsquo;number-like&rsquo; vectors (i.e., of
+types <code>double</code> (class <code>numeric</code>),
+<code>integer</code> and <code>complex</code>), or objects for
+which methods have been written.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>!</code> indicates logical negation (NOT).
+</p>
+<p><code>&amp;</code> and <code>&amp;&amp;</code> indicate logical AND and <code>|</code> and <code>||</code>
+indicate logical OR.  The shorter forms performs elementwise
+comparisons in much the same way as arithmetic operators.  The longer
+forms evaluates left to right, proceeding only until the result is
+determined.  The longer form is appropriate for programming
+control-flow and typically preferred in <code>if</code> clauses.
+</p>
+<p>Using vectors of more than one element in <code>&amp;&amp;</code> or <code>||</code> will
+give  an error.
+</p>
+<p><code>xor</code> indicates elementwise exclusive OR.
+</p>
+<p><code>isTRUE(x)</code> is the same as
+<code>{ is.logical(x) &amp;&amp; length(x) == 1 &amp;&amp; !is.na(x) &amp;&amp; x }</code>;
+<code>isFALSE()</code> is defined analogously.  Consequently,
+<code>if(isTRUE(cond))</code> may be preferable to <code>if(cond)</code> because
+of <code>NA</code>s.<br />
+In earlier <span class="rlang"><b>R</b></span> versions, <code>isTRUE &lt;- function(x) identical(x, TRUE)</code>,
+had the drawback to be false e.g., for <code>x &lt;- c(val = TRUE)</code>.
+</p>
+<p>Numeric and complex vectors will be coerced to logical values, with
+zero being false and all non-zero values being true.  Raw vectors are
+handled without any coercion for <code>!</code>, <code>&amp;</code>, <code>|</code> and
+<code>xor</code>, with these operators being applied bitwise (so <code>!</code> is
+the 1s-complement).
+</p>
+<p>The operators <code>!</code>, <code>&amp;</code> and <code>|</code> are generic functions:
+methods can be written for them individually or via the
+<code>Ops</code> (or S4 <code>Logic</code>, see below)
+group generic function.  (See <code>Ops</code> for
+how dispatch is computed.)
+</p>
+<p><code>NA</code> is a valid logical object.  Where a component of
+<code>x</code> or <code>y</code> is <code>NA</code>, the result will be <code>NA</code> if the
+outcome is ambiguous.  In other words <code>NA &amp; TRUE</code> evaluates to
+<code>NA</code>, but <code>NA &amp; FALSE</code> evaluates to <code>FALSE</code>.  See the
+examples below.
+</p>
+<p>See Syntax for the precedence of these operators: unlike many
+other languages (including S) the AND and OR operators do not have the
+same precedence (the AND operators have higher precedence than the OR
+operators).
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>!</code>, a logical or raw vector(for raw <code>x</code>) of the same
+length as <code>x</code>: names, dims and dimnames are copied from <code>x</code>,
+and all other attributes (including class) if no coercion is done.
+</p>
+<p>For <code>|</code>, <code>&amp;</code> and <code>xor</code> a logical or raw vector.  If
+involving a zero-length vector the result has length zero.  Otherwise,
+the elements of shorter vectors are recycled as necessary (with a
+<code>warning</code> when they are recycled only <em>fractionally</em>).
+The rules for determining the attributes of the result are rather
+complicated.  Most attributes are taken from the longer argument, the
+first if they are of the same length.  Names will be copied from the
+first if it is the same length as the answer, otherwise from the
+second if that is.  For time series, these operations are allowed only
+if the series are compatible, when the class and <code>tsp</code>
+attribute of whichever is a time series (the same, if both are) are
+used.  For arrays (and an array result) the dimensions and dimnames
+are taken from first argument if it is an array, otherwise the second.
+</p>
+<p>For <code>||</code>, <code>&amp;&amp;</code> and <code>isTRUE</code>, a length-one logical vector.
+</p>
+
+
+<h3>S4 methods</h3>
+
+<p><code>!</code>, <code>&amp;</code> and <code>|</code> are S4 generics, the latter two part
+of the <code>Logic</code> group generic (and
+hence methods need argument names <code>e1, e2</code>).
+</p>
+
+
+<h3>Note</h3>
+
+<p>The elementwise operators are sometimes called as functions as
+e.g. <code>`&amp;`(x, y)</code>: see the description of how
+argument-matching is done in <code>Ops</code>.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>TRUE</code> or <code>logical</code>.
+</p>
+<p><code>any</code> and <code>all</code> for OR and AND on many scalar
+arguments.
+</p>
+<p><code>Syntax</code> for operator precedence.
+</p>
+<p><code>L %||% R </code> which takes <code>L</code> if it is not <code>NULL</code>,
+and <code>R</code> otherwise.
+</p>
+<p><code>bitwAnd</code> for bitwise versions for integer vectors.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>y &lt;- 1 + (x &lt;- stats::rpois(50, lambda = 1.5) / 4 - 1)
+x[(x &gt; 0) &amp; (x &lt; 1)]    # all x values between 0 and 1
+if (any(x == 0) || any(y == 0)) "zero encountered"
+
+## construct truth tables :
+
+x &lt;- c(NA, FALSE, TRUE)
+names(x) &lt;- as.character(x)
+outer(x, x, `&amp;`) ## AND table
+outer(x, x, `|`) ## OR  table
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.3/00index.html'>Package <em>base</em> version 4.4.3</a> ]</div></main>
+
+</div>
+</body></html>

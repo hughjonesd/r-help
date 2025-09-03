@@ -1,0 +1,129 @@
+<!DOCTYPE html><html><head><title>R: Wildcard Expansion on File Paths</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.glob.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Sys.glob.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>Sys.glob {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Wildcard Expansion on File Paths</h2>
+
+<h3>Description</h3>
+
+<p>Function to do wildcard expansion (also known as &lsquo;globbing&rsquo;) on
+file paths.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>Sys.glob(paths, dirmark = FALSE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="paths">paths</code></td>
+<td>
+<p>character vector of patterns for relative or absolute
+filepaths.  Missing values will be ignored.</p>
+</td></tr>
+<tr><td><code id="dirmark">dirmark</code></td>
+<td>
+<p>logical: should matches to directories from patterns
+that do not already end in <code>/</code>
+</p>
+<p>have a slash appended?  May not be supported on all platforms.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This expands tilde (see tilde expansion) and wildcards in file paths. 
+For precise details of wildcards expansion, see your
+system's documentation on the <code>glob</code> system call.  There is a
+POSIX 1003.2 standard (see
+<a href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/glob.html">https://pubs.opengroup.org/onlinepubs/9699919799/functions/glob.html</a>)
+but some OSes will go beyond this.
+</p>
+<p>All systems should interpret <code>*</code> (match zero or more characters),
+<code>?</code> (match a single character) and (probably) <code>[</code> (begin a
+character class or range).  The handling of paths
+ending with a separator is system-dependent.  On a POSIX-2008
+compliant OS they will match directories (only), but as they are not
+valid filepaths on Windows, they match nothing there.  (Earlier POSIX
+standards allowed them to match files.)
+
+</p>
+<p>The rest of these details are indicative (and based on the POSIX
+standard).
+</p>
+<p>If a filename starts with <code>.</code> this may need to be matched
+explicitly: for example <code>Sys.glob("*.RData")</code> may or may not
+match &lsquo;<span class="file">.RData</span>&rsquo; but will not usually match &lsquo;<span class="file">.aa.RData</span>&rsquo;.  Note
+that this is platform-dependent: e.g. on Solaris
+<code>Sys.glob("*.*")</code> matches &lsquo;<span class="file">.</span>&rsquo; and &lsquo;<span class="file">..</span>&rsquo;.
+</p>
+<p><code>[</code> begins a character class.  If the first character in
+<code>[...]</code> is not <code>!</code>, this is a character class which matches
+a single character against any of the characters specified.  The class
+cannot be empty, so <code>]</code> can be included provided it is first.  If
+the first character is <code>!</code>, the character class matches a single
+character which is <em>none</em> of the specified characters.  Whether
+<code>.</code> in a character class matches a leading <code>.</code> in the
+filename is OS-dependent.
+</p>
+<p>Character classes can include ranges such as <code>[A-Z]</code>: include
+<code>-</code> as a character by having it first or last in a class.  (The
+interpretation of ranges should be locale-specific, so the example is
+not a good idea in an Estonian locale.)
+</p>
+<p>One can remove the special meaning of <code>?</code>, <code>*</code>  and
+<code>[</code> by preceding them by a backslash (except within a
+character class).
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of matched file paths.  The order is
+system-specific (but in the order of the elements of <code>paths</code>): it
+is normally collated in either the current locale or in byte (ASCII)
+order; however, on Windows collation is in the order of Unicode
+points.
+</p>
+<p>Directory errors are normally ignored, so the matches are to
+accessible file paths (but not necessarily accessible files).
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>path.expand</code>.
+</p>
+<p>Quotes for handling backslashes in character strings.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+Sys.glob(file.path(R.home(), "library", "*", "R", "*.rdx"))
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.3/00index.html'>Package <em>base</em> version 4.4.3</a> ]</div></main>
+
+</div>
+</body></html>

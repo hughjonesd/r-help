@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>R: LAPACK Version</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/La_version.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/La_version.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>La_version {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>
+LAPACK Version
+</h2>
+
+<h3>Description</h3>
+
+<p>Report the version of LAPACK in use.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>La_version()
+</code></pre>
+
+
+<h3>Value</h3>
+
+<p>A character vector of length one.
+</p>
+<p>Note that this is the version as reported by the library at runtime.
+It may differ from the reference (&lsquo;netlib&rsquo;) implementation, for
+example by having some optimized or patched routines.  For the version
+included with <span class="rlang"><b>R</b></span>, the older (not Fortran 90) versions of
+</p>
+<pre>
+    DLARTG DLASSQ ZLARTG ZLASSQ
+  </pre>
+<p>are used.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>extSoftVersion</code> for versions of other third-party software.
+</p>
+<p><code>La_library</code> for binary/executable file with LAPACK in use.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>La_version()
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>base</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

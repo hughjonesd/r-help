@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><title>R: Get an S3 Method</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/getS3method.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/getS3method.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>getS3method {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get an S3 Method</h2>
+
+<h3>Description</h3>
+
+<p>Get a method for an S3 generic, possibly from a namespace or the
+generic's registry.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>getS3method(f, class, optional = FALSE, envir = parent.frame())
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="f">f</code></td>
+<td>
+<p>a character string giving the name of the generic.</p>
+</td></tr>
+<tr><td><code id="class">class</code></td>
+<td>
+<p>a character string giving the name of the class.</p>
+</td></tr>
+<tr><td><code id="optional">optional</code></td>
+<td>
+<p>logical: should failure to find the generic or a
+method be allowed?</p>
+</td></tr>
+<tr><td><code id="envir">envir</code></td>
+<td>
+<p>the <code>environment</code> in which the method and its
+generic are searched first.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>S3 methods may be hidden in namespaces, and will not
+then be found by <code>get</code>: this function can retrieve
+such functions, primarily for debugging purposes.
+</p>
+<p>Further, S3 methods can be registered on the generic when a namespace
+is loaded, and the registered method will be used if none is visible
+(using namespace scoping rules).
+</p>
+<p>It is possible that which S3 method will be used may depend on where
+the generic <code>f</code> is called from: <code>getS3method</code> returns the
+method found if <code>f</code> were called from the same environment.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The function found, or <code>NULL</code> if no function is found and
+<code>optional = TRUE</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>methods</code>, <code>get</code>, <code>getAnywhere</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>require(stats)
+exists("predict.ppr") # false
+getS3method("predict", "ppr")
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.3/00index.html'>Package <em>utils</em> version 4.4.3</a> ]</div></main>
+
+</div>
+</body></html>

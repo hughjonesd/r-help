@@ -1,0 +1,237 @@
+<!DOCTYPE html><html><head><title>R: Cluster Back-end Interface</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/sendData.html'>https://stat.ethz.ch/R-manual/R-patched/library/parallel/html/sendData.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>sendData {parallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Cluster Back-end Interface</h2>
+
+<h3>Description</h3>
+
+<p>The communication primitives used by the <span class="pkg">parallel</span> package to
+handle the state and communicate with nodes in the clusters.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>  sendData(node, data)
+  recvData(node)
+  recvOneData(cl)
+  closeNode(node)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="cl">cl</code></td>
+<td>
+
+<p>The cluster object, visible to the user. Should be a list inheriting
+from class <code>cluster</code>, containing the node objects.
+</p>
+</td></tr>
+<tr><td><code id="node">node</code></td>
+<td>
+
+<p>The node object corresponding to one execution unit inside the
+cluster.
+</p>
+</td></tr>
+<tr><td><code id="data">data</code></td>
+<td>
+
+<p>The data structure containing a message to the node.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A <code>`[.cluster`</code> method is provided, which retains the classes of the
+cluster when subset. The cluster back-end should either rely on this method or
+supply its own method that also invokes this method through <code>NextMethod</code>
+or calls <code>.subset</code> directly.
+</p>
+<p>The <code>data</code> messages sent to the nodes are lists containing the
+following elements: </p>
+
+<dl>
+<dt>type</dt><dd>
+<p>A short string describing the type of packet: </p>
+
+<dl>
+<dt>DONE</dt><dd>
+<p>Sent by the default <code>stopCluster</code> implementation before
+calling <code>closeNode</code>.
+</p>
+</dd>
+<dt>EXEC</dt><dd>
+<p>The packet contains a job to execute.
+</p>
+</dd>
+</dl>
+
+</dd>
+<dt>value</dt><dd>
+<p>For messages of type &ldquo;EXEC&rdquo;, a list with the following
+elements: </p>
+
+<dl>
+<dt>fun</dt><dd>
+<p>The function to execute.
+</p>
+</dd>
+<dt>args</dt><dd>
+<p>The arguments for <code>fun</code> above as a list.
+</p>
+</dd>
+<dt>return</dt><dd>
+<p>Defaults to <code>TRUE</code>. Not currently used by <span class="pkg">parallel</span>.
+</p>
+</dd>
+<dt>tag</dt><dd>
+<p>The same tag must be returned back from the worker. Used to
+identify individual elements of a larger job when using
+dynamic load balancing.
+</p>
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+<p>If the &ldquo;DONE&rdquo; messages are used (for example when calling
+<code>stopCluster.default</code>), the node can close the connection upon
+receipt.
+</p>
+<p>The response to an &ldquo;EXEC&rdquo; message that should be returned by
+<code>recvData</code> is a list with the following elements: </p>
+
+<dl>
+<dt>type</dt><dd><p>A string, <code>"VALUE"</code>.</p>
+</dd>
+<dt>value</dt><dd>
+<p>The value of <code>do.call(fun, args, quote = TRUE)</code>. If the
+evaluation raised an error, the value of the error.
+</p>
+</dd>
+<dt>success</dt><dd>
+<p>A logical scalar indicating whether the evaluation completed
+without raising an error.
+</p>
+</dd>
+<dt>time</dt><dd>
+<p>The time it took to complete the job, an object of class
+<code>proc_time</code>. Can be obtained using
+<code>system.time</code> or by subtracting outputs of
+<code>proc.time</code>.
+</p>
+</dd>
+<dt>tag</dt><dd>
+<p>The original <code>tag</code> from the &ldquo;EXEC&rdquo; message.
+</p>
+</dd>
+</dl>
+
+<p><code>recvData</code> can block if the job is not yet complete, and
+<code>recvOneData</code> should block until at least one node is able to
+return a complete job result.
+</p>
+<p>The default <code>closeNode</code> method does nothing. It is envisaged that
+<code>stopCluster</code> is used to shut down the entire cluster, although other
+back-ends may use this to implement node-specific logic.
+</p>
+
+
+<h3>Value</h3>
+
+<table role = "presentation">
+<tr><td><code>sendData</code></td>
+<td>
+
+<p>Ignored. Called for the side effect of sending the <code>data</code> to the
+node.
+</p>
+</td></tr>
+<tr><td><code>recvData</code></td>
+<td>
+
+<p>The result of the job previously submitted to the node.
+</p>
+</td></tr>
+<tr><td><code>recvOneData</code></td>
+<td>
+
+<p>A list with the following items: </p>
+
+<dl>
+<dt>node</dt><dd><p>The index of the node returning the data.</p>
+</dd>
+<dt>value</dt><dd><p>The result of <code>recvData(cluster[[node]])</code>.</p>
+</dd>
+</dl>
+
+</td></tr>
+<tr><td><code>closeNode</code></td>
+<td>
+
+<p>Ignored. Called for the side effect of cleaning up the connection to
+the node.
+</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>stopCluster</code> should also be implemented, but is a user
+interface and documented separately. The default method will post
+termination messages to individual nodes and then call
+<code>closeNode</code> on them.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Not run: 
+  # A toy cluster consisting of one connection.
+  sendData.mynode &lt;- function(node, data) serialize(data, node)
+  recvData.mynode &lt;- function(node) unserialize(node)
+  recvOneData.mycluster &lt;- function(cl) list(
+    node = 1, value = recvData(cl[[1]])
+  )
+  closeNode.mynode &lt;- function(node) close(node)
+
+  # Not shown: R starting a serverSocket on the other end, ready to
+  # accept connections and evaluate jobs
+  cl &lt;- structure(list(
+    structure(
+      socketConnection(..., blocking = TRUE, open = 'a+b'),
+      class = 'mynode'
+    )
+  ), class = c('mycluster', 'cluster'))
+  clusterEvalQ(cl, Sys.getpid())
+  stopCluster(cl)
+  rm(cl)
+
+## End(Not run)</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>parallel</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

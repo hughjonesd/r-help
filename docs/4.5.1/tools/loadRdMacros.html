@@ -1,0 +1,130 @@
+<!DOCTYPE html><html><head><title>R: Load User-defined Rd Help System Macros</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/loadRdMacros.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/loadRdMacros.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>loadRdMacros {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Load User-defined Rd Help System Macros</h2>
+
+<h3>Description</h3>
+
+<p>Loads macros from an &lsquo;<span class="file">.Rd</span>&rsquo; file, or from several &lsquo;<span class="file">.Rd</span>&rsquo;
+files contained in a package.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>loadRdMacros(file, macros = TRUE)
+loadPkgRdMacros(pkgdir, macros = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
+<td>
+
+<p>A file in Rd format containing macro definitions.
+</p>
+</td></tr>
+<tr><td><code id="macros">macros</code></td>
+<td>
+
+<p>optionally, a previous set of macro definitions, in the format
+expected by the <code>parse_Rd</code> <code>macros</code> argument. 
+<code>loadPkgRdMacros</code> loads the system Rd macros by default.
+</p>
+</td></tr>
+<tr><td><code id="pkgdir">pkgdir</code></td>
+<td>
+
+<p>The base directory of a source package or an installed package.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The Rd files parsed by these functions should contain only macro
+definitions; a warning will be issued if anything else other than
+comments or white space is found.
+</p>
+<p>The <code>macros</code> argument may be a filename of a base set of macros,
+or the result of a previous call to <code>loadRdMacros</code> or
+<code>loadPkgRdMacros</code> in the same session.  These results should be
+assumed to be valid only within the current session.
+</p>
+<p>The <code>loadPkgRdMacros</code> function first looks for an <code>"RdMacros"</code>
+entry in the package &lsquo;<span class="file">DESCRIPTION</span>&rsquo; file.  If present, it should
+contain a comma-separated list of other package names; their macros
+will be loaded before those of the current package.  It will then look
+in the current package for &lsquo;<span class="file">.Rd</span>&rsquo; files in the &lsquo;<span class="file">man/macros</span>&rsquo;
+or &lsquo;<span class="file">help/macros</span>&rsquo; subdirectories, and load those.
+</p>
+
+
+<h3>Value</h3>
+
+<p>These functions each return an environment containing objects with the
+names of the newly defined macros from the last file processed.  The
+parent environment will be macros from the previous file, and so on.
+The first file processed will have <code>emptyenv()</code> as its
+parent.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Duncan Murdoch
+</p>
+
+
+<h3>References</h3>
+
+<p>See the &lsquo;Writing R Extensions&rsquo; manual for the syntax of Rd files,
+or <a href="https://developer.r-project.org/parseRd.pdf">https://developer.r-project.org/parseRd.pdf</a> for a technical
+discussion.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>parse_Rd</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>f &lt;- tempfile()
+writeLines(r"(
+\newcommand{\Rlogo}{
+  \if{html}{\figure{Rlogo.svg}{options: width=100 alt="R logo"}}
+  \if{latex}{\figure{Rlogo.pdf}{options: width=0.5in}}
+}
+)", f)
+m &lt;- loadRdMacros(f)
+ls(m)
+ls(parent.env(m))
+ls(parent.env(parent.env(m)))
+parse_Rd(textConnection(r"(\Rlogo)"), fragment = TRUE, macros = m)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>tools</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>

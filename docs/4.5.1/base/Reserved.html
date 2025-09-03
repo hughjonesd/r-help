@@ -1,0 +1,51 @@
+<!DOCTYPE html><html><head><title>R: Reserved Words in R</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/Reserved.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Reserved.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>Reserved {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Reserved Words in R</h2>
+
+<h3>Description</h3>
+
+<p>The reserved words in <span class="rlang"><b>R</b></span>'s parser are
+</p>
+<p><code>if</code> <code>else</code> <code>repeat</code> <code>while</code>
+<code>function</code> <code>for</code> <code>in</code>
+<code>next</code> <code>break</code>
+</p>
+<p><code>TRUE</code> <code>FALSE</code> <code>NULL</code>
+<code>Inf</code> <code>NaN</code>
+<code>NA</code> <code>NA_integer_</code> <code>NA_real_</code>
+<code>NA_complex_</code> <code>NA_character_</code>
+</p>
+<p><code>...</code> and <code>..1</code>, <code>..2</code> etc, which are used to refer to
+arguments passed down from a calling function, see <code>...</code>.
+</p>
+
+
+<h3>Details</h3>
+
+<p>Reserved words outside quotes are always parsed to be
+references to the objects linked to in the &lsquo;Description&rsquo;, and
+hence they are not allowed as syntactic names (see
+<code>make.names</code>).  They <b>are</b> allowed as non-syntactic
+names, e.g. inside backtick quotes.
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>base</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>

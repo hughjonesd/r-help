@@ -1,0 +1,120 @@
+<!DOCTYPE html><html><head><title>R: 3D to 2D Transformation for Perspective Plots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/trans3d.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/trans3d.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>trans3d {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>3D to 2D Transformation for Perspective Plots</h2>
+
+<h3>Description</h3>
+
+<p>Projection of 3-dimensional to 2-dimensional points using a 4x4
+viewing transformation matrix.  Mainly for adding to
+perspective plots such as <code>persp</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>trans3d(x, y, z, pmat, continuous = FALSE, verbose = TRUE)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="y">y</code>, <code id="z">z</code></td>
+<td>
+<p>numeric vectors of equal length, specifying points in
+3D space.</p>
+</td></tr>
+<tr><td><code id="pmat">pmat</code></td>
+<td>
+<p>a <code class="reqn">4 \times 4</code> <em>viewing transformation matrix</em>,
+suitable for projecting the 3D coordinates <code class="reqn">(x,y,z)</code> into the 2D
+plane using homogeneous 4D coordinates <code class="reqn">(x,y,z,t)</code>;
+such matrices are returned by <code>persp()</code>.</p>
+</td></tr>
+<tr><td><code id="continuous">continuous</code></td>
+<td>
+<p>logical flag specifying if the transformation should
+check if the transformed points are continuous in the sense that they
+do not jump over <code class="reqn">a/0</code> discontinuity.  As these assume
+<code>(x,y,z)</code> to describe a continuous curve, the default must be
+false.  In case of projecting such a curve however, setting
+<code>continuous=TRUE</code> may be advisable.</p>
+</td></tr>
+<tr><td><code id="verbose">verbose</code></td>
+<td>
+<p>only for <code>continuous=TRUE</code>, indicates if a warning
+should be issued when points are cut off.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a list with two components
+</p>
+<table role = "presentation">
+<tr><td><code>x</code>, <code>y</code></td>
+<td>
+<p>the projected 2d coordinates of the 3d input <code>(x,y,z)</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+ <p><code>persp</code> </p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## See  help(persp) {after attaching the 'graphics' package}
+##      -----------
+
+## Example for 'continuous = TRUE' (vs default):
+require(graphics)
+x &lt;- -10:10/10 # [-1, 1]
+y &lt;- -16:16/16 # [-1, 1] ==&gt; z = fxy := outer(x,y) is also in [-1,1]
+
+p &lt;- persp(x, y, fxy &lt;- outer(x,y), phi = 20, theta = 15, r = 3, ltheta = -75,
+           shade = 0.8, col = "green3", ticktype = "detailed")
+## 5 axis-parallel auxiliary lines in x-y  and y-z planes :
+lines(trans3d(-.5 , y=-1:1, z=min(fxy),  pmat=p), lty=2)
+lines(trans3d(  0 , y=-1:1, z=min(fxy),  pmat=p), lty=2)
+lines(trans3d(-1:1, y= -.7, z=min(fxy),  pmat=p), lty=2)
+lines(trans3d( -1,  y= -.7, z=c(-1,1) ,  pmat=p), lty=2)
+lines(trans3d( -1,  y=-1:1, z= -.5    ,  pmat=p), lty=2)
+## 2 pillars to carry the horizontals below:
+lines(trans3d(-.5 , y= -.7, z=c(-1,-.5), pmat=p), lwd=1.5, col="gray10")
+lines(trans3d( 0  , y= -.7, z=c(-1,-.5), pmat=p), lwd=1.5, col="gray10")
+## now some "horizontal rays" (going from center to very left or very right):
+doHor &lt;- function(x1, x2, z, CNT=FALSE, ...)
+    lines(trans3d(x=seq(x1, x2, by=0.5), y= -0.7, z = z, pmat = p, continuous = CNT),
+          lwd = 3, type="b", xpd=NA, ...)
+doHor(-10,  0, z = -0.5, col = 2)  # x in [-10, 0] -- to the very left : fine
+doHor(-.5,  2, z = -0.52,col = 4) # x in [-0.5, 2] only {to the right} --&gt; all fine
+## but now, x in [-0.5, 20] -- "too far" ==&gt; "wrap around" problem (without 'continuous=TRUE'):
+doHor(-.5, 20, z = -0.58, col = "steelblue", lty=2)
+## but it is fixed with continuous = CNT = TRUE:
+doHor(-.5, 20, z = -0.55, CNT=TRUE, col = "skyblue")
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.3/00index.html'>Package <em>grDevices</em> version 4.3.3</a> ]</div></main>
+
+</div>
+</body></html>

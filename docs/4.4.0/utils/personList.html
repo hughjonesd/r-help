@@ -1,0 +1,68 @@
+<!DOCTYPE html><html><head><title>R: Collections of Persons (Older Interface)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/utils/html/personList.html'>https://stat.ethz.ch/R-manual/R-patched/library/utils/html/personList.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>personList {utils}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Collections of Persons (Older Interface)</h2>
+
+<h3>Description</h3>
+
+<p>Old interface providing functionality for information about
+collections of persons.  Since R 2.14.0 <code>person</code> objects
+can be combined with the corresponding <code>c</code> method which
+supersedes the <code>personList</code> function.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>personList(...)
+as.personList(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="...">...</code></td>
+<td>
+<p>person objects (inheriting from class
+<code>"person"</code>)</p>
+</td></tr>
+<tr><td><code id="x">x</code></td>
+<td>
+<p>an object the elements of which are coercible via
+<code>as.person</code></p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a person object (inheriting from class <code>"person"</code>)
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>person</code> for the new functionality for representing and
+manipulating information about persons.
+</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.0/00index.html'>Package <em>utils</em> version 4.4.0</a> ]</div></main>
+
+</div>
+</body></html>

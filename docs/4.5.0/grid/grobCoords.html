@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><title>R: Calculate Points on the Perimeter of a Grob</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grobCoords.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grobCoords.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>grobCoords {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Calculate Points on the Perimeter of a Grob</h2>
+
+<h3>Description</h3>
+
+<p>These functions calculate points along the perimeter (or length) of
+a grob.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grobCoords(x, closed, ...)
+grobPoints(x, closed, ...)
+isClosed(x, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>A grob object.</p>
+</td></tr>
+<tr><td><code id="closed">closed</code></td>
+<td>
+<p>Whether we are asking for points along the perimeter of
+a closed object or points along the length of an open object.
+Some grobs (e.g., X-splines) can do both.
+</p>
+<p>This defaults to <code>TRUE</code> except for known cases that are not
+closed (e.g., lines and segments).
+</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>Arguments to be used by methods.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The difference between <code>grobCoords</code> and <code>grobPoints</code>
+is that <code>grobCoords</code> performs all pre- and post-drawing operations
+on the grob that would normally occur if the grob was being drawn,
+then calls <code>grobPoints</code>.  So the former takes into account
+any <code>vp</code> and <code>gp</code> settings on the grob.  This means
+that users should usually only want to call <code>grobCoords</code>;
+only (expert) developers may have a need to call <code>grobPoints</code>.
+</p>
+<p>Custom grobs can write their own methods for <code>grobPoints</code>
+(see <code>gridCoords</code>).
+</p>
+<p>The <code>isClosed</code> function returns <code>TRUE</code> or <code>FALSE</code>
+to indicate whether a grob is a closed shape.  The default response
+is <code>TRUE</code>, unless a method has been defined otherwise
+(e.g., for lines and line segments).
+</p>
+
+
+<h3>Value</h3>
+
+<p>Either a <code>"GridGrobCoords"</code> object
+(a list of lists with components <code>x</code> and <code>y</code>) or
+a <code>"GridGTreeCoords"</code> object
+(a list of <code>"GridGrobCoords"</code> and/or <code>"GridGTreeCoords"</code>
+objects).
+</p>
+<p>All locations are in inches relative to the current <span class="pkg">grid</span> viewport.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Paul Murrell</p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>grid</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

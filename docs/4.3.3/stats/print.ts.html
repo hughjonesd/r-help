@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>R: Printing and Formatting of Time-Series Objects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.3. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/print.ts.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/print.ts.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>print.ts {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Printing and Formatting of Time-Series Objects</h2>
+
+<h3>Description</h3>
+
+<p>Notably for calendar related time series objects,  
+<code>format</code> and <code>print</code> methods showing years,
+months and or quarters respectively.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>## S3 method for class 'ts'
+print(x, calendar, ...)
+.preformat.ts(x, calendar, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>a time series object.</p>
+</td></tr>
+<tr><td><code id="calendar">calendar</code></td>
+<td>
+<p>enable/disable the display of information about
+month names, quarter names or year when printing.  The default is
+<code>TRUE</code> for a frequency of 4 or 12, <code>FALSE</code> otherwise.</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>additional arguments to <code>print</code> (or
+<code>format</code> methods).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>print</code> method for <code>"ts"</code> objects prints a
+header (basically of <code>tsp(x)</code>), if <code>calendar</code> is
+false, and then prints the result of <code>.preformat.ts(x, *)</code>, which
+is typically a <code>matrix</code> with <code>rownames</code> built
+from the calendar times where applicable.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>print</code>,
+<code>ts</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>print(ts(1:10, frequency = 7, start = c(12, 2)), calendar = TRUE)
+
+print(sunsp.1 &lt;- window(sunspot.month, end=c(1756, 12)))
+m &lt;- .preformat.ts(sunsp.1) # a character matrix
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.3/00index.html'>Package <em>stats</em> version 4.3.3</a> ]</div></main>
+
+</div>
+</body></html>

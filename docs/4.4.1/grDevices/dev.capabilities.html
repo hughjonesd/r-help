@@ -1,0 +1,163 @@
+<!DOCTYPE html><html><head><title>R: Query Capabilities of the Current Graphics Device</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.4.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/dev.capabilities.html'>https://stat.ethz.ch/R-manual/R-patched/library/grDevices/html/dev.capabilities.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>dev.capabilities {grDevices}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Query Capabilities of the Current Graphics Device</h2>
+
+<h3>Description</h3>
+
+<p>Query the capabilities of the current graphics device.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dev.capabilities(what = NULL)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="what">what</code></td>
+<td>
+<p>a character vector partially matching the names of the
+components listed in section &lsquo;Value&rsquo;, or <code>NULL</code> which
+lists all available capabilities.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The capabilities have to be specified by the author of the graphics
+device, unless they can be deduced from missing hooks.  Thus they will
+often by returned as <code>NA</code>, and may reflect the maximal
+capabilities of the underlying device where several output formats are
+supported by one device.
+</p>
+<p>Most recent devices support semi-transparent colours provided the
+graphics format does (which PostScript does not).  On the other hand,
+relatively few graphics formats support (fully or semi-) transparent
+backgrounds: generally the latter is found only in PDF and PNG plots.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A named list with some or all of the following components, any of which may
+take value <code>NA</code>:
+</p>
+<table role = "presentation">
+<tr><td><code>semiTransparency</code></td>
+<td>
+<p>logical:  Does the device support
+semi-transparent colours?</p>
+</td></tr>
+<tr><td><code>transparentBackground</code></td>
+<td>
+<p>character:  Does the device support
+(semi)-transparent backgrounds?  Possible values are <code>"no"</code>,
+<code>"fully"</code> (only full transparency) and <code>"semi"</code>
+(semi-transparent background colours are supported).</p>
+</td></tr>
+<tr><td><code>rasterImage</code></td>
+<td>
+<p>character: To what extent does the device support
+raster images as used by <code>rasterImage</code> and
+<code>grid.raster</code>?  Possible values <code>"no"</code>, <code>"yes"</code> and
+<code>"non-missing"</code> (support only for arrays without any missing
+values).</p>
+</td></tr>
+<tr><td><code>capture</code></td>
+<td>
+<p>logical:  Does the current device
+support raster capture as used by <code>grid.cap</code>?</p>
+</td></tr>
+<tr><td><code>locator</code></td>
+<td>
+<p>logical:  Does the current device
+support <code>locator</code> and <code>identify</code>?</p>
+</td></tr>
+<tr><td><code>events</code></td>
+<td>
+<p>character:  Which events can be generated on this device?
+Currently this will be a subset of <code>c("MouseDown",
+      "MouseMove", "MouseUp", "Keybd")</code>, but other events may be
+supported in the future.  </p>
+</td></tr>
+<tr><td><code>patterns</code></td>
+<td>
+<p>character:  Does the device support pattern fills?
+One or more of
+<code>c("LinearGradient", "RadialGradient", "TilingPattern")</code>
+May also be <code>FALSE</code>.</p>
+</td></tr>
+<tr><td><code>clippingPaths</code></td>
+<td>
+<p>logical:  Does the device support clipping
+paths?</p>
+</td></tr>
+<tr><td><code>masks</code></td>
+<td>
+<p>character:  Does the device support masks?
+One or more of 
+<code>c("alpha", "luminance")</code>
+May also be <code>FALSE</code>.</p>
+</td></tr>
+<tr><td><code>compositing</code></td>
+<td>
+<p>character: Does the device support compositing
+operators?
+There are many possible operators and devices may support any
+subset.  For example the <code>pdf</code> device supports
+a set of &ldquo;blend modes&rdquo; whereas Cairo-based devices
+support Porter-Duff operators as well.
+May also be <code>FALSE</code>.</p>
+</td></tr>
+<tr><td><code>transformations</code></td>
+<td>
+<p>logical:  Does the devices support affine
+transformations ?</p>
+</td></tr>
+<tr><td><code>paths</code></td>
+<td>
+<p>logical:  Does the device support stroking and filling
+paths?</p>
+</td></tr>
+<tr><td><code>glyphs</code></td>
+<td>
+<p>logical:  Does the device support rendering glyphs? </p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p>See <code>getGraphicsEvent</code> for details on interactive events.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>dev.capabilities()
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.4.1/00index.html'>Package <em>grDevices</em> version 4.4.1</a> ]</div></main>
+
+</div>
+</body></html>

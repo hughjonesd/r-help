@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><title>R: License Tools</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.0. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/licensetools.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/licensetools.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>licensetools {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>License Tools</h2>
+
+<h3>Description</h3>
+
+<p>Tools for computing on license specifications.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>analyze_license(x)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>a character string.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>R packages use the &lsquo;<span class="samp">&#8288;License&#8288;</span>&rsquo; field in their &lsquo;<span class="file">DESCRIPTION</span>&rsquo;
+file to specify their license in a standardized form described in
+section &lsquo;Licenses&rsquo; of the &lsquo;Writing R Extensions&rsquo; manual.
+This uses alternatives of individual specifications
+(&lsquo;components&rsquo;) which can use version restrictions or give
+pointers to &lsquo;<span class="file">LICENSE</span>&rsquo; (or &lsquo;<span class="file">LICENCE</span>&rsquo;) files either
+restricting the base license or giving a full license.
+</p>
+<p>Function <code>analyze_license()</code> checks if a given character string
+provides such a standardized license spec (or something recognized as
+a historic exception which can be transformed to a standardized spec).
+If standardizable, it extracts the individual components and where
+these give version ranges the corresponding expansions into components
+with fixed versions.  It also indicates whether the license can be
+verified to be <abbr>FOSS</abbr>
+(<a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">https://en.wikipedia.org/wiki/Free_and_open-source_software</a>)
+licenses.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list with elements including
+</p>
+<table role = "presentation">
+<tr><td><code>is_canonical</code></td>
+<td>
+<p>a logical indicating whether the given string 
+is a standardized license spec.</p>
+</td></tr>
+<tr><td><code>is_standardizable</code></td>
+<td>
+<p>a logical indicating whether the given string
+is a standardized license spec, or can be transformed to one.</p>
+</td></tr>
+<tr><td><code>standardization</code></td>
+<td>
+<p>a character string giving the standardized
+license spec corresponding to the given string if this is
+standardizable.</p>
+</td></tr>
+<tr><td><code>components</code></td>
+<td>
+<p>the components of the standardized license spec.</p>
+</td></tr>
+<tr><td><code>expansions</code></td>
+<td>
+<p>the expansions of the components of the standardized
+license spec.</p>
+</td></tr>
+<tr><td><code>is_verified</code></td>
+<td>
+<p>a logical indicating whether the given string can
+be verified to specify a <abbr>FOSS</abbr> license.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>## Examples from section 'Licenses' of 'Writing R Extensions':
+analyze_license("GPL-2")
+analyze_license("LGPL (&gt;= 2.0, &lt; 3) | Mozilla Public License")
+analyze_license("GPL-2 | file LICENCE")
+analyze_license("GPL (&gt;= 2) | BSD_3_clause + file LICENSE")
+analyze_license("Artistic-2.0 | AGPL-3 + file LICENSE")
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.0/00index.html'>Package <em>tools</em> version 4.5.0</a> ]</div></main>
+
+</div>
+</body></html>

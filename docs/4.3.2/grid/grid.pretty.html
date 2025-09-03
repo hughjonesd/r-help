@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>R: Generate a Sensible (&quot;Pretty&quot;) Set of Breakpoints</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.pretty.html'>https://stat.ethz.ch/R-manual/R-patched/library/grid/html/grid.pretty.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>grid.pretty {grid}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2> Generate a Sensible (&quot;Pretty&quot;) Set of Breakpoints </h2>
+
+<h3>Description</h3>
+
+<p>Produces a pretty set of approximately <code>n</code> breakpoints within the
+range given.
+</p>
+<p>This is a direct interface to <span class="rlang"><b>R</b></span>'s graphical engine <code>GEpretty()</code>
+function, which also underlies base <span class="pkg">graphics</span>' package
+<code>axis()</code>, <code>axTicks()</code>, etc.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>grid.pretty(range, n = 5)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="range">range</code></td>
+<td>
+<p>a numeric vector of length at least two, as e.g., returned
+by <code>range()</code>.</p>
+</td></tr>
+<tr><td><code id="n">n</code></td>
+<td>
+<p>a non-negative integer specifying the <em>approximate</em> number
+of breakpoints to be produced.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A numeric vector of &ldquo;pretty&rdquo; breakpoints.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p> Paul Murrell </p>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.2/00index.html'>Package <em>grid</em> version 4.3.2</a> ]</div></main>
+
+</div>
+</body></html>

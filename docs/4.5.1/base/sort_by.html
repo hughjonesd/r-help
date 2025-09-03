@@ -1,0 +1,111 @@
+<!DOCTYPE html><html><head><title>R: Sorting Vectors or Data Frames by Other Vectors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/base/html/sort_by.html'>https://stat.ethz.ch/R-manual/R-patched/library/base/html/sort_by.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>sort_by {base}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Sorting Vectors or Data Frames by Other Vectors</h2>
+
+<h3>Description</h3>
+
+<p>Generic function to sort an object in the order determined by one or
+more other objects, typically vectors. A method is defined for data
+frames to sort its rows (typically by one or more columns), and the
+default method handles vector-like objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>sort_by(x, y, ...)
+
+## Default S3 method:
+sort_by(x, y, ...)
+
+## S3 method for class 'data.frame'
+sort_by(x, y, ...)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code></td>
+<td>
+<p>An object to be sorted, typically a vector or data frame. </p>
+</td></tr>
+<tr><td><code id="y">y</code></td>
+<td>
+<p>Variables to sort by.
+</p>
+<p>For the default method, this can be a vector, or more generally any
+object that has a <code>xtfrm</code> method.
+</p>
+<p>For the <code>data.frame</code> method, typically a formula specifying the
+variables to sort by. The formula can take the forms <code> ~ g</code> or
+<code>~ list(g)</code> to sort by the variable <code>g</code>, or more generally
+the forms <code> ~ g1 + ... + gk</code> or <code>~ list(g1, ..., gk)</code>
+to sort by the variables <code>g1</code>, ..., <code>gk</code>, using the
+later ones to resolve ties in the preceding ones.  These variables
+are evaluated in the data frame <code>x</code> using the usual
+non-standard evaluation rules. If not a formula, <code>y = g</code> is
+equivalent to <code>y = ~ g</code> and <code>y = list(g1, ..., gk)</code> is
+equivalent to <code>y = ~ list(g1, ..., gk)</code>. However,
+non-standard evaluation in <code>x</code> is not done in this case.
+</p>
+</td></tr>
+<tr><td><code id="...">...</code></td>
+<td>
+<p>Additional arguments, typically passed on to
+<code>order</code>. These may include additional variables to sort
+by, as well as named arguments recognized by <code>order</code>.
+</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A sorted version of <code>x</code>. If <code>x</code> is a data frame, this means
+that the rows of <code>x</code> have been reordered to sort the variables
+specified in <code>y</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>sort</code>, <code>order</code>.</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>mtcars$am
+mtcars$mpg
+with(mtcars, sort_by(mpg, am)) # group mpg by am
+
+## data.frame method
+sort_by(mtcars, runif(nrow(mtcars))) # random row permutation
+sort_by(mtcars, list(mtcars$am, mtcars$mpg))
+
+# formula interface
+sort_by(mtcars, ~ am + mpg) |&gt; subset(select = c(am, mpg))
+sort_by.data.frame(mtcars, ~ list(am, -mpg)) |&gt; subset(select = c(am, mpg))
+
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>base</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>

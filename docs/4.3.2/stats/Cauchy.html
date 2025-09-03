@@ -1,0 +1,141 @@
+<!DOCTYPE html><html><head><title>R: The Cauchy Distribution</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.3.2. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Cauchy.html'>https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Cauchy.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>Cauchy {stats}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>The Cauchy Distribution</h2>
+
+<h3>Description</h3>
+
+<p>Density, distribution function, quantile function and random
+generation for the Cauchy distribution with location parameter
+<code>location</code> and scale parameter <code>scale</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>dcauchy(x, location = 0, scale = 1, log = FALSE)
+pcauchy(q, location = 0, scale = 1, lower.tail = TRUE, log.p = FALSE)
+qcauchy(p, location = 0, scale = 1, lower.tail = TRUE, log.p = FALSE)
+rcauchy(n, location = 0, scale = 1)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="x">x</code>, <code id="q">q</code></td>
+<td>
+<p>vector of quantiles.</p>
+</td></tr>
+<tr><td><code id="p">p</code></td>
+<td>
+<p>vector of probabilities.</p>
+</td></tr>
+<tr><td><code id="n">n</code></td>
+<td>
+<p>number of observations. If <code>length(n) &gt; 1</code>, the length
+is taken to be the number required.</p>
+</td></tr>
+<tr><td><code id="location">location</code>, <code id="scale">scale</code></td>
+<td>
+<p>location and scale parameters.</p>
+</td></tr>
+<tr><td><code id="log">log</code>, <code id="log.p">log.p</code></td>
+<td>
+<p>logical; if TRUE, probabilities p are given as log(p).</p>
+</td></tr>
+<tr><td><code id="lower.tail">lower.tail</code></td>
+<td>
+<p>logical; if TRUE (default), probabilities are
+<code class="reqn">P[X \le x]</code>, otherwise, <code class="reqn">P[X &gt; x]</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If <code>location</code> or <code>scale</code> are not specified, they assume
+the default values of <code>0</code> and <code>1</code> respectively.
+</p>
+<p>The Cauchy distribution with location <code class="reqn">l</code> and scale <code class="reqn">s</code> has
+density
+</p>
+<p style="text-align: center;"><code class="reqn">f(x) = \frac{1}{\pi s}
+    \left( 1 + \left(\frac{x - l}{s}\right)^2 \right)^{-1}%
+  </code>
+</p>
+
+<p>for all <code class="reqn">x</code>.
+</p>
+
+
+<h3>Value</h3>
+
+<p><code>dcauchy</code>, <code>pcauchy</code>, and <code>qcauchy</code> are respectively
+the density, distribution function and quantile function of the Cauchy
+distribution.  <code>rcauchy</code> generates random deviates from the
+Cauchy.
+</p>
+<p>The length of the result is determined by <code>n</code> for
+<code>rcauchy</code>, and is the maximum of the lengths of the
+numerical arguments for the other functions.  
+</p>
+<p>The numerical arguments other than <code>n</code> are recycled to the
+length of the result.  Only the first elements of the logical
+arguments are used.    
+</p>
+
+
+<h3>Source</h3>
+
+<p><code>dcauchy</code>, <code>pcauchy</code> and <code>qcauchy</code> are all calculated
+from numerically stable versions of the definitions.
+</p>
+<p><code>rcauchy</code> uses inversion.
+</p>
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.
+</p>
+<p>Johnson, N. L., Kotz, S. and Balakrishnan, N. (1995)
+<em>Continuous Univariate Distributions</em>, volume 1, chapter 16.
+Wiley, New York.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Distributions for other standard distributions, including
+<code>dt</code> for the t distribution which generalizes
+<code>dcauchy(*, l = 0, s = 1)</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>dcauchy(-1:4)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.3.2/00index.html'>Package <em>stats</em> version 4.3.2</a> ]</div></main>
+
+</div>
+</body></html>

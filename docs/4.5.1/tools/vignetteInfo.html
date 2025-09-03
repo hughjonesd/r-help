@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><title>R: Basic Information about a Vignette</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body> <div style='padding: 20pt; border: 2px solid black; text-align:center;'><b>This help topic is for R version 4.5.1. For the current version of R, try <a href='https://stat.ethz.ch/R-manual/R-patched/library/tools/html/vignetteInfo.html'>https://stat.ethz.ch/R-manual/R-patched/library/tools/html/vignetteInfo.html</a></b></div><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>vignetteInfo {tools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Basic Information about a Vignette</h2>
+
+<h3>Description</h3>
+
+<p>Extract metadata from a vignette source file.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>vignetteInfo(file)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table role = "presentation">
+<tr><td><code id="file">file</code></td>
+<td>
+<p>file name of the vignette.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A <code>list</code> with the following
+<code>character</code> components:
+</p>
+<table role = "presentation">
+<tr><td><code>file</code></td>
+<td>
+<p>the <code>basename</code> of the file.</p>
+</td></tr>
+<tr><td><code>title</code></td>
+<td>
+<p>the vignette title from
+&lsquo;<span class="samp">&#8288;\VignetteIndexEntry&#8288;</span>&rsquo;, possibly an empty string.</p>
+</td></tr>
+<tr><td><code>depends</code></td>
+<td>
+<p>a vector of package dependencies from
+&lsquo;<span class="samp">&#8288;\VignetteDepends&#8288;</span>&rsquo;, possibly of length 0.</p>
+</td></tr>
+<tr><td><code>keywords</code></td>
+<td>
+<p>a vector of keywords from
+&lsquo;<span class="samp">&#8288;\VignetteKeyword&#8288;</span>&rsquo;, possibly of length 0.</p>
+</td></tr>
+<tr><td><code>engine</code></td>
+<td>
+<p>the <code>vignetteEngine</code>, such as
+<code>"utils::Sweave"</code> or <code>"knitr::knitr"</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>package_dependencies</code> for recursive dependencies.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>  gridEx &lt;- system.file("doc", "grid.Rnw", package = "grid")
+  vi &lt;- vignetteInfo(gridEx)
+  str(vi)
+</code></pre>
+
+<hr /><div style="text-align: center;">[<a href='/r-help/4.5.1/00index.html'>Package <em>tools</em> version 4.5.1</a> ]</div></main>
+
+</div>
+</body></html>
