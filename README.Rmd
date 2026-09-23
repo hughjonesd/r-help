@@ -14,7 +14,8 @@ This repository provides HTML help for previous versions of R.
 The pages are extracted from the installed help in
 [evercran](https://github.com/r-hub/evercran) Docker images. Existing HTML is
 copied unchanged. R versions which store compiled help render it with their own
-version of R.
+version of R. The build reads Evercran's version lists directly, so new releases
+do not have to be added here.
 
 The [version index](https://hughjonesd.github.io/r-help/) links to a simple
 index for every available R version.

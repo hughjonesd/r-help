@@ -21,7 +21,6 @@ jobs:
             .github
             build-help.sh
             build-indexes.R
-            evercran-images.txt
             guest-build-help.sh
             guest-render-help.R
           sparse-checkout-cone-mode: false
