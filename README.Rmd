@@ -4,29 +4,23 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
 # r-help
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-This repository provides R help files for previous version of R, using the
-[git copy of the R source](https://github.com/wch/r-source).
+This repository provides HTML help for previous versions of R.
 
-Help for old versions of R is not guaranteed to show correctly, because the .Rd 
-specification may have changed.
+The pages are extracted from the installed help in
+[evercran](https://github.com/r-hub/evercran) Docker images. Existing HTML is
+copied unchanged. R versions which store compiled help render it with their own
+version of R. The build reads Evercran's version lists directly, so new releases
+do not have to be added here.
 
-A **very** simple index file is available for every R version.
+The [version index](https://hughjonesd.github.io/r-help/) links to a simple
+index for every available R version.
 
-# R versions
+The site is built in GitHub Actions. Generated HTML is not committed to this
+repository.
 
-```{r results='asis', echo = FALSE}
-rv <- list.files("docs", include.dirs = TRUE)
-cat(paste0("* [", rv, "](https://hughjonesd.github.io/r-help/", rv, "/00index.html)\n"))
-```
+Some very old help may not render correctly.
