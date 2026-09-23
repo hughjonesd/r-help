@@ -2,6 +2,11 @@ name: Build historical R help
 
 on:
   workflow_dispatch:
+    inputs:
+      image:
+        description: Single Evercran image to test; blank builds the full site
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -29,11 +34,16 @@ jobs:
         with:
           r-version: release
 
-      - run: ./build-help.sh
+      - run: ./build-help.sh "$IMAGE"
+        env:
+          IMAGE: ${{ inputs.image }}
 
       - uses: actions/configure-pages@v5
+        if: inputs.image == ''
       - uses: actions/upload-pages-artifact@v4
+        if: inputs.image == ''
         with:
           path: site
       - id: deployment
+        if: inputs.image == ''
         uses: actions/deploy-pages@v4

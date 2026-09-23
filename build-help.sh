@@ -4,13 +4,15 @@ set -eo pipefail
 
 mkdir site
 
-{
+if [ -n "$1" ]; then
+  printf '%s\n' "$1"
+else
   printf '%s\n' pre 0.x 1.x 2.x
   curl -fsSL \
     https://raw.githubusercontent.com/r-hub/evercran/main/containers/versions-bookworm.txt
   curl -fsSL \
     https://raw.githubusercontent.com/r-hub/evercran/main/containers/versions-trixie.txt
-} | while read -r IMAGE; do
+fi | while read -r IMAGE; do
   CONTAINER="r-help-${IMAGE//./-}"
   PLATFORM=""
   case "$IMAGE" in

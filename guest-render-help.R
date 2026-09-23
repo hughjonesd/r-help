@@ -2,9 +2,9 @@
 
 # This script is run by versions of R which use compiled help databases.
 
-rv <- getRVersion()
+rv <- version
 version <- paste(rv$major, rv$minor, sep = ".")
-libraryDir <- R.home("library")
+libraryDir <- paste(R.home(), "/library", sep = "")
 versionDir <- file.path("site", version)
 
 for (pkg in list.files(libraryDir)) {
