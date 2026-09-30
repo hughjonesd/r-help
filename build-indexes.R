@@ -58,16 +58,16 @@ for (versionDir in versionDirs) {
   unlink(aliasFile)
   indexedVersions <- c(indexedVersions, version)
 
-  # Keep historical markup, correcting paths for our version/package layout.
+  # Keep historical markup and encodings; rewrite ASCII markup byte by byte.
   for (page in list.files(versionDir, pattern = "\\.html$", recursive = TRUE,
       full.names = TRUE)) {
     if (dirname(page) == versionDir) next
     html <- paste(readLines(page, warn = FALSE), collapse = "\n")
     html <- gsub('(href=["\x27])\\.\\./\\.\\./([^/"\x27]+)/html/',
-      '\\1../\\2/', html, ignore.case = TRUE)
+      '\\1../\\2/', html, ignore.case = TRUE, useBytes = TRUE)
     html <- sub('(<body\\b[^>]*>)',
       '\\1<script defer src="../../navigation.js"></script>',
-      html, ignore.case = TRUE, perl = TRUE)
+      html, ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
     writeLines(html, page, useBytes = TRUE)
   }
 }
