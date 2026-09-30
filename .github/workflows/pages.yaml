@@ -28,6 +28,7 @@ jobs:
             build-indexes.R
             guest-build-help.sh
             guest-render-help.R
+            navigation.js
           sparse-checkout-cone-mode: false
 
       - uses: r-lib/actions/setup-r@v2
