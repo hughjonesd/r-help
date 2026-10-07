@@ -18,6 +18,10 @@ directly, so new releases do not have to be added here.
 The [version index](https://hughjonesd.github.io/r-help/) links to a
 simple index for every available R version.
 
+For function metadata and comparisons across R versions, see the
+[rcheology package](https://github.com/hughjonesd/rcheology) and its
+[Shiny app](https://hughjonesd.shinyapps.io/rcheology/).
+
 The site is built in GitHub Actions. Generated HTML is not committed to
 this repository.
 
